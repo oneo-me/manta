@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0-beta2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\AirKit.Reactive.Desktop\AirKit.Reactive.Desktop.csproj" />
+    </ItemGroup>
+</Project>

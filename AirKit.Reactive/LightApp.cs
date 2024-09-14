@@ -1,0 +1,62 @@
+using System.Diagnostics;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media.Imaging;
+using Avalonia.Threading;
+using R3;
+
+namespace AirKit.Reactive;
+
+public abstract class LightApp : Application
+{
+    public new static LightApp Current { get; } = Application.Current as LightApp ?? throw new InvalidOperationException("Application is not LightApp");
+
+    internal Action<Exception> OnExceptionAction { get; private set; }
+
+    protected LightApp()
+    {
+        OnExceptionAction = OnException;
+
+        ObservableSystem.RegisterUnhandledExceptionHandler(OnException);
+        Dispatcher.UIThread.UnhandledException += (_, e) =>
+        {
+            e.Handled = true;
+            OnException(e.Exception);
+        };
+        AppDomain.CurrentDomain.UnhandledException += (_, e) =>
+        {
+            if (e.ExceptionObject is Exception exception)
+                OnException(exception);
+        };
+    }
+
+    protected virtual void OnException(Exception exception)
+    {
+        Trace.TraceError($"An unhandled exception occurred. \n{exception}");
+
+        if (Design.IsDesignMode)
+            return;
+
+        if (Debugger.IsAttached)
+            Dispatcher.UIThread.Invoke(() => throw exception);
+    }
+
+    public Bitmap? Icon { get; protected init; }
+
+    public new string Name
+    {
+        get => base.Name ?? string.Empty;
+        protected init => base.Name = value;
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        base.OnFrameworkInitializationCompleted();
+
+        if (Design.IsDesignMode is false && OperatingSystem.IsMacOS())
+        {
+            var menu = NativeMenu.GetMenu(this);
+            menu?.Items.RemoveAt(0);
+        }
+    }
+}

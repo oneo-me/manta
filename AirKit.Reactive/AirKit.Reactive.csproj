@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.2.0-beta2" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.2.0-beta2" />
+        <PackageReference Include="R3Extensions.Avalonia" Version="1.2.8" />
+        <PackageReference Include="ObservableCollections.R3" Version="3.0.4" />
+    </ItemGroup>
+</Project>

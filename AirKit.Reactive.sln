@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{C0EE99CE-7CB0-4406-85E1-2CE0984D9456}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		.gitignore = .gitignore
+		README.md = README.md
+		.globalconfig = .globalconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{5694A1EC-C25F-4513-B67B-0A6DAF9D94BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1636D3DA-CC13-46A8-9B58-D7E864A1D311}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKit.Reactive", "AirKit.Reactive\AirKit.Reactive.csproj", "{81C22B7A-B088-4B8E-83DC-C7DB7C5ABE07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKit.Reactive.Desktop", "AirKit.Reactive.Desktop\AirKit.Reactive.Desktop.csproj", "{44410B48-382F-4537-98D1-A9475AC79FDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKit.Reactive.Demo", "AirKit.Reactive.Demo\AirKit.Reactive.Demo.csproj", "{DA0BBC24-A448-4866-B080-747B35042AA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81C22B7A-B088-4B8E-83DC-C7DB7C5ABE07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C22B7A-B088-4B8E-83DC-C7DB7C5ABE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C22B7A-B088-4B8E-83DC-C7DB7C5ABE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C22B7A-B088-4B8E-83DC-C7DB7C5ABE07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44410B48-382F-4537-98D1-A9475AC79FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44410B48-382F-4537-98D1-A9475AC79FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44410B48-382F-4537-98D1-A9475AC79FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44410B48-382F-4537-98D1-A9475AC79FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0BBC24-A448-4866-B080-747B35042AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0BBC24-A448-4866-B080-747B35042AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0BBC24-A448-4866-B080-747B35042AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0BBC24-A448-4866-B080-747B35042AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1636D3DA-CC13-46A8-9B58-D7E864A1D311} = {5694A1EC-C25F-4513-B67B-0A6DAF9D94BF}
+	EndGlobalSection
+EndGlobal
