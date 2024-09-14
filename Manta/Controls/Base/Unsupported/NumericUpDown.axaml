@@ -1,0 +1,20 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <NumericUpDown />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <MSelectableText M.ColorScheme="Danger" Text="The control 'NumericUpDown' is not supported" />
+                    <TextBox Name="PART_TextBox" IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

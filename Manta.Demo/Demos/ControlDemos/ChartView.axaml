@@ -1,0 +1,17 @@
+<MView
+    x:Class="Manta.Demo.Demos.ControlDemos.ChartView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
+    x:DataType="local:ChartView_Model" Design.DataContext="{x:Static local:ChartView_Model.Design}">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+                <MChart Data="{Binding Data1}" ShowLegends="False" />
+            </MCard>
+            <MCard Width="520" Height="380" HorizontalAlignment="Left">
+                <MChart Title="{Binding Title}" Data="{Binding Data2}" />
+            </MCard>
+        </MPanel>
+    </MScrollViewer>
+</MView>

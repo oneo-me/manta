@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <PathIcon />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MPathIcon'" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

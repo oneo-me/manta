@@ -1,0 +1,126 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- List -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Vertical" Spacing="12">
+                <MText Text="Normal" />
+                <Border BorderThickness="1">
+                    <MTabStrip Margin="12">
+                        <MTabStripItem Content="TabItem 1" />
+                        <MTabStripItem Content="TabItem 2" />
+                        <MTabStripItem Content="TabItem 3" />
+                    </MTabStrip>
+                </Border>
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="12">
+                <MText Text="RooTab" />
+                <Border BorderThickness="1" Height="180" Background="White">
+                    <Border ClipToBounds="True" BorderThickness="0 0 0 1" Height="36" VerticalAlignment="Top">
+                        <MTabStrip Type="RootTab" Background="Wheat">
+                            <MTabStripItem Content="TabItem 1" />
+                            <MTabStripItem Content="TabItem 2" />
+                            <MTabStripItem Content="TabItem 3" />
+                        </MTabStrip>
+                    </Border>
+                </Border>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MTabStrip}" TargetType="MTabStrip">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Type=RootTab]">
+            <Setter Property="Margin" Value="-1 0 0 -1" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MTabStripItem}" TargetType="MTabStripItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Type=Normal]">
+            <Setter Property="Padding" Value="12 4" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+            <Style Selector="^:pointerover:not(:selected)">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.2}" />
+                <Setter Property="Background" Value="{MBrush Background}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+                <Setter Property="ZIndex" Value="999" />
+            </Style>
+            <Style Selector="^:nth-child(1)">
+                <Setter Property="CornerRadius" Value="6 0 0 6" />
+            </Style>
+            <Style Selector="^:nth-last-child(1)">
+                <Setter Property="CornerRadius" Value="0 6 6 0" />
+            </Style>
+            <Style Selector="^:not(^:nth-child(1))">
+                <Setter Property="Margin" Value="-1 0 0 0" />
+            </Style>
+        </Style>
+        <Style Selector="^[Type=RootTab]">
+            <Setter Property="Padding" Value="14 0" />
+            <Setter Property="Margin" Value="0 0 0 1" />
+            <Setter Property="BorderThickness" Value="1 0 0 0" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+            <Style Selector="^:pointerover:not(:selected)">
+                <Setter Property="Padding" Value="14 0 14 1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Padding" Value="14 0 14 1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Background" Value="{MBrush Background}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            </Style>
+            <Style Selector="^:nth-last-child(1)">
+                <Setter Property="BorderThickness" Value="1 0" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

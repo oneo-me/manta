@@ -1,0 +1,25 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TreeView />
+            <TreeViewItem />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'TreeView' is not supported" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'TreeViewItem' is not supported" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

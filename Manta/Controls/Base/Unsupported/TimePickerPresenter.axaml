@@ -1,0 +1,26 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TimePickerPresenter />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <MSelectableText M.ColorScheme="Danger" Text="The control 'TimePickerPresenter' is not supported" />
+                    <Button Name="PART_AcceptButton" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_HourSelector" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_MinuteSelector" IsVisible="False" />
+                    <Panel Name="PART_PeriodHost" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_PeriodSelector" IsVisible="False" />
+                    <Grid Name="PART_PickerContainer" IsVisible="False" />
+                    <Control Name="PART_SecondSpacer" IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

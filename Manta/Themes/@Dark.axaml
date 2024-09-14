@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:values="clr-namespace:Manta.Themes.Values"
+    x:ClassModifier="internal">
+    <values:RgbColor x:Key="{MBrushKey Background}" R="22" G="22" B="22" Opacity="0.8" />
+    <values:RgbColor x:Key="{MBrushKey BorderBrush}" R="235" G="235" B="235" Opacity="0.08" />
+    <values:RgbColor x:Key="{MBrushKey Foreground}" R="235" G="235" B="235" />
+    <values:RgbColor x:Key="{MBrushKey ColorForeground}" R="235" G="235" B="235" />
+</ResourceDictionary>

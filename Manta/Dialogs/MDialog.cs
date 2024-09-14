@@ -1,0 +1,46 @@
+using Avalonia.Controls;
+using Manta.Langs;
+using Manta.Reactive.Views;
+using Manta.Themes.Variables;
+
+namespace Manta.Dialogs;
+
+public class MDialogOptions(string message)
+{
+    public string Title { get; init; } = InnerLangKey.Dialog_Title;
+    public string Message { get; init; } = message;
+
+    public string CancelText { get; init; } = InnerLangKey.Dialog_Cancel;
+    public string ConfirmText { get; init; } = InnerLangKey.Dialog_Confirm;
+
+    public ColorScheme CancelColor { get; init; } = ColorScheme.Normal;
+    public ColorScheme ConfirmColor { get; init; } = ColorScheme.Primary;
+
+    public bool ShowCancel { get; internal set; }
+    public bool ShowConfirm { get; internal set; }
+}
+
+public static class MDialog
+{
+    static async Task<bool> ShowCore(Window parent, MDialogOptions options)
+    {
+        var viewModel = new DialogView_Model(options);
+        var window = viewModel.CreateWindow();
+        await window.ShowDialog(parent);
+        return viewModel.Result;
+    }
+
+    public static async Task Alert(Window parent, MDialogOptions options)
+    {
+        options.ShowCancel = false;
+        options.ShowConfirm = true;
+        await ShowCore(parent, options);
+    }
+
+    public static async Task<bool> Confirm(Window parent, MDialogOptions options)
+    {
+        options.ShowCancel = true;
+        options.ShowConfirm = true;
+        return await ShowCore(parent, options);
+    }
+}

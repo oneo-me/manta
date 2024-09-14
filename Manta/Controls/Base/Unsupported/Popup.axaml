@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Popup />
+        </MPanel>
+    </Design.PreviewWith>
+    <!-- The control 'Popup' is not supported -->
+    <ControlTheme x:Key="{x:Type Popup}" TargetType="Popup">
+        <Setter Property="M.ColorScheme" Value="Danger" />
+    </ControlTheme>
+</ResourceDictionary>

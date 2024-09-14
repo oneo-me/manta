@@ -1,0 +1,29 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <ControlTheme x:Key="{x:Type MIcon}" TargetType="MIcon">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Name="PART_ViewBox" ClipToBounds="False" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.6}" />
+        <Style Selector="^[(M.ColorScheme)=Normal]">
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.2}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Primary]">
+            <Setter Property="Background" Value="{MBrush Primary, Opacity=0.2}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Success]">
+            <Setter Property="Background" Value="{MBrush Success, Opacity=0.2}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Warning]">
+            <Setter Property="Background" Value="{MBrush Warning, Opacity=0.2}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Danger]">
+            <Setter Property="Background" Value="{MBrush Danger, Opacity=0.2}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

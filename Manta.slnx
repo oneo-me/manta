@@ -1,0 +1,17 @@
+﻿<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+  </Folder>
+  <Folder Name="/_/">
+    <File Path="Directory.Build.props" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path=".globalconfig" />
+    <File Path=".gitattributes" />
+  </Folder>
+  <Project Path="Manta.Demo\Manta.Demo.csproj" />
+  <Project Path="Manta.Generators\Manta.Generators.csproj" />
+  <Project Path="Manta.Prepare\Manta.Prepare.csproj" />
+  <Project Path="Manta\Manta.csproj" />
+</Solution>

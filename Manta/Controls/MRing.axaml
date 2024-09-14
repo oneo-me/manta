@@ -1,0 +1,29 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <!-- Progress -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MRing />
+                <MRing Value="50" />
+                <MRing Value="100" />
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MRing}" TargetType="MRing">
+        <Setter Property="Size" Value="28" />
+        <Setter Property="StrokeSize" Value="2.5" />
+        <Setter Property="Value" Value="0" />
+        <Setter Property="Maximum" Value="100" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Width="{TemplateBinding Size}" Height="{TemplateBinding Size}">
+                    <Ellipse StrokeThickness="{TemplateBinding StrokeSize}" Stroke="{TemplateBinding Background}" />
+                    <Arc Name="PART_Arc" StartAngle="90" StrokeThickness="{TemplateBinding StrokeSize}" Stroke="{TemplateBinding Foreground}"
+                         StrokeLineCap="Round" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

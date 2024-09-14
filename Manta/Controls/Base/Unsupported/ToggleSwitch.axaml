@@ -1,0 +1,20 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <ToggleSwitch />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <MSelectableText M.ColorScheme="Danger" Text="The control 'ToggleSwitch' is not supported" />
+                    <Panel Name="PART_MovingKnobs" IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

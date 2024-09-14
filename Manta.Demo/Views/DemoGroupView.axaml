@@ -1,0 +1,35 @@
+<MView
+    x:Class="Manta.Demo.Views.DemoGroupView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Views"
+    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
+    <Grid ColumnDefinitions="200 1 *">
+        <MListBox Grid.Column="0" Type="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+            <MListBox.Styles>
+                <Style Selector="MListBoxItem">
+                    <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="local:IDemoItem" />
+                    <Style Selector="^:disabled">
+                        <Setter Property="Padding" Value="0 6" />
+                        <Setter Property="Opacity" Value="0.5" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                    </Style>
+                </Style>
+            </MListBox.Styles>
+            <MListBox.DataTemplates>
+                <DataTemplate DataType="local:DemoGroupItem">
+                    <MText Text="{Lang {Binding GroupName}}" />
+                </DataTemplate>
+                <DataTemplate DataType="local:DemoItem">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding ViewModel.Icon}" Margin="0 -10" VerticalAlignment="Center"
+                                   IsVisible="{Binding ViewModel.Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <MText Text="{Lang {Binding ViewModel.Header}}" VerticalAlignment="Center" />
+                    </MPanel>
+                </DataTemplate>
+            </MListBox.DataTemplates>
+        </MListBox>
+        <Panel Grid.Column="1" Background="{MBrush BorderBrush}" Margin="0 12" />
+        <MViewHost Grid.Column="2" ViewModel="{Binding CurrentViewModel}" />
+    </Grid>
+</MView>

@@ -1,0 +1,83 @@
+<MView
+    x:Class="Manta.Demo.Demos.StyleDemos.ShadowView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
+    x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MText Text="Shadows" FontWeight="SemiBold" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XS2}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XS}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow MD}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow LG}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XL}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XL2}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </MPanel>
+            <MText Text="Drop Shadows" FontWeight="SemiBold" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow DropXS}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow DropMD}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow DropLG}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow DropXL}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow DropXL2}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </MPanel>
+            <MText Text="Insert Shadows" FontWeight="SemiBold" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow InsetXS2}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow InsetXS}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow InsetSM}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </MPanel>
+            <MText Text="Custom Color or Opacity" FontWeight="SemiBold" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XS2, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XS, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow MD, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow LG, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XL, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MShadow XL2, ColorKey=Primary}" CornerRadius="12" Background="{MBrush Foreground, Opacity=0.3}">
+                    <MText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>

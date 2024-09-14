@@ -1,0 +1,188 @@
+<MView
+    x:Class="Manta.Demo.Demos.StyleDemos.ColorView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
+    x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
+    <MView.Styles>
+        <Style Selector="MText.Key">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Border.Color">
+            <Setter Property="Width" Value="38" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="MPanel.ColorBox">
+            <Setter Property="Spacing" Value="6" />
+            <Setter Property="Mode" Value="Horizontal" />
+        </Style>
+    </MView.Styles>
+    <MScrollViewer HorizontalScrollBarVisibility="Auto">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
+            <MText Text="ColorTest" FontWeight="SemiBold" />
+            <MPanel Mode="Vertical" Spacing="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="{Binding H, StringFormat=H: {0}}" VerticalAlignment="Center" />
+                    <Slider Grid.Column="1" Minimum="0" Maximum="360" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding H}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Colors" VerticalAlignment="Center" />
+                    <MItems Grid.Column="1" ItemsSource="{Binding Colors}">
+                        <MItems.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <MPanel Mode="Horizontal" Classes="ColorBox" />
+                            </ItemsPanelTemplate>
+                        </MItems.ItemsPanel>
+                        <MItems.ItemTemplate>
+                            <DataTemplate>
+                                <Border Classes="Color" Background="{Binding}" />
+                            </DataTemplate>
+                        </MItems.ItemTemplate>
+                    </MItems>
+                </Grid>
+            </MPanel>
+            <MText Text="ColorSet" FontWeight="SemiBold" />
+            <MPanel Mode="Vertical" Spacing="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Background" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Background, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Background, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Background, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Background}" />
+                        <Border Classes="Color" Background="{MBrush Background, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Background, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Background, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="BorderBrush" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush BorderBrush, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Foreground" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Foreground}" />
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Foreground, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="ColorForeground" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush ColorForeground, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Primary" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Primary}" />
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Primary, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Success" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Success, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Success, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Success, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Success}" />
+                        <Border Classes="Color" Background="{MBrush Success, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Success, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Success, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Warning" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Warning}" />
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Warning, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <MText Grid.Column="0" Classes="Key" Text="Error" />
+                    <MPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Light3}" />
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Light2}" />
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Light1}" />
+                        <Border Classes="Color" Background="{MBrush Danger}" />
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MBrush Danger, Type=Dark3}" />
+                    </MPanel>
+                </Grid>
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>
