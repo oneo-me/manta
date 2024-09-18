@@ -7,4 +7,18 @@
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Height="38" BorderThickness="0 0 0 1" BorderBrush="#19000000">
+            <StackPanel Orientation="Horizontal" Spacing="12"
+                        HorizontalAlignment="Right">
+                <Button Content="完全释放" Command="{Binding DisposeCommand}" />
+            </StackPanel>
+        </Border>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Spacing="12" Margin="12">
+                <TextBlock Text="Welcome to Avalonia!" />
+                <ProgressBar IsIndeterminate="True" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </LightView>
