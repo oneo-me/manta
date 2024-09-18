@@ -1,0 +1,22 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <StackPanel Orientation="Horizontal" Spacing="12" Margin="12">
+            <LightPath Size="12" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightPath}" TargetType="LightPath">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox>
+                    <Path Data="{TemplateBinding Data}" Fill="{TemplateBinding Foreground}" Stretch="Uniform" />
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:hide">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

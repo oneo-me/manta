@@ -3,22 +3,25 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKit.Reactive.Demo.Views"
-    x:DataType="local:Main_Model">
+    x:DataType="local:Main_Model" Design.Width="600">
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
     <Grid RowDefinitions="Auto,*">
-        <Border Grid.Row="0" Height="38" BorderThickness="0 0 0 1" BorderBrush="#19000000">
-            <StackPanel Orientation="Horizontal" Spacing="12"
-                        HorizontalAlignment="Right">
-                <Button Content="完全释放" Command="{Binding DisposeCommand}" />
-            </StackPanel>
+        <LightTitleBar Grid.Row="0">
+            <LightTitleBar.InnerRightContent>
+                <StackPanel Orientation="Horizontal">
+                    <LightTitleBarButton Content="完全释放" Command="{Binding DisposeCommand}" />
+                </StackPanel>
+            </LightTitleBar.InnerRightContent>
+        </LightTitleBar>
+        <Border Grid.Row="1" Background="White" BorderBrush="#19000000" BorderThickness="0 1 0 0">
+            <ScrollViewer>
+                <StackPanel Spacing="12" Margin="12">
+                    <TextBlock Text="Welcome to Avalonia!" />
+                    <ProgressBar IsIndeterminate="True" />
+                </StackPanel>
+            </ScrollViewer>
         </Border>
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Spacing="12" Margin="12">
-                <TextBlock Text="Welcome to Avalonia!" />
-                <ProgressBar IsIndeterminate="True" />
-            </StackPanel>
-        </ScrollViewer>
     </Grid>
 </LightView>
