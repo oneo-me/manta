@@ -1,0 +1,52 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Border Width="100" Height="100">
+            <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
+        <Setter Property="WindowStartupLocation" Value="CenterScreen" />
+        <Setter Property="Background" Value="#FFFFFF" />
+        <Setter Property="BackgroundThemeBrush" Value="#19A660FF" />
+        <Setter Property="BackgroundOpacity" Value="0.8" />
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="BorderBrush" Value="#33000000" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}" Opacity="{TemplateBinding BackgroundOpacity}" />
+                    <Border Background="{TemplateBinding BackgroundThemeBrush}" />
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <VisualLayerManager>
+                            <ContentPresenter x:Name="PART_ContentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}" />
+                        </VisualLayerManager>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <!-- Windows Border -->
+        <Style Selector="^:windows">
+            <Setter Property="BorderThickness" Value="1" />
+            <Style Selector="^[WindowState=Maximized]">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <Style Selector="^[WindowState=FullScreen]">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+        </Style>
+        <!-- macOS Background -->
+        <Style Selector="^[IsActive=False]">
+            <Setter Property="BackgroundOpacity" Value="1" />
+        </Style>
+        <!-- Linux Background -->
+        <Style Selector="^[ExtendClientAreaToDecorationsHint=False]">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

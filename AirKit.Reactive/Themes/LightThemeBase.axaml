@@ -1,0 +1,13 @@
+<Styles
+    x:Class="AirKit.Reactive.Themes.LightThemeBase"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
+                <MergeResourceInclude Source="/Controls/LightWindow.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

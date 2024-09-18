@@ -1,0 +1,42 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Border Width="100" Height="100">
+            <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+        <Setter Property="Background" Value="#FFFFFF" />
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="{TemplateBinding Background}">
+                    <Panel Opacity="0.1">
+                        <Panel.Background>
+                            <VisualBrush TileMode="Tile" DestinationRect="0 0 20 20">
+                                <VisualBrush.Visual>
+                                    <Grid ColumnDefinitions="10 10" RowDefinitions="10 10">
+                                        <Border Grid.Column="0" Grid.Row="0" Background="{Binding ElementName=Black, Path=BorderBrush}" />
+                                        <Border Grid.Column="1" Grid.Row="0" Background="{Binding ElementName=White, Path=BorderBrush}" />
+                                        <Border Grid.Column="0" Grid.Row="1" Background="{Binding ElementName=White, Path=BorderBrush}" />
+                                        <Border Grid.Column="1" Grid.Row="1" Background="{Binding ElementName=Black, Path=BorderBrush}" />
+                                    </Grid>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Panel.Background>
+                        <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" IsVisible="False" />
+                        <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" IsVisible="False" />
+                    </Panel>
+                    <VisualLayerManager>
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}" />
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

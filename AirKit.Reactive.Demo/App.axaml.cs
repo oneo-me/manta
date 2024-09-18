@@ -8,6 +8,11 @@ namespace AirKit.Reactive.Demo;
 
 public class App : LightApp
 {
+    public App()
+    {
+        Name = $"{nameof(AirKit)}.{nameof(Reactive)}.{nameof(Demo)}";
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

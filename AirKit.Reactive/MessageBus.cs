@@ -9,6 +9,7 @@ public static class MessageBus
     public static Observable<T> Listen<T>()
     {
         return _messageStream
+            .Synchronize()
             .Where(message => message is T)
             .Select(message => (T)message!);
     }
