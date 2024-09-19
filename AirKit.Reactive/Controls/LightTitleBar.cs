@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using AirKit.Reactive.Extensions;
 using Avalonia;
@@ -55,6 +56,15 @@ public class LightTitleBar : ContentControl
         PART_Offset = e.NameScope.Get<Border>(nameof(PART_Offset));
         PART_Buttons = e.NameScope.Get<Panel>(nameof(PART_Buttons));
 
+        if (VisualRoot is Window window)
+            if (Design.IsDesignMode || (OperatingSystem.IsWindows() && window.ExtendClientAreaToDecorationsHint))
+                PseudoClasses.Set(":buttons", true);
+
+#if DEBUG
+        if (Debugger.IsAttached)
+            PseudoClasses.Set(":buttons", true);
+#endif
+
         AttachEvents();
     }
 
@@ -91,6 +101,7 @@ public class LightTitleBar : ContentControl
                     PART_Title.Text = x;
                 })
                 .AddTo(_disposables);
+
         if (PART_Events is not null)
         {
             Observable
@@ -108,6 +119,14 @@ public class LightTitleBar : ContentControl
                 })
                 .AddTo(_disposables);
         }
+
+        if (PART_Offset is not null && Design.IsDesignMode is false && OperatingSystem.IsMacOS())
+            window.GetObservable(Window.WindowStateProperty)
+                .Subscribe(x =>
+                {
+                    PART_Offset.Width = x == WindowState.FullScreen ? 0 : 78;
+                })
+                .AddTo(_disposables);
 
         if (PART_Buttons is not null)
             foreach (var child in PART_Buttons.Children)

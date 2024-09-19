@@ -7,6 +7,7 @@ public class LightTitlebarPanel : Panel
 {
     static LightTitlebarPanel()
     {
+        AffectsMeasure<LightPath>(IsFullProperty);
         AffectsArrange<LightPath>(IsFullProperty);
     }
 
@@ -30,6 +31,9 @@ public class LightTitlebarPanel : Panel
 
         foreach (var control in Children)
         {
+            if (control.IsVisible is false)
+                continue;
+
             control.Measure(measureSize);
             width += control.DesiredSize.Width;
             height = Math.Max(height, control.DesiredSize.Height);
@@ -64,7 +68,7 @@ public class LightTitlebarPanel : Panel
 
         if (isFull)
         {
-            centerChild.Arrange(new(left, 0, right - left, finalSize.Height));
+            centerChild.Arrange(new(left, 0, Math.Max(0, right - left), finalSize.Height));
             return finalSize;
         }
 
@@ -74,7 +78,7 @@ public class LightTitlebarPanel : Panel
         var rightSpace = leftWidth > rightWidth ? leftWidth - rightWidth : 0;
 
         var testWidth = right - leftWidth - leftSpace - rightSpace;
-        var centerWidth = centerChild.DesiredSize.Width;
+        var centerWidth = centerChild.DesiredSize.Width + 10 * 2;
 
         if (testWidth < centerWidth)
         {
