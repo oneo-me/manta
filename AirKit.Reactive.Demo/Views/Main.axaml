@@ -15,7 +15,7 @@
                 </StackPanel>
             </LightTitleBar.InnerRightContent>
         </LightTitleBar>
-        <Border Grid.Row="1" Background="White" BorderBrush="#19000000" BorderThickness="0 1 0 0">
+        <Border Grid.Row="1" Background="{DynamicResource Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0 1 0 0">
             <ScrollViewer>
                 <StackPanel Spacing="12" Margin="12">
                     <TextBlock Text="Welcome to Avalonia!" />

@@ -1,0 +1,15 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <SolidColorBrush x:Key="ThemeBrush" Opacity="0.1" Color="#A660FF" />
+    <SolidColorBrush x:Key="WindowThemeBrush" Opacity="0.1" Color="#A660FF" />
+    <SolidColorBrush x:Key="Background" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="Foreground" Color="#222222" />
+    <SolidColorBrush x:Key="BorderBrush" Opacity="0.15" Color="#222222" />
+    <SolidColorBrush x:Key="TitleBarButtonBackground" Opacity="0" Color="#222222" />
+    <SolidColorBrush x:Key="TitleBarButtonBackground:Hover" Opacity="0.1" Color="#222222" />
+    <SolidColorBrush x:Key="TitleBarCloseButtonBackground" Opacity="0" Color="#FF5F57" />
+    <SolidColorBrush x:Key="TitleBarCloseButtonBackground:Hover" Opacity="1" Color="#FF5F57" />
+    <SolidColorBrush x:Key="TitleBarCloseButtonForeground:Hover" Opacity="1" Color="#FFFFFF" />
+</ResourceDictionary>
