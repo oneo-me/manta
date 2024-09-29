@@ -108,7 +108,8 @@ public class LightTitleBar : ContentControl
                 .FromEventHandler<TappedEventArgs>(x => PART_Events.DoubleTapped += x, x => PART_Events.DoubleTapped -= x)
                 .Subscribe(_ =>
                 {
-                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                    if (window.CanResize)
+                        window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                 })
                 .AddTo(_disposables);
             Observable
@@ -134,13 +135,29 @@ public class LightTitleBar : ContentControl
                 if (child is not LightTitleBarButton button)
                     continue;
 
+                if (button.Type == LightTitleBarButtonType.Minimize)
+                    window.GetObservable(Window.ShowInTaskbarProperty)
+                        .Subscribe(x =>
+                        {
+                            button.IsVisible = x;
+                        })
+                        .AddTo(_disposables);
+
                 if (button.Type == LightTitleBarButtonType.Maximize)
+                {
+                    window.GetObservable(Window.CanResizeProperty)
+                        .Subscribe(x =>
+                        {
+                            button.IsVisible = x;
+                        })
+                        .AddTo(_disposables);
                     window.GetObservable(Window.WindowStateProperty)
                         .Subscribe(x =>
                         {
                             button.Content = x == WindowState.Maximized;
                         })
                         .AddTo(_disposables);
+                }
 
                 if (Design.IsDesignMode is false)
                     Observable
@@ -157,7 +174,8 @@ public class LightTitleBar : ContentControl
                                     break;
 
                                 case LightTitleBarButtonType.Maximize:
-                                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                                    if (window.CanResize)
+                                        window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                                     break;
 
                                 case LightTitleBarButtonType.Close:
