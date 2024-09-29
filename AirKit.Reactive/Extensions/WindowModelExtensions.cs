@@ -16,4 +16,12 @@ public static class WindowModelExtensions
 
         return result;
     }
+
+    public static Window GetWindow(this WindowModel windowModel)
+    {
+        if (windowModel.InnerWindow is null)
+            throw new InvalidOperationException($"Window not found for {windowModel}");
+
+        return windowModel.InnerWindow;
+    }
 }

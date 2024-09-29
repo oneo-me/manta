@@ -8,6 +8,6 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <AnalysisMode>All</AnalysisMode>
-        <Version>2.2024.153</Version>
+        <Version>2.2024.154</Version>
     </PropertyGroup>
 </Project>
