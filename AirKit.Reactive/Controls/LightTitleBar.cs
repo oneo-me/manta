@@ -108,8 +108,13 @@ public class LightTitleBar : ContentControl
                 .FromEventHandler<TappedEventArgs>(x => PART_Events.DoubleTapped += x, x => PART_Events.DoubleTapped -= x)
                 .Subscribe(_ =>
                 {
-                    if (window.CanResize)
-                        window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                    if (window.CanResize is false)
+                        return;
+
+                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                        return;
+
+                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                 })
                 .AddTo(_disposables);
             Observable
@@ -170,10 +175,16 @@ public class LightTitleBar : ContentControl
                             switch (sender.Type)
                             {
                                 case LightTitleBarButtonType.Minimize:
+                                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                        return;
+
                                     window.WindowState = WindowState.Minimized;
                                     break;
 
                                 case LightTitleBarButtonType.Maximize:
+                                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                        return;
+
                                     if (window.CanResize)
                                         window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                                     break;
