@@ -20,6 +20,9 @@ public class LightView : ContentControl
         if (DataContext is not ViewModel viewModel)
             return;
 
+        if (Design.IsDesignMode)
+            viewModel.InnerView = this;
+
         viewModel.OnInnerViewActivated(_disposables);
     }
 

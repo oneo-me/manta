@@ -37,7 +37,7 @@ public class LightViewHost : Border
         }
         else if (change.Property == ViewModelProperty)
         {
-            if (change.NewValue is ViewModel viewModel)
+            if (change.NewValue is ViewModel viewModel && viewModel != DataContext)
                 Child = viewModel.CreateView();
             else
                 Child = null;
