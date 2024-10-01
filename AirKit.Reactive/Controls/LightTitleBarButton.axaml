@@ -47,9 +47,9 @@
                 <BrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource TitleBarButtonBackground}" />
+        <Setter Property="Background" Value="{InnerResource TitleBar_Button_Background}" />
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource TitleBarButtonBackground:Hover}" />
+            <Setter Property="Background" Value="{InnerResource TitleBar_Button_Background_Hover}" />
         </Style>
         <Style Selector="^[Type=None]">
             <Setter Property="Padding" Value="8 0" />
@@ -79,10 +79,10 @@
                     <LightPath Size="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
                 </DataTemplate>
             </Setter>
-            <Setter Property="Background" Value="{DynamicResource TitleBarCloseButtonBackground}" />
+            <Setter Property="Background" Value="{InnerResource TitleBar_CloseButton_Background}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource TitleBarCloseButtonBackground:Hover}" />
-                <Setter Property="Foreground" Value="{DynamicResource TitleBarCloseButtonForeground:Hover}" />
+                <Setter Property="Background" Value="{InnerResource TitleBar_CloseButton_Background_Hover}" />
+                <Setter Property="Foreground" Value="{InnerResource TitleBar_CloseButton_Foreground_Hover}" />
             </Style>
         </Style>
     </ControlTheme>

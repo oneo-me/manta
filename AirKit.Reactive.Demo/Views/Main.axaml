@@ -15,13 +15,13 @@
                 </StackPanel>
             </LightTitleBar.InnerRightContent>
         </LightTitleBar>
-        <Border Grid.Row="1" Background="{DynamicResource Background}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0 1 0 0">
             <ScrollViewer>
                 <StackPanel Spacing="12" Margin="12">
                     <TextBlock Text="Welcome to Avalonia!" />
                     <ProgressBar IsIndeterminate="True" />
                 </StackPanel>
             </ScrollViewer>
+        <Border Grid.Row="1" Background="{InnerResource Background}" BorderBrush="{InnerResource BorderBrush}" BorderThickness="0 1 0 0">
         </Border>
     </Grid>
 </LightView>

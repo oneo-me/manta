@@ -9,11 +9,11 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
         <Setter Property="WindowStartupLocation" Value="CenterScreen" />
-        <Setter Property="Background" Value="{DynamicResource Background}" />
-        <Setter Property="BackgroundThemeBrush" Value="{DynamicResource WindowThemeBrush}" />
+        <Setter Property="Background" Value="{InnerResource Background}" />
+        <Setter Property="BackgroundThemeBrush" Value="{InnerResource Window_ThemeBrush}" />
         <Setter Property="BackgroundOpacity" Value="0.8" />
-        <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{InnerResource Foreground}" />
+        <Setter Property="BorderBrush" Value="{InnerResource BorderBrush}" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Template">
             <ControlTemplate>
