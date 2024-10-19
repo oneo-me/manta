@@ -102,7 +102,7 @@ public class LightTitleBar : ContentControl
                 })
                 .AddTo(_disposables);
 
-        if (PART_Events is not null)
+        if (PART_Events is not null && Design.IsDesignMode is false)
         {
             Observable
                 .FromEventHandler<TappedEventArgs>(x => PART_Events.DoubleTapped += x, x => PART_Events.DoubleTapped -= x)
@@ -164,37 +164,39 @@ public class LightTitleBar : ContentControl
                         .AddTo(_disposables);
                 }
 
-                if (Design.IsDesignMode is false)
-                    Observable
-                        .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x)
-                        .Subscribe(x =>
+                if (Design.IsDesignMode)
+                    continue;
+
+                Observable
+                    .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x)
+                    .Subscribe(x =>
+                    {
+                        if (x.sender is not LightTitleBarButton sender)
+                            return;
+
+                        switch (sender.Type)
                         {
-                            if (x.sender is not LightTitleBarButton sender)
-                                return;
+                            case LightTitleBarButtonType.Minimize:
+                                if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                    return;
 
-                            switch (sender.Type)
-                            {
-                                case LightTitleBarButtonType.Minimize:
-                                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
-                                        return;
+                                window.WindowState = WindowState.Minimized;
+                                break;
 
-                                    window.WindowState = WindowState.Minimized;
-                                    break;
+                            case LightTitleBarButtonType.Maximize:
+                                if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                    return;
 
-                                case LightTitleBarButtonType.Maximize:
-                                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
-                                        return;
+                                if (window.CanResize)
+                                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                                break;
 
-                                    if (window.CanResize)
-                                        window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-                                    break;
-
-                                case LightTitleBarButtonType.Close:
-                                    window.Close();
-                                    break;
-                            }
-                        })
-                        .AddTo(_disposables);
+                            case LightTitleBarButtonType.Close:
+                                window.Close();
+                                break;
+                        }
+                    })
+                    .AddTo(_disposables);
             }
     }
 }
