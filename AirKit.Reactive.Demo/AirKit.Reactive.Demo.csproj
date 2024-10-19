@@ -4,7 +4,7 @@
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.3" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0-rc1" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AirKit.Reactive.Desktop\AirKit.Reactive.Desktop.csproj" />

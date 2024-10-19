@@ -1,4 +1,5 @@
 ﻿using AirKit.Reactive.Desktop;
+using AirKit.Reactive.Logging;
 using Avalonia;
 
 namespace AirKit.Reactive.Demo;
@@ -8,8 +9,21 @@ static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        try
+        {
+            Log.Debug("App", "Application is starting up");
+
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception e)
+        {
+            Log.Fatal("App", "An unexpected error occurred: {Error}", e);
+        }
+        finally
+        {
+            Log.Debug("App", "Application is shutting down");
+        }
     }
 
     public static AppBuilder BuildAvaloniaApp()

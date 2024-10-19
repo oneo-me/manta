@@ -1,0 +1,15 @@
+﻿<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+  </Folder>
+  <Folder Name="/_/">
+    <File Path="Directory.Build.props" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path=".globalconfig" />
+  </Folder>
+  <Project Path="AirKit.Reactive.Demo\AirKit.Reactive.Demo.csproj" Type="Classic C#" />
+  <Project Path="AirKit.Reactive.Desktop\AirKit.Reactive.Desktop.csproj" Type="Classic C#" />
+  <Project Path="AirKit.Reactive\AirKit.Reactive.csproj" Type="Classic C#" />
+</Solution>

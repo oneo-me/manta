@@ -6,7 +6,7 @@ using Avalonia.Markup.Xaml;
 
 namespace AirKit.Reactive.Demo;
 
-public class App : LightApp
+sealed class App : LightApp
 {
     public App()
     {

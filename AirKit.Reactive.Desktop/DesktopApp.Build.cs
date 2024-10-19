@@ -1,4 +1,5 @@
 ﻿using AirKit.Reactive.Extensions;
+using AirKit.Reactive.Logging;
 using Avalonia;
 
 namespace AirKit.Reactive.Desktop;
@@ -10,7 +11,7 @@ public static partial class DesktopApp
         return AppBuilder.Configure<T>()
             .UseDefaultFontFamily()
             .UsePlatformDetect()
-            .LogToTrace()
+            .UseAvaloniaLogger()
             .UseR3();
     }
 }

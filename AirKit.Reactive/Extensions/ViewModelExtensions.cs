@@ -1,3 +1,4 @@
+using System.Reflection;
 using AirKit.Reactive.Attributes;
 using AirKit.Reactive.Controls;
 using Avalonia.Controls;
@@ -13,7 +14,8 @@ public static class ViewModelExtensions
             return viewModel.InnerView;
 
         var viewModelType = viewModel.GetType();
-        if (ViewAttribute.Find(viewModelType) is not { } viewAttribute)
+        var viewAttribute = viewModelType.GetCustomAttribute<ViewAttribute>();
+        if (viewAttribute is null)
             throw new InvalidOperationException($"ViewAttribute not found for {viewModelType}");
 
         var viewType = viewAttribute.GetViewType();

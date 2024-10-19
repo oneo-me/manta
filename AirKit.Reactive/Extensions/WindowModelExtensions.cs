@@ -11,6 +11,7 @@ public static class WindowModelExtensions
         {
             Content = windowModel.CreateView()
         };
+        windowModel.InnerWindow = result;
 
         windowModel.OnWindowInitialized(result);
 
