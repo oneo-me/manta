@@ -1,7 +1,5 @@
-using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Diagnostics;
 using Avalonia.Media;
 using Avalonia.Platform;
 
@@ -20,20 +18,8 @@ public sealed class LightWindow : Window
         set => SetValue(BackgroundThemeBrushProperty, value);
     }
 
-    public static readonly StyledProperty<double> BackgroundOpacityProperty = AvaloniaProperty.Register<LightWindow, double>(
-        nameof(BackgroundOpacity));
-
-    public double BackgroundOpacity
-    {
-        get => GetValue(BackgroundOpacityProperty);
-        set => SetValue(BackgroundOpacityProperty, value);
-    }
-
     internal LightWindow()
     {
-        if (Debugger.IsAttached)
-            this.AttachDevTools(new DevToolsOptions());
-
         var isLinux = OperatingSystem.IsLinux();
 
         if (isLinux)

@@ -4,7 +4,6 @@
     x:Class="AirKit.Reactive.Demo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <FluentTheme />
         <LightThemeBase />
     </Application.Styles>
 </Application>

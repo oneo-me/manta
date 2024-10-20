@@ -1,0 +1,28 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <!-- 其他 -->
+    <SolidColorBrush x:Key="{ThemeBrushKey Shadow}" Color="#000000" />
+    <SolidColorBrush x:Key="{ThemeBrushKey MaskBrush}" Color="#000000" Opacity="0.1" />
+    <!-- 窗口 -->
+    <SolidColorBrush x:Key="{ThemeBrushKey Window_Background}" Color="#222222" Opacity="0.8" />
+    <!-- 通用 -->
+    <SolidColorBrush x:Key="{ThemeBrushKey Background}" Color="#222222" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Foreground}" Color="#ffffff" />
+    <SolidColorBrush x:Key="{ThemeBrushKey BorderBrush}" Color="#ffffff" Opacity="0.08" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_Background}" Color="#222222" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_Foreground}" Color="#ffffff" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_BorderBrush}" Color="#ffffff" Opacity="0.08" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Flyout_Background}" Color="#222222" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Flyout_Foreground}" Color="#ffffff" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Flyout_BorderBrush}" Color="#ffffff" Opacity="0.08" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Primary}" Color="#C55AEB" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Success}" Color="#1CA14D" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Warning}" Color="#E0900A" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Error}" Color="#CE3B3B" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Primary_Foreground}" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Success_Foreground}" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Warning_Foreground}" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Error_Foreground}" Color="#FFFFFF" />
+</ResourceDictionary>

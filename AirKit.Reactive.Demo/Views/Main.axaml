@@ -11,7 +11,7 @@
         <LightTitleBar Grid.Row="0">
             <LightTitleBar.InnerRightContent>
                 <StackPanel Orientation="Horizontal">
-                    <LightTitleBarButton Content="完全释放" Command="{Binding DisposeCommand}" />
+                    <LightTitleBarButton Content="Dispose" Command="{Binding DisposeCommand}" />
                 </StackPanel>
             </LightTitleBar.InnerRightContent>
         </LightTitleBar>

@@ -9,16 +9,15 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
         <Setter Property="WindowStartupLocation" Value="CenterScreen" />
-        <Setter Property="Background" Value="{InnerResource Background}" />
-        <Setter Property="BackgroundThemeBrush" Value="{InnerResource Window_ThemeBrush}" />
-        <Setter Property="BackgroundOpacity" Value="0.8" />
-        <Setter Property="Foreground" Value="{InnerResource Foreground}" />
-        <Setter Property="BorderBrush" Value="{InnerResource BorderBrush}" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Background" Value="{ThemeBrush Window_Background}" />
+        <Setter Property="BackgroundThemeBrush" Value="{ThemeBrush Primary, Opacity=0.1}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Background="{TemplateBinding Background}" Opacity="{TemplateBinding BackgroundOpacity}" />
+                    <Border Background="{TemplateBinding Background}" />
                     <Border Background="{TemplateBinding BackgroundThemeBrush}" />
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <VisualLayerManager>
@@ -42,7 +41,7 @@
         </Style>
         <!-- macOS Background -->
         <Style Selector="^[IsActive=False]">
-            <Setter Property="BackgroundOpacity" Value="1" />
+            <Setter Property="Background" Value="{ThemeBrush Window_Background, ResetOpacity=True}" />
         </Style>
         <!-- Linux Background -->
         <Style Selector="^[ExtendClientAreaToDecorationsHint=False]">

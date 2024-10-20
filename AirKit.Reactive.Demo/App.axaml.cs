@@ -1,5 +1,6 @@
 using AirKit.Reactive.Demo.Views;
 using AirKit.Reactive.Extensions;
+using AirKit.Reactive.Logging;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -23,7 +24,10 @@ sealed class App : LightApp
         base.OnFrameworkInitializationCompleted();
 
         if (Design.IsDesignMode)
+        {
+            Log.Debug("App", "Design mode is enabled");
             return;
+        }
 
         if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
             return;
