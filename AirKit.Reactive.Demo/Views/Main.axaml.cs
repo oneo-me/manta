@@ -2,7 +2,7 @@ using AirKit.Reactive.Controls;
 
 namespace AirKit.Reactive.Demo.Views;
 
-public partial class Main : LightView
+sealed partial class Main : LightView
 {
     public Main()
     {

@@ -1,0 +1,120 @@
+<LightView
+    x:Class="AirKit.Reactive.Demo.Samples.TabManagerSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKit.Reactive.Demo.Samples"
+    x:DataType="local:TabManagerSampleModel">
+    <Design.DataContext>
+        <local:TabManagerSampleModel />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto,*" Margin="12">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 12">
+            <StackPanel.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="{TemplateBinding Padding}"
+                                              Background="{TemplateBinding Background}"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              CornerRadius="{TemplateBinding CornerRadius}" />
+                        </ControlTemplate>
+                    </Setter>
+                    <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
+                    <Setter Property="Padding" Value="6 2" />
+                    <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
+                    <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+                    <Style Selector="^:pointerover">
+                        <Setter Property="Background" Value="{ThemeBrush Primary}" />
+                        <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
+                    </Style>
+                </Style>
+            </StackPanel.Styles>
+            <Button Content="{Binding Index, StringFormat=Add item (id: {0})}" Command="{Binding Add}" />
+        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}" ClipToBounds="True">
+            <Panel>
+                <Grid RowDefinitions="Auto,*" IsVisible="{Binding TabManager.Items.Count}">
+                    <ListBox Grid.Row="0" ItemsSource="{Binding TabManager.Items}" SelectedItem="{Binding TabManager.SelectedItem}">
+                        <ListBox.Styles>
+                            <Style Selector="ListBox">
+                                <Setter Property="ItemsPanel">
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <ControlTemplate>
+                                        <Border Padding="{TemplateBinding Padding}"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="{TemplateBinding CornerRadius}">
+                                            <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter>
+                                <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+                                <Setter Property="BorderThickness" Value="{ThemeThickness Normal, Filter=Bottom}" />
+                            </Style>
+                            <Style Selector="ListBoxItem">
+                                <Setter Property="Template">
+                                    <ControlTemplate>
+                                        <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          Padding="{TemplateBinding Padding}"
+                                                          Background="{TemplateBinding Background}"
+                                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                                          CornerRadius="{TemplateBinding CornerRadius}" />
+                                    </ControlTemplate>
+                                </Setter>
+                                <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4}" />
+                                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0}" />
+                                <Setter Property="BorderBrush" Value="{ThemeBrush Primary, Opacity=0}" />
+                                <Setter Property="BorderThickness" Value="{ThemeThickness Normal, Filter=Bottom, Offset=1}" />
+                                <Setter Property="Margin" Value="{ThemeThickness Normal, Filter=Bottom, Reverse=True}" />
+                                <Style Selector="^:selected">
+                                    <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
+                                    <Setter Property="BorderBrush" Value="{ThemeBrush Primary}" />
+                                </Style>
+                            </Style>
+                            <Style Selector="Button">
+                                <Setter Property="Template">
+                                    <ControlTemplate>
+                                        <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          Padding="{TemplateBinding Padding}"
+                                                          Background="{TemplateBinding Background}"
+                                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                                          CornerRadius="{TemplateBinding CornerRadius}" />
+                                    </ControlTemplate>
+                                </Setter>
+                                <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
+                                <Setter Property="Padding" Value="4" />
+                                <Setter Property="Background" Value="{ThemeBrush Error, Opacity=0}" />
+                                <Style Selector="^:pointerover">
+                                    <Setter Property="Background" Value="{ThemeBrush Error}" />
+                                    <Setter Property="Foreground" Value="{ThemeBrush Error_Foreground}" />
+                                </Style>
+                            </Style>
+                        </ListBox.Styles>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="local:TabItemView_Model">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <TextBlock Text="{Binding Header}" VerticalAlignment="Center" />
+                                    <Button Command="{Binding Close}" VerticalAlignment="Center">
+                                        <LightPath Size="6" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <LightViewHost Grid.Row="1" ViewModel="{Binding TabManager.SelectedItem}" />
+                </Grid>
+                <TextBlock Text="No tab opened" IsVisible="{Binding !TabManager.Items.Count}" Margin="{ThemeThickness Padding, Offset=30}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Panel>
+        </Border>
+    </Grid>
+</LightView>

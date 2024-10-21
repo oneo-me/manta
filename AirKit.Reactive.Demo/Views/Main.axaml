@@ -3,7 +3,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKit.Reactive.Demo.Views"
-    x:DataType="local:Main_Model" Design.Width="600">
+    xmlns:models="clr-namespace:AirKit.Reactive.Demo.Models"
+    x:DataType="local:Main_Model">
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
@@ -15,13 +16,58 @@
                 </StackPanel>
             </LightTitleBar.InnerRightContent>
         </LightTitleBar>
-            <ScrollViewer>
-                <StackPanel Spacing="12" Margin="12">
-                    <TextBlock Text="Welcome to Avalonia!" />
-                    <ProgressBar IsIndeterminate="True" />
-                </StackPanel>
-            </ScrollViewer>
-        <Border Grid.Row="1" Background="{InnerResource Background}" BorderBrush="{InnerResource BorderBrush}" BorderThickness="0 1 0 0">
+        <Border Grid.Row="1" Background="{ThemeBrush Background}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="0 1 0 0">
+            <Grid ColumnDefinitions="160,*">
+                <ListBox Grid.Column="0" ItemsSource="{Binding TabManager.Items}" SelectedItem="{Binding TabManager.SelectedItem}">
+                    <ListBox.Styles>
+                        <Style Selector="ListBox">
+                            <Setter Property="ItemsPanel">
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </Setter>
+                            <Setter Property="Template">
+                                <ControlTemplate>
+                                    <Border Padding="{TemplateBinding Padding}"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="{TemplateBinding CornerRadius}">
+                                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter>
+                            <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+                            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+                            <Setter Property="BorderThickness" Value="{ThemeThickness Normal, Filter=Right}" />
+                        </Style>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Template">
+                                <ControlTemplate>
+                                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                      Padding="{TemplateBinding Padding}"
+                                                      Background="{TemplateBinding Background}"
+                                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                                </ControlTemplate>
+                            </Setter>
+                            <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4}" />
+                            <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
+                            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+                            <Style Selector="^:selected">
+                                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+                            </Style>
+                        </Style>
+                    </ListBox.Styles>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="models:SampleTabModel">
+                            <TextBlock Text="{Binding Header}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <LightViewHost Grid.Column="1" ViewModel="{Binding TabManager.SelectedItem}" />
+            </Grid>
         </Border>
     </Grid>
 </LightView>
