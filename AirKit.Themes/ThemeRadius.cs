@@ -16,6 +16,7 @@ public sealed class ThemeRadiusKeyExtension(ThemeRadiusKey key) : ThemeKeyBase(k
 
 public sealed class ThemeRadius(ThemeRadiusKey key) : ThemeValueBase
 {
+    public double Offset { get; set; }
     protected internal override bool IsDynamic => true;
 
     protected override IEnumerable<object> GetKeys()
@@ -27,11 +28,28 @@ public sealed class ThemeRadius(ThemeRadiusKey key) : ThemeValueBase
     {
         var value0 = values[0];
 
-        if (value0 is double value)
-            return new CornerRadius(value);
-        if (value0 is CornerRadius cornerRadius)
-            return cornerRadius;
+        var topLeft = 0d;
+        var topRight = 0d;
+        var bottomRight = 0d;
+        var bottomLeft = 0d;
 
-        return default(CornerRadius);
+        if (value0 is double value)
+        {
+            topLeft = topRight = bottomRight = bottomLeft = value;
+        }
+        else if (value0 is CornerRadius cornerRadius)
+        {
+            topLeft = cornerRadius.TopLeft;
+            topRight = cornerRadius.TopRight;
+            bottomRight = cornerRadius.BottomRight;
+            bottomLeft = cornerRadius.BottomLeft;
+        }
+
+        topLeft += Offset;
+        topRight += Offset;
+        bottomRight += Offset;
+        bottomLeft += Offset;
+
+        return new CornerRadius(topLeft, topRight, bottomRight, bottomLeft);
     }
 }
