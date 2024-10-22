@@ -21,7 +21,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 
     public TabManager()
     {
-        Items = _source.ToNotifyCollectionChangedSlim();
+        Items = _source.ToNotifyCollectionChangedSlim(AvaloniaCollectionEventDispatcher.Current);
     }
 
     [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global")]
@@ -86,14 +86,15 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
         lock (_source.SyncRoot)
         {
             var index = _source.IndexOf(regionModel);
-
             _source.Remove(regionModel);
 
-            if (SelectedItem == null)
-            {
-                var newIndex = index == 0 ? 0 : index - 1;
-                SelectedItem = _source.Count > 0 ? _source[newIndex] : null;
-            }
+            if (SelectedItem != null && SelectedItem != regionModel)
+                return;
+
+            var newIndex = index == 0 ? 0 : index - 1;
+            var selectedItem = _source.Count > 0 ? _source[newIndex] : null;
+
+            AvaloniaDispatcher.Current.Post(() => SelectedItem = selectedItem);
         }
     }
 

@@ -15,7 +15,7 @@ sealed class LogView_Model : ViewModel, ILogger
 
     public LogView_Model()
     {
-        Logs = _logs.ToNotifyCollectionChanged();
+        Logs = _logs.ToNotifyCollectionChanged(AvaloniaCollectionEventDispatcher.Current);
         Log.AddLogger(this);
     }
 

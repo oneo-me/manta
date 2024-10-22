@@ -10,7 +10,7 @@ public sealed class DialogManager<T> : IDisposable where T : DialogModel
 
     public DialogManager()
     {
-        Items = _source.ToNotifyCollectionChangedSlim();
+        Items = _source.ToNotifyCollectionChangedSlim(AvaloniaCollectionEventDispatcher.Current);
     }
 
     public async Task OpenAsync(T dialogModel)
