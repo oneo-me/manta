@@ -2,18 +2,4 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.3.999-cibuild0052719-alpha" />
     </ItemGroup>
-    <ItemGroup>
-      <AdditionalFiles Include="Themes\Dark.axaml" />
-      <AdditionalFiles Include="Themes\Light.axaml" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Themes\DefaultTheme.axaml.cs">
-        <DependentUpon>LightThemeBase.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Themes\LightThemeBase.axaml.cs">
-        <DependentUpon>LightThemeBase.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-    </ItemGroup>
 </Project>

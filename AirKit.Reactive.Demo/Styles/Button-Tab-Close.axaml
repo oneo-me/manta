@@ -1,0 +1,36 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Orientation="Vertical">
+            <Button Classes="Button-Tab-Close" Content="Button" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <Style Selector="Button.Button-Tab-Close">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <LightPath Size="6" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Background" Value="{ThemeBrush Error, Opacity=0}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{ThemeBrush Error}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Error_Foreground}" />
+        </Style>
+    </Style>
+</Styles>

@@ -11,11 +11,11 @@ public static class Log
     static Log()
     {
         if (Design.IsDesignMode)
-            AddLogger(new InnerConsoleLogger(false, true, LogLevel.Debug | LogLevel.Information | LogLevel.Warning | LogLevel.Error | LogLevel.Fatal));
+            AddLogger(new InnerConsoleLogger(false, true, LogLevel.All));
         else
-            AddLogger(new InnerConsoleLogger(false, true, LogLevel.Information | LogLevel.Warning | LogLevel.Error | LogLevel.Fatal));
+            AddLogger(new InnerConsoleLogger(false, true, LogLevel.Important));
         if (Debugger.IsAttached)
-            AddLogger(new InnerDebuggerLogger(false, true, LogLevel.Debug | LogLevel.Information | LogLevel.Warning | LogLevel.Error | LogLevel.Fatal));
+            AddLogger(new InnerDebuggerLogger(false, true, LogLevel.All));
     }
 
     public static void AddLogger(LoggerBase logger)

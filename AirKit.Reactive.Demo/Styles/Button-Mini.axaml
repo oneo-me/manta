@@ -1,0 +1,36 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Orientation="Vertical">
+            <Button Classes="Button-Mini" Content="Button" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <Style Selector="Button.Button-Mini">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Padding="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
+        <Setter Property="Padding" Value="6 2" />
+        <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{ThemeBrush Primary}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
+        </Style>
+    </Style>
+</Styles>

@@ -6,7 +6,7 @@ sealed class InnerAvaloniaLogger : ILogSink
 {
     public bool IsEnabled(LogEventLevel level, string area)
     {
-        return true;
+        return level >= LogEventLevel.Warning;
     }
 
     static LogLevel ConvertLogLevel(LogEventLevel level)
@@ -15,7 +15,7 @@ sealed class InnerAvaloniaLogger : ILogSink
         {
             LogEventLevel.Verbose     => LogLevel.Verbose,
             LogEventLevel.Debug       => LogLevel.Debug,
-            LogEventLevel.Information => LogLevel.Verbose,
+            LogEventLevel.Information => LogLevel.Information,
             LogEventLevel.Warning     => LogLevel.Warning,
             LogEventLevel.Error       => LogLevel.Error,
             LogEventLevel.Fatal       => LogLevel.Fatal,
