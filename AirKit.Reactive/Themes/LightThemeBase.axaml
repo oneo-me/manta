@@ -9,6 +9,7 @@
                 <MergeResourceInclude Source="/Controls/LightPath.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBar.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButton.axaml" />
+                <MergeResourceInclude Source="/Controls/LightViewHost.axaml" />
                 <MergeResourceInclude Source="/Controls/LightWindow.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

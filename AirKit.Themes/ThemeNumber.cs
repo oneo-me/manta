@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using AirKit.Themes.Base;
 
 namespace AirKit.Themes;
@@ -13,6 +14,7 @@ public sealed class ThemeNumberKeyExtension(ThemeNumberKey key) : ThemeKeyBase(k
 
 public sealed class ThemeNumber(ThemeNumberKey key) : ThemeValueBase
 {
+    public int Offset { get; set; }
     protected internal override bool IsDynamic => true;
 
     protected override IEnumerable<object> GetKeys()
@@ -26,9 +28,14 @@ public sealed class ThemeNumber(ThemeNumberKey key) : ThemeValueBase
 
         return value0 switch
         {
-            double d => d,
-            int i    => i,
+            double d => AddOffset(d, Offset),
+            int i    => AddOffset(i, Offset),
             _        => 0d
         };
+    }
+
+    static T AddOffset<T>(T value, T offset) where T : INumber<T>
+    {
+        return value + offset;
     }
 }

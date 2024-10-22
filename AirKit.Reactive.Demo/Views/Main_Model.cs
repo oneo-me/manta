@@ -49,8 +49,8 @@ sealed class Main_Model : WindowModel
         base.OnWindowInitialized(window);
 
         window.Title = "Reactive Demo";
-        window.Width = 560;
-        window.Height = 500;
+        window.Width = 720;
+        window.Height = 660;
 
         window.Closing += (_, _) => DisposeCommand.Execute(Unit.Default);
     }

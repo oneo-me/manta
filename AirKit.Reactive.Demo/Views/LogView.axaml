@@ -1,0 +1,28 @@
+<LightView
+    x:Class="AirKit.Reactive.Demo.Views.LogView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKit.Reactive.Demo.Views"
+    x:DataType="local:LogView_Model">
+    <Design.DataContext>
+        <local:LogView_Model />
+    </Design.DataContext>
+    <ListBox Classes="List-Logs" ItemsSource="{Binding Logs}" Grid.IsSharedSizeScope="True">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Time" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Area" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding Time, StringFormat={}{0:HH:mm:ss}}" Margin="4 0" />
+                    <Border Grid.Column="1" Margin="4 0" Background="{ThemeBrush Foreground, Opacity=0.1}" CornerRadius="{ThemeRadius Normal}" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Area}" Margin="6 1" FontSize="{ThemeNumber FontSize, Offset=-1}" />
+                    </Border>
+                    <TextBlock Grid.Column="2" Text="{Binding Message}" TextTrimming="CharacterEllipsis" Margin="4 0" />
+                </Grid>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</LightView>
