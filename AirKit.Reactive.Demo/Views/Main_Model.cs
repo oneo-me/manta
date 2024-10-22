@@ -1,7 +1,6 @@
 using AirKit.Reactive.Attributes;
 using AirKit.Reactive.Demo.Models;
 using AirKit.Reactive.Extensions;
-using AirKit.Reactive.Logging;
 using Avalonia.Controls;
 using R3;
 
@@ -43,12 +42,12 @@ sealed class Main_Model : WindowModel
                 GC.Collect();
             }
         });
-
-        Log.Debug("Main", "Initialized");
     }
 
     public override void OnWindowInitialized(Window window)
     {
+        base.OnWindowInitialized(window);
+
         window.Title = "Reactive Demo";
         window.Width = 560;
         window.Height = 500;

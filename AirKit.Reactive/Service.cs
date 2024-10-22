@@ -1,4 +1,5 @@
 using AirKit.Reactive.Exceptions;
+using AirKit.Reactive.Logging;
 
 namespace AirKit.Reactive;
 
@@ -11,16 +12,18 @@ public static class Service
         if (_dic.TryGetValue(type, out var instance))
             return instance;
 
-        throw new ServiceException($"服务 {type} 未注册");
+        throw new ServiceException($"Service {type} not registered");
     }
 
     static void RegisterCore(Type serviceType, Type serviceImplType, object serviceImpl)
     {
+        Log.Verbose("Service", "Register service {serviceType} as {serviceImplType}", serviceType, serviceImplType);
+
         if (serviceType.IsAssignableFrom(serviceImplType) is false)
-            throw new ServiceException($"服务注册出现错误，{serviceImplType} 不是 {serviceType} 的子类");
+            throw new ServiceException($"Service registration error, {serviceImplType} is not a subclass of {serviceType}");
 
         if (_dic.ContainsKey(serviceType) || _dic.ContainsKey(serviceImplType))
-            throw new ServiceException($"服务注册出现错误，{serviceType} 已经注册为 {_dic[serviceType].GetType()}");
+            throw new ServiceException($"Service registration error, {serviceType} has already been registered as {_dic[serviceType].GetType()}");
 
         _dic[serviceType] = serviceImpl;
         _dic[serviceImplType] = serviceImpl;
@@ -48,18 +51,24 @@ public static class Service
 
     public static T GetService<T>() where T : class
     {
-        var instance = GetInstance(typeof(T));
+        var serviceType = typeof(T);
+
+        Log.Verbose("Service", "Get service {serviceType}", serviceType);
+
+        var instance = GetInstance(serviceType);
         if (instance is not T impl)
-            throw new ServiceException($"获取服务 {typeof(T)} 出现错误，依赖了未注册的服务 {typeof(T)}");
+            throw new ServiceException($"An error occurred while obtaining the service {serviceType}, which depends on an unregistered service {serviceType}");
 
         return impl;
     }
 
     public static T CreateInstance<T>(Type type) where T : class
     {
+        Log.Verbose("Service", "Create instance {type}", type);
+
         var constructorInfo = type.GetConstructors().MinBy(x => x.GetParameters().Length);
         if (constructorInfo is null)
-            throw new ServiceException($"创建对象出现错误，{type} 没有没用可用的构造函数");
+            throw new ServiceException($"Error creating object, {type} has no available constructor");
 
         var parameterInfos = constructorInfo.GetParameters();
         var args = new List<object?>();
@@ -73,7 +82,7 @@ public static class Service
 
         var obj = Activator.CreateInstance(type, args.ToArray());
         if (obj is not T result)
-            throw new ServiceException($"创建对象出现错误，{type} 不是 {typeof(T)} 的子类");
+            throw new ServiceException($"An error occurred while creating the object, {type} is not a subclass of {typeof(T)}");
 
         return result;
     }

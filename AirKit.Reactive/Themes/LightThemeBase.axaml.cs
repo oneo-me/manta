@@ -3,7 +3,7 @@ using Avalonia.Styling;
 
 namespace AirKit.Reactive.Themes;
 
-public class LightThemeBase : Styles
+public sealed class LightThemeBase : Styles
 {
     public LightThemeBase(IServiceProvider? sp = null)
     {

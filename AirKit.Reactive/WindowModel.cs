@@ -1,3 +1,4 @@
+using AirKit.Reactive.Logging;
 using Avalonia.Controls;
 
 namespace AirKit.Reactive;
@@ -6,10 +7,8 @@ public abstract class WindowModel : ViewModel
 {
     internal Window? InnerWindow { get; set; }
 
-    public abstract void OnWindowInitialized(Window window);
-
-    public void Close()
+    public virtual void OnWindowInitialized(Window window)
     {
-        InnerWindow?.Close();
+        Log.Verbose("WindowModel", "{viewModelType} initialized", GetType().Name);
     }
 }

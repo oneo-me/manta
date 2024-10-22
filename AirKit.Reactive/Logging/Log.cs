@@ -15,7 +15,7 @@ public static class Log
         else
             AddLogger(new InnerConsoleLogger(false, true, LogLevel.Important));
         if (Debugger.IsAttached)
-            AddLogger(new InnerDebuggerLogger(false, true, LogLevel.All));
+            AddLogger(new InnerDebuggerLogger(false, true, Environment.GetCommandLineArgs().Contains("--debug") ? LogLevel.All : LogLevel.Important));
     }
 
     public static void AddLogger(LoggerBase logger)

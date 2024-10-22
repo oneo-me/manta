@@ -25,7 +25,7 @@ sealed class App : LightApp
 
         if (Design.IsDesignMode)
         {
-            Log.Debug("App", "Design mode is enabled");
+            Log.Information("App", "Design mode is enabled");
             return;
         }
 

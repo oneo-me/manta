@@ -1,3 +1,4 @@
+using AirKit.Reactive.Logging;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
@@ -7,7 +8,13 @@ public static partial class Assets
 {
     public static IEnumerable<Uri> GetAssets(Uri uri)
     {
-        return AssetLoader.GetAssets(uri, null);
+        Log.Verbose(nameof(Assets), "GetAssets: {Url}", uri);
+
+        foreach (var asset in AssetLoader.GetAssets(uri, null))
+        {
+            Log.Verbose(nameof(Assets), "GetAssets-Item: {Url}", uri);
+            yield return asset;
+        }
     }
 
     public static bool Exists(Uri uri)

@@ -1,4 +1,5 @@
 ﻿using AirKit.Reactive.Extensions;
+using AirKit.Reactive.Logging;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 
@@ -28,11 +29,10 @@ public class ViewTemplate : IDataTemplate
 
     public virtual Control? Build(object? param)
     {
-        return _build?.Invoke();
-    }
+        var result = _build?.Invoke();
 
-    internal virtual bool IsMatchOverride(object? data)
-    {
-        return true;
+        Log.Verbose("ViewModel", "Build view {viewType} with {paramType}", result?.GetType().Name, param?.GetType().Name);
+
+        return result;
     }
 }

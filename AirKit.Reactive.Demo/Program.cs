@@ -11,7 +11,7 @@ static class Program
     {
         try
         {
-            Log.Debug("App", "Application is starting up");
+            Log.Information("App", "Application is starting up");
 
             BuildAvaloniaApp()
                 .StartWithClassicDesktopLifetime(args);
@@ -22,7 +22,7 @@ static class Program
         }
         finally
         {
-            Log.Debug("App", "Application is shutting down");
+            Log.Information("App", "Application is shutting down");
         }
     }
 

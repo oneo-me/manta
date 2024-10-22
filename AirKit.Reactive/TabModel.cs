@@ -1,3 +1,5 @@
+using AirKit.Reactive.Logging;
+
 namespace AirKit.Reactive;
 
 public class TabModel : ViewModel
@@ -20,5 +22,11 @@ public class TabModel : ViewModel
 
     protected virtual void OnClosed()
     {
+        Log.Verbose("TabModel", "TabModel Closed: {this}", this);
+    }
+
+    public override string ToString()
+    {
+        return $"{GetType().Name} (Header: {Header})";
     }
 }

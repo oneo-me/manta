@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using AirKit.Reactive.Interfaces;
+using AirKit.Reactive.Logging;
 using ObservableCollections;
 
 namespace AirKit.Reactive;
@@ -57,6 +58,8 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
     {
         lock (_source.SyncRoot)
         {
+            Log.Verbose("TabManager", "Open tab {TabModel} with {context}", typeof(TTabModel), context);
+
             var regionModel = FindTarget<TTabModel, TContext>(context);
             if (regionModel is not null)
             {
@@ -71,10 +74,9 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 
             _source.Add(regionModel);
 
-            if (isActive is null)
-                return;
-
-            if (isActive(regionModel))
+            if (isActive?.Invoke(regionModel) != false)
+                SelectedItem = regionModel;
+            else if (SelectedItem is null)
                 SelectedItem = regionModel;
         }
     }
@@ -83,20 +85,22 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
     {
         lock (_source.SyncRoot)
         {
-            if (SelectedItem == regionModel)
-            {
-                var index = _source.IndexOf(regionModel);
-                var newIndex = index == 0 ? 1 : index - 1;
-
-                SelectedItem = _source.Count > 1 ? _source[newIndex] : null;
-            }
+            var index = _source.IndexOf(regionModel);
 
             _source.Remove(regionModel);
+
+            if (SelectedItem == null)
+            {
+                var newIndex = index == 0 ? 0 : index - 1;
+                SelectedItem = _source.Count > 0 ? _source[newIndex] : null;
+            }
         }
     }
 
     public void Dispose()
     {
+        Log.Verbose("TabManager", "Dispose");
+
         lock (_source.SyncRoot)
         {
             for (var i = _source.Count - 1; i >= 0; i--)

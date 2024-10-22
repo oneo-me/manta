@@ -1,4 +1,5 @@
 using AirKit.Reactive.Controls;
+using AirKit.Reactive.Logging;
 using R3;
 
 namespace AirKit.Reactive;
@@ -22,9 +23,11 @@ public abstract class ViewModel : Model
 
     protected virtual void OnInitialized()
     {
+        Log.Verbose("ViewModel", "{viewModelType} initialized", GetType().Name);
     }
 
     protected virtual void OnViewActivated(CompositeDisposable disposables)
     {
+        Log.Verbose("ViewModel", "{viewModelType} activated", GetType().Name);
     }
 }

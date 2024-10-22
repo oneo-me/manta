@@ -1,3 +1,4 @@
+using AirKit.Reactive.Logging;
 using Avalonia;
 using Avalonia.Media;
 
@@ -7,6 +8,8 @@ public static class AppBuilderExtensions
 {
     public static AppBuilder UseFontFamily(this AppBuilder builder, string fontFamily)
     {
+        Log.Verbose("App", "Use font family: {fontFamily}", fontFamily);
+
         return builder.With(new FontManagerOptions
         {
             DefaultFamilyName = fontFamily,

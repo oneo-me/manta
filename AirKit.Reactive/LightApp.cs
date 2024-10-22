@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using AirKit.Reactive.Logging;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
@@ -21,24 +22,29 @@ public abstract class LightApp : Application
         Dispatcher.UIThread.UnhandledException += (_, e) =>
         {
             e.Handled = true;
-            OnException(e.Exception);
+            OnExceptionCore(e.Exception, false);
         };
         AppDomain.CurrentDomain.UnhandledException += (_, e) =>
         {
             if (e.ExceptionObject is Exception exception)
-                OnException(exception);
+                OnExceptionCore(exception, true);
         };
     }
 
-    protected virtual void OnException(Exception exception)
+    static void OnExceptionCore(Exception exception, bool isFatal)
     {
-        Trace.TraceError($"An unhandled exception occurred. \n{exception}");
+        Log.WriteLine(isFatal ? LogLevel.Fatal : LogLevel.Error, "App", "An unhandled exception occurred. \n{Exception}", exception);
 
         if (Design.IsDesignMode)
             return;
 
         if (Debugger.IsAttached)
             Dispatcher.UIThread.Invoke(() => throw exception);
+    }
+
+    protected virtual void OnException(Exception exception)
+    {
+        OnExceptionCore(exception, false);
     }
 
     public Bitmap? Icon { get; protected init; }
