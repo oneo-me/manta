@@ -1,0 +1,15 @@
+<LightView
+    x:Class="AirKit.Reactive.Demo.Samples.DialogManagerSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKit.Reactive.Demo.Samples"
+    x:DataType="local:DialogManagerSample_Model">
+    <Design.DataContext>
+        <local:DialogManagerSample_Model />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto,*" Margin="12">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 12">
+            <Button Classes="Button-Mini" Content="Open" />
+        </StackPanel>
+    </Grid>
+</LightView>
