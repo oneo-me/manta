@@ -1,28 +1,29 @@
 ﻿using System.Collections.ObjectModel;
+using AirKit.Reactive.System;
 
 namespace AirKit.Reactive.Desktop;
 
 public static partial class DesktopApp
 {
-    public static string File { get; }
-    public static string Folder { get; }
+    public static FileInfo File { get; }
+    public static DirectoryInfo Folder { get; }
     public static ReadOnlyCollection<string> CommandLineArgs { get; }
 
     static DesktopApp()
     {
         var args = Environment.GetCommandLineArgs();
-        File = args[0];
+        File = new(args[0]);
 
-        if (string.Equals(Path.GetFileNameWithoutExtension(File), "Avalonia.Designer.HostApp", StringComparison.Ordinal))
+        if (string.Equals(File.GetFileNameWithoutExtension(), "Avalonia.Designer.HostApp", StringComparison.Ordinal))
         {
             CommandLineArgs = new([]);
-            File = args[^1];
+            File = new(args[^1]);
         }
         else
         {
             CommandLineArgs = new(args[1..]);
         }
 
-        Folder = Path.GetDirectoryName(File) ?? throw new DirectoryNotFoundException();
+        Folder = File.Directory ?? throw new DirectoryNotFoundException();
     }
 }
