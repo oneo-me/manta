@@ -1,6 +1,9 @@
+using AirKit.Reactive.Demo.Services;
 using AirKit.Reactive.Demo.Views;
+using AirKit.Reactive.Desktop;
 using AirKit.Reactive.Extensions;
 using AirKit.Reactive.Logging;
+using AirKit.Reactive.System;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -23,6 +26,9 @@ sealed class App : LightApp
     {
         base.OnFrameworkInitializationCompleted();
 
+        var configFile = DesktopApp.Folder.CreateFile("config.yaml");
+        var configService = Service.Register(new ConfigService(configFile));
+
         if (Design.IsDesignMode)
         {
             Log.Information("App", "Design mode is enabled");
@@ -33,5 +39,10 @@ sealed class App : LightApp
             return;
 
         desktop.MainWindow = new Main_Model().CreateWindow();
+
+        desktop.Exit += delegate
+        {
+            configService.Save();
+        };
     }
 }
