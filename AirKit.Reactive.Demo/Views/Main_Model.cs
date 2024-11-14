@@ -1,3 +1,4 @@
+using System.Reactive;
 using AirKit.Reactive.Attributes;
 using AirKit.Reactive.Demo.Models;
 using AirKit.Reactive.Demo.Services;

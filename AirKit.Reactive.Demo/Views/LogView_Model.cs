@@ -1,27 +1,34 @@
+using System.Collections.ObjectModel;
+using System.Reactive.Linq;
 using AirKit.Reactive.Attributes;
 using AirKit.Reactive.Demo.Models;
 using AirKit.Reactive.Interfaces;
 using AirKit.Reactive.Logging;
-using ObservableCollections;
+using DynamicData;
 
 namespace AirKit.Reactive.Demo.Views;
 
 [View<LogView>]
 sealed class LogView_Model : ViewModel, ILogger
 {
-    readonly ObservableFixedSizeRingBuffer<LogModel> _logs = new(6);
+    readonly SourceList<LogModel> _logs = new();
 
-    public NotifyCollectionChangedSynchronizedViewList<LogModel> Logs { get; }
+    public ReadOnlyObservableCollection<LogModel> Logs { get; }
 
     public LogView_Model()
     {
-        Logs = _logs.ToNotifyCollectionChanged(AvaloniaCollectionEventDispatcher.Current);
+        _logs.Connect()
+            .Synchronize()
+            .ObserveOn(AvaloniaScheduler.Instance)
+            .Bind(out var items)
+            .Subscribe();
+        Logs = items;
         Log.AddLogger(this);
     }
 
     public void WriteLine(LogLevel level, string area, string messageTemplate, params object?[] propertyValues)
     {
         var message = Log.FormatMessage(messageTemplate, propertyValues);
-        _logs.AddLast(new(DateTimeOffset.Now, level, area, message));
+        _logs.Add(new(DateTimeOffset.Now, level, area, message));
     }
 }

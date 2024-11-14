@@ -20,7 +20,7 @@ public abstract class Model : INotifyPropertyChanged
 
         backingField = newValue;
 
-        Log.Verbose("Model", "{propertyName} changed to {newValue}", propertyName, newValue);
+        Log.Verbose("Model", "{modelType} set the {propertyName} to {newValue}", this, propertyName, newValue);
 
         OnPropertyChanged(propertyName);
 

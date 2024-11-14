@@ -5,6 +5,7 @@
     RequestedThemeVariant="Default">
     <Application.Styles>
         <LightThemeBase />
+        <StyleInclude Source="Styles/_Icons.axaml" />
         <StyleInclude Source="Styles/Button-Mini.axaml" />
         <StyleInclude Source="Styles/Button-Tab-Close.axaml" />
         <StyleInclude Source="Styles/List-Logs.axaml" />

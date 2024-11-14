@@ -50,9 +50,6 @@
             <Style Selector="^:nth-child(1)">
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
-            </Style>
         </Style>
     </Style>
 </Styles>

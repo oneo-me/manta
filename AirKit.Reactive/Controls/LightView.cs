@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
-using R3;
 
 namespace AirKit.Reactive.Controls;
 

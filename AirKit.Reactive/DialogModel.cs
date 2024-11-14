@@ -1,7 +1,7 @@
 using System.ComponentModel;
+using System.Reactive.Disposables;
 using AirKit.Reactive.Controls;
 using AirKit.Reactive.Extensions;
-using R3;
 
 namespace AirKit.Reactive;
 
@@ -36,7 +36,7 @@ public abstract class DialogModel : ViewModel
     public void Close()
     {
         if (CloseFunc is null)
-            throw new InvalidOperationException($"{GetType()} is not opened.");
+            throw new InvalidOperationException($"{this} is not opened.");
 
         var cancelEventArgs = new CancelEventArgs();
         OnClosing(cancelEventArgs);

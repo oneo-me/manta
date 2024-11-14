@@ -1,15 +1,18 @@
+using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Reactive.Linq;
 using AirKit.Reactive.Interfaces;
 using AirKit.Reactive.Logging;
-using ObservableCollections;
+using DynamicData;
 
 namespace AirKit.Reactive;
 
 public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 {
-    readonly ObservableList<T> _source = [];
+    readonly object _lock = new();
+    readonly SourceList<T> _source = new();
 
-    public NotifyCollectionChangedSynchronizedViewList<T> Items { get; }
+    public ReadOnlyObservableCollection<T> Items { get; }
 
     T? _selectedItem;
 
@@ -21,13 +24,18 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 
     public TabManager()
     {
-        Items = _source.ToNotifyCollectionChangedSlim(AvaloniaCollectionEventDispatcher.Current);
+        _source.Connect()
+            .Synchronize()
+            .ObserveOn(AvaloniaScheduler.Instance)
+            .Bind(out var items)
+            .Subscribe();
+        Items = items;
     }
 
     [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global")]
     TTabModel? FindTarget<TTabModel, TContext>(TContext context) where TTabModel : T
     {
-        lock (_source.SyncRoot)
+        lock (_lock)
         {
             var regionType = typeof(TTabModel);
 
@@ -56,7 +64,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 
     public void Open<TTabModel, TContext>(TContext context, Func<TContext, TTabModel> create, Func<TTabModel, bool>? isActive = null) where TTabModel : T
     {
-        lock (_source.SyncRoot)
+        lock (_lock)
         {
             Log.Verbose("TabManager", "Open tab {TabModel} with {context}", typeof(TTabModel), context);
 
@@ -83,7 +91,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 
     void InnerClose(T regionModel)
     {
-        lock (_source.SyncRoot)
+        lock (_lock)
         {
             var index = _source.IndexOf(regionModel);
             _source.Remove(regionModel);
@@ -92,9 +100,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
                 return;
 
             var newIndex = index == 0 ? 0 : index - 1;
-            var selectedItem = _source.Count > 0 ? _source[newIndex] : null;
-
-            AvaloniaDispatcher.Current.Post(() => SelectedItem = selectedItem);
+            SelectedItem = _source.Count > 0 ? _source[newIndex] : null;
         }
     }
 
@@ -102,7 +108,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
     {
         Log.Verbose("TabManager", "Dispose");
 
-        lock (_source.SyncRoot)
+        lock (_lock)
         {
             for (var i = _source.Count - 1; i >= 0; i--)
                 _source[i].Close();

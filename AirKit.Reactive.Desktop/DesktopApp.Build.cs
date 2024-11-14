@@ -11,7 +11,6 @@ public static partial class DesktopApp
         return AppBuilder.Configure<T>()
             .UseDefaultFontFamily()
             .UsePlatformDetect()
-            .UseAvaloniaLogger()
-            .UseR3();
+            .UseAvaloniaLogger();
     }
 }

@@ -9,6 +9,6 @@ public abstract class WindowModel : ViewModel
 
     public virtual void OnWindowInitialized(Window window)
     {
-        Log.Verbose("WindowModel", "{viewModelType} initialized", GetType().Name);
+        Log.Verbose("WindowModel", "{viewModel} initialized", this);
     }
 }

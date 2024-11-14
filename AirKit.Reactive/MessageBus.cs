@@ -1,5 +1,6 @@
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using AirKit.Reactive.Logging;
-using R3;
 
 namespace AirKit.Reactive;
 

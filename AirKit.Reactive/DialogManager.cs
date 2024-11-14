@@ -1,5 +1,3 @@
-using ObservableCollections;
-
 namespace AirKit.Reactive;
 
 public sealed class DialogManager<T> : IDisposable where T : DialogModel

@@ -14,7 +14,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <LightPath Size="6" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                    <LightPath Classes="Icon-Close" Size="6" />
                 </Border>
             </ControlTemplate>
         </Setter>

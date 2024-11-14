@@ -1,6 +1,6 @@
+using System.Reactive.Disposables;
 using AirKit.Reactive.Controls;
 using AirKit.Reactive.Logging;
-using R3;
 
 namespace AirKit.Reactive;
 
@@ -23,11 +23,11 @@ public abstract class ViewModel : Model
 
     protected virtual void OnInitialized()
     {
-        Log.Verbose("ViewModel", "{viewModelType} initialized", GetType().Name);
+        Log.Verbose("ViewModel", "{viewModel} initialized", this);
     }
 
     protected virtual void OnViewActivated(CompositeDisposable disposables)
     {
-        Log.Verbose("ViewModel", "{viewModelType} activated", GetType().Name);
+        Log.Verbose("ViewModel", "{viewModel} activated", this);
     }
 }
