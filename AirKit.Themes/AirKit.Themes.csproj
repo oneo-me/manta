@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.999-cibuild0052719-alpha" />
+        <PackageReference Include="Avalonia" Version="11.2.1" />
     </ItemGroup>
 </Project>
