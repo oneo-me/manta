@@ -16,7 +16,7 @@
         <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
+                <LightPanel>
                     <Border Background="{TemplateBinding Background}" />
                     <Border Background="{TemplateBinding BackgroundThemeBrush}" />
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
@@ -26,7 +26,7 @@
                                               Content="{TemplateBinding Content}" />
                         </VisualLayerManager>
                     </Border>
-                </Panel>
+                </LightPanel>
             </ControlTemplate>
         </Setter>
         <!-- Windows Border -->

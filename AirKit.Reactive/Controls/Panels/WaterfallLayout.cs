@@ -19,7 +19,7 @@ static class WaterfallLayout
 
         LightPanelBase.ForeachItems(children, column, (row, items) =>
         {
-            for (var i = 0; i < items.Count; i++)
+            for (var i = 0; i < items.Length; i++)
             {
                 var item = items[i];
                 item.Measure(layoutSize);
@@ -62,7 +62,7 @@ static class WaterfallLayout
 
         LightPanelBase.ForeachItems(children, column, (row, items) =>
         {
-            for (var i = 0; i < items.Count; i++)
+            for (var i = 0; i < items.Length; i++)
             {
                 var item = items[i];
 

@@ -2,18 +2,18 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Orientation="Vertical">
+        <LightPanel Mode="Vertical">
             <ListBox Classes="List-Sidebar">
                 <ListBoxItem Content="ListBoxItem 1" />
                 <ListBoxItem Content="ListBoxItem 2" IsSelected="True" />
                 <ListBoxItem Content="ListBoxItem 3" />
             </ListBox>
-        </StackPanel>
+        </LightPanel>
     </Design.PreviewWith>
     <Style Selector="ListBox.List-Sidebar">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <StackPanel Orientation="Vertical" />
+                <LightPanel Mode="Vertical" />
             </ItemsPanelTemplate>
         </Setter>
         <Setter Property="Template">

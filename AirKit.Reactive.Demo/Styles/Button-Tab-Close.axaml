@@ -2,9 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Orientation="Vertical">
+        <LightPanel Mode="Vertical">
             <Button Classes="Button-Tab-Close" Content="Button" />
-        </StackPanel>
+        </LightPanel>
     </Design.PreviewWith>
     <Style Selector="Button.Button-Tab-Close">
         <Setter Property="Template">

@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <StackPanel Width="300" Spacing="12" Margin="12">
+        <LightPanel Width="300" Spacing="12" Margin="12">
             <Border Background="#19A660FF" BorderBrush="#0D000000" BoxShadow="0 3 10 #19000000" BorderThickness="1" CornerRadius="10">
                 <Grid RowDefinitions="Auto,*">
                     <LightTitleBar Grid.Row="0" />
@@ -20,7 +20,7 @@
                     <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#0D000000" BorderThickness="0 1 0 0" CornerRadius="0 0 10 10" Height="80" />
                 </Grid>
             </Border>
-        </StackPanel>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightTitleBar}" TargetType="LightTitleBar">
         <Setter Property="Height" Value="38" />
@@ -31,17 +31,17 @@
                 <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                     <LightTitlebarPanel x:Name="PART_Events" Background="#00000000">
                         <Border x:Name="PART_Offset" />
-                        <Panel Margin="{TemplateBinding  Padding}">
+                        <LightPanel Margin="{TemplateBinding  Padding}">
                             <ContentPresenter x:Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <TextBlock x:Name="PART_Title" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </Panel>
+                        </LightPanel>
                         <ContentPresenter Content="{TemplateBinding InnerRightContent}" />
-                        <StackPanel x:Name="PART_Buttons" Orientation="Horizontal">
+                        <LightPanel x:Name="PART_Buttons" Mode="Horizontal">
                             <LightTitleBarButton Type="Minimize" />
                             <LightTitleBarButton Type="Maximize" />
                             <LightTitleBarButton Type="Close" />
-                        </StackPanel>
+                        </LightPanel>
                     </LightTitlebarPanel>
                 </Border>
             </ControlTemplate>
@@ -56,10 +56,10 @@
         <Style Selector="^ /template/ LightTitlebarPanel#PART_Events">
             <Setter Property="IsFull" Value="True" />
         </Style>
-        <Style Selector="^ /template/ StackPanel#PART_Buttons">
+        <Style Selector="^ /template/ LightPanel#PART_Buttons">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^:buttons /template/ StackPanel#PART_Buttons">
+        <Style Selector="^:buttons /template/ LightPanel#PART_Buttons">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^:empty">

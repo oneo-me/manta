@@ -49,7 +49,7 @@ static class ColumnLayout
             foreach (var item in items)
                 height = Math.Max(height, item.DesiredSize.Height);
 
-            for (var i = 0; i < items.Count; i++)
+            for (var i = 0; i < items.Length; i++)
             {
                 var item = items[i];
                 item.Arrange(new(i * columnSize + i * spacing, top, columnSize, height));

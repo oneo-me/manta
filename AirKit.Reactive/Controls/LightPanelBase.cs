@@ -30,25 +30,15 @@ public abstract class LightPanelBase : Panel
         AffectsArrange<LightPanelBase>(SpacingProperty, ReverseOrderProperty);
     }
 
-    public static void ForeachItems(ReadOnlyCollection<Control> children, int column, Action<int, List<Control>> action)
+    public static void ForeachItems(ReadOnlyCollection<Control> children, int column, Action<int, Control[]> action)
     {
-        var items = new List<Control>();
-
         var row = -1;
 
-        foreach (var child in children)
+        foreach (var items in children.Chunk(column))
         {
-            items.Add(child);
-
-            if (items.Count < column)
-                continue;
-
-            action(++row, items);
-            items.Clear();
+            row++;
+            action(row, items);
         }
-
-        action(++row, items);
-        items.Clear();
     }
 
     protected Size DefaultMeasure(Size availableSize)
