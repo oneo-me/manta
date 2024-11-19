@@ -3,14 +3,14 @@ using AirKit.Reactive.Interfaces;
 
 namespace AirKit.Reactive.Demo.Samples;
 
-[View<TabItemView>]
-sealed class TabItemView_Model : TabModel, ITabTarget<int>
+[View<RegionItemView>]
+sealed class RegionItemView_Model : RegionModel, ITabTarget<int>
 {
-    public static TabItemView_Model Design { get; } = new(0);
+    public static RegionItemView_Model Design { get; } = new(0);
     public int Id { get; }
     public string Content { get; }
 
-    public TabItemView_Model(int id)
+    public RegionItemView_Model(int id)
     {
         Id = id;
         Header = $"TabItem {id}";

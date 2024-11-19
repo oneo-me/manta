@@ -10,20 +10,20 @@ sealed class Main_Model : WindowModel
 {
     readonly ConfigService _configService = Service.GetService<ConfigService>();
 
-    public TabManager<SampleTabModel> TabManager { get; } = new();
+    public RegionManager<SampleRegionModel> RegionManager { get; } = new();
 
     public Main_Model()
     {
-        var baseType = typeof(SampleTabModel);
+        var baseType = typeof(SampleRegionModel);
         foreach (var type in GetType().Assembly.GetTypes())
         {
             if (type.IsAbstract || type.IsInterface || type.IsAssignableTo(baseType) is false)
                 continue;
 
-            TabManager.Open(() => Service.CreateInstance<SampleTabModel>(type), _ => false);
+            RegionManager.Open(() => Service.CreateInstance<SampleRegionModel>(type), _ => false);
         }
 
-        TabManager.SelectedItem = TabManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? TabManager.Items.FirstOrDefault();
+        RegionManager.SelectedItem = RegionManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? RegionManager.Items.FirstOrDefault();
     }
 
     public override void OnWindowInitialized(Window window)
@@ -39,7 +39,7 @@ sealed class Main_Model : WindowModel
 
         window.Closing += delegate
         {
-            _configService.Config.SelectedSample = TabManager.SelectedItem?.Header;
+            _configService.Config.SelectedSample = RegionManager.SelectedItem?.Header;
             _configService.Config.MainWindow.WindowState = window.WindowState;
             _configService.Config.MainWindow.Left = window.Position.X;
             _configService.Config.MainWindow.Top = window.Position.Y;

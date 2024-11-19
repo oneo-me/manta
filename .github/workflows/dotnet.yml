@@ -15,23 +15,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore
+      - name: Build
+        run: dotnet build --no-restore
 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
 
-    - name: Create the package
-      run: dotnet pack --configuration Release -o Packages
+      - name: Create the package
+        run: dotnet pack --configuration Release -o Packages
 
-    - name: Publish the package to GPR
-      run: dotnet nuget push "Packages/*.nupkg" --source "https://nuget.pkg.github.com/oneo-me/index.json" --api-key "${{ secrets.GH_PACKAGES_TOKEN }}" --skip-duplicate --no-symbols
+      - name: Publish the package to GPR
+        run: dotnet nuget push "Packages/*.nupkg" --source "https://nuget.pkg.github.com/oneo-me/index.json" --api-key "${{ secrets.GH_PACKAGES_TOKEN }}" --skip-duplicate --no-symbols

@@ -2,7 +2,7 @@ using AirKit.Reactive.Logging;
 
 namespace AirKit.Reactive;
 
-public class TabModel : ViewModel
+public class RegionModel : ViewModel
 {
     public string Header
     {
@@ -10,7 +10,7 @@ public class TabModel : ViewModel
         set => SetValue(ref field, value);
     } = string.Empty;
 
-    internal Action<TabModel>? CloseFunc { get; set; }
+    internal Action<RegionModel>? CloseFunc { get; set; }
 
     public void Close()
     {

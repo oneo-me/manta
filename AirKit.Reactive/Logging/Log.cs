@@ -16,10 +16,10 @@ public static class Log
     {
         if (Design.IsDesignMode)
             AddLogger(new InnerConsoleLogger(false, true, LogLevel.All));
+        else if (Debugger.IsAttached)
+            AddLogger(new InnerConsoleLogger(true, true, LogLevel.All));
         else
-            AddLogger(new InnerConsoleLogger(false, true, LogLevel.Important));
-        if (Debugger.IsAttached)
-            AddLogger(new InnerDebuggerLogger(false, true, Environment.GetCommandLineArgs().Contains("--debug") ? LogLevel.All : LogLevel.Important));
+            AddLogger(new InnerConsoleLogger(true, true, LogLevel.Important));
     }
 
     public static void AddLogger(ILogger logger)

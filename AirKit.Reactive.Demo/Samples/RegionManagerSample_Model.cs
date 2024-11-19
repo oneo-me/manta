@@ -3,10 +3,10 @@ using AirKit.Reactive.Demo.Models;
 
 namespace AirKit.Reactive.Demo.Samples;
 
-[View<TabManagerSample>]
-sealed class TabManagerSampleModel : SampleTabModel
+[View<RegionManagerSample>]
+sealed class RegionManagerSample_Model : SampleRegionModel
 {
-    public TabManager<TabItemView_Model> TabManager { get; } = new();
+    public RegionManager<RegionItemView_Model> RegionManager { get; } = new();
 
     public int Index
     {
@@ -14,7 +14,7 @@ sealed class TabManagerSampleModel : SampleTabModel
         set => SetValue(ref field, value);
     }
 
-    public TabManagerSampleModel()
+    public RegionManagerSample_Model()
     {
         Header = "TabManger";
 
@@ -24,12 +24,12 @@ sealed class TabManagerSampleModel : SampleTabModel
 
     public void Add()
     {
-        TabManager.Open(Index++, x => new TabItemView_Model(x), x => x.Id == 1);
+        RegionManager.Open(Index++, x => new RegionItemView_Model(x), x => x.Id == 1);
     }
 
     protected override void OnClosed()
     {
         base.OnClosed();
-        TabManager.Dispose();
+        RegionManager.Dispose();
     }
 }

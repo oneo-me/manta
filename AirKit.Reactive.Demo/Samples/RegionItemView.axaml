@@ -1,8 +1,8 @@
 <LightView
-    x:Class="AirKit.Reactive.Demo.Samples.TabItemView"
+    x:Class="AirKit.Reactive.Demo.Samples.RegionItemView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKit.Reactive.Demo.Samples"
-    x:DataType="local:TabItemView_Model" Design.DataContext="{x:Static local:TabItemView_Model.Design}">
+    x:DataType="local:RegionItemView_Model" Design.DataContext="{x:Static local:RegionItemView_Model.Design}">
     <TextBlock Text="{Binding Content}" Margin="12" />
 </LightView>

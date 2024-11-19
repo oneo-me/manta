@@ -12,14 +12,14 @@
         <LightTitleBar Grid.Row="0" />
         <Border Grid.Row="1" Background="{ThemeBrush Background}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Top}">
             <Grid ColumnDefinitions="160,*">
-                <ListBox Grid.Column="0" Classes="List-Sidebar" ItemsSource="{Binding TabManager.Items}" SelectedItem="{Binding TabManager.SelectedItem}">
+                <ListBox Grid.Column="0" Classes="List-Sidebar" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <ListBox.ItemTemplate>
-                        <DataTemplate DataType="models:SampleTabModel">
+                        <DataTemplate DataType="models:SampleRegionModel">
                             <TextBlock Text="{Binding Header}" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <LightViewHost Grid.Column="1" ViewModel="{Binding TabManager.SelectedItem}" />
+                <LightViewHost Grid.Column="1" ViewModel="{Binding RegionManager.SelectedItem}" />
             </Grid>
         </Border>
     </Grid>

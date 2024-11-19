@@ -7,7 +7,7 @@ using DynamicData;
 
 namespace AirKit.Reactive;
 
-public sealed class TabManager<T> : Model, IDisposable where T : TabModel
+public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
 {
     readonly Lock _lock = new();
     readonly SourceList<T> _source = new();
@@ -20,7 +20,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
         set => SetValue(ref field, value);
     }
 
-    public TabManager()
+    public RegionManager()
     {
         _source.Connect()
             .Synchronize()

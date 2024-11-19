@@ -2,9 +2,9 @@ using AirKit.Reactive.Controls;
 
 namespace AirKit.Reactive.Demo.Samples;
 
-sealed partial class TabItemView : LightView
+sealed partial class RegionItemView : LightView
 {
-    public TabItemView()
+    public RegionItemView()
     {
         InitializeComponent();
     }

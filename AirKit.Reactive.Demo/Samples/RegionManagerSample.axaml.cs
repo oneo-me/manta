@@ -2,9 +2,9 @@ using AirKit.Reactive.Controls;
 
 namespace AirKit.Reactive.Demo.Samples;
 
-sealed partial class TabManagerSample : LightView
+sealed partial class RegionManagerSample : LightView
 {
-    public TabManagerSample()
+    public RegionManagerSample()
     {
         InitializeComponent();
     }
