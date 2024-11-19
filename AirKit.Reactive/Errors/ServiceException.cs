@@ -1,4 +1,4 @@
-namespace AirKit.Reactive.Exceptions;
+namespace AirKit.Reactive.Errors;
 
 [Serializable]
 public sealed class ServiceException : Exception

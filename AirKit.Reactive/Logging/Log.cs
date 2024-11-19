@@ -9,7 +9,8 @@ namespace AirKit.Reactive.Logging;
 
 public static class Log
 {
-    static readonly ObservableList<ILogger> _loggers = [];
+    static readonly List<ILogger> _loggers = [];
+    static readonly Lock _lock = new();
 
     static Log()
     {
@@ -23,13 +24,19 @@ public static class Log
 
     public static void AddLogger(ILogger logger)
     {
-        _loggers.Add(logger);
+        lock (_lock)
+        {
+            _loggers.Add(logger);
+        }
     }
 
     public static void WriteLine(LogLevel level, string area, string messageTemplate, params object?[] propertyValues)
     {
-        foreach (var logger in _loggers)
-            logger.WriteLine(level, area, messageTemplate, propertyValues);
+        lock (_lock)
+        {
+            foreach (var logger in _loggers)
+                logger.WriteLine(level, area, messageTemplate, propertyValues);
+        }
     }
 
     public static void Verbose(string area, string messageTemplate, params object?[] propertyValues)

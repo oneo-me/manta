@@ -1,4 +1,4 @@
-using AirKit.Reactive.Exceptions;
+using AirKit.Reactive.Errors;
 using AirKit.Reactive.Logging;
 
 namespace AirKit.Reactive;

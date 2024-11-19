@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace AirKit.Reactive.System;
+namespace AirKit.Reactive.Paths;
 
 public static class FileInfoExtension
 {

@@ -9,13 +9,7 @@
         <local:Main_Model />
     </Design.DataContext>
     <Grid RowDefinitions="Auto,*">
-        <LightTitleBar Grid.Row="0">
-            <LightTitleBar.InnerRightContent>
-                <StackPanel Orientation="Horizontal">
-                    <LightTitleBarButton Content="Dispose" Command="{Binding DisposeCommand}" />
-                </StackPanel>
-            </LightTitleBar.InnerRightContent>
-        </LightTitleBar>
+        <LightTitleBar Grid.Row="0" />
         <Border Grid.Row="1" Background="{ThemeBrush Background}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Top}">
             <Grid ColumnDefinitions="160,*">
                 <ListBox Grid.Column="0" Classes="List-Sidebar" ItemsSource="{Binding TabManager.Items}" SelectedItem="{Binding TabManager.SelectedItem}">

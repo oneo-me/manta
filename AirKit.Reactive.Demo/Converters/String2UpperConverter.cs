@@ -3,7 +3,7 @@ using Avalonia.Data.Converters;
 
 namespace AirKit.Reactive.Demo.Converters;
 
-public sealed class String2UpperConverter : IValueConverter
+sealed class String2UpperConverter : IValueConverter
 {
     public static String2UpperConverter Instance { get; } = new();
 

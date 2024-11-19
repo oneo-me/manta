@@ -4,13 +4,11 @@ namespace AirKit.Reactive;
 
 public class TabModel : ViewModel
 {
-    string _header = string.Empty;
-
     public string Header
     {
-        get => _header;
-        set => SetValue(ref _header, value);
-    }
+        get;
+        set => SetValue(ref field, value);
+    } = string.Empty;
 
     internal Action<TabModel>? CloseFunc { get; set; }
 

@@ -1,6 +1,6 @@
 namespace AirKit.Reactive.Demo.Configs;
 
-public sealed class AppConfig
+sealed class AppConfig
 {
     public MainWindowConfig MainWindow { get; private set; } = new();
     public string? SelectedSample { get; set; }

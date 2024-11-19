@@ -6,6 +6,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 
 namespace AirKit.Reactive.Controls;
 
@@ -92,109 +94,99 @@ public class LightTitleBar : ContentControl
 
         _disposables = new();
 
-        // if (PART_Title is not null)
-        //     window.GetObservable(Window.TitleProperty)
-        //         .Subscribe(x =>
-        //         {
-        //             PART_Title.Text = x;
-        //         })
-        //         .AddTo(_disposables);
-        //
-        // if (PART_Events is not null && Design.IsDesignMode is false)
-        // {
-        //     Observable
-        //         .FromEventHandler<TappedEventArgs>(x => PART_Events.DoubleTapped += x, x => PART_Events.DoubleTapped -= x)
-        //         .Subscribe(_ =>
-        //         {
-        //             if (window.CanResize is false)
-        //                 return;
-        //
-        //             if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
-        //                 return;
-        //
-        //             window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-        //         })
-        //         .AddTo(_disposables);
-        //     Observable
-        //         .FromEventHandler<PointerPressedEventArgs>(x => PART_Events.PointerPressed += x, x => PART_Events.PointerPressed -= x)
-        //         .Subscribe(x =>
-        //         {
-        //             window.BeginMoveDrag(x.e);
-        //         })
-        //         .AddTo(_disposables);
-        // }
-        //
-        // if (PART_Offset is not null && Design.IsDesignMode is false && OperatingSystem.IsMacOS())
-        //     window.GetObservable(Window.WindowStateProperty)
-        //         .Subscribe(x =>
-        //         {
-        //             PART_Offset.Width = x == WindowState.FullScreen ? 0 : 78;
-        //         })
-        //         .AddTo(_disposables);
-        //
-        // if (PART_Buttons is not null)
-        //     foreach (var child in PART_Buttons.Children)
-        //     {
-        //         if (child is not LightTitleBarButton button)
-        //             continue;
-        //
-        //         if (button.Type == LightTitleBarButtonType.Minimize)
-        //             window.GetObservable(Window.ShowInTaskbarProperty)
-        //                 .Subscribe(x =>
-        //                 {
-        //                     button.IsVisible = x;
-        //                 })
-        //                 .AddTo(_disposables);
-        //
-        //         if (button.Type == LightTitleBarButtonType.Maximize)
-        //         {
-        //             window.GetObservable(Window.CanResizeProperty)
-        //                 .Subscribe(x =>
-        //                 {
-        //                     button.IsVisible = x;
-        //                 })
-        //                 .AddTo(_disposables);
-        //             window.GetObservable(Window.WindowStateProperty)
-        //                 .Subscribe(x =>
-        //                 {
-        //                     button.Content = x == WindowState.Maximized;
-        //                 })
-        //                 .AddTo(_disposables);
-        //         }
-        //
-        //         if (Design.IsDesignMode)
-        //             continue;
-        //
-        //         Observable
-        //             .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x)
-        //             .Subscribe(x =>
-        //             {
-        //                 if (x.sender is not LightTitleBarButton sender)
-        //                     return;
-        //
-        //                 switch (sender.Type)
-        //                 {
-        //                     case LightTitleBarButtonType.Minimize:
-        //                         if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
-        //                             return;
-        //
-        //                         window.WindowState = WindowState.Minimized;
-        //                         break;
-        //
-        //                     case LightTitleBarButtonType.Maximize:
-        //                         if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
-        //                             return;
-        //
-        //                         if (window.CanResize)
-        //                             window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-        //                         break;
-        //
-        //                     case LightTitleBarButtonType.Close:
-        //                         window.Close();
-        //                         break;
-        //                 }
-        //             })
-        //             .AddTo(_disposables);
-        // }
+        if (PART_Title is not null)
+            window.GetObservable(Window.TitleProperty).Subscribe(x =>
+                {
+                    PART_Title.Text = x;
+                })
+                .DisposeWith(_disposables);
+
+        if (PART_Events is not null && Design.IsDesignMode is false)
+        {
+            Observable.FromEventHandler<TappedEventArgs>(x => PART_Events.DoubleTapped += x, x => PART_Events.DoubleTapped -= x).Subscribe(_ =>
+                {
+                    if (window.CanResize is false)
+                        return;
+
+                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                        return;
+
+                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                })
+                .DisposeWith(_disposables);
+            Observable.FromEventHandler<PointerPressedEventArgs>(x => PART_Events.PointerPressed += x, x => PART_Events.PointerPressed -= x).Subscribe(x =>
+                {
+                    window.BeginMoveDrag(x.args);
+                })
+                .DisposeWith(_disposables);
+        }
+
+        if (PART_Offset is not null && Design.IsDesignMode is false && OperatingSystem.IsMacOS())
+            window.GetObservable(Window.WindowStateProperty).Subscribe(x =>
+                {
+                    PART_Offset.Width = x == WindowState.FullScreen ? 0 : 78;
+                })
+                .DisposeWith(_disposables);
+
+        if (PART_Buttons is not null)
+            foreach (var child in PART_Buttons.Children)
+            {
+                if (child is not LightTitleBarButton button)
+                    continue;
+
+                if (button.Type == LightTitleBarButtonType.Minimize)
+                    window.GetObservable(Window.ShowInTaskbarProperty).Subscribe(x =>
+                        {
+                            button.IsVisible = x;
+                        })
+                        .DisposeWith(_disposables);
+
+                if (button.Type == LightTitleBarButtonType.Maximize)
+                {
+                    window.GetObservable(Window.CanResizeProperty).Subscribe(x =>
+                        {
+                            button.IsVisible = x;
+                        })
+                        .DisposeWith(_disposables);
+                    window.GetObservable(Window.WindowStateProperty).Subscribe(x =>
+                        {
+                            button.Content = x == WindowState.Maximized;
+                        })
+                        .DisposeWith(_disposables);
+                }
+
+                if (Design.IsDesignMode)
+                    continue;
+
+                Observable
+                    .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x).Subscribe(x =>
+                    {
+                        if (x.sender is not LightTitleBarButton sender)
+                            return;
+
+                        switch (sender.Type)
+                        {
+                            case LightTitleBarButtonType.Minimize:
+                                if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                    return;
+
+                                window.WindowState = WindowState.Minimized;
+                                break;
+
+                            case LightTitleBarButtonType.Maximize:
+                                if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                                    return;
+
+                                if (window.CanResize)
+                                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                                break;
+
+                            case LightTitleBarButtonType.Close:
+                                window.Close();
+                                break;
+                        }
+                    })
+                    .DisposeWith(_disposables);
+            }
     }
 }

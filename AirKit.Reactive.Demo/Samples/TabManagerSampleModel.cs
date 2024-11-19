@@ -8,12 +8,10 @@ sealed class TabManagerSampleModel : SampleTabModel
 {
     public TabManager<TabItemView_Model> TabManager { get; } = new();
 
-    int _index;
-
     public int Index
     {
-        get => _index;
-        set => SetValue(ref _index, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public TabManagerSampleModel()

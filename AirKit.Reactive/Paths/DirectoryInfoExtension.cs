@@ -1,4 +1,4 @@
-namespace AirKit.Reactive.System;
+namespace AirKit.Reactive.Paths;
 
 public static class DirectoryInfoExtension
 {

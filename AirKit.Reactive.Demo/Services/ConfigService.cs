@@ -1,11 +1,11 @@
 using AirKit.Reactive.Demo.Configs;
 using AirKit.Reactive.Demo.Extensions;
 using AirKit.Reactive.Logging;
-using AirKit.Reactive.System;
+using AirKit.Reactive.Paths;
 
 namespace AirKit.Reactive.Demo.Services;
 
-public sealed class ConfigService
+sealed class ConfigService
 {
     readonly FileInfo _configFile;
 

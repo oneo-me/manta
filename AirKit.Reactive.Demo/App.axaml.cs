@@ -3,7 +3,7 @@ using AirKit.Reactive.Demo.Views;
 using AirKit.Reactive.Desktop;
 using AirKit.Reactive.Extensions;
 using AirKit.Reactive.Logging;
-using AirKit.Reactive.System;
+using AirKit.Reactive.Paths;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;

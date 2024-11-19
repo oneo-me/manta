@@ -17,7 +17,6 @@ public abstract class LightApp : Application
     {
         OnExceptionAction = OnException;
 
-        ObservableSystem.RegisterUnhandledExceptionHandler(OnException);
         Dispatcher.UIThread.UnhandledException += (_, e) =>
         {
             e.Handled = true;

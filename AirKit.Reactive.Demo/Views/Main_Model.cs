@@ -1,10 +1,7 @@
-using System.Reactive;
 using AirKit.Reactive.Attributes;
 using AirKit.Reactive.Demo.Models;
 using AirKit.Reactive.Demo.Services;
-using AirKit.Reactive.Extensions;
 using Avalonia.Controls;
-using R3;
 
 namespace AirKit.Reactive.Demo.Views;
 
@@ -14,7 +11,6 @@ sealed class Main_Model : WindowModel
     readonly ConfigService _configService = Service.GetService<ConfigService>();
 
     public TabManager<SampleTabModel> TabManager { get; } = new();
-    public ReactiveCommand<Unit> DisposeCommand { get; }
 
     public Main_Model()
     {
@@ -28,23 +24,6 @@ sealed class Main_Model : WindowModel
         }
 
         TabManager.SelectedItem = TabManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? TabManager.Items.FirstOrDefault();
-
-        DisposeCommand = new(_ =>
-        {
-            if (Design.IsDesignMode)
-                return;
-
-            TabManager.Dispose();
-
-            this.GetWindow().Content = null;
-
-            for (var i = 0; i < 100; i++)
-            {
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-            }
-        });
     }
 
     public override void OnWindowInitialized(Window window)
@@ -70,8 +49,6 @@ sealed class Main_Model : WindowModel
                 _configService.Config.MainWindow.Width = window.Width;
                 _configService.Config.MainWindow.Height = window.Height;
             }
-
-            DisposeCommand.Execute(Unit.Default);
         };
     }
 }

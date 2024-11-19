@@ -9,17 +9,15 @@ namespace AirKit.Reactive;
 
 public sealed class TabManager<T> : Model, IDisposable where T : TabModel
 {
-    readonly object _lock = new();
+    readonly Lock _lock = new();
     readonly SourceList<T> _source = new();
 
     public ReadOnlyObservableCollection<T> Items { get; }
 
-    T? _selectedItem;
-
     public T? SelectedItem
     {
-        get => _selectedItem;
-        set => SetValue(ref _selectedItem, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public TabManager()
@@ -39,7 +37,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
         {
             var regionType = typeof(TTabModel);
 
-            foreach (var item in _source)
+            foreach (var item in _source.Items)
             {
                 if (item.GetType() != regionType)
                     continue;
@@ -93,14 +91,14 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
     {
         lock (_lock)
         {
-            var index = _source.IndexOf(regionModel);
+            var index = _source.Items.IndexOf(regionModel);
             _source.Remove(regionModel);
 
             if (SelectedItem != null && SelectedItem != regionModel)
                 return;
 
             var newIndex = index == 0 ? 0 : index - 1;
-            SelectedItem = _source.Count > 0 ? _source[newIndex] : null;
+            SelectedItem = _source.Count > 0 ? _source.Items[newIndex] : null;
         }
     }
 
@@ -111,9 +109,7 @@ public sealed class TabManager<T> : Model, IDisposable where T : TabModel
         lock (_lock)
         {
             for (var i = _source.Count - 1; i >= 0; i--)
-                _source[i].Close();
+                _source.Items[i].Close();
         }
-
-        Items.Dispose();
     }
 }

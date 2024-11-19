@@ -19,6 +19,7 @@ static class Program
         catch (Exception e)
         {
             Log.Fatal("App", "An unexpected error occurred: {Error}", e);
+            throw;
         }
         finally
         {

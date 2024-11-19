@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace AirKit.Reactive.Demo.Configs;
 
-public class MainWindowConfig
+sealed class MainWindowConfig
 {
     public WindowState WindowState { get; set; } = WindowState.Normal;
     public int Left { get; set; }
