@@ -90,24 +90,24 @@ static class AutoGridLayout
 
         var rowCount = (int)Math.Ceiling(children.Count / (double)columnCount);
         var height = 0d;
-        var maxWidth = 0d;
+        var maxRowWidth = 0d;
 
         for (var i = 0; i < rowCount; i++)
         {
             var maxHeight = 0d;
-            var currentMaxWidth = 0d;
+            var rowWidth = 0d;
 
             foreach (var control in GetControlsFromRow(children, columnCount, i))
             {
                 maxHeight = Math.Max(maxHeight, control.DesiredSize.Height);
-                currentMaxWidth = Math.Max(currentMaxWidth, control.DesiredSize.Width);
+                rowWidth += control.DesiredSize.Width + spacing;
             }
 
             height += maxHeight;
-            maxWidth = Math.Max(maxWidth, currentMaxWidth);
+            maxRowWidth = Math.Max(maxRowWidth, Math.Max(rowWidth - spacing, 0));
         }
 
-        return new(maxWidth + spacing * columnCount, height + spacing * (rowCount - 1));
+        return new(maxRowWidth, height + spacing * (rowCount - 1));
     }
 
     public static void Arrange(LightAutoGrid panel, ReadOnlyCollection<Control> children, Size finalSize)
