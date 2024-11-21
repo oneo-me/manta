@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
+                <MergeResourceInclude Source="/Controls/LightClip.axaml" />
                 <MergeResourceInclude Source="/Controls/LightPath.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBar.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButton.axaml" />
