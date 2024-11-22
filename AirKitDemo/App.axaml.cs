@@ -8,11 +8,17 @@ using AirKitDemo.Views;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 
 namespace AirKitDemo;
 
 sealed class App : LightApp
 {
+    public App()
+    {
+        AccentColor = Colors.Teal;
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

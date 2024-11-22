@@ -40,13 +40,15 @@
                                 <Setter Property="Transitions">
                                     <Transitions>
                                         <BrushTransition Property="Background" Duration="0:0:0.1" />
+                                        <BrushTransition Property="Foreground" Duration="0:0:0.1" />
                                     </Transitions>
                                 </Setter>
                                 <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4, TopBottomOffset=-1}" />
                                 <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
-                                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+                                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0}" />
                                 <Style Selector="^:selected">
-                                    <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+                                    <Setter Property="Background" Value="{ThemeBrush Primary}" />
+                                    <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
                                 </Style>
                                 <Style Selector="^:disabled">
                                     <Setter Property="Opacity" Value="0.5" />

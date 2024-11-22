@@ -1,6 +1,5 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
@@ -17,15 +16,6 @@ public sealed class LightWindow : Window
     {
         get => GetValue(IconProperty);
         set => SetValue(IconProperty, value);
-    }
-
-    public static readonly StyledProperty<IBrush?> BackgroundThemeBrushProperty = AvaloniaProperty.Register<LightWindow, IBrush?>(
-        nameof(BackgroundThemeBrush));
-
-    public IBrush? BackgroundThemeBrush
-    {
-        get => GetValue(BackgroundThemeBrushProperty);
-        set => SetValue(BackgroundThemeBrushProperty, value);
     }
 
     internal LightWindow()

@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
+    <!-- 系统配色 -->
+    <SolidColorBrush x:Key="{ThemeBrushKey Primary}" Color="{DynamicResource SystemAccentColor}" />
     <!-- 颜色 -->
     <system:Double x:Key="{ThemeNumberKey FontSize}">12</system:Double>
     <!-- 配置 -->

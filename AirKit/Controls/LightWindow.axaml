@@ -10,7 +10,6 @@
     <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
         <Setter Property="WindowStartupLocation" Value="CenterScreen" />
         <Setter Property="Background" Value="{ThemeBrush Window_Background}" />
-        <Setter Property="BackgroundThemeBrush" Value="{ThemeBrush Primary, Opacity=0.1}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
@@ -18,7 +17,6 @@
             <ControlTemplate>
                 <LightPanel>
                     <Border Background="{TemplateBinding Background}" />
-                    <Border Background="{TemplateBinding BackgroundThemeBrush}" />
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <VisualLayerManager>
                             <ContentPresenter x:Name="PART_ContentPresenter"

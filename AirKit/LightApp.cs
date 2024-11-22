@@ -1,7 +1,10 @@
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using AirKit.Logging;
+using AirKit.Themes.Themes;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 
@@ -53,6 +56,13 @@ public abstract class LightApp : Application
     {
         get => base.Name ?? string.Empty;
         protected init => base.Name = value;
+    }
+
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
+    public Color? AccentColor
+    {
+        get => SystemAccentColors.AppSystemAccentColor;
+        init => SystemAccentColors.AppSystemAccentColor = value;
     }
 
     public override void OnFrameworkInitializationCompleted()
