@@ -8,6 +8,9 @@
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
                 <MergeResourceInclude Source="/Controls/LightClip.axaml" />
                 <MergeResourceInclude Source="/Controls/LightPath.axaml" />
+                <MergeResourceInclude Source="/Controls/LightScrollBar.axaml" />
+                <MergeResourceInclude Source="/Controls/LightScrollViewer.axaml" />
+                <MergeResourceInclude Source="/Controls/LightThumb.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBar.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="/Controls/LightViewHost.axaml" />

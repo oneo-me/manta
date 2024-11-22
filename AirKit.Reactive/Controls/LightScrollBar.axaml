@@ -1,0 +1,106 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
+            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
+                <Border Background="Aquamarine" Width="300" Height="300" />
+            </LightScrollViewer>
+            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto">
+                <Border Background="Aquamarine" Width="300" Height="300" />
+            </LightScrollViewer>
+            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <Border Background="Aquamarine" Width="300" Height="300" />
+            </LightScrollViewer>
+            <LightScrollViewer Padding="30" Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
+                <Border Background="Aquamarine" Width="300" Height="300" />
+            </LightScrollViewer>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightScrollBar}" TargetType="LightScrollBar">
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Background" Value="{ThemeBrush Foreground}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="ShowDelay" Value="0:0:0" />
+        <Setter Property="HideDelay" Value="0:0:0.2" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                <ThicknessTransition Property="Padding" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="#00000000">
+                    <Track Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+                           Value="{TemplateBinding Value, Mode=TwoWay}" ViewportSize="{TemplateBinding ViewportSize}"
+                           Orientation="{TemplateBinding Orientation}">
+                        <Track.DecreaseButton>
+                            <RepeatButton x:Name="PART_PageUpButton" Focusable="False" />
+                        </Track.DecreaseButton>
+                        <Track.IncreaseButton>
+                            <RepeatButton x:Name="PART_PageDownButton" Focusable="False" />
+                        </Track.IncreaseButton>
+                        <LightThumb>
+                            <Border Margin="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}" />
+                        </LightThumb>
+                    </Track>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ RepeatButton">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="#00000000" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^:vertical">
+            <Setter Property="Width" Value="18" />
+            <Setter Property="Padding" Value="11 4 4 4" />
+            <Style Selector="^ /template/ Track">
+                <Setter Property="IsDirectionReversed" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ LightThumb">
+                <Setter Property="MinHeight" Value="36" />
+            </Style>
+        </Style>
+        <Style Selector="^:horizontal">
+            <Setter Property="Height" Value="18" />
+            <Setter Property="Padding" Value="4 11 4 4" />
+            <Style Selector="^ /template/ Track">
+                <Setter Property="IsDirectionReversed" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ LightThumb">
+                <Setter Property="MinWidth" Value="36" />
+            </Style>
+        </Style>
+        <Style Selector="^:pointerover">
+            <Style Selector="^:vertical">
+                <Setter Property="Padding" Value="4 6 6 6" />
+            </Style>
+            <Style Selector="^:horizontal">
+                <Setter Property="Padding" Value="6 4 6 6" />
+            </Style>
+        </Style>
+        <Style Selector="^ /template/ Track">
+            <Setter Property="Opacity" Value="0.2" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
