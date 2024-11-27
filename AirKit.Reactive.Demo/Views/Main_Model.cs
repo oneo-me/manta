@@ -1,4 +1,5 @@
 using AirKit.Reactive.Attributes;
+using AirKit.Reactive.Controls;
 using AirKit.Reactive.Demo.Models;
 using AirKit.Reactive.Demo.Services;
 using Avalonia.Controls;
@@ -26,11 +27,9 @@ sealed class Main_Model : WindowModel
         RegionManager.SelectedItem = RegionManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? RegionManager.Items.FirstOrDefault();
     }
 
-    public override void OnWindowInitialized(Window window)
+    public override void OnWindowInitialized(LightWindow window)
     {
         base.OnWindowInitialized(window);
-
-        window.Title = LightApp.Current.Name;
 
         window.WindowState = _configService.Config.MainWindow.WindowState;
         window.Position = new(_configService.Config.MainWindow.Left, _configService.Config.MainWindow.Top);
