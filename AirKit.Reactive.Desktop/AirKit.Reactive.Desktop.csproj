@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\AirKit.Reactive\AirKit.Reactive.csproj" />
-    </ItemGroup>
-</Project>

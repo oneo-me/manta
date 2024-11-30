@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Skia" Version="11.2.2" />
+        <PackageReference Include="DynamicData" Version="9.0.4" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\AirKit.Themes\AirKit.Themes.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+<LightView
+    x:Class="AirKit.Demo.Views.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKit.Demo.Views"
+    xmlns:models="clr-namespace:AirKit.Demo.Models"
+    x:DataType="local:Main_Model">
+    <Design.DataContext>
+        <local:Main_Model />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto,*">
+        <LightTitleBar Grid.Row="0" />
+        <Border Grid.Row="1" Background="{ThemeBrush Background}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Top}">
+            <Grid ColumnDefinitions="160,*">
+                <ListBox Grid.Column="0" Classes="List-Sidebar" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="models:SampleRegionModel">
+                            <TextBlock Text="{Binding Header}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <LightViewHost Grid.Column="1" ViewModel="{Binding RegionManager.SelectedItem}" />
+            </Grid>
+        </Border>
+    </Grid>
+</LightView>

@@ -1,0 +1,15 @@
+<Application
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="AirKit.Demo.App"
+    RequestedThemeVariant="Default">
+    <Application.Styles>
+        <LightThemeBase />
+        <StyleInclude Source="Styles/_Icons.axaml" />
+        <StyleInclude Source="Styles/Button-Mini.axaml" />
+        <StyleInclude Source="Styles/Button-Tab-Close.axaml" />
+        <StyleInclude Source="Styles/List-Logs.axaml" />
+        <StyleInclude Source="Styles/List-Sidebar.axaml" />
+        <StyleInclude Source="Styles/List-Tab.axaml" />
+    </Application.Styles>
+</Application>
