@@ -8,65 +8,69 @@
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
-    <Grid ColumnDefinitions="200,*">
-        <Border Grid.Column="0" BorderThickness="{ThemeThickness Normal, Filter=Right}">
+    <Grid ColumnDefinitions="160,*">
+        <Grid Grid.Column="0" RowDefinitions="Auto,*">
+            <Border Grid.Row="0" x:Name="MoveBorder1" />
+            <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+                <ListBox.Theme>
+                    <ControlTheme TargetType="ListBox">
+                        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+                        <Setter Property="Template">
+                            <ControlTemplate>
+                                <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Margin="{TemplateBinding Padding}" />
+                            </ControlTemplate>
+                        </Setter>
+                        <Setter Property="ItemContainerTheme">
+                            <ControlTheme TargetType="ListBoxItem">
+                                <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="models:SampleItem" />
+                                <Setter Property="Template">
+                                    <ControlTemplate>
+                                        <ContentPresenter Content="{TemplateBinding Content}"
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          Padding="{TemplateBinding Padding}"
+                                                          Background="{TemplateBinding Background}"
+                                                          CornerRadius="{TemplateBinding CornerRadius}" />
+                                    </ControlTemplate>
+                                </Setter>
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0:0:0.1" />
+                                    </Transitions>
+                                </Setter>
+                                <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4, TopBottomOffset=-1}" />
+                                <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
+                                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+                                <Style Selector="^:selected">
+                                    <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+                                </Style>
+                                <Style Selector="^:disabled">
+                                    <Setter Property="Opacity" Value="0.5" />
+                                    <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </ControlTheme>
+                        </Setter>
+                    </ControlTheme>
+                </ListBox.Theme>
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models:SampleItem">
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Border Grid.Column="1" Background="{ThemeBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
             <Grid RowDefinitions="Auto,*">
-                <Border Grid.Row="0" x:Name="MoveBorder1" />
-                <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
-                    <ListBox.Theme>
-                        <ControlTheme TargetType="ListBox">
-                            <Setter Property="Padding" Value="{ThemeThickness Padding}" />
-                            <Setter Property="Template">
-                                <ControlTemplate>
-                                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    Margin="{TemplateBinding Padding}" />
-                                </ControlTemplate>
-                            </Setter>
-                            <Setter Property="ItemContainerTheme">
-                                <ControlTheme TargetType="ListBoxItem">
-                                    <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="models:SampleItem" />
-                                    <Setter Property="Template">
-                                        <ControlTemplate>
-                                            <ContentPresenter Content="{TemplateBinding Content}"
-                                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                              Padding="{TemplateBinding Padding}"
-                                                              Background="{TemplateBinding Background}"
-                                                              CornerRadius="{TemplateBinding CornerRadius}" />
-                                        </ControlTemplate>
-                                    </Setter>
-                                    <Setter Property="Transitions">
-                                        <Transitions>
-                                            <BrushTransition Property="Background" Duration="0:0:0.1" />
-                                        </Transitions>
-                                    </Setter>
-                                    <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4}" />
-                                    <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
-                                    <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
-                                    <Style Selector="^:selected">
-                                        <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
-                                    </Style>
-                                    <Style Selector="^:disabled">
-                                        <Setter Property="Opacity" Value="0.5" />
-                                        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                    </Style>
-                                </ControlTheme>
-                            </Setter>
-                        </ControlTheme>
-                    </ListBox.Theme>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate DataType="models:SampleItem">
-                            <TextBlock Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Border Grid.Row="0" x:Name="MoveBorder2" VerticalAlignment="Top">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock Grid.Column="0" Text="{Binding SelectedItem.Name}" VerticalAlignment="Center"
+                                   Margin="12 0" FontWeight="SemiBold" FontSize="14" />
+                        <LightTitleBarButtons Grid.Column="1" x:Name="Buttons" />
+                    </Grid>
+                </Border>
+                <LightViewHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
             </Grid>
         </Border>
-        <Grid Grid.Column="1" RowDefinitions="Auto,*" Background="{ThemeBrush Background}">
-            <Border Grid.Row="0" x:Name="MoveBorder2" VerticalAlignment="Top">
-                <LightTitleBarButtons HorizontalAlignment="Right" />
-            </Border>
-            <LightViewHost Grid.Row="1" ViewModel="{Binding CurrentViewModel}" />
-        </Grid>
     </Grid>
 </LightView>

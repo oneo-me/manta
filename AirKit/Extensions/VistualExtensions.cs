@@ -12,11 +12,11 @@ namespace AirKit.Extensions;
 
 public static class VisualExtensions
 {
-    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset)> action) where T : LightView
+    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action) where T : LightView
     {
         if (Design.IsDesignMode)
         {
-            action((false, true, 0, 0));
+            action((false, true, 0, 0, 38));
             return Disposable.Empty;
         }
 
@@ -33,7 +33,7 @@ public static class VisualExtensions
                 var leftOffset = isShowButtons ? 78 : 0;
                 var topOffset = isShowButtons ? 38 : 0;
 
-                action((isShowButtons is false, isShowButtons && isMacos is false, isMacos ? leftOffset : 0, isMacos ? topOffset : 0));
+                action((isShowButtons is false, isShowButtons && isMacos is false, isMacos ? leftOffset : 0, isMacos ? topOffset : 0, 38));
             });
     }
 

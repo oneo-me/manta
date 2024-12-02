@@ -28,22 +28,14 @@ sealed class Main_Model : WindowModel
             if (SetValue(ref field, value) is false)
                 return;
 
-            var currentViewModel = CurrentViewModel;
-            CurrentViewModel = null;
-            currentViewModel?.DisposeIfDisposable();
-
             if (value?.Type is null)
-                return;
-
-            CurrentViewModel = Service.CreateInstance<ViewModel>(value.Type);
+                ViewManager.ClearView();
+            else
+                ViewManager.OpenView(value.Type);
         }
     }
 
-    public ViewModel? CurrentViewModel
-    {
-        get;
-        set => SetValue(ref field, value);
-    }
+    public ViewManager ViewManager { get; } = new();
 
     public Main_Model()
     {
@@ -112,7 +104,9 @@ sealed class Main_Model : WindowModel
         view.SubscribeWindowStatus(x =>
         {
             view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 6 : 0;
-            view.MoveBorder2.IsVisible = (Debugger.IsAttached && x.isFullscreen is false) || x.isShowButtons;
+            view.Buttons.IsVisible = (Debugger.IsAttached && x.isFullscreen is false) || x.isShowButtons;
+            view.MoveBorder2.Margin = new(0, 0, 0, -12);
+            view.MoveBorder2.Height = x.titleBarHeight;
         }).DisposeWith(disposables);
     }
 
