@@ -1,9 +1,9 @@
 <LightView
-    x:Class="AirKit.Demo.Views.Main"
+    x:Class="AirKitDemo.Views.Main"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AirKit.Demo.Views"
-    xmlns:models="clr-namespace:AirKit.Demo.Models"
+    xmlns:local="clr-namespace:AirKitDemo.Views"
+    xmlns:models="clr-namespace:AirKitDemo.Models"
     x:DataType="local:Main_Model">
     <Design.DataContext>
         <local:Main_Model />
@@ -64,11 +64,11 @@
                 </ListBox>
             </Grid>
         </Border>
-        <Grid Grid.Column="1" Background="{ThemeBrush Background}">
-            <Border x:Name="MoveBorder2" VerticalAlignment="Top">
+        <Grid Grid.Column="1" RowDefinitions="Auto,*" Background="{ThemeBrush Background}">
+            <Border Grid.Row="0" x:Name="MoveBorder2" VerticalAlignment="Top">
                 <LightTitleBarButtons HorizontalAlignment="Right" />
             </Border>
-            <LightViewHost ViewModel="{Binding RegionManager.SelectedItem}" />
+            <LightViewHost Grid.Row="1" ViewModel="{Binding RegionManager.SelectedItem}" />
         </Grid>
     </Grid>
 </LightView>

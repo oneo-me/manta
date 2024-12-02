@@ -1,14 +1,15 @@
-using AirKit.Demo.Services;
-using AirKit.Demo.Views;
+using AirKit;
 using AirKit.Desktop;
 using AirKit.Extensions;
 using AirKit.Logging;
 using AirKit.Paths;
+using AirKitDemo.Services;
+using AirKitDemo.Views;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace AirKit.Demo;
+namespace AirKitDemo;
 
 sealed class App : LightApp
 {

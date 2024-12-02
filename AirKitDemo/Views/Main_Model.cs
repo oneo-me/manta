@@ -1,14 +1,14 @@
 using System.Diagnostics;
 using System.Reactive.Disposables;
+using AirKit;
 using AirKit.Attributes;
 using AirKit.Controls;
-using AirKit.Demo.Models;
-using AirKit.Demo.Services;
 using AirKit.Extensions;
+using AirKitDemo.Models;
+using AirKitDemo.Services;
 using Avalonia.Controls;
-using Avalonia.Media;
 
-namespace AirKit.Demo.Views;
+namespace AirKitDemo.Views;
 
 [View<Main>]
 sealed class Main_Model : WindowModel
@@ -36,12 +36,6 @@ sealed class Main_Model : WindowModel
         base.OnViewActivated(disposables);
 
         var view = this.GetView<Main>();
-
-        if (Design.IsDesignMode)
-        {
-            view.MoveBorder1.Background = new SolidColorBrush(Color.FromArgb((byte)(2.55 * 10), 0, 0, 0));
-            view.MoveBorder2.Background = new SolidColorBrush(Color.FromArgb((byte)(2.55 * 10), 0, 0, 0));
-        }
 
         view.SubscribeTitleBarEvents(x => x.MoveBorder1).DisposeWith(disposables);
         view.SubscribeTitleBarEvents(x => x.MoveBorder2).DisposeWith(disposables);

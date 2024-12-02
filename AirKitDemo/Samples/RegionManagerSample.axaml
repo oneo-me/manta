@@ -1,13 +1,13 @@
 <LightView
-    x:Class="AirKit.Demo.Samples.RegionManagerSample"
+    x:Class="AirKitDemo.Samples.RegionManagerSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AirKit.Demo.Samples"
+    xmlns:local="clr-namespace:AirKitDemo.Samples"
     x:DataType="local:RegionManagerSample_Model" Design.Width="500">
     <Design.DataContext>
         <local:RegionManagerSample_Model />
     </Design.DataContext>
-    <Grid RowDefinitions="Auto,*" Margin="8">
+    <Grid RowDefinitions="Auto,*" Margin="12">
         <LightPanel Grid.Row="0" Mode="Horizontal" Margin="0 0 0 12">
             <Button Classes="Button-Mini" Content="{Binding Index, StringFormat=Add item (id: {0})}" Command="{Binding Add}" />
         </LightPanel>

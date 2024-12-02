@@ -1,6 +1,6 @@
 using AirKit.Controls;
 
-namespace AirKit.Demo.Samples;
+namespace AirKitDemo.Samples;
 
 sealed partial class RegionItemView : LightView
 {

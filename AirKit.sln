@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKit.Demo", "AirKit.Demo\AirKit.Demo.csproj", "{5684EAF1-6873-D381-86CE-0A066412E98D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKitDemo", "AirKitDemo\AirKitDemo.csproj", "{5684EAF1-6873-D381-86CE-0A066412E98D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirKit.Desktop", "AirKit.Desktop\AirKit.Desktop.csproj", "{79C8B406-FC53-19A9-51BA-A63CEC2BB2AF}"
 EndProject

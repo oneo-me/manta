@@ -1,6 +1,6 @@
 using AirKit.Controls;
 
-namespace AirKit.Demo.Views;
+namespace AirKitDemo.Views;
 
 sealed partial class Main : LightView
 {

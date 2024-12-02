@@ -63,7 +63,7 @@ public static class VisualExtensions
                 break;
         }
 
-        Observable.FromEventHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(x =>
+        Observable.FromEventHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
             {
                 if (window.CanResize is false)
                     return;

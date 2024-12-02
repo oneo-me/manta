@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace AirKit.Demo.Configs;
+namespace AirKitDemo.Configs;
 
 sealed class MainWindowConfig
 {

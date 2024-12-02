@@ -3,7 +3,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.Converters;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace AirKit.Demo.Extensions;
+namespace AirKitDemo.Extensions;
 
 static class YamlExtensions
 {

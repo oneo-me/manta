@@ -1,7 +1,8 @@
+using AirKit;
 using AirKit.Attributes;
-using AirKit.Demo.Models;
+using AirKitDemo.Models;
 
-namespace AirKit.Demo.Samples;
+namespace AirKitDemo.Samples;
 
 [View<RegionManagerSample>]
 sealed class RegionManagerSample_Model : SampleRegionModel

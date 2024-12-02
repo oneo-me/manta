@@ -2,7 +2,7 @@
 using AirKit.Logging;
 using Avalonia;
 
-namespace AirKit.Demo;
+namespace AirKitDemo;
 
 static class Program
 {

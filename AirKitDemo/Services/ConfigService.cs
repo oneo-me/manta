@@ -1,9 +1,9 @@
-using AirKit.Demo.Configs;
-using AirKit.Demo.Extensions;
+using AirKitDemo.Extensions;
 using AirKit.Logging;
 using AirKit.Paths;
+using AirKitDemo.Configs;
 
-namespace AirKit.Demo.Services;
+namespace AirKitDemo.Services;
 
 sealed class ConfigService
 {

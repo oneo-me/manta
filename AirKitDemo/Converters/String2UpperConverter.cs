@@ -1,7 +1,7 @@
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace AirKit.Demo.Converters;
+namespace AirKitDemo.Converters;
 
 sealed class String2UpperConverter : IValueConverter
 {

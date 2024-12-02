@@ -1,4 +1,4 @@
-namespace AirKit.Demo.Configs;
+namespace AirKitDemo.Configs;
 
 sealed class AppConfig
 {
