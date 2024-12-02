@@ -4,6 +4,7 @@ using AirKitDemo.Models;
 
 namespace AirKitDemo.Samples;
 
+[Sample(SampleGroupType.Reactive, "TabManger")]
 [View<RegionManagerSample>]
 sealed class RegionManagerSample_Model : SampleRegionModel
 {
@@ -17,8 +18,6 @@ sealed class RegionManagerSample_Model : SampleRegionModel
 
     public RegionManagerSample_Model()
     {
-        Header = "TabManger";
-
         for (var i = 0; i < 3; i++)
             Add();
     }

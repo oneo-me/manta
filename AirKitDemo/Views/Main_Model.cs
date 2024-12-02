@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive.Disposables;
 using AirKit;
@@ -7,6 +8,7 @@ using AirKit.Extensions;
 using AirKitDemo.Models;
 using AirKitDemo.Services;
 using Avalonia.Controls;
+using DynamicData;
 
 namespace AirKitDemo.Views;
 
@@ -14,21 +16,88 @@ namespace AirKitDemo.Views;
 sealed class Main_Model : WindowModel
 {
     readonly ConfigService _configService = Service.GetService<ConfigService>();
+    readonly SourceList<SampleItem> _sourceList = new();
 
-    public RegionManager<SampleRegionModel> RegionManager { get; } = new();
+    public ReadOnlyObservableCollection<SampleItem> Items { get; }
+
+    public SampleItem? SelectedItem
+    {
+        get;
+        set
+        {
+            if (SetValue(ref field, value) is false)
+                return;
+
+            var currentViewModel = CurrentViewModel;
+            CurrentViewModel = null;
+            currentViewModel?.DisposeIfDisposable();
+
+            if (value?.Type is null)
+                return;
+
+            CurrentViewModel = Service.CreateInstance<ViewModel>(value.Type);
+        }
+    }
+
+    public ViewModel? CurrentViewModel
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
 
     public Main_Model()
     {
+        _sourceList.Connect()
+            .ObserveOnDispatcher()
+            .Bind(out var items)
+            .Subscribe();
+
+        Items = items;
+
+        var samples = new List<(SampleGroupType groupType, string name, Type type)>();
         var baseType = typeof(SampleRegionModel);
+
         foreach (var type in GetType().Assembly.GetTypes())
         {
             if (type.IsAbstract || type.IsInterface || type.IsAssignableTo(baseType) is false)
                 continue;
 
-            RegionManager.Open(() => Service.CreateInstance<SampleRegionModel>(type), _ => false);
+            if (Attribute.GetCustomAttribute(type, typeof(SampleAttribute)) is not SampleAttribute sampleAttribute)
+                continue;
+
+            samples.Add((sampleAttribute.GroupType, sampleAttribute.Name, type));
         }
 
-        RegionManager.SelectedItem = RegionManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? RegionManager.Items.FirstOrDefault();
+        var groupings = samples.GroupBy(x => x.groupType).ToList();
+        groupings.Sort((x, y) => x.Key.CompareTo(y.Key));
+
+        foreach (var grouping in groupings)
+        {
+            _sourceList.Add(new(GetGroupName(grouping.Key)));
+
+            foreach (var (_, name, type) in grouping)
+                _sourceList.Add(new(name, type));
+        }
+
+        SelectedItem = _sourceList.Items.FirstOrDefault(x => x.IsGroup is false && x.Name == _configService.Config.SelectedSample) ?? _sourceList.Items.FirstOrDefault(x => x.IsGroup is false);
+    }
+
+    static readonly Dictionary<SampleGroupType, string> _groupNameCache = new();
+    static readonly Type _sampleGroupType = typeof(SampleGroupType);
+
+    static string GetGroupName(SampleGroupType groupType)
+    {
+        if (_groupNameCache.TryGetValue(groupType, out var groupName))
+            return groupName;
+
+        var fieldInfo = _sampleGroupType.GetField(groupType.ToString());
+        if (fieldInfo is null)
+            throw new InvalidOperationException();
+
+        if (Attribute.GetCustomAttribute(fieldInfo, typeof(SampleGroupAttribute)) is not SampleGroupAttribute sampleGroupAttribute)
+            throw new InvalidOperationException();
+
+        return _groupNameCache[groupType] = sampleGroupAttribute.Name;
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
@@ -58,7 +127,7 @@ sealed class Main_Model : WindowModel
 
         window.Closing += delegate
         {
-            _configService.Config.SelectedSample = RegionManager.SelectedItem?.Header;
+            _configService.Config.SelectedSample = SelectedItem?.Name;
             _configService.Config.MainWindow.WindowState = window.WindowState;
             _configService.Config.MainWindow.Left = window.Position.X;
             _configService.Config.MainWindow.Top = window.Position.Y;

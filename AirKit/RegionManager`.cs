@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Linq;
+using AirKit.Extensions;
 using AirKit.Interfaces;
 using AirKit.Logging;
 using DynamicData;
@@ -24,7 +25,7 @@ public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
     {
         _source.Connect()
             .Synchronize()
-            .ObserveOn(AvaloniaScheduler.Instance)
+            .ObserveOnDispatcher()
             .Bind(out var items)
             .Subscribe();
         Items = items;
