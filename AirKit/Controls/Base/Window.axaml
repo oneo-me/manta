@@ -27,8 +27,8 @@
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </LightPanel.Background>
-                        <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" IsVisible="False" />
-                        <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" IsVisible="False" />
+                        <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" />
+                        <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" />
                     </LightPanel>
                     <VisualLayerManager>
                         <ContentPresenter x:Name="PART_ContentPresenter"

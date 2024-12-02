@@ -1,8 +1,12 @@
+using System.Diagnostics;
+using System.Reactive.Disposables;
 using AirKit.Attributes;
 using AirKit.Controls;
 using AirKit.Demo.Models;
 using AirKit.Demo.Services;
+using AirKit.Extensions;
 using Avalonia.Controls;
+using Avalonia.Media;
 
 namespace AirKit.Demo.Views;
 
@@ -25,6 +29,28 @@ sealed class Main_Model : WindowModel
         }
 
         RegionManager.SelectedItem = RegionManager.Items.FirstOrDefault(x => string.Equals(x.Header, _configService.Config.SelectedSample, StringComparison.Ordinal)) ?? RegionManager.Items.FirstOrDefault();
+    }
+
+    protected override void OnViewActivated(CompositeDisposable disposables)
+    {
+        base.OnViewActivated(disposables);
+
+        var view = this.GetView<Main>();
+
+        if (Design.IsDesignMode)
+        {
+            view.MoveBorder1.Background = new SolidColorBrush(Color.FromArgb((byte)(2.55 * 10), 0, 0, 0));
+            view.MoveBorder2.Background = new SolidColorBrush(Color.FromArgb((byte)(2.55 * 10), 0, 0, 0));
+        }
+
+        view.SubscribeTitleBarEvents(x => x.MoveBorder1).DisposeWith(disposables);
+        view.SubscribeTitleBarEvents(x => x.MoveBorder2).DisposeWith(disposables);
+
+        view.SubscribeWindowStatus(x =>
+        {
+            view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 6 : 0;
+            view.MoveBorder2.IsVisible = (Debugger.IsAttached && x.isFullscreen is false) || x.isShowButtons;
+        }).DisposeWith(disposables);
     }
 
     public override void OnWindowInitialized(LightWindow window)

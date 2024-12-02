@@ -9,7 +9,6 @@
         <StyleInclude Source="Styles/Button-Mini.axaml" />
         <StyleInclude Source="Styles/Button-Tab-Close.axaml" />
         <StyleInclude Source="Styles/List-Logs.axaml" />
-        <StyleInclude Source="Styles/List-Sidebar.axaml" />
         <StyleInclude Source="Styles/List-Tab.axaml" />
     </Application.Styles>
 </Application>

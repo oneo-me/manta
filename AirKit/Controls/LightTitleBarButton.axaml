@@ -5,14 +5,7 @@
     <Design.PreviewWith>
         <Border Margin="12" Background="#19A660FF" BorderBrush="#0D000000" BoxShadow="0 3 10 #19000000" BorderThickness="1" CornerRadius="10">
             <Grid RowDefinitions="Auto,*">
-                <LightTitleBar Grid.Row="0">
-                    <LightTitleBar.InnerRightContent>
-                        <LightPanel Mode="Horizontal">
-                            <LightTitleBarButton Content="Button" />
-                            <LightTitleBarButton Content="Button" />
-                        </LightPanel>
-                    </LightTitleBar.InnerRightContent>
-                </LightTitleBar>
+                <LightTitleBarButtons Grid.Row="0" />
                 <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#0D000000" BorderThickness="0 1 0 0" CornerRadius="0 0 10 10" Height="80" />
             </Grid>
         </Border>

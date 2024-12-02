@@ -8,19 +8,67 @@
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
-    <Grid RowDefinitions="Auto,*">
-        <LightTitleBar Grid.Row="0" />
-        <Border Grid.Row="1" Background="{ThemeBrush Background}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Top}">
-            <Grid ColumnDefinitions="160,*">
-                <ListBox Grid.Column="0" Classes="List-Sidebar" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+    <LightView.Styles>
+        <Style Selector="ListBox.List-Sidebar">
+            <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <LightPanel Mode="Vertical" />
+                </ItemsPanelTemplate>
+            </Setter>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^ > ListBoxItem">
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Padding="{TemplateBinding Padding}"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          CornerRadius="{TemplateBinding CornerRadius}" />
+                    </ControlTemplate>
+                </Setter>
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+                <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4}" />
+                <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
+                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+                <Style Selector="^:selected">
+                    <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+                </Style>
+            </Style>
+        </Style>
+    </LightView.Styles>
+    <Grid ColumnDefinitions="200,*">
+        <Border Grid.Column="0" BorderThickness="{ThemeThickness Normal, Filter=Right}">
+            <Grid RowDefinitions="Auto,*">
+                <Border Grid.Row="0" x:Name="MoveBorder1" />
+                <ListBox Grid.Row="1" Classes="List-Sidebar" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="models:SampleRegionModel">
                             <TextBlock Text="{Binding Header}" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <LightViewHost Grid.Column="1" ViewModel="{Binding RegionManager.SelectedItem}" />
             </Grid>
         </Border>
+        <Grid Grid.Column="1" Background="{ThemeBrush Background}">
+            <Border x:Name="MoveBorder2" VerticalAlignment="Top">
+                <LightTitleBarButtons HorizontalAlignment="Right" />
+            </Border>
+            <LightViewHost ViewModel="{Binding RegionManager.SelectedItem}" />
+        </Grid>
     </Grid>
 </LightView>
