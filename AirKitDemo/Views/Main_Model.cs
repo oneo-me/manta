@@ -31,7 +31,7 @@ sealed class Main_Model : WindowModel
             if (value?.Type is null)
                 ViewManager.ClearView();
             else
-                ViewManager.OpenView(value.Type);
+                ViewManager.OpenView<SampleRegionModel>(value.Type, x => x.Header = value.Name);
         }
     }
 
@@ -104,7 +104,7 @@ sealed class Main_Model : WindowModel
         view.SubscribeWindowStatus(x =>
         {
             view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 6 : 0;
-            view.Buttons.IsVisible = (Debugger.IsAttached && x.isFullscreen is false) || x.isShowButtons;
+            view.Buttons.IsVisible = (Debugger.IsAttached || x.isShowButtons) && x.isFullscreen is false;
             view.MoveBorder2.Margin = new(0, 0, 0, -12);
             view.MoveBorder2.Height = x.titleBarHeight;
         }).DisposeWith(disposables);

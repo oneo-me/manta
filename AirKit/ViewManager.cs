@@ -29,9 +29,17 @@ public sealed class ViewManager : Model, IDisposable
         OpenViewCore(viewModel);
     }
 
-    public void OpenView<T>() where T : ViewModel, new()
+    public void OpenView<T>(Action<T>? func = null) where T : ViewModel
     {
-        var viewModel = Service.CreateInstance<T>();
+        var viewModel = Service.CreateInstance<T>(typeof(T));
+        func?.Invoke(viewModel);
+        OpenViewCore(viewModel);
+    }
+
+    public void OpenView<T>(Type type, Action<T>? func = null) where T : ViewModel
+    {
+        var viewModel = Service.CreateInstance<T>(type);
+        func?.Invoke(viewModel);
         OpenViewCore(viewModel);
     }
 
