@@ -1,0 +1,21 @@
+<LightView
+    x:Class="AirKitDemo.Samples.Base.BaseTextSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Base"
+    x:DataType="local:BaseTextSample_Model">
+    <Design.DataContext>
+        <local:BaseTextSample_Model />
+    </Design.DataContext>
+    <LightScrollViewer>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Classes="Title" Text="TextBlock" />
+            <TextBlock Text="TextBlock" />
+            <TextBlock Classes="Title" Text="SelectableTextBlock" />
+            <SelectableTextBlock Text="SelectableTextBlock" />
+            <SelectableTextBlock Text="SelectableTextBlock" SelectionStart="10" SelectionEnd="14" />
+            <TextBlock Classes="Title" Text="Label" />
+            <Label Content="_Label" />
+        </LightPanel>
+    </LightScrollViewer>
+</LightView>

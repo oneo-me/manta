@@ -10,5 +10,6 @@
         <StyleInclude Source="Styles/Button-Tab-Close.axaml" />
         <StyleInclude Source="Styles/List-Logs.axaml" />
         <StyleInclude Source="Styles/List-Tab.axaml" />
+        <StyleInclude Source="Styles/SampleInfo.axaml" />
     </Application.Styles>
 </Application>
