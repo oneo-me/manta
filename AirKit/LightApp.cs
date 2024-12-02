@@ -15,6 +15,8 @@ public abstract class LightApp : Application
 
     protected LightApp()
     {
+        base.Name = GetType().Assembly.GetName().Name;
+
         OnExceptionAction = OnException;
 
         Dispatcher.UIThread.UnhandledException += (_, e) =>

@@ -12,11 +12,6 @@ namespace AirKit.Demo;
 
 sealed class App : LightApp
 {
-    public App()
-    {
-        Name = $"{nameof(AirKit)}.{nameof(Demo)}";
-    }
-
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
