@@ -5,8 +5,16 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!-- Base -->
+                <MergeResourceInclude Source="/Controls/Base/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Border.axaml" />
-                <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
+                <!-- Design -->
+                <MergeResourceInclude Source="/Controls/Design/Window.axaml" />
+                <!-- Controls -->
                 <MergeResourceInclude Source="/Controls/LightClip.axaml" />
                 <MergeResourceInclude Source="/Controls/LightPath.axaml" />
                 <MergeResourceInclude Source="/Controls/LightScrollBar.axaml" />
