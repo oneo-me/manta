@@ -13,6 +13,10 @@
             <LightPanel Mode="Horizontal" Spacing="12">
                 <Button Content="Button" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="RepeatButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <RepeatButton Content="RepeatButton" />
+            </LightPanel>
         </LightPanel>
     </LightScrollViewer>
 </LightView>
