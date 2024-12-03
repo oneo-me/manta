@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <PublishAot>true</PublishAot>
-        <NoWarn>IL2057;IL2026;IL2104;IL3053</NoWarn>
+        <NoWarn>IL2057;IL2026;IL2080;IL2104;IL3053</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <TrimmerRootDescriptor Include="Program.xml" />

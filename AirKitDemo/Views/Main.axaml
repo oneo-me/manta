@@ -8,7 +8,11 @@
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
-    <Grid ColumnDefinitions="160,*">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160" MinWidth="160" MaxWidth="360" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" RowDefinitions="Auto,*">
             <Border Grid.Row="0" x:Name="MoveBorder1" />
             <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
@@ -72,5 +76,7 @@
                 <LightViewHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
             </Grid>
         </Border>
+        <!-- Splitters -->
+        <GridSplitter Grid.Column="0" HorizontalAlignment="Right" />
     </Grid>
 </LightView>

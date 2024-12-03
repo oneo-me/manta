@@ -124,6 +124,7 @@ sealed class Main_Model : WindowModel
         window.Closing += delegate
         {
             _configService.Config.SelectedSample = SelectedItem?.Name;
+
             _configService.Config.MainWindow.WindowState = window.WindowState;
             _configService.Config.MainWindow.Left = window.Position.X;
             _configService.Config.MainWindow.Top = window.Position.Y;
