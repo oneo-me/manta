@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using AirKit;
 using AirKit.Attributes;
@@ -13,6 +14,7 @@ using DynamicData;
 namespace AirKitDemo.Views;
 
 [View<Main>]
+[SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable")]
 sealed class Main_Model : WindowModel
 {
     readonly ConfigService _configService = Service.GetService<ConfigService>();
@@ -31,7 +33,7 @@ sealed class Main_Model : WindowModel
             if (value?.Type is null)
                 ViewManager.ClearView();
             else
-                ViewManager.OpenView<SampleRegionModel>(value.Type, x => x.Header = value.Name);
+                ViewManager.OpenView<SampleViewModel>(value.Type);
         }
     }
 
@@ -47,7 +49,7 @@ sealed class Main_Model : WindowModel
         Items = items;
 
         var samples = new List<(SampleGroupType groupType, string name, Type type)>();
-        var baseType = typeof(SampleRegionModel);
+        var baseType = typeof(SampleViewModel);
 
         foreach (var type in GetType().Assembly.GetTypes())
         {
@@ -103,10 +105,9 @@ sealed class Main_Model : WindowModel
 
         view.SubscribeWindowStatus(x =>
         {
-            view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 6 : 0;
+            view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
             view.Buttons.IsVisible = (Debugger.IsAttached || x.isShowButtons) && x.isFullscreen is false;
             view.MoveBorder2.Margin = new(0, 0, 0, -12);
-            view.MoveBorder2.Height = x.titleBarHeight;
         }).DisposeWith(disposables);
     }
 

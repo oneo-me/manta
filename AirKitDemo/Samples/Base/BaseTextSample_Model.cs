@@ -5,4 +5,4 @@ namespace AirKitDemo.Samples.Base;
 
 [Sample(SampleGroupType.BaseControls, "Text")]
 [View<BaseTextSample>]
-sealed class BaseTextSample_Model : SampleRegionModel;
+sealed class BaseTextSample_Model : SampleViewModel;

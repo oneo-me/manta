@@ -5,4 +5,4 @@ namespace AirKitDemo.Samples.Base;
 
 [Sample(SampleGroupType.BaseControls, "Button")]
 [View<BaseButtonSample>]
-sealed class BaseButtonSample_Model : SampleRegionModel;
+sealed class BaseButtonSample_Model : SampleViewModel;

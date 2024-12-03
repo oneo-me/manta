@@ -6,7 +6,7 @@ namespace AirKitDemo.Samples;
 
 [Sample(SampleGroupType.Reactive, "TabManger")]
 [View<RegionManagerSample>]
-sealed class RegionManagerSample_Model : SampleRegionModel
+sealed class RegionManagerSample_Model : SampleViewModel, IDisposable
 {
     public RegionManager<RegionItemView_Model> RegionManager { get; } = new();
 
@@ -27,9 +27,8 @@ sealed class RegionManagerSample_Model : SampleRegionModel
         RegionManager.Open(Index++, x => new RegionItemView_Model(x), x => x.Id == 1);
     }
 
-    protected override void OnClosed()
+    public void Dispose()
     {
-        base.OnClosed();
         RegionManager.Dispose();
     }
 }
