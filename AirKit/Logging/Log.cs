@@ -15,11 +15,11 @@ public static class Log
     static Log()
     {
         if (Design.IsDesignMode)
-            AddLogger(new InnerConsoleLogger(false, true, LogLevel.All));
+            AddLogger(new InnerConsoleLogger(LogLevel.All));
         else if (Debugger.IsAttached)
-            AddLogger(new InnerConsoleLogger(true, true, LogLevel.All));
+            AddLogger(new InnerConsoleLogger(LogLevel.All));
         else
-            AddLogger(new InnerConsoleLogger(true, true, LogLevel.Important));
+            AddLogger(new InnerConsoleLogger(LogLevel.Important));
     }
 
     public static void AddLogger(ILogger logger)
@@ -69,9 +69,11 @@ public static class Log
         WriteLine(LogLevel.Fatal, area, messageTemplate, propertyValues);
     }
 
-    static string FormatTime(DateTimeOffset time)
+    static string FormatTime(DateTimeOffset time, bool writeDate)
     {
-        return time.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+        if (writeDate)
+            return time.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+        return time.ToString("HH:mm:ss.fff", CultureInfo.InvariantCulture);
     }
 
     static char FormatLevel(LogLevel level)
@@ -91,15 +93,15 @@ public static class Log
         };
     }
 
-    public static string FormatMessage(string template, object?[] propertyValues, DateTimeOffset? time = null, LogLevel? level = null, string? area = null)
+    public static string FormatMessage(string template, object?[] propertyValues, DateTimeOffset? date = null, bool writeDate = true, LogLevel? level = null, string? area = null)
     {
         var stringBuilder = StringBuilderCache.Acquire(template.Length);
         var characterReader = new CharacterReader(template.AsSpan());
         var index = 0;
 
-        if (time.HasValue)
+        if (date.HasValue)
         {
-            stringBuilder.Append(FormatTime(time.Value));
+            stringBuilder.Append(FormatTime(date.Value, writeDate));
             stringBuilder.Append(' ');
         }
 
