@@ -1,8 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <IsPackable>false</IsPackable>
         <OutputType>WinExe</OutputType>
+        <PublishAot>true</PublishAot>
+        <NoWarn>IL2057;IL2026;IL2104;IL3053</NoWarn>
     </PropertyGroup>
+    <ItemGroup>
+        <TrimmerRootDescriptor Include="Program.xml" />
+    </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AirKit.Desktop\AirKit.Desktop.csproj" />
     </ItemGroup>

@@ -108,6 +108,7 @@ sealed class Main_Model : WindowModel
             view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
             view.Buttons.IsVisible = (Debugger.IsAttached || x.isShowButtons) && x.isFullscreen is false;
             view.MoveBorder2.Margin = new(0, 0, 0, -12);
+            view.MoveBorder2.Height = 38 + 12;
         }).DisposeWith(disposables);
     }
 
