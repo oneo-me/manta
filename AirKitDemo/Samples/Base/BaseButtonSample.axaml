@@ -23,6 +23,11 @@
                 <ButtonSpinner Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
                 <ButtonSpinner Content="ButtonSpinner" ShowButtonSpinner="False" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="HyperlinkButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
+                <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
+            </LightPanel>
         </LightPanel>
     </LightScrollViewer>
 </LightView>

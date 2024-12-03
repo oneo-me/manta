@@ -1,0 +1,38 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
+            <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Background="{TemplateBinding Background}"
+                                  BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Padding="{TemplateBinding Padding}"
+                                  RecognizesAccessKey="True"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:visited">
+            <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
