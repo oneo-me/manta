@@ -4,10 +4,10 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
-            <LightPath Size="12" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z" />
+            <PathIcon Width="12" Height="12" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z" />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type LightPath}" TargetType="LightPath">
+    <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Template">
             <ControlTemplate>
                 <Viewbox>
@@ -15,8 +15,5 @@
                 </Viewbox>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:hide">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>

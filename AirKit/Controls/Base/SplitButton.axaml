@@ -46,7 +46,7 @@
                                 VerticalContentAlignment="Center"
                                 Focusable="False"
                                 KeyboardNavigation.IsTabStop="False">
-                            <LightPath Height="12" Width="12" Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
+                            <PathIcon Height="12" Width="12" Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
                         </Button>
                     </Grid>
                 </Border>

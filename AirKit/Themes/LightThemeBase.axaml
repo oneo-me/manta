@@ -13,6 +13,7 @@
                 <MergeResourceInclude Source="/Controls/Base/GridSplitter.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/PathIcon.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SplitButton.axaml" />
@@ -23,7 +24,6 @@
                 <MergeResourceInclude Source="/Controls/Design/Window.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="/Controls/LightClip.axaml" />
-                <MergeResourceInclude Source="/Controls/LightPath.axaml" />
                 <MergeResourceInclude Source="/Controls/LightScrollBar.axaml" />
                 <MergeResourceInclude Source="/Controls/LightScrollViewer.axaml" />
                 <MergeResourceInclude Source="/Controls/LightThumb.axaml" />

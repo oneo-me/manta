@@ -14,7 +14,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <LightPath Classes="Icon-Close" Size="6" />
+                    <PathIcon Classes="Icon-Close" Width="6" Height="6" />
                 </Border>
             </ControlTemplate>
         </Setter>

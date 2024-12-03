@@ -50,7 +50,7 @@
         <Style Selector="^[Type=Minimize]">
             <Setter Property="ContentTemplate">
                 <DataTemplate>
-                    <LightPath Size="10" Margin="0 5 0 0" Data="M2048 1229v-205h-2048v205h2048z" />
+                    <PathIcon Width="10" Height="10" Margin="0 5 0 0" Data="M2048 1229v-205h-2048v205h2048z" />
                 </DataTemplate>
             </Setter>
         </Style>
@@ -58,10 +58,10 @@
             <Setter Property="ContentTemplate">
                 <DataTemplate DataType="x:Boolean">
                     <LightPanel>
-                        <LightPath Size="10" Data="M2048 2048v-2048h-2048v2048h2048zM1843 1843h-1638v-1638h1638v1638z"
-                                   IsVisible="{Binding !.}" />
-                        <LightPath Size="10" Data="M2048 410h-410v-410h-1638v1638h410v410h1638v-1638zM1434 1434h-1229v-1229h1229v1229zM1843 1843h-1229v-205h1024v-1024h205v1229z"
-                                   IsVisible="{Binding .}" />
+                        <PathIcon Width="10" Height="10" Data="M2048 2048v-2048h-2048v2048h2048zM1843 1843h-1638v-1638h1638v1638z"
+                                  IsVisible="{Binding !.}" />
+                        <PathIcon Width="10" Height="10" Data="M2048 410h-410v-410h-1638v1638h410v410h1638v-1638zM1434 1434h-1229v-1229h1229v1229zM1843 1843h-1229v-205h1024v-1024h205v1229z"
+                                  IsVisible="{Binding .}" />
                     </LightPanel>
                 </DataTemplate>
             </Setter>
@@ -69,7 +69,7 @@
         <Style Selector="^[Type=Close]">
             <Setter Property="ContentTemplate">
                 <DataTemplate>
-                    <LightPath Size="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                    <PathIcon Width="10" Height="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
                 </DataTemplate>
             </Setter>
             <Setter Property="Background" Value="{ThemeBrush Error, Opacity=0}" />
