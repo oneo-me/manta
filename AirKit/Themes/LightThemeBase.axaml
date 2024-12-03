@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
                 <!-- Design -->
                 <MergeResourceInclude Source="/Controls/Design/Window.axaml" />
                 <!-- Controls -->

@@ -28,6 +28,11 @@
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="ToggleButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ToggleButton Content="ToggleButton" />
+                <ToggleButton Content="ToggleButton" IsChecked="True" />
+            </LightPanel>
         </LightPanel>
     </LightScrollViewer>
 </LightView>

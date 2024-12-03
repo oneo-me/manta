@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using AirKit;
@@ -106,7 +105,7 @@ sealed class Main_Model : WindowModel
         view.SubscribeWindowStatus(x =>
         {
             view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
-            view.Buttons.IsVisible = (Debugger.IsAttached || x.isShowButtons) && x.isFullscreen is false;
+            view.Buttons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
             view.MoveBorder2.Margin = new(0, 0, 0, -12);
             view.MoveBorder2.Height = 38 + 12;
         }).DisposeWith(disposables);
