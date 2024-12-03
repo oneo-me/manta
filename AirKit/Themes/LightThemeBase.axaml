@@ -15,6 +15,7 @@
                 <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/SplitButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
