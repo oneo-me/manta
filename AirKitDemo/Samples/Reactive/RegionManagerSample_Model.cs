@@ -2,7 +2,7 @@ using AirKit;
 using AirKit.Attributes;
 using AirKitDemo.Models;
 
-namespace AirKitDemo.Samples;
+namespace AirKitDemo.Samples.Reactive;
 
 [Sample(SampleGroupType.Reactive, "TabManger")]
 [View<RegionManagerSample>]

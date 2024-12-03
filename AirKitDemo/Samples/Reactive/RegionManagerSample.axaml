@@ -1,8 +1,8 @@
 <LightView
-    x:Class="AirKitDemo.Samples.RegionManagerSample"
+    x:Class="AirKitDemo.Samples.Reactive.RegionManagerSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AirKitDemo.Samples"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Reactive"
     x:DataType="local:RegionManagerSample_Model" Design.Width="500">
     <Design.DataContext>
         <local:RegionManagerSample_Model />

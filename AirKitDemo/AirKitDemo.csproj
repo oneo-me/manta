@@ -15,4 +15,14 @@
     <ItemGroup>
         <PackageReference Include="YamlDotNet" Version="16.2.1" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Samples\Reactive\RegionItemView.axaml.cs">
+        <DependentUpon>RegionItemView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Samples\Reactive\RegionManagerSample.axaml.cs">
+        <DependentUpon>RegionManagerSample.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

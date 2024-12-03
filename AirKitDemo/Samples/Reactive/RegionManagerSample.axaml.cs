@@ -1,6 +1,6 @@
 using AirKit.Controls;
 
-namespace AirKitDemo.Samples;
+namespace AirKitDemo.Samples.Reactive;
 
 sealed partial class RegionManagerSample : LightView
 {

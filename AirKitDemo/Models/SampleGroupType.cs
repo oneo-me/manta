@@ -2,12 +2,15 @@ namespace AirKitDemo.Models;
 
 enum SampleGroupType
 {
+    [SampleGroup("Themes")]
+    Themes,
+
     [SampleGroup("Reactive")]
-    Reactive = 0,
+    Reactive,
 
     [SampleGroup("Base Controls")]
-    BaseControls = 1,
+    BaseControls,
 
     [SampleGroup("Controls")]
-    Controls = 2
+    Controls
 }

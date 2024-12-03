@@ -2,7 +2,7 @@ using AirKit;
 using AirKit.Attributes;
 using AirKit.Interfaces;
 
-namespace AirKitDemo.Samples;
+namespace AirKitDemo.Samples.Reactive;
 
 [View<RegionItemView>]
 sealed class RegionItemView_Model : RegionModel, ITabTarget<int>
