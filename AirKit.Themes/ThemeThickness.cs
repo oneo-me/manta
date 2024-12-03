@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using AirKit.Themes.Base;
-using AirKit.Themes.Enums;
 using AirKit.Themes.Extensions;
 using Avalonia;
 
@@ -25,6 +24,19 @@ public enum ThemeThicknessKey
     Shadow4,
     Shadow5,
     Shadow6
+}
+
+[Flags]
+public enum ThicknessFilter
+{
+    None = 0,
+
+    Left = 1 << 0,
+    Top = 1 << 1,
+    Right = 1 << 2,
+    Bottom = 1 << 3,
+
+    All = Left | Top | Right | Bottom
 }
 
 public sealed class ThemeThicknessKeyExtension(ThemeThicknessKey key) : ThemeKeyBase(key);

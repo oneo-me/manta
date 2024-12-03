@@ -9,6 +9,7 @@
                 <MergeResourceInclude Source="/Controls/Base/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Border.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Button.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/GridSplitter.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />

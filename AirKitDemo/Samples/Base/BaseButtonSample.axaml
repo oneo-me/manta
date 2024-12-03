@@ -17,6 +17,12 @@
             <LightPanel Mode="Horizontal" Spacing="12">
                 <RepeatButton Content="RepeatButton" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="ButtonSpinner" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ButtonSpinner Content="ButtonSpinner" />
+                <ButtonSpinner Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
+                <ButtonSpinner Content="ButtonSpinner" ShowButtonSpinner="False" />
+            </LightPanel>
         </LightPanel>
     </LightScrollViewer>
 </LightView>
