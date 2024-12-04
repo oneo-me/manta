@@ -12,6 +12,7 @@
                 <MergeResourceInclude Source="/Controls/Base/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/CheckBox.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/DropDownButton.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/GridSplitter.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ItemsControl.axaml" />
