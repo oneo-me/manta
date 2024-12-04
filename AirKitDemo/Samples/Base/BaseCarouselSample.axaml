@@ -1,0 +1,30 @@
+<LightView
+    x:Class="AirKitDemo.Samples.Base.BaseCarouselSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Base"
+    x:DataType="local:BaseCarouselSample_Model">
+    <Design.DataContext>
+        <local:BaseCarouselSample_Model />
+    </Design.DataContext>
+    <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Horizontal" Spacing="12">
+            <Button Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
+            <Button Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
+        </LightPanel>
+        <Carousel x:Name="Carousel" Width="120" Height="120" HorizontalAlignment="Left">
+            <Carousel.PageTransition>
+                <PageSlide Duration="0:0:0.1" />
+            </Carousel.PageTransition>
+            <Border Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
+                <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
+                <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
+                <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+        </Carousel>
+    </LightPanel>
+</LightView>

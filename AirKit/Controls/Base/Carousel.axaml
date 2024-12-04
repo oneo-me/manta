@@ -1,0 +1,40 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Carousel Width="100" Height="100">
+                <Carousel.PageTransition>
+                    <PageSlide Duration="0:0:0.1" />
+                </Carousel.PageTransition>
+                <Border Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
+                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <Border Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
+                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <Border Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
+                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </Carousel>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightScrollViewer x:Name="PART_ScrollViewer"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                   BringIntoViewOnFocusChange="False"
+                                   HorizontalScrollBarVisibility="Hidden"
+                                   VerticalScrollBarVisibility="Hidden">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    Margin="{TemplateBinding Padding}" />
+                </LightScrollViewer>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
