@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKitDemo.Views"
     xmlns:models="clr-namespace:AirKitDemo.Models"
-    x:DataType="local:Main_Model">
+    x:DataType="local:Main_Model" Design.Width="600" Design.Height="600">
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
@@ -52,7 +52,7 @@
                                 </Style>
                                 <Style Selector="^:disabled">
                                     <Setter Property="Opacity" Value="0.5" />
-                                    <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+                                    <Setter Property="Padding" Value="{ThemeThickness Padding, Offset=-3}" />
                                     <Setter Property="FontWeight" Value="Bold" />
                                 </Style>
                             </ControlTheme>

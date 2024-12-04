@@ -32,7 +32,7 @@ sealed class Main_Model : WindowModel
             if (value?.Type is null)
                 ViewManager.ClearView();
             else
-                ViewManager.OpenView<SampleViewModel>(value.Type);
+                ViewManager.OpenView<ViewModel>(value.Type);
         }
     }
 
@@ -48,7 +48,7 @@ sealed class Main_Model : WindowModel
         Items = items;
 
         var samples = new List<(SampleGroupType groupType, string name, Type type)>();
-        var baseType = typeof(SampleViewModel);
+        var baseType = typeof(ViewModel);
 
         foreach (var type in GetType().Assembly.GetTypes())
         {

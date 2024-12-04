@@ -6,7 +6,7 @@ namespace AirKitDemo.Samples.Reactive;
 
 [Sample(SampleGroupType.Reactive, "TabManger")]
 [View<RegionManagerSample>]
-sealed class RegionManagerSample_Model : SampleViewModel, IDisposable
+sealed class RegionManagerSample_Model : ViewModel, IDisposable
 {
     public RegionManager<RegionItemView_Model> RegionManager { get; } = new();
 
