@@ -14,6 +14,8 @@
                 <MergeResourceInclude Source="/Controls/Base/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ItemsControl.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ListBox.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ListBoxItem.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/PathIcon.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
