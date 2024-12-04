@@ -28,6 +28,7 @@
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ToggleSwitch.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TreeView.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TreeViewItem.axaml" />
                 <!-- Design -->

@@ -15,7 +15,7 @@
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
-        <Setter Property="Padding" Value="{ThemeThickness Padding, Filter=Left|Right}" />
+        <Setter Property="Padding" Value="{ThemeThickness Padding, Filter=Left}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>

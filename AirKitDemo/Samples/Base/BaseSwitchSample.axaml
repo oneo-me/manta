@@ -20,6 +20,19 @@
                 <RadioButton Content="RadioButton" />
                 <RadioButton Content="RadioButton" IsChecked="True" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="ToggleSwitch" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ToggleSwitch />
+                <ToggleSwitch IsChecked="True" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" />
+                <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" />
+                <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
+            </LightPanel>
             <TextBlock Classes="Title" Text="ToggleButton" />
             <LightPanel Mode="Horizontal" Spacing="12">
                 <ToggleButton Content="ToggleButton" />
