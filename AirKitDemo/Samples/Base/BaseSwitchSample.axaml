@@ -15,6 +15,16 @@
                 <CheckBox Content="CheckBox" IsChecked="True" />
                 <CheckBox Content="CheckBox" IsChecked="{x:Null}" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="RadioButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <RadioButton Content="RadioButton" />
+                <RadioButton Content="RadioButton" IsChecked="True" />
+            </LightPanel>
+            <TextBlock Classes="Title" Text="ToggleButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <ToggleButton Content="ToggleButton" />
+                <ToggleButton Content="ToggleButton" IsChecked="True" />
+            </LightPanel>
         </LightPanel>
     </LightScrollViewer>
 </LightView>
