@@ -21,7 +21,7 @@
             </Style>
         </Style>
     </LightView.Styles>
-    <LightScrollViewer>
+    <ScrollViewer>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="Primary Colors" />
             <LightPanel Mode="WrapFull" Spacing="12">
@@ -132,5 +132,5 @@
                 </Border>
             </LightPanel>
         </LightPanel>
-    </LightScrollViewer>
+    </ScrollViewer>
 </LightView>

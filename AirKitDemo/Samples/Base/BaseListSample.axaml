@@ -7,7 +7,7 @@
     <Design.DataContext>
         <local:BaseListSample_Model />
     </Design.DataContext>
-    <LightScrollViewer>
+    <ScrollViewer>
         <LightPanel Mode="Wrap" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="ItemsControl" />
@@ -64,5 +64,5 @@
                 </TreeView>
             </LightPanel>
         </LightPanel>
-    </LightScrollViewer>
+    </ScrollViewer>
 </LightView>

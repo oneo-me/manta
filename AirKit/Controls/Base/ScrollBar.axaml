@@ -4,21 +4,21 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
-            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
+            <ScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
                 <Border Background="Aquamarine" Width="300" Height="300" />
-            </LightScrollViewer>
-            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto">
+            </ScrollViewer>
+            <ScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto">
                 <Border Background="Aquamarine" Width="300" Height="300" />
-            </LightScrollViewer>
-            <LightScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            </ScrollViewer>
+            <ScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                 <Border Background="Aquamarine" Width="300" Height="300" />
-            </LightScrollViewer>
-            <LightScrollViewer Padding="30" Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
+            </ScrollViewer>
+            <ScrollViewer Padding="30" Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
                 <Border Background="Aquamarine" Width="300" Height="300" />
-            </LightScrollViewer>
+            </ScrollViewer>
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type LightScrollBar}" TargetType="LightScrollBar">
+    <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="{ThemeBrush Foreground}" />
         <Setter Property="CornerRadius" Value="10" />

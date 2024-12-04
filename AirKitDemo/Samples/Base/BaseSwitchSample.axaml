@@ -7,7 +7,7 @@
     <Design.DataContext>
         <local:BaseSwitchSample_Model />
     </Design.DataContext>
-    <LightScrollViewer>
+    <ScrollViewer>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="CheckBox" />
             <LightPanel Mode="Horizontal" Spacing="12">
@@ -39,5 +39,5 @@
                 <ToggleButton Content="ToggleButton" IsChecked="True" />
             </LightPanel>
         </LightPanel>
-    </LightScrollViewer>
+    </ScrollViewer>
 </LightView>

@@ -29,7 +29,7 @@
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightScrollViewer x:Name="PART_ScrollViewer"
+                <ScrollViewer x:Name="PART_ScrollViewer"
                                    Background="{TemplateBinding Background}"
                                    BorderBrush="{TemplateBinding BorderBrush}"
                                    BorderThickness="{TemplateBinding BorderThickness}"
@@ -71,10 +71,10 @@
                                        TextAlignment="{TemplateBinding TextAlignment}"
                                        TextWrapping="{TemplateBinding TextWrapping}" />
                     </Panel>
-                </LightScrollViewer>
+                </ScrollViewer>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ LightScrollViewer ScrollContentPresenter#PART_ContentPresenter">
+        <Style Selector="^ /template/ ScrollViewer ScrollContentPresenter#PART_ContentPresenter">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
     </ControlTheme>

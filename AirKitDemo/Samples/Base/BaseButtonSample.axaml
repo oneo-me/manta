@@ -7,7 +7,7 @@
     <Design.DataContext>
         <local:BaseButtonSample_Model />
     </Design.DataContext>
-    <LightScrollViewer>
+    <ScrollViewer>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="Button" />
             <LightPanel Mode="Horizontal" Spacing="12">
@@ -57,5 +57,5 @@
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
             </LightPanel>
         </LightPanel>
-    </LightScrollViewer>
+    </ScrollViewer>
 </LightView>

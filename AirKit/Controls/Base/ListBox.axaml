@@ -31,7 +31,7 @@
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightScrollViewer x:Name="PART_ScrollViewer"
+                <ScrollViewer x:Name="PART_ScrollViewer"
                                    Background="{TemplateBinding Background}"
                                    BorderBrush="{TemplateBinding BorderBrush}"
                                    BorderThickness="{TemplateBinding BorderThickness}"
@@ -47,7 +47,7 @@
                     <ItemsPresenter x:Name="PART_ItemsPresenter"
                                     Margin="{TemplateBinding Padding}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
-                </LightScrollViewer>
+                </ScrollViewer>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

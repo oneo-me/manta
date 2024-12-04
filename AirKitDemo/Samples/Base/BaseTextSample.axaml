@@ -7,7 +7,7 @@
     <Design.DataContext>
         <local:BaseTextSample_Model />
     </Design.DataContext>
-    <LightScrollViewer>
+    <ScrollViewer>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="TextBlock" />
             <TextBlock Text="TextBlock" />
@@ -17,5 +17,5 @@
             <TextBlock Classes="Title" Text="Label" />
             <Label Content="_Label" />
         </LightPanel>
-    </LightScrollViewer>
+    </ScrollViewer>
 </LightView>
