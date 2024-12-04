@@ -13,16 +13,7 @@
         <ProjectReference Include="..\AirKit.Desktop\AirKit.Desktop.csproj" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Bogus" Version="35.6.1" />
         <PackageReference Include="YamlDotNet" Version="16.2.1" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Samples\Reactive\RegionItemView.axaml.cs">
-        <DependentUpon>RegionItemView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Samples\Reactive\RegionManagerSample.axaml.cs">
-        <DependentUpon>RegionManagerSample.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 </Project>

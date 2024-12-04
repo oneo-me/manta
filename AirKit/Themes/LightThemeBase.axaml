@@ -12,6 +12,7 @@
                 <MergeResourceInclude Source="/Controls/Base/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/GridSplitter.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/HyperlinkButton.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ItemsControl.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/PathIcon.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />

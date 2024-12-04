@@ -1,0 +1,31 @@
+<LightView
+    x:Class="AirKitDemo.Samples.Base.BaseListSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Base"
+    x:DataType="local:BaseListSample_Model" Design.Width="600">
+    <Design.DataContext>
+        <local:BaseListSample_Model />
+    </Design.DataContext>
+    <LightScrollViewer>
+        <LightPanel Mode="Wrap" Spacing="12" Margin="12">
+            <LightPanel Mode="Vertical" Spacing="12">
+                <TextBlock Classes="Title" Text="ItemsControl" />
+                <ItemsControl ItemsSource="{Binding Items5}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}" Padding="{ThemeThickness Padding}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}">
+                                        <Binding Path="Id" />
+                                        <Binding Path="Name" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </LightPanel>
+        </LightPanel>
+    </LightScrollViewer>
+</LightView>
