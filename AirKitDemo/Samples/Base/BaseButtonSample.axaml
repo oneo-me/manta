@@ -27,6 +27,12 @@
                 <ButtonSpinner Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
                 <ButtonSpinner Content="ButtonSpinner" ShowButtonSpinner="False" />
             </LightPanel>
+            <TextBlock Classes="Title" Text="NumericUpDown" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <NumericUpDown Width="80" />
+                <NumericUpDown Width="80" ButtonSpinnerLocation="Left" />
+                <NumericUpDown Width="80" ShowButtonSpinner="False" />
+            </LightPanel>
             <TextBlock Classes="Title" Text="HyperlinkButton" />
             <LightPanel Mode="Horizontal" Spacing="12">
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
