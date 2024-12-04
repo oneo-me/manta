@@ -2,9 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical">
+        <PanelExt Mode="Vertical">
             <Button Classes="Button-Mini" Content="Button" />
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <Style Selector="Button.Button-Mini">
         <Setter Property="Template">

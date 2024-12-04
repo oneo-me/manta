@@ -19,8 +19,8 @@
         <Setter Property="InnerMargin" Value="0 4 4 4" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightPanel Background="#00000000">
-                    <LightPanel Margin="{TemplateBinding InnerMargin}">
+                <Panel Background="#00000000">
+                    <Panel Margin="{TemplateBinding InnerMargin}">
                         <ContentPresenter x:Name="PART_ContentPresenter"
                                           Background="{TemplateBinding Background}"
                                           CornerRadius="{TemplateBinding CornerRadius}"
@@ -30,8 +30,8 @@
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           RecognizesAccessKey="True" />
-                    </LightPanel>
-                </LightPanel>
+                    </Panel>
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Setter Property="Transitions">
@@ -57,12 +57,12 @@
         <Style Selector="^[Type=Maximize]">
             <Setter Property="ContentTemplate">
                 <DataTemplate DataType="x:Boolean">
-                    <LightPanel>
+                    <Panel>
                         <PathIcon Width="10" Height="10" Data="M2048 2048v-2048h-2048v2048h2048zM1843 1843h-1638v-1638h1638v1638z"
                                   IsVisible="{Binding !.}" />
                         <PathIcon Width="10" Height="10" Data="M2048 410h-410v-410h-1638v1638h410v410h1638v-1638zM1434 1434h-1229v-1229h1229v1229zM1843 1843h-1229v-205h1024v-1024h205v1229z"
                                   IsVisible="{Binding .}" />
-                    </LightPanel>
+                    </Panel>
                 </DataTemplate>
             </Setter>
         </Style>

@@ -2,13 +2,13 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical">
+        <PanelExt Mode="Vertical">
             <ListBox Classes="List-Logs">
                 <ListBoxItem Content="ListBoxItem 1" />
                 <ListBoxItem Content="ListBoxItem 2" IsSelected="True" />
                 <ListBoxItem Content="ListBoxItem 3" />
             </ListBox>
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <Style Selector="ListBox.List-Logs">
         <Setter Property="ItemsPanel">

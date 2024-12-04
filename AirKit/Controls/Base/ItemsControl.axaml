@@ -5,7 +5,7 @@
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <ItemsControl BorderThickness="1">
                 <ItemsControl.ItemsSource>
                     <generic:List x:TypeArguments="system:String">
@@ -20,7 +20,7 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ItemsControl}" TargetType="ItemsControl">
         <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />

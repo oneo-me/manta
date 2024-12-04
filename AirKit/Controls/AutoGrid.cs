@@ -6,10 +6,10 @@ using Avalonia.Controls;
 
 namespace AirKit.Controls;
 
-public class LightAutoGrid : LightPanelBase
+public class AutoGrid : PanelExtBase
 {
     public static readonly StyledProperty<ColumnDefinitions?> DefinitionsProperty =
-        AvaloniaProperty.Register<LightAutoGrid, ColumnDefinitions?>(nameof(Definitions));
+        AvaloniaProperty.Register<AutoGrid, ColumnDefinitions?>(nameof(Definitions));
 
     [SuppressMessage("Usage", "CA2227:集合属性应为只读")]
     public ColumnDefinitions? Definitions
@@ -18,19 +18,19 @@ public class LightAutoGrid : LightPanelBase
         set => SetValue(DefinitionsProperty, value);
     }
 
-    static LightAutoGrid()
+    static AutoGrid()
     {
-        AffectsMeasure<LightAutoGrid>(DefinitionsProperty);
-        AffectsArrange<LightAutoGrid>(DefinitionsProperty);
+        AffectsMeasure<AutoGrid>(DefinitionsProperty);
+        AffectsArrange<AutoGrid>(DefinitionsProperty);
     }
 
     protected override Size MeasureOverride(ReadOnlyCollection<Control> children, Size availableSize)
     {
-        return AutoGridLayout.Measure(this, children, availableSize);
+        return AutoGridPanel.Measure(this, children, availableSize);
     }
 
     protected override void ArrangeOverride(ReadOnlyCollection<Control> children, Size finalSize)
     {
-        AutoGridLayout.Arrange(this, children, finalSize);
+        AutoGridPanel.Arrange(this, children, finalSize);
     }
 }

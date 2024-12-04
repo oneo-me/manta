@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TreeView>
                 <TreeViewItem Header="Test Item 0">
                     <TreeViewItem Header="Test Item 0" />
@@ -21,7 +21,7 @@
                 </TreeViewItem>
                 <TreeViewItem Header="Test Item 2" />
             </TreeView>
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
         <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />

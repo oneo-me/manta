@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <ToggleSwitch />
             <ToggleSwitch IsChecked="True" />
             <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" />
             <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
             <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" />
             <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
         <Setter Property="Background" Value="{ThemeBrush Background}" />

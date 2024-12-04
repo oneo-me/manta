@@ -3,11 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
+        <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
             <LightClip BorderThickness="10" Padding="8" CornerRadius="100" BoxShadow="0 0 30 #19000000">
                 <Border Background="Bisque" Width="100" Height="100" />
             </LightClip>
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightClip}" TargetType="LightClip">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />

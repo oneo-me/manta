@@ -5,7 +5,7 @@
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <ListBox BorderThickness="1">
                 <ListBox.ItemsSource>
                     <generic:List x:TypeArguments="system:String">
@@ -20,7 +20,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />

@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TextBox Text="TextBox" />
             <TextBox Watermark="Test..." />
-        </LightPanel>
+        </PanelExt>
     </Design.PreviewWith>
     <MenuFlyout x:Key="SimpleTextBoxContextFlyout" Placement="Bottom">
         <MenuItem Header="{DynamicResource StringTextFlyoutCutText}" Command="{Binding $parent[TextBox].Cut}"

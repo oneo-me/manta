@@ -7,11 +7,11 @@
     <Design.DataContext>
         <local:BaseCarouselSample_Model />
     </Design.DataContext>
-    <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-        <LightPanel Mode="Horizontal" Spacing="12">
+    <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Horizontal" Spacing="12">
             <Button Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
             <Button Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
-        </LightPanel>
+        </PanelExt>
         <Carousel x:Name="Carousel" Width="120" Height="120" HorizontalAlignment="Left">
             <Carousel.PageTransition>
                 <PageSlide Duration="0:0:0.1" />
@@ -26,5 +26,5 @@
                 <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
         </Carousel>
-    </LightPanel>
+    </PanelExt>
 </LightView>

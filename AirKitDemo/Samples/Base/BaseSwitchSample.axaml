@@ -8,36 +8,36 @@
         <local:BaseSwitchSample_Model />
     </Design.DataContext>
     <ScrollViewer>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="CheckBox" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <CheckBox Content="CheckBox" />
                 <CheckBox Content="CheckBox" IsChecked="True" />
                 <CheckBox Content="CheckBox" IsChecked="{x:Null}" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="RadioButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <RadioButton Content="RadioButton" />
                 <RadioButton Content="RadioButton" IsChecked="True" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="ToggleSwitch" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <ToggleSwitch />
                 <ToggleSwitch IsChecked="True" />
-            </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12">
+            </PanelExt>
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" />
                 <ToggleSwitch OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
-            </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12">
+            </PanelExt>
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" />
                 <ToggleSwitch Content="Header Content" OffContent="Custom Off" OnContent="Custom On" IsChecked="True" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="ToggleButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <ToggleButton Content="ToggleButton" />
                 <ToggleButton Content="ToggleButton" IsChecked="True" />
-            </LightPanel>
-        </LightPanel>
+            </PanelExt>
+        </PanelExt>
     </ScrollViewer>
 </LightView>

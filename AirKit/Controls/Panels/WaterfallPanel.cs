@@ -4,9 +4,9 @@ using Avalonia.Controls;
 
 namespace AirKit.Controls.Panels;
 
-static class WaterfallLayout
+static class WaterfallPanel
 {
-    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize, bool isBest)
+    public static Size Measure(PanelExt panel, ReadOnlyCollection<Control> children, Size availableSize, bool isBest)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : availableSize.Width / (panel.ColumnSize > 0 ? panel.ColumnSize : 120d)));
@@ -17,7 +17,7 @@ static class WaterfallLayout
         var tops = new double[column];
         var maxHeight = 0d;
 
-        LightPanelBase.ForeachItems(children, column, (row, items) =>
+        PanelExtBase.ForeachItems(children, column, (row, items) =>
         {
             for (var i = 0; i < items.Length; i++)
             {
@@ -52,7 +52,7 @@ static class WaterfallLayout
         return result;
     }
 
-    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize, bool isBest)
+    public static void Arrange(PanelExt panel, ReadOnlyCollection<Control> children, Size finalSize, bool isBest)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : finalSize.Width / (panel.ColumnSize > 0 ? panel.ColumnSize : 120d)));
@@ -60,7 +60,7 @@ static class WaterfallLayout
 
         var tops = new double[column];
 
-        LightPanelBase.ForeachItems(children, column, (row, items) =>
+        PanelExtBase.ForeachItems(children, column, (row, items) =>
         {
             for (var i = 0; i < items.Length; i++)
             {

@@ -8,13 +8,13 @@
         <local:BaseButtonSample_Model />
     </Design.DataContext>
     <ScrollViewer>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="Button" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <Button Content="Button" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="SplitButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <SplitButton Content="SplitButton">
                     <SplitButton.Flyout>
                         <MenuFlyout>
@@ -23,9 +23,9 @@
                         </MenuFlyout>
                     </SplitButton.Flyout>
                 </SplitButton>
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="DropDownButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <DropDownButton Content="DropDownButton">
                     <DropDownButton.Flyout>
                         <MenuFlyout>
@@ -34,28 +34,28 @@
                         </MenuFlyout>
                     </DropDownButton.Flyout>
                 </DropDownButton>
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="RepeatButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <RepeatButton Content="RepeatButton" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="ButtonSpinner" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <ButtonSpinner Content="ButtonSpinner" />
                 <ButtonSpinner Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
                 <ButtonSpinner Content="ButtonSpinner" ShowButtonSpinner="False" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="NumericUpDown" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <NumericUpDown Width="80" />
                 <NumericUpDown Width="80" ButtonSpinnerLocation="Left" />
                 <NumericUpDown Width="80" ShowButtonSpinner="False" />
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="HyperlinkButton" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <PanelExt Mode="Horizontal" Spacing="12">
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
                 <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
-            </LightPanel>
-        </LightPanel>
+            </PanelExt>
+        </PanelExt>
     </ScrollViewer>
 </LightView>

@@ -12,7 +12,7 @@
             <Setter Property="Padding" Value="{ThemeThickness Padding}" />
             <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
             <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
-            <Style Selector="^ LightPanel">
+            <Style Selector="^ PanelExt">
                 <Setter Property="Mode" Value="Vertical" />
             </Style>
             <Style Selector="^ TextBlock">
@@ -22,115 +22,115 @@
         </Style>
     </LightView.Styles>
     <ScrollViewer>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="Primary Colors" />
-            <LightPanel Mode="WrapFull" Spacing="12">
+            <PanelExt Mode="WrapFull" Spacing="12">
                 <Border Classes="ColorBlock" Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Primary" />
                         <Label Content="{ThemeBrush Primary}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Success" />
                         <Label Content="{ThemeBrush Success}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Warning}" TextElement.Foreground="{ThemeBrush Warning_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Warning" />
                         <Label Content="{ThemeBrush Warning}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Error" />
                         <Label Content="{ThemeBrush Error}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="Other Colors" />
-            <LightPanel Mode="WrapFull" Spacing="12">
+            <PanelExt Mode="WrapFull" Spacing="12">
                 <Border Classes="ColorBlock" Background="{ThemeBrush Shadow}" TextElement.Foreground="White">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Shadow" />
                         <Label Content="{ThemeBrush Shadow}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush MaskBrush}" TextElement.Foreground="{ThemeBrush Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="MaskBrush" />
                         <Label Content="{ThemeBrush MaskBrush}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Window_Background}" TextElement.Foreground="{ThemeBrush Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Window_Background" />
                         <Label Content="{ThemeBrush Window_Background}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Background}" TextElement.Foreground="{ThemeBrush Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Background" />
                         <Label Content="{ThemeBrush Background}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Foreground}" TextElement.Foreground="{ThemeBrush Background}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Foreground" />
                         <Label Content="{ThemeBrush Foreground}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush BorderBrush}" TextElement.Foreground="{ThemeBrush Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="BorderBrush" />
                         <Label Content="{ThemeBrush BorderBrush}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="Dialog Colors" />
-            <LightPanel Mode="WrapFull" Spacing="12">
+            <PanelExt Mode="WrapFull" Spacing="12">
                 <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_Background}" TextElement.Foreground="{ThemeBrush Dialog_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Dialog_Background" />
                         <Label Content="{ThemeBrush Dialog_Background}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_Foreground}" TextElement.Foreground="{ThemeBrush Dialog_Background}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Dialog_Foreground" />
                         <Label Content="{ThemeBrush Dialog_Foreground}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_BorderBrush}" TextElement.Foreground="{ThemeBrush Dialog_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Dialog_BorderBrush" />
                         <Label Content="{ThemeBrush Dialog_BorderBrush}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
-            </LightPanel>
+            </PanelExt>
             <TextBlock Classes="Title" Text="Flyout Colors" />
-            <LightPanel Mode="WrapFull" Spacing="12">
+            <PanelExt Mode="WrapFull" Spacing="12">
                 <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_Background}" TextElement.Foreground="{ThemeBrush Flyout_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Flyout_Background" />
                         <Label Content="{ThemeBrush Flyout_Background}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_Foreground}" TextElement.Foreground="{ThemeBrush Flyout_Background}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Flyout_Foreground" />
                         <Label Content="{ThemeBrush Flyout_Foreground}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
                 <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_BorderBrush}" TextElement.Foreground="{ThemeBrush Flyout_Foreground}">
-                    <LightPanel>
+                    <PanelExt>
                         <TextBlock Text="Flyout_BorderBrush" />
                         <Label Content="{ThemeBrush Flyout_BorderBrush}" />
-                    </LightPanel>
+                    </PanelExt>
                 </Border>
-            </LightPanel>
-        </LightPanel>
+            </PanelExt>
+        </PanelExt>
     </ScrollViewer>
 </LightView>

@@ -13,9 +13,9 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightPanel Background="{TemplateBinding Background}">
-                    <LightPanel Opacity="0.1">
-                        <LightPanel.Background>
+                <Panel Background="{TemplateBinding Background}">
+                    <Panel Opacity="0.1">
+                        <Panel.Background>
                             <VisualBrush TileMode="Tile" DestinationRect="0 0 20 20">
                                 <VisualBrush.Visual>
                                     <Grid ColumnDefinitions="10 10" RowDefinitions="10 10">
@@ -26,16 +26,16 @@
                                     </Grid>
                                 </VisualBrush.Visual>
                             </VisualBrush>
-                        </LightPanel.Background>
+                        </Panel.Background>
                         <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" />
                         <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" />
-                    </LightPanel>
+                    </Panel>
                     <VisualLayerManager>
                         <ContentPresenter x:Name="PART_ContentPresenter"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}" />
                     </VisualLayerManager>
-                </LightPanel>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

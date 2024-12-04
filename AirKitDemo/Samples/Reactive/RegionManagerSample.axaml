@@ -8,18 +8,18 @@
         <local:RegionManagerSample_Model />
     </Design.DataContext>
     <Grid RowDefinitions="Auto,*" Margin="12">
-        <LightPanel Grid.Row="0" Mode="Horizontal" Margin="0 0 0 12">
+        <PanelExt Grid.Row="0" Mode="Horizontal" Margin="0 0 0 12">
             <Button Classes="Button-Mini" Content="{Binding Index, StringFormat=Add item (id: {0})}" Command="{Binding Add}" />
-        </LightPanel>
-        <LightPanel Grid.Row="1">
+        </PanelExt>
+        <PanelExt Grid.Row="1">
             <Grid RowDefinitions="Auto,*" IsVisible="{Binding RegionManager.Items.Count}">
                 <ListBox Grid.Row="0" Classes="List-Tab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="local:RegionItemView_Model">
-                            <LightAutoGrid Definitions="*,Auto" Spacing="8">
+                            <AutoGrid Definitions="*,Auto" Spacing="8">
                                 <TextBlock Text="{Binding Header}" VerticalAlignment="Center" />
                                 <Button Classes="Button-Tab-Close" Command="{Binding Close}" VerticalAlignment="Center" />
-                            </LightAutoGrid>
+                            </AutoGrid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -27,6 +27,6 @@
             </Grid>
             <TextBlock Text="No tab opened" IsVisible="{Binding !RegionManager.Items.Count}" Margin="{ThemeThickness Padding, Offset=30}"
                        HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </LightPanel>
+        </PanelExt>
     </Grid>
 </LightView>

@@ -4,10 +4,10 @@ using Avalonia.Controls;
 
 namespace AirKit.Controls;
 
-public abstract class LightPanelBase : Panel
+public abstract class PanelExtBase : Panel
 {
     public static readonly StyledProperty<double> SpacingProperty =
-        AvaloniaProperty.Register<LightPanelBase, double>(nameof(Spacing));
+        AvaloniaProperty.Register<PanelExtBase, double>(nameof(Spacing));
 
     public double Spacing
     {
@@ -15,7 +15,7 @@ public abstract class LightPanelBase : Panel
         set => SetValue(SpacingProperty, value);
     }
 
-    public static readonly StyledProperty<bool> ReverseOrderProperty = AvaloniaProperty.Register<LightPanelBase, bool>(
+    public static readonly StyledProperty<bool> ReverseOrderProperty = AvaloniaProperty.Register<PanelExtBase, bool>(
         nameof(ReverseOrder));
 
     public bool ReverseOrder
@@ -24,10 +24,10 @@ public abstract class LightPanelBase : Panel
         set => SetValue(ReverseOrderProperty, value);
     }
 
-    static LightPanelBase()
+    static PanelExtBase()
     {
-        AffectsMeasure<LightPanelBase>(SpacingProperty, ReverseOrderProperty);
-        AffectsArrange<LightPanelBase>(SpacingProperty, ReverseOrderProperty);
+        AffectsMeasure<PanelExtBase>(SpacingProperty, ReverseOrderProperty);
+        AffectsArrange<PanelExtBase>(SpacingProperty, ReverseOrderProperty);
     }
 
     public static void ForeachItems(ReadOnlyCollection<Control> children, int column, Action<int, Control[]> action)
@@ -39,16 +39,6 @@ public abstract class LightPanelBase : Panel
             row++;
             action(row, items);
         }
-    }
-
-    protected Size DefaultMeasure(Size availableSize)
-    {
-        return base.MeasureOverride(availableSize);
-    }
-
-    protected void DefaultArrange(Size finalSize)
-    {
-        base.ArrangeOverride(finalSize);
     }
 
     ReadOnlyCollection<Control> GetVisibleChildren()

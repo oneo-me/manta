@@ -1,11 +1,9 @@
 namespace AirKit.Controls;
 
-public enum LightPanelMode
+public enum PanelExtMode
 {
-    None,
-
-    Horizontal,
     Vertical,
+    Horizontal,
     Wrap,
     WrapFull,
     Column,

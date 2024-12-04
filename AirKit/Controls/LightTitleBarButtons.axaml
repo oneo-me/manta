@@ -3,24 +3,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Width="300" Spacing="12" Margin="12">
+        <Panel Width="300" Margin="12">
             <Border Background="#19A660FF" BorderBrush="#0D000000" BoxShadow="0 3 10 #19000000" BorderThickness="1" CornerRadius="10">
                 <Grid RowDefinitions="Auto,*">
                     <LightTitleBarButtons Grid.Row="0" HorizontalAlignment="Right" />
                     <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#0D000000" BorderThickness="0 1 0 0" CornerRadius="0 0 10 10" Height="80" />
                 </Grid>
             </Border>
-        </LightPanel>
+        </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightTitleBarButtons}" TargetType="LightTitleBarButtons">
         <Setter Property="Height" Value="38" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightPanel x:Name="PART_Buttons" Mode="Horizontal">
+                <PanelExt x:Name="PART_Buttons" Mode="Horizontal">
                     <LightTitleBarButton Type="Minimize" />
                     <LightTitleBarButton Type="Maximize" />
                     <LightTitleBarButton Type="Close" />
-                </LightPanel>
+                </PanelExt>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
