@@ -15,7 +15,25 @@
             </LightPanel>
             <TextBlock Classes="Title" Text="SplitButton" />
             <LightPanel Mode="Horizontal" Spacing="12">
-                <SplitButton Content="SplitButton" />
+                <SplitButton Content="SplitButton">
+                    <SplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+            </LightPanel>
+            <TextBlock Classes="Title" Text="DropDownButton" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <DropDownButton Content="DropDownButton">
+                    <DropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </DropDownButton.Flyout>
+                </DropDownButton>
             </LightPanel>
             <TextBlock Classes="Title" Text="RepeatButton" />
             <LightPanel Mode="Horizontal" Spacing="12">

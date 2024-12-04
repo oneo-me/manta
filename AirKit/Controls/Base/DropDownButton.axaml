@@ -1,0 +1,51 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <DropDownButton Content="DropDownButton" />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
+        <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
+        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <ContentPresenter x:Name="PART_ContentPresenter"
+                                              Grid.Column="0"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              RecognizesAccessKey="True" />
+                            <PathIcon x:Name="DropDownGlyph"
+                                      Grid.Column="1"
+                                      Width="12"
+                                      Height="12"
+                                      Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z"
+                                      Margin="0,0,10,0"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      IsHitTestVisible="False"
+                                      UseLayoutRounding="False" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
