@@ -23,6 +23,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ItemsControl}" TargetType="ItemsControl">
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate>

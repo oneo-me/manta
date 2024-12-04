@@ -11,7 +11,8 @@
         <LightPanel Mode="Wrap" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="ItemsControl" />
-                <ItemsControl ItemsSource="{Binding Items5}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}" Padding="{ThemeThickness Padding}">
+                <ItemsControl ItemsSource="{Binding Items5}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}" Padding="{ThemeThickness Padding}"
+                              Width="160">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -29,7 +30,7 @@
             <LightPanel Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="ListBox" />
                 <ListBox ItemsSource="{Binding Items100}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}"
-                         Grid.IsSharedSizeScope="True" MaxHeight="200" Padding="{ThemeThickness Padding}">
+                         Grid.IsSharedSizeScope="True" Width="160" Height="200" Padding="{ThemeThickness Padding}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -43,6 +44,24 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+            </LightPanel>
+            <LightPanel Mode="Vertical" Spacing="12">
+                <TextBlock Classes="Title" Text="TreeView" />
+                <TreeView ItemsSource="{Binding TreeItems30}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}"
+                          Width="160" Height="200" Padding="{ThemeThickness Padding}">
+                    <TreeView.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding Children}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="ListItemId" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Id, StringFormat={}{0}:}" />
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="3 0 0 0" />
+                            </Grid>
+                        </TreeDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
             </LightPanel>
         </LightPanel>
     </LightScrollViewer>

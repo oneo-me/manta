@@ -1,0 +1,53 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TreeView>
+                <TreeViewItem Header="Test Item 0">
+                    <TreeViewItem Header="Test Item 0" />
+                    <TreeViewItem Header="Test Item 1" />
+                    <TreeViewItem Header="Test Item 2" />
+                </TreeViewItem>
+                <TreeViewItem Header="Test Item 1">
+                    <TreeViewItem Header="Test Item 0" />
+                    <TreeViewItem Header="Test Item 1">
+                        <TreeViewItem Header="Test Item 0" />
+                        <TreeViewItem Header="Test Item 1" />
+                        <TreeViewItem Header="Test Item 2" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Test Item 2" />
+                </TreeViewItem>
+                <TreeViewItem Header="Test Item 2" />
+            </TreeView>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightScrollViewer x:Name="PART_ScrollViewer"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                   CornerRadius="{TemplateBinding CornerRadius}"
+                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                   IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                   IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </LightScrollViewer>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

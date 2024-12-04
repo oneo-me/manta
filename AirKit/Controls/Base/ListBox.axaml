@@ -26,8 +26,6 @@
         <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
-        <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
