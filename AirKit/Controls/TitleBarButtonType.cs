@@ -1,9 +1,10 @@
 namespace AirKit.Controls;
 
-public enum LightTitleBarButtonType
+public enum TitleBarButtonType
 {
     None,
 
+    FullScreen,
     Minimize,
     Maximize,
     Close

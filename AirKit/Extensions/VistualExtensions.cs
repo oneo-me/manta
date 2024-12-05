@@ -1,6 +1,5 @@
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using AirKit.Controls;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -12,7 +11,7 @@ namespace AirKit.Extensions;
 
 public static class VisualExtensions
 {
-    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action) where T : View
+    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action) where T : InputElement
     {
         if (Design.IsDesignMode)
         {
@@ -37,7 +36,7 @@ public static class VisualExtensions
             });
     }
 
-    public static IDisposable SubscribeTitleBarEvents<T>(this T view, Func<T, InputElement> func) where T : View
+    public static IDisposable SubscribeTitleBarEvents<T>(this T view, Func<T, InputElement> func) where T : InputElement
     {
         if (Design.IsDesignMode)
             return Disposable.Empty;

@@ -14,7 +14,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" RowDefinitions="Auto,*">
-            <Border Grid.Row="0" x:Name="MoveBorder1" />
+            <Border Grid.Row="0" x:Name="OffsetBorder" />
+            <Border Grid.Row="0" Grid.RowSpan="2" x:Name="EventBorder" />
             <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
                 <ListBox.Theme>
                     <ControlTheme TargetType="ListBox">
@@ -68,14 +69,8 @@
         </Grid>
         <Border Grid.Column="1" Background="{ThemeBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
             <Grid RowDefinitions="Auto,*">
-                <Border Grid.Row="0" x:Name="MoveBorder2" VerticalAlignment="Top">
-                    <Grid ColumnDefinitions="*,Auto" Margin="{ThemeThickness Padding}">
-                        <TextBlock Grid.Column="0" Text="{Binding SelectedItem.Name}" VerticalAlignment="Center"
-                                   Margin="6 0" FontWeight="SemiBold" FontSize="14" />
-                        <LightTitleBarButtons Grid.Column="1" x:Name="Buttons" />
-                    </Grid>
-                </Border>
-                <ViewModelHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
+                <TitleBarExt Grid.Row="0" x:Name="TitleBar" Title="{Binding SelectedItem.Name}" UseWindowTitle="False" />
+                <ViewModelHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" Margin="0 -12 0 0" />
             </Grid>
         </Border>
         <!-- Splitters -->

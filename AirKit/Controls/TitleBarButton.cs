@@ -3,18 +3,18 @@ using Avalonia.Controls;
 
 namespace AirKit.Controls;
 
-public class LightTitleBarButton : Button
+public class TitleBarButton : Button
 {
-    public static readonly StyledProperty<LightTitleBarButtonType> TypeProperty = AvaloniaProperty.Register<LightTitleBarButton, LightTitleBarButtonType>(
+    public static readonly StyledProperty<TitleBarButtonType> TypeProperty = AvaloniaProperty.Register<TitleBarButton, TitleBarButtonType>(
         nameof(Type));
 
-    public LightTitleBarButtonType Type
+    public TitleBarButtonType Type
     {
         get => GetValue(TypeProperty);
         set => SetValue(TypeProperty, value);
     }
 
-    public static readonly StyledProperty<Thickness> InnerMarginProperty = AvaloniaProperty.Register<LightTitleBarButton, Thickness>(
+    public static readonly StyledProperty<Thickness> InnerMarginProperty = AvaloniaProperty.Register<TitleBarButton, Thickness>(
         nameof(InnerMargin));
 
     public Thickness InnerMargin

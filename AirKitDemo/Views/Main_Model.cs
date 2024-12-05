@@ -98,15 +98,12 @@ sealed class Main_Model : WindowModel
 
         var view = this.GetView<Main>();
 
-        view.SubscribeTitleBarEvents(x => x.MoveBorder1).DisposeWith(disposables);
-        view.SubscribeTitleBarEvents(x => x.MoveBorder2).DisposeWith(disposables);
+        view.SubscribeTitleBarEvents(x => x.EventBorder).DisposeWith(disposables);
 
         view.SubscribeWindowStatus(x =>
         {
-            view.MoveBorder1.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
-            view.Buttons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
-            view.MoveBorder2.Margin = new(0, 0, 0, -12);
-            view.MoveBorder2.Height = 38 + 12;
+            view.OffsetBorder.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
+            view.TitleBar.IsShowButtons = x is { isShowButtons: true, isFullscreen: false };
         }).DisposeWith(disposables);
     }
 

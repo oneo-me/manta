@@ -1,16 +1,28 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <Border Margin="12" Background="#19A660FF" BorderBrush="#0D000000" BoxShadow="0 3 10 #19000000" BorderThickness="1" CornerRadius="10">
-            <Grid RowDefinitions="Auto,*">
-                <LightTitleBarButtons Grid.Row="0" />
-                <Border Grid.Row="1" Background="#FFFFFF" BorderBrush="#0D000000" BorderThickness="0 1 0 0" CornerRadius="0 0 10 10" Height="80" />
-            </Grid>
-        </Border>
+        <PanelExt Mode="Horizontal" Margin="12">
+            <TitleBarButton Content="Custom" />
+            <TitleBarButton Type="FullScreen">
+                <system:Boolean>True</system:Boolean>
+            </TitleBarButton>
+            <TitleBarButton Type="FullScreen">
+                <system:Boolean>False</system:Boolean>
+            </TitleBarButton>
+            <TitleBarButton Type="Minimize" />
+            <TitleBarButton Type="Maximize">
+                <system:Boolean>True</system:Boolean>
+            </TitleBarButton>
+            <TitleBarButton Type="Maximize">
+                <system:Boolean>False</system:Boolean>
+            </TitleBarButton>
+            <TitleBarButton Type="Close" />
+        </PanelExt>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type LightTitleBarButton}" TargetType="LightTitleBarButton">
+    <ControlTheme x:Key="{x:Type TitleBarButton}" TargetType="TitleBarButton">
         <Setter Property="Height" Value="38" />
         <Setter Property="MinWidth" Value="34" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -46,6 +58,18 @@
         </Style>
         <Style Selector="^[Type=None]">
             <Setter Property="Padding" Value="8 0" />
+        </Style>
+        <Style Selector="^[Type=FullScreen]">
+            <Setter Property="ContentTemplate">
+                <DataTemplate DataType="x:Boolean">
+                    <Panel>
+                        <PathIcon Width="10" Height="10" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z"
+                                  IsVisible="{Binding !.}" />
+                        <PathIcon Width="10" Height="10" Data="M205 1024h819v-819h-205v469l-674 -674l-145 145l674 674h-469v205zM1374 1229h469v-205h-819v819h205v-469l674 674l145 -145z"
+                                  IsVisible="{Binding .}" />
+                    </Panel>
+                </DataTemplate>
+            </Setter>
         </Style>
         <Style Selector="^[Type=Minimize]">
             <Setter Property="ContentTemplate">

@@ -10,8 +10,8 @@ using Avalonia.Interactivity;
 namespace AirKit.Controls;
 
 [TemplatePart(nameof(PART_Buttons), typeof(Panel))]
-[SuppressMessage("Design", "CA1001:具有可释放字段的类型应该是可释放的")]
-public class LightTitleBarButtons : ContentControl
+[SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable")]
+public class TitleBarButtons : ContentControl
 {
     Panel? PART_Buttons;
 
@@ -55,17 +55,17 @@ public class LightTitleBarButtons : ContentControl
 
         foreach (var child in PART_Buttons.Children)
         {
-            if (child is not LightTitleBarButton button)
+            if (child is not TitleBarButton button)
                 continue;
 
-            if (button.Type == LightTitleBarButtonType.Minimize)
+            if (button.Type == TitleBarButtonType.Minimize)
                 window.GetObservable(Window.ShowInTaskbarProperty).Subscribe(x =>
                     {
                         button.IsVisible = x;
                     })
                     .DisposeWith(_disposables);
 
-            if (button.Type == LightTitleBarButtonType.Maximize)
+            if (button.Type == TitleBarButtonType.Maximize)
             {
                 window.GetObservable(Window.CanResizeProperty).Subscribe(x =>
                     {
@@ -85,19 +85,19 @@ public class LightTitleBarButtons : ContentControl
             Observable
                 .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x).Subscribe(x =>
                 {
-                    if (x.sender is not LightTitleBarButton sender)
+                    if (x.sender is not TitleBarButton sender)
                         return;
 
                     switch (sender.Type)
                     {
-                        case LightTitleBarButtonType.Minimize:
+                        case TitleBarButtonType.Minimize:
                             if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
                                 return;
 
                             window.WindowState = WindowState.Minimized;
                             break;
 
-                        case LightTitleBarButtonType.Maximize:
+                        case TitleBarButtonType.Maximize:
                             if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
                                 return;
 
@@ -105,7 +105,7 @@ public class LightTitleBarButtons : ContentControl
                                 window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                             break;
 
-                        case LightTitleBarButtonType.Close:
+                        case TitleBarButtonType.Close:
                             window.Close();
                             break;
                     }

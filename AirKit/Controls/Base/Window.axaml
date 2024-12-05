@@ -6,6 +6,7 @@
         <TextBlock Text="Design Model" Margin="30" />
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+        <Setter Property="Title" Value="AirKit" />
         <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="Background" Value="{ThemeBrush Window_Background}" />
