@@ -3,7 +3,7 @@ using AirKit.Attributes;
 using AirKitDemo.Models;
 using Bogus;
 
-namespace AirKitDemo.Samples.Base;
+namespace AirKitDemo.Samples.Controls;
 
 sealed class BaseListData
 {
@@ -18,7 +18,7 @@ sealed class BaseTreeData
     public List<BaseTreeData> Children { get; set; } = [];
 }
 
-[Sample(SampleGroupType.BaseControls, "List")]
+[Sample(SampleGroupType.Controls, "List")]
 [View<BaseListSample>]
 sealed class BaseListSample_Model : ViewModel
 {

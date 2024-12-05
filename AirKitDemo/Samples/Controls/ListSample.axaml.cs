@@ -1,6 +1,6 @@
 using AirKit.Controls;
 
-namespace AirKitDemo.Samples.Base;
+namespace AirKitDemo.Samples.Controls;
 
 sealed partial class BaseListSample : View
 {

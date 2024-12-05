@@ -8,9 +8,6 @@ enum SampleGroupType
     [SampleGroup("Reactive")]
     Reactive,
 
-    [SampleGroup("Base Controls")]
-    BaseControls,
-
     [SampleGroup("Controls")]
     Controls
 }

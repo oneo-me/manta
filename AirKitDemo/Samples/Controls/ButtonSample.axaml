@@ -1,8 +1,8 @@
 <View
-    x:Class="AirKitDemo.Samples.Base.BaseButtonSample"
+    x:Class="AirKitDemo.Samples.Controls.BaseButtonSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AirKitDemo.Samples.Base"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
     x:DataType="local:BaseButtonSample_Model">
     <Design.DataContext>
         <local:BaseButtonSample_Model />

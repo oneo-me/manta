@@ -2,8 +2,8 @@ using AirKit;
 using AirKit.Attributes;
 using AirKitDemo.Models;
 
-namespace AirKitDemo.Samples.Base;
+namespace AirKitDemo.Samples.Controls;
 
-[Sample(SampleGroupType.BaseControls, "Carousel")]
+[Sample(SampleGroupType.Controls, "Carousel")]
 [View<BaseCarouselSample>]
 sealed class BaseCarouselSample_Model : ViewModel;
