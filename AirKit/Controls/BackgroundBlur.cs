@@ -9,9 +9,9 @@ using SkiaSharp;
 
 namespace AirKit.Controls;
 
-public class LightBlur : Control
+public class BackgroundBlur : Control
 {
-    [SuppressMessage("Reliability", "CA2000:丢失范围之前释放对象")]
+    [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
     public override void Render(DrawingContext context)
     {
         context.Custom(new BlurBehindRenderOperation(new(default, Bounds.Size)));
@@ -49,10 +49,10 @@ public class LightBlur : Control
 
             using var backgroundSnapshot = lease.SkSurface.Snapshot();
             using var backdropShader = SKShader.CreateImage(backgroundSnapshot, SKShaderTileMode.Clamp, SKShaderTileMode.Clamp, currentInvertedTransform);
-            using var blurfilter = SKImageFilter.CreateBlur(15, 15, SKShaderTileMode.Clamp);
+            using var blurFilter = SKImageFilter.CreateBlur(15, 15, SKShaderTileMode.Clamp);
             using var blurPaint = new SKPaint();
             blurPaint.Shader = backdropShader;
-            blurPaint.ImageFilter = blurfilter;
+            blurPaint.ImageFilter = blurFilter;
 
             canvas.DrawRect(0, 0, (float)Bounds.Width, (float)Bounds.Height, blurPaint);
         }
