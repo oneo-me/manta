@@ -2,7 +2,7 @@ using AirKit.Controls;
 
 namespace AirKitDemo.Samples.Base;
 
-sealed partial class BaseSwitchSample : LightView
+sealed partial class BaseSwitchSample : View
 {
     public BaseSwitchSample()
     {

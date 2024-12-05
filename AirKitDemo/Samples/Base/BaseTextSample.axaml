@@ -1,4 +1,4 @@
-<LightView
+<View
     x:Class="AirKitDemo.Samples.Base.BaseTextSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -18,4 +18,4 @@
             <Label Content="_Label" />
         </PanelExt>
     </ScrollViewer>
-</LightView>
+</View>

@@ -12,7 +12,7 @@ namespace AirKit.Extensions;
 
 public static class VisualExtensions
 {
-    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action) where T : LightView
+    public static IDisposable SubscribeWindowStatus<T>(this T view, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action) where T : View
     {
         if (Design.IsDesignMode)
         {
@@ -37,7 +37,7 @@ public static class VisualExtensions
             });
     }
 
-    public static IDisposable SubscribeTitleBarEvents<T>(this T view, Func<T, InputElement> func) where T : LightView
+    public static IDisposable SubscribeTitleBarEvents<T>(this T view, Func<T, InputElement> func) where T : View
     {
         if (Design.IsDesignMode)
             return Disposable.Empty;

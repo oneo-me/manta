@@ -1,4 +1,4 @@
-<LightView
+<View
     x:Class="AirKitDemo.Views.Main"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -81,4 +81,4 @@
         <!-- Splitters -->
         <GridSplitter Grid.Column="0" HorizontalAlignment="Right" />
     </Grid>
-</LightView>
+</View>

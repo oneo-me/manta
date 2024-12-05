@@ -2,7 +2,7 @@ using AirKit.Controls;
 
 namespace AirKitDemo.Samples.Themes;
 
-sealed partial class ColorsSample : LightView
+sealed partial class ColorsSample : View
 {
     public ColorsSample()
     {

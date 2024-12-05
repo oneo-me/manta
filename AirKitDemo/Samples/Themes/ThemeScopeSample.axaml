@@ -1,4 +1,4 @@
-<LightView
+<View
     x:Class="AirKitDemo.Samples.Themes.ThemeScopeSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,4 +15,4 @@
             <ViewModelHost ViewModelType="local:ColorsSample_Model" Background="{ThemeBrush Background}" Margin="{ThemeThickness Padding}" CornerRadius="{ThemeRadius Normal}" BorderThickness="{ThemeThickness Normal}" />
         </ThemeVariantScope>
     </Grid>
-</LightView>
+</View>

@@ -2,7 +2,7 @@ using AirKit.Controls;
 
 namespace AirKitDemo.Samples.Reactive;
 
-sealed partial class RegionManagerSample : LightView
+sealed partial class RegionManagerSample : View
 {
     public RegionManagerSample()
     {

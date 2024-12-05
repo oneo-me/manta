@@ -8,7 +8,7 @@ namespace AirKit.Extensions;
 
 public static class ViewModelExtensions
 {
-    public static LightView CreateView(this ViewModel viewModel)
+    public static View CreateView(this ViewModel viewModel)
     {
         if (viewModel.InnerView is not null)
             return viewModel.InnerView;
@@ -19,13 +19,13 @@ public static class ViewModelExtensions
             throw new InvalidOperationException($"ViewAttribute not found for {viewModelType}");
 
         var viewType = viewAttribute.GetViewType();
-        var view = Service.CreateInstance<LightView>(viewType);
+        var view = Service.CreateInstance<View>(viewType);
         viewModel.InnerView = view;
         view.DataContext = viewModel;
         return view;
     }
 
-    public static LightView GetView(this ViewModel viewModel)
+    public static View GetView(this ViewModel viewModel)
     {
         if (viewModel.InnerView is null)
             throw new InvalidOperationException($"View not found for {viewModel}");
@@ -33,7 +33,7 @@ public static class ViewModelExtensions
         return viewModel.InnerView;
     }
 
-    public static T GetView<T>(this ViewModel viewModel) where T : LightView
+    public static T GetView<T>(this ViewModel viewModel) where T : View
     {
         if (viewModel.GetView() is T view)
             return view;

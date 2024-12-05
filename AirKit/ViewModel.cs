@@ -6,7 +6,7 @@ namespace AirKit;
 
 public abstract class ViewModel : Model
 {
-    internal LightView? InnerView { get; set; }
+    internal View? InnerView { get; set; }
 
     bool _isInitialized;
 
