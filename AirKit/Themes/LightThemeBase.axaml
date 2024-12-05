@@ -39,6 +39,8 @@
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
+                <MergeResourceInclude Source="/Controls/ProgressRing.axaml" />
+                <MergeResourceInclude Source="/Controls/Ring.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarButton.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarButtons.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarExt.axaml" />

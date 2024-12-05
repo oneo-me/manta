@@ -1,0 +1,25 @@
+<View
+    x:Class="AirKitDemo.Samples.Controls.ProgressSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
+    x:DataType="local:ProgressSample_Model">
+    <Design.DataContext>
+        <local:ProgressSample_Model />
+    </Design.DataContext>
+    <ScrollViewer>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Classes="Title" Text="ProgressRing" />
+            <PanelExt Mode="Horizontal" Spacing="12">
+                <ProgressRing Value="0" />
+                <ProgressRing Value="50" />
+                <ProgressRing Value="100" />
+                <ProgressRing IsIndeterminate="True" />
+                <ProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <ProgressRing ShowProgressText="True" IsIndeterminate="True">
+                    <Border Background="{ThemeBrush Primary, Opacity=0.3}" Width="300" Height="300" />
+                </ProgressRing>
+            </PanelExt>
+        </PanelExt>
+    </ScrollViewer>
+</View>
