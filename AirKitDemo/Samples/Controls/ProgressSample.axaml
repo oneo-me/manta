@@ -35,6 +35,25 @@
                     <ProgressBar ShowProgressText="True" Orientation="Vertical" IsIndeterminate="True" />
                 </PanelExt>
             </PanelExt>
+            <TextBlock Classes="Title" Text="Slider" />
+            <PanelExt Mode="Horizontal" Spacing="12">
+                <PanelExt Mode="Vertical" Spacing="12" Width="180">
+                    <Slider IsDirectionReversed="False" Value="50" />
+                    <Slider IsDirectionReversed="True" Value="50" />
+                    <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" />
+                    <Slider Value="50" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10" />
+                    <Slider Value="50" TickPlacement="Outside" TickFrequency="10" />
+                    <Slider IsEnabled="False" Value="50" />
+                </PanelExt>
+                <PanelExt Mode="Horizontal" Spacing="12" Height="120" VerticalAlignment="Top">
+                    <Slider Value="50" Orientation="Vertical" />
+                    <Slider IsDirectionReversed="True" Value="50" Orientation="Vertical" />
+                    <Slider IsEnabled="False" Orientation="Vertical" Value="50" />
+                    <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" Orientation="Vertical" />
+                    <Slider Value="50" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10" Orientation="Vertical" />
+                    <Slider Value="50" TickPlacement="Outside" TickFrequency="10" Orientation="Vertical" />
+                </PanelExt>
+            </PanelExt>
         </PanelExt>
     </ScrollViewer>
 </View>

@@ -29,6 +29,7 @@
                 <MergeResourceInclude Source="/Controls/Base/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Separator.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/Slider.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SplitButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
