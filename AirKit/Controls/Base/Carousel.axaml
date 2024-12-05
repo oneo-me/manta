@@ -12,10 +12,10 @@
                     <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
                 <Border Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
-                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
                 <Border Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
-                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
             </Carousel>
         </PanelExt>
