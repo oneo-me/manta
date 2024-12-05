@@ -37,7 +37,7 @@
                 <MergeResourceInclude Source="/Controls/Base/TreeViewItem.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
                 <!-- Controls -->
-                <MergeResourceInclude Source="/Controls/LightClip.axaml" />
+                <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
                 <MergeResourceInclude Source="/Controls/LightThumb.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButtons.axaml" />

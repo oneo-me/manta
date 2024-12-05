@@ -4,12 +4,12 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
-            <LightClip BorderThickness="10" Padding="8" CornerRadius="100" BoxShadow="0 0 30 #19000000">
+            <ClipContentControl BorderThickness="10" Padding="8" CornerRadius="100" BoxShadow="0 0 30 #19000000">
                 <Border Background="Bisque" Width="100" Height="100" />
-            </LightClip>
+            </ClipContentControl>
         </PanelExt>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type LightClip}" TargetType="LightClip">
+    <ControlTheme x:Key="{x:Type ClipContentControl}" TargetType="ClipContentControl">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
