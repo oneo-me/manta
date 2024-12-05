@@ -31,6 +31,7 @@
                 <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ThemeVariantScope.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/Thumb.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleSwitch.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TreeView.axaml" />
@@ -38,7 +39,6 @@
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
-                <MergeResourceInclude Source="/Controls/LightThumb.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="/Controls/LightTitleBarButtons.axaml" />
                 <MergeResourceInclude Source="/Controls/ViewModelHost.axaml" />

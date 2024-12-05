@@ -43,13 +43,11 @@
                         <Track.IncreaseButton>
                             <RepeatButton x:Name="PART_PageDownButton" Focusable="False" />
                         </Track.IncreaseButton>
-                        <LightThumb>
-                            <Border Margin="{TemplateBinding Padding}"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{TemplateBinding CornerRadius}" />
-                        </LightThumb>
+                        <Thumb Padding="{TemplateBinding Padding}"
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               CornerRadius="{TemplateBinding CornerRadius}" />
                     </Track>
                 </Panel>
             </ControlTemplate>
@@ -69,7 +67,7 @@
             <Style Selector="^ /template/ Track">
                 <Setter Property="IsDirectionReversed" Value="True" />
             </Style>
-            <Style Selector="^ /template/ LightThumb">
+            <Style Selector="^ /template/ Thumb">
                 <Setter Property="MinHeight" Value="36" />
             </Style>
         </Style>
@@ -79,7 +77,7 @@
             <Style Selector="^ /template/ Track">
                 <Setter Property="IsDirectionReversed" Value="False" />
             </Style>
-            <Style Selector="^ /template/ LightThumb">
+            <Style Selector="^ /template/ Thumb">
                 <Setter Property="MinWidth" Value="36" />
             </Style>
         </Style>
