@@ -1,4 +1,3 @@
-using AirKit.Controls;
 using Avalonia.Controls;
 
 namespace AirKit.Extensions;
@@ -7,11 +6,23 @@ public static class WindowModelExtensions
 {
     public static Window CreateWindow(this WindowModel windowModel)
     {
-        var result = new LightWindow
+        var result = new Window
         {
             Content = windowModel.CreateView()
         };
         windowModel.InnerWindow = result;
+
+        // Set window properties
+        if (LightApp.Current.Icon is not null)
+            result.Icon = new(LightApp.Current.Icon);
+        result.Title = LightApp.Current.Name;
+
+        // Activate window on open
+        result.Opened += (sender, _) =>
+        {
+            if (sender is Window current)
+                current.FocusActivate();
+        };
 
         windowModel.OnWindowInitialized(result);
 

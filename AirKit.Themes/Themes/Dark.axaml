@@ -6,7 +6,7 @@
     <SolidColorBrush x:Key="{ThemeBrushKey Shadow}" Color="#000000" />
     <SolidColorBrush x:Key="{ThemeBrushKey MaskBrush}" Color="#000000" Opacity="0.1" />
     <!-- 窗口 -->
-    <SolidColorBrush x:Key="{ThemeBrushKey Window_Background}" Color="#222222" Opacity="0.7" />
+    <SolidColorBrush x:Key="{ThemeBrushKey Window_Background}" Color="#222222" />
     <!-- 通用 -->
     <SolidColorBrush x:Key="{ThemeBrushKey Background}" Color="#222222" />
     <SolidColorBrush x:Key="{ThemeBrushKey Foreground}" Color="#ffffff" />

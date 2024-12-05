@@ -25,6 +25,13 @@ public static class AppBuilderExtensions
 
     public static AppBuilder UseDefaultFontFamily(this AppBuilder builder)
     {
-        return builder.UseFontFamily(OperatingSystem.IsMacOS() ? "PingFang SC" : OperatingSystem.IsWindows() ? "Microsoft YaHei UI" : string.Empty);
+        if (OperatingSystem.IsMacOS())
+            return builder.UseFontFamily("PingFang SC");
+        if (OperatingSystem.IsWindows())
+            return builder.UseFontFamily("Microsoft YaHei UI");
+        if (OperatingSystem.IsLinux())
+            return builder.UseFontFamily("Noto Sans CJK SC");
+
+        return builder;
     }
 }

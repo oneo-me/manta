@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 
-namespace AirKit.Controls;
+namespace AirKit.Extensions;
 
-public static class LightWindowExtensions
+public static class WindowExtensions
 {
     public static void FocusActivate(this Window window)
     {

@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using AirKit;
 using AirKit.Attributes;
-using AirKit.Controls;
 using AirKit.Extensions;
 using AirKitDemo.Models;
 using AirKitDemo.Services;
@@ -111,7 +110,7 @@ sealed class Main_Model : WindowModel
         }).DisposeWith(disposables);
     }
 
-    public override void OnWindowInitialized(LightWindow window)
+    public override void OnWindowInitialized(Window window)
     {
         base.OnWindowInitialized(window);
 

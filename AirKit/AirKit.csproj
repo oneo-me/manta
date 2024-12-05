@@ -6,4 +6,7 @@
     <ItemGroup>
         <ProjectReference Include="..\AirKit.Themes\AirKit.Themes.csproj" />
     </ItemGroup>
+    <ItemGroup>
+        <UpToDateCheckInput Remove="Controls\Design\Window.axaml" />
+    </ItemGroup>
 </Project>
