@@ -22,6 +22,7 @@
                 <MergeResourceInclude Source="/Controls/Base/ListBoxItem.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/PathIcon.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/ProgressBar.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RadioButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ScrollBar.axaml" />
