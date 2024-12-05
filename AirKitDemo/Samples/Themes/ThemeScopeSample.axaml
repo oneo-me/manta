@@ -9,10 +9,14 @@
     </Design.DataContext>
     <Grid ColumnDefinitions="*,*" Margin="{ThemeThickness Padding}">
         <ThemeVariantScope Grid.Column="0" RequestedThemeVariant="Light">
-            <ViewModelHost ViewModelType="local:ColorsSample_Model" Background="{ThemeBrush Background}" Margin="{ThemeThickness Padding}" CornerRadius="{ThemeRadius Normal}" BorderThickness="{ThemeThickness Normal}" />
+            <ClipContentControl Background="{ThemeBrush Background}" Margin="{ThemeThickness Padding}" CornerRadius="{ThemeRadius Normal}" BorderThickness="{ThemeThickness Normal}">
+                <ViewModelHost ViewModelType="local:ColorsSample_Model" />
+            </ClipContentControl>
         </ThemeVariantScope>
         <ThemeVariantScope Grid.Column="1" RequestedThemeVariant="Dark">
-            <ViewModelHost ViewModelType="local:ColorsSample_Model" Background="{ThemeBrush Background}" Margin="{ThemeThickness Padding}" CornerRadius="{ThemeRadius Normal}" BorderThickness="{ThemeThickness Normal}" />
+            <ClipContentControl Background="{ThemeBrush Background}" Margin="{ThemeThickness Padding}" CornerRadius="{ThemeRadius Normal}" BorderThickness="{ThemeThickness Normal}">
+                <ViewModelHost ViewModelType="local:ColorsSample_Model" />
+            </ClipContentControl>
         </ThemeVariantScope>
     </Grid>
 </View>

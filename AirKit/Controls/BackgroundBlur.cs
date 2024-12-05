@@ -9,7 +9,7 @@ using SkiaSharp;
 
 namespace AirKit.Controls;
 
-public class BackgroundBlur : Control
+public class BackgroundBlur : ContentControl
 {
     [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
     public override void Render(DrawingContext context)
