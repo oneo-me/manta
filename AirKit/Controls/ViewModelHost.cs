@@ -4,9 +4,9 @@ using Avalonia.Controls;
 
 namespace AirKit.Controls;
 
-public class LightViewHost : Border
+public class ViewModelHost : Border
 {
-    public static readonly StyledProperty<Type?> ViewModelTypeProperty = AvaloniaProperty.Register<LightViewHost, Type?>(
+    public static readonly StyledProperty<Type?> ViewModelTypeProperty = AvaloniaProperty.Register<ViewModelHost, Type?>(
         nameof(ViewModelType));
 
     public Type? ViewModelType
@@ -15,7 +15,7 @@ public class LightViewHost : Border
         set => SetValue(ViewModelTypeProperty, value);
     }
 
-    public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<LightViewHost, ViewModel?>(
+    public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<ViewModelHost, ViewModel?>(
         nameof(ViewModel));
 
     public ViewModel? ViewModel

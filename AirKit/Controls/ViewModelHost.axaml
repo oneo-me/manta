@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
-    <ControlTheme x:Key="{x:Type LightViewHost}" TargetType="LightViewHost">
+    <ControlTheme x:Key="{x:Type ViewModelHost}" TargetType="ViewModelHost">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
     </ControlTheme>
 </ResourceDictionary>

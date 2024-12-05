@@ -75,7 +75,7 @@
                         <LightTitleBarButtons Grid.Column="1" x:Name="Buttons" />
                     </Grid>
                 </Border>
-                <LightViewHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
+                <ViewModelHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
             </Grid>
         </Border>
         <!-- Splitters -->

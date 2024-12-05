@@ -23,7 +23,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <LightViewHost Grid.Row="1" ViewModel="{Binding RegionManager.SelectedItem}" />
+                <ViewModelHost Grid.Row="1" ViewModel="{Binding RegionManager.SelectedItem}" />
             </Grid>
             <TextBlock Text="No tab opened" IsVisible="{Binding !RegionManager.Items.Count}" Margin="{ThemeThickness Padding, Offset=30}"
                        HorizontalAlignment="Center" VerticalAlignment="Center" />
