@@ -30,8 +30,9 @@
         </Style>
     </View.Styles>
     <Panel>
-        <BackgroundBlur x:Name="BackgroundBlur" VerticalAlignment="Top" ZIndex="1" Background="{ThemeBrush Background, Opacity=0.8}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="0 0 0 1">
-            <TextBlock Text="Colors" FontSize="16" Margin="12" HorizontalAlignment="Center" />
+        <BackgroundBlur x:Name="BackgroundBlur" VerticalAlignment="Top" ZIndex="1" Background="{ThemeBrush Background, Opacity=0.8}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="0 0 0 1"
+                        IsHitTestVisible="False">
+            <TextBlock Text="Colors" FontWeight="Bold" FontSize="14" Margin="12" HorizontalAlignment="Center" />
         </BackgroundBlur>
         <ScrollViewer x:Name="ScrollViewer">
             <PanelExt Mode="Vertical" Spacing="12" Margin="12">
