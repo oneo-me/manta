@@ -62,14 +62,19 @@
                 </ListBox.Theme>
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="models:SampleItem">
-                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Lang {Binding NameKey}}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
         <Border Grid.Column="1" Background="{ThemeBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
             <Grid RowDefinitions="Auto,*">
-                <TitleBarExt Grid.Row="0" x:Name="TitleBar" Title="{Binding SelectedItem.Name}" UseWindowTitle="False" />
+                <TitleBarExt Grid.Row="0" x:Name="TitleBar" Title="{Lang {Binding SelectedItem.NameKey}}" UseWindowTitle="False">
+                    <PanelExt Mode="Horizontal">
+                        <TitleBarButton Content="{LangName {x:Static LangType.zh_Hans}}" Command="{Binding SetLangType}" CommandParameter="{x:Static LangType.zh_Hans}" />
+                        <TitleBarButton Content="{LangName {x:Static LangType.en}}" Command="{Binding SetLangType}" CommandParameter="{x:Static LangType.en}" />
+                    </PanelExt>
+                </TitleBarExt>
                 <ViewModelHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" Margin="0 -12 0 0" />
             </Grid>
         </Border>

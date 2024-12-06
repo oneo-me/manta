@@ -1,0 +1,16 @@
+GroupType_Themes: Themes
+GroupType_Reactive: Reactive
+GroupType_Controls: Controls
+
+SampleName_Button: Button
+SampleName_Expander: Expander
+SampleName_List: List
+SampleName_Progress: Progress
+SampleName_Switch: Switch
+SampleName_TabControl: TabControl
+SampleName_Text: Text
+SampleName_TitleBar: TitleBar
+SampleName_Transition: Transition
+SampleName_TabManger: TabManger
+SampleName_Colors: Colors
+SampleName_ThemeScope: Theme Scope

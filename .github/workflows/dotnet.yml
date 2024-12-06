@@ -21,6 +21,9 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
+      - name: Configure NuGet to use GitHub Packages
+        run: dotnet nuget add source --username oneo-me --password ${{ secrets.GH_PACKAGES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/oneo-me/index.json"
+
       - name: Restore dependencies
         run: dotnet restore
 

@@ -1,5 +1,6 @@
 using AirKit;
 using AirKit.Attributes;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using Bogus;
 
@@ -18,7 +19,7 @@ sealed class TreeData
     public List<TreeData> Children { get; set; } = [];
 }
 
-[Sample(SampleGroupType.Controls, "List")]
+[Sample(SampleGroupType.Controls, LangKey.SampleName_List)]
 [View<ListSample>]
 sealed class ListSample_Model : ViewModel
 {

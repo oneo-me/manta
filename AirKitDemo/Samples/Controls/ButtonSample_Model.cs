@@ -1,9 +1,10 @@
 using AirKit;
 using AirKit.Attributes;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 
 namespace AirKitDemo.Samples.Controls;
 
-[Sample(SampleGroupType.Controls, "Button")]
+[Sample(SampleGroupType.Controls, LangKey.SampleName_Button)]
 [View<ButtonSample>]
 sealed class ButtonSample_Model : ViewModel;

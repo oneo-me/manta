@@ -35,7 +35,7 @@
                                   Focusable="False"
                                   IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
                     <Border Grid.Column="1" Grid.Row="0"
-                            x:Name="PART_Header"
+                            x:Name="PART_Header" Background="#00000000"
                             Focusable="True" TemplatedControl.IsTemplateFocusTarget="True">
                         <ContentPresenter
                             x:Name="PART_HeaderPresenter"

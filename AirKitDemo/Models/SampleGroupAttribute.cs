@@ -1,7 +1,9 @@
+using AirKitDemo.Langs;
+
 namespace AirKitDemo.Models;
 
 [AttributeUsage(AttributeTargets.Field)]
-sealed class SampleGroupAttribute(string name) : Attribute
+sealed class SampleGroupAttribute(LangKey nameKey) : Attribute
 {
-    public string Name { get; } = name;
+    public LangKey NameKey { get; } = nameKey;
 }

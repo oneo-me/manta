@@ -2,12 +2,13 @@ using System.Reactive.Disposables;
 using AirKit;
 using AirKit.Attributes;
 using AirKit.Extensions;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using Avalonia.Controls;
 
 namespace AirKitDemo.Samples.Themes;
 
-[Sample(SampleGroupType.Themes, "Colors")]
+[Sample(SampleGroupType.Themes, LangKey.SampleName_Colors)]
 [View<ColorsSample>]
 sealed class ColorsSample_Model : ViewModel
 {

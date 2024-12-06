@@ -1,13 +1,15 @@
+using AirKitDemo.Langs;
+
 namespace AirKitDemo.Models;
 
 enum SampleGroupType
 {
-    [SampleGroup("Themes")]
+    [SampleGroup(LangKey.GroupType_Themes)]
     Themes,
 
-    [SampleGroup("Reactive")]
+    [SampleGroup(LangKey.GroupType_Reactive)]
     Reactive,
 
-    [SampleGroup("Controls")]
+    [SampleGroup(LangKey.GroupType_Controls)]
     Controls
 }

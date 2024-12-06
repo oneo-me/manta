@@ -42,7 +42,7 @@ public abstract class LightApp : Application
             return;
 
         if (Debugger.IsAttached)
-            Dispatcher.UIThread.Invoke(() => throw exception);
+            Dispatcher.UIThread.Invoke(() => throw new("An unhandled exception occurred", exception));
     }
 
     protected virtual void OnException(Exception exception)

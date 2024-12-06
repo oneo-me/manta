@@ -1,10 +1,11 @@
 using AirKit;
 using AirKit.Attributes;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 
 namespace AirKitDemo.Samples.Controls;
 
-[Sample(SampleGroupType.Controls, "Transition")]
+[Sample(SampleGroupType.Controls, LangKey.SampleName_Transition)]
 [View<TransitionSample>]
 sealed class TransitionSample_Model : ViewModel
 {

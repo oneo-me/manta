@@ -1,10 +1,11 @@
 using AirKit;
 using AirKit.Attributes;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 
 namespace AirKitDemo.Samples.Reactive;
 
-[Sample(SampleGroupType.Reactive, "TabManger")]
+[Sample(SampleGroupType.Reactive, LangKey.SampleName_TabManger)]
 [View<RegionManagerSample>]
 sealed class RegionManagerSample_Model : ViewModel, IDisposable
 {

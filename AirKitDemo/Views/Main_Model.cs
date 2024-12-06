@@ -4,6 +4,9 @@ using System.Reactive.Disposables;
 using AirKit;
 using AirKit.Attributes;
 using AirKit.Extensions;
+using AirKit.I18N;
+using AirKit.I18N.Enums;
+using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using AirKitDemo.Services;
 using Avalonia.Controls;
@@ -46,7 +49,7 @@ sealed class Main_Model : WindowModel
 
         Items = items;
 
-        var samples = new List<(SampleGroupType groupType, string name, Type type)>();
+        var samples = new List<(SampleGroupType groupType, LangKey nameKey, Type type)>();
         var baseType = typeof(ViewModel);
 
         foreach (var type in GetType().Assembly.GetTypes())
@@ -57,7 +60,7 @@ sealed class Main_Model : WindowModel
             if (Attribute.GetCustomAttribute(type, typeof(SampleAttribute)) is not SampleAttribute sampleAttribute)
                 continue;
 
-            samples.Add((sampleAttribute.GroupType, sampleAttribute.Name, type));
+            samples.Add((sampleAttribute.GroupType, sampleAttribute.NameKey, type));
         }
 
         var groupings = samples.GroupBy(x => x.groupType).ToList();
@@ -71,16 +74,16 @@ sealed class Main_Model : WindowModel
                 _sourceList.Add(new(name, type));
         }
 
-        SelectedItem = _sourceList.Items.FirstOrDefault(x => x.IsGroup is false && x.Name == _configService.Config.SelectedSample) ?? _sourceList.Items.FirstOrDefault(x => x.IsGroup is false);
+        SelectedItem = _sourceList.Items.FirstOrDefault(x => x.IsGroup is false && x.NameKey == _configService.Config.SelectedSample) ?? _sourceList.Items.FirstOrDefault(x => x.IsGroup is false);
     }
 
-    static readonly Dictionary<SampleGroupType, string> _groupNameCache = new();
+    static readonly Dictionary<SampleGroupType, LangKey> _groupNameCache = new();
     static readonly Type _sampleGroupType = typeof(SampleGroupType);
 
-    static string GetGroupName(SampleGroupType groupType)
+    static LangKey GetGroupName(SampleGroupType groupType)
     {
-        if (_groupNameCache.TryGetValue(groupType, out var groupName))
-            return groupName;
+        if (_groupNameCache.TryGetValue(groupType, out var groupNameKey))
+            return groupNameKey;
 
         var fieldInfo = _sampleGroupType.GetField(groupType.ToString());
         if (fieldInfo is null)
@@ -89,7 +92,13 @@ sealed class Main_Model : WindowModel
         if (Attribute.GetCustomAttribute(fieldInfo, typeof(SampleGroupAttribute)) is not SampleGroupAttribute sampleGroupAttribute)
             throw new InvalidOperationException();
 
-        return _groupNameCache[groupType] = sampleGroupAttribute.Name;
+        return _groupNameCache[groupType] = sampleGroupAttribute.NameKey;
+    }
+
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
+    public void SetLangType(LangType langType)
+    {
+        Lang.Current = langType;
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
@@ -118,7 +127,9 @@ sealed class Main_Model : WindowModel
 
         window.Closing += delegate
         {
-            _configService.Config.SelectedSample = SelectedItem?.Name;
+            _configService.Config.Lang = Lang.Current;
+
+            _configService.Config.SelectedSample = SelectedItem?.NameKey;
 
             _configService.Config.MainWindow.WindowState = window.WindowState;
             _configService.Config.MainWindow.Left = window.Position.X;

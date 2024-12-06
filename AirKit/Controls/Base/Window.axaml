@@ -39,7 +39,7 @@
                 </Style>
                 <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" />
                 <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-                <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
+                <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
                 <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
                 <Style Selector="^ /template/ Border#Background">
                     <Setter Property="Opacity" Value="0.8" />

@@ -1,8 +1,10 @@
 using AirKit;
 using AirKit.Desktop;
 using AirKit.Extensions;
+using AirKit.I18N;
 using AirKit.Logging;
 using AirKit.Paths;
+using AirKitDemo.Langs;
 using AirKitDemo.Services;
 using AirKitDemo.Views;
 using Avalonia.Controls;
@@ -28,8 +30,12 @@ sealed class App : LightApp
     {
         base.OnFrameworkInitializationCompleted();
 
+        Lang.Register(LangData.Load<LangKey>());
+
         var configFile = DesktopApp.Folder.CreateFile("config.yaml");
         var configService = Service.Register(new ConfigService(configFile));
+
+        Lang.Current = configService.Config.Lang;
 
         if (Design.IsDesignMode)
         {

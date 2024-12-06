@@ -9,7 +9,6 @@ static class YamlExtensions
 {
     static readonly ISerializer _serializer = new SerializerBuilder()
         .WithNamingConvention(UnderscoredNamingConvention.Instance)
-        .WithEnumNamingConvention(UnderscoredNamingConvention.Instance)
         .WithTypeConverter(new DateTimeConverter())
         .WithTypeConverter(new DateTimeOffsetConverter())
         .WithTypeConverter(new DateOnlyConverter())
@@ -18,7 +17,6 @@ static class YamlExtensions
 
     static readonly IDeserializer _deserializer = new DeserializerBuilder()
         .WithNamingConvention(UnderscoredNamingConvention.Instance)
-        .WithEnumNamingConvention(UnderscoredNamingConvention.Instance)
         .IgnoreUnmatchedProperties()
         .WithTypeConverter(new DateTimeConverter())
         .WithTypeConverter(new DateTimeOffsetConverter())
