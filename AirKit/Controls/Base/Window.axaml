@@ -5,6 +5,17 @@
     <Design.PreviewWith>
         <TextBlock Text="Design Model" Margin="30" />
     </Design.PreviewWith>
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <SolidColorBrush x:Key="MacBackground" Color="#00000000" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="MacBackground" Color="#00000000" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="MacBackground" Color="#666666" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
         <Setter Property="Title" Value="AirKit" />
         <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
@@ -15,10 +26,9 @@
             <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
             <Setter Property="Template">
                 <ControlTemplate>
-                    <Panel>
+                    <Panel x:Name="Root">
                         <Border x:Name="Background" Background="{TemplateBinding Background}" />
-                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                                Margin="{ TemplateBinding OffScreenMargin}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
                             <VisualLayerManager>
                                 <ContentPresenter x:Name="PART_ContentPresenter"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -51,8 +61,11 @@
                 <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
                 <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
                 <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
-                <Style Selector="^[IsActive=True] /template/ Border#Background">
+                <Style Selector="^ /template/ Border#Background">
                     <Setter Property="Opacity" Value="0.7" />
+                </Style>
+                <Style Selector="^[IsActive=False] /template/ Panel#Root">
+                    <Setter Property="Background" Value="{DynamicResource MacBackground}" />
                 </Style>
             </Style>
             <!-- Linux -->

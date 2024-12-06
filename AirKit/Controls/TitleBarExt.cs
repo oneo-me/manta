@@ -9,7 +9,7 @@ using Avalonia.Controls.Primitives;
 namespace AirKit.Controls;
 
 [SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable")]
-[TemplatePart(nameof(PART_Events), typeof(Panel))]
+[TemplatePart(nameof(PART_Events), typeof(Border))]
 public class TitleBarExt : ContentControl
 {
     public static readonly StyledProperty<string?> TitleProperty = AvaloniaProperty.Register<TitleBarExt, string?>(
@@ -48,13 +48,13 @@ public class TitleBarExt : ContentControl
         set => SetValue(IsShowButtonsProperty, value);
     }
 
-    Panel? PART_Events;
+    Border? PART_Events;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
 
-        PART_Events = e.NameScope.Get<Panel>(nameof(PART_Events));
+        PART_Events = e.NameScope.Get<Border>(nameof(PART_Events));
         AttachEvents();
     }
 
