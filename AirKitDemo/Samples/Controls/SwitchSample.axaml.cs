@@ -2,9 +2,9 @@ using AirKit.Controls;
 
 namespace AirKitDemo.Samples.Controls;
 
-sealed partial class BaseSwitchSample : View
+sealed partial class SwitchSample : View
 {
-    public BaseSwitchSample()
+    public SwitchSample()
     {
         InitializeComponent();
     }

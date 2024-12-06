@@ -1,11 +1,11 @@
 <View
-    x:Class="AirKitDemo.Samples.Controls.BaseCarouselSample"
+    x:Class="AirKitDemo.Samples.Controls.TransitionSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
-    x:DataType="local:BaseCarouselSample_Model">
+    x:DataType="local:TransitionSample_Model">
     <Design.DataContext>
-        <local:BaseCarouselSample_Model />
+        <local:TransitionSample_Model />
     </Design.DataContext>
     <PanelExt Mode="Vertical" Spacing="12" Margin="12">
         <PanelExt Mode="Horizontal" Spacing="12">

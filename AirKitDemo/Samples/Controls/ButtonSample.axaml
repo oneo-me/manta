@@ -1,11 +1,11 @@
 <View
-    x:Class="AirKitDemo.Samples.Controls.BaseButtonSample"
+    x:Class="AirKitDemo.Samples.Controls.ButtonSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
-    x:DataType="local:BaseButtonSample_Model">
+    x:DataType="local:ButtonSample_Model">
     <Design.DataContext>
-        <local:BaseButtonSample_Model />
+        <local:ButtonSample_Model />
     </Design.DataContext>
     <ScrollViewer>
         <PanelExt Mode="Vertical" Spacing="12" Margin="12">

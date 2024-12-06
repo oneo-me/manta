@@ -1,11 +1,11 @@
 <View
-    x:Class="AirKitDemo.Samples.Controls.BaseListSample"
+    x:Class="AirKitDemo.Samples.Controls.ListSample"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
-    x:DataType="local:BaseListSample_Model" Design.Width="600">
+    x:DataType="local:ListSample_Model" Design.Width="600">
     <Design.DataContext>
-        <local:BaseListSample_Model />
+        <local:ListSample_Model />
     </Design.DataContext>
     <ScrollViewer>
         <PanelExt Mode="Wrap" Spacing="12" Margin="12">

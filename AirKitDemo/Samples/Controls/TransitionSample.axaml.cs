@@ -2,9 +2,9 @@ using AirKit.Controls;
 
 namespace AirKitDemo.Samples.Controls;
 
-sealed partial class BaseCarouselSample : View
+sealed partial class TransitionSample : View
 {
-    public BaseCarouselSample()
+    public TransitionSample()
     {
         InitializeComponent();
     }
