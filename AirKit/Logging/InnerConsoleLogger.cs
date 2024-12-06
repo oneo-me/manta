@@ -1,6 +1,6 @@
 namespace AirKit.Logging;
 
-sealed class InnerConsoleLogger(LogLevel logLevel, params string[] areas) : LoggerBase(true, false, false, logLevel, areas)
+sealed class InnerConsoleLogger(bool writeTime, LogLevel logLevel, params string[] areas) : LoggerBase(writeTime, false, false, logLevel, areas)
 {
     static readonly ConsoleColor _foregroundColor = Console.ForegroundColor;
 

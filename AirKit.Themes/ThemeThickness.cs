@@ -16,6 +16,7 @@ public enum ThemeThicknessKey
     Menu_Padding,
     Button_Padding,
     TextBox_Padding,
+    TabItem_Padding,
 
     Shadow0,
     Shadow1,

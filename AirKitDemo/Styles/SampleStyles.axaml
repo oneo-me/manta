@@ -1,0 +1,25 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="TextBlock.Title">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="Button.Button-Primary">
+        <Setter Property="BorderBrush" Value="{ThemeBrush Primary, Opacity=0.2}" />
+        <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+        <Setter Property="Padding" Value="{ThemeThickness Padding, TopBottomOffset=-3}" />
+        <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-1}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{ThemeBrush Primary}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
+        </Style>
+    </Style>
+</Styles>

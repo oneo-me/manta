@@ -6,10 +6,6 @@
     <Application.Styles>
         <LightThemeBase />
         <StyleInclude Source="Styles/_Icons.axaml" />
-        <StyleInclude Source="Styles/Button-Mini.axaml" />
-        <StyleInclude Source="Styles/Button-Tab-Close.axaml" />
-        <StyleInclude Source="Styles/List-Logs.axaml" />
-        <StyleInclude Source="Styles/List-Tab.axaml" />
-        <StyleInclude Source="Styles/SampleInfo.axaml" />
+        <StyleInclude Source="Styles/SampleStyles.axaml" />
     </Application.Styles>
 </Application>

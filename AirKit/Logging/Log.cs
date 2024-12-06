@@ -15,11 +15,11 @@ public static class Log
     static Log()
     {
         if (Design.IsDesignMode)
-            AddLogger(new InnerConsoleLogger(LogLevel.All));
+            AddLogger(new InnerConsoleLogger(false, LogLevel.All));
         else if (Debugger.IsAttached)
-            AddLogger(new InnerConsoleLogger(LogLevel.All));
+            AddLogger(new InnerConsoleLogger(true, LogLevel.All));
         else
-            AddLogger(new InnerConsoleLogger(LogLevel.Important));
+            AddLogger(new InnerConsoleLogger(true, LogLevel.Important));
     }
 
     public static void AddLogger(ILogger logger)

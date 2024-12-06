@@ -1,0 +1,67 @@
+<View
+    x:Class="AirKitDemo.Samples.Controls.TabControlSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
+    x:DataType="local:TabControlSample_Model">
+    <Design.DataContext>
+        <local:TabControlSample_Model />
+    </Design.DataContext>
+    <ScrollViewer>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Classes="Title" Text="TabStrip" />
+            <TabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabStripItem Content="TabItem 1" />
+                <TabStripItem Content="TabItem 2" />
+                <TabStripItem Content="TabItem 3" />
+            </TabStrip>
+            <TextBlock Classes="Title" Text="TabControl" />
+            <AutoGrid Definitions="*,*" Spacing="12">
+                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+            </AutoGrid>
+        </PanelExt>
+    </ScrollViewer>
+</View>

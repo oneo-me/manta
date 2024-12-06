@@ -26,8 +26,8 @@
                 </Border>
             </Carousel>
             <PanelExt Mode="Vertical" Spacing="12">
-                <Button Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
-                <Button Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
+                <Button Classes="Button-Primary" Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
+                <Button Classes="Button-Primary" Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
             </PanelExt>
         </PanelExt>
         <TextBlock Classes="Title" Text="TransitioningContentControl" />
@@ -47,9 +47,9 @@
                 </TransitioningContentControl.ContentTemplate>
             </TransitioningContentControl>
             <PanelExt Mode="Vertical" Spacing="12">
-                <Button Content="Content 1" Command="{Binding SetContent}" CommandParameter="Content 1" />
-                <Button Content="Content 2" Command="{Binding SetContent}" CommandParameter="Content 2" />
-                <Button Content="Content 3" Command="{Binding SetContent}" CommandParameter="Content 3" />
+                <Button Classes="Button-Primary" Content="Content 1" Command="{Binding SetContent}" CommandParameter="Content 1" />
+                <Button Classes="Button-Primary" Content="Content 2" Command="{Binding SetContent}" CommandParameter="Content 2" />
+                <Button Classes="Button-Primary" Content="Content 3" Command="{Binding SetContent}" CommandParameter="Content 3" />
             </PanelExt>
         </PanelExt>
     </PanelExt>

@@ -31,6 +31,10 @@
                 <MergeResourceInclude Source="/Controls/Base/Separator.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Slider.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/SplitButton.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TabControl.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TabItem.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TabStrip.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TabStripItem.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ThemeVariantScope.axaml" />

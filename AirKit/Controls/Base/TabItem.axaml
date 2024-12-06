@@ -1,0 +1,81 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
+            <AutoGrid Definitions="*,*" Spacing="12">
+                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                    <TabItem Header="TabItem 1">
+                        <TextBlock Text="Content 1" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 2">
+                        <TextBlock Text="Content 2" Margin="12 50" />
+                    </TabItem>
+                    <TabItem Header="TabItem 3">
+                        <TextBlock Text="Content 3" Margin="12 50" />
+                    </TabItem>
+                </TabControl>
+            </AutoGrid>
+        </PanelExt>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Padding" Value="{ThemeThickness TabItem_Padding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Header}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
