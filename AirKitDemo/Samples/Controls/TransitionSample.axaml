@@ -3,28 +3,54 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AirKitDemo.Samples.Controls"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:DataType="local:TransitionSample_Model">
     <Design.DataContext>
         <local:TransitionSample_Model />
     </Design.DataContext>
     <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <TextBlock Classes="Title" Text="Carousel" />
         <PanelExt Mode="Horizontal" Spacing="12">
-            <Button Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
-            <Button Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
+            <Carousel x:Name="Carousel" Width="220" Height="120">
+                <Carousel.PageTransition>
+                    <Rotate3DTransition Depth="100" Duration="0:0:0.5" />
+                </Carousel.PageTransition>
+                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
+                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
+                    <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
+                    <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </Carousel>
+            <PanelExt Mode="Vertical" Spacing="12">
+                <Button Content="Previous" Command="{Binding ElementName=Carousel, Path=Previous}" />
+                <Button Content="Next" Command="{Binding ElementName=Carousel, Path=Next}" />
+            </PanelExt>
         </PanelExt>
-        <Carousel x:Name="Carousel" Width="120" Height="120" HorizontalAlignment="Left">
-            <Carousel.PageTransition>
-                <PageSlide Duration="0:0:0.1" />
-            </Carousel.PageTransition>
-            <Border Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
-                <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Border>
-            <Border Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
-                <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Border>
-            <Border Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
-                <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Border>
-        </Carousel>
+        <TextBlock Classes="Title" Text="TransitioningContentControl" />
+        <PanelExt Mode="Horizontal" Spacing="12">
+            <TransitioningContentControl Width="220" Height="120" Content="{Binding Content}">
+                <TransitioningContentControl.PageTransition>
+                    <Rotate3DTransition Depth="100" Duration="0:0:0.5" />
+                </TransitioningContentControl.PageTransition>
+                <TransitioningContentControl.ContentTemplate>
+                    <DataTemplate DataType="system:String">
+                        <Panel>
+                            <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Background}" />
+                            <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush BorderBrush}" />
+                            <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Panel>
+                    </DataTemplate>
+                </TransitioningContentControl.ContentTemplate>
+            </TransitioningContentControl>
+            <PanelExt Mode="Vertical" Spacing="12">
+                <Button Content="Content 1" Command="{Binding SetContent}" CommandParameter="Content 1" />
+                <Button Content="Content 2" Command="{Binding SetContent}" CommandParameter="Content 2" />
+                <Button Content="Content 3" Command="{Binding SetContent}" CommandParameter="Content 3" />
+            </PanelExt>
+        </PanelExt>
     </PanelExt>
 </View>

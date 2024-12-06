@@ -21,6 +21,8 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ScrollViewer x:Name="PART_ScrollViewer"

@@ -37,6 +37,7 @@
                 <MergeResourceInclude Source="/Controls/Base/Thumb.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/ToggleSwitch.axaml" />
+                <MergeResourceInclude Source="/Controls/Base/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TreeView.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/TreeViewItem.axaml" />
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
