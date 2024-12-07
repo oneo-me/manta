@@ -43,7 +43,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="#00000000">
-                    <Border x:Name="PART_Events" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border x:Name="PART_Events" Background="{TemplateBinding Background}" BorderBrush="#00000000" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" />
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid ColumnDefinitions="Auto,*,Auto" Margin="{TemplateBinding Padding}">
                             <TextBlock Grid.Column="0" Text="{TemplateBinding Title}" Margin="6 0" FontWeight="SemiBold" FontSize="14"
