@@ -28,6 +28,7 @@ public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
             .ObserveOnDispatcher()
             .Bind(out var items)
             .Subscribe();
+
         Items = items;
     }
 
@@ -111,6 +112,8 @@ public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
         {
             for (var i = _source.Count - 1; i >= 0; i--)
                 _source.Items[i].Close();
+
+            _source.Dispose();
         }
     }
 }
