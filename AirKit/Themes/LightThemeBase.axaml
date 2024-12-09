@@ -48,6 +48,7 @@
                 <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
+                <MergeResourceInclude Source="/Controls/PixelGrid.axaml" />
                 <MergeResourceInclude Source="/Controls/ProgressRing.axaml" />
                 <MergeResourceInclude Source="/Controls/Ring.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarButton.axaml" />

@@ -87,22 +87,7 @@
             <Setter Property="Template">
                 <ControlTemplate>
                     <Panel Background="{TemplateBinding Background}">
-                        <Panel Opacity="0.1">
-                            <Panel.Background>
-                                <VisualBrush TileMode="Tile" DestinationRect="0 0 20 20">
-                                    <VisualBrush.Visual>
-                                        <Grid ColumnDefinitions="10 10" RowDefinitions="10 10">
-                                            <Border Grid.Column="0" Grid.Row="0" Background="{Binding ElementName=Black, Path=BorderBrush}" />
-                                            <Border Grid.Column="1" Grid.Row="0" Background="{Binding ElementName=White, Path=BorderBrush}" />
-                                            <Border Grid.Column="0" Grid.Row="1" Background="{Binding ElementName=White, Path=BorderBrush}" />
-                                            <Border Grid.Column="1" Grid.Row="1" Background="{Binding ElementName=Black, Path=BorderBrush}" />
-                                        </Grid>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Panel.Background>
-                            <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" />
-                            <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" />
-                        </Panel>
+                        <PixelGrid Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" />
                         <VisualLayerManager>
                             <ContentPresenter x:Name="PART_ContentPresenter"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
