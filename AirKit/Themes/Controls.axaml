@@ -1,0 +1,57 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Base -->
+        <MergeResourceInclude Source="/Controls/Base/AdornerLayer.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Border.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Button.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ButtonSpinner.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Carousel.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/CheckBox.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/DropDownButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/EmbeddableControlRoot.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Expander.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/GridSplitter.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/HyperlinkButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ItemsControl.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Label.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ListBox.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ListBoxItem.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/NumericUpDown.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/PathIcon.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ProgressBar.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/RadioButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/RepeatButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ScrollBar.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ScrollViewer.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/SelectableTextBlock.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Separator.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Slider.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/SplitButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TabControl.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TabItem.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TabStrip.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TabStripItem.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TextBlock.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TextBox.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ThemeVariantScope.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Thumb.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ToggleButton.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/ToggleSwitch.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TransitioningContentControl.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TreeView.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/TreeViewItem.axaml" />
+        <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
+        <!-- Controls -->
+        <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
+        <MergeResourceInclude Source="/Controls/PixelGrid.axaml" />
+        <MergeResourceInclude Source="/Controls/ProgressRing.axaml" />
+        <MergeResourceInclude Source="/Controls/Ring.axaml" />
+        <MergeResourceInclude Source="/Controls/TitleBarButton.axaml" />
+        <MergeResourceInclude Source="/Controls/TitleBarButtons.axaml" />
+        <MergeResourceInclude Source="/Controls/TitleBarExt.axaml" />
+        <MergeResourceInclude Source="/Controls/ViewModelHost.axaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

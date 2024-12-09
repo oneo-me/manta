@@ -3,7 +3,7 @@ using AirKit.Themes.Base;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
 
-namespace AirKit.Themes;
+namespace AirKit.Themes.Values;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeBrushKey
@@ -43,14 +43,12 @@ public sealed class ThemeBrush(ThemeBrushKey key) : ThemeValueBase
     public double Opacity { get; set; } = 1;
     public bool ResetOpacity { get; set; }
 
-    protected internal override bool IsDynamic => true;
-
     protected override IEnumerable<object> GetKeys()
     {
         yield return key;
     }
 
-    protected internal override object OnConvert(IList<object?> values)
+    protected override object OnConvert(IList<object?> values)
     {
         var value0 = values[0];
 

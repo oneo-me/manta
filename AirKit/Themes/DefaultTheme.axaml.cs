@@ -1,9 +1,9 @@
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 
-namespace AirKit.Themes.Themes;
+namespace AirKit.Themes;
 
-public class DefaultTheme : Styles
+public sealed class DefaultTheme : Styles
 {
     public DefaultTheme(IServiceProvider? sp = null)
     {

@@ -4,7 +4,7 @@ using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Styling;
 
-namespace AirKit.Themes.Themes;
+namespace AirKit.Themes;
 
 sealed class SystemAccentColors : ResourceProvider
 {

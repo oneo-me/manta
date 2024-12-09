@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using AirKit.Themes.Base;
 using Avalonia.Media;
 
-namespace AirKit.Themes;
+namespace AirKit.Themes.Values;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeShadowKey
@@ -42,14 +42,12 @@ public sealed class ThemeShadowKeyExtension(ThemeShadowKey key) : ThemeKeyBase(k
 
 public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
 {
-    protected internal override bool IsDynamic => true;
-
     protected override IEnumerable<object> GetKeys()
     {
         yield return key;
     }
 
-    protected internal override object OnConvert(IList<object?> values)
+    protected override object OnConvert(IList<object?> values)
     {
         var value0 = values[0];
 

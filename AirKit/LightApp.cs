@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using AirKit.Logging;
-using AirKit.Themes.Themes;
+using AirKit.Themes;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;

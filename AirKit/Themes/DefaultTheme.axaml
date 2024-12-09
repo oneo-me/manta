@@ -1,5 +1,5 @@
 <Styles
-    x:Class="AirKit.Themes.Themes.DefaultTheme"
+    x:Class="AirKit.Themes.DefaultTheme"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Styles.Resources>
@@ -11,8 +11,9 @@
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
                 <SystemAccentColors />
-                <MergeResourceInclude Source="Base.axaml" />
-                <MergeResourceInclude Source="Shadows.axaml" />
+                <ResourceInclude Source="Base.axaml" />
+                <ResourceInclude Source="Shadows.axaml" />
+                <ResourceInclude Source="Controls.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

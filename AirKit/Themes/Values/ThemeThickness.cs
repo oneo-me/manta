@@ -3,7 +3,7 @@ using AirKit.Themes.Base;
 using AirKit.Themes.Extensions;
 using Avalonia;
 
-namespace AirKit.Themes;
+namespace AirKit.Themes.Values;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeThicknessKey
@@ -84,14 +84,13 @@ public sealed class ThemeThickness(ThemeThicknessKey key) : ThemeValueBase
     }
 
     public bool Reverse { get; set; }
-    protected internal override bool IsDynamic => true;
 
     protected override IEnumerable<object> GetKeys()
     {
         yield return key;
     }
 
-    protected internal override object OnConvert(IList<object?> values)
+    protected override object OnConvert(IList<object?> values)
     {
         var value0 = values[0];
 

@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using AirKit.Themes.Base;
 
-namespace AirKit.Themes;
+namespace AirKit.Themes.Values;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeNumberKey
@@ -15,14 +15,13 @@ public sealed class ThemeNumberKeyExtension(ThemeNumberKey key) : ThemeKeyBase(k
 public sealed class ThemeNumber(ThemeNumberKey key) : ThemeValueBase
 {
     public int Offset { get; set; }
-    protected internal override bool IsDynamic => true;
 
     protected override IEnumerable<object> GetKeys()
     {
         yield return key;
     }
 
-    protected internal override object OnConvert(IList<object?> values)
+    protected override object OnConvert(IList<object?> values)
     {
         var value0 = values[0];
 
