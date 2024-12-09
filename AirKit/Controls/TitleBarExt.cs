@@ -48,6 +48,15 @@ public class TitleBarExt : ContentControl
         set => SetValue(IsShowButtonsProperty, value);
     }
 
+    public static readonly StyledProperty<Thickness> OffScreenMarginProperty = AvaloniaProperty.Register<TitleBarExt, Thickness>(
+        nameof(OffScreenMargin));
+
+    public Thickness OffScreenMargin
+    {
+        get => GetValue(OffScreenMarginProperty);
+        set => SetValue(OffScreenMarginProperty, value);
+    }
+
     Border? PART_Events;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
