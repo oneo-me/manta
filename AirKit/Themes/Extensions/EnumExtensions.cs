@@ -19,6 +19,6 @@ static class EnumExtensions
 
     public static TValue HasFlag<T, TValue>(this T @enum, T flag, TValue value, TValue defaultValue = default) where T : Enum where TValue : struct
     {
-        return @enum.HasFlag(flag) ? value : defaultValue;
+        return @enum.HasFlag<T>(flag) ? value : defaultValue;
     }
 }

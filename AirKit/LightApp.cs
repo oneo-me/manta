@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Reactive.Concurrency;
 using AirKit.Logging;
 using AirKit.Themes;
 using Avalonia;
@@ -42,7 +43,7 @@ public abstract class LightApp : Application
             return;
 
         if (Debugger.IsAttached)
-            Dispatcher.UIThread.Invoke(() => throw new("An unhandled exception occurred", exception));
+            AvaloniaScheduler.Instance.Schedule(() => throw new("An unhandled exception occurred", exception));
     }
 
     protected virtual void OnException(Exception exception)
