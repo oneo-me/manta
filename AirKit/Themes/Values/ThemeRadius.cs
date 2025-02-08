@@ -9,8 +9,7 @@ namespace AirKit.Themes.Values;
 public enum ThemeRadiusKey
 {
     Normal,
-    Flyout,
-    Dialog
+    Flyout
 }
 
 [Flags]

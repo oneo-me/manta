@@ -10,7 +10,6 @@ public enum ThemeThicknessKey
 {
     Normal,
     Flyout,
-    Dialog,
 
     Padding,
     Menu_Padding,

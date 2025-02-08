@@ -102,27 +102,6 @@
                         </PanelExt>
                     </Border>
                 </PanelExt>
-                <TextBlock Classes="Title" Text="Dialog Colors" />
-                <PanelExt Mode="WrapFull" Spacing="12">
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_Background}" TextElement.Foreground="{ThemeBrush Dialog_Foreground}">
-                        <PanelExt>
-                            <TextBlock Text="Dialog_Background" />
-                            <Label Content="{ThemeBrush Dialog_Background}" />
-                        </PanelExt>
-                    </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_Foreground}" TextElement.Foreground="{ThemeBrush Dialog_Background}">
-                        <PanelExt>
-                            <TextBlock Text="Dialog_Foreground" />
-                            <Label Content="{ThemeBrush Dialog_Foreground}" />
-                        </PanelExt>
-                    </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Dialog_BorderBrush}" TextElement.Foreground="{ThemeBrush Dialog_Foreground}">
-                        <PanelExt>
-                            <TextBlock Text="Dialog_BorderBrush" />
-                            <Label Content="{ThemeBrush Dialog_BorderBrush}" />
-                        </PanelExt>
-                    </Border>
-                </PanelExt>
                 <TextBlock Classes="Title" Text="Flyout Colors" />
                 <PanelExt Mode="WrapFull" Spacing="12">
                     <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_Background}" TextElement.Foreground="{ThemeBrush Flyout_Foreground}">

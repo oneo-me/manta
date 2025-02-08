@@ -27,10 +27,6 @@ public enum ThemeBrushKey
     Foreground,
     BorderBrush,
 
-    Dialog_Background,
-    Dialog_Foreground,
-    Dialog_BorderBrush,
-
     Flyout_Background,
     Flyout_Foreground,
     Flyout_BorderBrush

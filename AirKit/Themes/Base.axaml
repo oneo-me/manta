@@ -10,7 +10,6 @@
     <!-- 配置 -->
     <system:Double x:Key="{ThemeThicknessKey Normal}">1</system:Double>
     <system:Double x:Key="{ThemeThicknessKey Flyout}">1</system:Double>
-    <system:Double x:Key="{ThemeThicknessKey Dialog}">1</system:Double>
     <system:Double x:Key="{ThemeThicknessKey Padding}">7</system:Double>
     <system:Double x:Key="{ThemeThicknessKey Menu_Padding}">4</system:Double>
     <Thickness x:Key="{ThemeThicknessKey Button_Padding}">12 7</Thickness>
@@ -18,5 +17,4 @@
     <Thickness x:Key="{ThemeThicknessKey TabItem_Padding}">8 6</Thickness>
     <system:Double x:Key="{ThemeRadiusKey Normal}">8</system:Double>
     <system:Double x:Key="{ThemeRadiusKey Flyout}">8</system:Double>
-    <system:Double x:Key="{ThemeRadiusKey Dialog}">12</system:Double>
 </ResourceDictionary>

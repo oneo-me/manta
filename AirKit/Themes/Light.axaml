@@ -11,9 +11,6 @@
     <SolidColorBrush x:Key="{ThemeBrushKey Background}" Color="#FFFFFF" />
     <SolidColorBrush x:Key="{ThemeBrushKey Foreground}" Color="#333333" />
     <SolidColorBrush x:Key="{ThemeBrushKey BorderBrush}" Color="#333333" Opacity="0.12" />
-    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_Background}" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_Foreground}" Color="#333333" />
-    <SolidColorBrush x:Key="{ThemeBrushKey Dialog_BorderBrush}" Color="#333333" Opacity="0.12" />
     <SolidColorBrush x:Key="{ThemeBrushKey Flyout_Background}" Color="#FFFFFF" />
     <SolidColorBrush x:Key="{ThemeBrushKey Flyout_Foreground}" Color="#333333" />
     <SolidColorBrush x:Key="{ThemeBrushKey Flyout_BorderBrush}" Color="#333333" Opacity="0.12" />
