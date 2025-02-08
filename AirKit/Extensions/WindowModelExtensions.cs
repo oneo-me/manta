@@ -13,9 +13,9 @@ public static class WindowModelExtensions
         windowModel.InnerWindow = result;
 
         // Set window properties
-        if (LightApp.Current.Icon is not null)
-            result.Icon = new(LightApp.Current.Icon);
-        result.Title = LightApp.Current.Name;
+        if (DesktopApp.Current.Icon is not null)
+            result.Icon = new(DesktopApp.Current.Icon);
+        result.Title = DesktopApp.Current.Name;
 
         // Activate window on open
         result.Opened += (sender, _) =>

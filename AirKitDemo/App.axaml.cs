@@ -1,20 +1,15 @@
 using AirKit;
-using AirKit.Desktop;
-using AirKit.Extensions;
 using AirKit.I18N;
-using AirKit.Logging;
 using AirKit.Paths;
 using AirKitDemo.Langs;
 using AirKitDemo.Services;
 using AirKitDemo.Views;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 
 namespace AirKitDemo;
 
-sealed class App : LightApp
+sealed class App : AppBase
 {
     public App()
     {
@@ -26,10 +21,8 @@ sealed class App : LightApp
         AvaloniaXamlLoader.Load(this);
     }
 
-    public override void OnFrameworkInitializationCompleted()
+    protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
-        base.OnFrameworkInitializationCompleted();
-
         Lang.Register(LangData.Load<LangKey>());
 
         var configFile = DesktopApp.Folder.CreateFile("config.yaml");
@@ -37,18 +30,8 @@ sealed class App : LightApp
 
         Lang.Current = configService.Config.Lang;
 
-        if (Design.IsDesignMode)
-        {
-            Log.Information("App", "Design mode is enabled");
-            return;
-        }
-
-        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
-            return;
-
-        desktop.MainWindow = new Main_Model().CreateWindow();
-
-        desktop.Exit += delegate
+        mainModel = new Main_Model();
+        onExit = () =>
         {
             configService.Save();
         };

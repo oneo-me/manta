@@ -10,7 +10,7 @@
         <TrimmerRootDescriptor Include="Program.xml" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\AirKit.Desktop\AirKit.Desktop.csproj" />
+        <ProjectReference Include="..\AirKit\AirKit.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="AirKit.I18N" Version="2.2024.170" />

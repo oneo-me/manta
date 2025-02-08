@@ -1,5 +1,4 @@
-﻿using AirKit.Desktop;
-using AirKit.Logging;
+﻿using AirKit;
 using Avalonia;
 
 namespace AirKitDemo;
@@ -9,22 +8,7 @@ static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        try
-        {
-            Log.Information("App", "Application is starting up");
-
-            BuildAvaloniaApp()
-                .StartWithClassicDesktopLifetime(args);
-        }
-        catch (Exception e)
-        {
-            Log.Fatal("App", "An unexpected error occurred: {Error}", e);
-            throw;
-        }
-        finally
-        {
-            Log.Information("App", "Application is shutting down");
-        }
+        DesktopApp.Main(BuildAvaloniaApp, args);
     }
 
     public static AppBuilder BuildAvaloniaApp()

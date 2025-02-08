@@ -1,23 +1,23 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Concurrency;
+using AirKit.Extensions;
 using AirKit.Logging;
 using AirKit.Themes;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 
 namespace AirKit;
 
-public abstract class LightApp : Application
+public abstract class AppBase : Application
 {
-    public new static LightApp Current { get; } = Application.Current as LightApp ?? throw new InvalidOperationException("Application is not LightApp");
-
     internal Action<Exception> OnExceptionAction { get; private set; }
 
-    protected LightApp()
+    protected AppBase()
     {
         base.Name = GetType().Assembly.GetName().Name;
 
@@ -75,5 +75,28 @@ public abstract class LightApp : Application
             var menu = NativeMenu.GetMenu(this);
             menu?.Items.RemoveAt(0);
         }
+
+        OnInitialize(out var mainModel, out var onExit);
+
+        if (Design.IsDesignMode)
+        {
+            Log.Information("App", "Design mode is enabled");
+            return;
+        }
+
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+            throw new("The application lifetime is not supported.");
+
+        desktop.ShutdownMode = ShutdownMode.OnMainWindowClose;
+        if (mainModel is not null)
+            desktop.MainWindow = mainModel.CreateWindow();
+
+        if (onExit is not null)
+            desktop.Exit += delegate
+            {
+                onExit();
+            };
     }
+
+    protected abstract void OnInitialize(out WindowModel? mainModel, out Action? onExit);
 }
