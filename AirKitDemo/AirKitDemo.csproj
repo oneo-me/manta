@@ -17,7 +17,7 @@
         <PackageReference Include="AirKit.I18N.Generator" Version="2.2024.170" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Bogus" Version="35.6.1" />
+        <PackageReference Include="Bogus" Version="35.6.3" />
         <PackageReference Include="YamlDotNet" Version="16.3.0" />
     </ItemGroup>
 </Project>
