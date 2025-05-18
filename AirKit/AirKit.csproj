@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.2.7" />
-        <PackageReference Include="Avalonia.Skia" Version="11.2.7" />
-        <PackageReference Include="DynamicData" Version="9.2.1" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.0" />
+        <PackageReference Include="Avalonia.Skia" Version="11.3.0" />
+        <PackageReference Include="DynamicData" Version="9.2.2" />
     </ItemGroup>
 </Project>
