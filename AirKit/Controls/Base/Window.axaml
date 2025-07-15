@@ -22,7 +22,6 @@
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="Background" Value="{ThemeBrush Window_Background}" />
         <Style Selector="^[(DesignMode.IsDesign)=False]">
-            <Setter Property="WindowStartupLocation" Value="CenterScreen" />
             <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
             <Setter Property="Template">
                 <ControlTemplate>

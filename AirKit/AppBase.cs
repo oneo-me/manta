@@ -28,6 +28,11 @@ public abstract class AppBase : Application
             e.Handled = true;
             OnExceptionCore(e.Exception, false);
         };
+        TaskScheduler.UnobservedTaskException += (_, e) =>
+        {
+            e.SetObserved();
+            OnExceptionCore(e.Exception, false);
+        };
         AppDomain.CurrentDomain.UnhandledException += (_, e) =>
         {
             if (e.ExceptionObject is Exception exception)
