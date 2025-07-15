@@ -21,7 +21,10 @@ public static class WindowModelExtensions
         result.Opened += (sender, _) =>
         {
             if (sender is Window current)
+            {
                 current.FocusActivate();
+                current.Centered();
+            }
         };
 
         windowModel.OnWindowInitialized(result);
