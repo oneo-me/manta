@@ -1,11 +1,9 @@
-using AirKit;
-using AirKit.Attributes;
-using AirKit.Interfaces;
+using Orphic;
 
 namespace AirKitDemo.Samples.Reactive;
 
 [View<RegionItemView>]
-sealed class RegionItemView_Model : RegionModel, ITabTarget<int>
+sealed class RegionItemView_Model : RegionModel, IRegionTarget<int>
 {
     public static RegionItemView_Model Design { get; } = new(0);
     public int Id { get; }

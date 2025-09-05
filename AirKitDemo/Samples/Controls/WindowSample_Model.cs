@@ -1,13 +1,11 @@
-using AirKit;
-using AirKit.Attributes;
-using AirKit.Controls;
-using AirKit.Extensions;
 using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Platform;
 using Avalonia.VisualTree;
+using Orphic;
+using Orphic.Controls;
 
 namespace AirKitDemo.Samples.Controls;
 

@@ -1,4 +1,3 @@
-using AirKit;
 using AirKit.Paths;
 using AirKitDemo.Langs;
 using AirKitDemo.Services;
@@ -6,10 +5,11 @@ using AirKitDemo.Views;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Lumira;
+using Orphic;
 
 namespace AirKitDemo;
 
-sealed class App : AppBase
+sealed class App : OrphicApp
 {
     public App()
     {

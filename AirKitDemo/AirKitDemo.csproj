@@ -14,7 +14,6 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Bogus" Version="35.6.3" />
-        <!--        <PackageReference Include="Orphic" Version="1.2025.3" />-->
         <PackageReference Include="Lumira" Version="2.2025.3" />
         <PackageReference Include="Lumira.Generator" Version="2.2025.3" PrivateAssets="all" />
     </ItemGroup>

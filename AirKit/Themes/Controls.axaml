@@ -43,15 +43,10 @@
         <MergeResourceInclude Source="/Controls/Base/TransitioningContentControl.axaml" />
         <MergeResourceInclude Source="/Controls/Base/TreeView.axaml" />
         <MergeResourceInclude Source="/Controls/Base/TreeViewItem.axaml" />
-        <MergeResourceInclude Source="/Controls/Base/Window.axaml" />
         <!-- Controls -->
         <MergeResourceInclude Source="/Controls/ClipContentControl.axaml" />
         <MergeResourceInclude Source="/Controls/PixelGrid.axaml" />
         <MergeResourceInclude Source="/Controls/ProgressRing.axaml" />
         <MergeResourceInclude Source="/Controls/Ring.axaml" />
-        <MergeResourceInclude Source="/Controls/TitleBarButton.axaml" />
-        <MergeResourceInclude Source="/Controls/TitleBarButtons.axaml" />
-        <MergeResourceInclude Source="/Controls/TitleBarExt.axaml" />
-        <MergeResourceInclude Source="/Controls/ViewModelHost.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

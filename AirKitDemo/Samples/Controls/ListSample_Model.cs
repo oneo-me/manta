@@ -1,8 +1,7 @@
-using AirKit;
-using AirKit.Attributes;
 using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using Bogus;
+using Orphic;
 
 namespace AirKitDemo.Samples.Controls;
 

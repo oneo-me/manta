@@ -1,5 +1,4 @@
-﻿using AirKit;
-using Avalonia;
+﻿using Avalonia;
 
 namespace AirKitDemo;
 
@@ -8,11 +7,14 @@ static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        DesktopApp.Main(BuildAvaloniaApp, args);
+        BuildAvaloniaApp()
+            .StartWithClassicDesktopLifetime(args);
     }
 
     public static AppBuilder BuildAvaloniaApp()
     {
-        return DesktopApp.Build<App>();
+        return AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .LogToTrace();
     }
 }

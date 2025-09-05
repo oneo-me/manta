@@ -1,10 +1,8 @@
 using System.Reactive.Disposables;
-using AirKit;
-using AirKit.Attributes;
-using AirKit.Extensions;
 using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using Avalonia.Controls;
+using Orphic;
 
 namespace AirKitDemo.Samples.Themes;
 
