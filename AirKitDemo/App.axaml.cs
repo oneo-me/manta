@@ -1,11 +1,11 @@
 using AirKit;
-using AirKit.I18N;
 using AirKit.Paths;
 using AirKitDemo.Langs;
 using AirKitDemo.Services;
 using AirKitDemo.Views;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using Lumira;
 
 namespace AirKitDemo;
 
@@ -23,7 +23,7 @@ sealed class App : AppBase
 
     protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
-        Lang.Register(LangData.Load<LangKey>());
+        Lang.Register(LangData.LoadFromAssembly<LangKey>(typeof(App).Assembly));
 
         var configFile = DesktopApp.Folder.CreateFile("config.yaml");
         var configService = Service.Register(new ConfigService(configFile));

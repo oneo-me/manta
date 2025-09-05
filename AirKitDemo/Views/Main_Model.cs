@@ -4,13 +4,13 @@ using System.Reactive.Disposables;
 using AirKit;
 using AirKit.Attributes;
 using AirKit.Extensions;
-using AirKit.I18N;
-using AirKit.I18N.Enums;
 using AirKitDemo.Langs;
 using AirKitDemo.Models;
 using AirKitDemo.Services;
 using Avalonia.Controls;
 using DynamicData;
+using Lumira;
+using Lumira.Core;
 
 namespace AirKitDemo.Views;
 
