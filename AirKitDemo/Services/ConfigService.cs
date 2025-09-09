@@ -11,7 +11,7 @@ sealed class ConfigService
 
     public AppConfig Config { get; }
 
-    public ConfigService(FileInfo configFile)
+    public ConfigService(string configFile)
     {
         _configFile = configFile;
 

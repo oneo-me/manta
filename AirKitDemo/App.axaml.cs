@@ -1,4 +1,3 @@
-using AirKit.Paths;
 using AirKitDemo.Langs;
 using AirKitDemo.Services;
 using AirKitDemo.Views;
@@ -25,7 +24,7 @@ sealed class App : OrphicApp
     {
         Lang.Register(LangData.LoadFromAssembly<LangKey>(typeof(App).Assembly));
 
-        var configFile = DesktopApp.Folder.CreateFile("config.yaml");
+        var configFile = Path.Combine(DesktopApp.Folder, "config.yaml");
         var configService = Service.Register(new ConfigService(configFile));
 
         Lang.Current = configService.Config.Lang;
