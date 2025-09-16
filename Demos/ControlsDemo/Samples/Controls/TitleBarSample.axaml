@@ -1,0 +1,49 @@
+<View
+    x:Class="ControlsDemo.Samples.Controls.TitleBarSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ControlsDemo.Samples.Controls"
+    x:DataType="local:TitleBarSample_Model">
+    <Design.DataContext>
+        <local:TitleBarSample_Model />
+    </Design.DataContext>
+    <ScrollViewer>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Classes="Title" Text="TitleBarButtons" />
+            <Border BorderThickness="1" CornerRadius="{ThemeRadius Normal}" HorizontalAlignment="Left">
+                <TitleBarButtons />
+            </Border>
+            <TextBlock Classes="Title" Text="TitleBar" />
+            <TitleBarExt BorderThickness="1" CornerRadius="{ThemeRadius Normal}" />
+            <TitleBarExt Title="Custom Title" UseWindowTitle="False" BorderThickness="1" CornerRadius="{ThemeRadius Normal}" />
+            <TitleBarExt BorderThickness="1" CornerRadius="{ThemeRadius Normal}">
+                <PanelExt Mode="Horizontal">
+                    <TitleBarButton Content="Custom 1" />
+                    <TitleBarButton Content="Custom 2" />
+                    <TitleBarButton Content="Custom 3" />
+                </PanelExt>
+            </TitleBarExt>
+            <TitleBarExt IsShowTitle="False" BorderThickness="1" CornerRadius="{ThemeRadius Normal}">
+                <PanelExt Mode="Horizontal">
+                    <TitleBarButton Content="Custom 1" />
+                    <TitleBarButton Content="Custom 2" />
+                    <TitleBarButton Content="Custom 3" />
+                </PanelExt>
+            </TitleBarExt>
+            <TitleBarExt IsShowButtons="False" BorderThickness="1" CornerRadius="{ThemeRadius Normal}">
+                <PanelExt Mode="Horizontal">
+                    <TitleBarButton Content="Custom 1" />
+                    <TitleBarButton Content="Custom 2" />
+                    <TitleBarButton Content="Custom 3" />
+                </PanelExt>
+            </TitleBarExt>
+            <TitleBarExt IsShowTitle="False" IsShowButtons="False" BorderThickness="1" CornerRadius="{ThemeRadius Normal}">
+                <PanelExt Mode="Horizontal">
+                    <TitleBarButton Content="Custom 1" />
+                    <TitleBarButton Content="Custom 2" />
+                    <TitleBarButton Content="Custom 3" />
+                </PanelExt>
+            </TitleBarExt>
+        </PanelExt>
+    </ScrollViewer>
+</View>

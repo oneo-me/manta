@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.6" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.6" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" />
+        <ProjectReference Include="..\..\Axe.Reactive\Axe.Reactive.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="Langs\*.yml" />
+        <AdditionalFiles Include="Langs\*.yml" />
+        <ProjectReference Include="..\..\Axe.I18N.Generator\Axe.I18N.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+<View
+    x:Class="ReactiveDemo.Views.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ReactiveDemo.Views"
+    x:DataType="local:Main_Model">
+    <Design.DataContext>
+        <local:Main_Model />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto *">
+        <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
+        <TextBlock Grid.Row="1" Text="测试标题" HorizontalAlignment="Right" FontWeight="Bold" />
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" Spacing="22" Margin="22">
+                <TextBlock Text="Info:" FontWeight="Bold" />
+                <StackPanel Orientation="Vertical" Spacing="12">
+                    <TextBlock TextTrimming="PrefixCharacterEllipsis">
+                        <Run Text="App Folder:" Foreground="#7F333333" />
+                        <Run Text="{Binding Folder}" />
+                    </TextBlock>
+                    <TextBlock TextTrimming="PrefixCharacterEllipsis">
+                        <Run Text="App File:" Foreground="#7F333333" />
+                        <Run Text="{Binding File}" />
+                    </TextBlock>
+                    <TextBlock TextTrimming="PrefixCharacterEllipsis">
+                        <Run Text="Test Get Service:" Foreground="#7F333333" />
+                        <Run Text="{Binding TestGetService}" />
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock Text="{Binding Input, StringFormat=Binding (You input: {0})}" FontWeight="Bold" />
+                <TextBox Text="{Binding Input}" />
+                <TextBlock Text="Window:" FontWeight="Bold" />
+                <Button Content="NewWindow" Command="{Binding OpenNewWindow}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</View>

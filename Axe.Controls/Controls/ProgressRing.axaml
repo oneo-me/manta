@@ -1,0 +1,97 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:converter="clr-namespace:Axe.Controls.Converter"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+            <ProgressRing Value="50" Maximum="100" />
+            <ProgressRing Value="50" Maximum="100" />
+            <ProgressRing IsIndeterminate="True" />
+            <ProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+            <ProgressRing ShowProgressText="True" IsIndeterminate="True">
+                <Border Background="Beige" Width="300" Height="300" />
+            </ProgressRing>
+        </PanelExt>
+    </Design.PreviewWith>
+    <converter:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
+    <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />
+    <ControlTheme x:Key="{x:Type ProgressRing}" TargetType="ProgressRing">
+        <Setter Property="RingBackground" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
+        <Setter Property="RingForeground" Value="{ThemeBrush Primary}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="RingStrokeSize" Value="5" />
+        <Setter Property="RingSize" Value="60" />
+        <Setter Property="CornerRadius" Value="3000" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border x:Name="PART_Indicator" />
+                    <Ring x:Name="Ring"
+                          Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
+                          Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
+                          Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
+                    <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
+                        <ClipContentControl
+                            Background="{TemplateBinding Background}"
+                            Foreground="{TemplateBinding Foreground}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BoxShadow="{TemplateBinding BoxShadow}"
+                            Margin="{TemplateBinding RingStrokeSize, Converter={StaticResource ProgressRingNumber2ThicknessConverter}}">
+                            <Panel>
+                                <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        IsVisible="{TemplateBinding ShowProgressText}">
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource ProgressRingStringFormatConverter}">
+                                                <TemplateBinding Property="ProgressTextFormat" />
+                                                <Binding Path="Value"
+                                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                                <TemplateBinding Property="Percentage" />
+                                                <TemplateBinding Property="Minimum" />
+                                                <TemplateBinding Property="Maximum" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </LayoutTransformControl>
+                                <ContentControl Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Panel>
+                        </ClipContentControl>
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:indeterminate /template/ Ring#Ring">
+            <Setter Property="Value" Value="0" />
+            <Setter Property="Maximum" Value="360" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:3" Easing="LinearEasing">
+                    <KeyFrame KeyTime="0:0:0">
+                        <Setter Property="Value" Value="0" />
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.8">
+                        <Setter Property="Value" Value="270" />
+                        <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:3">
+                        <Setter Property="Value" Value="0" />
+                        <Setter Property="RotateTransform.Angle" Value="1080" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

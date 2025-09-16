@@ -1,0 +1,21 @@
+<View
+    x:Class="ControlsDemo.Samples.Controls.TextSample"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ControlsDemo.Samples.Controls"
+    x:DataType="local:TextSample_Model">
+    <Design.DataContext>
+        <local:TextSample_Model />
+    </Design.DataContext>
+    <ScrollViewer>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Classes="Title" Text="TextBlock" />
+            <TextBlock Text="TextBlock" />
+            <TextBlock Classes="Title" Text="SelectableTextBlock" />
+            <SelectableTextBlock Text="SelectableTextBlock" />
+            <SelectableTextBlock Text="SelectableTextBlock" SelectionStart="10" SelectionEnd="14" />
+            <TextBlock Classes="Title" Text="Label" />
+            <Label Content="_Label" />
+        </PanelExt>
+    </ScrollViewer>
+</View>

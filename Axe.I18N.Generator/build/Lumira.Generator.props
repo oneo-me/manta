@@ -1,0 +1,6 @@
+<Project>
+    <ItemGroup>
+        <AvaloniaResource Include="Langs\*.yml" />
+        <AdditionalFiles Include="Langs\*.yml" />
+    </ItemGroup>
+</Project>

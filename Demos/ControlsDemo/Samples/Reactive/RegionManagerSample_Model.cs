@@ -1,0 +1,34 @@
+using ControlsDemo.Langs;
+using Axe.Reactive;
+using ControlsDemo.Models;
+
+namespace ControlsDemo.Samples.Reactive;
+
+[Sample(SampleGroupType.Reactive, LangKey.SampleName_TabManger)]
+[View<RegionManagerSample>]
+sealed class RegionManagerSample_Model : ViewModel, IDisposable
+{
+    public RegionManager<RegionItemView_Model> RegionManager { get; } = new();
+
+    public int Index
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
+
+    public RegionManagerSample_Model()
+    {
+        for (var i = 0; i < 3; i++)
+            Add();
+    }
+
+    public void Add()
+    {
+        RegionManager.Open(Index++, x => new RegionItemView_Model(x), x => x.Id == 1);
+    }
+
+    public void Dispose()
+    {
+        RegionManager.Dispose();
+    }
+}

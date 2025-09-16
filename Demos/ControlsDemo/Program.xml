@@ -1,0 +1,3 @@
+<linker>
+    <assembly fullname="ControlsDemo" preserve="All" />
+</linker>

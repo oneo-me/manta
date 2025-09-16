@@ -1,6 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <PackageReference Include="Orphic" Version="1.2025.12" />
-        <PackageReference Include="Avalonia.Skia" Version="11.3.6" />
-    </ItemGroup>
-</Project>

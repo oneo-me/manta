@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Publish" type="DotNetFolderPublish" factoryName="Publish to folder">
-    <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" runtime="osx-arm64" self_contained="true" target_folder="$USER_HOME$/Desktop/AirKit" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="6234366106748048257" uuid_low="-8733031604859770483" />
-    <method v="2" />
-  </configuration>
-</component>

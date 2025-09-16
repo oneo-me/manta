@@ -1,8 +1,0 @@
-<View
-    x:Class="AirKitDemo.Samples.Reactive.RegionItemView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AirKitDemo.Samples.Reactive"
-    x:DataType="local:RegionItemView_Model" Design.DataContext="{x:Static local:RegionItemView_Model.Design}">
-    <TextBlock Text="{Binding Content}" Margin="12" />
-</View>

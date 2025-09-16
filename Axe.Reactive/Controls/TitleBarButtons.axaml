@@ -1,0 +1,23 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <StackPanel Orientation="Vertical" Spacing="12" Margin="12">
+            <TitleBarButtons />
+        </StackPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TitleBarButtons}" TargetType="TitleBarButtons">
+        <Setter Property="Height" Value="38" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel x:Name="PART_Buttons" Orientation="Horizontal">
+                    <TitleBarButton Type="FullScreen" IsVisible="False" />
+                    <TitleBarButton Type="Minimize" />
+                    <TitleBarButton Type="Maximize" />
+                    <TitleBarButton Type="Close" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

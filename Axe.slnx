@@ -1,0 +1,24 @@
+﻿<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+  </Folder>
+  <Folder Name="/Demos/">
+    <Project Path="Demos\ControlsDemo\ControlsDemo.csproj" Type="Classic C#" />
+    <Project Path="Demos\LangDemo\LangDemo.csproj" Type="Classic C#" />
+    <Project Path="Demos\ReactiveDemo\ReactiveDemo.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/_/">
+    <File Path="Directory.Build.props" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path=".globalconfig" />
+  </Folder>
+  <Project Path="Axe.Controls\Axe.Controls.csproj" Type="Classic C#" />
+  <Project Path="Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" Type="Classic C#" />
+  <Project Path="Axe.I18N.Generator\Axe.I18N.Generator.csproj" Type="Classic C#" />
+  <Project Path="Axe.I18N\Axe.I18N.csproj" Type="Classic C#" />
+  <Project Path="Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" Type="Classic C#" />
+  <Project Path="Axe.Logging\Axe.Logging.csproj" Type="Classic C#" />
+  <Project Path="Axe.Reactive\Axe.Reactive.csproj" Type="Classic C#" />
+</Solution>
