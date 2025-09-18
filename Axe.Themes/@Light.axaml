@@ -2,11 +2,39 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:values="clr-namespace:Axe.Themes.Values"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <!-- Fonts -->
     <FontFamily x:Key="{ThemeFontKey Sans}">ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"</FontFamily>
     <FontFamily x:Key="{ThemeFontKey Serif}">ui-serif, Georgia, Cambria, "Times New Roman", Times, serif</FontFamily>
     <FontFamily x:Key="{ThemeFontKey Mono}">ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace</FontFamily>
+    <!-- FontSizes -->
+    <system:Double x:Key="{ThemeFontSizeKey XS}">12</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XS_LineHeight}">16</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey SM}">14</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey SM_LineHeight}">20</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey Base}">16</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey Base_LineHeight}">24</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey LG}">18</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey LG_LineHeight}">28</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL}">20</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL_LineHeight}">28</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL2}">24</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL2_LineHeight}">32</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL3}">30</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL3_LineHeight}">36</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL4}">36</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL4_LineHeight}">40</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL5}">48</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL5_LineHeight}">48</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL6}">60</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL6_LineHeight}">60</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL7}">72</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL7_LineHeight}">72</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL8}">96</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL8_LineHeight}">96</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL9}">128</system:Double>
+    <system:Double x:Key="{ThemeFontSizeKey XL9_LineHeight}">128</system:Double>
     <!-- Colors -->
     <values:OklchColor x:Key="{ThemeBrushKey Red50}" L="0.971" C="0.013" H="17.38" />
     <values:OklchColor x:Key="{ThemeBrushKey Red100}" L="0.936" C="0.032" H="17.717" />
