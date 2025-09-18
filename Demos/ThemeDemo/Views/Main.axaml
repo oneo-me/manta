@@ -23,13 +23,20 @@
             <Setter Property="Width" Value="50" />
             <Setter Property="Height" Value="30" />
         </Style>
+        <Style Selector="Border.Shadow">
+            <Setter Property="BorderBrush" Value="{ThemeBrush Black, Opacity=0.1}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="60" />
+        </Style>
     </View.Styles>
     <Grid RowDefinitions="Auto *">
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" Width="660">
             <StackPanel Classes="Boxs">
                 <!-- Radius -->
-                <WrapPanel Classes="ColorBox" Width="620">
+                <WrapPanel Classes="ColorBox">
                     <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Black, Opacity=0.3}" />
                     <Border Classes="Color" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}" />
                     <Border Classes="Color" CornerRadius="{ThemeRadius LG}" Background="{ThemeBrush Black, Opacity=0.3}" />
@@ -37,6 +44,35 @@
                     <Border Classes="Color" CornerRadius="{ThemeRadius XL2}" Background="{ThemeBrush Black, Opacity=0.3}" />
                     <Border Classes="Color" CornerRadius="{ThemeRadius XL3}" Background="{ThemeBrush Black, Opacity=0.3}" />
                     <Border Classes="Color" CornerRadius="{ThemeRadius XL4}" Background="{ThemeBrush Black, Opacity=0.3}" />
+                </WrapPanel>
+                <!-- Shadows -->
+                <WrapPanel Classes="ColorBox">
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS2, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow MD, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow LG, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL2, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
+                </WrapPanel>
+                <WrapPanel Classes="ColorBox">
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow MD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow LG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                </WrapPanel>
+                <WrapPanel Classes="ColorBox">
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetXS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetSM}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                </WrapPanel>
+                <WrapPanel Classes="ColorBox">
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropMD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropLG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
+                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
                 </WrapPanel>
                 <!-- Fonts -->
                 <TextBlock FontFamily="{ThemeFont Sans}" Text="The quick brown fox jumps over the lazy dog" />
@@ -74,7 +110,7 @@
                 <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize XL8}" LineHeight="{ThemeFontHeight XL8}" Text="The quick brown fox jumps over the lazy dog" />
                 <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize XL9}" LineHeight="{ThemeFontHeight XL9}" Text="The quick brown fox jumps over the lazy dog" />
                 <!-- Colors -->
-                <WrapPanel Classes="ColorBox" Width="620">
+                <WrapPanel Classes="ColorBox">
                     <!-- Red -->
                     <Border Classes="Color" Background="{ThemeBrush Red50}" />
                     <Border Classes="Color" Background="{ThemeBrush Red100}" />
