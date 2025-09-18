@@ -9,7 +9,7 @@ using ControlsDemo.Views;
 
 namespace ControlsDemo;
 
-sealed class App : OrphicApp
+sealed class App : AxeApp
 {
     public App()
     {

@@ -4,7 +4,6 @@
     x:Class="ReactiveDemo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <FluentTheme />
-        <OrphicTheme />
+        <AxeTheme />
     </Application.Styles>
 </Application>

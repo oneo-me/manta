@@ -7,6 +7,7 @@
     <Project Path="Demos\ControlsDemo\ControlsDemo.csproj" Type="Classic C#" />
     <Project Path="Demos\LangDemo\LangDemo.csproj" Type="Classic C#" />
     <Project Path="Demos\ReactiveDemo\ReactiveDemo.csproj" Type="Classic C#" />
+    <Project Path="Demos\ThemeDemo\ThemeDemo.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/_/">
     <File Path="Directory.Build.props" />
@@ -21,4 +22,5 @@
   <Project Path="Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" Type="Classic C#" />
   <Project Path="Axe.Logging\Axe.Logging.csproj" Type="Classic C#" />
   <Project Path="Axe.Reactive\Axe.Reactive.csproj" Type="Classic C#" />
+  <Project Path="Axe.Themes\Axe.Themes.csproj" Type="Classic C#" />
 </Solution>

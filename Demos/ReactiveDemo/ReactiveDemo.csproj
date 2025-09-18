@@ -5,7 +5,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Diagnostics" Version="11.3.6" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.6" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" />

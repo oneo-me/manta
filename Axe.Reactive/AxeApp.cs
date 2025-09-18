@@ -10,13 +10,13 @@ using Axe.Reactive.Themes;
 
 namespace Axe.Reactive;
 
-public abstract class OrphicApp : Application
+public abstract class AxeApp : Application
 {
-    public new static OrphicApp Current => Application.Current as OrphicApp ?? throw new InvalidOperationException($"Application is not {nameof(OrphicApp)}");
+    public new static AxeApp Current => Application.Current as AxeApp ?? throw new InvalidOperationException($"Application is not {nameof(AxeApp)}");
 
     internal Action<Exception> OnExceptionAction { get; private set; }
 
-    protected OrphicApp()
+    protected AxeApp()
     {
         base.Name = GetType().Assembly.GetName().Name;
 

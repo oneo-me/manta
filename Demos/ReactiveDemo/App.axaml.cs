@@ -8,7 +8,7 @@ using ReactiveDemo.Views;
 
 namespace ReactiveDemo;
 
-sealed class App : OrphicApp
+sealed class App : AxeApp
 {
     public override void Initialize()
     {

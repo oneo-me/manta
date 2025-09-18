@@ -4,7 +4,6 @@
     x:Class="LangDemo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <FluentTheme />
-        <OrphicTheme />
+        <AxeTheme />
     </Application.Styles>
 </Application>

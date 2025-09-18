@@ -3,9 +3,9 @@ using Avalonia.Styling;
 
 namespace Axe.Reactive.Themes;
 
-public sealed class OrphicTheme : Styles
+public sealed class AxeTheme : Styles
 {
-    public OrphicTheme(IServiceProvider? sp = null)
+    public AxeTheme(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
     }

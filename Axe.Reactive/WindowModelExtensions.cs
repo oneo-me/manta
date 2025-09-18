@@ -13,9 +13,9 @@ public static class WindowModelExtensions
         windowModel.InnerWindow = result;
 
         // Set window properties
-        if (OrphicApp.Current.Icon is not null)
-            result.Icon = new(OrphicApp.Current.Icon);
-        result.Title = OrphicApp.Current.Name;
+        if (AxeApp.Current.Icon is not null)
+            result.Icon = new(AxeApp.Current.Icon);
+        result.Title = AxeApp.Current.Name;
 
         // Activate window on open
         result.Opened += (sender, _) =>

@@ -7,7 +7,7 @@ using LangDemo.Views;
 
 namespace LangDemo;
 
-sealed class App : OrphicApp
+sealed class App : AxeApp
 {
     public override void Initialize()
     {

@@ -1,0 +1,14 @@
+<View
+    x:Class="ThemeDemo.Views.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ThemeDemo.Views"
+    x:DataType="local:Main_Model">
+    <Design.DataContext>
+        <local:Main_Model />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto *">
+        <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
+        <Grid Grid.Row="1" />
+    </Grid>
+</View>
