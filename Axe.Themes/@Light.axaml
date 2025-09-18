@@ -52,6 +52,15 @@
     <system:Double x:Key="{ThemeFontTrackingKey Wide}">0.4</system:Double>
     <system:Double x:Key="{ThemeFontTrackingKey Wider}">0.8</system:Double>
     <system:Double x:Key="{ThemeFontTrackingKey Widest}">1.6</system:Double>
+    <!-- Radius -->
+    <system:Double x:Key="{ThemeRadiusKey XS}">2</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey SM}">4</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey MD}">6</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey LG}">8</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey XL}">12</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey XL2}">16</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey XL3}">24</system:Double>
+    <system:Double x:Key="{ThemeRadiusKey XL4}">32</system:Double>
     <!-- Colors -->
     <values:OklchColor x:Key="{ThemeBrushKey Red50}" L="0.971" C="0.013" H="17.38" />
     <values:OklchColor x:Key="{ThemeBrushKey Red100}" L="0.936" C="0.032" H="17.717" />
