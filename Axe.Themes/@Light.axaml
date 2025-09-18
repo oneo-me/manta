@@ -35,6 +35,16 @@
     <system:Double x:Key="{ThemeFontSizeKey XL8_LineHeight}">96</system:Double>
     <system:Double x:Key="{ThemeFontSizeKey XL9}">128</system:Double>
     <system:Double x:Key="{ThemeFontSizeKey XL9_LineHeight}">128</system:Double>
+    <!-- FontWeights -->
+    <FontWeight x:Key="{ThemeFontWeightKey Thin}">Thin</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Extralight}">ExtraLight</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Light}">Light</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Normal}">Normal</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Medium}">Medium</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Semibold}">SemiBold</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Bold}">Bold</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Extrabold}">ExtraBold</FontWeight>
+    <FontWeight x:Key="{ThemeFontWeightKey Black}">Black</FontWeight>
     <!-- Colors -->
     <values:OklchColor x:Key="{ThemeBrushKey Red50}" L="0.971" C="0.013" H="17.38" />
     <values:OklchColor x:Key="{ThemeBrushKey Red100}" L="0.936" C="0.032" H="17.717" />

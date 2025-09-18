@@ -4,9 +4,6 @@
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.6" />
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\..\Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" />
         <ProjectReference Include="..\..\Axe.Logging\Axe.Logging.csproj" />
         <ProjectReference Include="..\..\Axe.Reactive\Axe.Reactive.csproj" />

@@ -1,9 +1,6 @@
 using System.Reactive.Disposables;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input;
 using Axe.Reactive;
-using Key = Avalonia.Input.Key;
 
 namespace ThemeDemo.Views;
 
@@ -16,8 +13,6 @@ sealed class Main_Model : WindowModel
 
         window.Width = 800;
         window.Height = 600;
-
-        window.AttachDevTools(new KeyGesture(Key.F12, KeyModifiers.Control));
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
