@@ -2,10 +2,4 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.3.6" />
     </ItemGroup>
-    <ItemGroup>
-      <Compile Update="AxeVariables.axaml.cs">
-        <DependentUpon>DefaultTheme.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-    </ItemGroup>
 </Project>

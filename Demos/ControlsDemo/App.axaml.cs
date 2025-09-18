@@ -1,9 +1,8 @@
 using Avalonia.Markup.Xaml;
-using Avalonia.Media;
-using ControlsDemo.Langs;
 using Axe.I18N;
 using Axe.I18N.Avalonia;
 using Axe.Reactive;
+using ControlsDemo.Langs;
 using ControlsDemo.Services;
 using ControlsDemo.Views;
 
@@ -11,11 +10,6 @@ namespace ControlsDemo;
 
 sealed class App : AxeApp
 {
-    public App()
-    {
-        AccentColor = Colors.Teal;
-    }
-
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
