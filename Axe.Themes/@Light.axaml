@@ -70,7 +70,7 @@
     <BoxShadows x:Key="{ThemeShadowKey XL}">0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey XL2}">0 25 50 -12 #40000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey InsetXS2}">inset 0 1 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey InsetXS}">inset 0 1 1 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{ThemeShadowKey InsetXS}">inset 0 1 1 #0D000000</BoxShadows> 
     <BoxShadows x:Key="{ThemeShadowKey InsetSM}">inset 0 2 4 #0D000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropXS}">0 1 1 #0D000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropSM}">0 1 2 #26000000</BoxShadows>
@@ -78,6 +78,8 @@
     <BoxShadows x:Key="{ThemeShadowKey DropLG}">0 4 4 #26000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropXL}">0 9 7 #1A000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropXL2}">0 25 25 #26000000</BoxShadows>
+    <!-- Thicknesses -->
+    <system:Double x:Key="{ThemeThicknessKey Normal}">1</system:Double>
     <!-- Colors -->
     <values:OklchColor x:Key="{ThemeBrushKey Red50}" L="0.971" C="0.013" H="17.38" />
     <values:OklchColor x:Key="{ThemeBrushKey Red100}" L="0.936" C="0.032" H="17.717" />
