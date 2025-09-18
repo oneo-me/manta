@@ -7,8 +7,292 @@
     <Design.DataContext>
         <local:Main_Model />
     </Design.DataContext>
+    <View.Styles>
+        <Style Selector="WrapPanel.ColorBox">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="ItemSpacing" Value="5" />
+            <Setter Property="LineSpacing" Value="5" />
+        </Style>
+        <Style Selector="Border.Color">
+            <Setter Property="BorderBrush" Value="{ThemeBrush Black, Opacity=0.1}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </View.Styles>
     <Grid RowDefinitions="Auto *">
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
-        <Grid Grid.Row="1" />
+        <Grid Grid.Row="1">
+            <WrapPanel Classes="ColorBox" ItemsAlignment="Center" Width="620">
+                <!-- Red -->
+                <Border Classes="Color" Background="{ThemeBrush Red50}" />
+                <Border Classes="Color" Background="{ThemeBrush Red100}" />
+                <Border Classes="Color" Background="{ThemeBrush Red200}" />
+                <Border Classes="Color" Background="{ThemeBrush Red300}" />
+                <Border Classes="Color" Background="{ThemeBrush Red400}" />
+                <Border Classes="Color" Background="{ThemeBrush Red500}" />
+                <Border Classes="Color" Background="{ThemeBrush Red600}" />
+                <Border Classes="Color" Background="{ThemeBrush Red700}" />
+                <Border Classes="Color" Background="{ThemeBrush Red800}" />
+                <Border Classes="Color" Background="{ThemeBrush Red900}" />
+                <Border Classes="Color" Background="{ThemeBrush Red950}" />
+                <!-- Orange -->
+                <Border Classes="Color" Background="{ThemeBrush Orange50}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange100}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange200}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange300}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange400}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange500}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange600}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange700}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange800}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange900}" />
+                <Border Classes="Color" Background="{ThemeBrush Orange950}" />
+                <!-- Amber -->
+                <Border Classes="Color" Background="{ThemeBrush Amber50}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber100}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber200}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber300}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber400}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber500}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber600}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber700}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber800}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber900}" />
+                <Border Classes="Color" Background="{ThemeBrush Amber950}" />
+                <!-- Yellow -->
+                <Border Classes="Color" Background="{ThemeBrush Yellow50}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow100}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow200}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow300}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow400}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow500}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow600}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow700}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow800}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow900}" />
+                <Border Classes="Color" Background="{ThemeBrush Yellow950}" />
+                <!-- Lime -->
+                <Border Classes="Color" Background="{ThemeBrush Lime50}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime100}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime200}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime300}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime400}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime500}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime600}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime700}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime800}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime900}" />
+                <Border Classes="Color" Background="{ThemeBrush Lime950}" />
+                <!-- Green -->
+                <Border Classes="Color" Background="{ThemeBrush Green50}" />
+                <Border Classes="Color" Background="{ThemeBrush Green100}" />
+                <Border Classes="Color" Background="{ThemeBrush Green200}" />
+                <Border Classes="Color" Background="{ThemeBrush Green300}" />
+                <Border Classes="Color" Background="{ThemeBrush Green400}" />
+                <Border Classes="Color" Background="{ThemeBrush Green500}" />
+                <Border Classes="Color" Background="{ThemeBrush Green600}" />
+                <Border Classes="Color" Background="{ThemeBrush Green700}" />
+                <Border Classes="Color" Background="{ThemeBrush Green800}" />
+                <Border Classes="Color" Background="{ThemeBrush Green900}" />
+                <Border Classes="Color" Background="{ThemeBrush Green950}" />
+                <!-- Emerald -->
+                <Border Classes="Color" Background="{ThemeBrush Emerald50}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald100}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald200}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald300}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald400}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald500}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald600}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald700}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald800}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald900}" />
+                <Border Classes="Color" Background="{ThemeBrush Emerald950}" />
+                <!-- Teal -->
+                <Border Classes="Color" Background="{ThemeBrush Teal50}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal100}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal200}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal300}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal400}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal500}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal600}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal700}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal800}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal900}" />
+                <Border Classes="Color" Background="{ThemeBrush Teal950}" />
+                <!-- Cyan -->
+                <Border Classes="Color" Background="{ThemeBrush Cyan50}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan100}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan200}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan300}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan400}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan500}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan600}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan700}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan800}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan900}" />
+                <Border Classes="Color" Background="{ThemeBrush Cyan950}" />
+                <!-- Sky -->
+                <Border Classes="Color" Background="{ThemeBrush Sky50}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky100}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky200}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky300}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky400}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky500}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky600}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky700}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky800}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky900}" />
+                <Border Classes="Color" Background="{ThemeBrush Sky950}" />
+                <!-- Blue -->
+                <Border Classes="Color" Background="{ThemeBrush Blue50}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue100}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue200}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue300}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue400}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue500}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue600}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue700}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue800}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue900}" />
+                <Border Classes="Color" Background="{ThemeBrush Blue950}" />
+                <!-- Indigo -->
+                <Border Classes="Color" Background="{ThemeBrush Indigo50}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo100}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo200}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo300}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo400}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo500}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo600}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo700}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo800}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo900}" />
+                <Border Classes="Color" Background="{ThemeBrush Indigo950}" />
+                <!-- Violet -->
+                <Border Classes="Color" Background="{ThemeBrush Violet50}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet100}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet200}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet300}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet400}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet500}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet600}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet700}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet800}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet900}" />
+                <Border Classes="Color" Background="{ThemeBrush Violet950}" />
+                <!-- Purple -->
+                <Border Classes="Color" Background="{ThemeBrush Purple50}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple100}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple200}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple300}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple400}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple500}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple600}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple700}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple800}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple900}" />
+                <Border Classes="Color" Background="{ThemeBrush Purple950}" />
+                <!-- Fuchsia -->
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia50}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia100}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia200}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia300}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia400}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia500}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia600}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia700}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia800}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia900}" />
+                <Border Classes="Color" Background="{ThemeBrush Fuchsia950}" />
+                <!-- Pink -->
+                <Border Classes="Color" Background="{ThemeBrush Pink50}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink100}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink200}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink300}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink400}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink500}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink600}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink700}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink800}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink900}" />
+                <Border Classes="Color" Background="{ThemeBrush Pink950}" />
+                <!-- Rose -->
+                <Border Classes="Color" Background="{ThemeBrush Rose50}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose100}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose200}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose300}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose400}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose500}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose600}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose700}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose800}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose900}" />
+                <Border Classes="Color" Background="{ThemeBrush Rose950}" />
+                <!-- Slate -->
+                <Border Classes="Color" Background="{ThemeBrush Slate50}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate100}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate200}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate300}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate400}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate500}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate600}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate700}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate800}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate900}" />
+                <Border Classes="Color" Background="{ThemeBrush Slate950}" />
+                <!-- Gray -->
+                <Border Classes="Color" Background="{ThemeBrush Gray50}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray100}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray200}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray300}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray400}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray500}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray600}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray700}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray800}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray900}" />
+                <Border Classes="Color" Background="{ThemeBrush Gray950}" />
+                <!-- Zinc -->
+                <Border Classes="Color" Background="{ThemeBrush Zinc50}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc100}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc200}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc300}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc400}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc500}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc600}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc700}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc800}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc900}" />
+                <Border Classes="Color" Background="{ThemeBrush Zinc950}" />
+                <!-- Neutral -->
+                <Border Classes="Color" Background="{ThemeBrush Neutral50}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral100}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral200}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral300}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral400}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral500}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral600}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral700}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral800}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral900}" />
+                <Border Classes="Color" Background="{ThemeBrush Neutral950}" />
+                <!-- Stone -->
+                <Border Classes="Color" Background="{ThemeBrush Stone50}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone100}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone200}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone300}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone400}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone500}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone600}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone700}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone800}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone900}" />
+                <Border Classes="Color" Background="{ThemeBrush Stone950}" />
+                <!-- Black & White -->
+                <Border Classes="Color" Background="{ThemeBrush Black}" />
+                <Border Classes="Color" Background="{ThemeBrush White}" />
+            </WrapPanel>
+        </Grid>
     </Grid>
 </View>

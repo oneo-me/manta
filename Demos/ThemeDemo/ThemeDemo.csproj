@@ -10,5 +10,6 @@
         <ProjectReference Include="..\..\Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" />
         <ProjectReference Include="..\..\Axe.Logging\Axe.Logging.csproj" />
         <ProjectReference Include="..\..\Axe.Reactive\Axe.Reactive.csproj" />
+        <ProjectReference Include="..\..\Axe.Themes\Axe.Themes.csproj" />
     </ItemGroup>
 </Project>

@@ -10,7 +10,6 @@
                 <ResourceInclude x:Key="Dark" Source="Dark.axaml" />
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
-                <AxeTheme />
                 <ResourceInclude Source="Base.axaml" />
                 <ResourceInclude Source="Shadows.axaml" />
                 <ResourceInclude Source="Controls.axaml" />

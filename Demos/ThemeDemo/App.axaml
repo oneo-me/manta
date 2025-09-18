@@ -4,6 +4,7 @@
     x:Class="ThemeDemo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
+        <AxeVariables />
         <AxeTheme />
     </Application.Styles>
 </Application>
