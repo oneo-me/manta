@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:values="clr-namespace:Axe.Themes.Values"
     x:ClassModifier="internal">
+    <!-- Fonts -->
+    <FontFamily x:Key="{ThemeFontKey Sans}">ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"</FontFamily>
+    <FontFamily x:Key="{ThemeFontKey Serif}">ui-serif, Georgia, Cambria, "Times New Roman", Times, serif</FontFamily>
+    <FontFamily x:Key="{ThemeFontKey Mono}">ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace</FontFamily>
+    <!-- Colors -->
     <values:OklchColor x:Key="{ThemeBrushKey Red50}" L="0.971" C="0.013" H="17.38" />
     <values:OklchColor x:Key="{ThemeBrushKey Red100}" L="0.936" C="0.032" H="17.717" />
     <values:OklchColor x:Key="{ThemeBrushKey Red200}" L="0.885" C="0.062" H="18.334" />

@@ -8,8 +8,11 @@
         <local:Main_Model />
     </Design.DataContext>
     <View.Styles>
-        <Style Selector="WrapPanel.ColorBox">
+        <Style Selector="StackPanel.Boxs">
             <Setter Property="Margin" Value="5" />
+            <Setter Property="Spacing" Value="5" />
+        </Style>
+        <Style Selector="WrapPanel.ColorBox">
             <Setter Property="ItemSpacing" Value="5" />
             <Setter Property="LineSpacing" Value="5" />
         </Style>
@@ -23,8 +26,13 @@
     </View.Styles>
     <Grid RowDefinitions="Auto *">
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
-        <Grid Grid.Row="1">
-            <WrapPanel Classes="ColorBox" ItemsAlignment="Center" Width="620">
+        <StackPanel Classes="Boxs" Grid.Row="1">
+            <!-- Fonts -->
+            <TextBlock FontFamily="{ThemeFont Sans}" Text="12312314qweqwtqw" />
+            <TextBlock FontFamily="{ThemeFont Serif}" Text="12312314qweqwtqw" />
+            <TextBlock FontFamily="{ThemeFont Mono}" Text="12312314qweqwtqw" />
+            <!-- Colors -->
+            <WrapPanel Classes="ColorBox" Width="620">
                 <!-- Red -->
                 <Border Classes="Color" Background="{ThemeBrush Red50}" />
                 <Border Classes="Color" Background="{ThemeBrush Red100}" />
@@ -293,6 +301,6 @@
                 <Border Classes="Color" Background="{ThemeBrush Black}" />
                 <Border Classes="Color" Background="{ThemeBrush White}" />
             </WrapPanel>
-        </Grid>
+        </StackPanel>
     </Grid>
 </View>
