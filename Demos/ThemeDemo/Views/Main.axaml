@@ -35,6 +35,10 @@
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
         <ScrollViewer Grid.Row="1" Width="660">
             <StackPanel Classes="Boxs">
+                <!-- Refs -->
+                <WrapPanel Classes="ColorBox">
+                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrushRef WindowBackground}" />
+                </WrapPanel>
                 <!-- Radius -->
                 <WrapPanel Classes="ColorBox">
                     <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Black, Opacity=0.3}" />
