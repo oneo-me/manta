@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
 using Axe.Themes.Base;
@@ -5,6 +6,7 @@ using Axe.Themes.Values;
 
 namespace Axe.Themes.Variables;
 
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeBrushKey
 {
     Red50,
@@ -272,7 +274,22 @@ public enum ThemeBrushKey
     Stone950,
 
     Black,
-    White
+    White,
+
+    Window_Background,
+
+    Background,
+    BorderBrush,
+    Foreground,
+
+    Primary,
+    Primary_Foreground,
+    Success,
+    Success_Foreground,
+    Warning,
+    Warning_Foreground,
+    Error,
+    Error_Foreground
 }
 
 public sealed class ThemeBrushKeyExtension(ThemeBrushKey key) : ThemeKeyBase(key);
@@ -290,10 +307,20 @@ public sealed class ThemeBrush(ThemeBrushKey key) : ThemeValueBase
     protected override object OnConvert(IList<object?> values)
     {
         var value = values[0];
-        if (value is not ColorBase colorBase)
-            return Brushes.Transparent;
 
-        var color = colorBase.ToColor(Opacity);
-        return new ImmutableSolidColorBrush(color);
+        if (value is ColorBase colorBase)
+        {
+            var color = colorBase.ToColor(Opacity);
+            return new ImmutableSolidColorBrush(color);
+        }
+
+        if (value is ThemeRefValue { Value: ImmutableSolidColorBrush immutableSolidColorBrush })
+        {
+            var sourceColor = immutableSolidColorBrush.Color;
+            var newColor = new Color((byte)(Opacity * sourceColor.A), sourceColor.R, sourceColor.G, sourceColor.B);
+            return new ImmutableSolidColorBrush(newColor);
+        }
+
+        return Brushes.Transparent;
     }
 }

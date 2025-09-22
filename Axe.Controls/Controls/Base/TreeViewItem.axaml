@@ -24,9 +24,9 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,*">
@@ -64,7 +64,7 @@
             <Setter Property="Height" Value="14" />
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="Margin" Value="0 0 5 0" />
-            <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
+            <Setter Property="Background" Value="{ThemeBrush Background}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

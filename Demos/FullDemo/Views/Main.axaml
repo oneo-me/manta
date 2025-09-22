@@ -1,8 +1,9 @@
 <View
-    x:Class="ThemeDemo.Views.Main"
+    x:Class="FullDemo.Views.Main"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:ThemeDemo.Views"
+    xmlns:local="clr-namespace:FullDemo.Views"
+    xmlns:lang="clr-namespace:Axe.I18N.Core;assembly=Axe.I18N"
     x:DataType="local:Main_Model">
     <Design.DataContext>
         <local:Main_Model />
@@ -35,9 +36,18 @@
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
         <ScrollViewer Grid.Row="1" Width="660">
             <StackPanel Classes="Boxs">
+                <!-- Langs -->
+                <StackPanel Spacing="12" Margin="12">
+                    <TextBlock Text="Native Name" FontWeight="Bold" />
+                    <TextBlock Text="{LangName {x:Static lang:LangType.en}}" />
+                    <TextBlock Text="{LangName {x:Static lang:LangType.zh_Hans}}" />
+                    <TextBlock Text="Lang Key" FontWeight="Bold" />
+                    <TextBlock Text="{Lang {x:Static InnerLangKey.Test}}" />
+                    <TextBlock Text="{Lang NotKey}" />
+                </StackPanel>
                 <!-- Refs -->
                 <WrapPanel Classes="ColorBox">
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeCommonBrush Window_Background}" />
+                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Window_Background}" />
                 </WrapPanel>
                 <!-- Radius -->
                 <WrapPanel Classes="ColorBox">

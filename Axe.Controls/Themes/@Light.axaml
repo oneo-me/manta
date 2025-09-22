@@ -1,7 +1,5 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:values="clr-namespace:Axe.Themes.Values;assembly=Axe.Themes"
     x:ClassModifier="internal">
-    <values:ThemeRefValue x:Key="{ThemeCommonBrushKey Window_Background}" Value="{ThemeBrush Red400, Opacity=0.6}" />
 </ResourceDictionary>

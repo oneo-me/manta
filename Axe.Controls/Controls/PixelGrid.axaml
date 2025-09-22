@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <Panel Background="{ThemeCommonBrush Background}">
+        <Panel Background="{ThemeBrush Background}">
             <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
                 <Border BorderThickness="{ThemeThickness Normal}">
                     <PixelGrid Width="100" Height="100" />
@@ -18,7 +18,7 @@
         </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type PixelGrid}" TargetType="PixelGrid">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
         <Setter Property="Opacity" Value="0.1" />
         <Setter Property="Template">
             <ControlTemplate>

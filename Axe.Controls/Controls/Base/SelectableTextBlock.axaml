@@ -12,7 +12,7 @@
                   IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" InputGesture="{x:Static TextBox.CopyGesture}" />
     </MenuFlyout>
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
-        <Setter Property="SelectionBrush" Value="{ThemeCommonBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionBrush" Value="{ThemeBrush Primary, Opacity=0.3}" />
         <Style Selector="^[IsEnabled=True]">
             <Setter Property="Cursor" Value="IBeam" />
             <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />

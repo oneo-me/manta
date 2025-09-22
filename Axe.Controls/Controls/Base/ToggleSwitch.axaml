@@ -13,12 +13,12 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="100" />
-        <Setter Property="Padding" Value="{ThemeThickness Padding, Filter=Bottom}" />
+        <Setter Property="Padding" Value="33 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KnobTransitions">
@@ -44,7 +44,7 @@
                                 </Grid>
                             </Canvas>
                         </Border>
-                        <Panel Grid.Column="1" Margin="{ThemeThickness Padding, Filter=Left}">
+                        <Panel Grid.Column="1" Margin="33 11">
                             <ContentPresenter x:Name="PART_OffContentPresenter"
                                               Content="{TemplateBinding OffContent}"
                                               ContentTemplate="{TemplateBinding OffContentTemplate}"
@@ -65,7 +65,7 @@
                 <Setter Property="Margin" Value="0 0 22 0" />
             </Style>
             <Style Selector="^ Ellipse">
-                <Setter Property="Fill" Value="{ThemeCommonBrush Primary}" />
+                <Setter Property="Fill" Value="{ThemeBrush Primary}" />
                 <Setter Property="Margin" Value="1" />
                 <Setter Property="Width" Value="20" />
                 <Setter Property="Height" Value="20" />

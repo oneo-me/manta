@@ -5,7 +5,7 @@
     <Design.PreviewWith>
         <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
             <AutoGrid Definitions="*,*" Spacing="12">
-                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -16,7 +16,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -27,7 +27,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -38,7 +38,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -53,10 +53,10 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground, Opacity=0.5}" />
-        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Padding" Value="{ThemeThickness TabItem_Padding}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Padding" Value="31 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -75,7 +75,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

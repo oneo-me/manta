@@ -17,7 +17,7 @@
                 <ProgressRing IsIndeterminate="True" />
                 <ProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <ProgressRing ShowProgressText="True" IsIndeterminate="True">
-                    <Border Background="{ThemeCommonBrush Primary, Opacity=0.3}" Width="300" Height="300" />
+                    <Border Background="{ThemeBrush Primary, Opacity=0.3}" Width="300" Height="300" />
                 </ProgressRing>
             </PanelExt>
             <TextBlock Classes="Title" Text="ProgressBar" />

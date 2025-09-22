@@ -5,18 +5,18 @@
     <Design.PreviewWith>
         <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
             <ThemeVariantScope Width="100" RequestedThemeVariant="Light">
-                <Panel Background="{ThemeCommonBrush Background}">
-                    <TextBlock Text="TextBlock" Margin="{ThemeThickness Padding}" />
+                <Panel Background="{ThemeBrush Background}">
+                    <TextBlock Text="TextBlock" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
             <ThemeVariantScope Width="100" RequestedThemeVariant="Dark">
-                <Panel Background="{ThemeCommonBrush Background}">
-                    <TextBlock Text="TextBlock" Margin="{ThemeThickness Padding}" />
+                <Panel Background="{ThemeBrush Background}">
+                    <TextBlock Text="TextBlock" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ThemeVariantScope}" TargetType="ThemeVariantScope">
-        <Setter Property="TextElement.Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="TextElement.Foreground" Value="{ThemeBrush Foreground}" />
     </ControlTheme>
 </ResourceDictionary>

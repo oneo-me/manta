@@ -1,6 +1,7 @@
 ﻿using Avalonia;
+using Axe.Logging.Avalonia;
 
-namespace LangDemo;
+namespace FullDemo;
 
 static class Program
 {
@@ -15,6 +16,6 @@ static class Program
     {
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace();
+            .LogToAxe();
     }
 }

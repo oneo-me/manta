@@ -2,7 +2,7 @@ using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.Reactive;
 
-namespace ThemeDemo.Views;
+namespace FullDemo.Views;
 
 [View<Main>]
 sealed class Main_Model : WindowModel

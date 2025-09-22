@@ -9,12 +9,12 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type RadioButton}" TargetType="RadioButton">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="100" />
-        <Setter Property="Padding" Value="{ThemeThickness Padding, Filter=Left}" />
+        <Setter Property="Padding" Value="31 11" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -48,7 +48,7 @@
             <Setter Property="CornerRadius" Value="100" />
             <Setter Property="Width" Value="6" />
             <Setter Property="Height" Value="6" />
-            <Setter Property="Background" Value="{ThemeCommonBrush Primary}" />
+            <Setter Property="Background" Value="{ThemeBrush Primary}" />
         </Style>
         <Style Selector="^:checked /template/ Border#CheckMark">
             <Setter Property="Opacity" Value="1" />

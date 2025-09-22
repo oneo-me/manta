@@ -4,7 +4,7 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
-            <TabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+            <TabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                 <TabStripItem Content="TabItem 1" />
                 <TabStripItem Content="TabItem 2" />
                 <TabStripItem Content="TabItem 3" />
@@ -12,10 +12,10 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground, Opacity=0.5}" />
-        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Padding" Value="{ThemeThickness TabItem_Padding}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Padding" Value="31 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -33,7 +33,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

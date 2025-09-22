@@ -1,6 +1,6 @@
 using Axe.Reactive.Controls;
 
-namespace LangDemo.Views;
+namespace FullDemo.Views;
 
 sealed partial class Main : View
 {

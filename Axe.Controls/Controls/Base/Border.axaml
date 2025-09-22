@@ -8,6 +8,6 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Border}" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
     </ControlTheme>
 </ResourceDictionary>

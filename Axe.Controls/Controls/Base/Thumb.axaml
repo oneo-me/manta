@@ -8,8 +8,8 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Thumb}" TargetType="Thumb">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="#00000000">

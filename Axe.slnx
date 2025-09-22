@@ -5,9 +5,8 @@
   </Folder>
   <Folder Name="/Demos/">
     <Project Path="Demos\ControlsDemo\ControlsDemo.csproj" Type="Classic C#" />
-    <Project Path="Demos\LangDemo\LangDemo.csproj" Type="Classic C#" />
+    <Project Path="Demos\FullDemo\FullDemo.csproj" Type="Classic C#" />
     <Project Path="Demos\ReactiveDemo\ReactiveDemo.csproj" Type="Classic C#" />
-    <Project Path="Demos\ThemeDemo\ThemeDemo.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/_/">
     <File Path="Directory.Build.props" />

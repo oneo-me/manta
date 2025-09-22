@@ -20,7 +20,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
-        <Setter Property="Background" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Foreground}" />
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="ShowDelay" Value="0:0:0" />
         <Setter Property="HideDelay" Value="0:0:0.2" />

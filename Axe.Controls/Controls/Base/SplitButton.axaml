@@ -8,12 +8,12 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
-        <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
-        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+        <Setter Property="CornerRadius" Value="11" />
+        <Setter Property="Padding" Value="33 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
@@ -53,14 +53,14 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ Button">
-            <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
-            <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush, Opacity=0}" />
             <Setter Property="CornerRadius" Value="0" />
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="^ /template/ Button#PART_SecondaryButton">
-            <Setter Property="Padding" Value="{ThemeThickness Padding, Filter=Left|Right}" />
-            <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+            <Setter Property="Padding" Value="31 11" />
+            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
             <Setter Property="BorderThickness" Value="{ThemeThickness Normal, Filter=Left}" />
         </Style>
     </ControlTheme>

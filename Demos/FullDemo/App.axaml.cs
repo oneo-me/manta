@@ -3,9 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Axe.Logging;
 using Axe.Reactive;
-using ThemeDemo.Views;
+using FullDemo.Views;
 
-namespace ThemeDemo;
+namespace FullDemo;
 
 sealed class App : AxeApp
 {

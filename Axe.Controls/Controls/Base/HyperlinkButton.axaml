@@ -10,8 +10,8 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
-        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Setter Property="TextBlock.TextDecorations" Value="Underline" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -32,7 +32,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:visited">
-            <Setter Property="Foreground" Value="{ThemeCommonBrush Primary}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

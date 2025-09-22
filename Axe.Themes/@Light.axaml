@@ -4,6 +4,19 @@
     xmlns:values="clr-namespace:Axe.Themes.Values"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
+    <!-- Refs -->
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Window_Background}" Value="{ThemeBrush Gray50}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Background}" Value="{ThemeBrush Gray50}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey BorderBrush}" Value="{ThemeBrush Gray200}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Foreground}" Value="{ThemeBrush Gray800}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Primary}" Value="{ThemeBrush Teal400}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Primary_Foreground}" Value="{ThemeBrush White}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Success}" Value="{ThemeBrush Green400}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Success_Foreground}" Value="{ThemeBrush White}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Warning}" Value="{ThemeBrush Yellow400}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Warning_Foreground}" Value="{ThemeBrush White}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Error}" Value="{ThemeBrush Red400}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Error_Foreground}" Value="{ThemeBrush White}" />
     <!-- Fonts -->
     <FontFamily x:Key="{ThemeFontKey Sans}">ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"</FontFamily>
     <FontFamily x:Key="{ThemeFontKey Serif}">ui-serif, Georgia, Cambria, "Times New Roman", Times, serif</FontFamily>

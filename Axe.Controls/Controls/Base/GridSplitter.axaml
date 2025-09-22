@@ -18,10 +18,10 @@
         <Setter Property="Margin" Value="-4" />
         <Setter Property="MinWidth" Value="8" />
         <Setter Property="MinHeight" Value="8" />
-        <Setter Property="Background" Value="{ThemeCommonBrush Foreground, Opacity=0}" />
+        <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
         <Setter Property="PreviewContent">
             <Template>
-                <Rectangle Fill="{ThemeCommonBrush Foreground, Opacity=0.15}" Margin="2" />
+                <Rectangle Fill="{ThemeBrush Foreground, Opacity=0.15}" Margin="2" />
             </Template>
         </Setter>
         <Setter Property="Template">

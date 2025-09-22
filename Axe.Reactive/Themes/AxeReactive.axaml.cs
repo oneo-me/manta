@@ -3,9 +3,9 @@ using Avalonia.Styling;
 
 namespace Axe.Reactive.Themes;
 
-public sealed class AxeTheme : Styles
+public sealed class AxeReactive : Styles
 {
-    public AxeTheme(IServiceProvider? sp = null)
+    public AxeReactive(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
     }

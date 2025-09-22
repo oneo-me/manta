@@ -13,7 +13,7 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>

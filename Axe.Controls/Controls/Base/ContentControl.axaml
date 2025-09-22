@@ -8,7 +8,7 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ContentControl}" TargetType="ContentControl">
-        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter x:Name="PART_ContentPresenter"

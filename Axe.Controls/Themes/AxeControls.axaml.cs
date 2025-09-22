@@ -3,9 +3,9 @@ using Avalonia.Styling;
 
 namespace Axe.Controls.Themes;
 
-public sealed class DefaultTheme : Styles
+public sealed class AxeControls : Styles
 {
-    public DefaultTheme(IServiceProvider? sp = null)
+    public AxeControls(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
     }

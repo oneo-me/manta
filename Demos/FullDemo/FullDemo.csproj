@@ -4,8 +4,11 @@
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" />
+        <ProjectReference Include="..\..\Axe.Controls\Axe.Controls.csproj" />
+        <ProjectReference Include="..\..\Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" />
+        <ProjectReference Include="..\..\Axe.Logging\Axe.Logging.csproj" />
         <ProjectReference Include="..\..\Axe.Reactive\Axe.Reactive.csproj" />
+        <ProjectReference Include="..\..\Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" />
     </ItemGroup>
     <ItemGroup>
         <AvaloniaResource Include="Langs\*.yml" />
