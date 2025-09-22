@@ -37,7 +37,7 @@
             <StackPanel Classes="Boxs">
                 <!-- Refs -->
                 <WrapPanel Classes="ColorBox">
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrushRef WindowBackground}" />
+                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeCommonBrush Window_Background}" />
                 </WrapPanel>
                 <!-- Radius -->
                 <WrapPanel Classes="ColorBox">

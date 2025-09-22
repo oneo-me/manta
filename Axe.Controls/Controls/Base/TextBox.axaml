@@ -17,12 +17,12 @@
                   IsEnabled="{Binding $parent[TextBox].CanPaste}" InputGesture="{x:Static TextBox.PasteGesture}" />
     </MenuFlyout>
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
-        <Setter Property="CaretBrush" Value="{ThemeBrush Foreground}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="CaretBrush" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
-        <Setter Property="SelectionBrush" Value="{ThemeBrush Primary, Opacity=0.3}" />
-        <Setter Property="SelectionForegroundBrush" Value="{ThemeBrush Foreground}" />
+        <Setter Property="SelectionBrush" Value="{ThemeCommonBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionForegroundBrush" Value="{ThemeCommonBrush Foreground}" />
         <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
         <Setter Property="Padding" Value="{ThemeThickness Padding}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />

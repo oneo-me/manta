@@ -30,7 +30,7 @@
         </Style>
     </View.Styles>
     <Panel>
-        <BackgroundBlur x:Name="BackgroundBlur" VerticalAlignment="Top" ZIndex="1" Background="{ThemeBrush Background, Opacity=0.8}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="0 0 0 1"
+        <BackgroundBlur x:Name="BackgroundBlur" VerticalAlignment="Top" ZIndex="1" Background="{ThemeCommonBrush Background, Opacity=0.8}" BorderBrush="{ThemeCommonBrush BorderBrush}" BorderThickness="0 0 0 1"
                         IsHitTestVisible="False">
             <TextBlock Text="Colors" FontWeight="Bold" FontSize="14" Margin="12" HorizontalAlignment="Center" />
         </BackgroundBlur>
@@ -38,88 +38,88 @@
             <PanelExt Mode="Vertical" Spacing="12" Margin="12">
                 <TextBlock Classes="Title" Text="Primary Colors" />
                 <PanelExt Mode="WrapFull" Spacing="12">
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Primary}" TextElement.Foreground="{ThemeCommonBrush Primary_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Primary" />
-                            <Label Content="{ThemeBrush Primary}" />
+                            <Label Content="{ThemeCommonBrush Primary}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Success}" TextElement.Foreground="{ThemeCommonBrush Success_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Success" />
-                            <Label Content="{ThemeBrush Success}" />
+                            <Label Content="{ThemeCommonBrush Success}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Warning}" TextElement.Foreground="{ThemeBrush Warning_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Warning}" TextElement.Foreground="{ThemeCommonBrush Warning_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Warning" />
-                            <Label Content="{ThemeBrush Warning}" />
+                            <Label Content="{ThemeCommonBrush Warning}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Error}" TextElement.Foreground="{ThemeCommonBrush Error_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Error" />
-                            <Label Content="{ThemeBrush Error}" />
+                            <Label Content="{ThemeCommonBrush Error}" />
                         </PanelExt>
                     </Border>
                 </PanelExt>
                 <TextBlock Classes="Title" Text="Other Colors" />
                 <PanelExt Mode="WrapFull" Spacing="12">
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Shadow}" TextElement.Foreground="White">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Shadow}" TextElement.Foreground="White">
                         <PanelExt>
                             <TextBlock Text="Shadow" />
-                            <Label Content="{ThemeBrush Shadow}" />
+                            <Label Content="{ThemeCommonBrush Shadow}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush MaskBrush}" TextElement.Foreground="{ThemeBrush Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush MaskBrush}" TextElement.Foreground="{ThemeCommonBrush Foreground}">
                         <PanelExt>
                             <TextBlock Text="MaskBrush" />
-                            <Label Content="{ThemeBrush MaskBrush}" />
+                            <Label Content="{ThemeCommonBrush MaskBrush}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Window_Background}" TextElement.Foreground="{ThemeBrush Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Window_Background}" TextElement.Foreground="{ThemeCommonBrush Foreground}">
                         <PanelExt>
                             <TextBlock Text="Window_Background" />
-                            <Label Content="{ThemeBrush Window_Background}" />
+                            <Label Content="{ThemeCommonBrush Window_Background}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Background}" TextElement.Foreground="{ThemeBrush Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Background}" TextElement.Foreground="{ThemeCommonBrush Foreground}">
                         <PanelExt>
                             <TextBlock Text="Background" />
-                            <Label Content="{ThemeBrush Background}" />
+                            <Label Content="{ThemeCommonBrush Background}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Foreground}" TextElement.Foreground="{ThemeBrush Background}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Foreground}" TextElement.Foreground="{ThemeCommonBrush Background}">
                         <PanelExt>
                             <TextBlock Text="Foreground" />
-                            <Label Content="{ThemeBrush Foreground}" />
+                            <Label Content="{ThemeCommonBrush Foreground}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush BorderBrush}" TextElement.Foreground="{ThemeBrush Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush BorderBrush}" TextElement.Foreground="{ThemeCommonBrush Foreground}">
                         <PanelExt>
                             <TextBlock Text="BorderBrush" />
-                            <Label Content="{ThemeBrush BorderBrush}" />
+                            <Label Content="{ThemeCommonBrush BorderBrush}" />
                         </PanelExt>
                     </Border>
                 </PanelExt>
                 <TextBlock Classes="Title" Text="Flyout Colors" />
                 <PanelExt Mode="WrapFull" Spacing="12">
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_Background}" TextElement.Foreground="{ThemeBrush Flyout_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Flyout_Background}" TextElement.Foreground="{ThemeCommonBrush Flyout_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Flyout_Background" />
-                            <Label Content="{ThemeBrush Flyout_Background}" />
+                            <Label Content="{ThemeCommonBrush Flyout_Background}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_Foreground}" TextElement.Foreground="{ThemeBrush Flyout_Background}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Flyout_Foreground}" TextElement.Foreground="{ThemeCommonBrush Flyout_Background}">
                         <PanelExt>
                             <TextBlock Text="Flyout_Foreground" />
-                            <Label Content="{ThemeBrush Flyout_Foreground}" />
+                            <Label Content="{ThemeCommonBrush Flyout_Foreground}" />
                         </PanelExt>
                     </Border>
-                    <Border Classes="ColorBlock" Background="{ThemeBrush Flyout_BorderBrush}" TextElement.Foreground="{ThemeBrush Flyout_Foreground}">
+                    <Border Classes="ColorBlock" Background="{ThemeCommonBrush Flyout_BorderBrush}" TextElement.Foreground="{ThemeCommonBrush Flyout_Foreground}">
                         <PanelExt>
                             <TextBlock Text="Flyout_BorderBrush" />
-                            <Label Content="{ThemeBrush Flyout_BorderBrush}" />
+                            <Label Content="{ThemeCommonBrush Flyout_BorderBrush}" />
                         </PanelExt>
                     </Border>
                 </PanelExt>

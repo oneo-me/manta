@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
         <Setter Property="FontSize" Value="{ThemeNumber FontSize}" />
         <Setter Property="Template">
             <ControlTemplate>

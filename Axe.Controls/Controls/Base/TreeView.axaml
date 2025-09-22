@@ -24,9 +24,9 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />

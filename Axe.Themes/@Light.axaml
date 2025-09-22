@@ -4,8 +4,6 @@
     xmlns:values="clr-namespace:Axe.Themes.Values"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
-    <!-- Refs -->
-    <ThemeRef x:Key="{ThemeBrushRefKey WindowBackground}" Value="{ThemeBrush Red400, Opacity=0.5}" />
     <!-- Fonts -->
     <FontFamily x:Key="{ThemeFontKey Sans}">ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"</FontFamily>
     <FontFamily x:Key="{ThemeFontKey Serif}">ui-serif, Georgia, Cambria, "Times New Roman", Times, serif</FontFamily>

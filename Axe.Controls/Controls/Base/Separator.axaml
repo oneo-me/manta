@@ -11,7 +11,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush BorderBrush}" />
         <Setter Property="Height" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>

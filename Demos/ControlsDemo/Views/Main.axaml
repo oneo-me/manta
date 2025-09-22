@@ -47,10 +47,10 @@
                                 </Setter>
                                 <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4, TopBottomOffset=-1}" />
                                 <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
-                                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0}" />
+                                <Setter Property="Background" Value="{ThemeCommonBrush Primary, Opacity=0}" />
                                 <Style Selector="^:selected">
-                                    <Setter Property="Background" Value="{ThemeBrush Primary}" />
-                                    <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
+                                    <Setter Property="Background" Value="{ThemeCommonBrush Primary}" />
+                                    <Setter Property="Foreground" Value="{ThemeCommonBrush Primary_Foreground}" />
                                 </Style>
                                 <Style Selector="^:disabled">
                                     <Setter Property="Opacity" Value="0.5" />
@@ -68,10 +68,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <Border Grid.Column="1" Background="{ThemeBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
+        <Border Grid.Column="1" Background="{ThemeCommonBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
             <Grid RowDefinitions="Auto,*">
                 <TitleBarExt Grid.Row="0" x:Name="TitleBar" Title="{Lang {Binding SelectedItem.NameKey}}" UseWindowTitle="False"
-                             Background="{ThemeBrush Foreground, Opacity=0.03}"
+                             Background="{ThemeCommonBrush Foreground, Opacity=0.03}"
                              BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
                     <PanelExt Mode="Horizontal">
                         <TitleBarButton Content="{LangName {x:Static lang:LangType.zh_Hans}}" Command="{Binding SetLangType}" CommandParameter="{x:Static lang:LangType.zh_Hans}" />

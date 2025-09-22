@@ -12,9 +12,9 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground, Opacity=0.5}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
         <Setter Property="Padding" Value="{ThemeThickness TabItem_Padding}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -33,7 +33,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+            <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -8,9 +8,9 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
         <Setter Property="Padding" Value="{ThemeThickness Padding}" />

@@ -28,11 +28,11 @@
             </Setter>
             <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-3}" />
             <Setter Property="Padding" Value="4" />
-            <Setter Property="Background" Value="{ThemeBrush Error, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+            <Setter Property="Background" Value="{ThemeCommonBrush Error, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeBrush Error}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Error_Foreground}" />
+                <Setter Property="Background" Value="{ThemeCommonBrush Error}" />
+                <Setter Property="Foreground" Value="{ThemeCommonBrush Error_Foreground}" />
             </Style>
         </Style>
         <Style Selector="TabStrip.TabStrip">
@@ -48,13 +48,13 @@
                         <BrushTransition Property="BorderBrush" Duration="0:0:0.1" />
                     </Transitions>
                 </Setter>
-                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-                <Setter Property="BorderBrush" Value="{ThemeBrush Primary, Opacity=0}" />
+                <Setter Property="Background" Value="{ThemeCommonBrush Primary, Opacity=0}" />
+                <Setter Property="Foreground" Value="{ThemeCommonBrush Foreground}" />
+                <Setter Property="BorderBrush" Value="{ThemeCommonBrush Primary, Opacity=0}" />
                 <Style Selector="^:selected">
-                    <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
-                    <Setter Property="BorderBrush" Value="{ThemeBrush Primary}" />
+                    <Setter Property="Background" Value="{ThemeCommonBrush Primary, Opacity=0.1}" />
+                    <Setter Property="Foreground" Value="{ThemeCommonBrush Primary}" />
+                    <Setter Property="BorderBrush" Value="{ThemeCommonBrush Primary}" />
                 </Style>
             </Style>
         </Style>

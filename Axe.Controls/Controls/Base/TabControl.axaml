@@ -53,8 +53,8 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeCommonBrush BorderBrush}" />
         <Setter Property="Padding" Value="{ThemeThickness Normal}" />
         <Setter Property="Template">
             <ControlTemplate>

@@ -9,8 +9,8 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Ring}" TargetType="Ring">
-        <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
-        <Setter Property="Background" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
+        <Setter Property="Foreground" Value="{ThemeCommonBrush Primary}" />
+        <Setter Property="Background" Value="{ThemeCommonBrush BorderBrush, Opacity=0.6}" />
         <Setter Property="Size" Value="60" />
         <Setter Property="StrokeSize" Value="5" />
         <Setter Property="Value" Value="0" />
