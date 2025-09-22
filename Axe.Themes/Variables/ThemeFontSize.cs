@@ -6,7 +6,6 @@ namespace Axe.Themes.Variables;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum ThemeFontSizeKey
 {
-    XS,
     SM,
     Base,
     LG,

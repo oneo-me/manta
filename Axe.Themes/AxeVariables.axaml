@@ -9,6 +9,9 @@
                 <ResourceInclude x:Key="Light" Source="@Light.axaml" />
                 <ResourceInclude x:Key="Dark" Source="@Dark.axaml" />
             </ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="Controls/Window.axaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
 </Styles>

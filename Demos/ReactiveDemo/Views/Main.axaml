@@ -9,8 +9,7 @@
     </Design.DataContext>
     <Grid RowDefinitions="Auto *">
         <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
-        <TextBlock Grid.Row="1" Text="测试标题" HorizontalAlignment="Right" FontWeight="Bold" />
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="{ThemeBrush Window_Background}">
             <StackPanel Orientation="Vertical" Spacing="22" Margin="22">
                 <TextBlock Text="Info:" FontWeight="Bold" />
                 <StackPanel Orientation="Vertical" Spacing="12">

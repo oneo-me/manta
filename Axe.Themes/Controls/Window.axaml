@@ -1,0 +1,38 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <TextBlock Text="Design Model" Margin="30" />
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+        <Setter Property="Title" Value="Axe" />
+        <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
+        <Setter Property="FontWeight" Value="{ThemeFontWeight Normal}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="{TemplateBinding Background}">
+                    <Panel Opacity="0.1">
+                        <Panel.Background>
+                            <VisualBrush TileMode="Tile" DestinationRect="0 0 20 20">
+                                <VisualBrush.Visual>
+                                    <Grid ColumnDefinitions="10 10" RowDefinitions="10 10">
+                                        <Border Grid.Column="0" Grid.Row="0" Background="Black" />
+                                        <Border Grid.Column="1" Grid.Row="0" Background="White" />
+                                        <Border Grid.Column="0" Grid.Row="1" Background="White" />
+                                        <Border Grid.Column="1" Grid.Row="1" Background="Black" />
+                                    </Grid>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Panel.Background>
+                    </Panel>
+                    <VisualLayerManager>
+                        <ContentPresenter x:Name="PART_ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" />
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

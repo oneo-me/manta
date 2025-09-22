@@ -110,7 +110,6 @@
                 <TextBlock FontFamily="{ThemeFont Sans}" FontWeight="{ThemeFontWeight Extrabold}" FontSize="{ThemeFontSize Base}" LineHeight="{ThemeFontHeight Base}" Text="The quick brown fox jumps over the lazy dog" />
                 <TextBlock FontFamily="{ThemeFont Sans}" FontWeight="{ThemeFontWeight Black}" FontSize="{ThemeFontSize Base}" LineHeight="{ThemeFontHeight Base}" Text="The quick brown fox jumps over the lazy dog" />
                 <!-- FontSizes -->
-                <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize XS}" LineHeight="{ThemeFontHeight XS}" Text="The quick brown fox jumps over the lazy dog" />
                 <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize SM}" LineHeight="{ThemeFontHeight SM}" Text="The quick brown fox jumps over the lazy dog" />
                 <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize Base}" LineHeight="{ThemeFontHeight Base}" Text="The quick brown fox jumps over the lazy dog" />
                 <TextBlock FontFamily="{ThemeFont Sans}" FontSize="{ThemeFontSize LG}" LineHeight="{ThemeFontHeight LG}" Text="The quick brown fox jumps over the lazy dog" />

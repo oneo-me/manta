@@ -36,9 +36,9 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TitleBarExt}" TargetType="TitleBarExt">
-        <Setter Property="Background" Value="{DynamicResource Titlebar_Background}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Titlebar_BorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource Titlebar_BorderThickness}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush, Opacity=0}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Right" />
         <Setter Property="Template">

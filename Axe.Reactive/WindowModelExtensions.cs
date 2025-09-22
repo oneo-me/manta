@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Axe.Reactive.Controls;
 
 namespace Axe.Reactive;
 
@@ -6,7 +7,7 @@ public static class WindowModelExtensions
 {
     public static Window CreateWindow(this WindowModel windowModel)
     {
-        var result = new Window
+        var result = new ReactiveWindow
         {
             Content = windowModel.CreateView()
         };
