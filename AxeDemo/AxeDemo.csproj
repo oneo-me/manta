@@ -15,4 +15,8 @@
         <AdditionalFiles Include="Langs\*.yml" />
         <ProjectReference Include="..\Axe.I18N.Generator\Axe.I18N.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="Icons\*.svg" />
+        <ProjectReference Include="..\Axe.Icons.Generator\Axe.Icons.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
 </Project>
