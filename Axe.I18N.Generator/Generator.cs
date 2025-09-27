@@ -24,10 +24,7 @@ public class Generator : IIncrementalGenerator
                 core.CheckMissing();
                 core.CheckRedundant();
                 core.GenerateLangKey();
-            }
-            catch (GeneratorException e)
-            {
-                spc.WriteError(e.ToString(), e.Location);
+                core.GenerateAssemblyInfo();
             }
             catch (Exception e)
             {

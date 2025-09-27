@@ -19,22 +19,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\Axe.I18N\Core\Extensions.cs">
-          <Link>Core\Extensions.cs</Link>
-        </Compile>
-        <Compile Include="..\Axe.I18N\Core\LangConfig.cs">
-          <Link>Core\LangConfig.cs</Link>
-        </Compile>
-        <Compile Include="..\Axe.I18N\Core\LangMetadata.cs">
-          <Link>Core\LangMetadata.cs</Link>
-        </Compile>
-        <Compile Include="..\Axe.I18N\Core\LangMetadataAttribute.cs">
-          <Link>Core\LangMetadataAttribute.cs</Link>
-        </Compile>
-        <Compile Include="..\Axe.I18N\Core\LangType.cs">
-          <Link>Core\LangType.cs</Link>
-        </Compile>
-        <Compile Include="..\Lumira\Core\*.cs">
+        <Compile Include="..\Axe.I18N\Core\*.cs">
             <Link>Core\%(Filename)%(Extension)</Link>
         </Compile>
     </ItemGroup>
