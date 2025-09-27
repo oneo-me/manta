@@ -69,7 +69,6 @@
                     <TabStrip.ItemTemplate>
                         <DataTemplate DataType="local:RegionItemView_Model">
                             <AutoGrid Definitions="*,Auto" Spacing="8">
-                                <TextBlock Text="{Binding Header}" VerticalAlignment="Center" />
                                 <Button Classes="CloseButton" Command="{Binding Close}" VerticalAlignment="Center" />
                             </AutoGrid>
                         </DataTemplate>

@@ -12,11 +12,9 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <PanelExt Mode="WrapFull" />
+                <PanelExt Mode="Horizontal" />
             </ItemsPanelTemplate>
         </Setter>
         <Setter Property="Template">

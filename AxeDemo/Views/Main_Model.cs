@@ -1,13 +1,22 @@
-using System.Diagnostics;
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.Reactive;
+using AxeDemo.Reactive;
 
 namespace AxeDemo.Views;
 
 [View<Main>]
 sealed class Main_Model : WindowModel
 {
+    public static Main_Model Design => new();
+
+    public RegionManager<HeaderRegionModel> RegionManager { get; } = new();
+
+    public Main_Model()
+    {
+        RegionManager.Open(() => new OverviewView_Model());
+    }
+
     public override void OnWindowInitialized(Window window)
     {
         base.OnWindowInitialized(window);
@@ -25,11 +34,9 @@ sealed class Main_Model : WindowModel
         view.SubscribeWindowStatus(x =>
         {
             view.TitleBar.Height = 38 + view.TitleBar.BorderThickness.Top + view.TitleBar.BorderThickness.Bottom;
-            view.TitleBarButtons.IsVisible = Debugger.IsAttached || x is { isShowButtons: true, isFullscreen: false };
+            view.TitleBarButtons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
             if (OperatingSystem.IsMacOS())
-                view.TitleBar.Padding = new(Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset - 8, 0, 0, 0);
-            else
-                view.TitleBar.Padding = new(5, 0, 0, 0);
+                view.TitleBar.Padding = new(Avalonia.Controls.Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
         });
     }
 }

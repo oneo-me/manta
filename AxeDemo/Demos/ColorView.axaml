@@ -38,7 +38,7 @@
                     <TextBlock Text="{LangName {x:Static lang:LangType.en}}" />
                     <TextBlock Text="{LangName {x:Static lang:LangType.zh_Hans}}" />
                     <TextBlock Text="Lang Key" FontWeight="Bold" />
-                    <TextBlock Text="{Lang {x:Static InnerLangKey.Test}}" />
+                    <TextBlock Text="{Lang {x:Static LangKey.Test}}" />
                     <TextBlock Text="{Lang NotKey}" />
                 </StackPanel>
                 <!-- Refs -->

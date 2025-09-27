@@ -2,12 +2,6 @@ namespace Axe.Reactive;
 
 public abstract class RegionModel : ViewModel
 {
-    public string Header
-    {
-        get;
-        set => SetValue(ref field, value);
-    } = string.Empty;
-
     internal Action<RegionModel>? CloseFunc { get; set; }
 
     public void Close()
@@ -18,10 +12,5 @@ public abstract class RegionModel : ViewModel
 
     protected virtual void OnClosed()
     {
-    }
-
-    public override string ToString()
-    {
-        return $"{GetType().Name} (Header: {Header})";
     }
 }

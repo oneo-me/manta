@@ -3,16 +3,20 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AxeDemo.Views"
-    x:DataType="local:Main_Model">
-    <Design.DataContext>
-        <local:Main_Model />
-    </Design.DataContext>
+    x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
-        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Background, Opacity=0.4}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
+        <Border Grid.Row="1" Background="{ThemeBrush Background}" />
+        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.01}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
             <Grid ColumnDefinitions="* Auto">
+                <TabStrip Classes="RootTab" Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                    <TabStrip.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Header}" />
+                        </DataTemplate>
+                    </TabStrip.ItemTemplate>
+                </TabStrip>
                 <TitleBarButtons x:Name="TitleBarButtons" Grid.Column="1" />
             </Grid>
         </Border>
-        <Border Grid.Row="1" Background="{ThemeBrush Background}" />
     </Grid>
 </View>
