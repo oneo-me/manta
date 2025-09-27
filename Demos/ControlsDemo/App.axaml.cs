@@ -17,7 +17,7 @@ sealed class App : AxeApp
 
     protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
-        Lang.Register(LangData.LoadFromAssembly<LangKey>(typeof(App).Assembly));
+        Lang.Register(LangData.LoadFromAssembly<LangKey>());
 
         var configFile = Path.Combine(DesktopApp.Folder, "config.yaml");
         var configService = Service.Register(new ConfigService(configFile));

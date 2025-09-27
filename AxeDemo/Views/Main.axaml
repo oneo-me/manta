@@ -5,13 +5,13 @@
     xmlns:local="clr-namespace:AxeDemo.Views"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
-        <Border Grid.Row="1" Background="{ThemeBrush Background}" />
+        <ViewModelHost Grid.Row="1" Background="{ThemeBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
         <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.01}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
             <Grid ColumnDefinitions="* Auto">
                 <TabStrip Classes="RootTab" Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <TabStrip.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Header}" />
+                            <TextBlock Text="{Lang {Binding Header}}" />
                         </DataTemplate>
                     </TabStrip.ItemTemplate>
                 </TabStrip>

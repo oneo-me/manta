@@ -38,6 +38,9 @@ public abstract class AxeApp : Application
 
     protected virtual void OnException(Exception exception)
     {
+        if (Design.IsDesignMode)
+            return;
+
         AvaloniaScheduler.Instance.Schedule(() => throw new("An unhandled exception occurred", exception));
     }
 

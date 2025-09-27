@@ -1,0 +1,7 @@
+<View
+    x:Class="AxeDemo.Views.ControlsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AxeDemo.Views"
+    x:DataType="local:ControlsView_Model" Design.DataContext="{x:Static local:ControlsView_Model.Design}">
+</View>

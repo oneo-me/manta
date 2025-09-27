@@ -18,8 +18,10 @@ public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
         set => SetValue(ref field, value);
     }
 
-    public RegionManager()
+    public RegionManager(params T[] initItems)
     {
+        _source.AddRange(initItems);
+
         _source.Connect()
             .Synchronize()
             .ObserveOnDispatcher()

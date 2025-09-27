@@ -1,0 +1,7 @@
+<View
+    x:Class="AxeDemo.Views.MultiLanguageView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AxeDemo.Views"
+    x:DataType="local:MultiLanguageView_Model" Design.DataContext="{x:Static local:MultiLanguageView_Model.Design}">
+</View>

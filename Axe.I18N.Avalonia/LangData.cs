@@ -1,4 +1,3 @@
-using System.Reflection;
 using Avalonia.Platform;
 using Axe.I18N.Core;
 
@@ -28,8 +27,9 @@ public sealed class LangData : LangDataBase
         return null;
     }
 
-    public static LangDataBase LoadFromAssembly<TKey>(Assembly assembly) where TKey : Enum
+    public static LangDataBase LoadFromAssembly<TKey>() where TKey : Enum
     {
+        var assembly = typeof(TKey).Assembly;
         var configUri = new Uri($"avares://{assembly.GetName().Name}/Langs/@config.yml");
         var config = new LangConfig();
         if (AssetLoader.Exists(configUri))
