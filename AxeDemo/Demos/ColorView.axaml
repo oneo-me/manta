@@ -1,13 +1,10 @@
 <View
-    x:Class="FullDemo.Views.Main"
+    x:Class="AxeDemo.Demos.ColorView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:FullDemo.Views"
+    xmlns:local="clr-namespace:AxeDemo.Demos"
     xmlns:lang="clr-namespace:Axe.I18N.Core;assembly=Axe.I18N"
-    x:DataType="local:Main_Model">
-    <Design.DataContext>
-        <local:Main_Model />
-    </Design.DataContext>
+    x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
     <View.Styles>
         <Style Selector="StackPanel.Boxs">
             <Setter Property="Margin" Value="5" />
@@ -33,7 +30,6 @@
         </Style>
     </View.Styles>
     <Grid RowDefinitions="Auto *">
-        <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
         <ScrollViewer Grid.Row="1" Width="660">
             <StackPanel Classes="Boxs">
                 <!-- Langs -->

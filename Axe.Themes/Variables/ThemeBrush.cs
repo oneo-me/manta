@@ -298,6 +298,7 @@ public sealed class ThemeBrush(ThemeBrushKey key) : ThemeValueBase
 {
     public ThemeBrushKey Key { get; } = key;
     public double Opacity { get; init; } = 1.0;
+    public bool ResetOpacity { get; init; }
 
     protected override IEnumerable<object> GetKeys()
     {
@@ -317,7 +318,7 @@ public sealed class ThemeBrush(ThemeBrushKey key) : ThemeValueBase
         if (value is ThemeRefValue { Value: ImmutableSolidColorBrush immutableSolidColorBrush })
         {
             var sourceColor = immutableSolidColorBrush.Color;
-            var newColor = new Color((byte)(Opacity * sourceColor.A), sourceColor.R, sourceColor.G, sourceColor.B);
+            var newColor = new Color((byte)(Opacity * (ResetOpacity ? 255 : sourceColor.A)), sourceColor.R, sourceColor.G, sourceColor.B);
             return new ImmutableSolidColorBrush(newColor);
         }
 

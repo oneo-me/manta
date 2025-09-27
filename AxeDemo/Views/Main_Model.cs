@@ -1,8 +1,9 @@
+using System.Diagnostics;
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.Reactive;
 
-namespace FullDemo.Views;
+namespace AxeDemo.Views;
 
 [View<Main>]
 sealed class Main_Model : WindowModel
@@ -20,10 +21,11 @@ sealed class Main_Model : WindowModel
         base.OnViewActivated(disposables);
 
         var view = this.GetView<Main>();
-
+        view.SubscribeTitleBarEvents(x => x.TitleBar);
         view.SubscribeWindowStatus(x =>
         {
-            view.TitleBar.IsShowButtons = x is { isShowButtons: true, isFullscreen: false };
+            view.TitleBar.Height = 38 + view.TitleBar.BorderThickness.Top + view.TitleBar.BorderThickness.Bottom;
+            view.TitleBarButtons.IsVisible = Debugger.IsAttached || x is { isShowButtons: true, isFullscreen: false };
             if (OperatingSystem.IsMacOS())
                 view.TitleBar.Padding = new(Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset - 8, 0, 0, 0);
             else

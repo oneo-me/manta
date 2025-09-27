@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Axe.Logging.Avalonia;
 
-namespace FullDemo;
+namespace AxeDemo;
 
 static class Program
 {

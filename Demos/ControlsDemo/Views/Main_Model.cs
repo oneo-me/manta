@@ -2,10 +2,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using Avalonia.Controls;
-using ControlsDemo.Langs;
 using Axe.I18N;
 using Axe.I18N.Core;
 using Axe.Reactive;
+using ControlsDemo.Langs;
 using ControlsDemo.Models;
 using ControlsDemo.Services;
 using DynamicData;
@@ -110,7 +110,6 @@ sealed class Main_Model : WindowModel
         view.SubscribeWindowStatus(x =>
         {
             view.OffsetBorder.Height = x.topOffset > 0 ? x.topOffset - 12 : 0;
-            view.TitleBar.IsShowButtons = x is { isShowButtons: true, isFullscreen: false };
         }).DisposeWith(disposables);
     }
 

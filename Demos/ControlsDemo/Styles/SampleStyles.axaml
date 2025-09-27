@@ -9,8 +9,8 @@
         <Setter Property="BorderBrush" Value="{ThemeBrush Primary, Opacity=0.2}" />
         <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
         <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
-        <Setter Property="Padding" Value="{ThemeThickness Padding, TopBottomOffset=-4}" />
-        <Setter Property="CornerRadius" Value="{ThemeRadius Normal, Offset=-1}" />
+        <Setter Property="Padding" Value="{ThemeThickness Normal}" />
+        <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
         <Setter Property="Transitions">
             <Transitions>
                 <BrushTransition Property="Background" Duration="0:0:0.1" />

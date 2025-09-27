@@ -15,13 +15,13 @@
                 <Carousel.PageTransition>
                     <Rotate3DTransition Depth="100" Duration="0:0:0.5" />
                 </Carousel.PageTransition>
-                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
+                <Border CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
                     <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
-                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
+                <Border CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
                     <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
-                <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
+                <Border CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
                     <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
             </Carousel>
@@ -39,8 +39,8 @@
                 <TransitioningContentControl.ContentTemplate>
                     <DataTemplate DataType="system:String">
                         <Panel>
-                            <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush Background}" />
-                            <Border CornerRadius="{ThemeRadius Normal}" Background="{ThemeBrush BorderBrush}" />
+                            <Border CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Background}" />
+                            <Border CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush BorderBrush}" />
                             <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Panel>
                     </DataTemplate>

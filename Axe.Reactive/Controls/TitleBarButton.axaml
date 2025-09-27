@@ -55,8 +55,7 @@
         <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{ThemeBrush Foreground}" />
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
         </Style>
         <Style Selector="^[Type=None]">
             <Setter Property="Padding" Value="8 0" />

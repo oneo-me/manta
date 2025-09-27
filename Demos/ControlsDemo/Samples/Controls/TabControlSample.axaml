@@ -10,14 +10,14 @@
     <ScrollViewer>
         <PanelExt Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock Classes="Title" Text="TabStrip" />
-            <TabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+            <TabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}">
                 <TabStripItem Content="TabItem 1" />
                 <TabStripItem Content="TabItem 2" />
                 <TabStripItem Content="TabItem 3" />
             </TabStrip>
             <TextBlock Classes="Title" Text="TabControl" />
             <AutoGrid Definitions="*,*" Spacing="12">
-                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -28,7 +28,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -39,7 +39,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -50,7 +50,7 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
                     </TabItem>

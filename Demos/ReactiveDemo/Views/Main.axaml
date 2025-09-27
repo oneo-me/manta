@@ -8,7 +8,6 @@
         <local:Main_Model />
     </Design.DataContext>
     <Grid RowDefinitions="Auto *">
-        <TitleBarExt Grid.Row="0" x:Name="TitleBar" />
         <Grid Grid.Row="1" Background="{ThemeBrush Window_Background}">
             <StackPanel Orientation="Vertical" Spacing="22" Margin="22">
                 <TextBlock Text="Info:" FontWeight="Bold" />

@@ -10,7 +10,7 @@
         <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
         <Setter Property="FontWeight" Value="{ThemeFontWeight Normal}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, ResetOpacity=True}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="{TemplateBinding Background}">

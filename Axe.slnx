@@ -5,7 +5,6 @@
   </Folder>
   <Folder Name="/Demos/">
     <Project Path="Demos\ControlsDemo\ControlsDemo.csproj" Type="Classic C#" />
-    <Project Path="Demos\FullDemo\FullDemo.csproj" Type="Classic C#" />
     <Project Path="Demos\ReactiveDemo\ReactiveDemo.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/Demos/_/">
@@ -25,4 +24,5 @@
   <Project Path="Axe.Logging\Axe.Logging.csproj" Type="Classic C#" />
   <Project Path="Axe.Reactive\Axe.Reactive.csproj" Type="Classic C#" />
   <Project Path="Axe.Themes\Axe.Themes.csproj" Type="Classic C#" />
+  <Project Path="AxeDemo\AxeDemo.csproj" Type="Classic C#" />
 </Solution>

@@ -1,4 +1,3 @@
-using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.Reactive;
 using ReactiveDemo.Services;
@@ -27,22 +26,6 @@ sealed class Main_Model : WindowModel
 
         window.Width = 800;
         window.Height = 600;
-    }
-
-    protected override void OnViewActivated(CompositeDisposable disposables)
-    {
-        base.OnViewActivated(disposables);
-
-        var view = this.GetView<Main>();
-
-        view.SubscribeWindowStatus(x =>
-        {
-            view.TitleBar.IsShowButtons = x is { isShowButtons: true, isFullscreen: false };
-            if (OperatingSystem.IsMacOS())
-                view.TitleBar.Padding = new(Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset - 8, 0, 0, 0);
-            else
-                view.TitleBar.Padding = new(5, 0, 0, 0);
-        });
     }
 
     public void OpenNewWindow()

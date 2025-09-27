@@ -3,7 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Class="ControlsDemo.App" RequestedThemeVariant="Default">
     <Application.Styles>
-        <DefaultTheme />
+        <AxeVariables />
+        <AxeReactive />
+        <AxeControls />
         <StyleInclude Source="Styles/_Icons.axaml" />
         <StyleInclude Source="Styles/SampleStyles.axaml" />
     </Application.Styles>

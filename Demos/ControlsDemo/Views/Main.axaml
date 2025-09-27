@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ControlsDemo.Views"
     xmlns:models="clr-namespace:ControlsDemo.Models"
-    xmlns:lang="clr-namespace:Axe.I18N.Core;assembly=Axe.I18N"
     x:DataType="local:Main_Model" Design.Width="600" Design.Height="600">
     <Design.DataContext>
         <local:Main_Model />
@@ -20,7 +19,7 @@
             <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
                 <ListBox.Theme>
                     <ControlTheme TargetType="ListBox">
-                        <Setter Property="Padding" Value="{ThemeThickness Padding}" />
+                        <Setter Property="Padding" Value="{ThemeThickness Normal}" />
                         <Setter Property="Template">
                             <ControlTemplate>
                                 <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
@@ -45,8 +44,8 @@
                                         <BrushTransition Property="Foreground" Duration="0:0:0.1" />
                                     </Transitions>
                                 </Setter>
-                                <Setter Property="Padding" Value="{ThemeThickness Padding, LeftRightOffset=4, TopBottomOffset=-1}" />
-                                <Setter Property="CornerRadius" Value="{ThemeRadius Normal}" />
+                                <Setter Property="Padding" Value="{ThemeThickness Normal}" />
+                                <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
                                 <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0}" />
                                 <Style Selector="^:selected">
                                     <Setter Property="Background" Value="{ThemeBrush Primary}" />
@@ -54,7 +53,7 @@
                                 </Style>
                                 <Style Selector="^:disabled">
                                     <Setter Property="Opacity" Value="0.5" />
-                                    <Setter Property="Padding" Value="{ThemeThickness Padding, Offset=-3}" />
+                                    <Setter Property="Padding" Value="{ThemeThickness Normal}" />
                                     <Setter Property="FontWeight" Value="Bold" />
                                 </Style>
                             </ControlTheme>
@@ -70,14 +69,6 @@
         </Grid>
         <Border Grid.Column="1" Background="{ThemeBrush Background}" BorderThickness="{ThemeThickness Normal, Filter=Left}">
             <Grid RowDefinitions="Auto,*">
-                <TitleBarExt Grid.Row="0" x:Name="TitleBar" Title="{Lang {Binding SelectedItem.NameKey}}" UseWindowTitle="False"
-                             Background="{ThemeBrush Foreground, Opacity=0.03}"
-                             BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
-                    <PanelExt Mode="Horizontal">
-                        <TitleBarButton Content="{LangName {x:Static lang:LangType.zh_Hans}}" Command="{Binding SetLangType}" CommandParameter="{x:Static lang:LangType.zh_Hans}" />
-                        <TitleBarButton Content="{LangName {x:Static lang:LangType.en}}" Command="{Binding SetLangType}" CommandParameter="{x:Static lang:LangType.en}" />
-                    </PanelExt>
-                </TitleBarExt>
                 <ViewModelHost Grid.Row="1" ViewModel="{Binding ViewManager.Current}" />
             </Grid>
         </Border>

@@ -11,7 +11,7 @@
         <PanelExt Mode="Wrap" Spacing="12" Margin="12">
             <PanelExt Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="ItemsControl" />
-                <ItemsControl ItemsSource="{Binding Items5}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}" Padding="{ThemeThickness Padding}"
+                <ItemsControl ItemsSource="{Binding Items5}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}" Padding="{ThemeThickness Normal}"
                               Width="160">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -29,8 +29,8 @@
             </PanelExt>
             <PanelExt Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="ListBox" />
-                <ListBox ItemsSource="{Binding Items100}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}"
-                         Grid.IsSharedSizeScope="True" Width="160" Height="200" Padding="{ThemeThickness Padding}">
+                <ListBox ItemsSource="{Binding Items100}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}"
+                         Grid.IsSharedSizeScope="True" Width="160" Height="200" Padding="{ThemeThickness Normal}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -47,8 +47,8 @@
             </PanelExt>
             <PanelExt Mode="Vertical" Spacing="12">
                 <TextBlock Classes="Title" Text="TreeView" />
-                <TreeView ItemsSource="{Binding TreeItems30}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius Normal}"
-                          Width="160" Height="200" Padding="{ThemeThickness Padding}">
+                <TreeView ItemsSource="{Binding TreeItems30}" BorderThickness="{ThemeThickness Normal}" CornerRadius="{ThemeRadius MD}"
+                          Width="160" Height="200" Padding="{ThemeThickness Normal}">
                     <TreeView.ItemTemplate>
                         <TreeDataTemplate ItemsSource="{Binding Children}">
                             <Grid>

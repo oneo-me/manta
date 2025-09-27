@@ -13,7 +13,6 @@
                 <MergeResourceInclude Source="/Controls/ReactiveWindow.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarButton.axaml" />
                 <MergeResourceInclude Source="/Controls/TitleBarButtons.axaml" />
-                <MergeResourceInclude Source="/Controls/TitleBarExt.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
