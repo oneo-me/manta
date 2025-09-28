@@ -1,4 +1,5 @@
 using Axe.Reactive;
+using AxeDemo.Controls;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Views;
@@ -10,6 +11,7 @@ sealed class ReactiveView_Model : HeaderRegionModel
 {
     public static ReactiveView_Model Design => new();
 
+    public override IconKey Icon => IconKey.Reactive;
     public override LangKey Header => LangKey.Reactive;
 
     public string Folder => DesktopApp.Folder;

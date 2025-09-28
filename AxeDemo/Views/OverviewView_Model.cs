@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using Axe.Reactive;
+using AxeDemo.Controls;
 using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
@@ -16,6 +17,7 @@ sealed class OverviewView_Model : HeaderRegionModel
 
     readonly RegionManager<HeaderRegionModel> _regionManager;
 
+    public override IconKey Icon => IconKey.Overview;
     public override LangKey Header => LangKey.Overview;
     public ReadOnlyObservableCollection<HeaderRegionModel> Items { get; }
 

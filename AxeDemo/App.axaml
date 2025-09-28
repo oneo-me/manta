@@ -8,5 +8,14 @@
         <AxeReactive />
         <AxeControls />
         <StyleInclude Source="Styles/@Styles.axaml" />
+        <Style>
+            <Style.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <MergeResourceInclude Source="/Controls/IconControl.axaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Style.Resources>
+        </Style>
     </Application.Styles>
 </Application>

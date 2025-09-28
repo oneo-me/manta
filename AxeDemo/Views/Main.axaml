@@ -11,7 +11,10 @@
                 <TabStrip Classes="RootTab" Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <TabStrip.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Lang {Binding Header}}" />
+                            <PanelExt Mode="Horizontal" Spacing="8">
+                                <IconControl Height="18" Key="{Binding Icon}" />
+                                <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                            </PanelExt>
                         </DataTemplate>
                     </TabStrip.ItemTemplate>
                 </TabStrip>

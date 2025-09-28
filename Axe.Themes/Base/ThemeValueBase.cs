@@ -9,7 +9,7 @@ namespace Axe.Themes.Base;
 public abstract class ThemeValueBase : MarkupExtension, IMultiValueConverter
 {
     protected abstract IEnumerable<object> GetKeys();
-    protected abstract object OnConvert(IList<object?> values);
+    protected abstract object ProcessValues(IList<object?> values);
 
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
@@ -27,6 +27,6 @@ public abstract class ThemeValueBase : MarkupExtension, IMultiValueConverter
 
     public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
     {
-        return OnConvert(values);
+        return ProcessValues(values);
     }
 }

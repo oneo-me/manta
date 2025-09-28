@@ -1,4 +1,5 @@
 using Axe.Reactive;
+using AxeDemo.Controls;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 
@@ -8,5 +9,6 @@ namespace AxeDemo.Demos;
 sealed class MultiLanguageView_Model : HeaderRegionModel
 {
     public static MultiLanguageView_Model Design => new();
+    public override IconKey Icon => IconKey.MultiLanguage;
     public override LangKey Header => LangKey.MultiLanguage;
 }

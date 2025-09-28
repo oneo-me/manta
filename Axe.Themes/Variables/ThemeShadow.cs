@@ -42,7 +42,7 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
         yield return BrushKey;
     }
 
-    protected override object OnConvert(IList<object?> values)
+    protected override object ProcessValues(IList<object?> values)
     {
         var value0 = values[0];
         var value1 = values[1];

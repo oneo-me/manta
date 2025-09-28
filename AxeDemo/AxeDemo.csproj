@@ -4,6 +4,9 @@
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
     <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+    <ItemGroup>
         <ProjectReference Include="..\Axe.Controls\Axe.Controls.csproj" />
         <ProjectReference Include="..\Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" />
         <ProjectReference Include="..\Axe.Logging\Axe.Logging.csproj" />
@@ -14,27 +17,5 @@
         <AvaloniaResource Include="Langs\*.yml" />
         <AdditionalFiles Include="Langs\*.yml" />
         <ProjectReference Include="..\Axe.I18N.Generator\Axe.I18N.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    </ItemGroup>
-    <ItemGroup>
-        <AdditionalFiles Include="Icons\*.svg" />
-        <ProjectReference Include="..\Axe.Icons.Generator\Axe.Icons.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Demos\MultiLanguageView.axaml.cs">
-        <DependentUpon>MultiLanguageView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Demos\ControlsView.axaml.cs">
-        <DependentUpon>ControlsView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Demos\StylesView.axaml.cs">
-        <DependentUpon>StylesView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Demos\ReactiveView.axaml.cs">
-        <DependentUpon>ReactiveView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 </Project>

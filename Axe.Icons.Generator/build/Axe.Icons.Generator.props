@@ -1,5 +1,0 @@
-<Project>
-    <ItemGroup>
-        <AdditionalFiles Include="Icons\*.svg" />
-    </ItemGroup>
-</Project>

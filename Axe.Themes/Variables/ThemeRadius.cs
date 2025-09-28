@@ -47,7 +47,7 @@ public sealed class ThemeRadius(ThemeRadiusKey key) : ThemeValueBase
         yield return key;
     }
 
-    protected override object OnConvert(IList<object?> values)
+    protected override object ProcessValues(IList<object?> values)
     {
         var value = values[0];
         var size = 0d;

@@ -4,7 +4,7 @@
     <Style Selector="TabStrip.RootTab">
         <Setter Property="Margin" Value="-1 0 0 -1" />
         <Style Selector="^ TabStripItem">
-            <Setter Property="Padding" Value="18 0" />
+            <Setter Property="Padding" Value="14 0" />
             <Setter Property="Margin" Value="0 0 0 1" />
             <Setter Property="BorderThickness" Value="1 0 0 0" />
             <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
@@ -17,13 +17,13 @@
             <!--     </Transitions> -->
             <!-- </Setter> -->
             <Style Selector="^:selected">
-                <Setter Property="Padding" Value="18 0 18 1" />
+                <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Background" Value="{ThemeBrush Background}" />
                 <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
             </Style>
             <Style Selector="^:pointerover:not(:selected)">
-                <Setter Property="Padding" Value="18 0 18 1" />
+                <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
                 <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />

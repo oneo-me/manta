@@ -31,7 +31,7 @@ public sealed class ThemeFontSize(ThemeFontSizeKey key) : ThemeValueBase
         yield return Key;
     }
 
-    protected override object OnConvert(IList<object?> values)
+    protected override object ProcessValues(IList<object?> values)
     {
         var value = values[0];
         if (value is not double number)
