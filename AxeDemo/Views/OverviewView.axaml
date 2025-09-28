@@ -42,5 +42,24 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <ItemsControl ItemsSource="{Binding SupportedLanguages}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <PanelExt Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Classes="Button"
+                            Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
+                            CommandParameter="{Binding}">
+                        <PanelExt Mode="Horizontal" Spacing="6">
+                            <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
+                            <TextBlock Text="{LangName {Binding}}" VerticalAlignment="Center" />
+                        </PanelExt>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </PanelExt>
 </View>

@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
+using Axe.I18N;
+using Axe.I18N.Core;
 using Axe.Reactive;
 using AxeDemo.Controls;
 using AxeDemo.Demos;
@@ -21,6 +23,8 @@ sealed class OverviewView_Model : HeaderRegionModel
     public override LangKey Header => LangKey.Overview;
     public ReadOnlyObservableCollection<HeaderRegionModel> Items { get; }
 
+    public LangType[] SupportedLanguages { get; } = [LangType.en, LangType.zh_Hans];
+
     public OverviewView_Model(RegionManager<HeaderRegionModel> regionManager)
     {
         _regionManager = regionManager;
@@ -38,5 +42,10 @@ sealed class OverviewView_Model : HeaderRegionModel
     public void OpenRegion(HeaderRegionModel regionModel)
     {
         _regionManager.SelectedItem = regionModel;
+    }
+
+    public void ChangeLanguage(LangType langType)
+    {
+        Lang.Current = langType;
     }
 }

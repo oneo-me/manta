@@ -23,7 +23,7 @@ public static class Extensions
     public static LangMetadata GetMetadata(this LangType langType)
     {
         var langMetadataAttribute = GetMetadataCore(langType);
-        return new(langType, langMetadataAttribute.EnglishName, langMetadataAttribute.NativeName, langMetadataAttribute.SourceType);
+        return new(langType, langMetadataAttribute.Emoji, langMetadataAttribute.EnglishName, langMetadataAttribute.NativeName, langMetadataAttribute.SourceType);
     }
 
     static readonly IDeserializer _deserializer = new DeserializerBuilder()

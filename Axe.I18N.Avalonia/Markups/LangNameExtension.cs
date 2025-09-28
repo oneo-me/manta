@@ -14,7 +14,9 @@ public sealed class LangNameExtension(object langType) : BindingMarkupExtension
 
     protected override object ProcessValues(IList<object?> values)
     {
-        var langType = values[0] is LangType value ? value : throw new ArgumentException("LangType expected");
+        if (values[0] is not LangType langType)
+            return string.Empty;
+
         var langMetadata = langType.GetMetadata();
 
         return langMetadata.NativeName;
