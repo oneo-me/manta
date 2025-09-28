@@ -6,6 +6,7 @@ using Axe.I18N.Avalonia;
 using Axe.Logging;
 using Axe.Reactive;
 using AxeDemo.Langs;
+using AxeDemo.Services;
 using AxeDemo.Views;
 
 namespace AxeDemo;
@@ -19,6 +20,10 @@ sealed class App : AxeApp
 
     protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
+        var appFolder = DesktopApp.Folder;
+        var dataFolder = Path.Combine(appFolder, "Data");
+        Directory.CreateDirectory(dataFolder);
+
         if (Design.IsDesignMode)
             Log.AddLogger(new ConsoleLogger(LogTimeType.None, LogLevel.All));
         else if (Debugger.IsAttached)
@@ -28,7 +33,14 @@ sealed class App : AxeApp
 
         Lang.Register(LangData.LoadFromAssembly<LangKey>());
 
+        var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
+
+        Lang.Current = configService.Config.Language;
+
         mainModel = new Main_Model();
-        onExit = null;
+        onExit = () =>
+        {
+            configService.Save();
+        };
     }
 }

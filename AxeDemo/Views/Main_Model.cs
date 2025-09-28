@@ -5,6 +5,7 @@ using Axe.Reactive;
 using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
+using AxeDemo.Services;
 
 namespace AxeDemo.Views;
 
@@ -13,15 +14,22 @@ sealed class Main_Model : WindowModel
 {
     public static Main_Model Design => new();
 
+    readonly ConfigService _configService = Service.GetService<ConfigService>();
+
     public RegionManager<HeaderRegionModel> RegionManager { get; } = new();
 
     public Main_Model()
     {
-        RegionManager.Open(() => new OverviewView_Model(RegionManager));
-        RegionManager.Open(() => new StylesView_Model(), _ => false);
-        RegionManager.Open(() => new ReactiveView_Model(), _ => false);
-        RegionManager.Open(() => new MultiLanguageView_Model(), _ => false);
-        RegionManager.Open(() => new ControlsView_Model(), _ => false);
+        RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
+        RegionManager.Open(() => new StylesView_Model(), IsCurrent);
+        RegionManager.Open(() => new ReactiveView_Model(), IsCurrent);
+        RegionManager.Open(() => new MultiLanguageView_Model(), IsCurrent);
+        RegionManager.Open(() => new ControlsView_Model(), IsCurrent);
+    }
+
+    bool IsCurrent(HeaderRegionModel headerRegionModel)
+    {
+        return string.Equals(_configService.Config.Current, headerRegionModel.Header.ToString());
     }
 
     public override void OnWindowInitialized(Window window)
@@ -46,5 +54,10 @@ sealed class Main_Model : WindowModel
             if (OperatingSystem.IsMacOS())
                 view.TitleBar.Padding = new(Avalonia.Controls.Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
         });
+
+        Disposable.Create(() =>
+        {
+            _configService.Config.Current = RegionManager.SelectedItem?.Header.ToString() ?? string.Empty;
+        }).DisposeWithIfDisposable(disposables);
     }
 }

@@ -7,6 +7,7 @@ using AxeDemo.Controls;
 using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
+using AxeDemo.Services;
 using DynamicData;
 using DynamicData.Binding;
 
@@ -17,6 +18,7 @@ sealed class OverviewView_Model : HeaderRegionModel
 {
     public static OverviewView_Model Design => new(new(new ControlsView_Model(), new MultiLanguageView_Model(), new StylesView_Model(), new ReactiveView_Model()));
 
+    readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly RegionManager<HeaderRegionModel> _regionManager;
 
     public override IconKey Icon => IconKey.Overview;
@@ -47,5 +49,6 @@ sealed class OverviewView_Model : HeaderRegionModel
     public void ChangeLanguage(LangType langType)
     {
         Lang.Current = langType;
+        _configService.Config.Language = langType;
     }
 }
