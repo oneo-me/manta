@@ -1,32 +1,25 @@
-using Avalonia.Controls;
 using Axe.Reactive;
-using ReactiveDemo.Services;
+using AxeDemo.Langs;
+using AxeDemo.Reactive;
+using AxeDemo.Views;
 
-namespace ReactiveDemo.Views;
+namespace AxeDemo.Demos;
 
-[View<Main>]
-sealed class Main_Model : WindowModel
+[View<ReactiveView>]
+sealed class ReactiveView_Model : HeaderRegionModel
 {
-    readonly AppService _appService = Service.GetService<AppService>();
+    public static ReactiveView_Model Design => new();
+
+    public override LangKey Header => LangKey.Reactive;
 
     public string Folder => DesktopApp.Folder;
     public string File => DesktopApp.File;
-
-    public string TestGetService => _appService.Hello();
 
     public string Input
     {
         get;
         set => SetValue(ref field, value);
     } = "Empty";
-
-    public override void OnWindowInitialized(Window window)
-    {
-        base.OnWindowInitialized(window);
-
-        window.Width = 800;
-        window.Height = 600;
-    }
 
     public void OpenNewWindow()
     {

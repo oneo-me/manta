@@ -2,7 +2,7 @@ using Axe.Reactive;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 
-namespace AxeDemo.Views;
+namespace AxeDemo.Demos;
 
 [View<ControlsView>]
 sealed class ControlsView_Model : HeaderRegionModel

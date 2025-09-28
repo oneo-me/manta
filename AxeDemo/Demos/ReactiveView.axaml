@@ -1,12 +1,9 @@
 <View
-    x:Class="ReactiveDemo.Views.Main"
+    x:Class="AxeDemo.Demos.ReactiveView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:ReactiveDemo.Views"
-    x:DataType="local:Main_Model">
-    <Design.DataContext>
-        <local:Main_Model />
-    </Design.DataContext>
+    xmlns:local="clr-namespace:AxeDemo.Demos"
+    x:DataType="local:ReactiveView_Model" Design.DataContext="{x:Static local:ReactiveView_Model.Design}">
     <Grid RowDefinitions="Auto *">
         <Grid Grid.Row="1" Background="{ThemeBrush Window_Background}">
             <StackPanel Orientation="Vertical" Spacing="22" Margin="22">
@@ -19,10 +16,6 @@
                     <TextBlock TextTrimming="PrefixCharacterEllipsis">
                         <Run Text="App File:" Foreground="#7F333333" />
                         <Run Text="{Binding File}" />
-                    </TextBlock>
-                    <TextBlock TextTrimming="PrefixCharacterEllipsis">
-                        <Run Text="Test Get Service:" Foreground="#7F333333" />
-                        <Run Text="{Binding TestGetService}" />
                     </TextBlock>
                 </StackPanel>
                 <TextBlock Text="{Binding Input, StringFormat=Binding (You input: {0})}" FontWeight="Bold" />

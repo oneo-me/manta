@@ -2,6 +2,7 @@ using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.I18N.Avalonia;
 using Axe.Reactive;
+using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 

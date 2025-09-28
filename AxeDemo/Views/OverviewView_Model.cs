@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using Axe.Reactive;
+using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using DynamicData;
