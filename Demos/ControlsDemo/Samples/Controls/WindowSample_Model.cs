@@ -3,8 +3,8 @@ using Avalonia.Layout;
 using Avalonia.Platform;
 using Avalonia.VisualTree;
 using ControlsDemo.Langs;
-using Axe.Reactive;
 using Axe.Reactive.Controls;
+using Axe.Reactive.Views;
 using ControlsDemo.Models;
 
 namespace ControlsDemo.Samples.Controls;

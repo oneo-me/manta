@@ -6,19 +6,31 @@
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
         <ViewModelHost Grid.Row="1" Background="{ThemeBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
-        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.01}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
-            <Grid ColumnDefinitions="* Auto">
+        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.03}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
+            <Grid ColumnDefinitions="* Auto Auto">
                 <TabStrip Classes="RootTab" Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <TabStrip.ItemTemplate>
                         <DataTemplate>
                             <PanelExt Mode="Horizontal" Spacing="8">
-                                <IconControl Height="18" Key="{Binding Icon}" />
+                                <IconControl Height="18" Key="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
                                 <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
                             </PanelExt>
                         </DataTemplate>
                     </TabStrip.ItemTemplate>
                 </TabStrip>
-                <TitleBarButtons x:Name="TitleBarButtons" Grid.Column="1" />
+                <PanelExt Grid.Column="1" Mode="Horizontal">
+                    <TitleBarButton>
+                        <PanelExt Mode="Horizontal" Spacing="8">
+                            <IconControl Height="18" Key="ThemeSystem" Margin="0 -10" VerticalAlignment="Center" />
+                        </PanelExt>
+                    </TitleBarButton>
+                    <TitleBarButton Command="{Binding OpenSettings}">
+                        <PanelExt Mode="Horizontal" Spacing="8">
+                            <IconControl Height="18" Key="Settings" Margin="0 -10" VerticalAlignment="Center" />
+                        </PanelExt>
+                    </TitleBarButton>
+                </PanelExt>
+                <TitleBarButtons x:Name="TitleBarButtons" Grid.Column="2" />
             </Grid>
         </Border>
     </Grid>

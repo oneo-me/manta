@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
+using Axe.Reactive.Extensions;
 
 namespace Axe.Reactive.Controls;
 

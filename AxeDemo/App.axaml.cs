@@ -5,6 +5,8 @@ using Axe.I18N;
 using Axe.I18N.Avalonia;
 using Axe.Logging;
 using Axe.Reactive;
+using Axe.Reactive.Services;
+using Axe.Reactive.Views;
 using AxeDemo.Langs;
 using AxeDemo.Services;
 using AxeDemo.Views;
@@ -34,12 +36,14 @@ sealed class App : AxeApp
         Lang.Register(LangData.LoadFromAssembly<LangKey>());
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
+        var appService = Service.Register(new ViewService(configService));
 
         Lang.Current = configService.Config.Language;
 
         mainModel = new Main_Model();
         onExit = () =>
         {
+            appService.Save();
             configService.Save();
         };
     }

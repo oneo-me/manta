@@ -1,8 +1,9 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.I18N.Avalonia;
-using Axe.Reactive;
-using AxeDemo.Demos;
+using Axe.Reactive.Regions;
+using Axe.Reactive.Services;
+using Axe.Reactive.Views;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Services;
@@ -14,23 +15,9 @@ sealed class Main_Model : WindowModel
 {
     public static Main_Model Design => new();
 
-    readonly ConfigService _configService = Service.GetService<ConfigService>();
+    readonly ViewService _viewService = Service.GetService<ViewService>();
 
-    public RegionManager<HeaderRegionModel> RegionManager { get; } = new();
-
-    public Main_Model()
-    {
-        RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
-        RegionManager.Open(() => new StylesView_Model(), IsCurrent);
-        RegionManager.Open(() => new ReactiveView_Model(), IsCurrent);
-        RegionManager.Open(() => new MultiLanguageView_Model(), IsCurrent);
-        RegionManager.Open(() => new ControlsView_Model(), IsCurrent);
-    }
-
-    bool IsCurrent(HeaderRegionModel headerRegionModel)
-    {
-        return string.Equals(_configService.Config.Current, headerRegionModel.Header.ToString());
-    }
+    public RegionManager<HeaderRegionModel> RegionManager => _viewService.RegionManager;
 
     public override void OnWindowInitialized(Window window)
     {
@@ -46,6 +33,7 @@ sealed class Main_Model : WindowModel
         base.OnViewActivated(disposables);
 
         var view = this.GetView<Main>();
+
         view.SubscribeTitleBarEvents(x => x.TitleBar);
         view.SubscribeWindowStatus(x =>
         {
@@ -54,10 +42,13 @@ sealed class Main_Model : WindowModel
             if (OperatingSystem.IsMacOS())
                 view.TitleBar.Padding = new(Avalonia.Controls.Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
         });
+    }
 
-        Disposable.Create(() =>
-        {
-            _configService.Config.Current = RegionManager.SelectedItem?.Header.ToString() ?? string.Empty;
-        }).DisposeWithIfDisposable(disposables);
+    public void OpenSettings()
+    {
+        var mainModel = new SettingsView_Model();
+        var window = mainModel.CreateWindow();
+        var owner = this.GetWindow();
+        window.ShowDialog(owner);
     }
 }

@@ -1,4 +1,7 @@
-namespace Axe.Reactive;
+using Axe.Reactive.Extensions;
+using Axe.Reactive.Services;
+
+namespace Axe.Reactive.Views;
 
 public sealed class ViewManager : Model, IDisposable
 {

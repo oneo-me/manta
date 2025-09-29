@@ -1,5 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
+using Axe.Reactive.Services;
+using Axe.Reactive.Views;
 
 namespace Axe.Reactive.Controls;
 
@@ -36,7 +38,7 @@ public class ViewModelHost : ContentControl
         }
         else if (change.Property == ViewModelProperty)
         {
-            if (change.NewValue is ViewModel viewModel && viewModel != DataContext)
+            if (change.NewValue is ViewModel viewModel)
                 Content = viewModel.CreateView();
             else
                 Content = null;

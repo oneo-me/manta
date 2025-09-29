@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Commands;
 
 public sealed class CommandWarper : ICommand
 {

@@ -1,9 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Linq;
+using Axe.Reactive.Extensions;
+using Axe.Reactive.Views;
 using DynamicData;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Regions;
 
 public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
 {

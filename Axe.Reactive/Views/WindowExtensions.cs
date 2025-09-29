@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public static class WindowExtensions
 {

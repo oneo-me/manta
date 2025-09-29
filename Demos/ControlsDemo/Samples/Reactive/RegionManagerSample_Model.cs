@@ -1,5 +1,6 @@
 using ControlsDemo.Langs;
-using Axe.Reactive;
+using Axe.Reactive.Regions;
+using Axe.Reactive.Views;
 using ControlsDemo.Models;
 
 namespace ControlsDemo.Samples.Reactive;

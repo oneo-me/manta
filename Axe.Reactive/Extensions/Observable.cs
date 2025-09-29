@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Extensions;
 
 public static class Observable
 {

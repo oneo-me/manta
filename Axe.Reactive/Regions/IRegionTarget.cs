@@ -1,4 +1,4 @@
-namespace Axe.Reactive;
+namespace Axe.Reactive.Regions;
 
 public interface IRegionTarget<in T>
 {

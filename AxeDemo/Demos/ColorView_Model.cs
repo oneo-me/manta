@@ -1,4 +1,4 @@
-using Axe.Reactive;
+using Axe.Reactive.Views;
 
 namespace AxeDemo.Demos;
 

@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Axe.Reactive.Controls;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public static class WindowModelExtensions
 {

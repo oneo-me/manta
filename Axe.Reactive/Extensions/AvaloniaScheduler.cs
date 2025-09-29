@@ -2,7 +2,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using Avalonia.Threading;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Extensions;
 
 public sealed class AvaloniaScheduler : LocalScheduler
 {

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
+using Axe.Reactive.Views;
 
 namespace Axe.Reactive.Controls;
 

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public abstract class Model : INotifyPropertyChanged
 {

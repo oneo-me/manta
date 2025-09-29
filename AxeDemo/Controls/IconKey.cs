@@ -6,5 +6,10 @@ public enum IconKey
     Styles,
     Reactive,
     MultiLanguage,
-    Controls
+    Controls,
+
+    Settings,
+    ThemeLight,
+    ThemeDark,
+    ThemeSystem
 }

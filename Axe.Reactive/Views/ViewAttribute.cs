@@ -1,4 +1,4 @@
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public abstract class ViewAttribute : Attribute
 {

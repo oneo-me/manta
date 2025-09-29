@@ -1,4 +1,5 @@
 using Axe.Reactive;
+using Axe.Reactive.Views;
 using AxeDemo.Controls;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;

@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public class ViewTemplate : IDataTemplate
 {

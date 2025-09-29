@@ -1,6 +1,6 @@
 using System.Reactive.Linq;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Extensions;
 
 public static class ObservableExtensions
 {

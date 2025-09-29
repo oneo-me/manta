@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public class ViewTemplate<T>(Func<T, Control> build) : ViewTemplate
 {

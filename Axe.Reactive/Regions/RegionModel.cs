@@ -1,4 +1,6 @@
-namespace Axe.Reactive;
+using Axe.Reactive.Views;
+
+namespace Axe.Reactive.Regions;
 
 public abstract class RegionModel : ViewModel
 {

@@ -2,6 +2,8 @@ using Avalonia.Markup.Xaml;
 using Axe.I18N;
 using Axe.I18N.Avalonia;
 using Axe.Reactive;
+using Axe.Reactive.Services;
+using Axe.Reactive.Views;
 using ControlsDemo.Langs;
 using ControlsDemo.Services;
 using ControlsDemo.Views;

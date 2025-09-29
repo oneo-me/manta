@@ -1,4 +1,5 @@
-using Axe.Reactive;
+using Axe.Reactive.Regions;
+using Axe.Reactive.Views;
 
 namespace ControlsDemo.Samples.Reactive;
 

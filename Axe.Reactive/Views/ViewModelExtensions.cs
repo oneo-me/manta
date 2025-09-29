@@ -2,8 +2,9 @@ using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 using Axe.Reactive.Controls;
+using Axe.Reactive.Services;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public static class ViewModelExtensions
 {

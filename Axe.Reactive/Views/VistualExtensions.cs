@@ -6,8 +6,10 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
+using Axe.Reactive.Extensions;
+using Observable = Axe.Reactive.Extensions.Observable;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public static class VisualExtensions
 {

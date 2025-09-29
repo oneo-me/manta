@@ -48,10 +48,14 @@ public sealed class IconControl : TemplatedControl
 
         var xml = Assets.GetString($"Icons/{key switch {
             IconKey.Overview      => "Home-Smile-Angle--Streamline-Solar-Ar",
-            IconKey.Styles        => "Sun-Fog--Streamline-Solar-Ar",
+            IconKey.Styles        => "Cat--Streamline-Solar-Ar",
             IconKey.Reactive      => "Fire--Streamline-Solar-Ar",
             IconKey.MultiLanguage => "Planet--Streamline-Solar-Ar",
             IconKey.Controls      => "Code-Circle--Streamline-Solar-Ar",
+            IconKey.Settings      => "Settings--Streamline-Solar-Ar",
+            IconKey.ThemeLight    => "Sun--Streamline-Solar-Ar",
+            IconKey.ThemeDark     => "Moon-Stars--Streamline-Solar-Ar",
+            IconKey.ThemeSystem   => "Sun-Fog--Streamline-Solar-Ar",
             _                     => throw new ArgumentOutOfRangeException(nameof(key), key, null)
         }}.svg");
 

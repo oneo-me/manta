@@ -4,6 +4,8 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
+using Axe.Reactive.Extensions;
+using Axe.Reactive.Views;
 
 namespace Axe.Reactive;
 

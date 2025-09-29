@@ -1,5 +1,5 @@
 using ControlsDemo.Langs;
-using Axe.Reactive;
+using Axe.Reactive.Views;
 using Bogus;
 using ControlsDemo.Models;
 

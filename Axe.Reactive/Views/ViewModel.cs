@@ -1,7 +1,7 @@
 using System.Reactive.Disposables;
 using Axe.Reactive.Controls;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 public abstract class ViewModel : Model
 {

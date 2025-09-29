@@ -1,4 +1,4 @@
-using Axe.Reactive;
+using Axe.Reactive.Regions;
 using AxeDemo.Controls;
 using AxeDemo.Langs;
 

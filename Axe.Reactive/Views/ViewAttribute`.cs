@@ -1,6 +1,6 @@
 using Axe.Reactive.Controls;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Views;
 
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class ViewAttribute<T> : ViewAttribute where T : View, new()

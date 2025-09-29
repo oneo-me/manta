@@ -1,6 +1,6 @@
 using System.Reactive.Disposables;
 
-namespace Axe.Reactive;
+namespace Axe.Reactive.Extensions;
 
 public static class DisposableExtensions
 {

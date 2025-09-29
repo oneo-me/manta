@@ -1,4 +1,4 @@
-namespace Axe.Reactive;
+namespace Axe.Reactive.Services;
 
 [Serializable]
 public sealed class ServiceException : Exception

@@ -1,4 +1,4 @@
-namespace Axe.Reactive;
+namespace Axe.Reactive.Services;
 
 public static class Service
 {
