@@ -3,6 +3,6 @@
         <PackageReference Include="Avalonia" Version="11.3.6" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Axe.Logging\Axe.Logging.csproj" />
+        <ProjectReference Include="..\Axe.Logging\Axe.Logging.csproj" />
     </ItemGroup>
 </Project>

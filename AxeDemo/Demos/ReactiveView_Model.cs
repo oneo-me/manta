@@ -1,6 +1,6 @@
+using Axe.Icons;
 using Axe.Reactive;
 using Axe.Reactive.Views;
-using AxeDemo.Controls;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Views;
@@ -12,7 +12,7 @@ sealed class ReactiveView_Model : HeaderRegionModel
 {
     public static ReactiveView_Model Design => new();
 
-    public override IconKey Icon => IconKey.Reactive;
+    public override IconSource Icon { get; } = Assets.GetIconSource("Icons/Fire--Streamline-Solar-Ar.svg");
     public override LangKey Header => LangKey.Reactive;
 
     public string Folder => DesktopApp.Folder;

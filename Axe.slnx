@@ -20,6 +20,7 @@
   <Project Path="Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" Type="Classic C#" />
   <Project Path="Axe.I18N.Generator\Axe.I18N.Generator.csproj" Type="Classic C#" />
   <Project Path="Axe.I18N\Axe.I18N.csproj" Type="Classic C#" />
+  <Project Path="Axe.Icons\Axe.Icons.csproj" Type="Classic C#" />
   <Project Path="Axe.Logging.Avalonia\Axe.Logging.Avalonia.csproj" Type="Classic C#" />
   <Project Path="Axe.Logging\Axe.Logging.csproj" Type="Classic C#" />
   <Project Path="Axe.Reactive\Axe.Reactive.csproj" Type="Classic C#" />

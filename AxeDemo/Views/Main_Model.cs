@@ -1,6 +1,8 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Axe.I18N.Avalonia;
+using Axe.Icons;
+using Axe.Reactive;
 using Axe.Reactive.Regions;
 using Axe.Reactive.Services;
 using Axe.Reactive.Views;
@@ -18,6 +20,9 @@ sealed class Main_Model : WindowModel
     readonly ViewService _viewService = Service.GetService<ViewService>();
 
     public RegionManager<HeaderRegionModel> RegionManager => _viewService.RegionManager;
+
+    public IconSource ThemeSystemIcon { get; } = Assets.GetIconSource("Icons/Sun-Fog--Streamline-Solar-Ar.svg");
+    public IconSource SettingsIcon { get; } = Assets.GetIconSource("Icons/Settings--Streamline-Solar-Ar.svg");
 
     public override void OnWindowInitialized(Window window)
     {

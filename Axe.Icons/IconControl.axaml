@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <IconControl Key="Controls" Height="72" />
+        <IconControl Source="Controls" Height="72" />
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type IconControl}" TargetType="IconControl">
         <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />

@@ -12,7 +12,7 @@
                     <TabStrip.ItemTemplate>
                         <DataTemplate>
                             <PanelExt Mode="Horizontal" Spacing="8">
-                                <IconControl Height="18" Key="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
+                                <IconControl Height="18" Source="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
                                 <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
                             </PanelExt>
                         </DataTemplate>
@@ -21,12 +21,12 @@
                 <PanelExt Grid.Column="1" Mode="Horizontal">
                     <TitleBarButton>
                         <PanelExt Mode="Horizontal" Spacing="8">
-                            <IconControl Height="18" Key="ThemeSystem" Margin="0 -10" VerticalAlignment="Center" />
+                            <IconControl Height="18" Source="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </PanelExt>
                     </TitleBarButton>
                     <TitleBarButton Command="{Binding OpenSettings}">
                         <PanelExt Mode="Horizontal" Spacing="8">
-                            <IconControl Height="18" Key="Settings" Margin="0 -10" VerticalAlignment="Center" />
+                            <IconControl Height="18" Source="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </PanelExt>
                     </TitleBarButton>
                 </PanelExt>

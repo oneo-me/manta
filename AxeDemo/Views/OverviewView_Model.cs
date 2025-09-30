@@ -2,11 +2,12 @@ using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using Axe.I18N;
 using Axe.I18N.Core;
+using Axe.Icons;
+using Axe.Reactive;
 using Axe.Reactive.Extensions;
 using Axe.Reactive.Regions;
 using Axe.Reactive.Services;
 using Axe.Reactive.Views;
-using AxeDemo.Controls;
 using AxeDemo.Demos;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
@@ -24,7 +25,7 @@ sealed class OverviewView_Model : HeaderRegionModel
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly RegionManager<HeaderRegionModel> _regionManager;
 
-    public override IconKey Icon => IconKey.Overview;
+    public override IconSource Icon { get; } = Assets.GetIconSource("Icons/Home-Smile-Angle--Streamline-Solar-Ar.svg");
     public override LangKey Header => LangKey.Overview;
     public ReadOnlyObservableCollection<HeaderRegionModel> Items { get; }
 
