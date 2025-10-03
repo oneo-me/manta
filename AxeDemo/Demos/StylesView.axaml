@@ -1,7 +1,0 @@
-<View
-    x:Class="AxeDemo.Demos.StylesView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:AxeDemo.Demos"
-    x:DataType="local:StylesView_Model" Design.DataContext="{x:Static local:StylesView_Model.Design}">
-</View>

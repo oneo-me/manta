@@ -8,7 +8,7 @@ using Axe.Reactive.Extensions;
 using Axe.Reactive.Regions;
 using Axe.Reactive.Services;
 using Axe.Reactive.Views;
-using AxeDemo.Demos;
+using AxeDemo.Interfaces;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Services;
@@ -20,7 +20,7 @@ namespace AxeDemo.Views;
 [View<OverviewView>]
 sealed class OverviewView_Model : HeaderRegionModel
 {
-    public static OverviewView_Model Design => new(new(new ControlsView_Model(), new MultiLanguageView_Model(), new StylesView_Model(), new ReactiveView_Model()));
+    public static OverviewView_Model Design => new(new(new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, Assets.GetIconSource("Icons/Cat--Streamline-Solar-Ar.svg"))));
 
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly RegionManager<HeaderRegionModel> _regionManager;

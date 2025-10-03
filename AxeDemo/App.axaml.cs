@@ -37,6 +37,7 @@ sealed class App : AxeApp
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
         var appService = Service.Register(new ViewService(configService));
+        Service.Register(new DemoService());
 
         Lang.Current = configService.Config.Language;
 

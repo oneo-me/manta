@@ -1,5 +1,7 @@
+using Axe.Reactive;
 using Axe.Reactive.Regions;
-using AxeDemo.Demos;
+using AxeDemo.Interfaces;
+using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Views;
 
@@ -16,10 +18,10 @@ sealed class ViewService
         _configService = configService;
 
         RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
-        RegionManager.Open(() => new StylesView_Model(), IsCurrent);
-        RegionManager.Open(() => new ReactiveView_Model(), IsCurrent);
-        RegionManager.Open(() => new MultiLanguageView_Model(), IsCurrent);
-        RegionManager.Open(() => new ControlsView_Model(), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, Assets.GetIconSource("Icons/Cat--Streamline-Solar-Ar.svg")), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, Assets.GetIconSource("Icons/Planet--Streamline-Solar-Ar.svg")), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, Assets.GetIconSource("Icons/Fire--Streamline-Solar-Ar.svg")), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, Assets.GetIconSource("Icons/Code-Circle--Streamline-Solar-Ar.svg")), IsCurrent);
     }
 
     bool IsCurrent(HeaderRegionModel headerRegionModel)
