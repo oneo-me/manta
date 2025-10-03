@@ -5,307 +5,563 @@
     xmlns:local="clr-namespace:AxeDemo.Demos.StyleDemos"
     x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
     <View.Styles>
-        <Style Selector="StackPanel.Boxs">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="Spacing" Value="5" />
+        <Style Selector="PanelExt.CompactColors">
+            <Setter Property="Mode" Value="Vertical" />
+            <Setter Property="Spacing" Value="6" />
         </Style>
-        <Style Selector="WrapPanel.ColorBox">
-            <Setter Property="ItemSpacing" Value="5" />
-            <Setter Property="LineSpacing" Value="5" />
-        </Style>
-        <Style Selector="Border.Color">
-            <Setter Property="BorderBrush" Value="{ThemeBrush Black, Opacity=0.1}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="30" />
-        </Style>
-        <Style Selector="Border.Shadow">
-            <Setter Property="BorderBrush" Value="{ThemeBrush Black, Opacity=0.1}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
-            <Setter Property="Width" Value="80" />
-            <Setter Property="Height" Value="60" />
+        <Style Selector="Grid.ColorBoxs">
+            <Style Selector="^ TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0 0 12 0" />
+            </Style>
+            <Style Selector="^ PanelExt">
+                <Setter Property="Spacing" Value="6" />
+                <Setter Property="Mode" Value="Horizontal" />
+            </Style>
+            <Style Selector="^ Border">
+                <Setter Property="Width" Value="60" />
+                <Setter Property="Height" Value="32" />
+                <Setter Property="CornerRadius" Value="{ThemeRadius SM}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
         </Style>
     </View.Styles>
-    <Grid RowDefinitions="Auto *">
-        <ScrollViewer Grid.Row="1" Width="660">
-            <StackPanel Classes="Boxs">
-                <!-- Refs -->
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Window_Background}" />
-                </WrapPanel>
-                <!-- Colors -->
-                <WrapPanel Classes="ColorBox">
-                    <!-- Red -->
-                    <Border Classes="Color" Background="{ThemeBrush Red50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Red950}" />
-                    <!-- Orange -->
-                    <Border Classes="Color" Background="{ThemeBrush Orange50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Orange950}" />
-                    <!-- Amber -->
-                    <Border Classes="Color" Background="{ThemeBrush Amber50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Amber950}" />
-                    <!-- Yellow -->
-                    <Border Classes="Color" Background="{ThemeBrush Yellow50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Yellow950}" />
-                    <!-- Lime -->
-                    <Border Classes="Color" Background="{ThemeBrush Lime50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Lime950}" />
-                    <!-- Green -->
-                    <Border Classes="Color" Background="{ThemeBrush Green50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Green950}" />
-                    <!-- Emerald -->
-                    <Border Classes="Color" Background="{ThemeBrush Emerald50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Emerald950}" />
-                    <!-- Teal -->
-                    <Border Classes="Color" Background="{ThemeBrush Teal50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Teal950}" />
-                    <!-- Cyan -->
-                    <Border Classes="Color" Background="{ThemeBrush Cyan50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Cyan950}" />
-                    <!-- Sky -->
-                    <Border Classes="Color" Background="{ThemeBrush Sky50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Sky950}" />
-                    <!-- Blue -->
-                    <Border Classes="Color" Background="{ThemeBrush Blue50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Blue950}" />
-                    <!-- Indigo -->
-                    <Border Classes="Color" Background="{ThemeBrush Indigo50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Indigo950}" />
-                    <!-- Violet -->
-                    <Border Classes="Color" Background="{ThemeBrush Violet50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Violet950}" />
-                    <!-- Purple -->
-                    <Border Classes="Color" Background="{ThemeBrush Purple50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Purple950}" />
-                    <!-- Fuchsia -->
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Fuchsia950}" />
-                    <!-- Pink -->
-                    <Border Classes="Color" Background="{ThemeBrush Pink50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Pink950}" />
-                    <!-- Rose -->
-                    <Border Classes="Color" Background="{ThemeBrush Rose50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Rose950}" />
-                    <!-- Slate -->
-                    <Border Classes="Color" Background="{ThemeBrush Slate50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Slate950}" />
-                    <!-- Gray -->
-                    <Border Classes="Color" Background="{ThemeBrush Gray50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Gray950}" />
-                    <!-- Zinc -->
-                    <Border Classes="Color" Background="{ThemeBrush Zinc50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Zinc950}" />
-                    <!-- Neutral -->
-                    <Border Classes="Color" Background="{ThemeBrush Neutral50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Neutral950}" />
-                    <!-- Stone -->
-                    <Border Classes="Color" Background="{ThemeBrush Stone50}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone100}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone200}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone300}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone400}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone500}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone600}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone700}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone800}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone900}" />
-                    <Border Classes="Color" Background="{ThemeBrush Stone950}" />
-                    <!-- Black & White -->
-                    <Border Classes="Color" Background="{ThemeBrush Black}" />
-                    <Border Classes="Color" Background="{ThemeBrush White}" />
-                </WrapPanel>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <PanelExt Classes="DemoPan" Grid.IsSharedSizeScope="True">
+            <TextBlock Classes="DemoInfo" Text="Refs" />
+            <PanelExt Classes="CompactColors">
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Window_Background" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Window_Background}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Background" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Background}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Primary" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Primary}" />
+                        <Border Background="{ThemeBrush Primary_Foreground}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Success" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Success}" />
+                        <Border Background="{ThemeBrush Success_Foreground}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Warning" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Warning}" />
+                        <Border Background="{ThemeBrush Warning_Foreground}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Error" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Error}" />
+                        <Border Background="{ThemeBrush Error_Foreground}" />
+                    </PanelExt>
+                </Grid>
+            </PanelExt>
+            <TextBlock Classes="DemoInfo" Text="Base" />
+            <PanelExt Classes="CompactColors">
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Black" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Black}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="White" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush White}" />
+                    </PanelExt>
+                </Grid>
+            </PanelExt>
+            <TextBlock Classes="DemoInfo" Text="Colors" />
+            <PanelExt Classes="CompactColors">
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Red" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Red50}" />
+                        <Border Background="{ThemeBrush Red100}" />
+                        <Border Background="{ThemeBrush Red200}" />
+                        <Border Background="{ThemeBrush Red300}" />
+                        <Border Background="{ThemeBrush Red400}" />
+                        <Border Background="{ThemeBrush Red500}" />
+                        <Border Background="{ThemeBrush Red600}" />
+                        <Border Background="{ThemeBrush Red700}" />
+                        <Border Background="{ThemeBrush Red800}" />
+                        <Border Background="{ThemeBrush Red900}" />
+                        <Border Background="{ThemeBrush Red950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Orange" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Orange50}" />
+                        <Border Background="{ThemeBrush Orange100}" />
+                        <Border Background="{ThemeBrush Orange200}" />
+                        <Border Background="{ThemeBrush Orange300}" />
+                        <Border Background="{ThemeBrush Orange400}" />
+                        <Border Background="{ThemeBrush Orange500}" />
+                        <Border Background="{ThemeBrush Orange600}" />
+                        <Border Background="{ThemeBrush Orange700}" />
+                        <Border Background="{ThemeBrush Orange800}" />
+                        <Border Background="{ThemeBrush Orange900}" />
+                        <Border Background="{ThemeBrush Orange950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Amber" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Amber50}" />
+                        <Border Background="{ThemeBrush Amber100}" />
+                        <Border Background="{ThemeBrush Amber200}" />
+                        <Border Background="{ThemeBrush Amber300}" />
+                        <Border Background="{ThemeBrush Amber400}" />
+                        <Border Background="{ThemeBrush Amber500}" />
+                        <Border Background="{ThemeBrush Amber600}" />
+                        <Border Background="{ThemeBrush Amber700}" />
+                        <Border Background="{ThemeBrush Amber800}" />
+                        <Border Background="{ThemeBrush Amber900}" />
+                        <Border Background="{ThemeBrush Amber950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Yellow" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Yellow50}" />
+                        <Border Background="{ThemeBrush Yellow100}" />
+                        <Border Background="{ThemeBrush Yellow200}" />
+                        <Border Background="{ThemeBrush Yellow300}" />
+                        <Border Background="{ThemeBrush Yellow400}" />
+                        <Border Background="{ThemeBrush Yellow500}" />
+                        <Border Background="{ThemeBrush Yellow600}" />
+                        <Border Background="{ThemeBrush Yellow700}" />
+                        <Border Background="{ThemeBrush Yellow800}" />
+                        <Border Background="{ThemeBrush Yellow900}" />
+                        <Border Background="{ThemeBrush Yellow950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Lime" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Lime50}" />
+                        <Border Background="{ThemeBrush Lime100}" />
+                        <Border Background="{ThemeBrush Lime200}" />
+                        <Border Background="{ThemeBrush Lime300}" />
+                        <Border Background="{ThemeBrush Lime400}" />
+                        <Border Background="{ThemeBrush Lime500}" />
+                        <Border Background="{ThemeBrush Lime600}" />
+                        <Border Background="{ThemeBrush Lime700}" />
+                        <Border Background="{ThemeBrush Lime800}" />
+                        <Border Background="{ThemeBrush Lime900}" />
+                        <Border Background="{ThemeBrush Lime950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Green" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Green50}" />
+                        <Border Background="{ThemeBrush Green100}" />
+                        <Border Background="{ThemeBrush Green200}" />
+                        <Border Background="{ThemeBrush Green300}" />
+                        <Border Background="{ThemeBrush Green400}" />
+                        <Border Background="{ThemeBrush Green500}" />
+                        <Border Background="{ThemeBrush Green600}" />
+                        <Border Background="{ThemeBrush Green700}" />
+                        <Border Background="{ThemeBrush Green800}" />
+                        <Border Background="{ThemeBrush Green900}" />
+                        <Border Background="{ThemeBrush Green950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Emerald" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Emerald50}" />
+                        <Border Background="{ThemeBrush Emerald100}" />
+                        <Border Background="{ThemeBrush Emerald200}" />
+                        <Border Background="{ThemeBrush Emerald300}" />
+                        <Border Background="{ThemeBrush Emerald400}" />
+                        <Border Background="{ThemeBrush Emerald500}" />
+                        <Border Background="{ThemeBrush Emerald600}" />
+                        <Border Background="{ThemeBrush Emerald700}" />
+                        <Border Background="{ThemeBrush Emerald800}" />
+                        <Border Background="{ThemeBrush Emerald900}" />
+                        <Border Background="{ThemeBrush Emerald950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Teal" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Teal50}" />
+                        <Border Background="{ThemeBrush Teal100}" />
+                        <Border Background="{ThemeBrush Teal200}" />
+                        <Border Background="{ThemeBrush Teal300}" />
+                        <Border Background="{ThemeBrush Teal400}" />
+                        <Border Background="{ThemeBrush Teal500}" />
+                        <Border Background="{ThemeBrush Teal600}" />
+                        <Border Background="{ThemeBrush Teal700}" />
+                        <Border Background="{ThemeBrush Teal800}" />
+                        <Border Background="{ThemeBrush Teal900}" />
+                        <Border Background="{ThemeBrush Teal950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Cyan" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Cyan50}" />
+                        <Border Background="{ThemeBrush Cyan100}" />
+                        <Border Background="{ThemeBrush Cyan200}" />
+                        <Border Background="{ThemeBrush Cyan300}" />
+                        <Border Background="{ThemeBrush Cyan400}" />
+                        <Border Background="{ThemeBrush Cyan500}" />
+                        <Border Background="{ThemeBrush Cyan600}" />
+                        <Border Background="{ThemeBrush Cyan700}" />
+                        <Border Background="{ThemeBrush Cyan800}" />
+                        <Border Background="{ThemeBrush Cyan900}" />
+                        <Border Background="{ThemeBrush Cyan950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Sky" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Sky50}" />
+                        <Border Background="{ThemeBrush Sky100}" />
+                        <Border Background="{ThemeBrush Sky200}" />
+                        <Border Background="{ThemeBrush Sky300}" />
+                        <Border Background="{ThemeBrush Sky400}" />
+                        <Border Background="{ThemeBrush Sky500}" />
+                        <Border Background="{ThemeBrush Sky600}" />
+                        <Border Background="{ThemeBrush Sky700}" />
+                        <Border Background="{ThemeBrush Sky800}" />
+                        <Border Background="{ThemeBrush Sky900}" />
+                        <Border Background="{ThemeBrush Sky950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Blue" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Blue50}" />
+                        <Border Background="{ThemeBrush Blue100}" />
+                        <Border Background="{ThemeBrush Blue200}" />
+                        <Border Background="{ThemeBrush Blue300}" />
+                        <Border Background="{ThemeBrush Blue400}" />
+                        <Border Background="{ThemeBrush Blue500}" />
+                        <Border Background="{ThemeBrush Blue600}" />
+                        <Border Background="{ThemeBrush Blue700}" />
+                        <Border Background="{ThemeBrush Blue800}" />
+                        <Border Background="{ThemeBrush Blue900}" />
+                        <Border Background="{ThemeBrush Blue950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Indigo" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Indigo50}" />
+                        <Border Background="{ThemeBrush Indigo100}" />
+                        <Border Background="{ThemeBrush Indigo200}" />
+                        <Border Background="{ThemeBrush Indigo300}" />
+                        <Border Background="{ThemeBrush Indigo400}" />
+                        <Border Background="{ThemeBrush Indigo500}" />
+                        <Border Background="{ThemeBrush Indigo600}" />
+                        <Border Background="{ThemeBrush Indigo700}" />
+                        <Border Background="{ThemeBrush Indigo800}" />
+                        <Border Background="{ThemeBrush Indigo900}" />
+                        <Border Background="{ThemeBrush Indigo950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Violet" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Violet50}" />
+                        <Border Background="{ThemeBrush Violet100}" />
+                        <Border Background="{ThemeBrush Violet200}" />
+                        <Border Background="{ThemeBrush Violet300}" />
+                        <Border Background="{ThemeBrush Violet400}" />
+                        <Border Background="{ThemeBrush Violet500}" />
+                        <Border Background="{ThemeBrush Violet600}" />
+                        <Border Background="{ThemeBrush Violet700}" />
+                        <Border Background="{ThemeBrush Violet800}" />
+                        <Border Background="{ThemeBrush Violet900}" />
+                        <Border Background="{ThemeBrush Violet950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Purple" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Purple50}" />
+                        <Border Background="{ThemeBrush Purple100}" />
+                        <Border Background="{ThemeBrush Purple200}" />
+                        <Border Background="{ThemeBrush Purple300}" />
+                        <Border Background="{ThemeBrush Purple400}" />
+                        <Border Background="{ThemeBrush Purple500}" />
+                        <Border Background="{ThemeBrush Purple600}" />
+                        <Border Background="{ThemeBrush Purple700}" />
+                        <Border Background="{ThemeBrush Purple800}" />
+                        <Border Background="{ThemeBrush Purple900}" />
+                        <Border Background="{ThemeBrush Purple950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Fuchsia" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Fuchsia50}" />
+                        <Border Background="{ThemeBrush Fuchsia100}" />
+                        <Border Background="{ThemeBrush Fuchsia200}" />
+                        <Border Background="{ThemeBrush Fuchsia300}" />
+                        <Border Background="{ThemeBrush Fuchsia400}" />
+                        <Border Background="{ThemeBrush Fuchsia500}" />
+                        <Border Background="{ThemeBrush Fuchsia600}" />
+                        <Border Background="{ThemeBrush Fuchsia700}" />
+                        <Border Background="{ThemeBrush Fuchsia800}" />
+                        <Border Background="{ThemeBrush Fuchsia900}" />
+                        <Border Background="{ThemeBrush Fuchsia950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Pink" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Pink50}" />
+                        <Border Background="{ThemeBrush Pink100}" />
+                        <Border Background="{ThemeBrush Pink200}" />
+                        <Border Background="{ThemeBrush Pink300}" />
+                        <Border Background="{ThemeBrush Pink400}" />
+                        <Border Background="{ThemeBrush Pink500}" />
+                        <Border Background="{ThemeBrush Pink600}" />
+                        <Border Background="{ThemeBrush Pink700}" />
+                        <Border Background="{ThemeBrush Pink800}" />
+                        <Border Background="{ThemeBrush Pink900}" />
+                        <Border Background="{ThemeBrush Pink950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Rose" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Rose50}" />
+                        <Border Background="{ThemeBrush Rose100}" />
+                        <Border Background="{ThemeBrush Rose200}" />
+                        <Border Background="{ThemeBrush Rose300}" />
+                        <Border Background="{ThemeBrush Rose400}" />
+                        <Border Background="{ThemeBrush Rose500}" />
+                        <Border Background="{ThemeBrush Rose600}" />
+                        <Border Background="{ThemeBrush Rose700}" />
+                        <Border Background="{ThemeBrush Rose800}" />
+                        <Border Background="{ThemeBrush Rose900}" />
+                        <Border Background="{ThemeBrush Rose950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Slate" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Slate50}" />
+                        <Border Background="{ThemeBrush Slate100}" />
+                        <Border Background="{ThemeBrush Slate200}" />
+                        <Border Background="{ThemeBrush Slate300}" />
+                        <Border Background="{ThemeBrush Slate400}" />
+                        <Border Background="{ThemeBrush Slate500}" />
+                        <Border Background="{ThemeBrush Slate600}" />
+                        <Border Background="{ThemeBrush Slate700}" />
+                        <Border Background="{ThemeBrush Slate800}" />
+                        <Border Background="{ThemeBrush Slate900}" />
+                        <Border Background="{ThemeBrush Slate950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Gray" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Gray50}" />
+                        <Border Background="{ThemeBrush Gray100}" />
+                        <Border Background="{ThemeBrush Gray200}" />
+                        <Border Background="{ThemeBrush Gray300}" />
+                        <Border Background="{ThemeBrush Gray400}" />
+                        <Border Background="{ThemeBrush Gray500}" />
+                        <Border Background="{ThemeBrush Gray600}" />
+                        <Border Background="{ThemeBrush Gray700}" />
+                        <Border Background="{ThemeBrush Gray800}" />
+                        <Border Background="{ThemeBrush Gray900}" />
+                        <Border Background="{ThemeBrush Gray950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Zinc" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Zinc50}" />
+                        <Border Background="{ThemeBrush Zinc100}" />
+                        <Border Background="{ThemeBrush Zinc200}" />
+                        <Border Background="{ThemeBrush Zinc300}" />
+                        <Border Background="{ThemeBrush Zinc400}" />
+                        <Border Background="{ThemeBrush Zinc500}" />
+                        <Border Background="{ThemeBrush Zinc600}" />
+                        <Border Background="{ThemeBrush Zinc700}" />
+                        <Border Background="{ThemeBrush Zinc800}" />
+                        <Border Background="{ThemeBrush Zinc900}" />
+                        <Border Background="{ThemeBrush Zinc950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Neutral" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Neutral50}" />
+                        <Border Background="{ThemeBrush Neutral100}" />
+                        <Border Background="{ThemeBrush Neutral200}" />
+                        <Border Background="{ThemeBrush Neutral300}" />
+                        <Border Background="{ThemeBrush Neutral400}" />
+                        <Border Background="{ThemeBrush Neutral500}" />
+                        <Border Background="{ThemeBrush Neutral600}" />
+                        <Border Background="{ThemeBrush Neutral700}" />
+                        <Border Background="{ThemeBrush Neutral800}" />
+                        <Border Background="{ThemeBrush Neutral900}" />
+                        <Border Background="{ThemeBrush Neutral950}" />
+                    </PanelExt>
+                </Grid>
+                <Grid Classes="ColorBoxs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Stone" />
+                    <PanelExt Grid.Column="1">
+                        <Border Background="{ThemeBrush Stone50}" />
+                        <Border Background="{ThemeBrush Stone100}" />
+                        <Border Background="{ThemeBrush Stone200}" />
+                        <Border Background="{ThemeBrush Stone300}" />
+                        <Border Background="{ThemeBrush Stone400}" />
+                        <Border Background="{ThemeBrush Stone500}" />
+                        <Border Background="{ThemeBrush Stone600}" />
+                        <Border Background="{ThemeBrush Stone700}" />
+                        <Border Background="{ThemeBrush Stone800}" />
+                        <Border Background="{ThemeBrush Stone900}" />
+                        <Border Background="{ThemeBrush Stone950}" />
+                    </PanelExt>
+                </Grid>
+            </PanelExt>
+        </PanelExt>
+    </ScrollViewer>
 </View>
