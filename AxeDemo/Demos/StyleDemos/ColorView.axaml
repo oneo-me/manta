@@ -3,7 +3,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AxeDemo.Demos.StyleDemos"
-    xmlns:lang="clr-namespace:Axe.I18N.Core;assembly=Axe.I18N"
     x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
     <View.Styles>
         <Style Selector="StackPanel.Boxs">
@@ -32,27 +31,9 @@
     <Grid RowDefinitions="Auto *">
         <ScrollViewer Grid.Row="1" Width="660">
             <StackPanel Classes="Boxs">
-                <!-- Langs -->
-                <StackPanel Spacing="12" Margin="12">
-                    <TextBlock Text="Native Name" FontWeight="Bold" />
-                    <TextBlock Text="{LangName {x:Static lang:LangType.en}}" />
-                    <TextBlock Text="{LangName {x:Static lang:LangType.zh_Hans}}" />
-                    <TextBlock Text="Lang Key" FontWeight="Bold" />
-                    <TextBlock Text="{Lang NotKey}" />
-                </StackPanel>
                 <!-- Refs -->
                 <WrapPanel Classes="ColorBox">
                     <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Window_Background}" />
-                </WrapPanel>
-                <!-- Radius -->
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius LG}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XL}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XL2}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XL3}" Background="{ThemeBrush Black, Opacity=0.3}" />
-                    <Border Classes="Color" CornerRadius="{ThemeRadius XL4}" Background="{ThemeBrush Black, Opacity=0.3}" />
                 </WrapPanel>
                 <!-- Shadows -->
                 <WrapPanel Classes="ColorBox">
