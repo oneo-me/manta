@@ -1,0 +1,83 @@
+<View
+    x:Class="AxeDemo.Demos.StyleDemos.ShadowView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AxeDemo.Demos.StyleDemos"
+    x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
+    <ScrollViewer>
+        <PanelExt Classes="DemoPan">
+            <TextBlock Classes="DemoInfo" Text="Shadows" />
+            <PanelExt Classes="DemoPanChild" Mode="Wrap">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </PanelExt>
+            <TextBlock Classes="DemoInfo" Text="Drop Shadows" />
+            <PanelExt Classes="DemoPanChild" Mode="Wrap">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropMD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropLG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </PanelExt>
+            <TextBlock Classes="DemoInfo" Text="Insert Shadows" />
+            <PanelExt Classes="DemoPanChild" Mode="Wrap">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetXS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetSM}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </PanelExt>
+            <TextBlock Classes="DemoInfo" Text="Custom Color or Opacity" />
+            <PanelExt Classes="DemoPanChild" Mode="Wrap">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                    <TextBlock Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                </Border>
+            </PanelExt>
+        </PanelExt>
+    </ScrollViewer>
+</View>

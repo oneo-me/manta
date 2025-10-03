@@ -35,35 +35,6 @@
                 <WrapPanel Classes="ColorBox">
                     <Border Classes="Color" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Window_Background}" />
                 </WrapPanel>
-                <!-- Shadows -->
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS2, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow MD, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow LG, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL2, BrushKey=Teal400}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White, Opacity=0.1}" />
-                </WrapPanel>
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow MD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow LG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow XL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                </WrapPanel>
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetXS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow InsetSM}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                </WrapPanel>
-                <WrapPanel Classes="ColorBox">
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropMD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropLG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                    <Border Classes="Shadow" BoxShadow="{ThemeShadow DropXL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush White}" />
-                </WrapPanel>
                 <!-- Colors -->
                 <WrapPanel Classes="ColorBox">
                     <!-- Red -->

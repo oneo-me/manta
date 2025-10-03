@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.Media;
+using Avalonia.Media.Immutable;
 using Axe.Themes.Base;
 using Axe.Themes.Values;
 
@@ -47,7 +48,27 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
         var value0 = values[0];
         var value1 = values[1];
 
-        if (value0 is not BoxShadows boxShadows || value1 is not ColorBase colorBase)
+        if (value0 is not BoxShadows boxShadows)
+            return default(BoxShadows);
+
+        ColorBase? color = null;
+        var opacity = 1d;
+        if (value1 is ColorBase colorBase)
+            color = colorBase;
+
+        if (value1 is ThemeRefValue { Value: ImmutableSolidColorBrush immutableSolidColorBrush })
+        {
+            var refColor = immutableSolidColorBrush.Color;
+            opacity = refColor.A / 255d * immutableSolidColorBrush.Opacity;
+            color = new RgbColor
+            {
+                R = refColor.R,
+                G = refColor.G,
+                B = refColor.B
+            };
+        }
+
+        if (color is null)
             return default(BoxShadows);
 
         var shadows = new List<BoxShadow>();
@@ -60,7 +81,7 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
                 Blur = boxShadow.Blur,
                 Spread = boxShadow.Spread,
                 IsInset = boxShadow.IsInset,
-                Color = colorBase.ToColor(BrushOpacity > 0 ? BrushOpacity : 255d / boxShadow.Color.A)
+                Color = color.ToColor(opacity * (BrushOpacity > 0 ? BrushOpacity : 255d / boxShadow.Color.A))
             });
 
         if (shadows.Count == 0)
