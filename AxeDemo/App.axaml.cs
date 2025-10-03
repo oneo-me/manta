@@ -36,15 +36,17 @@ sealed class App : AxeApp
         Lang.Register(LangData.LoadFromAssembly<LangKey>());
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
-        var appService = Service.Register(new ViewService(configService));
         Service.Register(new DemoService());
+
+        // Register ViewService at last, because it depends on ConfigService and DemoService.
+        var viewService = Service.Register(new ViewService(configService));
 
         Lang.Current = configService.Config.Language;
 
         mainModel = new Main_Model();
         onExit = () =>
         {
-            appService.Save();
+            viewService.Save();
             configService.Save();
         };
     }

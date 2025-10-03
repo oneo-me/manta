@@ -8,7 +8,6 @@ using Axe.Reactive.Extensions;
 using Axe.Reactive.Regions;
 using Axe.Reactive.Services;
 using Axe.Reactive.Views;
-using AxeDemo.Interfaces;
 using AxeDemo.Langs;
 using AxeDemo.Reactive;
 using AxeDemo.Services;
