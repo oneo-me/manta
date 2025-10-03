@@ -1,6 +1,6 @@
 using Axe.Reactive.Controls;
 
-namespace AxeDemo.Demos;
+namespace AxeDemo.Demos.StyleDemos;
 
 sealed partial class ColorView : View
 {

@@ -7,6 +7,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
         <Setter Property="Title" Value="Axe" />
+        <Setter Property="FontFamily" Value="{ThemeFont Sans}" />
         <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
         <Setter Property="FontWeight" Value="{ThemeFontWeight Normal}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />

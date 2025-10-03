@@ -21,6 +21,10 @@
         <DependentUpon>StylesView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Demos\StyleDemos\ColorView.axaml.cs">
+        <DependentUpon>ColorView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
     <!--<ItemGroup>-->
     <!--    <AvaloniaResource Include="Langs\*.yml" />-->

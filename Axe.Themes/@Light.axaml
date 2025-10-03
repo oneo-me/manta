@@ -57,12 +57,12 @@
     <FontWeight x:Key="{ThemeFontWeightKey Extrabold}">ExtraBold</FontWeight>
     <FontWeight x:Key="{ThemeFontWeightKey Black}">Black</FontWeight>
     <!-- FontTracking -->
-    <system:Double x:Key="{ThemeFontTrackingKey Tighter}">-0.8</system:Double>
-    <system:Double x:Key="{ThemeFontTrackingKey Tight}">-0.4</system:Double>
-    <system:Double x:Key="{ThemeFontTrackingKey Normal}">0</system:Double>
-    <system:Double x:Key="{ThemeFontTrackingKey Wide}">0.4</system:Double>
-    <system:Double x:Key="{ThemeFontTrackingKey Wider}">0.8</system:Double>
-    <system:Double x:Key="{ThemeFontTrackingKey Widest}">1.6</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Tighter}">-0.8</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Tight}">-0.4</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Normal}">0</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Wide}">0.4</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Wider}">0.8</system:Double>
+    <system:Double x:Key="{ThemeFontSpacingKey Widest}">1.6</system:Double>
     <!-- Radius -->
     <system:Double x:Key="{ThemeRadiusKey XS}">2</system:Double>
     <system:Double x:Key="{ThemeRadiusKey SM}">4</system:Double>

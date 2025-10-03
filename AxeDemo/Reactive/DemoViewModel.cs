@@ -14,7 +14,7 @@ enum DemoGroup
 
 abstract class DemoViewModel : ViewModel
 {
-    public abstract IconSource Icon { get; }
-    public abstract LangKey Header { get; }
     public abstract DemoGroup Group { get; }
+    public abstract IconSource? Icon { get; }
+    public abstract LangKey Header { get; }
 }

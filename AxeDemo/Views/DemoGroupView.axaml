@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:AxeDemo.Views"
     x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
-    <Grid ColumnDefinitions="200 *">
+    <Grid ColumnDefinitions="200 1 *">
         <ListBox Classes="DemoGroupList" Grid.Column="0" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -15,6 +15,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ViewModelHost Grid.Column="1" ViewModel="{Binding CurrentDemo}" />
+        <Panel Grid.Column="1" Background="{ThemeBrush BorderBrush}" Margin="0 12" />
+        <ViewModelHost Grid.Column="2" ViewModel="{Binding CurrentDemo}" />
     </Grid>
 </View>

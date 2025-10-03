@@ -19,6 +19,21 @@
             </Style>
         </Style>
     </Style>
+    <Style Selector="PanelExt.DemoPan">
+        <Setter Property="Mode" Value="Vertical" />
+        <Setter Property="Spacing" Value="24" />
+        <Setter Property="Margin" Value="24" />
+    </Style>
+    <Style Selector="PanelExt.DemoPanChild">
+        <Setter Property="Mode" Value="Vertical" />
+        <Setter Property="Spacing" Value="12" />
+    </Style>
+    <Style Selector="TextBlock.DemoInfo">
+        <Setter Property="FontWeight" Value="{ThemeFontWeight Semibold}" />
+    </Style>
+    <Style Selector="Run.DemoInfoKey">
+        <Setter Property="FontWeight" Value="{ThemeFontWeight Semibold}" />
+    </Style>
     <Style Selector="TabStrip.RootTab">
         <Setter Property="Margin" Value="-1 0 0 -1" />
         <Style Selector="^ TabStripItem">

@@ -2,7 +2,7 @@ using Axe.Themes.Base;
 
 namespace Axe.Themes.Variables;
 
-public enum ThemeFontTrackingKey
+public enum ThemeFontSpacingKey
 {
     Tighter,
     Tight,
@@ -12,11 +12,11 @@ public enum ThemeFontTrackingKey
     Widest
 }
 
-public sealed class ThemeFontTrackingKeyExtension(ThemeFontTrackingKey key) : ThemeKeyBase(key);
+public sealed class ThemeFontSpacingKeyExtension(ThemeFontSpacingKey key) : ThemeKeyBase(key);
 
-public sealed class ThemeFontTracking(ThemeFontTrackingKey key) : ThemeValueBase
+public sealed class ThemeFontSpacing(ThemeFontSpacingKey key) : ThemeValueBase
 {
-    public ThemeFontTrackingKey Key { get; } = key;
+    public ThemeFontSpacingKey Key { get; } = key;
 
     protected override IEnumerable<object> GetKeys()
     {

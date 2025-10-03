@@ -17,6 +17,7 @@ sealed class Main_Model : WindowModel
 {
     public static Main_Model Design => new();
 
+    readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly ViewService _viewService = Service.GetService<ViewService>();
 
     public RegionManager<HeaderRegionModel> RegionManager => _viewService.RegionManager;
@@ -29,8 +30,18 @@ sealed class Main_Model : WindowModel
         base.OnWindowInitialized(window);
 
         window[!Window.TitleProperty] = LangBinding.Get(LangKey.Title);
-        window.Width = 800;
-        window.Height = 600;
+
+        window.MinWidth = 800;
+        window.MinHeight = 600;
+
+        window.Width = _configService.Config.Width;
+        window.Height = _configService.Config.Height;
+
+        window.Closing += delegate
+        {
+            _configService.Config.Width = window.Width;
+            _configService.Config.Height = window.Height;
+        };
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
