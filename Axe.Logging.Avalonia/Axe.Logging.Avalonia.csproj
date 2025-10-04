@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.6" />
+        <PackageReference Include="Avalonia" Version="11.3.7" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Axe.Logging\Axe.Logging.csproj" />

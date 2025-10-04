@@ -14,7 +14,7 @@
         <ProjectReference Include="..\Axe.I18N.Avalonia\Axe.I18N.Avalonia.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Axe.I18N.Generator" Version="1.2025.0-preview.2" PrivateAssets="all" />
+        <PackageReference Include="Axe.I18N.Generator" Version="1.2025.0-preview.3" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
       <Compile Update="Views\DemoGroupView.axaml.cs">
