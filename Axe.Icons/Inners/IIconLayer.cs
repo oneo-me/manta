@@ -1,3 +1,7 @@
 namespace Axe.Icons.Inners;
 
-interface IIconLayer;
+interface IIconLayer
+{
+    string Fill { get; set; }
+    string Stroke { get; set; }
+}

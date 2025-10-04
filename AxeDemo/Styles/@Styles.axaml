@@ -5,7 +5,7 @@
         <Setter Property="Padding" Value="12" />
         <Style Selector="^ ListBoxItem">
             <Setter Property="Margin" Value="0 0 0 2" />
-            <Setter Property="Padding" Value="12 8" />
+            <Setter Property="Padding" Value="12 9" />
             <Setter Property="CornerRadius" Value="{ThemeRadius LG}" />
             <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
             <Style Selector="^:selected">

@@ -10,19 +10,28 @@ namespace Axe.Icons;
 
 public sealed class IconControl : TemplatedControl
 {
-    public static readonly StyledProperty<IconSource?> SourceProperty = AvaloniaProperty.Register<IconControl, IconSource?>(
-        nameof(Source));
+    public static readonly StyledProperty<double?> IconSizeProperty = AvaloniaProperty.Register<IconControl, double?>(
+        nameof(IconSize));
 
-    public IconSource? Source
+    public double? IconSize
     {
-        get => GetValue(SourceProperty);
-        set => SetValue(SourceProperty, value);
+        get => GetValue(IconSizeProperty);
+        set => SetValue(IconSizeProperty, value);
+    }
+
+    public static readonly StyledProperty<IconSource?> IconSourceProperty = AvaloniaProperty.Register<IconControl, IconSource?>(
+        nameof(IconSource));
+
+    public IconSource? IconSource
+    {
+        get => GetValue(IconSourceProperty);
+        set => SetValue(IconSourceProperty, value);
     }
 
     public static readonly StyledProperty<IconStyle> IconStyleProperty = AvaloniaProperty.Register<IconControl, IconStyle>(
         nameof(IconStyle));
 
-    [DependsOn(nameof(Source))]
+    [DependsOn(nameof(IconSource))]
     public IconStyle IconStyle
     {
         get => GetValue(IconStyleProperty);
@@ -37,14 +46,27 @@ public sealed class IconControl : TemplatedControl
 
         PART_ViewBox = e.NameScope.Get<Viewbox>(nameof(PART_ViewBox));
         PART_ViewBox.Child = _panel;
+
+        OnIconSizeChanged(IconSize);
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
-        if (change.Property == SourceProperty)
+        if (change.Property == IconSourceProperty)
             OnSourceChanged(change.NewValue as IconSource);
+        else if (change.Property == IconSizeProperty)
+            OnIconSizeChanged(change.NewValue is double value ? value : 0);
+    }
+
+    void OnIconSizeChanged(double? size)
+    {
+        var viewBox = PART_ViewBox;
+        if (viewBox is null)
+            return;
+
+        viewBox.Width = viewBox.Height = size ?? double.NaN;
     }
 
     readonly Panel _panel = new();
@@ -75,16 +97,23 @@ public sealed class IconControl : TemplatedControl
             switch (IconStyle)
             {
                 case IconStyle.Default:
-                    shape[!Shape.FillProperty] = this[!BackgroundProperty];
-                    shape[!Shape.StrokeProperty] = this[!ForegroundProperty];
+                    if (string.IsNullOrEmpty(layer.Stroke) is false)
+                    {
+                        shape[!Shape.FillProperty] = this[!BackgroundProperty];
+                        shape[!Shape.StrokeProperty] = this[!ForegroundProperty];
+                    }
+                    else
+                    {
+                        shape[!Shape.FillProperty] = this[!ForegroundProperty];
+                    }
+
                     break;
 
                 case IconStyle.OnlyBorder:
-                    shape[!Shape.StrokeProperty] = this[!ForegroundProperty];
-                    break;
-
-                case IconStyle.OnlyFill:
-                    shape[!Shape.FillProperty] = this[!BackgroundProperty];
+                    if (string.IsNullOrEmpty(layer.Stroke) is false)
+                        shape[!Shape.StrokeProperty] = this[!ForegroundProperty];
+                    else
+                        shape[!Shape.FillProperty] = this[!ForegroundProperty];
                     break;
 
                 default:
