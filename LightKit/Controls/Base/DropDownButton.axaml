@@ -8,12 +8,6 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
-        <Setter Property="CornerRadius" Value="11" />
-        <Setter Property="Padding" Value="33 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -32,16 +26,17 @@
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               RecognizesAccessKey="True" />
-                            <PathIcon x:Name="DropDownGlyph"
-                                      Grid.Column="1"
-                                      Width="12"
-                                      Height="12"
-                                      Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z"
-                                      Margin="0,0,10,0"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      IsHitTestVisible="False"
-                                      UseLayoutRounding="False" />
+                            <Path x:Name="DropDownGlyph"
+                                  Grid.Column="1"
+                                  Data="m19 9 -7 6 -7 -6"
+                                  StrokeThickness="1.5"
+                                  StrokeLineCap="Round"
+                                  Stroke="{TemplateBinding Foreground}"
+                                  Stretch="Uniform"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Center"
+                                  IsHitTestVisible="False"
+                                  UseLayoutRounding="False" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

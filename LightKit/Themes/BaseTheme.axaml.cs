@@ -3,9 +3,9 @@ using Avalonia.Styling;
 
 namespace LightKit.Themes;
 
-public sealed class LightKitTheme : Styles
+public sealed class BaseTheme : Styles
 {
-    public LightKitTheme(IServiceProvider? sp = null)
+    public BaseTheme(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
     }

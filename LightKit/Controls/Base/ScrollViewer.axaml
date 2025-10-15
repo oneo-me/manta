@@ -14,7 +14,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -26,7 +26,7 @@
                         <ScrollContentPresenter
                             Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
                             x:Name="PART_ContentPresenter"
-                            ClipToBounds="False"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
                             Background="#00000000"
                             Margin="{TemplateBinding Padding}"
                             HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"

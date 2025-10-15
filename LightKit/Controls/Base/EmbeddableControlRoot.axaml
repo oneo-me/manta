@@ -2,10 +2,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <PanelExt Mode="Vertical" Spacing="12" Margin="12" />
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
-        <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

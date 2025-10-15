@@ -21,10 +21,6 @@
     </Design.PreviewWith>
     <converters:StringFormatConverter x:Key="ProgressBarStringFormatConverter" />
     <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
-        <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="CornerRadius" Value="11" />
         <Setter Property="Padding" Value="3 1" />
         <Setter Property="FontSize" Value="8" />
         <Setter Property="MinWidth" Value="12" />

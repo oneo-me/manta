@@ -8,7 +8,6 @@
         </PanelExt>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
