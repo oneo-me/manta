@@ -1,7 +1,0 @@
-<Styles
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style Selector="PathIcon.Icon-Close">
-        <Setter Property="Data" Value="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
-    </Style>
-</Styles>
