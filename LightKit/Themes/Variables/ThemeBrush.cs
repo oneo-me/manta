@@ -276,8 +276,6 @@ public enum ThemeBrushKey
     Black,
     White,
 
-    Window_Background,
-
     Background,
     BorderBrush,
     Foreground,

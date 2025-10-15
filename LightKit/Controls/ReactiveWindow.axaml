@@ -21,7 +21,7 @@
         <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
         <Setter Property="FontWeight" Value="{ThemeFontWeight Normal}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Window_Background}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, ResetOpacity=True, Opacity=1}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel x:Name="Root">

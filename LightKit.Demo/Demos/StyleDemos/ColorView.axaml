@@ -36,16 +36,6 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Window_Background" />
-                    <PanelExt Grid.Column="1">
-                        <Border Background="{ThemeBrush Window_Background}" />
-                    </PanelExt>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Background" />
                     <PanelExt Grid.Column="1">
                         <Border Background="{ThemeBrush Background}" />

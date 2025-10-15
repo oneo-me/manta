@@ -5,7 +5,6 @@
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <!-- Refs -->
-    <values:ThemeRefValue x:Key="{ThemeBrushKey Window_Background}" Value="{ThemeBrush Gray50}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Background}" Value="{ThemeBrush Gray50, Opacity=0.9}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey BorderBrush}" Value="{ThemeBrush Gray400, Opacity=0.2}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Foreground}" Value="{ThemeBrush Gray800}" />
