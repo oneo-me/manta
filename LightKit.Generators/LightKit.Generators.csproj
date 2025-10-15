@@ -20,7 +20,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\LightKit\Globalization\Core\*.cs">
-            <Link>Globalization\Core\%(Filename)%(Extension)</Link>
+            <Link>LangKey\Globalization\Core\%(Filename)%(Extension)</Link>
         </Compile>
     </ItemGroup>
 </Project>
