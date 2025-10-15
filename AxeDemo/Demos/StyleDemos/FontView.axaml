@@ -6,21 +6,6 @@
     x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <PanelExt Classes="DemoPan">
-            <TextBlock Classes="DemoInfo" Text="FontFamilies" />
-            <PanelExt Classes="DemoPanChild">
-                <TextBlock FontFamily="{ThemeFont Sans}">
-                    <Run Classes="DemoInfoKey" Text="Sans (Default): " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontFamily="{ThemeFont Serif}">
-                    <Run Classes="DemoInfoKey" Text="Serif: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontFamily="{ThemeFont Mono}">
-                    <Run Classes="DemoInfoKey" Text="Mono: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-            </PanelExt>
             <TextBlock Classes="DemoInfo" Text="FontSpacings" />
             <PanelExt Classes="DemoPanChild">
                 <TextBlock LetterSpacing="{ThemeFontSpacing Tighter}">
