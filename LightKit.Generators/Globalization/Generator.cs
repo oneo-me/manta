@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace LightKit.Generators.I18N;
+namespace LightKit.Generators.Globalization;
 
 [Generator]
 public class Generator : IIncrementalGenerator

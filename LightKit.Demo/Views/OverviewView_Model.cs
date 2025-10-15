@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using LightKit.Controls.Icons;
-using LightKit.I18N;
-using LightKit.I18N.Core;
+using LightKit.Globalization;
+using LightKit.Globalization.Core;
 using LightKit.Reactive.Extensions;
 using LightKit.Reactive.Regions;
 using LightKit.Reactive.Services;

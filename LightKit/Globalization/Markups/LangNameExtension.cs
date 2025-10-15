@@ -1,9 +1,9 @@
 using Avalonia.Data;
-using LightKit.I18N.Core;
+using LightKit.Globalization.Core;
 
-namespace LightKit.I18N.Markups;
+namespace LightKit.Globalization.Markups;
 
-public sealed class LangEmojiExtension(object langType) : BindingMarkupExtension
+public sealed class LangNameExtension(object langType) : BindingMarkupExtension
 {
     public object LangType { get; } = langType;
 
@@ -19,6 +19,6 @@ public sealed class LangEmojiExtension(object langType) : BindingMarkupExtension
 
         var langMetadata = langType.GetMetadata();
 
-        return langMetadata.Emoji;
+        return langMetadata.NativeName;
     }
 }

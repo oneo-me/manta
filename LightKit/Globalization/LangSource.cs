@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using LightKit.I18N.Core;
+using LightKit.Globalization.Core;
 
-namespace LightKit.I18N;
+namespace LightKit.Globalization;
 
 sealed class LangSource : INotifyPropertyChanged
 {

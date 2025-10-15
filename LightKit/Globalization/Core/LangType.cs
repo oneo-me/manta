@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace LightKit.I18N.Core;
+namespace LightKit.Globalization.Core;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum LangType

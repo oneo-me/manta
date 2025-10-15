@@ -1,7 +1,7 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using LightKit.Controls.Icons;
-using LightKit.I18N;
+using LightKit.Globalization;
 using LightKit.Reactive.Regions;
 using LightKit.Reactive.Services;
 using LightKit.Reactive.Views;

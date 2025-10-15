@@ -1,8 +1,8 @@
 using Avalonia.Data;
-using LightKit.I18N.Core;
-using LightKit.I18N.Markups;
+using LightKit.Globalization.Core;
+using LightKit.Globalization.Markups;
 
-namespace LightKit.I18N;
+namespace LightKit.Globalization;
 
 public static class LangBinding
 {

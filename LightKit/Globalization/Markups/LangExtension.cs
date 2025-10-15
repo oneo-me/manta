@@ -1,7 +1,7 @@
 using Avalonia.Data;
-using LightKit.I18N.Core;
+using LightKit.Globalization.Core;
 
-namespace LightKit.I18N.Markups;
+namespace LightKit.Globalization.Markups;
 
 public sealed class LangExtension(object langKey) : BindingMarkupExtension
 {

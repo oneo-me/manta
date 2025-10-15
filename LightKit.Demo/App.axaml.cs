@@ -2,7 +2,7 @@ using Avalonia.Markup.Xaml;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Services;
 using LightKit.Demo.Views;
-using LightKit.I18N;
+using LightKit.Globalization;
 using LightKit.Reactive.Services;
 using LightKit.Reactive.Views;
 

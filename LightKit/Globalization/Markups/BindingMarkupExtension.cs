@@ -3,7 +3,7 @@ using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 
-namespace LightKit.I18N.Markups;
+namespace LightKit.Globalization.Markups;
 
 public abstract class BindingMarkupExtension : MarkupExtension, IMultiValueConverter
 {

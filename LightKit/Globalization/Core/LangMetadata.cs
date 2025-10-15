@@ -1,4 +1,4 @@
-namespace LightKit.I18N.Core;
+namespace LightKit.Globalization.Core;
 
 public sealed class LangMetadata(LangType type, string emoji, string englishName, string nativeName, string sourceType)
 {

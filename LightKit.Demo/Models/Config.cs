@@ -1,4 +1,4 @@
-using LightKit.I18N.Core;
+using LightKit.Globalization.Core;
 using LightKit.Demo.Reactive;
 
 namespace LightKit.Demo.Models;

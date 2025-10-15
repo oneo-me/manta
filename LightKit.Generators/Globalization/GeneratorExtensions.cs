@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace LightKit.Generators.I18N;
+namespace LightKit.Generators.Globalization;
 
 static class GeneratorExtensions
 {

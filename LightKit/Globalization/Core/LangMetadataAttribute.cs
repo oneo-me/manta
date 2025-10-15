@@ -1,4 +1,4 @@
-namespace LightKit.I18N.Core;
+namespace LightKit.Globalization.Core;
 
 [AttributeUsage(AttributeTargets.Field)]
 sealed class LangMetadataAttribute(string emoji, string englishName, string nativeName, string sourceType) : Attribute

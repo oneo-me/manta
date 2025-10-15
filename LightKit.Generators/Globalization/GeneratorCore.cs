@@ -1,12 +1,12 @@
 using System.Collections.Immutable;
 using System.Text;
-using LightKit.Generators.I18N.Models;
-using LightKit.I18N.Core;
+using LightKit.Generators.Globalization.Models;
+using LightKit.Globalization.Core;
 using Microsoft.CodeAnalysis;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
-namespace LightKit.Generators.I18N;
+namespace LightKit.Generators.Globalization;
 
 sealed class GeneratorCore
 {

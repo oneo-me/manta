@@ -19,8 +19,8 @@
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\LightKit\I18N\Core\*.cs">
-            <Link>I18N\Core\%(Filename)%(Extension)</Link>
+        <Compile Include="..\LightKit\Globalization\Core\*.cs">
+            <Link>Globalization\Core\%(Filename)%(Extension)</Link>
         </Compile>
     </ItemGroup>
 </Project>

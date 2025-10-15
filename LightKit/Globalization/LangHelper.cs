@@ -1,7 +1,7 @@
 using System.Globalization;
-using LightKit.I18N.Core;
+using LightKit.Globalization.Core;
 
-namespace LightKit.I18N;
+namespace LightKit.Globalization;
 
 static class LangHelper
 {

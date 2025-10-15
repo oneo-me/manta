@@ -2,7 +2,7 @@ using System.Reflection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace LightKit.I18N.Core;
+namespace LightKit.Globalization.Core;
 
 public static class Extensions
 {

@@ -1,4 +1,4 @@
-namespace LightKit.I18N.Core;
+namespace LightKit.Globalization.Core;
 
 sealed class LangConfig
 {
