@@ -1,0 +1,16 @@
+﻿<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+  </Folder>
+  <Folder Name="/_/">
+    <File Path="Directory.Build.props" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path=".globalconfig" />
+    <File Path=".gitattributes" />
+  </Folder>
+  <Project Path="LightKit.Demo\LightKit.Demo.csproj" Type="Classic C#" />
+  <Project Path="LightKit.Generators\LightKit.Generators.csproj" Type="Classic C#" />
+  <Project Path="LightKit\LightKit.csproj" Type="Classic C#" />
+</Solution>

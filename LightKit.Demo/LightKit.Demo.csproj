@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\LightKit\LightKit.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Axe.I18N.Generator" Version="1.2025.0-preview.3" PrivateAssets="all" />
+    </ItemGroup>
+</Project>

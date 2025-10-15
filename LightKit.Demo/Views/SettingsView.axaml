@@ -1,0 +1,15 @@
+<View
+    x:Class="LightKit.Demo.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Views"
+    x:DataType="local:SettingsView_Model" Design.DataContext="{x:Static local:SettingsView_Model.Design}">
+    <PanelExt Mode="Vertical" Spacing="18" Margin="18">
+        <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+        <PanelExt Mode="Horizontal" Spacing="18">
+            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+        </PanelExt>
+    </PanelExt>
+</View>

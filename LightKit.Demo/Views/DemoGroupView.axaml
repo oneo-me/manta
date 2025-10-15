@@ -1,0 +1,21 @@
+<View
+    x:Class="LightKit.Demo.Views.DemoGroupView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Views"
+    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
+    <Grid ColumnDefinitions="200 1 *">
+        <ListBox Classes="DemoGroupList" Grid.Column="0" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <PanelExt Mode="Horizontal" Spacing="8">
+                        <LightIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                    </PanelExt>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Panel Grid.Column="1" Background="{ThemeBrush BorderBrush}" Margin="0 12" />
+        <ViewModelHost Grid.Column="2" ViewModel="{Binding CurrentDemo}" />
+    </Grid>
+</View>

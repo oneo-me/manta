@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <PackageReference Include="Avalonia.Skia" Version="11.3.7" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Axe.Reactive\Axe.Reactive.csproj" />
-    </ItemGroup>
-</Project>

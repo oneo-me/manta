@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightIcon IconSource="Controls" IconSize="72" />
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightIcon}" TargetType="LightIcon">
+        <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox x:Name="PART_ViewBox" ClipToBounds="False" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
