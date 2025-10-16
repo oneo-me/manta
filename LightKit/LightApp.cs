@@ -77,10 +77,12 @@ public abstract class LightApp : Application
 
     protected virtual void OnException(Exception exception)
     {
+        Log.Error("An unhandled exception occurred: {0}", exception);
+
         if (Design.IsDesignMode)
             return;
 
-        AvaloniaScheduler.Instance.Schedule(() => throw new("An unhandled exception occurred", exception));
+        AvaloniaScheduler.Instance.Schedule(() => throw new("An unhandled exception has occurred.", exception));
     }
 
     public Bitmap? Icon { get; protected init; }
