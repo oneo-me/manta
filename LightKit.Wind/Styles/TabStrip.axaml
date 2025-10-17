@@ -1,0 +1,43 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TabStrip Wind.TabStrip="RootTab" Height="36">
+                <TabStripItem Content="TabItem 1" />
+                <TabStripItem Content="TabItem 2" />
+                <TabStripItem Content="TabItem 3" />
+            </TabStrip>
+        </LightPanel>
+    </Design.PreviewWith>
+    <Style Selector="TabStrip[(Wind.TabStrip)=RootTab]">
+        <Setter Property="Margin" Value="-1 0 0 -1" />
+        <Style Selector="^ TabStripItem">
+            <Setter Property="Wind.TabStrip" Value="RootTab" />
+        </Style>
+    </Style>
+    <Style Selector="TabStripItem[(Wind.TabStrip)=RootTab]">
+        <Setter Property="Padding" Value="14 0" />
+        <Setter Property="Margin" Value="0 0 0 1" />
+        <Setter Property="BorderThickness" Value="1 0 0 0" />
+        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+        <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+        <Style Selector="^:selected">
+            <Setter Property="Padding" Value="14 0 14 1" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="{ThemeBrush Background}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        </Style>
+        <Style Selector="^:pointerover:not(:selected)">
+            <Setter Property="Padding" Value="14 0 14 1" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        </Style>
+        <Style Selector="^:nth-last-child(1)">
+            <Setter Property="BorderThickness" Value="1 0" />
+        </Style>
+    </Style>
+</Styles>

@@ -4,7 +4,7 @@
     x:Class="LightKit.Demo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <BaseTheme />
+        <WindTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </Application.Styles>
 </Application>
