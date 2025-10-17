@@ -21,8 +21,8 @@ sealed class Main_Model : WindowModel
 
     public RegionManager<HeaderRegionModel> RegionManager => _viewService.RegionManager;
 
-    public IconSource ThemeSystemIcon { get; } = Assets.GetIconSource("Icons/Sun-Fog--Streamline-Solar-Ar.svg");
-    public IconSource SettingsIcon { get; } = Assets.GetIconSource("Icons/Settings--Streamline-Solar-Ar.svg");
+    public IconSource ThemeSystemIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sun-Fog--Streamline-Solar-Ar.svg"));
+    public IconSource SettingsIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Settings--Streamline-Solar-Ar.svg"));
 
     public override void OnWindowInitialized(Window window)
     {

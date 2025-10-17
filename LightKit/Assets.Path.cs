@@ -1,6 +1,5 @@
 using System.Reflection;
 using Avalonia.Media.Imaging;
-using LightKit.Controls.Icons;
 
 namespace LightKit;
 
@@ -50,13 +49,5 @@ public static partial class Assets
         var uri = GetUri(path, assembly);
 
         return GetBitmap(uri);
-    }
-
-    public static IconSource GetIconSource(string path, Assembly? assembly = null)
-    {
-        assembly ??= Assembly.GetCallingAssembly();
-        var uri = GetUri(path, assembly);
-
-        return IconSource.FromAsset(uri);
     }
 }

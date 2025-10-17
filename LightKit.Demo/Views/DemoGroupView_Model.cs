@@ -1,16 +1,16 @@
 using LightKit.Controls.Icons;
-using LightKit.Reactive.Services;
-using LightKit.Reactive.Views;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Demo.Services;
+using LightKit.Reactive.Services;
+using LightKit.Reactive.Views;
 
 namespace LightKit.Demo.Views;
 
 [View<DemoGroupView>]
 sealed class DemoGroupView_Model : HeaderRegionModel
 {
-    public static DemoGroupView_Model Design => new(DemoGroup.Styles, LangKey.Styles, Assets.GetIconSource("Icons/Fire--Streamline-Solar-Ar.svg"));
+    public static DemoGroupView_Model Design => new(DemoGroup.Styles, LangKey.Styles, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg")));
 
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly DemoService _demoService = Service.GetService<DemoService>();

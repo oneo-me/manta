@@ -1,6 +1,5 @@
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using LightKit.Controls.Icons;
 
 namespace LightKit;
 
@@ -34,10 +33,5 @@ public static partial class Assets
     {
         using var stream = GetStream(uri);
         return new(stream);
-    }
-
-    public static IconSource GetIconSource(Uri uri)
-    {
-        return IconSource.FromAsset(uri);
     }
 }

@@ -1,7 +1,8 @@
-using LightKit.Reactive.Regions;
+using LightKit.Controls.Icons;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Demo.Views;
+using LightKit.Reactive.Regions;
 
 namespace LightKit.Demo.Services;
 
@@ -16,10 +17,10 @@ sealed class ViewService
         _configService = configService;
 
         RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, Assets.GetIconSource("Icons/Cat--Streamline-Solar-Ar.svg")), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, Assets.GetIconSource("Icons/Fire--Streamline-Solar-Ar.svg")), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, Assets.GetIconSource("Icons/Code-Circle--Streamline-Solar-Ar.svg")), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, Assets.GetIconSource("Icons/Planet--Streamline-Solar-Ar.svg")), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, IconSource.FromAsset(Assets.GetUri("Icons/Cat--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, IconSource.FromAsset(Assets.GetUri("Icons/Code-Circle--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, IconSource.FromAsset(Assets.GetUri("Icons/Planet--Streamline-Solar-Ar.svg"))), IsCurrent);
     }
 
     bool IsCurrent(HeaderRegionModel headerRegionModel)
