@@ -5,6 +5,26 @@ namespace LightKit.Wind;
 
 public static class Wind
 {
+    public enum ListBoxType
+    {
+        None,
+
+        Sidebar
+    }
+
+    public static readonly AttachedProperty<ListBoxType> ListBoxProperty =
+        AvaloniaProperty.RegisterAttached<Control, Control, ListBoxType>("ListBox");
+
+    public static void SetListBox(Control obj, ListBoxType value)
+    {
+        obj.SetValue(ListBoxProperty, value);
+    }
+
+    public static ListBoxType GetListBox(Control obj)
+    {
+        return obj.GetValue(ListBoxProperty);
+    }
+
     public enum TabStripType
     {
         None,
