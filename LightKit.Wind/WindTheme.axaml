@@ -12,6 +12,7 @@
         </ResourceDictionary>
     </Styles.Resources>
     <BaseTheme />
+    <StyleInclude Source="../Styles/Button.axaml" />
     <StyleInclude Source="../Styles/ListBox.axaml" />
     <StyleInclude Source="../Styles/TabStrip.axaml" />
 </Styles>

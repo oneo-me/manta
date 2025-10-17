@@ -1,0 +1,19 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Button Wind.Button="IconButton" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <PathIcon Foreground="{Binding $parent[Button].Foreground}"
+                      Width="10" Height="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+        </Button>
+    </Design.PreviewWith>
+    <Style Selector="Button[(Wind.Button)=IconButton]">
+        <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="8" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+        </Style>
+    </Style>
+</Styles>

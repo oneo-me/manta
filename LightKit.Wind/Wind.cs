@@ -5,6 +5,26 @@ namespace LightKit.Wind;
 
 public static class Wind
 {
+    public enum ButtonType
+    {
+        None,
+
+        IconButton
+    }
+
+    public static readonly AttachedProperty<ButtonType> ButtonProperty =
+        AvaloniaProperty.RegisterAttached<Control, Control, ButtonType>("Button");
+
+    public static void SetButton(Control obj, ButtonType value)
+    {
+        obj.SetValue(ButtonProperty, value);
+    }
+
+    public static ButtonType GetButton(Control obj)
+    {
+        return obj.GetValue(ButtonProperty);
+    }
+
     public enum ListBoxType
     {
         None,

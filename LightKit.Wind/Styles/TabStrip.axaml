@@ -20,7 +20,7 @@
     </Design.PreviewWith>
     <Style Selector="TabStrip[(Wind.TabStrip)=RootTab]">
         <Setter Property="Margin" Value="-1 0 0 -1" />
-        <Style Selector="^ TabStripItem">
+        <Style Selector="^ > TabStripItem">
             <Setter Property="Wind.TabStrip" Value="RootTab" />
         </Style>
     </Style>

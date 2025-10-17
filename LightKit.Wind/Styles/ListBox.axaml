@@ -11,7 +11,7 @@
     </Design.PreviewWith>
     <Style Selector="ListBox[(Wind.ListBox)=Sidebar]">
         <Setter Property="Padding" Value="12" />
-        <Style Selector="^ ListBoxItem">
+        <Style Selector="^ > ListBoxItem">
             <Setter Property="Wind.ListBox" Value="Sidebar" />
         </Style>
     </Style>
