@@ -1,11 +1,11 @@
-<View
+<LightView
     x:Class="LightKit.Demo.Demos.StyleDemos.ColorView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
-    <View.Styles>
-        <Style Selector="PanelExt.CompactColors">
+    <LightView.Styles>
+        <Style Selector="LightPanel.CompactColors">
             <Setter Property="Mode" Value="Vertical" />
             <Setter Property="Spacing" Value="6" />
         </Style>
@@ -15,7 +15,7 @@
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="0 0 12 0" />
             </Style>
-            <Style Selector="^ PanelExt">
+            <Style Selector="^ LightPanel">
                 <Setter Property="Spacing" Value="6" />
                 <Setter Property="Mode" Value="Horizontal" />
             </Style>
@@ -26,20 +26,20 @@
                 <Setter Property="BorderThickness" Value="1" />
             </Style>
         </Style>
-    </View.Styles>
+    </LightView.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <PanelExt Classes="DemoPan" Grid.IsSharedSizeScope="True">
+        <LightPanel Classes="DemoPan" Grid.IsSharedSizeScope="True">
             <TextBlock Classes="DemoInfo" Text="Refs" />
-            <PanelExt Classes="CompactColors">
+            <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Background" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Background}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -47,10 +47,10 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Primary" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Primary}" />
                         <Border Background="{ThemeBrush Primary_Foreground}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -58,10 +58,10 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Success" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Success}" />
                         <Border Background="{ThemeBrush Success_Foreground}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -69,10 +69,10 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Warning" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Warning}" />
                         <Border Background="{ThemeBrush Warning_Foreground}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -80,23 +80,23 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Error" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Error}" />
                         <Border Background="{ThemeBrush Error_Foreground}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
-            </PanelExt>
+            </LightPanel>
             <TextBlock Classes="DemoInfo" Text="Base" />
-            <PanelExt Classes="CompactColors">
+            <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Black" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Black}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -104,20 +104,20 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="White" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush White}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
-            </PanelExt>
+            </LightPanel>
             <TextBlock Classes="DemoInfo" Text="Colors" />
-            <PanelExt Classes="CompactColors">
+            <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Red" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Red50}" />
                         <Border Background="{ThemeBrush Red100}" />
                         <Border Background="{ThemeBrush Red200}" />
@@ -129,7 +129,7 @@
                         <Border Background="{ThemeBrush Red800}" />
                         <Border Background="{ThemeBrush Red900}" />
                         <Border Background="{ThemeBrush Red950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -137,7 +137,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Orange" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Orange50}" />
                         <Border Background="{ThemeBrush Orange100}" />
                         <Border Background="{ThemeBrush Orange200}" />
@@ -149,7 +149,7 @@
                         <Border Background="{ThemeBrush Orange800}" />
                         <Border Background="{ThemeBrush Orange900}" />
                         <Border Background="{ThemeBrush Orange950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -157,7 +157,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Amber" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Amber50}" />
                         <Border Background="{ThemeBrush Amber100}" />
                         <Border Background="{ThemeBrush Amber200}" />
@@ -169,7 +169,7 @@
                         <Border Background="{ThemeBrush Amber800}" />
                         <Border Background="{ThemeBrush Amber900}" />
                         <Border Background="{ThemeBrush Amber950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -177,7 +177,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Yellow" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Yellow50}" />
                         <Border Background="{ThemeBrush Yellow100}" />
                         <Border Background="{ThemeBrush Yellow200}" />
@@ -189,7 +189,7 @@
                         <Border Background="{ThemeBrush Yellow800}" />
                         <Border Background="{ThemeBrush Yellow900}" />
                         <Border Background="{ThemeBrush Yellow950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -197,7 +197,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Lime" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Lime50}" />
                         <Border Background="{ThemeBrush Lime100}" />
                         <Border Background="{ThemeBrush Lime200}" />
@@ -209,7 +209,7 @@
                         <Border Background="{ThemeBrush Lime800}" />
                         <Border Background="{ThemeBrush Lime900}" />
                         <Border Background="{ThemeBrush Lime950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -217,7 +217,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Green" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Green50}" />
                         <Border Background="{ThemeBrush Green100}" />
                         <Border Background="{ThemeBrush Green200}" />
@@ -229,7 +229,7 @@
                         <Border Background="{ThemeBrush Green800}" />
                         <Border Background="{ThemeBrush Green900}" />
                         <Border Background="{ThemeBrush Green950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -237,7 +237,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Emerald" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Emerald50}" />
                         <Border Background="{ThemeBrush Emerald100}" />
                         <Border Background="{ThemeBrush Emerald200}" />
@@ -249,7 +249,7 @@
                         <Border Background="{ThemeBrush Emerald800}" />
                         <Border Background="{ThemeBrush Emerald900}" />
                         <Border Background="{ThemeBrush Emerald950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -257,7 +257,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Teal" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Teal50}" />
                         <Border Background="{ThemeBrush Teal100}" />
                         <Border Background="{ThemeBrush Teal200}" />
@@ -269,7 +269,7 @@
                         <Border Background="{ThemeBrush Teal800}" />
                         <Border Background="{ThemeBrush Teal900}" />
                         <Border Background="{ThemeBrush Teal950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -277,7 +277,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Cyan" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Cyan50}" />
                         <Border Background="{ThemeBrush Cyan100}" />
                         <Border Background="{ThemeBrush Cyan200}" />
@@ -289,7 +289,7 @@
                         <Border Background="{ThemeBrush Cyan800}" />
                         <Border Background="{ThemeBrush Cyan900}" />
                         <Border Background="{ThemeBrush Cyan950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -297,7 +297,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Sky" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Sky50}" />
                         <Border Background="{ThemeBrush Sky100}" />
                         <Border Background="{ThemeBrush Sky200}" />
@@ -309,7 +309,7 @@
                         <Border Background="{ThemeBrush Sky800}" />
                         <Border Background="{ThemeBrush Sky900}" />
                         <Border Background="{ThemeBrush Sky950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -317,7 +317,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Blue" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Blue50}" />
                         <Border Background="{ThemeBrush Blue100}" />
                         <Border Background="{ThemeBrush Blue200}" />
@@ -329,7 +329,7 @@
                         <Border Background="{ThemeBrush Blue800}" />
                         <Border Background="{ThemeBrush Blue900}" />
                         <Border Background="{ThemeBrush Blue950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -337,7 +337,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Indigo" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Indigo50}" />
                         <Border Background="{ThemeBrush Indigo100}" />
                         <Border Background="{ThemeBrush Indigo200}" />
@@ -349,7 +349,7 @@
                         <Border Background="{ThemeBrush Indigo800}" />
                         <Border Background="{ThemeBrush Indigo900}" />
                         <Border Background="{ThemeBrush Indigo950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -357,7 +357,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Violet" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Violet50}" />
                         <Border Background="{ThemeBrush Violet100}" />
                         <Border Background="{ThemeBrush Violet200}" />
@@ -369,7 +369,7 @@
                         <Border Background="{ThemeBrush Violet800}" />
                         <Border Background="{ThemeBrush Violet900}" />
                         <Border Background="{ThemeBrush Violet950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -377,7 +377,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Purple" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Purple50}" />
                         <Border Background="{ThemeBrush Purple100}" />
                         <Border Background="{ThemeBrush Purple200}" />
@@ -389,7 +389,7 @@
                         <Border Background="{ThemeBrush Purple800}" />
                         <Border Background="{ThemeBrush Purple900}" />
                         <Border Background="{ThemeBrush Purple950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -397,7 +397,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Fuchsia" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Fuchsia50}" />
                         <Border Background="{ThemeBrush Fuchsia100}" />
                         <Border Background="{ThemeBrush Fuchsia200}" />
@@ -409,7 +409,7 @@
                         <Border Background="{ThemeBrush Fuchsia800}" />
                         <Border Background="{ThemeBrush Fuchsia900}" />
                         <Border Background="{ThemeBrush Fuchsia950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -417,7 +417,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Pink" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Pink50}" />
                         <Border Background="{ThemeBrush Pink100}" />
                         <Border Background="{ThemeBrush Pink200}" />
@@ -429,7 +429,7 @@
                         <Border Background="{ThemeBrush Pink800}" />
                         <Border Background="{ThemeBrush Pink900}" />
                         <Border Background="{ThemeBrush Pink950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -437,7 +437,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Rose" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Rose50}" />
                         <Border Background="{ThemeBrush Rose100}" />
                         <Border Background="{ThemeBrush Rose200}" />
@@ -449,7 +449,7 @@
                         <Border Background="{ThemeBrush Rose800}" />
                         <Border Background="{ThemeBrush Rose900}" />
                         <Border Background="{ThemeBrush Rose950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -457,7 +457,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Slate" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Slate50}" />
                         <Border Background="{ThemeBrush Slate100}" />
                         <Border Background="{ThemeBrush Slate200}" />
@@ -469,7 +469,7 @@
                         <Border Background="{ThemeBrush Slate800}" />
                         <Border Background="{ThemeBrush Slate900}" />
                         <Border Background="{ThemeBrush Slate950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -477,7 +477,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Gray" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Gray50}" />
                         <Border Background="{ThemeBrush Gray100}" />
                         <Border Background="{ThemeBrush Gray200}" />
@@ -489,7 +489,7 @@
                         <Border Background="{ThemeBrush Gray800}" />
                         <Border Background="{ThemeBrush Gray900}" />
                         <Border Background="{ThemeBrush Gray950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -497,7 +497,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Zinc" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Zinc50}" />
                         <Border Background="{ThemeBrush Zinc100}" />
                         <Border Background="{ThemeBrush Zinc200}" />
@@ -509,7 +509,7 @@
                         <Border Background="{ThemeBrush Zinc800}" />
                         <Border Background="{ThemeBrush Zinc900}" />
                         <Border Background="{ThemeBrush Zinc950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -517,7 +517,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Neutral" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Neutral50}" />
                         <Border Background="{ThemeBrush Neutral100}" />
                         <Border Background="{ThemeBrush Neutral200}" />
@@ -529,7 +529,7 @@
                         <Border Background="{ThemeBrush Neutral800}" />
                         <Border Background="{ThemeBrush Neutral900}" />
                         <Border Background="{ThemeBrush Neutral950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -537,7 +537,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Stone" />
-                    <PanelExt Grid.Column="1">
+                    <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Stone50}" />
                         <Border Background="{ThemeBrush Stone100}" />
                         <Border Background="{ThemeBrush Stone200}" />
@@ -549,9 +549,9 @@
                         <Border Background="{ThemeBrush Stone800}" />
                         <Border Background="{ThemeBrush Stone900}" />
                         <Border Background="{ThemeBrush Stone950}" />
-                    </PanelExt>
+                    </LightPanel>
                 </Grid>
-            </PanelExt>
-        </PanelExt>
+            </LightPanel>
+        </LightPanel>
     </ScrollViewer>
-</View>
+</LightView>

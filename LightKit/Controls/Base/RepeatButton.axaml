@@ -3,9 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <RepeatButton Content="RepeatButton" />
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type RepeatButton}" TargetType="RepeatButton">
         <Setter Property="HorizontalContentAlignment" Value="Center" />

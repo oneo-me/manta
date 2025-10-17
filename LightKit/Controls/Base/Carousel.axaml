@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <Carousel Width="100" Height="100">
                 <Carousel.PageTransition>
                     <PageSlide Duration="0:0:0.1" />
@@ -18,7 +18,7 @@
                     <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
             </Carousel>
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />

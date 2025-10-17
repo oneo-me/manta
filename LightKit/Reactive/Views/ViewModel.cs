@@ -1,11 +1,14 @@
 using System.Reactive.Disposables;
+using Avalonia.Controls;
 using LightKit.Controls;
 
 namespace LightKit.Reactive.Views;
 
 public abstract class ViewModel : Model
 {
-    internal View? InnerView { get; set; }
+    protected static bool IsDesignMode { get; } = Design.IsDesignMode;
+
+    internal LightView? InnerView { get; set; }
 
     bool _isInitialized;
 

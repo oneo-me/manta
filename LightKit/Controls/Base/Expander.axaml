@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
-            <AutoGrid Definitions="*,*" Spacing="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightAutoGrid Definitions="*,*" Spacing="12">
                 <Expander Header="Expanded Left" Content="Expanded Content" ExpandDirection="Left" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
                 <Expander Header="Expanded Right" Content="Expanded Content" ExpandDirection="Right" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
                 <Expander Header="Expanded Up" Content="Expanded Content" ExpandDirection="Up" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
                 <Expander Header="Expanded Down" Content="Expanded Content" ExpandDirection="Down" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
-            </AutoGrid>
-        </PanelExt>
+            </LightAutoGrid>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="ExpanderToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />

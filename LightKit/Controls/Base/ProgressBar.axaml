@@ -4,20 +4,20 @@
     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12" Width="180">
-            <PanelExt Mode="Vertical" Spacing="12" Width="180">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12" Width="180">
+            <LightPanel Mode="Vertical" Spacing="12" Width="180">
                 <ProgressBar Value="50" Maximum="100" />
                 <ProgressBar IsIndeterminate="True" />
                 <ProgressBar ShowProgressText="True" Value="50" Maximum="100" />
                 <ProgressBar ShowProgressText="True" IsIndeterminate="True" />
-            </PanelExt>
-            <PanelExt Mode="Horizontal" Spacing="12" Height="120" HorizontalAlignment="Center">
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Height="120" HorizontalAlignment="Center">
                 <ProgressBar Orientation="Vertical" Value="50" Maximum="100" />
                 <ProgressBar Orientation="Vertical" IsIndeterminate="True" />
                 <ProgressBar ShowProgressText="True" Orientation="Vertical" Value="50" Maximum="100" />
                 <ProgressBar ShowProgressText="True" Orientation="Vertical" IsIndeterminate="True" />
-            </PanelExt>
-        </PanelExt>
+            </LightPanel>
+        </LightPanel>
     </Design.PreviewWith>
     <converters:StringFormatConverter x:Key="ProgressBarStringFormatConverter" />
     <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">

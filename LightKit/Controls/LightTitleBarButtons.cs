@@ -11,7 +11,7 @@ namespace LightKit.Controls;
 
 [TemplatePart(nameof(PART_Buttons), typeof(Panel))]
 [SuppressMessage("Design", "CA1001:Types that own disposable fields should be disposable")]
-public class TitleBarButtons : ContentControl
+public class LightTitleBarButtons : ContentControl
 {
     Panel? PART_Buttons;
 

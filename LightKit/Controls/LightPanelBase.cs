@@ -4,10 +4,10 @@ using Avalonia.Controls;
 
 namespace LightKit.Controls;
 
-public abstract class PanelExtBase : Panel
+public abstract class LightPanelBase : Panel
 {
     public static readonly StyledProperty<double> SpacingProperty =
-        AvaloniaProperty.Register<PanelExtBase, double>(nameof(Spacing));
+        AvaloniaProperty.Register<LightPanelBase, double>(nameof(Spacing));
 
     public double Spacing
     {
@@ -15,7 +15,7 @@ public abstract class PanelExtBase : Panel
         set => SetValue(SpacingProperty, value);
     }
 
-    public static readonly StyledProperty<bool> ReverseOrderProperty = AvaloniaProperty.Register<PanelExtBase, bool>(
+    public static readonly StyledProperty<bool> ReverseOrderProperty = AvaloniaProperty.Register<LightPanelBase, bool>(
         nameof(ReverseOrder));
 
     public bool ReverseOrder
@@ -24,10 +24,10 @@ public abstract class PanelExtBase : Panel
         set => SetValue(ReverseOrderProperty, value);
     }
 
-    static PanelExtBase()
+    static LightPanelBase()
     {
-        AffectsMeasure<PanelExtBase>(SpacingProperty, ReverseOrderProperty);
-        AffectsArrange<PanelExtBase>(SpacingProperty, ReverseOrderProperty);
+        AffectsMeasure<LightPanelBase>(SpacingProperty, ReverseOrderProperty);
+        AffectsArrange<LightPanelBase>(SpacingProperty, ReverseOrderProperty);
     }
 
     public static void ForeachItems(ReadOnlyCollection<Control> children, int column, Action<int, Control[]> action)

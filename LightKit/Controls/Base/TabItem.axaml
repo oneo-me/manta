@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
-            <AutoGrid Definitions="*,*" Spacing="12">
+        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
+            <LightAutoGrid Definitions="*,*" Spacing="12">
                 <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <TextBlock Text="Content 1" Margin="12 50" />
@@ -49,8 +49,8 @@
                         <TextBlock Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-            </AutoGrid>
-        </PanelExt>
+            </LightAutoGrid>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="HorizontalContentAlignment" Value="Center" />

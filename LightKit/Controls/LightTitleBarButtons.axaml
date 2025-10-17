@@ -4,10 +4,10 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <StackPanel Orientation="Vertical" Spacing="12" Margin="12">
-            <TitleBarButtons />
+            <LightTitleBarButtons />
         </StackPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type TitleBarButtons}" TargetType="TitleBarButtons">
+    <ControlTheme x:Key="{x:Type LightTitleBarButtons}" TargetType="LightTitleBarButtons">
         <Setter Property="Height" Value="38" />
         <Setter Property="Template">
             <ControlTemplate>

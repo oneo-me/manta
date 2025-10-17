@@ -9,7 +9,7 @@ using SkiaSharp;
 
 namespace LightKit.Controls;
 
-public class BackgroundBlur : ContentControl
+public class LightBackground : ContentControl
 {
     [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
     public override void Render(DrawingContext context)

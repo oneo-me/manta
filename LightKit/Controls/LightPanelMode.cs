@@ -1,6 +1,6 @@
 namespace LightKit.Controls;
 
-public enum PanelExtMode
+public enum LightPanelMode
 {
     Vertical,
     Horizontal,

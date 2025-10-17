@@ -6,7 +6,7 @@ namespace LightKit.Controls.Panels;
 
 static class VerticalLayout
 {
-    public static Size Measure(PanelExt panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
 
@@ -28,7 +28,7 @@ static class VerticalLayout
         return result;
     }
 
-    public static void Arrange(PanelExt panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
 

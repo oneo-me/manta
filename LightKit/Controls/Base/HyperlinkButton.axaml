@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" />
             <HyperlinkButton Content="HyperlinkButton" NavigateUri="https://github.com" IsVisited="True" />
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
         <Setter Property="Cursor" Value="Hand" />

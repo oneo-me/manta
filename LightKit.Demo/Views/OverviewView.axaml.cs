@@ -2,7 +2,7 @@ using LightKit.Controls;
 
 namespace LightKit.Demo.Views;
 
-sealed partial class OverviewView : View
+sealed partial class OverviewView : LightView
 {
     public OverviewView()
     {

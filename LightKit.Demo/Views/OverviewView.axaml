@@ -1,11 +1,11 @@
-<View
+<LightView
     x:Class="LightKit.Demo.Views.OverviewView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Views"
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     x:Name="View">
-    <View.Styles>
+    <LightView.Styles>
         <Style Selector="Button.Button">
             <Setter Property="Padding" Value="12 6" />
             <Setter Property="BorderThickness" Value="1" />
@@ -23,15 +23,15 @@
                 <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.3}" />
             </Style>
         </Style>
-    </View.Styles>
-    <PanelExt Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+    </LightView.Styles>
+    <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="{Lang {x:Static LangKey.Title}}" HorizontalAlignment="Center"
                    FontSize="{ThemeFontSize XL6}" FontWeight="{ThemeFontWeight Extralight}" LineHeight="{ThemeFontHeight XL6}" LetterSpacing="{ThemeFontSpacing Wider}" />
         <TextBlock Text="{Lang {x:Static LangKey.Description}}" />
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <PanelExt Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
+                    <LightPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
@@ -45,7 +45,7 @@
         <ItemsControl ItemsSource="{Binding SupportedLanguages}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <PanelExt Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
+                    <LightPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
@@ -53,13 +53,13 @@
                     <Button Classes="Button"
                             Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
                             CommandParameter="{Binding}">
-                        <PanelExt Mode="Horizontal" Spacing="6">
+                        <LightPanel Mode="Horizontal" Spacing="6">
                             <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
                             <TextBlock Text="{LangName {Binding}}" VerticalAlignment="Center" />
-                        </PanelExt>
+                        </LightPanel>
                     </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-    </PanelExt>
-</View>
+    </LightPanel>
+</LightView>

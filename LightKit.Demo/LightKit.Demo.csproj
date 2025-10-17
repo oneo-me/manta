@@ -7,7 +7,7 @@
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\LightKit\LightKit.csproj" />
+        <ProjectReference Include="..\LightKit.Wind\LightKit.Wind.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.1" PrivateAssets="all" />

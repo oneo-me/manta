@@ -5,9 +5,9 @@ using LightKit.Reactive.Views;
 
 namespace LightKit.Controls;
 
-public class ViewModelHost : ContentControl
+public class LightViewHost : ContentControl
 {
-    public static readonly StyledProperty<Type?> ViewModelTypeProperty = AvaloniaProperty.Register<ViewModelHost, Type?>(
+    public static readonly StyledProperty<Type?> ViewModelTypeProperty = AvaloniaProperty.Register<LightViewHost, Type?>(
         nameof(ViewModelType));
 
     public Type? ViewModelType
@@ -16,7 +16,7 @@ public class ViewModelHost : ContentControl
         set => SetValue(ViewModelTypeProperty, value);
     }
 
-    public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<ViewModelHost, ViewModel?>(
+    public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<LightViewHost, ViewModel?>(
         nameof(ViewModel));
 
     public ViewModel? ViewModel

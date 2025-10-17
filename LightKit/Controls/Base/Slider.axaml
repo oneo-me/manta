@@ -3,24 +3,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
-            <PanelExt Mode="Vertical" Spacing="12" Width="180">
+        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
+            <LightPanel Mode="Vertical" Spacing="12" Width="180">
                 <Slider IsDirectionReversed="False" Value="50" />
                 <Slider IsDirectionReversed="True" Value="50" />
                 <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" />
                 <Slider Value="50" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10" />
                 <Slider Value="50" TickPlacement="Outside" TickFrequency="10" />
                 <Slider IsEnabled="False" Value="50" />
-            </PanelExt>
-            <PanelExt Mode="Horizontal" Spacing="12" Height="120" VerticalAlignment="Top">
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Height="120" VerticalAlignment="Top">
                 <Slider Value="50" Orientation="Vertical" />
                 <Slider IsDirectionReversed="True" Value="50" Orientation="Vertical" />
                 <Slider IsEnabled="False" Orientation="Vertical" Value="50" />
                 <Slider Value="50" TickPlacement="TopLeft" TickFrequency="10" Orientation="Vertical" />
                 <Slider Value="50" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10" Orientation="Vertical" />
                 <Slider Value="50" TickPlacement="Outside" TickFrequency="10" Orientation="Vertical" />
-            </PanelExt>
-        </PanelExt>
+            </LightPanel>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="SliderRepeatButton" TargetType="RepeatButton">
         <Setter Property="Background" Value="{ThemeBrush Background}" />
@@ -57,7 +57,7 @@
         <Setter Property="CornerRadius" Value="100" />
         <Setter Property="Template">
             <ControlTemplate>
-                <PanelExt x:Name="Root" Background="#00000000">
+                <LightPanel x:Name="Root" Background="#00000000">
                     <TickBar
                         x:Name="TopTickBar"
                         Ticks="{TemplateBinding Ticks}"
@@ -102,10 +102,10 @@
                         Orientation="{TemplateBinding Slider.Orientation}"
                         Minimum="{TemplateBinding Slider.Minimum}"
                         Maximum="{TemplateBinding Slider.Maximum}" />
-                </PanelExt>
+                </LightPanel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ PanelExt#Root">
+        <Style Selector="^ /template/ LightPanel#Root">
             <Setter Property="Spacing" Value="10" />
         </Style>
         <Style Selector="^ /template/ TickBar">
@@ -140,12 +140,12 @@
                 </Style>
             </Style>
         </Style>
-        <Style Selector="^ /template/ PanelExt#Root">
+        <Style Selector="^ /template/ LightPanel#Root">
             <Setter Property="Mode" Value="Vertical" />
             <Setter Property="Margin" Value="9 0" />
         </Style>
         <Style Selector="^:horizontal">
-            <Style Selector="^ /template/ PanelExt#Root">
+            <Style Selector="^ /template/ LightPanel#Root">
                 <Setter Property="Mode" Value="Vertical" />
                 <Setter Property="Margin" Value="9 0" />
             </Style>
@@ -172,7 +172,7 @@
             </Style>
         </Style>
         <Style Selector="^:vertical">
-            <Style Selector="^ /template/ PanelExt#Root">
+            <Style Selector="^ /template/ LightPanel#Root">
                 <Setter Property="Mode" Value="Horizontal" />
                 <Setter Property="Margin" Value="0 9" />
             </Style>

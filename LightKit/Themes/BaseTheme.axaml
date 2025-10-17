@@ -59,10 +59,10 @@
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/PixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/ProgressRing.axaml" />
-                <MergeResourceInclude Source="../Controls/ReactiveWindow.axaml" />
+                <MergeResourceInclude Source="../Controls/LightWindow.axaml" />
                 <MergeResourceInclude Source="../Controls/Ring.axaml" />
                 <MergeResourceInclude Source="../Controls/TitleBarButton.axaml" />
-                <MergeResourceInclude Source="../Controls/TitleBarButtons.axaml" />
+                <MergeResourceInclude Source="../Controls/LightTitleBarButtons.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

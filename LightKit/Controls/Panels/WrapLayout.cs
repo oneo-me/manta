@@ -6,7 +6,7 @@ namespace LightKit.Controls.Panels;
 
 static class WrapLayout
 {
-    public static Size Measure(PanelExt panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
         var result = new Size();
@@ -42,7 +42,7 @@ static class WrapLayout
         return result;
     }
 
-    public static void Arrange(PanelExt panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var width = finalSize.Width;
@@ -71,7 +71,7 @@ static class WrapLayout
         }
     }
 
-    public static void ArrangeFull(PanelExt panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void ArrangeFull(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var width = finalSize.Width;

@@ -1,27 +1,25 @@
 using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
 using Avalonia;
 using Avalonia.Controls;
 using LightKit.Controls.Panels;
 
 namespace LightKit.Controls;
 
-public class AutoGrid : PanelExtBase
+public class LightAutoGrid : LightPanelBase
 {
     public static readonly StyledProperty<ColumnDefinitions?> DefinitionsProperty =
-        AvaloniaProperty.Register<AutoGrid, ColumnDefinitions?>(nameof(Definitions));
+        AvaloniaProperty.Register<LightAutoGrid, ColumnDefinitions?>(nameof(Definitions));
 
-    [SuppressMessage("Usage", "CA2227:集合属性应为只读")]
     public ColumnDefinitions? Definitions
     {
         get => GetValue(DefinitionsProperty);
         set => SetValue(DefinitionsProperty, value);
     }
 
-    static AutoGrid()
+    static LightAutoGrid()
     {
-        AffectsMeasure<AutoGrid>(DefinitionsProperty);
-        AffectsArrange<AutoGrid>(DefinitionsProperty);
+        AffectsMeasure<LightAutoGrid>(DefinitionsProperty);
+        AffectsArrange<LightAutoGrid>(DefinitionsProperty);
     }
 
     protected override Size MeasureOverride(ReadOnlyCollection<Control> children, Size availableSize)

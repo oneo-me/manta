@@ -1,13 +1,13 @@
-<View
+<LightView
     x:Class="LightKit.Demo.Demos.StyleDemos.FontView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <PanelExt Classes="DemoPan">
+        <LightPanel Classes="DemoPan">
             <TextBlock Classes="DemoInfo" Text="FontSpacings" />
-            <PanelExt Classes="DemoPanChild">
+            <LightPanel Classes="DemoPanChild">
                 <TextBlock LetterSpacing="{ThemeFontSpacing Tighter}">
                     <Run Classes="DemoInfoKey" Text="Tighter: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
@@ -32,9 +32,9 @@
                     <Run Classes="DemoInfoKey" Text="Widest: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
                 </TextBlock>
-            </PanelExt>
+            </LightPanel>
             <TextBlock Classes="DemoInfo" Text="FontWeights" />
-            <PanelExt Classes="DemoPanChild">
+            <LightPanel Classes="DemoPanChild">
                 <TextBlock FontWeight="{ThemeFontWeight Thin}">
                     <Run Classes="DemoInfoKey" Text="Thin: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
@@ -71,9 +71,9 @@
                     <Run Classes="DemoInfoKey" Text="Black: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
                 </TextBlock>
-            </PanelExt>
+            </LightPanel>
             <TextBlock Classes="DemoInfo" Text="FontSizes" />
-            <PanelExt Classes="DemoPanChild">
+            <LightPanel Classes="DemoPanChild">
                 <TextBlock FontSize="{ThemeFontSize SM}" LineHeight="{ThemeFontHeight SM}">
                     <Run Classes="DemoInfoKey" Text="SM: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
@@ -122,7 +122,7 @@
                     <Run Classes="DemoInfoKey" Text="XL9: " />
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
                 </TextBlock>
-            </PanelExt>
-        </PanelExt>
+            </LightPanel>
+        </LightPanel>
     </ScrollViewer>
-</View>
+</LightView>

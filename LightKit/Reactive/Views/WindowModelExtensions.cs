@@ -7,7 +7,7 @@ public static class WindowModelExtensions
 {
     public static Window CreateWindow(this WindowModel windowModel)
     {
-        var result = new ReactiveWindow
+        var result = new LightWindow
         {
             Content = windowModel.CreateView()
         };

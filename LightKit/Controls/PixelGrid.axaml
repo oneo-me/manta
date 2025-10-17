@@ -4,7 +4,7 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <Panel Background="{ThemeBrush Background}">
-            <PanelExt Mode="Horizontal" Spacing="12" Margin="12">
+            <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
                 <Border BorderThickness="{ThemeThickness Normal}">
                     <PixelGrid Width="100" Height="100" />
                 </Border>
@@ -14,7 +14,7 @@
                 <Border BorderThickness="{ThemeThickness Normal}">
                     <PixelGrid Width="100" Height="100" Foreground="Blue" Opacity="0.5" />
                 </Border>
-            </PanelExt>
+            </LightPanel>
         </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type PixelGrid}" TargetType="PixelGrid">

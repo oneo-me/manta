@@ -78,7 +78,7 @@ static class AutoGridLayout
         }
     }
 
-    public static Size Measure(AutoGrid panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(LightAutoGrid panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
         var definitions = panel.Definitions is null || panel.Definitions.Count < 0 ? [new(GridLength.Star)] : panel.Definitions;
@@ -110,7 +110,7 @@ static class AutoGridLayout
         return new(maxRowWidth, height + spacing * (rowCount - 1));
     }
 
-    public static void Arrange(AutoGrid panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(LightAutoGrid panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var definitions = panel.Definitions is null || panel.Definitions.Count < 0 ? [new(GridLength.Star)] : panel.Definitions;

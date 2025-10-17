@@ -16,7 +16,7 @@
             <SolidColorBrush x:Key="MacBackground" Color="#666666" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
-    <ControlTheme x:Key="{x:Type ReactiveWindow}" TargetType="ReactiveWindow">
+    <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
         <Setter Property="Title" Value="LightKit" />
         <Setter Property="FontSize" Value="{ThemeFontSize Base}" />
         <Setter Property="FontWeight" Value="{ThemeFontWeight Normal}" />

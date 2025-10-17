@@ -5,7 +5,7 @@
     xmlns:converters1="clr-namespace:LightKit.Converters"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <ProgressRing Value="50" Maximum="100" />
             <ProgressRing Value="50" Maximum="100" />
             <ProgressRing IsIndeterminate="True" />
@@ -13,7 +13,7 @@
             <ProgressRing ShowProgressText="True" IsIndeterminate="True">
                 <Border Background="Beige" Width="300" Height="300" />
             </ProgressRing>
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <converters1:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
     <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />

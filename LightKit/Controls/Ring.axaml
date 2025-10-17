@@ -2,11 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <Ring Value="0" />
             <Ring Value="50" />
             <Ring Value="100" />
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Ring}" TargetType="Ring">
         <Setter Property="Foreground" Value="{ThemeBrush Primary}" />

@@ -1,9 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia;
 
-namespace LightKit.Controls;
+namespace LightKit.Avalonia;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public static class CurrentSystem
 {
     public static readonly AttachedProperty<bool> IsWindowsProperty =
@@ -22,9 +21,11 @@ public static class CurrentSystem
         return obj.GetValue(IsLinuxProperty);
     }
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public static readonly AttachedProperty<bool> IsMacOSProperty =
         AvaloniaProperty.RegisterAttached<AvaloniaObject, AvaloniaObject, bool>("IsMacOS", OperatingSystem.IsMacOS());
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public static bool GetIsMacOS(AvaloniaObject obj)
     {
         return obj.GetValue(IsMacOSProperty);

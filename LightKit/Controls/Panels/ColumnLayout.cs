@@ -6,7 +6,7 @@ namespace LightKit.Controls.Panels;
 
 static class ColumnLayout
 {
-    public static Size Measure(PanelExt panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : (availableSize.Width + spacing) / ((panel.ColumnSize > 0 ? panel.ColumnSize : 120d) + spacing)));
@@ -16,7 +16,7 @@ static class ColumnLayout
 
         var maxHeight = 0d;
 
-        PanelExtBase.ForeachItems(children, column, (_, items) =>
+        LightPanelBase.ForeachItems(children, column, (_, items) =>
         {
             var height = 0d;
 
@@ -34,7 +34,7 @@ static class ColumnLayout
         return result;
     }
 
-    public static void Arrange(PanelExt panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : (finalSize.Width + spacing) / ((panel.ColumnSize > 0 ? panel.ColumnSize : 120d) + spacing)));
@@ -42,7 +42,7 @@ static class ColumnLayout
 
         var top = 0d;
 
-        PanelExtBase.ForeachItems(children, column, (_, items) =>
+        LightPanelBase.ForeachItems(children, column, (_, items) =>
         {
             var height = 0d;
 

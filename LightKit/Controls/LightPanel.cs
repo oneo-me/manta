@@ -6,19 +6,19 @@ using LightKit.Controls.Panels;
 
 namespace LightKit.Controls;
 
-public class PanelExt : PanelExtBase
+public class LightPanel : LightPanelBase
 {
-    public static readonly StyledProperty<PanelExtMode> ModeProperty =
-        AvaloniaProperty.Register<PanelExt, PanelExtMode>(nameof(Mode));
+    public static readonly StyledProperty<LightPanelMode> ModeProperty =
+        AvaloniaProperty.Register<LightPanel, LightPanelMode>(nameof(Mode));
 
-    public PanelExtMode Mode
+    public LightPanelMode Mode
     {
         get => GetValue(ModeProperty);
         set => SetValue(ModeProperty, value);
     }
 
     public static readonly StyledProperty<int> ColumnProperty =
-        AvaloniaProperty.Register<PanelExt, int>(nameof(Column));
+        AvaloniaProperty.Register<LightPanel, int>(nameof(Column));
 
     public int Column
     {
@@ -27,7 +27,7 @@ public class PanelExt : PanelExtBase
     }
 
     public static readonly StyledProperty<double> ColumnSizeProperty =
-        AvaloniaProperty.Register<PanelExt, double>(nameof(ColumnSize));
+        AvaloniaProperty.Register<LightPanel, double>(nameof(ColumnSize));
 
     public double ColumnSize
     {
@@ -35,10 +35,10 @@ public class PanelExt : PanelExtBase
         set => SetValue(ColumnSizeProperty, value);
     }
 
-    static PanelExt()
+    static LightPanel()
     {
-        AffectsMeasure<PanelExt>(ModeProperty, ColumnProperty, ColumnSizeProperty);
-        AffectsArrange<PanelExt>(ModeProperty, ColumnProperty, ColumnSizeProperty);
+        AffectsMeasure<LightPanel>(ModeProperty, ColumnProperty, ColumnSizeProperty);
+        AffectsArrange<LightPanel>(ModeProperty, ColumnProperty, ColumnSizeProperty);
     }
 
     [SuppressMessage("Usage", "CA2208:Instantiate argument exceptions correctly")]
@@ -46,13 +46,13 @@ public class PanelExt : PanelExtBase
     {
         return Mode switch
         {
-            PanelExtMode.Horizontal    => HorizontalLayout.Measure(this, children, availableSize),
-            PanelExtMode.Vertical      => VerticalLayout.Measure(this, children, availableSize),
-            PanelExtMode.Wrap          => WrapLayout.Measure(this, children, availableSize),
-            PanelExtMode.WrapFull      => WrapLayout.Measure(this, children, availableSize),
-            PanelExtMode.Column        => ColumnLayout.Measure(this, children, availableSize),
-            PanelExtMode.Waterfall     => WaterfallLayout.Measure(this, children, availableSize, false),
-            PanelExtMode.WaterfallBest => WaterfallLayout.Measure(this, children, availableSize, true),
+            LightPanelMode.Horizontal    => HorizontalLayout.Measure(this, children, availableSize),
+            LightPanelMode.Vertical      => VerticalLayout.Measure(this, children, availableSize),
+            LightPanelMode.Wrap          => WrapLayout.Measure(this, children, availableSize),
+            LightPanelMode.WrapFull      => WrapLayout.Measure(this, children, availableSize),
+            LightPanelMode.Column        => ColumnLayout.Measure(this, children, availableSize),
+            LightPanelMode.Waterfall     => WaterfallLayout.Measure(this, children, availableSize, false),
+            LightPanelMode.WaterfallBest => WaterfallLayout.Measure(this, children, availableSize, true),
 
             _ => throw new ArgumentOutOfRangeException(nameof(Mode))
         };
@@ -63,31 +63,31 @@ public class PanelExt : PanelExtBase
     {
         switch (Mode)
         {
-            case PanelExtMode.Horizontal:
+            case LightPanelMode.Horizontal:
                 HorizontalLayout.Arrange(this, children, finalSize);
                 break;
 
-            case PanelExtMode.Vertical:
+            case LightPanelMode.Vertical:
                 VerticalLayout.Arrange(this, children, finalSize);
                 break;
 
-            case PanelExtMode.Wrap:
+            case LightPanelMode.Wrap:
                 WrapLayout.Arrange(this, children, finalSize);
                 break;
 
-            case PanelExtMode.WrapFull:
+            case LightPanelMode.WrapFull:
                 WrapLayout.ArrangeFull(this, children, finalSize);
                 break;
 
-            case PanelExtMode.Column:
+            case LightPanelMode.Column:
                 ColumnLayout.Arrange(this, children, finalSize);
                 break;
 
-            case PanelExtMode.Waterfall:
+            case LightPanelMode.Waterfall:
                 WaterfallLayout.Arrange(this, children, finalSize, false);
                 break;
 
-            case PanelExtMode.WaterfallBest:
+            case LightPanelMode.WaterfallBest:
                 WaterfallLayout.Arrange(this, children, finalSize, true);
                 break;
 

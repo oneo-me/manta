@@ -1,13 +1,13 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
 using LightKit.Controls.Icons;
+using LightKit.Demo.Langs;
+using LightKit.Demo.Reactive;
+using LightKit.Demo.Services;
 using LightKit.Globalization;
 using LightKit.Reactive.Regions;
 using LightKit.Reactive.Services;
 using LightKit.Reactive.Views;
-using LightKit.Demo.Langs;
-using LightKit.Demo.Reactive;
-using LightKit.Demo.Services;
 
 namespace LightKit.Demo.Views;
 
@@ -55,7 +55,7 @@ sealed class Main_Model : WindowModel
             view.TitleBar.Height = 38 + view.TitleBar.BorderThickness.Top + view.TitleBar.BorderThickness.Bottom;
             view.TitleBarButtons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
             if (OperatingSystem.IsMacOS())
-                view.TitleBar.Padding = new(Avalonia.Controls.Design.IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
+                view.TitleBar.Padding = new(IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
         });
     }
 

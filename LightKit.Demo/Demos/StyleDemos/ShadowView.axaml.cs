@@ -2,7 +2,7 @@ using LightKit.Controls;
 
 namespace LightKit.Demo.Demos.StyleDemos;
 
-sealed partial class ShadowView : View
+sealed partial class ShadowView : LightView
 {
     public ShadowView()
     {

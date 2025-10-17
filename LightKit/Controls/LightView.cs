@@ -7,7 +7,7 @@ using LightKit.Reactive.Views;
 namespace LightKit.Controls;
 
 [SuppressMessage("Design", "CA1001:具有可释放字段的类型应该是可释放的")]
-public class View : ContentControl
+public class LightView : ContentControl
 {
     CompositeDisposable? _disposables;
 

@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <PanelExt Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <ScrollViewer Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
                 <Border Background="Aquamarine" Width="300" Height="300" Margin="0 30" />
             </ScrollViewer>
             <ScrollViewer Padding="30" Width="100" Height="100" BorderThickness="10" CornerRadius="10" BorderBrush="Red">
                 <Border Background="Aquamarine" Width="300" Height="300" />
             </ScrollViewer>
-        </PanelExt>
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
