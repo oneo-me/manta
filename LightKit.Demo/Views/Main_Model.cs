@@ -4,6 +4,7 @@ using LightKit.Controls.Icons;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Demo.Services;
+using LightKit.Extensions;
 using LightKit.Globalization;
 using LightKit.Reactive.Regions;
 using LightKit.Reactive.Services;

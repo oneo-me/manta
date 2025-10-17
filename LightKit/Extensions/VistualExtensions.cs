@@ -7,8 +7,9 @@ using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
 using LightKit.Reactive.Extensions;
+using Observable = LightKit.Reactive.Extensions.Observable;
 
-namespace LightKit.Reactive.Views;
+namespace LightKit.Extensions;
 
 public static class VisualExtensions
 {
@@ -46,24 +47,11 @@ public static class VisualExtensions
             return Disposable.Empty;
 
         var inputElement = func(view);
+        inputElement.EnsureBackground();
+
         var disposables = new CompositeDisposable();
 
-        switch (inputElement)
-        {
-            case TemplatedControl templatedControl:
-                templatedControl.Background ??= new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-                break;
-
-            case Border border:
-                border.Background ??= new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-                break;
-
-            case Panel panel:
-                panel.Background ??= new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-                break;
-        }
-
-        Extensions.Observable.FromEventHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
+        Observable.FromEventHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
             {
                 if (window.CanResize is false)
                     return;
@@ -75,12 +63,32 @@ public static class VisualExtensions
             })
             .DisposeWith(disposables);
 
-        Extensions.Observable.FromEventHandler<PointerPressedEventArgs>(x => inputElement.PointerPressed += x, x => inputElement.PointerPressed -= x).Subscribe(x =>
+        Observable.FromEventHandler<PointerPressedEventArgs>(x => inputElement.PointerPressed += x, x => inputElement.PointerPressed -= x).Subscribe(x =>
             {
                 window.BeginMoveDrag(x.args);
             })
             .DisposeWith(disposables);
 
         return disposables;
+    }
+
+    static readonly SolidColorBrush _transparentBrush = new(Color.FromArgb(0, 0, 0, 0));
+
+    public static void EnsureBackground(this InputElement inputElement)
+    {
+        switch (inputElement)
+        {
+            case TemplatedControl templatedControl:
+                templatedControl.Background ??= _transparentBrush;
+                break;
+
+            case Border border:
+                border.Background ??= _transparentBrush;
+                break;
+
+            case Panel panel:
+                panel.Background ??= _transparentBrush;
+                break;
+        }
     }
 }

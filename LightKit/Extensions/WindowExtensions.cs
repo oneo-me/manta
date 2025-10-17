@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace LightKit.Reactive.Views;
+namespace LightKit.Extensions;
 
 public static class WindowExtensions
 {
