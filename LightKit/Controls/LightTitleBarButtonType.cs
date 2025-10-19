@@ -1,6 +1,6 @@
 namespace LightKit.Controls;
 
-public enum TitleBarButtonType
+public enum LightTitleBarButtonType
 {
     None,
 

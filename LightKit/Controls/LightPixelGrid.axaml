@@ -6,18 +6,18 @@
         <Panel Background="{ThemeBrush Background}">
             <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
                 <Border BorderThickness="{ThemeThickness Normal}">
-                    <PixelGrid Width="100" Height="100" />
+                    <LightPixelGrid Width="100" Height="100" />
                 </Border>
                 <Border BorderThickness="{ThemeThickness Normal}">
-                    <PixelGrid Width="100" Height="100" Foreground="Red" />
+                    <LightPixelGrid Width="100" Height="100" Foreground="Red" />
                 </Border>
                 <Border BorderThickness="{ThemeThickness Normal}">
-                    <PixelGrid Width="100" Height="100" Foreground="Blue" Opacity="0.5" />
+                    <LightPixelGrid Width="100" Height="100" Foreground="Blue" Opacity="0.5" />
                 </Border>
             </LightPanel>
         </Panel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type PixelGrid}" TargetType="PixelGrid">
+    <ControlTheme x:Key="{x:Type LightPixelGrid}" TargetType="LightPixelGrid">
         <Setter Property="Background" Value="{ThemeBrush Background}" />
         <Setter Property="Opacity" Value="0.1" />
         <Setter Property="Template">

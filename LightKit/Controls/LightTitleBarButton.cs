@@ -3,18 +3,18 @@ using Avalonia.Controls;
 
 namespace LightKit.Controls;
 
-public class TitleBarButton : Button
+public class LightTitleBarButton : Button
 {
-    public static readonly StyledProperty<TitleBarButtonType> TypeProperty = AvaloniaProperty.Register<TitleBarButton, TitleBarButtonType>(
+    public static readonly StyledProperty<LightTitleBarButtonType> TypeProperty = AvaloniaProperty.Register<LightTitleBarButton, LightTitleBarButtonType>(
         nameof(Type));
 
-    public TitleBarButtonType Type
+    public LightTitleBarButtonType Type
     {
         get => GetValue(TypeProperty);
         set => SetValue(TypeProperty, value);
     }
 
-    public static readonly StyledProperty<Thickness> InnerMarginProperty = AvaloniaProperty.Register<TitleBarButton, Thickness>(
+    public static readonly StyledProperty<Thickness> InnerMarginProperty = AvaloniaProperty.Register<LightTitleBarButton, Thickness>(
         nameof(InnerMargin));
 
     public Thickness InnerMargin

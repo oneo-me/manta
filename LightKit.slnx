@@ -12,6 +12,5 @@
   </Folder>
   <Project Path="LightKit.Demo\LightKit.Demo.csproj" Type="Classic C#" />
   <Project Path="LightKit.Generators\LightKit.Generators.csproj" Type="Classic C#" />
-  <Project Path="LightKit.Wind\LightKit.Wind.csproj" Type="Classic C#" />
   <Project Path="LightKit\LightKit.csproj" Type="Classic C#" />
 </Solution>

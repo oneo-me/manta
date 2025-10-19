@@ -12,10 +12,10 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel x:Name="PART_Buttons" Orientation="Horizontal">
-                    <TitleBarButton Type="FullScreen" IsVisible="False" />
-                    <TitleBarButton Type="Minimize" />
-                    <TitleBarButton Type="Maximize" />
-                    <TitleBarButton Type="Close" />
+                    <LightTitleBarButton Type="FullScreen" IsVisible="False" />
+                    <LightTitleBarButton Type="Minimize" />
+                    <LightTitleBarButton Type="Maximize" />
+                    <LightTitleBarButton Type="Close" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>

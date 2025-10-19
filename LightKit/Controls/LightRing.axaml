@@ -3,12 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Ring Value="0" />
-            <Ring Value="50" />
-            <Ring Value="100" />
+            <LightRing Value="0" />
+            <LightRing Value="50" />
+            <LightRing Value="100" />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type Ring}" TargetType="Ring">
+    <ControlTheme x:Key="{x:Type LightRing}" TargetType="LightRing">
         <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
         <Setter Property="Background" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
         <Setter Property="Size" Value="60" />

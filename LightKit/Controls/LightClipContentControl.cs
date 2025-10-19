@@ -8,9 +8,9 @@ namespace LightKit.Controls;
 
 [TemplatePart(Name = "PART_Border", Type = typeof(Border))]
 [TemplatePart(Name = "PART_Host", Type = typeof(Border))]
-public class ClipContentControl : ContentControl
+public class LightClipContentControl : ContentControl
 {
-    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<ClipContentControl, BoxShadows>(
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<LightClipContentControl, BoxShadows>(
         nameof(BoxShadow));
 
     public BoxShadows BoxShadow

@@ -6,18 +6,18 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ProgressRing Value="50" Maximum="100" />
-            <ProgressRing Value="50" Maximum="100" />
-            <ProgressRing IsIndeterminate="True" />
-            <ProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-            <ProgressRing ShowProgressText="True" IsIndeterminate="True">
+            <LightProgressRing Value="50" Maximum="100" />
+            <LightProgressRing Value="50" Maximum="100" />
+            <LightProgressRing IsIndeterminate="True" />
+            <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+            <LightProgressRing ShowProgressText="True" IsIndeterminate="True">
                 <Border Background="Beige" Width="300" Height="300" />
-            </ProgressRing>
+            </LightProgressRing>
         </LightPanel>
     </Design.PreviewWith>
     <converters1:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
     <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />
-    <ControlTheme x:Key="{x:Type ProgressRing}" TargetType="ProgressRing">
+    <ControlTheme x:Key="{x:Type LightProgressRing}" TargetType="LightProgressRing">
         <Setter Property="RingBackground" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
         <Setter Property="RingForeground" Value="{ThemeBrush Primary}" />
         <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
@@ -34,12 +34,12 @@
             <ControlTemplate>
                 <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border x:Name="PART_Indicator" />
-                    <Ring x:Name="Ring"
+                    <LightRing x:Name="Ring"
                           Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
                           Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
                           Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
                     <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
-                        <ClipContentControl
+                        <LightClipContentControl
                             Background="{TemplateBinding Background}"
                             Foreground="{TemplateBinding Foreground}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -68,12 +68,12 @@
                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Panel>
-                        </ClipContentControl>
+                        </LightClipContentControl>
                     </Panel>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:indeterminate /template/ Ring#Ring">
+        <Style Selector="^:indeterminate /template/ LightRing#Ring">
             <Setter Property="Value" Value="0" />
             <Setter Property="Maximum" Value="360" />
             <Style.Animations>

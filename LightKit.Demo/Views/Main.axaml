@@ -8,7 +8,7 @@
         <LightViewHost Grid.Row="1" Background="{ThemeBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
         <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.03}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
             <Grid ColumnDefinitions="* Auto Auto">
-                <TabStrip Wind.TabStrip="RootTab" Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                <TabStrip Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <TabStrip.ItemTemplate>
                         <DataTemplate>
                             <LightPanel Mode="Horizontal" Spacing="8">
@@ -19,16 +19,16 @@
                     </TabStrip.ItemTemplate>
                 </TabStrip>
                 <LightPanel Grid.Column="1" Mode="Horizontal">
-                    <TitleBarButton>
+                    <LightTitleBarButton>
                         <LightPanel Mode="Horizontal" Spacing="8">
                             <LightIcon IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </LightPanel>
-                    </TitleBarButton>
-                    <TitleBarButton Command="{Binding OpenSettings}">
+                    </LightTitleBarButton>
+                    <LightTitleBarButton Command="{Binding OpenSettings}">
                         <LightPanel Mode="Horizontal" Spacing="8">
                             <LightIcon IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </LightPanel>
-                    </TitleBarButton>
+                    </LightTitleBarButton>
                 </LightPanel>
                 <LightTitleBarButtons x:Name="TitleBarButtons" Grid.Column="2" />
             </Grid>

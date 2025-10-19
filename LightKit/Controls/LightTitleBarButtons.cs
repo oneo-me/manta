@@ -55,17 +55,17 @@ public class LightTitleBarButtons : ContentControl
 
         foreach (var child in PART_Buttons.Children)
         {
-            if (child is not TitleBarButton button)
+            if (child is not LightTitleBarButton button)
                 continue;
 
-            if (button.Type == TitleBarButtonType.Minimize)
+            if (button.Type == LightTitleBarButtonType.Minimize)
                 window.GetObservable(Window.ShowInTaskbarProperty).Subscribe(x =>
                     {
                         button.IsVisible = x;
                     })
                     .DisposeWith(_disposables);
 
-            if (button.Type == TitleBarButtonType.Maximize)
+            if (button.Type == LightTitleBarButtonType.Maximize)
             {
                 window.GetObservable(Window.CanResizeProperty).Subscribe(x =>
                     {
@@ -85,19 +85,19 @@ public class LightTitleBarButtons : ContentControl
             Observable
                 .FromEventHandler<RoutedEventArgs>(x => button.Click += x, x => button.Click -= x).Subscribe(x =>
                 {
-                    if (x.sender is not TitleBarButton sender)
+                    if (x.sender is not LightTitleBarButton sender)
                         return;
 
                     switch (sender.Type)
                     {
-                        case TitleBarButtonType.Minimize:
+                        case LightTitleBarButtonType.Minimize:
                             if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
                                 return;
 
                             window.WindowState = WindowState.Minimized;
                             break;
 
-                        case TitleBarButtonType.Maximize:
+                        case LightTitleBarButtonType.Maximize:
                             if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
                                 return;
 
@@ -105,7 +105,7 @@ public class LightTitleBarButtons : ContentControl
                                 window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
                             break;
 
-                        case TitleBarButtonType.Close:
+                        case LightTitleBarButtonType.Close:
                             window.Close();
                             break;
                     }

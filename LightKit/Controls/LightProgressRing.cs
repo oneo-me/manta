@@ -8,9 +8,9 @@ using Avalonia.Metadata;
 
 namespace LightKit.Controls;
 
-public class ProgressRing : ProgressBar
+public class LightProgressRing : ProgressBar
 {
-    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<ProgressRing, BoxShadows>(
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<LightProgressRing, BoxShadows>(
         nameof(BoxShadow));
 
     public BoxShadows BoxShadow
@@ -20,7 +20,7 @@ public class ProgressRing : ProgressBar
     }
 
     public static readonly StyledProperty<IBrush?> RingBackgroundProperty =
-        AvaloniaProperty.Register<ProgressRing, IBrush?>(nameof(RingBackground));
+        AvaloniaProperty.Register<LightProgressRing, IBrush?>(nameof(RingBackground));
 
     public IBrush? RingBackground
     {
@@ -29,7 +29,7 @@ public class ProgressRing : ProgressBar
     }
 
     public static readonly StyledProperty<IBrush?> RingForegroundProperty =
-        AvaloniaProperty.Register<ProgressRing, IBrush?>(nameof(RingForeground));
+        AvaloniaProperty.Register<LightProgressRing, IBrush?>(nameof(RingForeground));
 
     public IBrush? RingForeground
     {
@@ -37,7 +37,7 @@ public class ProgressRing : ProgressBar
         set => SetValue(RingForegroundProperty, value);
     }
 
-    public static readonly StyledProperty<double> RingSizeProperty = AvaloniaProperty.Register<ProgressRing, double>(
+    public static readonly StyledProperty<double> RingSizeProperty = AvaloniaProperty.Register<LightProgressRing, double>(
         nameof(RingSize));
 
     public double RingSize
@@ -47,7 +47,7 @@ public class ProgressRing : ProgressBar
     }
 
     public static readonly StyledProperty<float> RingStrokeSizeProperty =
-        AvaloniaProperty.Register<ProgressRing, float>(nameof(RingStrokeSize));
+        AvaloniaProperty.Register<LightProgressRing, float>(nameof(RingStrokeSize));
 
     public float RingStrokeSize
     {
@@ -55,7 +55,7 @@ public class ProgressRing : ProgressBar
         set => SetValue(RingStrokeSizeProperty, value);
     }
 
-    public static readonly StyledProperty<object?> ContentProperty = AvaloniaProperty.Register<ProgressRing, object?>(
+    public static readonly StyledProperty<object?> ContentProperty = AvaloniaProperty.Register<LightProgressRing, object?>(
         nameof(Content));
 
     [Content]
@@ -66,7 +66,7 @@ public class ProgressRing : ProgressBar
         set => SetValue(ContentProperty, value);
     }
 
-    public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty = AvaloniaProperty.Register<ProgressRing, IDataTemplate?>(
+    public static readonly StyledProperty<IDataTemplate?> ContentTemplateProperty = AvaloniaProperty.Register<LightProgressRing, IDataTemplate?>(
         nameof(ContentTemplate));
 
     public IDataTemplate? ContentTemplate
@@ -75,7 +75,7 @@ public class ProgressRing : ProgressBar
         set => SetValue(ContentTemplateProperty, value);
     }
 
-    public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty = AvaloniaProperty.Register<ProgressRing, HorizontalAlignment>(
+    public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty = AvaloniaProperty.Register<LightProgressRing, HorizontalAlignment>(
         nameof(HorizontalContentAlignment));
 
     public HorizontalAlignment HorizontalContentAlignment
@@ -84,7 +84,7 @@ public class ProgressRing : ProgressBar
         set => SetValue(HorizontalContentAlignmentProperty, value);
     }
 
-    public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = AvaloniaProperty.Register<ProgressRing, VerticalAlignment>(
+    public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = AvaloniaProperty.Register<LightProgressRing, VerticalAlignment>(
         nameof(VerticalContentAlignment));
 
     public VerticalAlignment VerticalContentAlignment

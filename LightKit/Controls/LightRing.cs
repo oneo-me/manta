@@ -8,10 +8,10 @@ using Avalonia.Controls.Shapes;
 namespace LightKit.Controls;
 
 [TemplatePart(nameof(PART_Arc), typeof(Arc))]
-public class Ring : TemplatedControl
+public class LightRing : TemplatedControl
 {
     public static readonly StyledProperty<double> ValueProperty =
-        AvaloniaProperty.Register<Ring, double>(nameof(Value));
+        AvaloniaProperty.Register<LightRing, double>(nameof(Value));
 
     [SuppressMessage("Naming", "CA1721:Property names should not match get methods")]
     public double Value
@@ -21,7 +21,7 @@ public class Ring : TemplatedControl
     }
 
     public static readonly StyledProperty<double> MaximumProperty =
-        AvaloniaProperty.Register<Ring, double>(nameof(Maximum));
+        AvaloniaProperty.Register<LightRing, double>(nameof(Maximum));
 
     public double Maximum
     {
@@ -29,7 +29,7 @@ public class Ring : TemplatedControl
         set => SetValue(MaximumProperty, value);
     }
 
-    public static readonly StyledProperty<double> SizeProperty = AvaloniaProperty.Register<Ring, double>(
+    public static readonly StyledProperty<double> SizeProperty = AvaloniaProperty.Register<LightRing, double>(
         nameof(Size));
 
     public double Size
@@ -39,7 +39,7 @@ public class Ring : TemplatedControl
     }
 
     public static readonly StyledProperty<float> StrokeSizeProperty =
-        AvaloniaProperty.Register<Ring, float>(nameof(StrokeSize));
+        AvaloniaProperty.Register<LightRing, float>(nameof(StrokeSize));
 
     public float StrokeSize
     {
