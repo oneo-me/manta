@@ -14,20 +14,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="{TemplateBinding Background}">
-                    <Panel Opacity="0.1">
-                        <Panel.Background>
-                            <VisualBrush TileMode="Tile" DestinationRect="0 0 20 20">
-                                <VisualBrush.Visual>
-                                    <Grid ColumnDefinitions="10 10" RowDefinitions="10 10">
-                                        <Border Grid.Column="0" Grid.Row="0" Background="Black" />
-                                        <Border Grid.Column="1" Grid.Row="0" Background="White" />
-                                        <Border Grid.Column="0" Grid.Row="1" Background="White" />
-                                        <Border Grid.Column="1" Grid.Row="1" Background="Black" />
-                                    </Grid>
-                                </VisualBrush.Visual>
-                            </VisualBrush>
-                        </Panel.Background>
-                    </Panel>
+                    <LightPixelGrid />
                     <VisualLayerManager>
                         <ContentPresenter x:Name="PART_ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" />
                     </VisualLayerManager>

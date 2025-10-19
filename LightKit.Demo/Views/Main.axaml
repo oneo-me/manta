@@ -8,16 +8,16 @@
         <LightViewHost Grid.Row="1" Background="{ThemeBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
         <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.03}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
             <Grid ColumnDefinitions="* Auto Auto">
-                <TabStrip Grid.Column="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
-                    <TabStrip.ItemTemplate>
+                <LightTabStrip Grid.Column="0" Custom="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                    <LightTabStrip.ItemTemplate>
                         <DataTemplate>
                             <LightPanel Mode="Horizontal" Spacing="8">
                                 <LightIcon IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
                                 <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
                             </LightPanel>
                         </DataTemplate>
-                    </TabStrip.ItemTemplate>
-                </TabStrip>
+                    </LightTabStrip.ItemTemplate>
+                </LightTabStrip>
                 <LightPanel Grid.Column="1" Mode="Horizontal">
                     <LightTitleBarButton>
                         <LightPanel Mode="Horizontal" Spacing="8">

@@ -41,8 +41,6 @@
                 <MergeResourceInclude Source="../Controls/Base/SplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/TabControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/TabItem.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/TabStrip.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/TabStripItem.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
@@ -59,6 +57,7 @@
                 <MergeResourceInclude Source="../Controls/LightPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/LightProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/LightRing.axaml" />
+                <MergeResourceInclude Source="../Controls/LightTabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButtons.axaml" />
                 <MergeResourceInclude Source="../Controls/LightWindow.axaml" />

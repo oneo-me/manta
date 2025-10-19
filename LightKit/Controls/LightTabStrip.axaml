@@ -1,0 +1,90 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="None" />
+                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
+                    <LightTabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                        <LightTabStripItem Content="TabItem 1" />
+                        <LightTabStripItem Content="TabItem 2" />
+                        <LightTabStripItem Content="TabItem 3" />
+                    </LightTabStrip>
+                </Border>
+            </LightPanel>
+            <LightPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="RooTab" />
+                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}" Height="36">
+                    <LightTabStrip Custom="RootTab" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                        <LightTabStripItem Content="TabItem 1" />
+                        <LightTabStripItem Content="TabItem 2" />
+                        <LightTabStripItem Content="TabItem 3" />
+                    </LightTabStrip>
+                </Border>
+            </LightPanel>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightTabStrip}" TargetType="LightTabStrip">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <LightPanel Mode="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Custom=RootTab]">
+            <Setter Property="Margin" Value="-1 0 0 -1" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type LightTabStripItem}" TargetType="LightTabStripItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Custom=RootTab]">
+            <Setter Property="Padding" Value="14 0" />
+            <Setter Property="Margin" Value="0 0 0 1" />
+            <Setter Property="BorderThickness" Value="1 0 0 0" />
+            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+            <Style Selector="^:selected">
+                <Setter Property="Padding" Value="14 0 14 1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Background" Value="{ThemeBrush Background}" />
+                <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+            </Style>
+            <Style Selector="^:pointerover:not(:selected)">
+                <Setter Property="Padding" Value="14 0 14 1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+            </Style>
+            <Style Selector="^:nth-last-child(1)">
+                <Setter Property="BorderThickness" Value="1 0" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
