@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace LightKit.Generators.Globalization.Models;
+namespace LightKit.Generators.LangKey.Globalization.Models;
 
 sealed class LangData(AdditionalText file)
 {

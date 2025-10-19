@@ -1,12 +1,12 @@
 using System.Collections.Immutable;
 using System.Text;
-using LightKit.Generators.Globalization.Models;
+using LightKit.Generators.LangKey.Globalization.Models;
 using LightKit.Globalization.Core;
 using Microsoft.CodeAnalysis;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
-namespace LightKit.Generators;
+namespace LightKit.Generators.LangKey;
 
 sealed class LangKeyGenerator : GeneratorBase
 {

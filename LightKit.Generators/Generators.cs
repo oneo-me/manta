@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using LightKit.Generators.LangKey;
+using Microsoft.CodeAnalysis;
 
 namespace LightKit.Generators;
 
