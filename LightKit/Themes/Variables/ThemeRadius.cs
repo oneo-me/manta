@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia;
-using LightKit.Themes.Extensions;
+using LightKit.Extensions;
 using LightKit.Themes.Base;
 
 namespace LightKit.Themes.Variables;
@@ -39,7 +39,7 @@ public sealed class ThemeRadius(ThemeRadiusKey key) : ThemeValueBase
 
     public string Filter
     {
-        set => value.TryParse(out _filter);
+        set => value.TryParseEnum(out _filter);
     }
 
     protected override IEnumerable<object> GetKeys()

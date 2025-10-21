@@ -1,20 +1,20 @@
 using System.Globalization;
 
-namespace LightKit.Themes.Extensions;
+namespace LightKit.Extensions;
 
-static class EnumExtensions
+public static class EnumExtensions
 {
-    static T Parse<T>(this string value, char space) where T : struct, Enum
+    public static T ParseEnum<T>(this string value, char space) where T : struct, Enum
     {
         var enumerable = value.Split(space).Select(Enum.Parse<T>);
         return (T)Enum.ToObject(typeof(T), enumerable.Select(e => Convert.ToInt32(e, CultureInfo.InvariantCulture)).Aggregate((a, b) => a | b));
     }
 
-    public static bool TryParse<T>(this string value, out T result, char space = '|') where T : struct, Enum
+    public static bool TryParseEnum<T>(this string value, out T result, char space = '|') where T : struct, Enum
     {
         try
         {
-            result = Parse<T>(value, space);
+            result = ParseEnum<T>(value, space);
             return true;
         }
         catch
