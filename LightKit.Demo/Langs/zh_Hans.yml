@@ -1,5 +1,6 @@
-Title: Axe 演示
-Description: 这是一个使用Axe UI框架构建的演示应用程序，展示了其功能和组件。
+Title: LightKit
+Description: 这是一个基于 Avalonia UI 实现的界面开发框架，将在这个项目中演示其所有的功能。
+
 Overview: 概览
 Styles: 样式
 Reactive: 响应式

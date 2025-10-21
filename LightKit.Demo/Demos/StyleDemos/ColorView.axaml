@@ -20,8 +20,8 @@
                 <Setter Property="Mode" Value="Horizontal" />
             </Style>
             <Style Selector="^ Border">
-                <Setter Property="Width" Value="60" />
-                <Setter Property="Height" Value="32" />
+                <Setter Property="Width" Value="38" />
+                <Setter Property="Height" Value="26" />
                 <Setter Property="CornerRadius" Value="{ThemeRadius SM}" />
                 <Setter Property="BorderThickness" Value="1" />
             </Style>
@@ -33,7 +33,7 @@
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Background" />
@@ -43,7 +43,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Primary" />
@@ -54,7 +54,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Success" />
@@ -65,7 +65,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Warning" />
@@ -76,7 +76,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Error" />
@@ -90,7 +90,7 @@
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Black" />
@@ -100,7 +100,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="White" />
@@ -113,7 +113,7 @@
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Red" />
@@ -133,7 +133,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Orange" />
@@ -153,7 +153,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Amber" />
@@ -173,7 +173,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Yellow" />
@@ -193,7 +193,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Lime" />
@@ -213,7 +213,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Green" />
@@ -233,7 +233,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Emerald" />
@@ -253,7 +253,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Teal" />
@@ -273,7 +273,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Cyan" />
@@ -293,7 +293,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Sky" />
@@ -313,7 +313,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Blue" />
@@ -333,7 +333,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Indigo" />
@@ -353,7 +353,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Violet" />
@@ -373,7 +373,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Purple" />
@@ -393,7 +393,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Fuchsia" />
@@ -413,7 +413,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Pink" />
@@ -433,7 +433,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Rose" />
@@ -453,7 +453,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Slate" />
@@ -473,7 +473,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Gray" />
@@ -493,7 +493,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Zinc" />
@@ -513,7 +513,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Neutral" />
@@ -533,7 +533,7 @@
                 </Grid>
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorName" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Stone" />
