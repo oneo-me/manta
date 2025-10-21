@@ -81,7 +81,7 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
                 Blur = boxShadow.Blur,
                 Spread = boxShadow.Spread,
                 IsInset = boxShadow.IsInset,
-                Color = color.ToColor(opacity * (BrushOpacity > 0 ? BrushOpacity : 255d / boxShadow.Color.A))
+                Color = color.ToColor(opacity * (BrushOpacity > 0 ? BrushOpacity : boxShadow.Color.A / 255d))
             });
 
         if (shadows.Count == 0)

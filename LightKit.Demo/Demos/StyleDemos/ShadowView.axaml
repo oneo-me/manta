@@ -59,22 +59,22 @@
             </LightPanel>
             <TextBlock Classes="DemoInfo" Text="Custom Color or Opacity" />
             <LightPanel Classes="DemoPanChild" Mode="Wrap">
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2, BrushKey=Primary, BrushOpacity=0.3}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <TextBlock Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
