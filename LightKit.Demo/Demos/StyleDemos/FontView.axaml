@@ -72,57 +72,6 @@
                     <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
                 </TextBlock>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="FontSizes" />
-            <LightPanel Classes="DemoPanChild">
-                <TextBlock FontSize="{ThemeFontSize SM}" LineHeight="{ThemeFontHeight SM}">
-                    <Run Classes="DemoInfoKey" Text="SM: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize Base}" LineHeight="{ThemeFontHeight Base}">
-                    <Run Classes="DemoInfoKey" Text="Base: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize LG}" LineHeight="{ThemeFontHeight LG}">
-                    <Run Classes="DemoInfoKey" Text="LG: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}">
-                    <Run Classes="DemoInfoKey" Text="XL: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL2}" LineHeight="{ThemeFontHeight XL2}">
-                    <Run Classes="DemoInfoKey" Text="XL2: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL3}" LineHeight="{ThemeFontHeight XL3}">
-                    <Run Classes="DemoInfoKey" Text="XL3: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL4}" LineHeight="{ThemeFontHeight XL4}">
-                    <Run Classes="DemoInfoKey" Text="XL4: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL5}" LineHeight="{ThemeFontHeight XL5}">
-                    <Run Classes="DemoInfoKey" Text="XL5: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL6}" LineHeight="{ThemeFontHeight XL6}">
-                    <Run Classes="DemoInfoKey" Text="XL6: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL7}" LineHeight="{ThemeFontHeight XL7}">
-                    <Run Classes="DemoInfoKey" Text="XL7: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL8}" LineHeight="{ThemeFontHeight XL8}">
-                    <Run Classes="DemoInfoKey" Text="XL8: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontSize="{ThemeFontSize XL9}" LineHeight="{ThemeFontHeight XL9}">
-                    <Run Classes="DemoInfoKey" Text="XL9: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-            </LightPanel>
         </LightPanel>
     </ScrollViewer>
 </LightView>

@@ -5,11 +5,11 @@
     xmlns:local="clr-namespace:LightKit.Demo.Views"
     x:DataType="local:SettingsView_Model" Design.DataContext="{x:Static local:SettingsView_Model.Design}">
     <LightPanel Mode="Vertical" Spacing="18" Margin="18">
-        <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+        <TextBlock Text="{Lang {Binding Title}}" FontWeight="{ThemeFontWeight Light}" />
         <LightPanel Mode="Horizontal" Spacing="18">
-            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
-            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
-            <TextBlock Text="{Lang {Binding Title}}" FontSize="{ThemeFontSize XL}" LineHeight="{ThemeFontHeight XL}" FontWeight="{ThemeFontWeight Light}" />
+            <TextBlock Text="{Lang {Binding Title}}" FontWeight="{ThemeFontWeight Light}" />
+            <TextBlock Text="{Lang {Binding Title}}" FontWeight="{ThemeFontWeight Light}" />
+            <TextBlock Text="{Lang {Binding Title}}" FontWeight="{ThemeFontWeight Light}" />
         </LightPanel>
     </LightPanel>
 </LightView>
