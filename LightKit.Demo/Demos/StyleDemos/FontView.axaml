@@ -6,33 +6,6 @@
     x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Classes="DemoPan">
-            <TextBlock Classes="DemoInfo" Text="FontSpacings" />
-            <LightPanel Classes="DemoPanChild">
-                <TextBlock LetterSpacing="{ThemeFontSpacing Tighter}">
-                    <Run Classes="DemoInfoKey" Text="Tighter: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock LetterSpacing="{ThemeFontSpacing Tight}">
-                    <Run Classes="DemoInfoKey" Text="Tight: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock LetterSpacing="{ThemeFontSpacing Normal}">
-                    <Run Classes="DemoInfoKey" Text="Normal: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock LetterSpacing="{ThemeFontSpacing Wide}">
-                    <Run Classes="DemoInfoKey" Text="Wide: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock LetterSpacing="{ThemeFontSpacing Wider}">
-                    <Run Classes="DemoInfoKey" Text="Wider: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock LetterSpacing="{ThemeFontSpacing Widest}">
-                    <Run Classes="DemoInfoKey" Text="Widest: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-            </LightPanel>
             <TextBlock Classes="DemoInfo" Text="FontWeights" />
             <LightPanel Classes="DemoPanChild">
                 <TextBlock FontWeight="{ThemeFontWeight Thin}">
