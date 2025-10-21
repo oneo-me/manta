@@ -9,8 +9,9 @@
             <LightListBox.ItemTemplate>
                 <DataTemplate>
                     <LightPanel Mode="Horizontal" Spacing="8">
-                        <LightIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
-                        <LightText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                        <LightIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center"
+                                   IsVisible="{Binding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <LightText Text="{Lang {Binding Header}, Data1={Binding HeaderArg}}" VerticalAlignment="Center" />
                     </LightPanel>
                 </DataTemplate>
             </LightListBox.ItemTemplate>

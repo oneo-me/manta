@@ -1,6 +1,6 @@
 using LightKit.Controls.Icons;
-using LightKit.Reactive.Views;
 using LightKit.Demo.Langs;
+using LightKit.Reactive.Views;
 
 namespace LightKit.Demo.Reactive;
 
@@ -15,6 +15,7 @@ enum DemoGroup
 abstract class DemoViewModel : ViewModel
 {
     public abstract DemoGroup Group { get; }
-    public abstract IconSource? Icon { get; }
+    public virtual IconSource? Icon => null;
     public abstract LangKey Header { get; }
+    public virtual object? HeaderArg => null;
 }

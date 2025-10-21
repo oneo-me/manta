@@ -8,7 +8,7 @@
     <values:ThemeRefValue x:Key="{ThemeBrushKey Background}" Value="{ThemeBrush Gray50, Opacity=0.9}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey BorderBrush}" Value="{ThemeBrush Gray400, Opacity=0.2}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Foreground}" Value="{ThemeBrush Gray800}" />
-    <values:ThemeRefValue x:Key="{ThemeBrushKey Primary}" Value="{ThemeBrush Teal400}" />
+    <values:ThemeRefValue x:Key="{ThemeBrushKey Primary}" Value="{ThemeBrush Indigo400}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Primary_Foreground}" Value="{ThemeBrush White}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Success}" Value="{ThemeBrush Green400}" />
     <values:ThemeRefValue x:Key="{ThemeBrushKey Success_Foreground}" Value="{ThemeBrush White}" />

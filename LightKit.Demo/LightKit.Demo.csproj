@@ -12,4 +12,14 @@
     <ItemGroup>
         <ProjectReference Include="..\LightKit\LightKit.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Demos\ControlDemos\TextView.axaml.cs">
+        <DependentUpon>FontView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Demos\ControlDemos\SelectableTextView.axaml.cs">
+        <DependentUpon>SelectableTextView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>
