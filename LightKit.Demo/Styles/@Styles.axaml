@@ -11,9 +11,7 @@
         <Setter Property="Spacing" Value="12" />
     </Style>
     <Style Selector="TextBlock.DemoInfo">
-        <Setter Property="FontWeight" Value="{ThemeFontWeight Semibold}" />
     </Style>
     <Style Selector="Run.DemoInfoKey">
-        <Setter Property="FontWeight" Value="{ThemeFontWeight Semibold}" />
     </Style>
 </Styles>

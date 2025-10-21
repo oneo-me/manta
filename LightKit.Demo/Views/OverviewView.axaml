@@ -25,8 +25,7 @@
         </Style>
     </LightView.Styles>
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{Lang {x:Static LangKey.Title}}" HorizontalAlignment="Center"
-                   FontWeight="{ThemeFontWeight Extralight}" />
+        <TextBlock Text="{Lang {x:Static LangKey.Title}}" HorizontalAlignment="Center" />
         <TextBlock Text="{Lang {x:Static LangKey.Description}}" />
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemsPanel>

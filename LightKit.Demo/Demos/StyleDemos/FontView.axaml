@@ -5,46 +5,6 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <LightPanel Classes="DemoPan">
-            <TextBlock Classes="DemoInfo" Text="FontWeights" />
-            <LightPanel Classes="DemoPanChild">
-                <TextBlock FontWeight="{ThemeFontWeight Thin}">
-                    <Run Classes="DemoInfoKey" Text="Thin: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Extralight}">
-                    <Run Classes="DemoInfoKey" Text="Extralight: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Light}">
-                    <Run Classes="DemoInfoKey" Text="Light: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Normal}">
-                    <Run Classes="DemoInfoKey" Text="Normal: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Medium}">
-                    <Run Classes="DemoInfoKey" Text="Medium: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Semibold}">
-                    <Run Classes="DemoInfoKey" Text="Semibold: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Bold}">
-                    <Run Classes="DemoInfoKey" Text="Bold: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Extrabold}">
-                    <Run Classes="DemoInfoKey" Text="Extrabold: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-                <TextBlock FontWeight="{ThemeFontWeight Black}">
-                    <Run Classes="DemoInfoKey" Text="Black: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </TextBlock>
-            </LightPanel>
-        </LightPanel>
+        <LightPanel Classes="DemoPan" />
     </ScrollViewer>
 </LightView>
