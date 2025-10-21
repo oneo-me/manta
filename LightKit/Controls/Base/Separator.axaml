@@ -4,9 +4,9 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TextBlock Text="Top" />
+            <LightText Text="Top" />
             <Separator />
-            <TextBlock Text="Bottom" />
+            <LightText Text="Bottom" />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">

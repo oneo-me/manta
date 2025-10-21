@@ -25,8 +25,8 @@
         </Style>
     </LightView.Styles>
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{Lang {x:Static LangKey.Title}}" HorizontalAlignment="Center" />
-        <TextBlock Text="{Lang {x:Static LangKey.Description}}" />
+        <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Custom="ExtraLarge6" HorizontalAlignment="Center" />
+        <LightText Text="{Lang {x:Static LangKey.Description}}" />
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -53,8 +53,8 @@
                             Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
                             CommandParameter="{Binding}">
                         <LightPanel Mode="Horizontal" Spacing="6">
-                            <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
-                            <TextBlock Text="{LangName {Binding}}" VerticalAlignment="Center" />
+                            <LightText Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
+                            <LightText Text="{LangName {Binding}}" VerticalAlignment="Center" />
                         </LightPanel>
                     </Button>
                 </DataTemplate>

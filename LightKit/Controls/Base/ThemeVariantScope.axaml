@@ -6,12 +6,12 @@
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <ThemeVariantScope Width="100" RequestedThemeVariant="Light">
                 <Panel Background="{ThemeBrush Background}">
-                    <TextBlock Text="TextBlock" Margin="33 11" />
+                    <LightText Text="LightText" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
             <ThemeVariantScope Width="100" RequestedThemeVariant="Dark">
                 <Panel Background="{ThemeBrush Background}">
-                    <TextBlock Text="TextBlock" Margin="33 11" />
+                    <LightText Text="LightText" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
         </LightPanel>

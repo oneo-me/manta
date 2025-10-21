@@ -50,8 +50,8 @@
                             <Panel>
                                 <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         IsVisible="{TemplateBinding ShowProgressText}">
-                                    <TextBlock>
-                                        <TextBlock.Text>
+                                    <LightText>
+                                        <LightText.Text>
                                             <MultiBinding Converter="{StaticResource ProgressRingStringFormatConverter}">
                                                 <TemplateBinding Property="ProgressTextFormat" />
                                                 <Binding Path="Value"
@@ -60,8 +60,8 @@
                                                 <TemplateBinding Property="Minimum" />
                                                 <TemplateBinding Property="Maximum" />
                                             </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
+                                        </LightText.Text>
+                                    </LightText>
                                 </LayoutTransformControl>
                                 <ContentControl Content="{TemplateBinding Content}"
                                                 ContentTemplate="{TemplateBinding ContentTemplate}"

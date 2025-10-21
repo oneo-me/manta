@@ -9,13 +9,13 @@
                     <PageSlide Duration="0:0:0.1" />
                 </Carousel.PageTransition>
                 <Border Background="{ThemeBrush Primary}" TextElement.Foreground="{ThemeBrush Primary_Foreground}">
-                    <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <LightText Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
                 <Border Background="{ThemeBrush Success}" TextElement.Foreground="{ThemeBrush Success_Foreground}">
-                    <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <LightText Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
                 <Border Background="{ThemeBrush Error}" TextElement.Foreground="{ThemeBrush Error_Foreground}">
-                    <TextBlock Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <LightText Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
             </Carousel>
         </LightPanel>

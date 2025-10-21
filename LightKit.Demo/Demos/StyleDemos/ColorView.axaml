@@ -10,7 +10,7 @@
             <Setter Property="Spacing" Value="6" />
         </Style>
         <Style Selector="Grid.ColorBoxs">
-            <Style Selector="^ TextBlock">
+            <Style Selector="^ LightText">
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="0 0 12 0" />
@@ -29,14 +29,14 @@
     </LightView.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Classes="DemoPan" Grid.IsSharedSizeScope="True">
-            <TextBlock Classes="DemoInfo" Text="Refs" />
+            <LightText Classes="DemoInfo" Text="Refs" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Background" />
+                    <LightText Grid.Column="0" Text="Background" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Background}" />
                     </LightPanel>
@@ -46,7 +46,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Primary" />
+                    <LightText Grid.Column="0" Text="Primary" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Primary}" />
                         <Border Background="{ThemeBrush Primary_Foreground}" />
@@ -57,7 +57,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Success" />
+                    <LightText Grid.Column="0" Text="Success" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Success}" />
                         <Border Background="{ThemeBrush Success_Foreground}" />
@@ -68,7 +68,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Warning" />
+                    <LightText Grid.Column="0" Text="Warning" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Warning}" />
                         <Border Background="{ThemeBrush Warning_Foreground}" />
@@ -79,21 +79,21 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Error" />
+                    <LightText Grid.Column="0" Text="Error" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Error}" />
                         <Border Background="{ThemeBrush Error_Foreground}" />
                     </LightPanel>
                 </Grid>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="Base" />
+            <LightText Classes="DemoInfo" Text="Base" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Black" />
+                    <LightText Grid.Column="0" Text="Black" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Black}" />
                     </LightPanel>
@@ -103,20 +103,20 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="White" />
+                    <LightText Grid.Column="0" Text="White" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush White}" />
                     </LightPanel>
                 </Grid>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="Colors" />
+            <LightText Classes="DemoInfo" Text="Colors" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Red" />
+                    <LightText Grid.Column="0" Text="Red" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Red50}" />
                         <Border Background="{ThemeBrush Red100}" />
@@ -136,7 +136,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Orange" />
+                    <LightText Grid.Column="0" Text="Orange" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Orange50}" />
                         <Border Background="{ThemeBrush Orange100}" />
@@ -156,7 +156,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Amber" />
+                    <LightText Grid.Column="0" Text="Amber" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Amber50}" />
                         <Border Background="{ThemeBrush Amber100}" />
@@ -176,7 +176,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Yellow" />
+                    <LightText Grid.Column="0" Text="Yellow" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Yellow50}" />
                         <Border Background="{ThemeBrush Yellow100}" />
@@ -196,7 +196,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Lime" />
+                    <LightText Grid.Column="0" Text="Lime" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Lime50}" />
                         <Border Background="{ThemeBrush Lime100}" />
@@ -216,7 +216,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Green" />
+                    <LightText Grid.Column="0" Text="Green" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Green50}" />
                         <Border Background="{ThemeBrush Green100}" />
@@ -236,7 +236,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Emerald" />
+                    <LightText Grid.Column="0" Text="Emerald" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Emerald50}" />
                         <Border Background="{ThemeBrush Emerald100}" />
@@ -256,7 +256,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Teal" />
+                    <LightText Grid.Column="0" Text="Teal" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Teal50}" />
                         <Border Background="{ThemeBrush Teal100}" />
@@ -276,7 +276,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Cyan" />
+                    <LightText Grid.Column="0" Text="Cyan" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Cyan50}" />
                         <Border Background="{ThemeBrush Cyan100}" />
@@ -296,7 +296,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Sky" />
+                    <LightText Grid.Column="0" Text="Sky" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Sky50}" />
                         <Border Background="{ThemeBrush Sky100}" />
@@ -316,7 +316,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Blue" />
+                    <LightText Grid.Column="0" Text="Blue" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Blue50}" />
                         <Border Background="{ThemeBrush Blue100}" />
@@ -336,7 +336,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Indigo" />
+                    <LightText Grid.Column="0" Text="Indigo" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Indigo50}" />
                         <Border Background="{ThemeBrush Indigo100}" />
@@ -356,7 +356,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Violet" />
+                    <LightText Grid.Column="0" Text="Violet" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Violet50}" />
                         <Border Background="{ThemeBrush Violet100}" />
@@ -376,7 +376,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Purple" />
+                    <LightText Grid.Column="0" Text="Purple" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Purple50}" />
                         <Border Background="{ThemeBrush Purple100}" />
@@ -396,7 +396,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Fuchsia" />
+                    <LightText Grid.Column="0" Text="Fuchsia" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Fuchsia50}" />
                         <Border Background="{ThemeBrush Fuchsia100}" />
@@ -416,7 +416,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Pink" />
+                    <LightText Grid.Column="0" Text="Pink" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Pink50}" />
                         <Border Background="{ThemeBrush Pink100}" />
@@ -436,7 +436,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Rose" />
+                    <LightText Grid.Column="0" Text="Rose" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Rose50}" />
                         <Border Background="{ThemeBrush Rose100}" />
@@ -456,7 +456,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Slate" />
+                    <LightText Grid.Column="0" Text="Slate" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Slate50}" />
                         <Border Background="{ThemeBrush Slate100}" />
@@ -476,7 +476,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Gray" />
+                    <LightText Grid.Column="0" Text="Gray" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Gray50}" />
                         <Border Background="{ThemeBrush Gray100}" />
@@ -496,7 +496,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Zinc" />
+                    <LightText Grid.Column="0" Text="Zinc" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Zinc50}" />
                         <Border Background="{ThemeBrush Zinc100}" />
@@ -516,7 +516,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Neutral" />
+                    <LightText Grid.Column="0" Text="Neutral" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Neutral50}" />
                         <Border Background="{ThemeBrush Neutral100}" />
@@ -536,7 +536,7 @@
                         <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Stone" />
+                    <LightText Grid.Column="0" Text="Stone" />
                     <LightPanel Grid.Column="1">
                         <Border Background="{ThemeBrush Stone50}" />
                         <Border Background="{ThemeBrush Stone100}" />

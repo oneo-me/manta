@@ -6,76 +6,76 @@
     x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
     <ScrollViewer>
         <LightPanel Classes="DemoPan">
-            <TextBlock Classes="DemoInfo" Text="Shadows" />
+            <LightText Classes="DemoInfo" Text="Shadows" />
             <LightPanel Classes="DemoPanChild" Mode="Wrap">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="Drop Shadows" />
+            <LightText Classes="DemoInfo" Text="Drop Shadows" />
             <LightPanel Classes="DemoPanChild" Mode="Wrap">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropMD}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropLG}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXL}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXL2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="Insert Shadows" />
+            <LightText Classes="DemoInfo" Text="Insert Shadows" />
             <LightPanel Classes="DemoPanChild" Mode="Wrap">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetXS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetSM}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <TextBlock Classes="DemoInfo" Text="Custom Color or Opacity" />
+            <LightText Classes="DemoInfo" Text="Custom Color or Opacity" />
             <LightPanel Classes="DemoPanChild" Mode="Wrap">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow MD, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow LG, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XL2, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
-                    <TextBlock Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
         </LightPanel>

@@ -7,7 +7,7 @@
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
-                <TextBlock Text="None" />
+                <LightText Text="None" />
                 <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
                     <LightListBox>
                         <LightListBox.ItemsSource>
@@ -19,14 +19,14 @@
                         </LightListBox.ItemsSource>
                         <LightListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}" />
+                                <LightText Text="{Binding}" />
                             </DataTemplate>
                         </LightListBox.ItemTemplate>
                     </LightListBox>
                 </Border>
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12">
-                <TextBlock Text="Sidebar" />
+                <LightText Text="Sidebar" />
                 <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
                     <LightListBox Custom="Sidebar">
                         <LightListBox.ItemsSource>
@@ -38,7 +38,7 @@
                         </LightListBox.ItemsSource>
                         <LightListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}" />
+                                <LightText Text="{Binding}" />
                             </DataTemplate>
                         </LightListBox.ItemTemplate>
                     </LightListBox>

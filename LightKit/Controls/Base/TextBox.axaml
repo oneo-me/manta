@@ -35,20 +35,20 @@
                               IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                               VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <Panel>
-                        <TextBlock x:Name="watermark"
+                        <LightText x:Name="watermark"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                    Opacity="0.5"
                                    Text="{TemplateBinding Watermark}"
                                    TextAlignment="{TemplateBinding TextAlignment}"
                                    TextWrapping="{TemplateBinding TextWrapping}">
-                            <TextBlock.IsVisible>
+                            <LightText.IsVisible>
                                 <MultiBinding Converter="{x:Static BoolConverters.And}">
                                     <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
                                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
                                 </MultiBinding>
-                            </TextBlock.IsVisible>
-                        </TextBlock>
+                            </LightText.IsVisible>
+                        </LightText>
                         <TextPresenter x:Name="PART_TextPresenter"
                                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                        CaretBrush="{TemplateBinding CaretBrush}"

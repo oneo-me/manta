@@ -5,9 +5,9 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <Grid ColumnDefinitions="*,*" Width="300" Height="300">
-                <TextBlock Grid.Column="0" Text="TextBlockTextBlockTextBlockTextBlock" TextTrimming="CharacterEllipsis" />
+                <LightText Grid.Column="0" Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
                 <Border Grid.Column="1" BorderThickness="1 0 0 0">
-                    <TextBlock Text="TextBlockTextBlockTextBlockTextBlock" TextTrimming="CharacterEllipsis" />
+                    <LightText Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
                 </Border>
                 <GridSplitter Grid.Column="0" Width="4" HorizontalAlignment="Right" />
             </Grid>

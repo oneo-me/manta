@@ -5,6 +5,62 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <LightPanel Classes="DemoPan" />
+        <LightPanel Classes="DemoPan">
+            <LightText Classes="DemoInfo" Text="FontSizes" />
+            <LightPanel Classes="DemoPanChild">
+                <LightText Custom="ExtraSmall">
+                    <Run Classes="DemoInfoKey" Text="ExtraSmall: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="Small">
+                    <Run Classes="DemoInfoKey" Text="Small: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="None">
+                    <Run Classes="DemoInfoKey" Text="None: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="Large">
+                    <Run Classes="DemoInfoKey" Text="Large: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge2">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge2: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge3">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge3: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge4">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge4: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge5">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge5: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge6">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge6: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge7">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge7: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge8">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge8: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+                <LightText Custom="ExtraLarge9">
+                    <Run Classes="DemoInfoKey" Text="ExtraLarge9: " />
+                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+                </LightText>
+            </LightPanel>
+        </LightPanel>
     </ScrollViewer>
 </LightView>

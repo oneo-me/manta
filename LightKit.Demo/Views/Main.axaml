@@ -13,7 +13,7 @@
                         <DataTemplate>
                             <LightPanel Mode="Horizontal" Spacing="8">
                                 <LightIcon IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
-                                <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                                <LightText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
                             </LightPanel>
                         </DataTemplate>
                     </LightTabStrip.ItemTemplate>

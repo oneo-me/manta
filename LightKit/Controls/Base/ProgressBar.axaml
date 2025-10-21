@@ -40,8 +40,8 @@
                                 IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
                             <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                     IsVisible="{TemplateBinding ShowProgressText}">
-                                <TextBlock>
-                                    <TextBlock.Text>
+                                <LightText>
+                                    <LightText.Text>
                                         <MultiBinding Converter="{StaticResource ProgressBarStringFormatConverter}">
                                             <TemplateBinding Property="ProgressTextFormat" />
                                             <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -49,8 +49,8 @@
                                             <TemplateBinding Property="Minimum" />
                                             <TemplateBinding Property="Maximum" />
                                         </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
+                                    </LightText.Text>
+                                </LightText>
                             </LayoutTransformControl>
                         </Border>
                         <Border x:Name="IndeterminateProgressBarIndicator"

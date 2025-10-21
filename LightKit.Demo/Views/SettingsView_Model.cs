@@ -1,6 +1,8 @@
+using Avalonia.Controls;
+using LightKit.Demo.Langs;
+using LightKit.Globalization;
 using LightKit.Reactive.Dialogs;
 using LightKit.Reactive.Views;
-using LightKit.Demo.Langs;
 
 namespace LightKit.Demo.Views;
 
@@ -10,4 +12,11 @@ sealed class SettingsView_Model : DialogModel
     public static SettingsView_Model Design => new();
 
     public LangKey Title => LangKey.Settings;
+
+    public override void OnWindowInitialized(Window window)
+    {
+        base.OnWindowInitialized(window);
+
+        window[!Window.TitleProperty] = LangBinding.Get(Title);
+    }
 }

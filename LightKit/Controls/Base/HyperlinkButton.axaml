@@ -10,7 +10,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+        <Setter Property="LightText.TextDecorations" Value="Underline" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">

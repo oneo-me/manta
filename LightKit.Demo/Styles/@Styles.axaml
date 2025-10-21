@@ -10,8 +10,10 @@
         <Setter Property="Mode" Value="Vertical" />
         <Setter Property="Spacing" Value="12" />
     </Style>
-    <Style Selector="TextBlock.DemoInfo">
+    <Style Selector="LightText.DemoInfo">
+        <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
     <Style Selector="Run.DemoInfoKey">
+        <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
 </Styles>

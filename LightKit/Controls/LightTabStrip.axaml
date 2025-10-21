@@ -5,7 +5,7 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
-                <TextBlock Text="None" />
+                <LightText Text="None" />
                 <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
                     <LightTabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                         <LightTabStripItem Content="TabItem 1" />
@@ -15,7 +15,7 @@
                 </Border>
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12">
-                <TextBlock Text="RooTab" />
+                <LightText Text="RooTab" />
                 <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}" Height="36">
                     <LightTabStrip Custom="RootTab" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                         <LightTabStripItem Content="TabItem 1" />

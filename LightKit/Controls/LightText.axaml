@@ -1,0 +1,74 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Custom="ExtraSmall" Text="LightText" />
+            <LightText Custom="Small" Text="LightText" />
+            <LightText Text="LightText" />
+            <LightText Custom="Large" Text="LightText" />
+            <LightText Custom="ExtraLarge" Text="LightText" />
+            <LightText Custom="ExtraLarge2" Text="LightText" />
+            <LightText Custom="ExtraLarge3" Text="LightText" />
+            <LightText Custom="ExtraLarge4" Text="LightText" />
+            <LightText Custom="ExtraLarge5" Text="LightText" />
+            <LightText Custom="ExtraLarge6" Text="LightText" />
+            <LightText Custom="ExtraLarge7" Text="LightText" />
+            <LightText Custom="ExtraLarge8" Text="LightText" />
+            <LightText Custom="ExtraLarge9" Text="LightText" />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightText}" TargetType="LightText">
+        <Style Selector="^[Custom=ExtraSmall]">
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="LineHeight" Value="12" />
+        </Style>
+        <Style Selector="^[Custom=Small]">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="LineHeight" Value="14" />
+        </Style>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="LineHeight" Value="16" />
+        <Style Selector="^[Custom=Large]">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="LineHeight" Value="20" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge]">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="LineHeight" Value="24" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge2]">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="LineHeight" Value="26" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge3]">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="LineHeight" Value="28" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge4]">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="LineHeight" Value="32" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge5]">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="LineHeight" Value="36" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge6]">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="LineHeight" Value="40" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge7]">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="LineHeight" Value="48" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge8]">
+            <Setter Property="FontSize" Value="60" />
+            <Setter Property="LineHeight" Value="60" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge9]">
+            <Setter Property="FontSize" Value="72" />
+            <Setter Property="LineHeight" Value="72" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

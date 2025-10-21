@@ -7,46 +7,46 @@
             <LightAutoGrid Definitions="*,*" Spacing="12">
                 <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
-                        <TextBlock Text="Content 1" Margin="12 50" />
+                        <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 2">
-                        <TextBlock Text="Content 2" Margin="12 50" />
+                        <LightText Text="Content 2" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 3">
-                        <TextBlock Text="Content 3" Margin="12 50" />
+                        <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
                 <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
-                        <TextBlock Text="Content 1" Margin="12 50" />
+                        <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 2">
-                        <TextBlock Text="Content 2" Margin="12 50" />
+                        <LightText Text="Content 2" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 3">
-                        <TextBlock Text="Content 3" Margin="12 50" />
+                        <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
                 <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
-                        <TextBlock Text="Content 1" Margin="12 50" />
+                        <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 2">
-                        <TextBlock Text="Content 2" Margin="12 50" />
+                        <LightText Text="Content 2" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 3">
-                        <TextBlock Text="Content 3" Margin="12 50" />
+                        <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
                 <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                     <TabItem Header="TabItem 1">
-                        <TextBlock Text="Content 1" Margin="12 50" />
+                        <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 2">
-                        <TextBlock Text="Content 2" Margin="12 50" />
+                        <LightText Text="Content 2" Margin="12 50" />
                     </TabItem>
                     <TabItem Header="TabItem 3">
-                        <TextBlock Text="Content 3" Margin="12 50" />
+                        <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
             </LightAutoGrid>
