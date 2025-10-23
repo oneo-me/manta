@@ -5,9 +5,9 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
     <ScrollViewer>
-        <LightPanel Classes="DemoPan">
-            <LightText Classes="DemoInfo" Text="Shadows" />
-            <LightPanel Classes="DemoPanChild" Mode="Wrap">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Text="Shadows" FontWeight="SemiBold" />
+            <LightPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
@@ -27,8 +27,8 @@
                     <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <LightText Classes="DemoInfo" Text="Drop Shadows" />
-            <LightPanel Classes="DemoPanChild" Mode="Wrap">
+            <LightText Text="Drop Shadows" FontWeight="SemiBold" />
+            <LightPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow DropXS}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <LightText Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
@@ -45,8 +45,8 @@
                     <LightText Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <LightText Classes="DemoInfo" Text="Insert Shadows" />
-            <LightPanel Classes="DemoPanChild" Mode="Wrap">
+            <LightText Text="Insert Shadows" FontWeight="SemiBold" />
+            <LightPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow InsetXS2}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <LightText Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
@@ -57,8 +57,8 @@
                     <LightText Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>
-            <LightText Classes="DemoInfo" Text="Custom Color or Opacity" />
-            <LightPanel Classes="DemoPanChild" Mode="Wrap">
+            <LightText Text="Custom Color or Opacity" FontWeight="SemiBold" />
+            <LightPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{ThemeShadow XS2, BrushKey=Primary}" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>

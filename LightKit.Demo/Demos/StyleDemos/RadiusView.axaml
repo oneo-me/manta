@@ -5,9 +5,9 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:RadiusView_Model" Design.DataContext="{x:Static local:RadiusView_Model.Design}">
     <ScrollViewer>
-        <LightPanel Classes="DemoPan">
-            <LightText Classes="DemoInfo" Text="Radius" />
-            <LightPanel Classes="DemoPanChild" Mode="Wrap">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Text="Radius" FontWeight="SemiBold" />
+            <LightPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Black, Opacity=0.3}">
                     <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>

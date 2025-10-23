@@ -27,7 +27,6 @@
                 <MergeResourceInclude Source="../Controls/Base/HeaderedContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ItemsControl.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ProgressBar.axaml" />
@@ -51,6 +50,7 @@
                 <!-- Controls -->
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
+                <MergeResourceInclude Source="../Controls/LightLabel.axaml" />
                 <MergeResourceInclude Source="../Controls/LightListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/LightPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/LightProgressRing.axaml" />

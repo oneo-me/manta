@@ -5,62 +5,20 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
     x:DataType="local:SelectableTextView_Model" Design.DataContext="{x:Static local:SelectableTextView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <LightPanel Classes="DemoPan">
-            <LightText Classes="DemoInfo" Text="FontSizes" />
-            <LightPanel Classes="DemoPanChild">
-                <LightSelectableText Custom="ExtraSmall">
-                    <Run Classes="DemoInfoKey" Text="ExtraSmall: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="Small">
-                    <Run Classes="DemoInfoKey" Text="Small: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="None">
-                    <Run Classes="DemoInfoKey" Text="None: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="Large">
-                    <Run Classes="DemoInfoKey" Text="Large: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge2">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge2: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge3">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge3: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge4">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge4: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge5">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge5: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge6">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge6: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge7">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge7: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge8">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge8: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-                <LightSelectableText Custom="ExtraLarge9">
-                    <Run Classes="DemoInfoKey" Text="ExtraLarge9: " />
-                    <Run Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-                </LightSelectableText>
-            </LightPanel>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightSelectableText Custom="ExtraSmall" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="Small" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="None" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="Large" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge2" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge3" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge4" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge5" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge6" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge7" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge8" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightSelectableText Custom="ExtraLarge9" Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
         </LightPanel>
     </ScrollViewer>
 </LightView>

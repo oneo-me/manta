@@ -1,0 +1,89 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightLabel Custom="ExtraSmall" Content="LightLabel" />
+            <LightLabel Custom="Small" Content="LightLabel" />
+            <LightLabel Content="LightLabel" />
+            <LightLabel Custom="Large" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge2" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge3" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge4" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge5" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge6" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge7" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge8" Content="LightLabel" />
+            <LightLabel Custom="ExtraLarge9" Content="LightLabel" />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightLabel}" TargetType="LightLabel">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Custom=ExtraSmall]">
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="TextBlock.LineHeight" Value="12" />
+        </Style>
+        <Style Selector="^[Custom=Small]">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextBlock.LineHeight" Value="14" />
+        </Style>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextBlock.LineHeight" Value="16" />
+        <Style Selector="^[Custom=Large]">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextBlock.LineHeight" Value="20" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge]">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextBlock.LineHeight" Value="24" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge2]">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextBlock.LineHeight" Value="26" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge3]">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextBlock.LineHeight" Value="28" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge4]">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextBlock.LineHeight" Value="32" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge5]">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextBlock.LineHeight" Value="36" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge6]">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="TextBlock.LineHeight" Value="40" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge7]">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="TextBlock.LineHeight" Value="48" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge8]">
+            <Setter Property="FontSize" Value="60" />
+            <Setter Property="TextBlock.LineHeight" Value="60" />
+        </Style>
+        <Style Selector="^[Custom=ExtraLarge9]">
+            <Setter Property="FontSize" Value="72" />
+            <Setter Property="TextBlock.LineHeight" Value="72" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

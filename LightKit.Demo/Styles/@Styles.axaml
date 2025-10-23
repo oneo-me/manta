@@ -1,19 +1,4 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style Selector="LightPanel.DemoPan">
-        <Setter Property="Mode" Value="Vertical" />
-        <Setter Property="Spacing" Value="24" />
-        <Setter Property="Margin" Value="24" />
-    </Style>
-    <Style Selector="LightPanel.DemoPanChild">
-        <Setter Property="Mode" Value="Vertical" />
-        <Setter Property="Spacing" Value="12" />
-    </Style>
-    <Style Selector="LightText.DemoInfo">
-        <Setter Property="FontWeight" Value="SemiBold" />
-    </Style>
-    <Style Selector="Run.DemoInfoKey">
-        <Setter Property="FontWeight" Value="SemiBold" />
-    </Style>
 </Styles>

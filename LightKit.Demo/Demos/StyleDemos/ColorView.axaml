@@ -28,8 +28,8 @@
         </Style>
     </LightView.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <LightPanel Classes="DemoPan" Grid.IsSharedSizeScope="True">
-            <LightText Classes="DemoInfo" Text="Refs" />
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
+            <LightText Text="Refs" FontWeight="SemiBold" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -86,7 +86,7 @@
                     </LightPanel>
                 </Grid>
             </LightPanel>
-            <LightText Classes="DemoInfo" Text="Base" />
+            <LightText Text="Base" FontWeight="SemiBold" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
@@ -109,7 +109,7 @@
                     </LightPanel>
                 </Grid>
             </LightPanel>
-            <LightText Classes="DemoInfo" Text="Colors" />
+            <LightText Text="Colors" FontWeight="SemiBold" />
             <LightPanel Classes="CompactColors">
                 <Grid Classes="ColorBoxs">
                     <Grid.ColumnDefinitions>
