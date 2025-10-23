@@ -20,6 +20,26 @@
                 <LightButton Content="Button" Custom="Outlined" Size="Normal" />
                 <LightButton Content="Button" Custom="Ghost" Size="Normal" />
             </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
             <LightText Text="Custom Icons" FontWeight="SemiBold" />
             <LightPanel Mode="Horizontal" Spacing="12">
                 <LightButton Custom="Filled" Size="Small">

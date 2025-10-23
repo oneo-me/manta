@@ -7,12 +7,12 @@
     <!-- ColorSets -->
     <values:RgbColor x:Key="{ThemeColorSetKey Background}" R="255" G="255" B="255" />
     <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="233" G="233" B="233" />
-    <values:RgbColor x:Key="{ThemeColorSetKey Foreground}" R="33" G="33" B="33" />
+    <values:RgbColor x:Key="{ThemeColorSetKey Foreground}" R="55" G="55" B="55" />
     <values:RgbColor x:Key="{ThemeColorSetKey ColorForeground}" R="255" G="255" B="255" />
     <values:ColorSet x:Key="{ThemeColorSetKey Primary}" H="243" />
     <values:ColorSet x:Key="{ThemeColorSetKey Success}" H="151" />
     <values:ColorSet x:Key="{ThemeColorSetKey Warning}" H="93" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Error}" H="36" />
+    <values:ColorSet x:Key="{ThemeColorSetKey Danger}" H="36" />
     <!-- Radius -->
     <system:Double x:Key="{ThemeRadiusKey XS}">2</system:Double>
     <system:Double x:Key="{ThemeRadiusKey SM}">4</system:Double>

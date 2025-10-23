@@ -17,7 +17,7 @@ public enum ThemeColorSetKey
     Primary,
     Success,
     Warning,
-    Error
+    Danger
 }
 
 public enum ThemeColorType

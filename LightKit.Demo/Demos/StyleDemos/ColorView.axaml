@@ -173,13 +173,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Error" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
             </LightPanel>

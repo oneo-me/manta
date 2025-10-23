@@ -14,7 +14,7 @@
                 <Border Background="{ThemeColorSet Success}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
                     <LightText Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
-                <Border Background="{ThemeColorSet Error}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
+                <Border Background="{ThemeColorSet Danger}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
                     <LightText Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
             </Carousel>
