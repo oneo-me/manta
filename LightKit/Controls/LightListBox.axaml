@@ -90,6 +90,15 @@
                                   CornerRadius="{TemplateBinding CornerRadius}" />
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:not(^[Custom=None])">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
+                    <BrushTransition Property="Background" Duration="0:0:0.05" />
+                    <BrushTransition Property="Foreground" Duration="0:0:0.05" />
+                </Transitions>
+            </Setter>
+        </Style>
         <Style Selector="^[Custom=Sidebar]">
             <Setter Property="Margin" Value="0 0 0 2" />
             <Setter Property="Padding" Value="12 8" />
