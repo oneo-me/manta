@@ -2,7 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:values="clr-namespace:LightKit.Themes.Values"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <!-- ColorSets -->
     <values:RgbColor x:Key="{ThemeColorSetKey Background}" R="255" G="255" B="255" />
@@ -30,6 +29,4 @@
     <BoxShadows x:Key="{ThemeShadowKey DropLG}">0 4 4 #26000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropXL}">0 9 7 #1A000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey DropXL2}">0 25 25 #26000000</BoxShadows>
-    <!-- Thicknesses -->
-    <system:Double x:Key="{ThemeThicknessKey Normal}">1</system:Double>
 </ResourceDictionary>

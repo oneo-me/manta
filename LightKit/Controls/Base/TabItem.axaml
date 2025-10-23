@@ -5,7 +5,7 @@
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <LightAutoGrid Definitions="*,*" Spacing="12">
-                <TabControl TabStripPlacement="Top" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                <TabControl TabStripPlacement="Top" BorderThickness="1" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -16,7 +16,7 @@
                         <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="1" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -27,7 +27,7 @@
                         <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Left" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                <TabControl TabStripPlacement="Left" BorderThickness="1" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>
@@ -38,7 +38,7 @@
                         <LightText Text="Content 3" Margin="12 50" />
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="1" CornerRadius="11">
                     <TabItem Header="TabItem 1">
                         <LightText Text="Content 1" Margin="12 50" />
                     </TabItem>

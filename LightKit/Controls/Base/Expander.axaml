@@ -5,10 +5,10 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightAutoGrid Definitions="*,*" Spacing="12">
-                <Expander Header="Expanded Left" Content="Expanded Content" ExpandDirection="Left" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
-                <Expander Header="Expanded Right" Content="Expanded Content" ExpandDirection="Right" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
-                <Expander Header="Expanded Up" Content="Expanded Content" ExpandDirection="Up" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
-                <Expander Header="Expanded Down" Content="Expanded Content" ExpandDirection="Down" IsExpanded="True" BorderThickness="{ThemeThickness Normal}" CornerRadius="11" />
+                <Expander Header="Expanded Left" Content="Expanded Content" ExpandDirection="Left" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
+                <Expander Header="Expanded Right" Content="Expanded Content" ExpandDirection="Right" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
+                <Expander Header="Expanded Up" Content="Expanded Content" ExpandDirection="Up" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
+                <Expander Header="Expanded Down" Content="Expanded Content" ExpandDirection="Down" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
             </LightAutoGrid>
         </LightPanel>
     </Design.PreviewWith>

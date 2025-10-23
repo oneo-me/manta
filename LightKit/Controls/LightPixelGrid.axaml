@@ -5,13 +5,13 @@
     <Design.PreviewWith>
         <Panel Background="{ThemeColorSet Background}">
             <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
-                <Border BorderThickness="{ThemeThickness Normal}">
+                <Border BorderThickness="1">
                     <LightPixelGrid Width="100" Height="100" />
                 </Border>
-                <Border BorderThickness="{ThemeThickness Normal}">
+                <Border BorderThickness="1">
                     <LightPixelGrid Width="100" Height="100" Foreground="Red" />
                 </Border>
-                <Border BorderThickness="{ThemeThickness Normal}">
+                <Border BorderThickness="1">
                     <LightPixelGrid Width="100" Height="100" Foreground="Blue" Opacity="0.5" />
                 </Border>
             </LightPanel>

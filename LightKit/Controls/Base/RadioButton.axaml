@@ -12,7 +12,7 @@
         <Setter Property="Background" Value="{ThemeColorSet Background}" />
         <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-        <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="100" />
         <Setter Property="Padding" Value="31 11" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

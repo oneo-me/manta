@@ -7,7 +7,7 @@
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="None" />
                 <Border BorderThickness="1">
-                    <LightTabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
+                    <LightTabStrip>
                         <LightTabStripItem Content="TabItem 1" />
                         <LightTabStripItem Content="TabItem 2" />
                         <LightTabStripItem Content="TabItem 3" />
@@ -16,12 +16,14 @@
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="RooTab" />
-                <Border BorderThickness="1" Height="36">
-                    <LightTabStrip Custom="RootTab" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
-                        <LightTabStripItem Content="TabItem 1" />
-                        <LightTabStripItem Content="TabItem 2" />
-                        <LightTabStripItem Content="TabItem 3" />
-                    </LightTabStrip>
+                <Border BorderThickness="1" Height="180" Background="White">
+                    <Border ClipToBounds="True" BorderThickness="0 0 0 1" Height="36" VerticalAlignment="Top">
+                        <LightTabStrip Custom="RootTab" Background="Wheat">
+                            <LightTabStripItem Content="TabItem 1" />
+                            <LightTabStripItem Content="TabItem 2" />
+                            <LightTabStripItem Content="TabItem 3" />
+                        </LightTabStrip>
+                    </Border>
                 </Border>
             </LightPanel>
         </LightPanel>
