@@ -11,6 +11,25 @@ public enum ColorScheme
     Danger
 }
 
+public enum TextSize
+{
+    Normal,
+
+    ExtraSmall,
+    Small,
+
+    Large,
+    ExtraLarge,
+    ExtraLarge2,
+    ExtraLarge3,
+    ExtraLarge4,
+    ExtraLarge5,
+    ExtraLarge6,
+    ExtraLarge7,
+    ExtraLarge8,
+    ExtraLarge9
+}
+
 public class Theme
 {
     public static readonly AttachedProperty<ColorScheme> ColorSchemeProperty =
@@ -24,5 +43,18 @@ public class Theme
     public static ColorScheme GetColorScheme(AvaloniaObject obj)
     {
         return obj.GetValue(ColorSchemeProperty);
+    }
+
+    public static readonly AttachedProperty<TextSize> TextSizeProperty =
+        AvaloniaProperty.RegisterAttached<Theme, AvaloniaObject, TextSize>("TextSize", TextSize.Normal, true);
+
+    public static void SetTextSize(AvaloniaObject obj, TextSize value)
+    {
+        obj.SetValue(TextSizeProperty, value);
+    }
+
+    public static TextSize GetTextSize(AvaloniaObject obj)
+    {
+        return obj.GetValue(TextSizeProperty);
     }
 }

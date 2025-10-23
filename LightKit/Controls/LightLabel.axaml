@@ -4,19 +4,19 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightLabel Custom="ExtraSmall" Content="LightLabel" />
-            <LightLabel Custom="Small" Content="LightLabel" />
-            <LightLabel Content="LightLabel" />
-            <LightLabel Custom="Large" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge2" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge3" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge4" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge5" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge6" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge7" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge8" Content="LightLabel" />
-            <LightLabel Custom="ExtraLarge9" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraSmall" Content="LightLabel" />
+            <LightLabel Theme.TextSize="Small" Content="LightLabel" />
+            <LightLabel Theme.TextSize="Normal" Content="LightLabel" />
+            <LightLabel Theme.TextSize="Large" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge2" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge3" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge4" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge5" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge6" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge7" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge8" Content="LightLabel" />
+            <LightLabel Theme.TextSize="ExtraLarge9" Content="LightLabel" />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightLabel}" TargetType="LightLabel">
@@ -35,53 +35,55 @@
                                   RecognizesAccessKey="True" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Custom=ExtraSmall]">
+        <Style Selector="^[(Theme.TextSize)=ExtraSmall]">
             <Setter Property="FontSize" Value="8" />
             <Setter Property="TextBlock.LineHeight" Value="12" />
         </Style>
-        <Style Selector="^[Custom=Small]">
+        <Style Selector="^[(Theme.TextSize)=Small]">
             <Setter Property="FontSize" Value="10" />
             <Setter Property="TextBlock.LineHeight" Value="14" />
         </Style>
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextBlock.LineHeight" Value="16" />
-        <Style Selector="^[Custom=Large]">
+        <Style Selector="^[(Theme.TextSize)=Normal]">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextBlock.LineHeight" Value="16" />
+        </Style>
+        <Style Selector="^[(Theme.TextSize)=Large]">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="TextBlock.LineHeight" Value="20" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge]">
             <Setter Property="FontSize" Value="16" />
             <Setter Property="TextBlock.LineHeight" Value="24" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge2]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge2]">
             <Setter Property="FontSize" Value="18" />
             <Setter Property="TextBlock.LineHeight" Value="26" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge3]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge3]">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="TextBlock.LineHeight" Value="28" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge4]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge4]">
             <Setter Property="FontSize" Value="24" />
             <Setter Property="TextBlock.LineHeight" Value="32" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge5]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge5]">
             <Setter Property="FontSize" Value="30" />
             <Setter Property="TextBlock.LineHeight" Value="36" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge6]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge6]">
             <Setter Property="FontSize" Value="36" />
             <Setter Property="TextBlock.LineHeight" Value="40" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge7]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge7]">
             <Setter Property="FontSize" Value="48" />
             <Setter Property="TextBlock.LineHeight" Value="48" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge8]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge8]">
             <Setter Property="FontSize" Value="60" />
             <Setter Property="TextBlock.LineHeight" Value="60" />
         </Style>
-        <Style Selector="^[Custom=ExtraLarge9]">
+        <Style Selector="^[(Theme.TextSize)=ExtraLarge9]">
             <Setter Property="FontSize" Value="72" />
             <Setter Property="TextBlock.LineHeight" Value="72" />
         </Style>

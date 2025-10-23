@@ -6,19 +6,19 @@
     x:DataType="local:LabelView_Model" Design.DataContext="{x:Static local:LabelView_Model.Design}">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightLabel Custom="ExtraSmall" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="Small" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="None" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="Large" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge2" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge3" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge4" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge5" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge6" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge7" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge8" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
-            <LightLabel Custom="ExtraLarge9" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraSmall" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="Small" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="Normal" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="Large" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge2" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge3" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge4" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge5" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge6" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge7" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge8" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
+            <LightLabel Theme.TextSize="ExtraLarge9" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
         </LightPanel>
     </ScrollViewer>
 </LightView>

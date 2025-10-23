@@ -7,7 +7,7 @@
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Text="Rings" FontWeight="SemiBold" />
-            <LightPanel Mode="Horizontal" Spacing="12">
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -15,10 +15,10 @@
                 <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <LightText Text="TEST" Size="ExtraSmall" />
+                    <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Primary">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -26,10 +26,10 @@
                 <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <LightText Text="TEST" Size="ExtraSmall" />
+                    <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Success">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -37,10 +37,10 @@
                 <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <LightText Text="TEST" Size="ExtraSmall" />
+                    <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Warning">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -48,10 +48,10 @@
                 <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <LightText Text="TEST" Size="ExtraSmall" />
+                    <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Danger">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -59,7 +59,7 @@
                 <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <LightText Text="TEST" Size="ExtraSmall" />
+                    <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
         </LightPanel>
