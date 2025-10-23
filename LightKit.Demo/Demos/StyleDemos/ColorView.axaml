@@ -12,7 +12,7 @@
         <Style Selector="Border.Color">
             <Setter Property="Width" Value="38" />
             <Setter Property="Height" Value="26" />
-            <Setter Property="CornerRadius" Value="{ThemeRadius SM}" />
+            <Setter Property="CornerRadius" Value="6" />
             <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="LightPanel.ColorBox">
