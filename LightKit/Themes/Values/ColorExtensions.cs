@@ -42,6 +42,8 @@ static class ColorExtensions
 
         return new()
         {
+            Opacity = rgbColor.Opacity,
+
             L = oklchL,
             C = oklchC,
             H = oklchH
@@ -81,6 +83,8 @@ static class ColorExtensions
 
         return new()
         {
+            Opacity = oklchColor.Opacity,
+
             R = r,
             G = g,
             B = b

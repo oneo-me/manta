@@ -12,6 +12,7 @@
                 <Viewbox x:Name="PART_ViewBox" ClipToBounds="False" />
             </ControlTemplate>
         </Setter>
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
         <Style Selector="^[(Theme.ColorScheme)=Normal]">
             <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
         </Style>

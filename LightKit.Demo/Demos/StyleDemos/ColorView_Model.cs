@@ -43,6 +43,6 @@ sealed class ColorView_Model : DemoViewModel
         var steps = 7;
 
         for (var i = steps - 1; i >= 0; i--)
-            Colors.Add(new(themeColor.GetColor(i, steps).ToColor(1)));
+            Colors.Add(new(themeColor.GetColor(i, steps).ToColor()));
     }
 }

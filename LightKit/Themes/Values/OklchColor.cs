@@ -8,8 +8,8 @@ public sealed class OklchColor : ColorBase
     public double C { get; init; }
     public double H { get; init; }
 
-    public override Color ToColor(double opacity)
+    public override Color ToColor(double opacityFactor = 1.0)
     {
-        return this.ToRgbColor().ToColor(opacity);
+        return this.ToRgbColor().ToColor(opacityFactor);
     }
 }

@@ -83,11 +83,11 @@
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.4}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
                 </Style>
                 <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.3}" />
+                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                     <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
                 </Style>
@@ -151,14 +151,14 @@
         </Style>
         <Style Selector="^[Custom=Outlined]">
             <Style Selector="^[(Theme.ColorScheme)=Normal]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.4}" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
                 </Style>
                 <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.3}" />
+                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                     <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
                 </Style>
