@@ -17,8 +17,8 @@
                   IsEnabled="{Binding $parent[TextBox].CanPaste}" InputGesture="{x:Static TextBox.PasteGesture}" />
     </MenuFlyout>
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
-        <Setter Property="SelectionBrush" Value="{ThemeBrush Primary, Opacity=0.3}" />
-        <Setter Property="SelectionForegroundBrush" Value="{ThemeBrush Foreground}" />
+        <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
+        <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
         <Setter Property="ContextFlyout" Value="{StaticResource SimpleTextBoxContextFlyout}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">

@@ -6,7 +6,7 @@
         <LightIcon IconSource="Controls" IconSize="72" />
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightIcon}" TargetType="LightIcon">
-        <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.2}" />
+        <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>

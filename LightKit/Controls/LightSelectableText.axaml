@@ -21,7 +21,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightSelectableText}" TargetType="LightSelectableText">
         <Setter Property="Background" Value="#00000000" />
-        <Setter Property="SelectionBrush" Value="{ThemeBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
         <Style Selector="^[Custom=ExtraSmall]">
             <Setter Property="FontSize" Value="8" />
             <Setter Property="LineHeight" Value="12" />

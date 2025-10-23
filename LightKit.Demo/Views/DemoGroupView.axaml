@@ -16,7 +16,7 @@
                 </DataTemplate>
             </LightListBox.ItemTemplate>
         </LightListBox>
-        <Panel Grid.Column="1" Background="{ThemeBrush BorderBrush}" Margin="0 12" />
+        <Panel Grid.Column="1" Background="{ThemeColorSet BorderBrush}" Margin="0 12" />
         <LightViewHost Grid.Column="2" ViewModel="{Binding CurrentDemo}" />
     </Grid>
 </LightView>

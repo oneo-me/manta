@@ -52,10 +52,10 @@
                 <BrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
         </Style>
         <Style Selector="^[Type=None]">
             <Setter Property="Padding" Value="8 0" />
@@ -103,11 +103,11 @@
                               Width="10" Height="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
                 </DataTemplate>
             </Setter>
-            <Setter Property="Background" Value="{ThemeBrush Error, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+            <Setter Property="Background" Value="{ThemeColorSet Error, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeBrush Error}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Error_Foreground}" />
+                <Setter Property="Background" Value="{ThemeColorSet Error}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet ColorForeground}" />
             </Style>
         </Style>
     </ControlTheme>

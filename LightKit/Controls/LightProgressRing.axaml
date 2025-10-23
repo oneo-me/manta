@@ -18,11 +18,11 @@
     <converters1:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
     <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />
     <ControlTheme x:Key="{x:Type LightProgressRing}" TargetType="LightProgressRing">
-        <Setter Property="RingBackground" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
-        <Setter Property="RingForeground" Value="{ThemeBrush Primary}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="RingBackground" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
+        <Setter Property="RingForeground" Value="{ThemeColorSet Primary}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="Padding" Value="33 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

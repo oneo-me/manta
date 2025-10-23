@@ -8,7 +8,7 @@
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="None" />
-                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
+                <Border BorderThickness="1">
                     <LightListBox>
                         <LightListBox.ItemsSource>
                             <generic:List x:TypeArguments="system:String">
@@ -27,7 +27,7 @@
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="Sidebar" />
-                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
+                <Border BorderThickness="1">
                     <LightListBox Custom="Sidebar">
                         <LightListBox.ItemsSource>
                             <generic:List x:TypeArguments="system:String">
@@ -94,12 +94,12 @@
             <Setter Property="Margin" Value="0 0 0 2" />
             <Setter Property="Padding" Value="12 9" />
             <Setter Property="CornerRadius" Value="{ThemeRadius LG}" />
-            <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0}" />
+            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.1}" />
+                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
             </Style>
             <Style Selector="^:pointerover:not(:selected)">
-                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
             </Style>
             <Style Selector="^:nth-last-child(1)">
                 <Setter Property="Margin" Value="0" />

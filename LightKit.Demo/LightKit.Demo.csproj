@@ -9,4 +9,10 @@
     <ItemGroup>
         <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.1" PrivateAssets="all" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Demos\ControlDemos\ButtonView.axaml.cs">
+        <DependentUpon>ButtonView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

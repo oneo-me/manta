@@ -15,7 +15,6 @@
                 <!-- Base Controls -->
                 <MergeResourceInclude Source="../Controls/Base/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Border.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/CheckBox.axaml" />
@@ -48,6 +47,7 @@
                 <MergeResourceInclude Source="../Controls/Base/TreeView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/TreeViewItem.axaml" />
                 <!-- Controls -->
+                <MergeResourceInclude Source="../Controls/LightButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/LightLabel.axaml" />

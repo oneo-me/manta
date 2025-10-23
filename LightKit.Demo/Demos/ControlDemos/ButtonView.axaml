@@ -1,0 +1,66 @@
+<LightView
+    x:Class="LightKit.Demo.Demos.ControlDemos.ButtonView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
+    x:DataType="local:ButtonView_Model" Design.DataContext="{x:Static local:ButtonView_Model.Design}">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Text="Buttons" FontWeight="SemiBold" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" Custom="Filled" Size="Normal" />
+                <LightButton Content="Button" Custom="Outlined" Size="Normal" />
+                <LightButton Content="Button" Custom="Ghost" Size="Normal" />
+            </LightPanel>
+            <LightText Text="Custom Icons" FontWeight="SemiBold" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Custom="Filled" Size="Small">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+                <LightButton Custom="Outlined" Size="Small">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+                <LightButton Custom="Ghost" Size="Small">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Custom="Filled" Size="Normal">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+                <LightButton Custom="Outlined" Size="Normal">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+                <LightButton Custom="Ghost" Size="Normal">
+                    <LightPanel Mode="Horizontal" Spacing="4">
+                        <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <LightText Text="Button" VerticalAlignment="Center" />
+                    </LightPanel>
+                </LightButton>
+            </LightPanel>
+        </LightPanel>
+    </ScrollViewer>
+</LightView>

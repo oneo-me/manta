@@ -1,8 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.Media;
-using Avalonia.Media.Immutable;
 using LightKit.Themes.Base;
-using LightKit.Themes.Values;
 
 namespace LightKit.Themes.Variables;
 
@@ -34,41 +32,22 @@ public sealed class ThemeShadowKeyExtension(ThemeShadowKey key) : ThemeKeyBase(k
 public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
 {
     public ThemeShadowKey Key { get; } = key;
-    public ThemeBrushKey BrushKey { get; init; } = ThemeBrushKey.Black;
+    public ThemeColorSetKey ColorKey { get; init; } = ThemeColorSetKey.Foreground;
+    public ThemeColorType ColorType { get; set; } = ThemeColorType.Normal;
     public double BrushOpacity { get; init; } = -1;
 
     protected override IEnumerable<object> GetKeys()
     {
         yield return Key;
-        yield return BrushKey;
+        yield return ColorKey;
     }
 
     protected override object ProcessValues(IList<object?> values)
     {
         var value0 = values[0];
-        var value1 = values[1];
+        var value1 = ThemeColorSet.GetColor(values[1], ColorType);
 
-        if (value0 is not BoxShadows boxShadows)
-            return default(BoxShadows);
-
-        ColorBase? color = null;
-        var opacity = 1d;
-        if (value1 is ColorBase colorBase)
-            color = colorBase;
-
-        if (value1 is ThemeRefValue { Value: ImmutableSolidColorBrush immutableSolidColorBrush })
-        {
-            var refColor = immutableSolidColorBrush.Color;
-            opacity = refColor.A / 255d * immutableSolidColorBrush.Opacity;
-            color = new RgbColor
-            {
-                R = refColor.R,
-                G = refColor.G,
-                B = refColor.B
-            };
-        }
-
-        if (color is null)
+        if (value0 is not BoxShadows boxShadows || value1 is null)
             return default(BoxShadows);
 
         var shadows = new List<BoxShadow>();
@@ -81,7 +60,7 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
                 Blur = boxShadow.Blur,
                 Spread = boxShadow.Spread,
                 IsInset = boxShadow.IsInset,
-                Color = color.ToColor(opacity * (BrushOpacity > 0 ? BrushOpacity : boxShadow.Color.A / 255d))
+                Color = value1.ToColor(BrushOpacity > 0 ? BrushOpacity : boxShadow.Color.A / 255d)
             });
 
         if (shadows.Count == 0)

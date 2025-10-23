@@ -9,8 +9,8 @@
         <Setter Property="Title" Value="LightKit" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="TextBlock.LineHeight" Value="16" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background, ResetOpacity=True}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="{TemplateBinding Background}">

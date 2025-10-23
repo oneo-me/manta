@@ -1,0 +1,96 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" Custom="Filled" Size="Small" />
+                <LightButton Content="Button" Custom="Outlined" Size="Small" />
+                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightButton Content="Button" Custom="Filled" Size="Normal" />
+                <LightButton Content="Button" Custom="Outlined" Size="Normal" />
+                <LightButton Content="Button" Custom="Ghost" Size="Normal" />
+            </LightPanel>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightButton}" TargetType="LightButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="8 2" />
+            <Setter Property="CornerRadius" Value="100" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="^[Size=Normal]">
+            <Setter Property="Padding" Value="12 6" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="^[Custom=Filled]">
+            <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.05}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.6}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Custom=Outlined]">
+            <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.6}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Custom=Ghost]">
+            <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.1}" />
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.05}" />
+                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
+            </Style>
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

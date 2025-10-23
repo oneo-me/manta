@@ -10,9 +10,9 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -50,14 +50,14 @@
             <Setter Property="Opacity" Value="0" />
             <Setter Property="Width" Value="10" />
             <Setter Property="Height" Value="10" />
-            <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
             <Setter Property="Data" Value="M13.2882 1.02984C13.824 1.46517 13.9055 2.25243 13.4701 2.78822L6.97014 10.7882C6.74697 11.0629 6.41783 11.2301 6.0644 11.2483C5.71096 11.2666 5.36636 11.1341 5.11612 10.8839L1.11612 6.88386C0.627961 6.39571 0.627961 5.60425 1.11612 5.1161C1.60427 4.62794 2.39573 4.62794 2.88388 5.1161L5.90385 8.13606L11.5299 1.21174C11.9652 0.675943 12.7524 0.594503 13.2882 1.02984Z" />
         </Style>
         <Style Selector="^ /template/ PathIcon#IndeterminateMark">
             <Setter Property="Opacity" Value="0" />
             <Setter Property="Width" Value="6" />
             <Setter Property="Height" Value="6" />
-            <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
             <Setter Property="Data" Value="M0 1.5C0 0.671573 0.671573 0 1.5 0H4.5C5.32843 0 6 0.671573 6 1.5V4.5C6 5.32843 5.32843 6 4.5 6H1.5C0.671573 6 0 5.32843 0 4.5V1.5Z" />
         </Style>
         <Style Selector="^:checked /template/ PathIcon#CheckMark">

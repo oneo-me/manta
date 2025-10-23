@@ -13,7 +13,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>

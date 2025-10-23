@@ -20,8 +20,8 @@
         <Setter Property="Title" Value="LightKit" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="TextBlock.LineHeight" Value="16" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-        <Setter Property="Background" Value="{ThemeBrush Background, ResetOpacity=True, Opacity=1}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel x:Name="Root">
@@ -29,7 +29,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
                         <VisualLayerManager>
                             <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Background="{ThemeBrush Primary, Opacity=0.03}"
+                                              Background="{ThemeColorSet Primary, Opacity=0.03}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}" />
                         </VisualLayerManager>

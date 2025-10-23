@@ -13,9 +13,9 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
-        <Setter Property="Background" Value="{ThemeBrush Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background}" />
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
         <Setter Property="BorderThickness" Value="{ThemeThickness Normal}" />
         <Setter Property="CornerRadius" Value="100" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -63,7 +63,7 @@
                 <Setter Property="Margin" Value="0 0 22 0" />
             </Style>
             <Style Selector="^ Ellipse">
-                <Setter Property="Fill" Value="{ThemeBrush Primary}" />
+                <Setter Property="Fill" Value="{ThemeColorSet Primary}" />
                 <Setter Property="Margin" Value="1" />
                 <Setter Property="Width" Value="20" />
                 <Setter Property="Height" Value="20" />

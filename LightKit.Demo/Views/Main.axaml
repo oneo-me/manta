@@ -5,8 +5,8 @@
     xmlns:local="clr-namespace:LightKit.Demo.Views"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
-        <LightViewHost Grid.Row="1" Background="{ThemeBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
-        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeBrush Primary, Opacity=0.03}" BorderBrush="{ThemeBrush BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
+        <LightViewHost Grid.Row="1" Background="{ThemeColorSet Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
+        <Border Grid.Row="0" x:Name="TitleBar" Background="{ThemeColorSet Primary, Opacity=0.03}" BorderBrush="{ThemeColorSet BorderBrush}" BorderThickness="{ThemeThickness Normal, Filter=Bottom}">
             <Grid ColumnDefinitions="* Auto Auto">
                 <LightTabStrip Grid.Column="0" Custom="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
                     <LightTabStrip.ItemTemplate>

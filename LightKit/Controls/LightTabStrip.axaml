@@ -6,7 +6,7 @@
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="None" />
-                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}">
+                <Border BorderThickness="1">
                     <LightTabStrip BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                         <LightTabStripItem Content="TabItem 1" />
                         <LightTabStripItem Content="TabItem 2" />
@@ -16,7 +16,7 @@
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="RooTab" />
-                <Border BorderThickness="1" BorderBrush="{ThemeBrush Gray400}" Height="36">
+                <Border BorderThickness="1" Height="36">
                     <LightTabStrip Custom="RootTab" BorderThickness="{ThemeThickness Normal}" CornerRadius="11">
                         <LightTabStripItem Content="TabItem 1" />
                         <LightTabStripItem Content="TabItem 2" />
@@ -67,20 +67,20 @@
             <Setter Property="Padding" Value="14 0" />
             <Setter Property="Margin" Value="0 0 0 1" />
             <Setter Property="BorderThickness" Value="1 0 0 0" />
-            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground, Opacity=0.5}" />
+            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.5}" />
             <Style Selector="^:selected">
                 <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
-                <Setter Property="Background" Value="{ThemeBrush Background}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+                <Setter Property="Background" Value="{ThemeColorSet Background}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             </Style>
             <Style Selector="^:pointerover:not(:selected)">
                 <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
-                <Setter Property="Background" Value="{ThemeBrush Foreground, Opacity=0.05}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             </Style>
             <Style Selector="^:nth-last-child(1)">
                 <Setter Property="BorderThickness" Value="1 0" />

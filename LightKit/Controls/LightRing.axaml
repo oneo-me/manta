@@ -9,8 +9,8 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightRing}" TargetType="LightRing">
-        <Setter Property="Foreground" Value="{ThemeBrush Primary}" />
-        <Setter Property="Background" Value="{ThemeBrush BorderBrush, Opacity=0.6}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+        <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
         <Setter Property="Size" Value="60" />
         <Setter Property="StrokeSize" Value="5" />
         <Setter Property="Value" Value="0" />

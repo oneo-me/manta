@@ -8,25 +8,25 @@
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Text="Radius" FontWeight="SemiBold" />
             <LightPanel Mode="Wrap" Spacing="12">
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XS}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XS}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius MD}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius MD}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius LG}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius LG}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL2}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL2}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL3}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL3}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="XL3" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL4}" Background="{ThemeBrush Black, Opacity=0.3}">
+                <Border Width="100" Height="100" BorderThickness="1" CornerRadius="{ThemeRadius XL4}" Background="{ThemeColorSet Foreground, Opacity=0.3}">
                     <LightText Text="XL4" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
             </LightPanel>

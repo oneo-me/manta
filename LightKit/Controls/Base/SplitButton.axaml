@@ -19,29 +19,29 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="*,Auto">
-                        <Button x:Name="PART_PrimaryButton" Grid.Column="0"
-                                Foreground="{TemplateBinding Foreground}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Command="{TemplateBinding Command}"
-                                CommandParameter="{TemplateBinding CommandParameter}"
-                                FontFamily="{TemplateBinding FontFamily}"
-                                FontSize="{TemplateBinding FontSize}"
-                                FontWeight="{TemplateBinding FontWeight}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Padding="{TemplateBinding Padding}"
-                                Focusable="False"
-                                KeyboardNavigation.IsTabStop="False" />
-                        <Button x:Name="PART_SecondaryButton"
-                                Grid.Column="1"
-                                Foreground="{TemplateBinding Foreground}"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Focusable="False"
-                                KeyboardNavigation.IsTabStop="False">
+                        <LightButton x:Name="PART_PrimaryButton" Grid.Column="0"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     Content="{TemplateBinding Content}"
+                                     ContentTemplate="{TemplateBinding ContentTemplate}"
+                                     Command="{TemplateBinding Command}"
+                                     CommandParameter="{TemplateBinding CommandParameter}"
+                                     FontFamily="{TemplateBinding FontFamily}"
+                                     FontSize="{TemplateBinding FontSize}"
+                                     FontWeight="{TemplateBinding FontWeight}"
+                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                     Padding="{TemplateBinding Padding}"
+                                     Focusable="False"
+                                     KeyboardNavigation.IsTabStop="False" />
+                        <LightButton x:Name="PART_SecondaryButton"
+                                     Grid.Column="1"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center"
+                                     Focusable="False"
+                                     KeyboardNavigation.IsTabStop="False">
                             <PathIcon Height="12" Width="12" Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
-                        </Button>
+                        </LightButton>
                     </Grid>
                 </Border>
             </ControlTemplate>

@@ -64,13 +64,13 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{ThemeBrush Primary}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary}" />
         </Style>
         <Style Selector="^ /template/ Border#IndeterminateProgressBarIndicator">
-            <Setter Property="Background" Value="{ThemeBrush Primary}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary}" />
         </Style>
         <Style Selector="^ /template/ Border#IndeterminateProgressBarIndicator2">
-            <Setter Property="Background" Value="{ThemeBrush Primary}" />
+            <Setter Property="Background" Value="{ThemeColorSet Primary}" />
         </Style>
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />

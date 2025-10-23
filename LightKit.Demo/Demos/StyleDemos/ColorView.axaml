@@ -5,550 +5,181 @@
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
     <LightView.Styles>
-        <Style Selector="LightPanel.CompactColors">
-            <Setter Property="Mode" Value="Vertical" />
-            <Setter Property="Spacing" Value="6" />
+        <Style Selector="LightText.Key">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        <Style Selector="Grid.ColorBoxs">
-            <Style Selector="^ LightText">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Margin" Value="0 0 12 0" />
-            </Style>
-            <Style Selector="^ LightPanel">
-                <Setter Property="Spacing" Value="6" />
-                <Setter Property="Mode" Value="Horizontal" />
-            </Style>
-            <Style Selector="^ Border">
-                <Setter Property="Width" Value="38" />
-                <Setter Property="Height" Value="26" />
-                <Setter Property="CornerRadius" Value="{ThemeRadius SM}" />
-                <Setter Property="BorderThickness" Value="1" />
-            </Style>
+        <Style Selector="Border.Color">
+            <Setter Property="Width" Value="38" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="CornerRadius" Value="{ThemeRadius SM}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="LightPanel.ColorBox">
+            <Setter Property="Spacing" Value="6" />
+            <Setter Property="Mode" Value="Horizontal" />
         </Style>
     </LightView.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
-            <LightText Text="Refs" FontWeight="SemiBold" />
-            <LightPanel Classes="CompactColors">
-                <Grid Classes="ColorBoxs">
+            <LightText Text="ColorTest" FontWeight="SemiBold" />
+            <LightPanel Mode="Vertical" Spacing="8">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Background" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Background}" />
-                    </LightPanel>
+                    <LightText Grid.Column="0" Classes="Key" Text="{Binding H, StringFormat=H: {0}}" VerticalAlignment="Center" />
+                    <Slider Grid.Column="1" Minimum="0" Maximum="360" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding H}" />
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Primary" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Primary}" />
-                        <Border Background="{ThemeBrush Primary_Foreground}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Success" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Success}" />
-                        <Border Background="{ThemeBrush Success_Foreground}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Warning" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Warning}" />
-                        <Border Background="{ThemeBrush Warning_Foreground}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Refs" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Error" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Error}" />
-                        <Border Background="{ThemeBrush Error_Foreground}" />
-                    </LightPanel>
+                    <LightText Grid.Column="0" Classes="Key" Text="Colors" VerticalAlignment="Center" />
+                    <ItemsControl Grid.Column="1" ItemsSource="{Binding Colors}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <LightPanel Mode="Horizontal" Classes="ColorBox" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Classes="Color" Background="{Binding}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </LightPanel>
-            <LightText Text="Base" FontWeight="SemiBold" />
-            <LightPanel Classes="CompactColors">
-                <Grid Classes="ColorBoxs">
+            <LightText Text="ColorSet" FontWeight="SemiBold" />
+            <LightPanel Mode="Vertical" Spacing="8">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Black" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Black}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Background" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Base" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="White" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush White}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="BorderBrush" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-            </LightPanel>
-            <LightText Text="Colors" FontWeight="SemiBold" />
-            <LightPanel Classes="CompactColors">
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Red" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Red50}" />
-                        <Border Background="{ThemeBrush Red100}" />
-                        <Border Background="{ThemeBrush Red200}" />
-                        <Border Background="{ThemeBrush Red300}" />
-                        <Border Background="{ThemeBrush Red400}" />
-                        <Border Background="{ThemeBrush Red500}" />
-                        <Border Background="{ThemeBrush Red600}" />
-                        <Border Background="{ThemeBrush Red700}" />
-                        <Border Background="{ThemeBrush Red800}" />
-                        <Border Background="{ThemeBrush Red900}" />
-                        <Border Background="{ThemeBrush Red950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Foreground" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Orange" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Orange50}" />
-                        <Border Background="{ThemeBrush Orange100}" />
-                        <Border Background="{ThemeBrush Orange200}" />
-                        <Border Background="{ThemeBrush Orange300}" />
-                        <Border Background="{ThemeBrush Orange400}" />
-                        <Border Background="{ThemeBrush Orange500}" />
-                        <Border Background="{ThemeBrush Orange600}" />
-                        <Border Background="{ThemeBrush Orange700}" />
-                        <Border Background="{ThemeBrush Orange800}" />
-                        <Border Background="{ThemeBrush Orange900}" />
-                        <Border Background="{ThemeBrush Orange950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="ColorForeground" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Amber" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Amber50}" />
-                        <Border Background="{ThemeBrush Amber100}" />
-                        <Border Background="{ThemeBrush Amber200}" />
-                        <Border Background="{ThemeBrush Amber300}" />
-                        <Border Background="{ThemeBrush Amber400}" />
-                        <Border Background="{ThemeBrush Amber500}" />
-                        <Border Background="{ThemeBrush Amber600}" />
-                        <Border Background="{ThemeBrush Amber700}" />
-                        <Border Background="{ThemeBrush Amber800}" />
-                        <Border Background="{ThemeBrush Amber900}" />
-                        <Border Background="{ThemeBrush Amber950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Primary" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Yellow" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Yellow50}" />
-                        <Border Background="{ThemeBrush Yellow100}" />
-                        <Border Background="{ThemeBrush Yellow200}" />
-                        <Border Background="{ThemeBrush Yellow300}" />
-                        <Border Background="{ThemeBrush Yellow400}" />
-                        <Border Background="{ThemeBrush Yellow500}" />
-                        <Border Background="{ThemeBrush Yellow600}" />
-                        <Border Background="{ThemeBrush Yellow700}" />
-                        <Border Background="{ThemeBrush Yellow800}" />
-                        <Border Background="{ThemeBrush Yellow900}" />
-                        <Border Background="{ThemeBrush Yellow950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Success" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Lime" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Lime50}" />
-                        <Border Background="{ThemeBrush Lime100}" />
-                        <Border Background="{ThemeBrush Lime200}" />
-                        <Border Background="{ThemeBrush Lime300}" />
-                        <Border Background="{ThemeBrush Lime400}" />
-                        <Border Background="{ThemeBrush Lime500}" />
-                        <Border Background="{ThemeBrush Lime600}" />
-                        <Border Background="{ThemeBrush Lime700}" />
-                        <Border Background="{ThemeBrush Lime800}" />
-                        <Border Background="{ThemeBrush Lime900}" />
-                        <Border Background="{ThemeBrush Lime950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Warning" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
-                <Grid Classes="ColorBoxs">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Green" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Green50}" />
-                        <Border Background="{ThemeBrush Green100}" />
-                        <Border Background="{ThemeBrush Green200}" />
-                        <Border Background="{ThemeBrush Green300}" />
-                        <Border Background="{ThemeBrush Green400}" />
-                        <Border Background="{ThemeBrush Green500}" />
-                        <Border Background="{ThemeBrush Green600}" />
-                        <Border Background="{ThemeBrush Green700}" />
-                        <Border Background="{ThemeBrush Green800}" />
-                        <Border Background="{ThemeBrush Green900}" />
-                        <Border Background="{ThemeBrush Green950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Emerald" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Emerald50}" />
-                        <Border Background="{ThemeBrush Emerald100}" />
-                        <Border Background="{ThemeBrush Emerald200}" />
-                        <Border Background="{ThemeBrush Emerald300}" />
-                        <Border Background="{ThemeBrush Emerald400}" />
-                        <Border Background="{ThemeBrush Emerald500}" />
-                        <Border Background="{ThemeBrush Emerald600}" />
-                        <Border Background="{ThemeBrush Emerald700}" />
-                        <Border Background="{ThemeBrush Emerald800}" />
-                        <Border Background="{ThemeBrush Emerald900}" />
-                        <Border Background="{ThemeBrush Emerald950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Teal" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Teal50}" />
-                        <Border Background="{ThemeBrush Teal100}" />
-                        <Border Background="{ThemeBrush Teal200}" />
-                        <Border Background="{ThemeBrush Teal300}" />
-                        <Border Background="{ThemeBrush Teal400}" />
-                        <Border Background="{ThemeBrush Teal500}" />
-                        <Border Background="{ThemeBrush Teal600}" />
-                        <Border Background="{ThemeBrush Teal700}" />
-                        <Border Background="{ThemeBrush Teal800}" />
-                        <Border Background="{ThemeBrush Teal900}" />
-                        <Border Background="{ThemeBrush Teal950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Cyan" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Cyan50}" />
-                        <Border Background="{ThemeBrush Cyan100}" />
-                        <Border Background="{ThemeBrush Cyan200}" />
-                        <Border Background="{ThemeBrush Cyan300}" />
-                        <Border Background="{ThemeBrush Cyan400}" />
-                        <Border Background="{ThemeBrush Cyan500}" />
-                        <Border Background="{ThemeBrush Cyan600}" />
-                        <Border Background="{ThemeBrush Cyan700}" />
-                        <Border Background="{ThemeBrush Cyan800}" />
-                        <Border Background="{ThemeBrush Cyan900}" />
-                        <Border Background="{ThemeBrush Cyan950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Sky" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Sky50}" />
-                        <Border Background="{ThemeBrush Sky100}" />
-                        <Border Background="{ThemeBrush Sky200}" />
-                        <Border Background="{ThemeBrush Sky300}" />
-                        <Border Background="{ThemeBrush Sky400}" />
-                        <Border Background="{ThemeBrush Sky500}" />
-                        <Border Background="{ThemeBrush Sky600}" />
-                        <Border Background="{ThemeBrush Sky700}" />
-                        <Border Background="{ThemeBrush Sky800}" />
-                        <Border Background="{ThemeBrush Sky900}" />
-                        <Border Background="{ThemeBrush Sky950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Blue" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Blue50}" />
-                        <Border Background="{ThemeBrush Blue100}" />
-                        <Border Background="{ThemeBrush Blue200}" />
-                        <Border Background="{ThemeBrush Blue300}" />
-                        <Border Background="{ThemeBrush Blue400}" />
-                        <Border Background="{ThemeBrush Blue500}" />
-                        <Border Background="{ThemeBrush Blue600}" />
-                        <Border Background="{ThemeBrush Blue700}" />
-                        <Border Background="{ThemeBrush Blue800}" />
-                        <Border Background="{ThemeBrush Blue900}" />
-                        <Border Background="{ThemeBrush Blue950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Indigo" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Indigo50}" />
-                        <Border Background="{ThemeBrush Indigo100}" />
-                        <Border Background="{ThemeBrush Indigo200}" />
-                        <Border Background="{ThemeBrush Indigo300}" />
-                        <Border Background="{ThemeBrush Indigo400}" />
-                        <Border Background="{ThemeBrush Indigo500}" />
-                        <Border Background="{ThemeBrush Indigo600}" />
-                        <Border Background="{ThemeBrush Indigo700}" />
-                        <Border Background="{ThemeBrush Indigo800}" />
-                        <Border Background="{ThemeBrush Indigo900}" />
-                        <Border Background="{ThemeBrush Indigo950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Violet" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Violet50}" />
-                        <Border Background="{ThemeBrush Violet100}" />
-                        <Border Background="{ThemeBrush Violet200}" />
-                        <Border Background="{ThemeBrush Violet300}" />
-                        <Border Background="{ThemeBrush Violet400}" />
-                        <Border Background="{ThemeBrush Violet500}" />
-                        <Border Background="{ThemeBrush Violet600}" />
-                        <Border Background="{ThemeBrush Violet700}" />
-                        <Border Background="{ThemeBrush Violet800}" />
-                        <Border Background="{ThemeBrush Violet900}" />
-                        <Border Background="{ThemeBrush Violet950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Purple" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Purple50}" />
-                        <Border Background="{ThemeBrush Purple100}" />
-                        <Border Background="{ThemeBrush Purple200}" />
-                        <Border Background="{ThemeBrush Purple300}" />
-                        <Border Background="{ThemeBrush Purple400}" />
-                        <Border Background="{ThemeBrush Purple500}" />
-                        <Border Background="{ThemeBrush Purple600}" />
-                        <Border Background="{ThemeBrush Purple700}" />
-                        <Border Background="{ThemeBrush Purple800}" />
-                        <Border Background="{ThemeBrush Purple900}" />
-                        <Border Background="{ThemeBrush Purple950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Fuchsia" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Fuchsia50}" />
-                        <Border Background="{ThemeBrush Fuchsia100}" />
-                        <Border Background="{ThemeBrush Fuchsia200}" />
-                        <Border Background="{ThemeBrush Fuchsia300}" />
-                        <Border Background="{ThemeBrush Fuchsia400}" />
-                        <Border Background="{ThemeBrush Fuchsia500}" />
-                        <Border Background="{ThemeBrush Fuchsia600}" />
-                        <Border Background="{ThemeBrush Fuchsia700}" />
-                        <Border Background="{ThemeBrush Fuchsia800}" />
-                        <Border Background="{ThemeBrush Fuchsia900}" />
-                        <Border Background="{ThemeBrush Fuchsia950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Pink" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Pink50}" />
-                        <Border Background="{ThemeBrush Pink100}" />
-                        <Border Background="{ThemeBrush Pink200}" />
-                        <Border Background="{ThemeBrush Pink300}" />
-                        <Border Background="{ThemeBrush Pink400}" />
-                        <Border Background="{ThemeBrush Pink500}" />
-                        <Border Background="{ThemeBrush Pink600}" />
-                        <Border Background="{ThemeBrush Pink700}" />
-                        <Border Background="{ThemeBrush Pink800}" />
-                        <Border Background="{ThemeBrush Pink900}" />
-                        <Border Background="{ThemeBrush Pink950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Rose" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Rose50}" />
-                        <Border Background="{ThemeBrush Rose100}" />
-                        <Border Background="{ThemeBrush Rose200}" />
-                        <Border Background="{ThemeBrush Rose300}" />
-                        <Border Background="{ThemeBrush Rose400}" />
-                        <Border Background="{ThemeBrush Rose500}" />
-                        <Border Background="{ThemeBrush Rose600}" />
-                        <Border Background="{ThemeBrush Rose700}" />
-                        <Border Background="{ThemeBrush Rose800}" />
-                        <Border Background="{ThemeBrush Rose900}" />
-                        <Border Background="{ThemeBrush Rose950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Slate" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Slate50}" />
-                        <Border Background="{ThemeBrush Slate100}" />
-                        <Border Background="{ThemeBrush Slate200}" />
-                        <Border Background="{ThemeBrush Slate300}" />
-                        <Border Background="{ThemeBrush Slate400}" />
-                        <Border Background="{ThemeBrush Slate500}" />
-                        <Border Background="{ThemeBrush Slate600}" />
-                        <Border Background="{ThemeBrush Slate700}" />
-                        <Border Background="{ThemeBrush Slate800}" />
-                        <Border Background="{ThemeBrush Slate900}" />
-                        <Border Background="{ThemeBrush Slate950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Gray" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Gray50}" />
-                        <Border Background="{ThemeBrush Gray100}" />
-                        <Border Background="{ThemeBrush Gray200}" />
-                        <Border Background="{ThemeBrush Gray300}" />
-                        <Border Background="{ThemeBrush Gray400}" />
-                        <Border Background="{ThemeBrush Gray500}" />
-                        <Border Background="{ThemeBrush Gray600}" />
-                        <Border Background="{ThemeBrush Gray700}" />
-                        <Border Background="{ThemeBrush Gray800}" />
-                        <Border Background="{ThemeBrush Gray900}" />
-                        <Border Background="{ThemeBrush Gray950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Zinc" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Zinc50}" />
-                        <Border Background="{ThemeBrush Zinc100}" />
-                        <Border Background="{ThemeBrush Zinc200}" />
-                        <Border Background="{ThemeBrush Zinc300}" />
-                        <Border Background="{ThemeBrush Zinc400}" />
-                        <Border Background="{ThemeBrush Zinc500}" />
-                        <Border Background="{ThemeBrush Zinc600}" />
-                        <Border Background="{ThemeBrush Zinc700}" />
-                        <Border Background="{ThemeBrush Zinc800}" />
-                        <Border Background="{ThemeBrush Zinc900}" />
-                        <Border Background="{ThemeBrush Zinc950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Neutral" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Neutral50}" />
-                        <Border Background="{ThemeBrush Neutral100}" />
-                        <Border Background="{ThemeBrush Neutral200}" />
-                        <Border Background="{ThemeBrush Neutral300}" />
-                        <Border Background="{ThemeBrush Neutral400}" />
-                        <Border Background="{ThemeBrush Neutral500}" />
-                        <Border Background="{ThemeBrush Neutral600}" />
-                        <Border Background="{ThemeBrush Neutral700}" />
-                        <Border Background="{ThemeBrush Neutral800}" />
-                        <Border Background="{ThemeBrush Neutral900}" />
-                        <Border Background="{ThemeBrush Neutral950}" />
-                    </LightPanel>
-                </Grid>
-                <Grid Classes="ColorBoxs">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="Colors" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <LightText Grid.Column="0" Text="Stone" />
-                    <LightPanel Grid.Column="1">
-                        <Border Background="{ThemeBrush Stone50}" />
-                        <Border Background="{ThemeBrush Stone100}" />
-                        <Border Background="{ThemeBrush Stone200}" />
-                        <Border Background="{ThemeBrush Stone300}" />
-                        <Border Background="{ThemeBrush Stone400}" />
-                        <Border Background="{ThemeBrush Stone500}" />
-                        <Border Background="{ThemeBrush Stone600}" />
-                        <Border Background="{ThemeBrush Stone700}" />
-                        <Border Background="{ThemeBrush Stone800}" />
-                        <Border Background="{ThemeBrush Stone900}" />
-                        <Border Background="{ThemeBrush Stone950}" />
+                    <LightText Grid.Column="0" Classes="Key" Text="Error" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Error, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
             </LightPanel>

@@ -24,9 +24,9 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
-        <Setter Property="Background" Value="{ThemeBrush Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-        <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
+        <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,*">
@@ -64,7 +64,7 @@
             <Setter Property="Height" Value="14" />
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="Margin" Value="0 0 5 0" />
-            <Setter Property="Background" Value="{ThemeBrush Background}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

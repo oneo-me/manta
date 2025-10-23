@@ -5,25 +5,6 @@
     xmlns:local="clr-namespace:LightKit.Demo.Views"
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     x:Name="View">
-    <LightView.Styles>
-        <Style Selector="Button.Button">
-            <Setter Property="Padding" Value="12 6" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{ThemeBrush BorderBrush}" />
-            <Setter Property="CornerRadius" Value="{ThemeRadius MD}" />
-            <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.1}" />
-            <Setter Property="Foreground" Value="{ThemeBrush Foreground}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="BorderBrush" Value="{ThemeBrush Primary}" />
-                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.6}" />
-                <Setter Property="Foreground" Value="{ThemeBrush Primary_Foreground}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="BorderBrush" Value="{ThemeBrush Primary, Opacity=0.8}" />
-                <Setter Property="Background" Value="{ThemeBrush Primary, Opacity=0.3}" />
-            </Style>
-        </Style>
-    </LightView.Styles>
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
         <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Custom="ExtraLarge6" HorizontalAlignment="Center" />
         <LightText Text="{Lang {x:Static LangKey.Description}}" />
@@ -35,9 +16,10 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Classes="Button" Content="{Lang {Binding Header}}"
-                            Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
-                            CommandParameter="{Binding}" />
+                    <LightButton Custom="Filled" Size="Small"
+                                 Content="{Lang {Binding Header}}"
+                                 Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
+                                 CommandParameter="{Binding}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -49,14 +31,14 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Classes="Button"
-                            Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
-                            CommandParameter="{Binding}">
+                    <LightButton Custom="Outlined" Size="Small"
+                                 Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
+                                 CommandParameter="{Binding}">
                         <LightPanel Mode="Horizontal" Spacing="6">
                             <LightText Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
                             <LightText Text="{LangName {Binding}}" VerticalAlignment="Center" />
                         </LightPanel>
-                    </Button>
+                    </LightButton>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
