@@ -14,5 +14,9 @@
         <DependentUpon>ButtonView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Demos\ControlDemos\ProgressRingView.axaml.cs">
+        <DependentUpon>ProgressRingView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 </Project>

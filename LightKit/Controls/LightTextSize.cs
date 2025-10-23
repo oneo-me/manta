@@ -1,6 +1,6 @@
 namespace LightKit.Controls;
 
-public enum LightTextStyle
+public enum LightTextSize
 {
     None,
 

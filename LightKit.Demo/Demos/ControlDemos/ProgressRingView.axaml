@@ -1,0 +1,67 @@
+<LightView
+    x:Class="LightKit.Demo.Demos.ControlDemos.ProgressRingView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
+    x:DataType="local:ProgressRingView_Model" Design.DataContext="{x:Static local:ProgressRingView_Model.Design}">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Text="Rings" FontWeight="SemiBold" />
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+        </LightPanel>
+    </ScrollViewer>
+</LightView>

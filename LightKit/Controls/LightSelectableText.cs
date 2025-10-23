@@ -7,10 +7,10 @@ public class LightSelectableText : SelectableTextBlock
 {
     protected override Type StyleKeyOverride { get; } = typeof(LightSelectableText);
 
-    public static readonly StyledProperty<LightTextStyle> CustomProperty = AvaloniaProperty.Register<LightSelectableText, LightTextStyle>(
+    public static readonly StyledProperty<LightTextSize> CustomProperty = AvaloniaProperty.Register<LightSelectableText, LightTextSize>(
         nameof(Custom));
 
-    public LightTextStyle Custom
+    public LightTextSize Custom
     {
         get => GetValue(CustomProperty);
         set => SetValue(CustomProperty, value);

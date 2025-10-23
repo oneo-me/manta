@@ -7,10 +7,10 @@ public class LightLabel : Label
 {
     protected override Type StyleKeyOverride { get; } = typeof(LightLabel);
 
-    public static readonly StyledProperty<LightTextStyle> CustomProperty = AvaloniaProperty.Register<LightLabel, LightTextStyle>(
+    public static readonly StyledProperty<LightTextSize> CustomProperty = AvaloniaProperty.Register<LightLabel, LightTextSize>(
         nameof(Custom));
 
-    public LightTextStyle Custom
+    public LightTextSize Custom
     {
         get => GetValue(CustomProperty);
         set => SetValue(CustomProperty, value);

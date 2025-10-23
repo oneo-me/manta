@@ -6,28 +6,70 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightProgressRing Value="50" Maximum="100" />
-            <LightProgressRing Value="50" Maximum="100" />
-            <LightProgressRing IsIndeterminate="True" />
-            <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-            <LightProgressRing ShowProgressText="True" IsIndeterminate="True">
-                <Border Background="Beige" Width="300" Height="300" />
-            </LightProgressRing>
+            <LightPanel Mode="Horizontal" Spacing="12">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
+                <LightProgressRing />
+                <LightProgressRing Value="50" />
+                <LightProgressRing Value="100" />
+                <LightProgressRing IsIndeterminate="True" />
+                <LightProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <LightProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <LightText Text="TEST" Size="ExtraSmall" />
+                </LightProgressRing>
+            </LightPanel>
         </LightPanel>
     </Design.PreviewWith>
     <converters1:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
     <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />
     <ControlTheme x:Key="{x:Type LightProgressRing}" TargetType="LightProgressRing">
-        <Setter Property="RingBackground" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
-        <Setter Property="RingForeground" Value="{ThemeColorSet Primary}" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-        <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-        <Setter Property="Padding" Value="33 11" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="RingStrokeSize" Value="5" />
-        <Setter Property="RingSize" Value="60" />
+        <Setter Property="RingStrokeSize" Value="2.5" />
+        <Setter Property="RingSize" Value="28" />
         <Setter Property="CornerRadius" Value="3000" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
@@ -35,9 +77,9 @@
                 <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border x:Name="PART_Indicator" />
                     <LightRing x:Name="Ring"
-                          Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
-                          Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
-                          Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
+                               Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
+                               Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
+                               Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
                     <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
                         <LightClipContentControl
                             Background="{TemplateBinding Background}"
@@ -92,6 +134,26 @@
                     </KeyFrame>
                 </Animation>
             </Style.Animations>
+        </Style>
+        <Style Selector="^[(Theme.ColorScheme)=Normal]">
+            <Setter Property="RingForeground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
+            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(Theme.ColorScheme)=Primary]">
+            <Setter Property="RingForeground" Value="{ThemeColorSet Primary}" />
+            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(Theme.ColorScheme)=Success]">
+            <Setter Property="RingForeground" Value="{ThemeColorSet Success}" />
+            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(Theme.ColorScheme)=Warning]">
+            <Setter Property="RingForeground" Value="{ThemeColorSet Warning}" />
+            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(Theme.ColorScheme)=Danger]">
+            <Setter Property="RingForeground" Value="{ThemeColorSet Danger}" />
+            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

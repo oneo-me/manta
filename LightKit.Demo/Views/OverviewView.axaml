@@ -6,7 +6,7 @@
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     x:Name="View">
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Custom="ExtraLarge6" HorizontalAlignment="Center" />
+        <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Size="ExtraLarge6" HorizontalAlignment="Center" />
         <LightText Text="{Lang {x:Static LangKey.Description}}" />
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemsPanel>
