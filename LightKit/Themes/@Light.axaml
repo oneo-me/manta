@@ -11,7 +11,7 @@
     <values:ColorSet x:Key="{ThemeColorSetKey Primary}" H="243" />
     <values:ColorSet x:Key="{ThemeColorSetKey Success}" H="151" />
     <values:ColorSet x:Key="{ThemeColorSetKey Warning}" H="93" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Danger}" H="36" />
+    <values:ColorSet x:Key="{ThemeColorSetKey Danger}" H="14" />
     <!-- Shadows -->
     <BoxShadows x:Key="{ThemeShadowKey XS2}">0 1 #0D000000</BoxShadows>
     <BoxShadows x:Key="{ThemeShadowKey XS}">0 1 2 0 #0D000000</BoxShadows>
