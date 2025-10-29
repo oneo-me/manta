@@ -52,6 +52,7 @@
                 <MergeResourceInclude Source="../Controls/LightButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
+                <MergeResourceInclude Source="../Controls/LightItems.axaml" />
                 <MergeResourceInclude Source="../Controls/LightLabel.axaml" />
                 <MergeResourceInclude Source="../Controls/LightListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/LightPixelGrid.axaml" />

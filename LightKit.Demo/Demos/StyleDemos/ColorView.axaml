@@ -38,18 +38,18 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Colors" VerticalAlignment="Center" />
-                    <ItemsControl Grid.Column="1" ItemsSource="{Binding Colors}">
-                        <ItemsControl.ItemsPanel>
+                    <LightItems Grid.Column="1" ItemsSource="{Binding Colors}">
+                        <LightItems.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <LightPanel Mode="Horizontal" Classes="ColorBox" />
                             </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
+                        </LightItems.ItemsPanel>
+                        <LightItems.ItemTemplate>
                             <DataTemplate>
                                 <Border Classes="Color" Background="{Binding}" />
                             </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                        </LightItems.ItemTemplate>
+                    </LightItems>
                 </Grid>
             </LightPanel>
             <LightText Text="ColorSet" FontWeight="SemiBold" />

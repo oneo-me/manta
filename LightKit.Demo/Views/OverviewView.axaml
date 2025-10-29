@@ -8,28 +8,28 @@
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
         <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Theme.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
         <LightText Text="{Lang {x:Static LangKey.Description}}" />
-        <ItemsControl ItemsSource="{Binding Items}">
-            <ItemsControl.ItemsPanel>
+        <LightItems ItemsSource="{Binding Items}">
+            <LightItems.ItemsPanel>
                 <ItemsPanelTemplate>
                     <LightPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
+            </LightItems.ItemsPanel>
+            <LightItems.ItemTemplate>
                 <DataTemplate>
                     <LightButton Custom="Filled" Size="Small" Theme.ColorScheme="Primary"
                                  Content="{Lang {Binding Header}}"
                                  Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
                                  CommandParameter="{Binding}" />
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <ItemsControl ItemsSource="{Binding SupportedLanguages}">
-            <ItemsControl.ItemsPanel>
+            </LightItems.ItemTemplate>
+        </LightItems>
+        <LightItems ItemsSource="{Binding SupportedLanguages}">
+            <LightItems.ItemsPanel>
                 <ItemsPanelTemplate>
                     <LightPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
+            </LightItems.ItemsPanel>
+            <LightItems.ItemTemplate>
                 <DataTemplate>
                     <LightButton Custom="Outlined" Size="Small"
                                  Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
@@ -40,7 +40,7 @@
                         </LightPanel>
                     </LightButton>
                 </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            </LightItems.ItemTemplate>
+        </LightItems>
     </LightPanel>
 </LightView>
