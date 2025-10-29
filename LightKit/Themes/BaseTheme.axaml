@@ -15,6 +15,7 @@
                 <!-- Base Controls -->
                 <MergeResourceInclude Source="../Controls/Base/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Border.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/CheckBox.axaml" />
@@ -26,6 +27,7 @@
                 <MergeResourceInclude Source="../Controls/Base/HeaderedContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ItemsControl.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ProgressBar.axaml" />
