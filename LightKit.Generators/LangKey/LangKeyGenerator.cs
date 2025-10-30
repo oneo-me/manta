@@ -11,7 +11,7 @@ namespace LightKit.Generators.LangKey;
 sealed class LangKeyGenerator : GeneratorBase
 {
     public override string Name => "LangKeyGenerator";
-    public override int Version => 1;
+    public override int Version => 2;
 
     public override bool MatchFile(AdditionalText file)
     {
@@ -156,9 +156,9 @@ sealed class LangKeyGenerator : GeneratorBase
         sb.AppendLine();
 
         if (string.Equals(config.Modifier, "private", StringComparison.OrdinalIgnoreCase))
-            sb.AppendLine($"enum {config.ClassName}");
+            sb.AppendLine($"static class {config.ClassName}");
         else
-            sb.AppendLine($"{config.Modifier} enum {config.ClassName}");
+            sb.AppendLine($"{config.Modifier} static class {config.ClassName}");
 
         sb.AppendLine("{");
 
@@ -170,7 +170,7 @@ sealed class LangKeyGenerator : GeneratorBase
             else
                 sb.AppendLine($"    ///     {baseValue.Value}");
             sb.AppendLine("    /// </summary>");
-            sb.AppendLine($"    {baseValue.Key},");
+            sb.AppendLine($"    public const string {baseValue.Key} = \"{assemblyName}.{baseValue.Key}\";");
             sb.AppendLine();
         }
 
