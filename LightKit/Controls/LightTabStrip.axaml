@@ -5,9 +5,9 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
-                <LightText Text="None" />
+                <LightText Text="Normal" />
                 <Border BorderThickness="1">
-                    <LightTabStrip>
+                    <LightTabStrip Margin="12">
                         <LightTabStripItem Content="TabItem 1" />
                         <LightTabStripItem Content="TabItem 2" />
                         <LightTabStripItem Content="TabItem 3" />
@@ -18,7 +18,7 @@
                 <LightText Text="RooTab" />
                 <Border BorderThickness="1" Height="180" Background="White">
                     <Border ClipToBounds="True" BorderThickness="0 0 0 1" Height="36" VerticalAlignment="Top">
-                        <LightTabStrip Custom="RootTab" Background="Wheat">
+                        <LightTabStrip Type="RootTab" Background="Wheat">
                             <LightTabStripItem Content="TabItem 1" />
                             <LightTabStripItem Content="TabItem 2" />
                             <LightTabStripItem Content="TabItem 3" />
@@ -44,7 +44,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Custom=RootTab]">
+        <Style Selector="^[Type=RootTab]">
             <Setter Property="Margin" Value="-1 0 0 -1" />
         </Style>
     </ControlTheme>
@@ -65,23 +65,49 @@
                                   CornerRadius="{TemplateBinding CornerRadius}" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Custom=RootTab]">
+        <Style Selector="^[Type=Normal]">
+            <Setter Property="Padding" Value="12 4" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.5}" />
+            <Style Selector="^:pointerover:not(:selected)">
+                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
+                <Setter Property="Background" Value="{ThemeColorSet Background}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="ZIndex" Value="999" />
+            </Style>
+            <Style Selector="^:nth-child(1)">
+                <Setter Property="CornerRadius" Value="6 0 0 6" />
+            </Style>
+            <Style Selector="^:nth-last-child(1)">
+                <Setter Property="CornerRadius" Value="0 6 6 0" />
+            </Style>
+            <Style Selector="^:not(^:nth-child(1))">
+                <Setter Property="Margin" Value="-1 0 0 0" />
+            </Style>
+        </Style>
+        <Style Selector="^[Type=RootTab]">
             <Setter Property="Padding" Value="14 0" />
             <Setter Property="Margin" Value="0 0 0 1" />
             <Setter Property="BorderThickness" Value="1 0 0 0" />
             <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
             <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
             <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.5}" />
-            <Style Selector="^:selected">
-                <Setter Property="Padding" Value="14 0 14 1" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="Background" Value="{ThemeColorSet Background}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-            </Style>
             <Style Selector="^:pointerover:not(:selected)">
                 <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Padding" Value="14 0 14 1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Background" Value="{ThemeColorSet Background}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             </Style>
             <Style Selector="^:nth-last-child(1)">

@@ -1,8 +1,7 @@
 namespace LightKit.Controls;
 
-public enum LightTabStripStyle
+public enum LightTabStripType
 {
-    None,
-
+    Normal,
     RootTab
 }

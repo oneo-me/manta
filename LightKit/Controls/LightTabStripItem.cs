@@ -6,13 +6,13 @@ namespace LightKit.Controls;
 
 public class LightTabStripItem : ListBoxItem
 {
-    public static readonly StyledProperty<LightTabStripStyle> CustomProperty = AvaloniaProperty.Register<LightTabStripItem, LightTabStripStyle>(
-        nameof(Custom));
+    public static readonly StyledProperty<LightTabStripType> TypeProperty = AvaloniaProperty.Register<LightTabStripItem, LightTabStripType>(
+        nameof(Type));
 
-    public LightTabStripStyle Custom
+    public LightTabStripType Type
     {
-        get => GetValue(CustomProperty);
-        set => SetValue(CustomProperty, value);
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
@@ -20,6 +20,6 @@ public class LightTabStripItem : ListBoxItem
         base.OnAttachedToVisualTree(e);
 
         if (this.FindAncestorOfType<LightTabStrip>() is { } tabStrip)
-            Custom = tabStrip.Custom;
+            Type = tabStrip.Type;
     }
 }
