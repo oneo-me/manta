@@ -1,0 +1,35 @@
+<LightView
+    x:Class="LightKit.Demo.Demos.ControlDemos.TextBoxView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
+    x:DataType="local:TextBoxView_Model" Design.DataContext="{x:Static local:TextBoxView_Model.Design}">
+    <LightScrollViewer HorizontalScrollBarVisibility="Auto">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Left">
+            <LightPanel Mode="Vertical" Spacing="12" Width="280">
+                <LightTextBox />
+                <LightTextBox Watermark="Watermark..." />
+                <LightTextBox Text="Text Text" />
+                <LightTextBox Text="Text Text" IsReadOnly="True" />
+            </LightPanel>
+            <LightPanel Mode="Vertical" Spacing="12" Width="280">
+                <LightTextBox Custom="Outlined" />
+                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
+                <LightTextBox Custom="Outlined" Text="Text Text" />
+                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
+            </LightPanel>
+            <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Primary">
+                <LightTextBox Custom="Outlined" />
+                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
+                <LightTextBox Custom="Outlined" Text="Text Text" />
+                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
+            </LightPanel>
+            <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Danger">
+                <LightTextBox Custom="Outlined" />
+                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
+                <LightTextBox Custom="Outlined" Text="Text Text" />
+                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
+            </LightPanel>
+        </LightPanel>
+    </LightScrollViewer>
+</LightView>

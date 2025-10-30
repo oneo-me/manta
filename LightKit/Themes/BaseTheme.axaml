@@ -62,6 +62,7 @@
                 <MergeResourceInclude Source="../Controls/LightSelectableText.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/LightText.axaml" />
+                <MergeResourceInclude Source="../Controls/LightTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButtons.axaml" />
                 <MergeResourceInclude Source="../Controls/LightWindow.axaml" />

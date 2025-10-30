@@ -21,7 +21,6 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightSelectableText}" TargetType="LightSelectableText">
         <Setter Property="Background" Value="#00000000" />
-        <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
         <Style Selector="^[(Theme.TextSize)=ExtraSmall]">
             <Setter Property="FontSize" Value="8" />
         </Style>
@@ -61,17 +60,22 @@
         <Style Selector="^[(Theme.TextSize)=ExtraLarge9]">
             <Setter Property="FontSize" Value="72" />
         </Style>
+        <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
         <Style Selector="^[(Theme.ColorScheme)=Primary]">
             <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+            <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
         </Style>
         <Style Selector="^[(Theme.ColorScheme)=Success]">
             <Setter Property="Foreground" Value="{ThemeColorSet Success}" />
+            <Setter Property="SelectionBrush" Value="{ThemeColorSet Success, Opacity=0.3}" />
         </Style>
         <Style Selector="^[(Theme.ColorScheme)=Warning]">
             <Setter Property="Foreground" Value="{ThemeColorSet Warning}" />
+            <Setter Property="SelectionBrush" Value="{ThemeColorSet Warning, Opacity=0.3}" />
         </Style>
         <Style Selector="^[(Theme.ColorScheme)=Danger]">
             <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
+            <Setter Property="SelectionBrush" Value="{ThemeColorSet Danger, Opacity=0.3}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
