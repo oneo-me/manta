@@ -46,11 +46,10 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
 
         var args = values.Count > 3 ? values.Skip(3).ToArray() : null;
 
-        return Lang.Get(new(langKey)
+        return Lang.Get(new(langKey, args)
         {
             LangType = langType,
-            DefValue = defValue,
-            Args = args
+            DefValue = defValue
         });
     }
 }
