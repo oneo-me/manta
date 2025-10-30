@@ -3,7 +3,7 @@ using LightKit.Globalization.Core;
 
 namespace LightKit.Globalization.Markups;
 
-public sealed class LangNameExtension(object langType) : BindingMarkupExtension
+public sealed class LangNameExtension(object langType) : LangExtensionBase
 {
     public object LangType { get; } = langType;
 

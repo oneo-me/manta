@@ -11,7 +11,7 @@ sealed class SettingsView_Model : DialogModel
 {
     public static SettingsView_Model Design => new();
 
-    public LangKey Title => LangKey.Settings;
+    public string Title => LangKey.Settings;
 
     public override void OnWindowInitialized(Window window)
     {

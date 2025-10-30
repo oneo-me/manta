@@ -18,7 +18,7 @@ sealed class DemoGroupView_Model : HeaderRegionModel
     readonly DemoGroup _group;
 
     public override IconSource Icon { get; }
-    public override LangKey Header { get; }
+    public override string Header { get; }
     public IReadOnlyCollection<DemoViewModel> Demos { get; }
 
     public DemoViewModel? CurrentDemo
@@ -27,7 +27,7 @@ sealed class DemoGroupView_Model : HeaderRegionModel
         set => SetValue(ref field, value);
     }
 
-    public DemoGroupView_Model(DemoGroup group, LangKey header, IconSource iconSource)
+    public DemoGroupView_Model(DemoGroup group, string header, IconSource iconSource)
     {
         _group = group;
         Header = header;
@@ -47,6 +47,6 @@ sealed class DemoGroupView_Model : HeaderRegionModel
         if (CurrentDemo is null)
             _configService.Config.LastDemos.Remove(_group);
         else
-            _configService.Config.LastDemos[_group] = CurrentDemo.Header.ToString();
+            _configService.Config.LastDemos[_group] = CurrentDemo.Header;
     }
 }

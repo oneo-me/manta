@@ -1,4 +1,3 @@
-using System.Globalization;
 using LightKit.Globalization.Core;
 
 namespace LightKit.Globalization;
@@ -30,7 +29,7 @@ public static class Lang
         }
     }
 
-    static string? GetString(LangType langType, object key)
+    static string? GetString(LangType langType, string key)
     {
         lock (_items)
         {
@@ -45,43 +44,32 @@ public static class Lang
         return null;
     }
 
-    static string NotFoundString(string key)
-    {
-        return $"![{key}]!";
-    }
-
-    static string GetStringCore(LangType langType, object key)
+    static string GetStringCore(LangType langType, string key)
     {
         var result = GetString(langType, key);
         if (result is not null)
             return result;
 
-        if (key is string str)
-            return NotFoundString(str);
-
-        if (key is Enum @enum)
-            return NotFoundString(@enum.ToString());
-
-        return string.Empty;
+        return key;
     }
 
-    public static string Get(LangType langType, object key, object?[] args)
+    public static string Get(LangType langType, string key, object?[] args)
     {
         var format = GetStringCore(langType, key);
-        return string.Format(CultureInfo.InvariantCulture, format, args);
+        return string.Format(Current.ToCultureInfo(), format, args);
     }
 
-    public static string Get(LangType langType, object key)
+    public static string Get(LangType langType, string key)
     {
         return GetStringCore(langType, key);
     }
 
-    public static string Get(object key, object?[] args)
+    public static string Get(string key, object?[] args)
     {
         return Get(Current, key, args);
     }
 
-    public static string Get(object key)
+    public static string Get(string key)
     {
         return Get(Current, key);
     }

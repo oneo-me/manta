@@ -2,11 +2,11 @@ using LightKit.Globalization.Core;
 
 namespace LightKit.Globalization;
 
-public abstract class LangDataBase(LangType? defCulture)
+public abstract class LangDataBase(LangType defCulture)
 {
-    protected abstract string? GetOverride(LangType langType, object key);
+    protected abstract string? GetOverride(LangType langType, string key);
 
-    public string? Get(LangType langType, object key)
+    public string? Get(LangType langType, string key)
     {
         var result = GetOverride(langType, key);
         if (result is not null)
@@ -15,9 +15,6 @@ public abstract class LangDataBase(LangType? defCulture)
         if (langType == defCulture)
             return null;
 
-        if (defCulture is null)
-            return null;
-
-        return GetOverride(defCulture.Value, key);
+        return GetOverride(defCulture, key);
     }
 }

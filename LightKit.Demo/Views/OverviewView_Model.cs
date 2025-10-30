@@ -24,7 +24,7 @@ sealed class OverviewView_Model : HeaderRegionModel
     readonly RegionManager<HeaderRegionModel> _regionManager;
 
     public override IconSource Icon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Home-Smile-Angle--Streamline-Solar-Ar.svg"));
-    public override LangKey Header => LangKey.Overview;
+    public override string Header => LangKey.Overview;
     public ReadOnlyObservableCollection<HeaderRegionModel> Items { get; }
 
     public LangType[] SupportedLanguages { get; } = [LangType.en, LangType.zh_Hans];

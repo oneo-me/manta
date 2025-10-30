@@ -7,16 +7,6 @@
         <ProjectReference Include="..\LightKit\LightKit.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.1" PrivateAssets="all" />
-    </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Demos\ControlDemos\ButtonView.axaml.cs">
-        <DependentUpon>ButtonView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Demos\ControlDemos\ProgressRingView.axaml.cs">
-        <DependentUpon>ProgressRingView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.3" PrivateAssets="all" />
     </ItemGroup>
 </Project>

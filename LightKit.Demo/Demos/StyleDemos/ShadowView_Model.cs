@@ -12,5 +12,5 @@ sealed class ShadowView_Model : DemoViewModel
 
     public override DemoGroup Group => DemoGroup.Styles;
     public override IconSource? Icon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sticker-Circle--Streamline-Solar-Ar.svg"));
-    public override LangKey Header => LangKey.Demo_Style_Shadow;
+    public override string Header => LangKey.Demo_Style_Shadow;
 }

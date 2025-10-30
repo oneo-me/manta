@@ -11,6 +11,6 @@ sealed class SelectableTextView_Model : DemoViewModel
     public static SelectableTextView_Model Design => new();
 
     public override DemoGroup Group => DemoGroup.Controls;
-    public override LangKey Header => LangKey.Demo_Control_Title;
+    public override string Header => LangKey.Demo_Control_Title;
     public override object HeaderArg => nameof(LightSelectableText);
 }

@@ -1,5 +1,4 @@
 using Avalonia.Markup.Xaml;
-using LightKit.Demo.Langs;
 using LightKit.Demo.Services;
 using LightKit.Demo.Views;
 using LightKit.Globalization;
@@ -21,7 +20,7 @@ sealed class App : LightApp
         var dataFolder = Path.Combine(appFolder, "Data");
         Directory.CreateDirectory(dataFolder);
 
-        Lang.Register(LangData.LoadFromAssembly<LangKey>());
+        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
         Service.Register(new DemoService());

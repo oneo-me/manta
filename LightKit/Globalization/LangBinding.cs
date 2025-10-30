@@ -6,7 +6,7 @@ namespace LightKit.Globalization;
 
 public static class LangBinding
 {
-    static IBinding GetCore(LangType? langType, object key, object?[]? args)
+    static IBinding GetCore(LangType? langType, string key, object?[]? args)
     {
         var langExtension = new LangExtension(key);
         if (langType is not null)
@@ -29,22 +29,22 @@ public static class LangBinding
         return langExtension.ToBinding();
     }
 
-    public static IBinding Get(LangType langType, object key, object?[] args)
+    public static IBinding Get(LangType langType, string key, object?[] args)
     {
         return GetCore(langType, key, args);
     }
 
-    public static IBinding Get(LangType langType, object key)
+    public static IBinding Get(LangType langType, string key)
     {
         return GetCore(langType, key, null);
     }
 
-    public static IBinding Get(object key, object?[] args)
+    public static IBinding Get(string key, object?[] args)
     {
         return GetCore(null, key, args);
     }
 
-    public static IBinding Get(object key)
+    public static IBinding Get(string key)
     {
         return GetCore(null, key, null);
     }

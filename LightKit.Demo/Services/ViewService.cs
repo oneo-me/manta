@@ -25,12 +25,12 @@ sealed class ViewService
 
     bool IsCurrent(HeaderRegionModel headerRegionModel)
     {
-        return string.Equals(_configService.Config.Current, headerRegionModel.Header.ToString());
+        return string.Equals(_configService.Config.Current, headerRegionModel.Header);
     }
 
     public void Save()
     {
-        _configService.Config.Current = RegionManager.SelectedItem?.Header.ToString() ?? string.Empty;
+        _configService.Config.Current = RegionManager.SelectedItem?.Header ?? string.Empty;
         RegionManager.Dispose();
     }
 }

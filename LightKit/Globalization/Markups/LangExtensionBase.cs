@@ -5,12 +5,10 @@ using Avalonia.Markup.Xaml;
 
 namespace LightKit.Globalization.Markups;
 
-public abstract class BindingMarkupExtension : MarkupExtension, IMultiValueConverter
+public abstract class LangExtensionBase : MarkupExtension, IMultiValueConverter
 {
-    public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
-    {
-        return ProcessValues(values);
-    }
+    protected abstract void Initialize(MultiBinding multiBinding);
+    protected abstract object ProcessValues(IList<object?> values);
 
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
@@ -30,6 +28,11 @@ public abstract class BindingMarkupExtension : MarkupExtension, IMultiValueConve
         return multiBinding;
     }
 
+    public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+    {
+        return ProcessValues(values);
+    }
+
     protected void BindingValue(MultiBinding multiBinding, object? value, string valueName = "")
     {
         if (value is BindingBase keyBinding)
@@ -40,7 +43,4 @@ public abstract class BindingMarkupExtension : MarkupExtension, IMultiValueConve
                 Source = this
             });
     }
-
-    protected abstract void Initialize(MultiBinding multiBinding);
-    protected abstract object ProcessValues(IList<object?> values);
 }

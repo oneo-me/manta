@@ -3,7 +3,7 @@ using LightKit.Globalization.Core;
 
 namespace LightKit.Globalization.Markups;
 
-public sealed class LangExtension(object langKey) : BindingMarkupExtension
+public sealed class LangExtension(object langKey) : LangExtensionBase
 {
     public object? LangType { get; set; }
 
@@ -33,8 +33,12 @@ public sealed class LangExtension(object langKey) : BindingMarkupExtension
 
     protected override object ProcessValues(IList<object?> values)
     {
-        var langType = values[0] is LangType value ? value : throw new ArgumentException("Culture expected");
-        var langKey = values[1] ?? throw new ArgumentException("string expected");
+        if (values[0] is not LangType langType)
+            return string.Empty;
+
+        if (values[1] is not string langKey)
+            return string.Empty;
+
         var args = values.Skip(2).ToArray();
 
         return Lang.Get(langType, langKey, args);
