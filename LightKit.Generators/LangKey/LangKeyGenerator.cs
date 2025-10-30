@@ -131,7 +131,7 @@ sealed class LangKeyGenerator : GeneratorBase
         foreach (var dataValue in data.Values)
         foreach (var baseDataValue in baseData.Values)
             if (dataValue.Values.ContainsKey(baseDataValue.Key) is false)
-                WriteMissing(context, $"Not found [{baseDataValue.Key}] in the language file.", dataValue.Location);
+                WriteWarning(context, $"Not found [{baseDataValue.Key}] in the language file.", dataValue.Location);
     }
 
     void CheckRedundant(SourceProductionContext context, Dictionary<LangType, LangData> data, LangData baseData)
@@ -139,7 +139,7 @@ sealed class LangKeyGenerator : GeneratorBase
         foreach (var dataValue in data.Values)
         foreach (var dataItem in dataValue.Values)
             if (baseData.Values.ContainsKey(dataItem.Key) is false)
-                WriteRedundant(context, $"The key [{dataItem.Key}] is redundant in the language file.", dataItem.Value.KeyLocation);
+                WriteWarning(context, $"The key [{dataItem.Key}] is redundant in the language file.", dataItem.Value.KeyLocation);
     }
 
     void GenerateLangKey(SourceProductionContext context, LangConfig config, string assemblyName, LangData baseData, LangData commentData)

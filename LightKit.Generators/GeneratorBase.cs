@@ -30,16 +30,6 @@ abstract class GeneratorBase
         WriteLog(spc, 2, message, DiagnosticSeverity.Warning, location);
     }
 
-    public void WriteMissing(SourceProductionContext spc, object message, Location? location = null)
-    {
-        WriteLog(spc, 3, message, DiagnosticSeverity.Error, location);
-    }
-
-    public void WriteRedundant(SourceProductionContext spc, object message, Location? location = null)
-    {
-        WriteLog(spc, 4, message, DiagnosticSeverity.Warning, location);
-    }
-
     public void WriteDebug(SourceProductionContext spc, object message, Location? location = null)
     {
 #if DEBUG
