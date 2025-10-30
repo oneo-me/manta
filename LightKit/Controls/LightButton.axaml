@@ -81,11 +81,11 @@
                 <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
                 <Setter Property="BoxShadow" Value="{ThemeShadow LG}" />
                 <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.4}" />
+                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.15}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
                 </Style>
                 <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
+                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                     <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
                 </Style>
