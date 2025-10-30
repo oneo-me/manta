@@ -17,6 +17,6 @@ sealed class SettingsView_Model : DialogModel
     {
         base.OnWindowInitialized(window);
 
-        window[!Window.TitleProperty] = LangBinding.Get(Title);
+        window[!Window.TitleProperty] = Lang.GetBinding(new(Title));
     }
 }

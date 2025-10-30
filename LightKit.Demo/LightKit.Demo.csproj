@@ -7,6 +7,6 @@
         <ProjectReference Include="..\LightKit\LightKit.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.3" PrivateAssets="all" />
+        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.4" PrivateAssets="all" />
     </ItemGroup>
 </Project>

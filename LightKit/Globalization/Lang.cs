@@ -1,4 +1,6 @@
+using Avalonia.Data;
 using LightKit.Globalization.Core;
+using LightKit.Globalization.Markups;
 
 namespace LightKit.Globalization;
 
@@ -29,7 +31,7 @@ public static class Lang
         }
     }
 
-    static string? GetString(LangType langType, string key)
+    static string GetString(LangType langType, string key, string def)
     {
         lock (_items)
         {
@@ -41,36 +43,41 @@ public static class Lang
             }
         }
 
-        return null;
+        return def;
     }
 
-    static string GetStringCore(LangType langType, string key)
+    public static string Get(LangGetOptions options)
     {
-        var result = GetString(langType, key);
-        if (result is not null)
-            return result;
+        var langType = options.LangType ?? Current;
+        var langStr = GetString(langType, options.LangKey, options.DefValue ?? options.LangKey);
+        if (options.Args is null)
+            return langStr;
 
-        return key;
+        return string.Format(Current.ToCultureInfo(), langStr, options.Args);
     }
 
-    public static string Get(LangType langType, string key, object?[] args)
+    public static IBinding GetBinding(LangGetOptions options)
     {
-        var format = GetStringCore(langType, key);
-        return string.Format(Current.ToCultureInfo(), format, args);
-    }
+        var langExtension = new LangExtension(options.LangKey)
+        {
+            LangType = options.LangType,
+            DefValue = options.DefValue ?? options.LangKey
+        };
 
-    public static string Get(LangType langType, string key)
-    {
-        return GetStringCore(langType, key);
-    }
+        if (options.Args is not null)
+        {
+            if (options.Args.Length > 0)
+                langExtension.Data1 = options.Args[0];
+            if (options.Args.Length > 1)
+                langExtension.Data2 = options.Args[1];
+            if (options.Args.Length > 2)
+                langExtension.Data3 = options.Args[2];
+            if (options.Args.Length > 3)
+                langExtension.Data4 = options.Args[3];
+            if (options.Args.Length > 4)
+                langExtension.Data5 = options.Args[4];
+        }
 
-    public static string Get(string key, object?[] args)
-    {
-        return Get(Current, key, args);
-    }
-
-    public static string Get(string key)
-    {
-        return Get(Current, key);
+        return langExtension.ToBinding();
     }
 }

@@ -8,6 +8,7 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
     public object? LangType { get; set; }
 
     public object LangKey { get; } = langKey;
+    public object? DefValue { get; set; } = langKey;
     public object? Data1 { get; set; }
     public object? Data2 { get; set; }
     public object? Data3 { get; set; }
@@ -24,6 +25,7 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
         else
             BindingValue(multiBinding, LangType, nameof(LangType));
         BindingValue(multiBinding, LangKey, nameof(LangKey));
+        BindingValue(multiBinding, DefValue, nameof(DefValue));
         BindingValue(multiBinding, Data1, nameof(Data1));
         BindingValue(multiBinding, Data2, nameof(Data2));
         BindingValue(multiBinding, Data3, nameof(Data3));
@@ -39,8 +41,16 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
         if (values[1] is not string langKey)
             return string.Empty;
 
-        var args = values.Skip(2).ToArray();
+        if (values[2] is not string defValue)
+            return string.Empty;
 
-        return Lang.Get(langType, langKey, args);
+        var args = values.Count > 3 ? values.Skip(3).ToArray() : null;
+
+        return Lang.Get(new(langKey)
+        {
+            LangType = langType,
+            DefValue = defValue,
+            Args = args
+        });
     }
 }

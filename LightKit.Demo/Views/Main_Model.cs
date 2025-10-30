@@ -29,7 +29,7 @@ sealed class Main_Model : WindowModel
     {
         base.OnWindowInitialized(window);
 
-        window[!Window.TitleProperty] = LangBinding.Get(LangKey.Title);
+        window[!Window.TitleProperty] = Lang.GetBinding(new(LangKey.Title));
 
         window.MinWidth = 800;
         window.MinHeight = 600;
