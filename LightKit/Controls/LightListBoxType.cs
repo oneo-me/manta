@@ -1,8 +1,7 @@
 namespace LightKit.Controls;
 
-public enum LightListBoxStyle
+public enum LightListBoxType
 {
-    None,
-
+    Normal,
     Sidebar
 }

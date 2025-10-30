@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:LightKit.Demo.Views"
     x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
     <Grid ColumnDefinitions="200 1 *">
-        <LightListBox Grid.Column="0" Custom="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+        <LightListBox Grid.Column="0" Type="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
             <LightListBox.ItemTemplate>
                 <DataTemplate>
                     <LightPanel Mode="Horizontal" Spacing="8">

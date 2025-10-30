@@ -7,7 +7,7 @@
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <LightPanel Mode="Vertical" Spacing="12">
-                <LightText Text="None" />
+                <LightText Text="Normal" />
                 <Border BorderThickness="1">
                     <LightListBox>
                         <LightListBox.ItemsSource>
@@ -28,7 +28,7 @@
             <LightPanel Mode="Vertical" Spacing="12">
                 <LightText Text="Sidebar" />
                 <Border BorderThickness="1">
-                    <LightListBox Custom="Sidebar">
+                    <LightListBox Type="Sidebar">
                         <LightListBox.ItemsSource>
                             <generic:List x:TypeArguments="system:String">
                                 <system:String>0: Test 0</system:String>
@@ -71,7 +71,7 @@
                 </LightScrollViewer>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Custom=Sidebar]">
+        <Style Selector="^[Type=Sidebar]">
             <Setter Property="Padding" Value="12" />
         </Style>
     </ControlTheme>
@@ -90,16 +90,14 @@
                                   CornerRadius="{TemplateBinding CornerRadius}" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:not(^[Custom=None])">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
-                    <BrushTransition Property="Background" Duration="0:0:0.05" />
-                    <BrushTransition Property="Foreground" Duration="0:0:0.05" />
-                </Transitions>
-            </Setter>
-        </Style>
-        <Style Selector="^[Custom=Sidebar]">
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
+                <BrushTransition Property="Background" Duration="0:0:0.05" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.05" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Type=Sidebar]">
             <Setter Property="Margin" Value="0 0 0 2" />
             <Setter Property="Padding" Value="12 8" />
             <Setter Property="CornerRadius" Value="8" />

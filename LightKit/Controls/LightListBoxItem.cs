@@ -6,13 +6,13 @@ namespace LightKit.Controls;
 
 public class LightListBoxItem : ListBoxItem
 {
-    public static readonly StyledProperty<LightListBoxStyle> CustomProperty = AvaloniaProperty.Register<LightListBoxItem, LightListBoxStyle>(
-        nameof(Custom));
+    public static readonly StyledProperty<LightListBoxType> TypeProperty = AvaloniaProperty.Register<LightListBoxItem, LightListBoxType>(
+        nameof(Type));
 
-    public LightListBoxStyle Custom
+    public LightListBoxType Type
     {
-        get => GetValue(CustomProperty);
-        set => SetValue(CustomProperty, value);
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
@@ -20,6 +20,6 @@ public class LightListBoxItem : ListBoxItem
         base.OnAttachedToVisualTree(e);
 
         if (this.FindAncestorOfType<LightListBox>() is { } listBox)
-            Custom = listBox.Custom;
+            Type = listBox.Type;
     }
 }

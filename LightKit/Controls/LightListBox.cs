@@ -5,13 +5,13 @@ namespace LightKit.Controls;
 
 public class LightListBox : ListBox
 {
-    public static readonly StyledProperty<LightListBoxStyle> CustomProperty = AvaloniaProperty.Register<LightListBox, LightListBoxStyle>(
-        nameof(Custom));
+    public static readonly StyledProperty<LightListBoxType> TypeProperty = AvaloniaProperty.Register<LightListBox, LightListBoxType>(
+        nameof(Type));
 
-    public LightListBoxStyle Custom
+    public LightListBoxType Type
     {
-        get => GetValue(CustomProperty);
-        set => SetValue(CustomProperty, value);
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
     }
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
