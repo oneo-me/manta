@@ -4,4 +4,7 @@
         <PackageReference Include="DynamicData" Version="9.4.1" />
         <PackageReference Include="YamlDotNet" Version="16.3.0" />
     </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.4" PrivateAssets="all" />
+    </ItemGroup>
 </Project>

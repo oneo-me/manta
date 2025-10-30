@@ -7,6 +7,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
+using LightKit.Globalization;
 using LightKit.Logging;
 using LightKit.Logging.Inner;
 using LightKit.Reactive.Extensions;
@@ -135,6 +136,8 @@ public abstract class LightApp : Application
             Log.AddLogger(new ConsoleLogger(LogTimeType.Time, LogLevel.All));
         else
             Log.AddLogger(new ConsoleLogger(LogTimeType.DateTime, LogLevel.All));
+
+        Lang.Register(LangData.LoadFromAssembly(typeof(LightApp).Assembly));
 
         OnInitialize(out mainModel, out onExit);
     }
