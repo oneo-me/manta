@@ -4,6 +4,7 @@ using System.Reactive.Concurrency;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using LightKit.Logging;
@@ -41,6 +42,10 @@ public abstract class LightApp : Application
     {
         return AppBuilder.Configure<T>()
             .UsePlatformDetect()
+            .With(new FontManagerOptions
+            {
+                DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC" : OperatingSystem.IsWindows() ? "Microsoft YaHei UI" : throw new PlatformNotSupportedException()
+            })
             .LogToAxe();
     }
 
