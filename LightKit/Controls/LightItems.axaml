@@ -23,6 +23,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightItems}" TargetType="LightItems">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Padding="{TemplateBinding Padding}"
@@ -37,6 +38,7 @@
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type LightItem}" TargetType="LightItem">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter x:Name="PART_ContentPresenter"

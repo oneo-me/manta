@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 
 namespace LightKit.Controls;
 
@@ -21,5 +22,14 @@ public class LightButton : Button
     {
         get => GetValue(SizeProperty);
         set => SetValue(SizeProperty, value);
+    }
+
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<LightButton, BoxShadows>(
+        nameof(BoxShadow));
+
+    public BoxShadows BoxShadow
+    {
+        get => GetValue(BoxShadowProperty);
+        set => SetValue(BoxShadowProperty, value);
     }
 }
