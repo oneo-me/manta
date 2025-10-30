@@ -4,8 +4,6 @@ namespace LightKit.Controls;
 
 public class LightItems : ItemsControl
 {
-    protected override Type StyleKeyOverride { get; } = typeof(LightItems);
-
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
         return new LightItem();

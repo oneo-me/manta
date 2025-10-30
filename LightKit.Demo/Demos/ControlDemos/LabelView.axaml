@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
     x:DataType="local:LabelView_Model" Design.DataContext="{x:Static local:LabelView_Model.Design}">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <LightScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightLabel Theme.TextSize="ExtraSmall" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
             <LightLabel Theme.TextSize="Small" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
@@ -20,5 +20,5 @@
             <LightLabel Theme.TextSize="ExtraLarge8" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
             <LightLabel Theme.TextSize="ExtraLarge9" Content="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" />
         </LightPanel>
-    </ScrollViewer>
+    </LightScrollViewer>
 </LightView>

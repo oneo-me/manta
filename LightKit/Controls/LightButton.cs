@@ -5,8 +5,6 @@ namespace LightKit.Controls;
 
 public class LightButton : Button
 {
-    protected override Type StyleKeyOverride { get; } = typeof(LightButton);
-
     public static readonly StyledProperty<LightButtonStyle> CustomProperty = AvaloniaProperty.Register<LightButton, LightButtonStyle>(
         nameof(Custom));
 

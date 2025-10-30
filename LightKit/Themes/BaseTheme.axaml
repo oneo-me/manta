@@ -30,7 +30,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ScrollBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Slider.axaml" />
@@ -59,6 +58,7 @@
                 <MergeResourceInclude Source="../Controls/LightPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/LightProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/LightRing.axaml" />
+                <MergeResourceInclude Source="../Controls/LightScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/LightSelectableText.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/LightText.axaml" />

@@ -5,7 +5,7 @@
     x:ClassModifier="internal">
     <!-- ColorSets -->
     <values:RgbColor x:Key="{ThemeColorSetKey Background}" R="255" G="255" B="255" />
-    <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="55" G="55" B="55" Opacity="0.12" />
+    <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="55" G="55" B="55" Opacity="0.08" />
     <values:RgbColor x:Key="{ThemeColorSetKey Foreground}" R="55" G="55" B="55" />
     <values:RgbColor x:Key="{ThemeColorSetKey ColorForeground}" R="255" G="255" B="255" />
     <values:ColorSet x:Key="{ThemeColorSetKey Primary}" H="243" />

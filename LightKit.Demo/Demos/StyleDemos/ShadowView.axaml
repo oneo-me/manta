@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Demos.StyleDemos"
     x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
-    <ScrollViewer>
+    <LightScrollViewer>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Text="Shadows" FontWeight="SemiBold" />
             <LightPanel Mode="Wrap" Spacing="12">
@@ -79,5 +79,5 @@
                 </Border>
             </LightPanel>
         </LightPanel>
-    </ScrollViewer>
+    </LightScrollViewer>
 </LightView>

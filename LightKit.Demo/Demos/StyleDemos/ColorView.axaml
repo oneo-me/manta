@@ -20,7 +20,7 @@
             <Setter Property="Mode" Value="Horizontal" />
         </Style>
     </LightView.Styles>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <LightScrollViewer HorizontalScrollBarVisibility="Auto">
         <LightPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
             <LightText Text="ColorTest" FontWeight="SemiBold" />
             <LightPanel Mode="Vertical" Spacing="8">
@@ -184,5 +184,5 @@
                 </Grid>
             </LightPanel>
         </LightPanel>
-    </ScrollViewer>
+    </LightScrollViewer>
 </LightView>

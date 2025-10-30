@@ -6,8 +6,6 @@ namespace LightKit.Controls;
 
 public class LightTabStripItem : ListBoxItem
 {
-    protected override Type StyleKeyOverride { get; } = typeof(LightTabStripItem);
-
     public static readonly StyledProperty<LightTabStripStyle> CustomProperty = AvaloniaProperty.Register<LightTabStripItem, LightTabStripStyle>(
         nameof(Custom));
 

@@ -4,7 +4,7 @@
     xmlns:values="clr-namespace:LightKit.Themes.Values"
     x:ClassModifier="internal">
     <values:RgbColor x:Key="{ThemeColorSetKey Background}" R="22" G="22" B="22" Opacity="0.8" />
-    <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="235" G="235" B="235" Opacity="0.15" />
+    <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="235" G="235" B="235" Opacity="0.08" />
     <values:RgbColor x:Key="{ThemeColorSetKey Foreground}" R="235" G="235" B="235" />
     <values:RgbColor x:Key="{ThemeColorSetKey ColorForeground}" R="235" G="235" B="235" />
 </ResourceDictionary>
