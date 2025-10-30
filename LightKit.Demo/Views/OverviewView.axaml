@@ -16,7 +16,7 @@
             </LightItems.ItemsPanel>
             <LightItems.ItemTemplate>
                 <DataTemplate>
-                    <LightButton Custom="Filled" Size="Small" Theme.ColorScheme="Primary"
+                    <LightButton Type="Filled" Size="Small" Theme.ColorScheme="Primary"
                                  Content="{Lang {Binding Header}}"
                                  Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
                                  CommandParameter="{Binding}" />
@@ -31,7 +31,7 @@
             </LightItems.ItemsPanel>
             <LightItems.ItemTemplate>
                 <DataTemplate>
-                    <LightButton Custom="Outlined" Size="Small"
+                    <LightButton Type="Outlined" Size="Small"
                                  Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
                                  CommandParameter="{Binding}">
                         <LightPanel Mode="Horizontal" Spacing="6">

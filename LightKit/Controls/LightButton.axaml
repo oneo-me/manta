@@ -5,37 +5,34 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
-            </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Custom="Filled" Size="Normal" />
-                <LightButton Content="Button" Custom="Outlined" Size="Normal" />
-                <LightButton Content="Button" Custom="Ghost" Size="Normal" />
+                <LightButton Content="Button" Type="Filled" Size="Normal" />
+                <LightButton Content="Button" Type="Outlined" Size="Normal" />
+                <LightButton Content="Button" Type="Ghost" Size="Normal" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
         </LightPanel>
     </Design.PreviewWith>
@@ -60,26 +57,24 @@
                                   RecognizesAccessKey="True" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="Padding" Value="8 3" />
-            <Setter Property="CornerRadius" Value="100" />
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
         <Style Selector="^[Size=Normal]">
-            <Setter Property="Padding" Value="12 7" />
+            <Setter Property="Padding" Value="14 6" />
             <Setter Property="CornerRadius" Value="8" />
             <Setter Property="BorderThickness" Value="1" />
         </Style>
-        <Style Selector="^:not(^[Custom=None])">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
-                    <BrushTransition Property="Background" Duration="0:0:0.05" />
-                    <BrushTransition Property="Foreground" Duration="0:0:0.05" />
-                </Transitions>
-            </Setter>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="8 2" />
+            <Setter Property="CornerRadius" Value="100" />
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
-        <Style Selector="^[Custom=Filled]">
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
+                <BrushTransition Property="Background" Duration="0:0:0.05" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.05" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Type=Filled]">
             <Style Selector="^[(Theme.ColorScheme)=Normal]">
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
@@ -156,7 +151,7 @@
                 </Style>
             </Style>
         </Style>
-        <Style Selector="^[Custom=Outlined]">
+        <Style Selector="^[Type=Outlined]">
             <Style Selector="^[(Theme.ColorScheme)=Normal]">
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.15}" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
@@ -228,7 +223,7 @@
                 </Style>
             </Style>
         </Style>
-        <Style Selector="^[Custom=Ghost]">
+        <Style Selector="^[Type=Ghost]">
             <Style Selector="^[(Theme.ColorScheme)=Normal]">
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />

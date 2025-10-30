@@ -1,9 +1,7 @@
 namespace LightKit.Controls;
 
-public enum LightButtonStyle
+public enum LightButtonType
 {
-    None,
-
     Filled,
     Outlined,
     Ghost

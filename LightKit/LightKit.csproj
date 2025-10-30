@@ -4,7 +4,4 @@
         <PackageReference Include="DynamicData" Version="9.4.1" />
         <PackageReference Include="YamlDotNet" Version="16.3.0" />
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Dialogs\" />
-    </ItemGroup>
 </Project>

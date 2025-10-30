@@ -6,13 +6,13 @@ namespace LightKit.Controls;
 
 public class LightButton : Button
 {
-    public static readonly StyledProperty<LightButtonStyle> CustomProperty = AvaloniaProperty.Register<LightButton, LightButtonStyle>(
-        nameof(Custom));
+    public static readonly StyledProperty<LightButtonType> TypeProperty = AvaloniaProperty.Register<LightButton, LightButtonType>(
+        nameof(Type));
 
-    public LightButtonStyle Custom
+    public LightButtonType Type
     {
-        get => GetValue(CustomProperty);
-        set => SetValue(CustomProperty, value);
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
     }
 
     public static readonly StyledProperty<LightButtonSize> SizeProperty = AvaloniaProperty.Register<LightButton, LightButtonSize>(

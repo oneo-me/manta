@@ -8,53 +8,50 @@
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Text="Buttons" FontWeight="SemiBold" />
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
-            </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Custom="Filled" Size="Normal" />
-                <LightButton Content="Button" Custom="Outlined" Size="Normal" />
-                <LightButton Content="Button" Custom="Ghost" Size="Normal" />
+                <LightButton Content="Button" Type="Filled" Size="Normal" />
+                <LightButton Content="Button" Type="Outlined" Size="Normal" />
+                <LightButton Content="Button" Type="Ghost" Size="Normal" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
-                <LightButton Content="Button" Custom="Filled" Size="Small" />
-                <LightButton Content="Button" Custom="Outlined" Size="Small" />
-                <LightButton Content="Button" Custom="Ghost" Size="Small" />
+                <LightButton Content="Button" Type="Filled" Size="Small" />
+                <LightButton Content="Button" Type="Outlined" Size="Small" />
+                <LightButton Content="Button" Type="Ghost" Size="Small" />
             </LightPanel>
             <LightText Text="Custom Icons" FontWeight="SemiBold" />
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Custom="Filled" Size="Small">
+                <LightButton Type="Filled" Size="Small">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
                     </LightPanel>
                 </LightButton>
-                <LightButton Custom="Outlined" Size="Small">
+                <LightButton Type="Outlined" Size="Small">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
                     </LightPanel>
                 </LightButton>
-                <LightButton Custom="Ghost" Size="Small">
+                <LightButton Type="Ghost" Size="Small">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
@@ -62,19 +59,19 @@
                 </LightButton>
             </LightPanel>
             <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Custom="Filled" Size="Normal">
+                <LightButton Type="Filled" Size="Normal">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
                     </LightPanel>
                 </LightButton>
-                <LightButton Custom="Outlined" Size="Normal">
+                <LightButton Type="Outlined" Size="Normal">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
                     </LightPanel>
                 </LightButton>
-                <LightButton Custom="Ghost" Size="Normal">
+                <LightButton Type="Ghost" Size="Normal">
                     <LightPanel Mode="Horizontal" Spacing="4">
                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         <LightText Text="Button" VerticalAlignment="Center" />
