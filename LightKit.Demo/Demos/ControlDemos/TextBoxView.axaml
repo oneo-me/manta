@@ -12,23 +12,25 @@
                 <LightTextBox Text="Text Text" />
                 <LightTextBox Text="Text Text" IsReadOnly="True" />
             </LightPanel>
-            <LightPanel Mode="Vertical" Spacing="12" Width="280">
-                <LightTextBox Custom="Outlined" />
-                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
-                <LightTextBox Custom="Outlined" Text="Text Text" />
-                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
-            </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Primary">
-                <LightTextBox Custom="Outlined" />
-                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
-                <LightTextBox Custom="Outlined" Text="Text Text" />
-                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
+                <LightTextBox />
+                <LightTextBox Watermark="Watermark..." />
+                <LightTextBox Text="Text Text" />
+                <LightTextBox Text="Text Text" IsReadOnly="True" />
             </LightPanel>
             <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Danger">
-                <LightTextBox Custom="Outlined" />
-                <LightTextBox Custom="Outlined" Watermark="Watermark..." />
-                <LightTextBox Custom="Outlined" Text="Text Text" />
-                <LightTextBox Custom="Outlined" Text="Text Text" IsReadOnly="True" />
+                <LightTextBox />
+                <LightTextBox Watermark="Watermark..." />
+                <LightTextBox Text="Text Text" />
+                <LightTextBox Text="Text Text" IsReadOnly="True" />
+                <LightTextBox Text="Text Text" IsReadOnly="True">
+                    <LightTextBox.InnerLeftContent>
+                        <LightButton Type="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
+                    </LightTextBox.InnerLeftContent>
+                    <LightTextBox.InnerRightContent>
+                        <LightButton Type="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
+                    </LightTextBox.InnerRightContent>
+                </LightTextBox>
             </LightPanel>
         </LightPanel>
     </LightScrollViewer>
