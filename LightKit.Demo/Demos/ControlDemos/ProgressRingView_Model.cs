@@ -1,5 +1,4 @@
 using LightKit.Controls;
-using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Reactive.Views;
 
@@ -11,6 +10,5 @@ sealed class ProgressRingView_Model : DemoViewModel
     public static ProgressRingView_Model Design => new();
 
     public override DemoGroup Group => DemoGroup.Controls;
-    public override string Header => LangKey.Demo_Control_Title;
-    public override object HeaderArg => nameof(LightProgressRing);
+    public override string Header => nameof(LightProgressRing);
 }

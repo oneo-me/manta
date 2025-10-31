@@ -1,5 +1,4 @@
 using LightKit.Controls;
-using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Reactive.Views;
 
@@ -11,6 +10,5 @@ sealed class TextView_Model : DemoViewModel
     public static TextView_Model Design => new();
 
     public override DemoGroup Group => DemoGroup.Controls;
-    public override string Header => LangKey.Demo_Control_Title;
-    public override object HeaderArg => nameof(LightText);
+    public override string Header => nameof(LightText);
 }

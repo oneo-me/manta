@@ -16,5 +16,4 @@ abstract class DemoViewModel : ViewModel
     public abstract DemoGroup Group { get; }
     public virtual IconSource? Icon => null;
     public abstract string Header { get; }
-    public virtual object? HeaderArg => null;
 }

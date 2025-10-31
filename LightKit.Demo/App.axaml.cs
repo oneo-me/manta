@@ -9,6 +9,11 @@ namespace LightKit.Demo;
 
 sealed class App : LightApp
 {
+    public App()
+    {
+        Name = nameof(LightKit);
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
