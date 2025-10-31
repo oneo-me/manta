@@ -1,13 +1,13 @@
 using System.Reactive.Disposables;
+using Avalonia.Controls;
 using LightKit.Extensions;
-using LightKit.Reactive.Dialogs;
 using LightKit.Reactive.Extensions;
 using LightKit.Reactive.Views;
 
 namespace LightKit.Dialogs;
 
 [View<DialogView>]
-sealed class DialogView_Model(LightDialogOptions options) : DialogModel
+sealed class DialogView_Model(LightDialogOptions options) : WindowModel
 {
     public static DialogView_Model Design => new(new("Message...") { ShowCancel = true, ShowConfirm = true });
 
@@ -29,6 +29,18 @@ sealed class DialogView_Model(LightDialogOptions options) : DialogModel
     void Close()
     {
         this.GetWindow().Close();
+    }
+
+    public override void OnWindowInitialized(Window window)
+    {
+        base.OnWindowInitialized(window);
+
+        window.SizeToContent = SizeToContent.WidthAndHeight;
+        window.SystemDecorations = SystemDecorations.BorderOnly;
+        window.CanMinimize = false;
+        window.CanMaximize = false;
+        window.CanResize = false;
+        window.ShowInTaskbar = false;
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
