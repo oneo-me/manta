@@ -228,7 +228,6 @@
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow SM}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
@@ -243,7 +242,6 @@
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow SM}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
@@ -258,7 +256,6 @@
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Success}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow SM}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.2}" />
@@ -273,7 +270,6 @@
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Warning}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow SM}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.2}" />
@@ -288,7 +284,6 @@
                 <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0}" />
                 <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0}" />
                 <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow SM}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.1}" />
                     <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.2}" />

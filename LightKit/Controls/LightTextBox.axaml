@@ -86,7 +86,7 @@
         </Setter>
         <!-- PasswordChar -->
         <Style Selector="^[IsPasswordBox=True]">
-            <Setter Property="PasswordChar" Value="●" />
+            <Setter Property="PasswordChar" Value="•" />
         </Style>
         <!-- Watermark -->
         <Style Selector="^ /template/ LightText#WatermarkTextBlock">

@@ -47,6 +47,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightListBox}" TargetType="LightListBox">
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />

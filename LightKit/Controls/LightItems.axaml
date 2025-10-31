@@ -23,6 +23,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightItems}" TargetType="LightItems">
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
