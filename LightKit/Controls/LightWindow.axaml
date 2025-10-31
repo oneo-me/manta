@@ -28,7 +28,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
                         <VisualLayerManager>
                             <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Background="{ThemeColorSet Primary, Opacity=0.03}"
+                                              Background="{ThemeColorSet Primary, Opacity=0.05}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}" />
                         </VisualLayerManager>
