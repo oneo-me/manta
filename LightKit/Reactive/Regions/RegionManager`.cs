@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Linq;
-using LightKit.Reactive.Extensions;
 using DynamicData;
+using LightKit.Reactive.Extensions;
 using LightKit.Reactive.Views;
 
 namespace LightKit.Reactive.Regions;

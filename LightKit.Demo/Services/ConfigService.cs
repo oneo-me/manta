@@ -1,6 +1,6 @@
 using System.Text.Json;
-using LightKit.Logging;
 using LightKit.Demo.Models;
+using LightKit.Logging;
 
 namespace LightKit.Demo.Services;
 
