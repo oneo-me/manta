@@ -10,7 +10,8 @@
     <File Path=".globalconfig" />
     <File Path=".gitattributes" />
   </Folder>
-  <Project Path="LightKit.Demo\LightKit.Demo.csproj" Type="Classic C#" />
-  <Project Path="LightKit.Generators\LightKit.Generators.csproj" Type="Classic C#" />
-  <Project Path="LightKit\LightKit.csproj" Type="Classic C#" />
+  <Project Path="LightKit.Demo\LightKit.Demo.csproj" Type="C#" />
+  <Project Path="LightKit.Generators\LightKit.Generators.csproj" Type="C#" />
+  <Project Path="LightKit.Prepare/LightKit.Prepare.csproj" />
+  <Project Path="LightKit\LightKit.csproj" Type="C#" />
 </Solution>
