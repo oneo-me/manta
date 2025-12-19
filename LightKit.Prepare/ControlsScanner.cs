@@ -156,6 +156,7 @@ sealed class ControlsScanner(Options options)
 
         static readonly Type[] _excludeTypes =
         [
+            typeof(ScrollContentPresenter),
             typeof(ContentPresenter),
             typeof(ItemsPresenter),
 
@@ -164,6 +165,7 @@ sealed class ControlsScanner(Options options)
             typeof(UserControl),
             typeof(HeaderedContentControl),
             typeof(ContentControl),
+            typeof(LayoutTransformControl),
 
             typeof(Viewbox),
             typeof(TextSelectionHandle),

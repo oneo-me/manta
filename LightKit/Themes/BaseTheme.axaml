@@ -45,7 +45,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedSelectingItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HyperlinkButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/LayoutTransformControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/LightDismissOverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />
@@ -59,7 +58,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ScrollContentPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SelectingItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Slider.axaml" />
