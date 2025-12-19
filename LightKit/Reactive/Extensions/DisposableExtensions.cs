@@ -10,15 +10,18 @@ public static class DisposableExtensions
         return disposable;
     }
 
-    public static void DisposeIfDisposable(this object obj)
+    extension(object obj)
     {
-        if (obj is IDisposable disposable)
-            disposable.Dispose();
-    }
+        public void DisposeIfDisposable()
+        {
+            if (obj is IDisposable disposable)
+                disposable.Dispose();
+        }
 
-    public static void DisposeWithIfDisposable(this object obj, CompositeDisposable compositeDisposable)
-    {
-        if (obj is IDisposable disposable)
-            disposable.DisposeWith(compositeDisposable);
+        public void DisposeWithIfDisposable(CompositeDisposable compositeDisposable)
+        {
+            if (obj is IDisposable disposable)
+                disposable.DisposeWith(compositeDisposable);
+        }
     }
 }

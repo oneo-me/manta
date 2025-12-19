@@ -6,24 +6,27 @@ namespace LightKit.Globalization.Core;
 
 public static class Extensions
 {
-    static LangMetadataAttribute GetMetadataCore(this LangType langType)
+    extension(LangType langType)
     {
-        var enumType = langType.GetType();
-        var memberInfo = enumType.GetMember(langType.ToString());
-        if (memberInfo.Length > 0)
+        LangMetadataAttribute GetMetadataCore()
         {
-            var attribute = memberInfo[0].GetCustomAttribute<LangMetadataAttribute>(false);
-            if (attribute != null)
-                return attribute;
+            var enumType = langType.GetType();
+            var memberInfo = enumType.GetMember(langType.ToString());
+            if (memberInfo.Length > 0)
+            {
+                var attribute = memberInfo[0].GetCustomAttribute<LangMetadataAttribute>(false);
+                if (attribute != null)
+                    return attribute;
+            }
+
+            throw new InvalidOperationException($"Culture {langType} has no CultureMetadataAttribute");
         }
 
-        throw new InvalidOperationException($"Culture {langType} has no CultureMetadataAttribute");
-    }
-
-    public static LangMetadata GetMetadata(this LangType langType)
-    {
-        var langMetadataAttribute = GetMetadataCore(langType);
-        return new(langType, langMetadataAttribute.Emoji, langMetadataAttribute.EnglishName, langMetadataAttribute.NativeName, langMetadataAttribute.SourceType);
+        public LangMetadata GetMetadata()
+        {
+            var langMetadataAttribute = langType.GetMetadataCore();
+            return new(langType, langMetadataAttribute.Emoji, langMetadataAttribute.EnglishName, langMetadataAttribute.NativeName, langMetadataAttribute.SourceType);
+        }
     }
 
     static readonly IDeserializer _deserializer = new DeserializerBuilder()
