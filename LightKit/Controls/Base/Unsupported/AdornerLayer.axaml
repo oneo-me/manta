@@ -4,17 +4,11 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <AdornerLayer Width="100" Height="100" />
+            <AdornerLayer />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'AdornerLayer' is not supported -->
     <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
-        <Setter Property="DefaultFocusAdorner">
-            <FocusAdornerTemplate>
-                <Rectangle Margin="1"
-                           Stroke="Red"
-                           StrokeDashArray="1,2"
-                           StrokeThickness="1" />
-            </FocusAdornerTemplate>
-        </Setter>
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

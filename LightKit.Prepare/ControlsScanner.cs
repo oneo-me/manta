@@ -1,3 +1,4 @@
+using System.Text;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
@@ -6,6 +7,7 @@ using Avalonia.Controls.Remote;
 using Avalonia.Controls.Shapes;
 using Avalonia.Dialogs;
 using Avalonia.Dialogs.Internal;
+using BindingFlags = System.Reflection.BindingFlags;
 using Path = System.IO.Path;
 
 namespace LightKit.Prepare;
@@ -16,6 +18,7 @@ sealed class ControlsScanner(Options options)
     {
         var assemblys = new[] { typeof(Button).Assembly, typeof(ManagedFileChooser).Assembly };
         var controlTypes = assemblys
+            .Distinct()
             .SelectMany(x => x.GetTypes().Where(t => t is { IsPublic: true, IsAbstract: false } && typeof(Control).IsAssignableFrom(t)))
             .Select(x => new ControlInfo(x))
             .Where(x => string.IsNullOrWhiteSpace(x.GroupName) is false)
@@ -78,14 +81,25 @@ sealed class ControlsScanner(Options options)
         writer.WriteLine("    xmlns=\"https://github.com/avaloniaui\"");
         writer.WriteLine("    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"");
         writer.WriteLine("    x:ClassModifier=\"internal\">");
-        writer.WriteLine("    <Design.PreviewWith>");
-        writer.WriteLine("        <LightPanel Mode=\"Vertical\" Spacing=\"12\" Margin=\"12\">");
+
+        var sb = new StringBuilder();
 
         foreach (var info in grouping)
-            writer.WriteLine($"            <{info.ContorlType.Name} />");
+            if (info.ContorlType.GetConstructors(BindingFlags.Public | BindingFlags.Instance).Any(x => x.GetParameters().Length == 0))
+                sb.AppendLine($"            <{info.ContorlType.Name} />");
 
-        writer.WriteLine("        </LightPanel>");
-        writer.WriteLine("    </Design.PreviewWith>");
+        if (sb.Length == 0)
+        {
+            writer.WriteLine("    <!-- No need to preview controls -->");
+        }
+        else
+        {
+            writer.WriteLine("    <Design.PreviewWith>");
+            writer.WriteLine("        <LightPanel Mode=\"Vertical\" Spacing=\"12\" Margin=\"12\">");
+            writer.Write(sb.ToString());
+            writer.WriteLine("        </LightPanel>");
+            writer.WriteLine("    </Design.PreviewWith>");
+        }
 
         foreach (var info in grouping)
             if (typeof(TemplatedControl).IsAssignableFrom(info.ContorlType))
@@ -167,33 +181,50 @@ sealed class ControlsScanner(Options options)
             typeof(ContentControl),
             typeof(LayoutTransformControl),
 
+            typeof(Image),
             typeof(Viewbox),
+            typeof(TextSelectorLayer),
             typeof(TextSelectionHandle),
             typeof(TextPresenter),
             typeof(VisualLayerManager),
-            typeof(ThemeVariantScope),
 
-            // Temporarily not considering support
+            typeof(Grid),
+            typeof(UniformGrid),
+            typeof(WrapPanel),
+            typeof(StackPanel),
+            typeof(RelativePanel),
+            typeof(DockPanel),
+            typeof(VirtualizingCarouselPanel),
+            typeof(VirtualizingStackPanel),
+            typeof(ReversibleStackPanel),
+
+            typeof(Arc),
+            typeof(Ellipse),
+            typeof(Line),
+            typeof(Avalonia.Controls.Shapes.Path),
+            typeof(Polygon),
+            typeof(Polyline),
+            typeof(Rectangle),
+            typeof(Sector),
+
+            typeof(Window),
+            typeof(WindowBase),
+            typeof(AboutAvaloniaDialog),
+
+            // Other platform specific controls
+            typeof(RefreshContainer),
+            typeof(RefreshVisualizer),
             typeof(RemoteWidget),
             typeof(ChildFitter),
             typeof(ManagedFileChooser),
-            typeof(ManagedFileChooserOverwritePrompt),
             typeof(ManagedFileChooserOverwritePrompt)
-        ];
-
-        static readonly Type[] _excludeBaseTypes =
-        [
-            typeof(Panel),
-            typeof(Shape),
-            typeof(Image),
-            typeof(WindowBase)
         ];
 
         public ControlInfo(Type type)
         {
             ContorlType = type;
 
-            if (_excludeTypes.Contains(ContorlType) || _excludeBaseTypes.Any(x => x.IsAssignableFrom(ContorlType)))
+            if (_excludeTypes.Contains(ContorlType))
                 return;
 
             ImplName = type.Name switch
