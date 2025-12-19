@@ -11,8 +11,8 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported NumericUpDown" />
-                    <LightTextBox x:Name="PART_TextBox" IsVisible="False" />
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'NumericUpDown' is not supported" />
+                    <TextBox x:Name="PART_TextBox" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

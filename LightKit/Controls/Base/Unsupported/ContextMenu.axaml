@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ContextMenu" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ContextMenu' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

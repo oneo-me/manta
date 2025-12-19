@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Expander" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'Expander' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type DataValidationErrors}" TargetType="DataValidationErrors">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported DataValidationErrors" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'DataValidationErrors' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

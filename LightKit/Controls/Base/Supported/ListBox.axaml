@@ -4,21 +4,25 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ScrollBar />
-            <ScrollViewer />
+            <ListBox />
+            <ListBoxItem />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
+    <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ScrollBar" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightListBox'" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
+    <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ScrollViewer" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightListBoxItem'" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

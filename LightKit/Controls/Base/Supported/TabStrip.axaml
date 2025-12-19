@@ -4,21 +4,25 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ListBox />
-            <ListBoxItem />
+            <TabStrip />
+            <TabStripItem />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
+    <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ListBox" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTabStrip'" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+    <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ListBoxItem" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTabStripItem'" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

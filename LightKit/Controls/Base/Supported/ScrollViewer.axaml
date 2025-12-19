@@ -1,0 +1,29 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <ScrollViewer />
+            <ScrollBar />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightScrollViewer'" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightScrollBar'" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported EmbeddableControlRoot" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'EmbeddableControlRoot' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -5,12 +5,44 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <Calendar />
+            <CalendarButton />
+            <CalendarDayButton />
+            <CalendarItem />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Calendar" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'Calendar' is not supported" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarButton' is not supported" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarDayButton' is not supported" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarItem' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

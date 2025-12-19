@@ -1,0 +1,27 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <DatePickerPresenter />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type DatePickerPresenter}" TargetType="DatePickerPresenter">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'DatePickerPresenter' is not supported" />
+                    <Button x:Name="PART_AcceptButton" IsVisible="False" />
+                    <Panel x:Name="PART_DayHost" IsVisible="False" />
+                    <DateTimePickerPanel x:Name="PART_DaySelector" IsVisible="False" />
+                    <Panel x:Name="PART_MonthHost" IsVisible="False" />
+                    <DateTimePickerPanel x:Name="PART_MonthSelector" IsVisible="False" />
+                    <Grid x:Name="PART_PickerContainer" IsVisible="False" />
+                    <Panel x:Name="PART_YearHost" IsVisible="False" />
+                    <DateTimePickerPanel x:Name="PART_YearSelector" IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported CalendarDatePicker" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarDatePicker' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

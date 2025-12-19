@@ -4,13 +4,15 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <CalendarDayButton />
+            <HeaderedItemsControl />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
+    <ControlTheme x:Key="{x:Type HeaderedItemsControl}" TargetType="HeaderedItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported CalendarDayButton" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'HeaderedItemsControl' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

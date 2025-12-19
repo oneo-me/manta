@@ -4,13 +4,15 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ContentControl />
+            <HeaderedSelectingItemsControl />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type ContentControl}" TargetType="ContentControl">
+    <ControlTheme x:Key="{x:Type HeaderedSelectingItemsControl}" TargetType="HeaderedSelectingItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ContentControl" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'HeaderedSelectingItemsControl' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

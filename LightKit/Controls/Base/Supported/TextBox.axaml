@@ -4,13 +4,16 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Button />
+            <TextBox />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+    <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Button" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTextBox'" />
+                    <TextPresenter x:Name="PART_TextPresenter" IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

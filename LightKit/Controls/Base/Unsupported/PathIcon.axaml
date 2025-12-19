@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported PathIcon" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'PathIcon' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

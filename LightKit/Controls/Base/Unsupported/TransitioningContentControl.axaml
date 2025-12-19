@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type TransitioningContentControl}" TargetType="TransitioningContentControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TransitioningContentControl" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TransitioningContentControl' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -4,15 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TextBox />
+            <ToggleSplitButton />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
+    <ControlTheme x:Key="{x:Type ToggleSplitButton}" TargetType="ToggleSplitButton">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TextBox" />
-                    <TextPresenter x:Name="PART_TextPresenter" IsVisible="False" />
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ToggleSplitButton' is not supported" />
                 </Panel>
             </ControlTemplate>
         </Setter>

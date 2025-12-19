@@ -4,14 +4,9 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <CalendarButton />
+            <Decorator />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported CalendarButton" />
-            </ControlTemplate>
-        </Setter>
+    <ControlTheme x:Key="{x:Type Decorator}" TargetType="Decorator">
     </ControlTheme>
 </ResourceDictionary>

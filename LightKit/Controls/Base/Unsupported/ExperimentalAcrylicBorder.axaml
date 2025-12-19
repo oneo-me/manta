@@ -4,14 +4,9 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ComboBoxItem />
+            <ExperimentalAcrylicBorder />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ComboBoxItem" />
-            </ControlTemplate>
-        </Setter>
+    <ControlTheme x:Key="{x:Type ExperimentalAcrylicBorder}" TargetType="ExperimentalAcrylicBorder">
     </ControlTheme>
 </ResourceDictionary>

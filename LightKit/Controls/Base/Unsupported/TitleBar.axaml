@@ -4,13 +4,16 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <CalendarItem />
+            <TitleBar />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+    <ControlTheme x:Key="{x:Type TitleBar}" TargetType="TitleBar">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported CalendarItem" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TitleBar' is not supported" />
+                    <CaptionButtons x:Name="PART_CaptionButtons" IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

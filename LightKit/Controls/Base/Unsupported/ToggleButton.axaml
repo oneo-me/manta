@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ToggleButton" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ToggleButton' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

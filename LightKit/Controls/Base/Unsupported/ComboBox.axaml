@@ -5,14 +5,24 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <ComboBox />
+            <ComboBoxItem />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ComboBox" />
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ComboBox' is not supported" />
                     <Popup x:Name="PART_Popup" IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ComboBoxItem' is not supported" />
                 </Panel>
             </ControlTemplate>
         </Setter>

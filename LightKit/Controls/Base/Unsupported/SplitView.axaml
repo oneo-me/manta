@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported SplitView" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'SplitView' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

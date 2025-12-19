@@ -11,14 +11,18 @@
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TabControl" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TabControl' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TabItem" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TabItem' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

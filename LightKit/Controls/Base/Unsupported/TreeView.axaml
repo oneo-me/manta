@@ -11,14 +11,18 @@
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TreeView" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TreeView' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TreeViewItem" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TreeViewItem' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -10,7 +10,9 @@
     <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported HyperlinkButton" />
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'HyperlinkButton' is not supported" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
