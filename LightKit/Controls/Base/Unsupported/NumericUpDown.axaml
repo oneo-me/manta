@@ -5,45 +5,15 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <NumericUpDown />
-            <NumericUpDown ButtonSpinnerLocation="Left" />
-            <NumericUpDown ShowButtonSpinner="False" />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
-        <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <DataValidationErrors>
-                    <ButtonSpinner x:Name="PART_Spinner"
-                                   HorizontalContentAlignment="Stretch"
-                                   VerticalContentAlignment="Stretch"
-                                   IsTabStop="False"
-                                   Padding="0"
-                                   AllowSpin="{TemplateBinding AllowSpin}"
-                                   Background="{TemplateBinding Background}"
-                                   BorderBrush="{TemplateBinding BorderBrush}"
-                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                   ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
-                                   CornerRadius="{TemplateBinding CornerRadius}"
-                                   ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
-                        <TextBox x:Name="PART_TextBox"
-                                 Padding="{TemplateBinding Padding}"
-                                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                 AcceptsReturn="False"
-                                 MinWidth="20"
-                                 BorderThickness="0"
-                                 CornerRadius="0"
-                                 IsReadOnly="{TemplateBinding IsReadOnly}"
-                                 Text="{TemplateBinding Text}"
-                                 TextAlignment="{TemplateBinding TextAlignment}"
-                                 TextWrapping="NoWrap"
-                                 Watermark="{TemplateBinding Watermark}"
-                                 InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
-                                 InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}" />
-                    </ButtonSpinner>
-                </DataValidationErrors>
+                <Panel>
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported NumericUpDown" />
+                    <LightTextBox x:Name="PART_TextBox" IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

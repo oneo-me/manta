@@ -4,18 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightText Text="Top" />
             <Separator />
-            <LightText Text="Bottom" />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
-        <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
-        <Setter Property="Height" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" />
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Separator" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

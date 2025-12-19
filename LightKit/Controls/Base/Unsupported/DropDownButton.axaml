@@ -4,43 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <DropDownButton Content="DropDownButton" />
+            <DropDownButton />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Grid ColumnDefinitions="*,Auto">
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Grid.Column="0"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              RecognizesAccessKey="True" />
-                            <Path x:Name="DropDownGlyph"
-                                  Grid.Column="1"
-                                  Data="m19 9 -7 6 -7 -6"
-                                  StrokeThickness="1.5"
-                                  StrokeLineCap="Round"
-                                  Stroke="{TemplateBinding Foreground}"
-                                  Stretch="Uniform"
-                                  HorizontalAlignment="Right"
-                                  VerticalAlignment="Center"
-                                  IsHitTestVisible="False"
-                                  UseLayoutRounding="False" />
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported DropDownButton" />
+            </ControlTemplate>
         </Setter>
     </ControlTheme>
 </ResourceDictionary>

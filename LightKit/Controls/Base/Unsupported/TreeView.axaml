@@ -4,46 +4,21 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TreeView>
-                <TreeViewItem Header="Test Item 0">
-                    <TreeViewItem Header="Test Item 0" />
-                    <TreeViewItem Header="Test Item 1" />
-                    <TreeViewItem Header="Test Item 2" />
-                </TreeViewItem>
-                <TreeViewItem Header="Test Item 1">
-                    <TreeViewItem Header="Test Item 0" />
-                    <TreeViewItem Header="Test Item 1">
-                        <TreeViewItem Header="Test Item 0" />
-                        <TreeViewItem Header="Test Item 1" />
-                        <TreeViewItem Header="Test Item 2" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="Test Item 2" />
-                </TreeViewItem>
-                <TreeViewItem Header="Test Item 2" />
-            </TreeView>
+            <TreeView />
+            <TreeViewItem />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <ScrollViewer x:Name="PART_ScrollViewer"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              CornerRadius="{TemplateBinding CornerRadius}"
-                              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                              IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
-                                    Margin="{TemplateBinding Padding}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                </ScrollViewer>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TreeView" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TreeViewItem" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

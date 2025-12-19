@@ -3,96 +3,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
-            <LightAutoGrid Definitions="*,*" Spacing="12">
-                <TabControl TabStripPlacement="Top" BorderThickness="1" CornerRadius="11">
-                    <TabItem Header="TabItem 1">
-                        <LightText Text="Content 1" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 2">
-                        <LightText Text="Content 2" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 3">
-                        <LightText Text="Content 3" Margin="12 50" />
-                    </TabItem>
-                </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="1" CornerRadius="11">
-                    <TabItem Header="TabItem 1">
-                        <LightText Text="Content 1" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 2">
-                        <LightText Text="Content 2" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 3">
-                        <LightText Text="Content 3" Margin="12 50" />
-                    </TabItem>
-                </TabControl>
-                <TabControl TabStripPlacement="Left" BorderThickness="1" CornerRadius="11">
-                    <TabItem Header="TabItem 1">
-                        <LightText Text="Content 1" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 2">
-                        <LightText Text="Content 2" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 3">
-                        <LightText Text="Content 3" Margin="12 50" />
-                    </TabItem>
-                </TabControl>
-                <TabControl TabStripPlacement="Bottom" BorderThickness="1" CornerRadius="11">
-                    <TabItem Header="TabItem 1">
-                        <LightText Text="Content 1" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 2">
-                        <LightText Text="Content 2" Margin="12 50" />
-                    </TabItem>
-                    <TabItem Header="TabItem 3">
-                        <LightText Text="Content 3" Margin="12 50" />
-                    </TabItem>
-                </TabControl>
-            </LightAutoGrid>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TabControl />
+            <TabItem />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel>
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                    <ContentPresenter x:Name="PART_SelectedContentHost"
-                                      Margin="{TemplateBinding Padding}"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding SelectedContent}"
-                                      ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
-                </DockPanel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TabControl" />
             </ControlTemplate>
         </Setter>
-        <Setter Property="ItemsPanel">
-            <ItemsPanelTemplate>
-                <LightPanel Mode="WrapFull" />
-            </ItemsPanelTemplate>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported TabItem" />
+            </ControlTemplate>
         </Setter>
-        <Style Selector="^[TabStripPlacement=Top] /template/ ItemsPresenter#PART_ItemsPresenter">
-            <Setter Property="DockPanel.Dock" Value="Top" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom] /template/ ItemsPresenter#PART_ItemsPresenter">
-            <Setter Property="DockPanel.Dock" Value="Bottom" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter">
-            <Setter Property="DockPanel.Dock" Value="Left" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter">
-            <Setter Property="DockPanel.Dock" Value="Right" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter > LightPanel">
-            <Setter Property="Mode" Value="Vertical" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter > LightPanel">
-            <Setter Property="Mode" Value="Vertical" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -3,21 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12" />
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <EmbeddableControlRoot />
+        </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <Border x:Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-                    <Border Background="{TemplateBinding Background}">
-                        <VisualLayerManager>
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </VisualLayerManager>
-                    </Border>
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported EmbeddableControlRoot" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

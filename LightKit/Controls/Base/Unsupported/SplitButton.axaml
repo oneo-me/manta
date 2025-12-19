@@ -4,46 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <SplitButton Content="SplitButton" />
+            <SplitButton />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
-        <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid ColumnDefinitions="*,Auto">
-                        <LightButton x:Name="PART_PrimaryButton" Grid.Column="0"
-                                     Foreground="{TemplateBinding Foreground}"
-                                     Content="{TemplateBinding Content}"
-                                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                                     Command="{TemplateBinding Command}"
-                                     CommandParameter="{TemplateBinding CommandParameter}"
-                                     FontFamily="{TemplateBinding FontFamily}"
-                                     FontSize="{TemplateBinding FontSize}"
-                                     FontWeight="{TemplateBinding FontWeight}"
-                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     Padding="{TemplateBinding Padding}"
-                                     Focusable="False"
-                                     KeyboardNavigation.IsTabStop="False" />
-                        <LightButton x:Name="PART_SecondaryButton"
-                                     Grid.Column="1"
-                                     Foreground="{TemplateBinding Foreground}"
-                                     HorizontalContentAlignment="Center"
-                                     VerticalContentAlignment="Center"
-                                     Focusable="False"
-                                     KeyboardNavigation.IsTabStop="False">
-                            <PathIcon Height="12" Width="12" Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
-                        </LightButton>
-                    </Grid>
-                </Border>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported SplitButton" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

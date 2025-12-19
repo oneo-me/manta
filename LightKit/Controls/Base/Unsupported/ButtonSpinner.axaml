@@ -4,60 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ButtonSpinner Content="ButtonSpinner" />
-            <ButtonSpinner Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
-            <ButtonSpinner Content="ButtonSpinner" ShowButtonSpinner="False" />
+            <ButtonSpinner />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel>
-                        <UniformGrid x:Name="PART_SpinnerPanel" TabIndex="2" DockPanel.Dock="Right" IsVisible="{TemplateBinding ShowButtonSpinner}" Rows="2">
-                            <RepeatButton x:Name="PART_IncreaseButton" IsTabStop="{TemplateBinding IsTabStop}">
-                                <Path Width="8"
-                                      Height="4"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      Data="m19 15 -7 -6 -7 6"
-                                      StrokeThickness="1.5"
-                                      StrokeLineCap="Round"
-                                      Stroke="{TemplateBinding Foreground}"
-                                      Stretch="Uniform" />
-                            </RepeatButton>
-                            <RepeatButton x:Name="PART_DecreaseButton"
-                                          IsTabStop="{TemplateBinding IsTabStop}">
-                                <Path Width="8"
-                                      Height="4"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      Data="m19 9 -7 6 -7 -6"
-                                      StrokeThickness="1.5"
-                                      StrokeLineCap="Round"
-                                      Stroke="{TemplateBinding Foreground}"
-                                      Stretch="Uniform" />
-                            </RepeatButton>
-                        </UniformGrid>
-                        <ContentPresenter x:Name="PART_ContentPresenter"
-                                          TabIndex="1"
-                                          Padding="{TemplateBinding Padding}"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    </DockPanel>
-                </Border>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported ButtonSpinner" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:left  /template/ UniformGrid#PART_SpinnerPanel">
-            <Setter Property="DockPanel.Dock" Value="Left" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>

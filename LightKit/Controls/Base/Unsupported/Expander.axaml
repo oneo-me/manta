@@ -4,146 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightAutoGrid Definitions="*,*" Spacing="12">
-                <Expander Header="Expanded Left" Content="Expanded Content" ExpandDirection="Left" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
-                <Expander Header="Expanded Right" Content="Expanded Content" ExpandDirection="Right" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
-                <Expander Header="Expanded Up" Content="Expanded Content" ExpandDirection="Up" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
-                <Expander Header="Expanded Down" Content="Expanded Content" ExpandDirection="Down" IsExpanded="True" BorderThickness="1" CornerRadius="11" />
-            </LightAutoGrid>
+            <Expander />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="ExpanderToggleButtonTheme" TargetType="ToggleButton">
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <LayoutTransformControl x:Name="TransformControl">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel LastChildFill="True" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
-                            <PathIcon x:Name="Icon"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <ContentPresenter x:Name="PART_ContentPresenter"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Padding="{TemplateBinding Padding}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              RecognizesAccessKey="True" />
-                        </DockPanel>
-                    </Border>
-                </LayoutTransformControl>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^ /template/ PathIcon#Icon">
-            <Setter Property="Width" Value="8" />
-            <Setter Property="Height" Value="8" />
-            <Setter Property="Data" Value="M7 6C7 6.26522 6.89464 6.51957 6.70711 6.70711L1.70711 11.7071C1.31658 12.0976 0.683417 12.0976 0.292893 11.7071C-0.0976315 11.3166 -0.0976314 10.6834 0.292893 10.2929L4.58579 6L0.292893 1.70711C-0.097631 1.31658 -0.097631 0.683417 0.292893 0.292893C0.683417 -0.0976313 1.31658 -0.0976313 1.70711 0.292893L6.70711 5.29289C6.89464 5.48043 7 5.73478 7 6Z" />
-        </Style>
-        <Style Selector="^[Tag=Left]">
-            <Style Selector="^ /template/ LayoutTransformControl#TransformControl">
-                <Setter Property="LayoutTransform">
-                    <RotateTransform Angle="90" />
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="0" />
-                </Setter>
-            </Style>
-            <Style Selector="^:checked /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="-90" />
-                </Setter>
-            </Style>
-        </Style>
-        <Style Selector="^[Tag=Right]">
-            <Style Selector="^ /template/ LayoutTransformControl#TransformControl">
-                <Setter Property="LayoutTransform">
-                    <RotateTransform Angle="90" />
-                </Setter>
-            </Style>
-            <Style Selector="^:checked /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="90" />
-                </Setter>
-            </Style>
-        </Style>
-        <Style Selector="^[Tag=Top]">
-            <Style Selector="^ /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="-90" />
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="0" />
-                </Setter>
-            </Style>
-            <Style Selector="^:checked /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="90" />
-                </Setter>
-            </Style>
-        </Style>
-        <Style Selector="^[Tag=Bottom]">
-            <Style Selector="^ /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="-90" />
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="0" />
-                </Setter>
-            </Style>
-            <Style Selector="^:checked /template/ PathIcon#Icon">
-                <Setter Property="RenderTransform">
-                    <RotateTransform Angle="-90" />
-                </Setter>
-            </Style>
-        </Style>
-    </ControlTheme>
     <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel LastChildFill="True">
-                    <ToggleButton x:Name="PART_toggle"
-                                  HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                  Content="{TemplateBinding Header}"
-                                  IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
-                                  Theme="{StaticResource ExpanderToggleButtonTheme}" />
-                    <ContentPresenter x:Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      IsVisible="{TemplateBinding IsExpanded}" />
-                </DockPanel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Expander" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[ExpandDirection=Left] /template/ ToggleButton#PART_toggle">
-            <Setter Property="DockPanel.Dock" Value="Right" />
-            <Setter Property="Tag" Value="Right" />
-        </Style>
-        <Style Selector="^[ExpandDirection=Right] /template/ ToggleButton#PART_toggle">
-            <Setter Property="DockPanel.Dock" Value="Left" />
-            <Setter Property="Tag" Value="Left" />
-        </Style>
-        <Style Selector="^[ExpandDirection=Up] /template/ ToggleButton#PART_toggle">
-            <Setter Property="DockPanel.Dock" Value="Bottom" />
-            <Setter Property="Tag" Value="Bottom" />
-        </Style>
-        <Style Selector="^[ExpandDirection=Down] /template/ ToggleButton#PART_toggle">
-            <Setter Property="DockPanel.Dock" Value="Top" />
-            <Setter Property="Tag" Value="Top" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -3,16 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
-            <PathIcon Width="12" Height="12" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z" />
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <PathIcon />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Template">
             <ControlTemplate>
-                <Viewbox>
-                    <Path Data="{TemplateBinding Data}" Fill="{TemplateBinding Foreground}" Stretch="Uniform" />
-                </Viewbox>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported PathIcon" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

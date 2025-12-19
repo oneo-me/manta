@@ -4,38 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Carousel Width="100" Height="100">
-                <Carousel.PageTransition>
-                    <PageSlide Duration="0:0:0.1" />
-                </Carousel.PageTransition>
-                <Border Background="{ThemeColorSet Primary}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
-                    <LightText Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Border>
-                <Border Background="{ThemeColorSet Success}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
-                    <LightText Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Border>
-                <Border Background="{ThemeColorSet Danger}" TextElement.Foreground="{ThemeColorSet ColorForeground}">
-                    <LightText Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Border>
-            </Carousel>
+            <Carousel />
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <ScrollViewer x:Name="PART_ScrollViewer"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              BringIntoViewOnFocusChange="False"
-                              HorizontalScrollBarVisibility="Hidden"
-                              VerticalScrollBarVisibility="Hidden">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    Margin="{TemplateBinding Padding}" />
-                </ScrollViewer>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Not supported Carousel" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
