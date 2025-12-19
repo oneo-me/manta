@@ -11,9 +11,7 @@
     <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTabStrip'" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTabStrip'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

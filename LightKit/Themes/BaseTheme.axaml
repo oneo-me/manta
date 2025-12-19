@@ -15,6 +15,8 @@
                 <!-- Supported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Label.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/LightSelectableText.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/LightText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
@@ -46,8 +48,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/LayoutTransformControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/LightDismissOverlayLayer.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/LightSelectableText.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/LightText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/LightView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />

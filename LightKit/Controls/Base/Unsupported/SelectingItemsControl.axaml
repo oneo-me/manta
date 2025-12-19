@@ -10,9 +10,7 @@
     <ControlTheme x:Key="{x:Type SelectingItemsControl}" TargetType="SelectingItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'SelectingItemsControl' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'SelectingItemsControl' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

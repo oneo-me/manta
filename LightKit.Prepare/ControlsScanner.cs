@@ -32,6 +32,8 @@ sealed class ControlsScanner(Options options)
                 supportLevel = ControlSupportLevel.Basic;
             else if (File.Exists(Path.Combine(options.ControlsDir, $"Light{grouping.Key}.axaml")))
                 supportLevel = ControlSupportLevel.Advanced;
+            else if (File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.axaml")))
+                supportLevel = ControlSupportLevel.Advanced;
 
             foreach (var controlInfo in grouping)
                 controlInfo.SupportLevel = supportLevel;
@@ -90,14 +92,25 @@ sealed class ControlsScanner(Options options)
             {
                 writer.WriteLine("        <Setter Property=\"Template\">");
                 writer.WriteLine("            <ControlTemplate>");
-                writer.WriteLine("                <Panel>");
-                writer.WriteLine($"                    <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info.ContorlType)}\" />");
 
-                foreach (var templatePart in GetTemplateParts(info.ContorlType))
-                    if (templatePart.IsRequired)
-                        writer.WriteLine($"                    <{templatePart.Type.Name} x:Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
+                var templateParts = GetTemplateParts(info.ContorlType).ToList();
 
-                writer.WriteLine("                </Panel>");
+                if (templateParts.Count > 0)
+                {
+                    writer.WriteLine("                <Panel>");
+                    writer.WriteLine($"                    <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info.ContorlType)}\" />");
+
+                    foreach (var templatePart in templateParts)
+                        if (templatePart.IsRequired)
+                            writer.WriteLine($"                    <{templatePart.Type.Name} x:Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
+
+                    writer.WriteLine("                </Panel>");
+                }
+                else
+                {
+                    writer.WriteLine($"                <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info.ContorlType)}\" />");
+                }
+
                 writer.WriteLine("            </ControlTemplate>");
                 writer.WriteLine("        </Setter>");
             }

@@ -10,9 +10,7 @@
     <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'MenuFlyoutPresenter' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'MenuFlyoutPresenter' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
