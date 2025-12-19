@@ -10,9 +10,7 @@
     <ControlTheme x:Key="{x:Type RadioButton}" TargetType="RadioButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'RadioButton' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'RadioButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -18,9 +18,7 @@
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'MenuItem' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'MenuItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

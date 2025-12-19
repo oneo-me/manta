@@ -7,6 +7,8 @@
             <Decorator />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'Decorator' is not supported -->
     <ControlTheme x:Key="{x:Type Decorator}" TargetType="Decorator">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

@@ -10,9 +10,7 @@
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightButton'" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightButton'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

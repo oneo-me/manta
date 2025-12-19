@@ -21,9 +21,7 @@
     <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ComboBoxItem' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ComboBoxItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

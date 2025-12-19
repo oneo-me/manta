@@ -18,8 +18,8 @@ sealed class ControlsScanner(Options options)
         var controlTypes = assemblys
             .SelectMany(x => x.GetTypes().Where(t => t is { IsPublic: true, IsAbstract: false } && typeof(Control).IsAssignableFrom(t)))
             .Select(x => new ControlInfo(x))
-            .Where(x => string.IsNullOrWhiteSpace(x.ImplName) is false)
-            .GroupBy(x => x.ImplName)
+            .Where(x => string.IsNullOrWhiteSpace(x.GroupName) is false)
+            .GroupBy(x => x.GroupName)
             .OrderBy(x => x.Key, StringComparer.OrdinalIgnoreCase)
             .ToList();
 
@@ -30,10 +30,10 @@ sealed class ControlsScanner(Options options)
 
             if (File.Exists(Path.Combine(options.BaseControlsDir, $"{grouping.Key}.axaml")))
                 supportLevel = ControlSupportLevel.Basic;
-            else if (File.Exists(Path.Combine(options.ControlsDir, $"Light{grouping.Key}.axaml")))
-                supportLevel = ControlSupportLevel.Advanced;
-            else if (File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.axaml")))
-                supportLevel = ControlSupportLevel.Advanced;
+            else if (File.Exists(Path.Combine(options.ControlsDir, $"Light{grouping.Key}.cs")))
+                supportLevel = File.Exists(Path.Combine(options.ControlsDir, $"Light{grouping.Key}.axaml")) ? ControlSupportLevel.Advanced : ControlSupportLevel.AdvancedNoXaml;
+            else if (File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.cs")))
+                supportLevel = File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.axaml")) ? ControlSupportLevel.Advanced : ControlSupportLevel.AdvancedNoXaml;
 
             foreach (var controlInfo in grouping)
                 controlInfo.SupportLevel = supportLevel;
@@ -52,11 +52,14 @@ sealed class ControlsScanner(Options options)
             switch (grouping.First().SupportLevel)
             {
                 case ControlSupportLevel.Advanced:
-                    CreateXamlFile(options.SupportedControlsDir, grouping, type => $"Please use the 'Light{type.Name}'");
+                    CreateXamlFile(options.SupportedControlsDir, grouping, info => $"Please use the '{(info.ImplName.StartsWith("Light", StringComparison.Ordinal) ? info.ImplName : $"Light{info.ImplName}")}'");
+                    break;
+
+                case ControlSupportLevel.AdvancedNoXaml:
                     break;
 
                 case ControlSupportLevel.Unsupported:
-                    CreateXamlFile(options.UnSupportedControlsDir, grouping, type => $"The control '{type.Name}' is not supported");
+                    CreateXamlFile(options.UnSupportedControlsDir, grouping, info => $"The control '{info.ImplName}' is not supported");
                     break;
 
                 case ControlSupportLevel.Basic:
@@ -67,9 +70,9 @@ sealed class ControlsScanner(Options options)
             }
     }
 
-    static void CreateXamlFile(string targetDir, IGrouping<string, ControlInfo> grouping, Func<Type, string> formatMessage)
+    static void CreateXamlFile(string targetDir, IGrouping<string, ControlInfo> grouping, Func<ControlInfo, string> formatMessage)
     {
-        var file = Path.Combine(targetDir, $"{grouping.Key}.axaml");
+        var file = Path.Combine(targetDir, $"{(grouping.Key.StartsWith("Light", StringComparison.Ordinal) ? grouping.First().ContorlType.Name : grouping.Key)}.axaml");
         using var writer = new StreamWriter(file, false);
         writer.WriteLine("<ResourceDictionary");
         writer.WriteLine("    xmlns=\"https://github.com/avaloniaui\"");
@@ -85,38 +88,45 @@ sealed class ControlsScanner(Options options)
         writer.WriteLine("    </Design.PreviewWith>");
 
         foreach (var info in grouping)
-        {
-            writer.WriteLine($"    <ControlTheme x:Key=\"{{x:Type {info.ContorlType.Name}}}\" TargetType=\"{info.ContorlType.Name}\">");
-
             if (typeof(TemplatedControl).IsAssignableFrom(info.ContorlType))
             {
+                writer.WriteLine($"    <ControlTheme x:Key=\"{{x:Type {info.ContorlType.Name}}}\" TargetType=\"{info.ContorlType.Name}\">");
                 writer.WriteLine("        <Setter Property=\"Template\">");
                 writer.WriteLine("            <ControlTemplate>");
 
-                var templateParts = GetTemplateParts(info.ContorlType).ToList();
+                var templateParts = GetTemplateParts(info.ContorlType).Where(x => x.IsRequired).ToList();
 
                 if (templateParts.Count > 0)
                 {
                     writer.WriteLine("                <Panel>");
-                    writer.WriteLine($"                    <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info.ContorlType)}\" />");
+                    writer.WriteLine($"                    <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
 
                     foreach (var templatePart in templateParts)
-                        if (templatePart.IsRequired)
-                            writer.WriteLine($"                    <{templatePart.Type.Name} x:Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
+                        writer.WriteLine($"                    <{templatePart.Type.Name} x:Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
 
                     writer.WriteLine("                </Panel>");
                 }
                 else
                 {
-                    writer.WriteLine($"                <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info.ContorlType)}\" />");
+                    writer.WriteLine($"                <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
                 }
 
                 writer.WriteLine("            </ControlTemplate>");
                 writer.WriteLine("        </Setter>");
+                writer.WriteLine("    </ControlTheme>");
             }
+            else
+            {
+                var hasText = info.ContorlType.GetProperty("Text") is not null;
 
-            writer.WriteLine("    </ControlTheme>");
-        }
+                if (hasText is false)
+                    writer.WriteLine($"    <!-- {formatMessage(info)} -->");
+                writer.WriteLine($"    <ControlTheme x:Key=\"{{x:Type {info.ContorlType.Name}}}\" TargetType=\"{info.ContorlType.Name}\">");
+                writer.WriteLine("        <Setter Property=\"Theme.ColorScheme\" Value=\"Danger\" />");
+                if (hasText)
+                    writer.WriteLine($"        <Setter Property=\"Text\" Value=\"{formatMessage(info)}\" />");
+                writer.WriteLine("    </ControlTheme>");
+            }
 
         writer.WriteLine("</ResourceDictionary>");
     }
@@ -133,12 +143,14 @@ sealed class ControlsScanner(Options options)
     {
         Unsupported,
         Basic,
-        Advanced
+        Advanced,
+        AdvancedNoXaml
     }
 
     sealed class ControlInfo
     {
         public Type ContorlType { get; }
+        public string GroupName { get; } = string.Empty;
         public string ImplName { get; } = string.Empty;
         public ControlSupportLevel SupportLevel { get; set; } = ControlSupportLevel.Unsupported;
 
@@ -147,8 +159,12 @@ sealed class ControlsScanner(Options options)
             typeof(ContentPresenter),
             typeof(ItemsPresenter),
 
+            typeof(Control),
+            typeof(TemplatedControl),
+            typeof(UserControl),
             typeof(HeaderedContentControl),
             typeof(ContentControl),
+
             typeof(Viewbox),
             typeof(TextSelectionHandle),
             typeof(TextPresenter),
@@ -180,12 +196,15 @@ sealed class ControlsScanner(Options options)
 
             ImplName = type.Name switch
             {
-                // Rename controls
                 nameof(SelectableTextBlock) => "LightSelectableText",
                 nameof(TextBlock)           => "LightText",
                 nameof(UserControl)         => "LightView",
+                nameof(ItemsControl)        => "LightItems",
 
-                // Merge controls
+                _ => type.Name
+            };
+            GroupName = ImplName switch
+            {
                 nameof(CalendarButton)    => nameof(Calendar),
                 nameof(CalendarDayButton) => nameof(Calendar),
                 nameof(CalendarItem)      => nameof(Calendar),
@@ -197,7 +216,7 @@ sealed class ControlsScanner(Options options)
                 nameof(TreeViewItem)      => nameof(TreeView),
                 nameof(ScrollBar)         => nameof(ScrollViewer),
 
-                _ => type.Name
+                _ => ImplName
             };
         }
     }

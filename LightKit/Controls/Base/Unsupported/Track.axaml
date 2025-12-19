@@ -7,6 +7,8 @@
             <Track />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'Track' is not supported -->
     <ControlTheme x:Key="{x:Type Track}" TargetType="Track">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

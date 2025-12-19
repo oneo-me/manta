@@ -13,36 +13,28 @@
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'Calendar' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'Calendar' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarButton' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarDayButton' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarDayButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarItem' is not supported" />
-                </Panel>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'CalendarItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

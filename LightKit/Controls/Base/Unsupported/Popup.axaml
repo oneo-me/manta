@@ -7,6 +7,8 @@
             <Popup />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'Popup' is not supported -->
     <ControlTheme x:Key="{x:Type Popup}" TargetType="Popup">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

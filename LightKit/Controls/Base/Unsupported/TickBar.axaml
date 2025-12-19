@@ -7,6 +7,8 @@
             <TickBar />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'TickBar' is not supported -->
     <ControlTheme x:Key="{x:Type TickBar}" TargetType="TickBar">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

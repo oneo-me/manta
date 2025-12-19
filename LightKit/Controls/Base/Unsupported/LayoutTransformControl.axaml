@@ -7,6 +7,8 @@
             <LayoutTransformControl />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'LayoutTransformControl' is not supported -->
     <ControlTheme x:Key="{x:Type LayoutTransformControl}" TargetType="LayoutTransformControl">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

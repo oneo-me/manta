@@ -4,9 +4,11 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Control />
+            <TextBlock />
         </LightPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type Control}" TargetType="Control">
+    <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Text" Value="Please use the 'LightText'" />
     </ControlTheme>
 </ResourceDictionary>

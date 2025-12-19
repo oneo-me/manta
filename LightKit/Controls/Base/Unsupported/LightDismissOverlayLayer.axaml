@@ -7,6 +7,8 @@
             <LightDismissOverlayLayer />
         </LightPanel>
     </Design.PreviewWith>
+    <!-- The control 'LightDismissOverlayLayer' is not supported -->
     <ControlTheme x:Key="{x:Type LightDismissOverlayLayer}" TargetType="LightDismissOverlayLayer">
+        <Setter Property="Theme.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>
