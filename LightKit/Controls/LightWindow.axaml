@@ -28,7 +28,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
                         <VisualLayerManager>
                             <ContentPresenter x:Name="PART_ContentPresenter"
-                                              Background="{ThemeColorSet Primary, Opacity=0.05}"
+                                              Background="{ThemeColorSet Primary, Opacity=0.035}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}" />
                         </VisualLayerManager>
@@ -50,7 +50,7 @@
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
             <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.8" />
+                <Setter Property="Opacity" Value="0.9" />
             </Style>
         </Style>
         <!-- macOS -->
@@ -60,7 +60,7 @@
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
             <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.7" />
+                <Setter Property="Opacity" Value="0.9" />
             </Style>
             <Style Selector="^[IsActive=False] /template/ Panel#Root">
                 <Setter Property="Background" Value="{DynamicResource MacBackground}" />
