@@ -33,7 +33,7 @@
             <ControlTemplate>
                 <Panel Background="#00000000">
                     <Panel Margin="{TemplateBinding InnerMargin}">
-                        <ContentPresenter x:Name="PART_ContentPresenter"
+                        <ContentPresenter Name="PART_ContentPresenter"
                                           Background="{TemplateBinding Background}"
                                           CornerRadius="{TemplateBinding CornerRadius}"
                                           Padding="{TemplateBinding Padding}"

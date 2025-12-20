@@ -13,7 +13,7 @@
             <ControlTemplate>
                 <Panel>
                     <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ComboBox' is not supported" />
-                    <Popup x:Name="PART_Popup" IsVisible="False" />
+                    <Popup Name="PART_Popup" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

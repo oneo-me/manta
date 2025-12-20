@@ -11,7 +11,7 @@
         <Setter Property="Height" Value="38" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel x:Name="PART_Buttons" Orientation="Horizontal">
+                <StackPanel Name="PART_Buttons" Orientation="Horizontal">
                     <LightTitleBarButton Type="FullScreen" IsVisible="False" />
                     <LightTitleBarButton Type="Minimize" />
                     <LightTitleBarButton Type="Maximize" />

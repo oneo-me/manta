@@ -53,7 +53,7 @@
                                            BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
                             <Panel Margin="{TemplateBinding Padding}">
                                 <LightText
-                                    x:Name="WatermarkTextBlock"
+                                    Name="WatermarkTextBlock"
                                     Opacity="0.5"
                                     Text="{TemplateBinding Watermark}"
                                     Foreground="{TemplateBinding Foreground}"
@@ -61,7 +61,7 @@
                                     TextWrapping="{TemplateBinding TextWrapping}"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                <TextPresenter x:Name="PART_TextPresenter"
+                                <TextPresenter Name="PART_TextPresenter"
                                                Background="#00000000"
                                                Text="{TemplateBinding Text, Mode=TwoWay}"
                                                CaretIndex="{TemplateBinding CaretIndex}"

@@ -75,8 +75,8 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Border x:Name="PART_Indicator" />
-                    <LightRing x:Name="Ring"
+                    <Border Name="PART_Indicator" />
+                    <LightRing Name="Ring"
                                Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
                                Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
                                Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
@@ -90,7 +90,7 @@
                             BoxShadow="{TemplateBinding BoxShadow}"
                             Margin="{TemplateBinding RingStrokeSize, Converter={StaticResource ProgressRingNumber2ThicknessConverter}}">
                             <Panel>
-                                <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                <LayoutTransformControl Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         IsVisible="{TemplateBinding ShowProgressText}">
                                     <LightText>
                                         <LightText.Text>

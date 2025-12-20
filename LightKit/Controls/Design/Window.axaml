@@ -15,7 +15,7 @@
                 <Panel Background="{TemplateBinding Background}">
                     <LightPixelGrid />
                     <VisualLayerManager>
-                        <ContentPresenter x:Name="PART_ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" />
+                        <ContentPresenter Name="PART_ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" />
                     </VisualLayerManager>
                 </Panel>
             </ControlTemplate>

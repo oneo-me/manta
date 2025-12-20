@@ -12,13 +12,13 @@
             <ControlTemplate>
                 <Panel>
                     <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TimePickerPresenter' is not supported" />
-                    <Button x:Name="PART_AcceptButton" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_HourSelector" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_MinuteSelector" IsVisible="False" />
-                    <Panel x:Name="PART_PeriodHost" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_PeriodSelector" IsVisible="False" />
-                    <Grid x:Name="PART_PickerContainer" IsVisible="False" />
-                    <Control x:Name="PART_SecondSpacer" IsVisible="False" />
+                    <Button Name="PART_AcceptButton" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_HourSelector" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_MinuteSelector" IsVisible="False" />
+                    <Panel Name="PART_PeriodHost" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_PeriodSelector" IsVisible="False" />
+                    <Grid Name="PART_PickerContainer" IsVisible="False" />
+                    <Control Name="PART_SecondSpacer" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

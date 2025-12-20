@@ -7,8 +7,8 @@
     <Grid ColumnDefinitions="180 *">
         <Border Grid.Column="0" BorderThickness="0 0 1 0">
             <Panel>
-                <Border x:Name="SidebarBackground" />
-                <LightListBox x:Name="Sidebar" Type="Sidebar" VerticalAlignment="Top">
+                <Border Name="SidebarBackground" />
+                <LightListBox Name="Sidebar" Type="Sidebar" VerticalAlignment="Top">
                     <LightListBox.Styles>
                         <Style Selector="LightListBox[Type=Sidebar]">
                             <Setter Property="Padding" Value="7" />
@@ -46,10 +46,10 @@
         </Border>
         <Border Grid.Column="1" Background="{ThemeColorSet Background}">
             <Grid RowDefinitions="Auto *">
-                <Border Grid.Row="0" x:Name="TitleBar" Height="39" BorderThickness="0 0 0 1">
+                <Border Grid.Row="0" Name="TitleBar" Height="39" BorderThickness="0 0 0 1">
                     <Grid ColumnDefinitions="* Auto">
                         <LightText Grid.Column="0" Text="Group Item 1" FontWeight="SemiBold" Margin="12 0" VerticalAlignment="Center" />
-                        <LightTitleBarButtons Grid.Column="1" x:Name="TitleBarButtons" />
+                        <LightTitleBarButtons Grid.Column="1" Name="TitleBarButtons" />
                     </Grid>
                 </Border>
                 <Border Grid.Row="1">

@@ -35,8 +35,8 @@
                             </VisualBrush.Visual>
                         </VisualBrush>
                     </Panel.Background>
-                    <Border x:Name="Black" BorderBrush="{TemplateBinding Background}" />
-                    <Border x:Name="White" BorderBrush="{TemplateBinding Foreground}" />
+                    <Border Name="Black" BorderBrush="{TemplateBinding Background}" />
+                    <Border Name="White" BorderBrush="{TemplateBinding Foreground}" />
                 </Panel>
             </ControlTemplate>
         </Setter>

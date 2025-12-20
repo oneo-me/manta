@@ -53,7 +53,7 @@
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LightScrollViewer x:Name="PART_ScrollViewer"
+                <LightScrollViewer Name="PART_ScrollViewer"
                                    Background="{TemplateBinding Background}"
                                    BorderBrush="{TemplateBinding BorderBrush}"
                                    BorderThickness="{TemplateBinding BorderThickness}"
@@ -66,7 +66,7 @@
                                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                    VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
                                    HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                    <ItemsPresenter Name="PART_ItemsPresenter"
                                     Margin="{TemplateBinding Padding}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </LightScrollViewer>
@@ -79,7 +79,7 @@
     <ControlTheme x:Key="{x:Type LightListBoxItem}" TargetType="LightListBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <ContentPresenter x:Name="PART_ContentPresenter"
+                <ContentPresenter Name="PART_ContentPresenter"
                                   Padding="{TemplateBinding Padding}"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

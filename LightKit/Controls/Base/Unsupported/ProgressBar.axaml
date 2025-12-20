@@ -12,7 +12,7 @@
             <ControlTemplate>
                 <Panel>
                     <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ProgressBar' is not supported" />
-                    <Border x:Name="PART_Indicator" IsVisible="False" />
+                    <Border Name="PART_Indicator" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

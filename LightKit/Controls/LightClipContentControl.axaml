@@ -20,12 +20,12 @@
                         BoxShadow="{TemplateBinding BoxShadow}"
                         IsHitTestVisible="False" />
                     <Border
-                        x:Name="PART_Border"
+                        Name="PART_Border"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         IsHitTestVisible="False" />
-                    <Border x:Name="PART_Host" ClipToBounds="True" Margin="{TemplateBinding BorderThickness}">
-                        <ContentPresenter x:Name="PART_ContentPresenter"
+                    <Border Name="PART_Host" ClipToBounds="True" Margin="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Name="PART_ContentPresenter"
                                           Background="{TemplateBinding Background}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"

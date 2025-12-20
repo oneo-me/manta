@@ -12,7 +12,7 @@
             <ControlTemplate>
                 <Panel>
                     <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TitleBar' is not supported" />
-                    <CaptionButtons x:Name="PART_CaptionButtons" IsVisible="False" />
+                    <CaptionButtons Name="PART_CaptionButtons" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

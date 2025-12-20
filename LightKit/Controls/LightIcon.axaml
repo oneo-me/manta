@@ -9,7 +9,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Viewbox x:Name="PART_ViewBox" ClipToBounds="False" />
+                <Viewbox Name="PART_ViewBox" ClipToBounds="False" />
             </ControlTemplate>
         </Setter>
         <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />

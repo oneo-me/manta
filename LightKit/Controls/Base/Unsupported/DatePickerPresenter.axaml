@@ -12,14 +12,14 @@
             <ControlTemplate>
                 <Panel>
                     <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'DatePickerPresenter' is not supported" />
-                    <Button x:Name="PART_AcceptButton" IsVisible="False" />
-                    <Panel x:Name="PART_DayHost" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_DaySelector" IsVisible="False" />
-                    <Panel x:Name="PART_MonthHost" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_MonthSelector" IsVisible="False" />
-                    <Grid x:Name="PART_PickerContainer" IsVisible="False" />
-                    <Panel x:Name="PART_YearHost" IsVisible="False" />
-                    <DateTimePickerPanel x:Name="PART_YearSelector" IsVisible="False" />
+                    <Button Name="PART_AcceptButton" IsVisible="False" />
+                    <Panel Name="PART_DayHost" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_DaySelector" IsVisible="False" />
+                    <Panel Name="PART_MonthHost" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_MonthSelector" IsVisible="False" />
+                    <Grid Name="PART_PickerContainer" IsVisible="False" />
+                    <Panel Name="PART_YearHost" IsVisible="False" />
+                    <DateTimePickerPanel Name="PART_YearSelector" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>

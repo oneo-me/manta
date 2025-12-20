@@ -116,7 +116,7 @@ sealed class ControlsScanner(Options options)
                     writer.WriteLine($"                    <LightSelectableText Theme.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
 
                     foreach (var templatePart in templateParts)
-                        writer.WriteLine($"                    <{templatePart.Type.Name} x:Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
+                        writer.WriteLine($"                    <{templatePart.Type.Name} Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
 
                     writer.WriteLine("                </Panel>");
                 }

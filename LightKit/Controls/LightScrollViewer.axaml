@@ -30,7 +30,7 @@
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
                         <ScrollContentPresenter
                             Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             ClipToBounds="{TemplateBinding ClipToBounds}"
                             Background="#00000000"
                             Margin="{TemplateBinding Padding}"
@@ -39,8 +39,8 @@
                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                             VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
                             ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
-                        <LightScrollBar Grid.Column="0" Grid.Row="1" x:Name="PART_HorizontalScrollBar" Orientation="Horizontal" />
-                        <LightScrollBar Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_VerticalScrollBar" Orientation="Vertical" />
+                        <LightScrollBar Grid.Column="0" Grid.Row="1" Name="PART_HorizontalScrollBar" Orientation="Horizontal" />
+                        <LightScrollBar Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Name="PART_VerticalScrollBar" Orientation="Vertical" />
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -72,10 +72,10 @@
                            Value="{TemplateBinding Value, Mode=TwoWay}" ViewportSize="{TemplateBinding ViewportSize}"
                            Orientation="{TemplateBinding Orientation}">
                         <Track.DecreaseButton>
-                            <RepeatButton x:Name="PART_PageUpButton" Focusable="False" />
+                            <RepeatButton Name="PART_PageUpButton" Focusable="False" />
                         </Track.DecreaseButton>
                         <Track.IncreaseButton>
-                            <RepeatButton x:Name="PART_PageDownButton" Focusable="False" />
+                            <RepeatButton Name="PART_PageDownButton" Focusable="False" />
                         </Track.IncreaseButton>
                         <Thumb Padding="{TemplateBinding Padding}"
                                Background="{TemplateBinding Background}"

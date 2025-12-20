@@ -19,7 +19,7 @@
             <ControlTemplate>
                 <Panel Width="{TemplateBinding Size}" Height="{TemplateBinding Size}">
                     <Ellipse StrokeThickness="{TemplateBinding StrokeSize}" Stroke="{TemplateBinding Background}" />
-                    <Arc x:Name="PART_Arc" StartAngle="90" StrokeThickness="{TemplateBinding StrokeSize}" Stroke="{TemplateBinding Foreground}"
+                    <Arc Name="PART_Arc" StartAngle="90" StrokeThickness="{TemplateBinding StrokeSize}" Stroke="{TemplateBinding Foreground}"
                          StrokeLineCap="Round" />
                 </Panel>
             </ControlTemplate>
