@@ -27,6 +27,15 @@ sealed class DemoService
 
         ScanXamls(controlsDir);
         ScanXamls(baseControlsDir);
+
+        _demos.Sort((a, b) =>
+        {
+            var groupComparison = a.Group.CompareTo(b.Group);
+            if (groupComparison != 0)
+                return groupComparison;
+
+            return string.Compare(a.Header, b.Header, StringComparison.Ordinal);
+        });
     }
 
     void ScanXamls(string controlsDir)
