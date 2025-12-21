@@ -1,18 +1,34 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
 
 namespace LightKit.Controls;
 
+public enum LightButtonVariant
+{
+    Default,
+    Outline,
+    Secondary,
+    Ghost,
+    Destructive,
+    Link
+}
+
+public enum LightButtonSize
+{
+    Default,
+    Small,
+    Large
+}
+
 public class LightButton : Button
 {
-    public static readonly StyledProperty<LightButtonType> TypeProperty = AvaloniaProperty.Register<LightButton, LightButtonType>(
-        nameof(Type));
+    public static readonly StyledProperty<LightButtonVariant> VariantProperty = AvaloniaProperty.Register<LightButton, LightButtonVariant>(
+        nameof(Variant));
 
-    public LightButtonType Type
+    public LightButtonVariant Variant
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
     }
 
     public static readonly StyledProperty<LightButtonSize> SizeProperty = AvaloniaProperty.Register<LightButton, LightButtonSize>(
@@ -22,14 +38,5 @@ public class LightButton : Button
     {
         get => GetValue(SizeProperty);
         set => SetValue(SizeProperty, value);
-    }
-
-    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<LightButton, BoxShadows>(
-        nameof(BoxShadow));
-
-    public BoxShadows BoxShadow
-    {
-        get => GetValue(BoxShadowProperty);
-        set => SetValue(BoxShadowProperty, value);
     }
 }

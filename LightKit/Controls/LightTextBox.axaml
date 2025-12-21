@@ -23,10 +23,10 @@
                 <LightTextBox Text="Text Text" IsReadOnly="True" />
                 <LightTextBox Text="Text Text" IsReadOnly="True">
                     <LightTextBox.InnerLeftContent>
-                        <LightButton Type="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
+                        <LightButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
                     </LightTextBox.InnerLeftContent>
                     <LightTextBox.InnerRightContent>
-                        <LightButton Type="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
+                        <LightButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
                     </LightTextBox.InnerRightContent>
                 </LightTextBox>
             </LightPanel>

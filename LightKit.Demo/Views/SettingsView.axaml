@@ -73,15 +73,15 @@
                                 </LightListBox>
                                 <Grid Grid.Row="1" ColumnDefinitions="* Auto">
                                     <LightPanel Grid.Column="0" Mode="Horizontal" Spacing="3" Margin="3">
-                                        <LightButton Type="Ghost" Padding="4">
+                                        <LightButton Variant="Ghost" Padding="4">
                                             <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                         </LightButton>
-                                        <LightButton Type="Ghost" Padding="4">
+                                        <LightButton Variant="Ghost" Padding="4">
                                             <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                         </LightButton>
                                     </LightPanel>
                                     <LightPanel Grid.Column="1" Mode="Horizontal" Spacing="3" Margin="3">
-                                        <LightButton Type="Ghost" Padding="4">
+                                        <LightButton Variant="Ghost" Padding="4">
                                             <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                         </LightButton>
                                     </LightPanel>
@@ -107,25 +107,25 @@
                                             </LightPanel>
                                         </LightPanel>
                                         <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <LightButton Size="Small" Type="Ghost">
+                                            <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
                                                     <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Issues" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
-                                            <LightButton Size="Small" Type="Ghost">
+                                            <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
                                                     <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Discord" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
-                                            <LightButton Size="Small" Type="Ghost">
+                                            <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
                                                     <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Twitter" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
-                                            <LightButton Size="Small" Type="Ghost">
+                                            <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
                                                     <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Github" VerticalAlignment="Center" />
@@ -133,8 +133,8 @@
                                             </LightButton>
                                         </LightPanel>
                                         <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Type="Filled" Content="Update log" />
-                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Type="Filled" Content="check for updates" />
+                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Content="Update log" />
+                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Content="check for updates" />
                                         </LightPanel>
                                     </LightPanel>
                                     <LightText Text="Group format" FontWeight="SemiBold" />
@@ -183,7 +183,7 @@
                                     <LightPanel Mode="Vertical" Spacing="3">
                                         <LightText Text="Provider name" />
                                         <Grid ColumnDefinitions="Auto *">
-                                            <LightButton Grid.Column="0" Type="Outlined" Padding="6 4">
+                                            <LightButton Grid.Column="0" Variant="Outline" Padding="6 4">
                                                 <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                             </LightButton>
                                             <LightTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
@@ -202,19 +202,19 @@
                                         <Grid ColumnDefinitions="* Auto">
                                             <LightText Grid.Column="0" Text="Models" VerticalAlignment="Center" />
                                             <LightPanel Grid.Column="1" Mode="Horizontal" Spacing="4" VerticalAlignment="Center">
-                                                <LightButton Type="Ghost" Padding="4 2">
+                                                <LightButton Variant="Ghost" Padding="4 2">
                                                     <LightPanel Mode="Horizontal" Spacing="4">
                                                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <LightText Text="Delete all" VerticalAlignment="Center" />
                                                     </LightPanel>
                                                 </LightButton>
-                                                <LightButton Type="Ghost" Padding="4 2">
+                                                <LightButton Variant="Ghost" Padding="4 2">
                                                     <LightPanel Mode="Horizontal" Spacing="4">
                                                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <LightText Text="New" VerticalAlignment="Center" />
                                                     </LightPanel>
                                                 </LightButton>
-                                                <LightButton Type="Ghost" Padding="4 2">
+                                                <LightButton Variant="Ghost" Padding="4 2">
                                                     <LightPanel Mode="Horizontal" Spacing="4">
                                                         <LightIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <LightText Text="Fetch models" VerticalAlignment="Center" />
@@ -250,10 +250,10 @@
                                                             </Grid.ColumnDefinitions>
                                                             <LightTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
                                                             <LightTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
-                                                            <LightButton Grid.Column="2" Type="Ghost" Padding="4" Margin="8 0">
+                                                            <LightButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
                                                                 <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                                             </LightButton>
-                                                            <LightButton Grid.Column="3" Type="Ghost" Padding="4">
+                                                            <LightButton Grid.Column="3" Variant="Ghost" Padding="4">
                                                                 <LightIcon IconSize="14" IconSource="{Binding TestIcon}" />
                                                             </LightButton>
                                                         </Grid>

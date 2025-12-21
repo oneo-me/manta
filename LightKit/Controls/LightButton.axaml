@@ -4,35 +4,43 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Type="Filled" Size="Small" />
-                <LightButton Content="Button" Type="Outlined" Size="Small" />
-                <LightButton Content="Button" Type="Ghost" Size="Small" />
+            <LightPanel Mode="Horizontal" Spacing="20">
+                <LightPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <LightButton Variant="Outline" Size="Small" Content="Small" />
+                    <LightButton Variant="Outline" Size="Small">
+                        <LightPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                    </LightButton>
+                </LightPanel>
+                <LightPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <LightButton Variant="Outline" Size="Default" Content="Default" />
+                    <LightButton Variant="Outline" Size="Default">
+                        <LightPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                    </LightButton>
+                </LightPanel>
+                <LightPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <LightButton Variant="Outline" Size="Large" Content="Large" />
+                    <LightButton Variant="Outline" Size="Large">
+                        <LightPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                    </LightButton>
+                </LightPanel>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12">
-                <LightButton Content="Button" Type="Filled" Size="Normal" />
-                <LightButton Content="Button" Type="Outlined" Size="Normal" />
-                <LightButton Content="Button" Type="Ghost" Size="Normal" />
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Content="Button" />
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Primary">
-                <LightButton Content="Button" Type="Filled" Size="Small" />
-                <LightButton Content="Button" Type="Outlined" Size="Small" />
-                <LightButton Content="Button" Type="Ghost" Size="Small" />
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Variant="Outline" Content="Outline" />
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Success">
-                <LightButton Content="Button" Type="Filled" Size="Small" />
-                <LightButton Content="Button" Type="Outlined" Size="Small" />
-                <LightButton Content="Button" Type="Ghost" Size="Small" />
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Variant="Secondary" Content="Secondary" />
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Warning">
-                <LightButton Content="Button" Type="Filled" Size="Small" />
-                <LightButton Content="Button" Type="Outlined" Size="Small" />
-                <LightButton Content="Button" Type="Ghost" Size="Small" />
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Variant="Ghost" Content="Ghost" />
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.ColorScheme="Danger">
-                <LightButton Content="Button" Type="Filled" Size="Small" />
-                <LightButton Content="Button" Type="Outlined" Size="Small" />
-                <LightButton Content="Button" Type="Ghost" Size="Small" />
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Variant="Destructive" Content="Destructive" />
+            </LightPanel>
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightButton Variant="Link" Content="Link" />
             </LightPanel>
         </LightPanel>
     </Design.PreviewWith>
@@ -50,253 +58,78 @@
                                   Foreground="{TemplateBinding Foreground}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                  BoxShadow="{TemplateBinding BoxShadow}"
                                   Content="{TemplateBinding Content}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                   CornerRadius="{TemplateBinding CornerRadius}"
                                   RecognizesAccessKey="True" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Size=Normal]">
-            <Setter Property="Padding" Value="14 6" />
-            <Setter Property="CornerRadius" Value="8" />
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="Padding" Value="8 2" />
-            <Setter Property="CornerRadius" Value="100" />
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
-                <BrushTransition Property="Background" Duration="0:0:0.05" />
-                <BrushTransition Property="Foreground" Duration="0:0:0.05" />
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Style Selector="^[Type=Filled]">
-            <Style Selector="^[(Theme.ColorScheme)=Normal]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.15}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
-                </Style>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="12 6" />
+        </Style>
+        <Style Selector="^[Size=Default]">
+            <Setter Property="Padding" Value="16 8" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Padding" Value="20 10" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Background}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.8}" />
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Primary]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.05}" />
-                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Primary}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.6}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
-                </Style>
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Success]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.05}" />
-                <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.1}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Success}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Success}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.2}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.6}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.3}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Success, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Warning]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.05}" />
-                <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.1}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Warning}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Warning}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.2}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.6}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.3}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Warning, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Danger]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.05}" />
-                <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.1}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Danger}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.2}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.6}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.3}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Danger, Opacity=0.6}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{ThemeShadow XS}" />
                 </Style>
             </Style>
         </Style>
-        <Style Selector="^[Type=Outlined]">
-            <Style Selector="^[(Theme.ColorScheme)=Normal]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.15}" />
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Primary]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.4}" />
-                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Primary}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.2}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Success]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.4}" />
-                <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Success}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Success}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.2}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Success, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Warning]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.4}" />
-                <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Warning}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Warning}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.2}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Warning, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Danger]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.4}" />
-                <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Danger}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.2}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Danger, Opacity=0.6}" />
-                </Style>
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0.3}" />
             </Style>
         </Style>
-        <Style Selector="^[Type=Ghost]">
-            <Style Selector="^[(Theme.ColorScheme)=Normal]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0}" />
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Primary]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0}" />
-                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.05}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Primary, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Success]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0}" />
-                <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Success}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.05}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Success, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Warning]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0}" />
-                <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Warning}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.05}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Warning, Opacity=0.6}" />
-                </Style>
-            </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Danger]">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0}" />
-                <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
-                <Style Selector="^:pointerover">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.1}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.2}" />
-                </Style>
-                <Style Selector="^:pressed">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.05}" />
-                    <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.1}" />
-                    <Setter Property="Foreground" Value="{ThemeColorSet Danger, Opacity=0.6}" />
-                </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
             </Style>
         </Style>
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.5" />
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="Background" Value="{ThemeColorSet Danger}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet ColorForeground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Link]">
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
