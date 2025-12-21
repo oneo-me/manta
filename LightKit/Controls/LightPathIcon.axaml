@@ -1,0 +1,36 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightPathIcon Data="m6 9 6 6 6-6" />
+            <LightPathIcon Data="m6 9 6 6 6-6" UseStroke="True" />
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightPathIcon}" TargetType="LightPathIcon">
+        <Setter Property="Size" Value="18" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="StrokeLineCap" Value="Round" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Size}" Height="{TemplateBinding Size}"
+                         ClipToBounds="False">
+                    <Panel Width="{TemplateBinding Size}" Height="{TemplateBinding Size}">
+                        <Path Data="{TemplateBinding Data}"
+                              Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Panel>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[UseStroke=False] /template/ Path">
+            <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
+        </Style>
+        <Style Selector="^[UseStroke=True] /template/ Path">
+            <Setter Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
+            <Setter Property="StrokeThickness" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=StrokeThickness}" />
+            <Setter Property="StrokeLineCap" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=StrokeLineCap}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

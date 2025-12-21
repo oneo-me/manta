@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
@@ -59,7 +60,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/OverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/OverlayPopupHost.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Popup.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/PopupRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
@@ -95,6 +95,7 @@
                 <MergeResourceInclude Source="../Controls/LightItems.axaml" />
                 <MergeResourceInclude Source="../Controls/LightLabel.axaml" />
                 <MergeResourceInclude Source="../Controls/LightListBox.axaml" />
+                <MergeResourceInclude Source="../Controls/LightPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/LightPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/LightProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/LightRing.axaml" />
