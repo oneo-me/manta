@@ -4,7 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using LightKit.Extensions;
 
-namespace LightKit.Avalonia;
+namespace LightKit.Ava;
 
 public static class DragDropCommand
 {

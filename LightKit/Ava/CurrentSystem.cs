@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Avalonia;
 using Avalonia.Controls;
 
-namespace LightKit.Avalonia;
+namespace LightKit.Ava;
 
 public static class CurrentSystem
 {

@@ -3,7 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 
-namespace LightKit.Avalonia;
+namespace LightKit.Ava;
 
 public static class DoubleTappedCommand
 {
