@@ -90,6 +90,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="../Controls/LightAccordion.axaml" />
+                <MergeResourceInclude Source="../Controls/LightAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/LightButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />

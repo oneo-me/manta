@@ -10,7 +10,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightPathIcon}" TargetType="LightPathIcon">
         <Setter Property="Size" Value="18" />
-        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="StrokeThickness" Value="1.5" />
         <Setter Property="StrokeLineCap" Value="Round" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
