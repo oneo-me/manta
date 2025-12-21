@@ -81,6 +81,7 @@ sealed class DemoService
             sb.AppendLine("<LightView");
             sb.AppendLine("    xmlns=\"https://github.com/avaloniaui\"");
             sb.AppendLine("    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"");
+            sb.AppendLine("    xmlns:asyncImageLoader=\"clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia\"");
             sb.AppendLine("    xmlns:generic=\"clr-namespace:System.Collections.Generic;assembly=System.Collections\"");
             sb.AppendLine("    xmlns:system=\"clr-namespace:System;assembly=System.Runtime\">");
             sb.AppendLine(xaml);
