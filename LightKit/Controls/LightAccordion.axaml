@@ -76,7 +76,7 @@
         </Setter>
         <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         <Setter Property="BorderThickness" Value="0 0 0 1" />
-        <Setter Property="Padding" Value="0 12" />
+        <Setter Property="Padding" Value="0" />
         <Style Selector="^:nth-last-child(1)">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
@@ -94,6 +94,9 @@
                 </Transitions>
             </Setter>
         </Style>
+        <Style Selector="^ /template/ Border#PART_Header">
+            <Setter Property="Padding" Value="0 12" />
+        </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="FontWeight" Value="SemiBold" />
         </Style>
@@ -101,9 +104,7 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:expanded">
-            <Style Selector="^ /template/ Border#PART_Header">
-                <Setter Property="Padding" Value="0 0 0 12" />
-            </Style>
+            <Setter Property="Padding" Value="0 0 0 12" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="IsVisible" Value="True" />
             </Style>

@@ -1,4 +1,6 @@
 using System.Text;
+using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using LightKit.Controls;
 using LightKit.Demo.Reactive;
@@ -84,7 +86,14 @@ sealed class DemoService
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            this.GetView().Content = AvaloniaRuntimeXamlLoader.Load(_xaml, typeof(LightApp).Assembly);
+
+            var contentControl = new ContentControl
+            {
+                Content = AvaloniaRuntimeXamlLoader.Load(_xaml, typeof(LightApp).Assembly),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top
+            };
+            this.GetView().Content = contentControl;
         }
     }
 
