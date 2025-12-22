@@ -64,12 +64,12 @@
             <Setter Property="ContentTemplate">
                 <DataTemplate DataType="x:Boolean">
                     <Panel>
-                        <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                                  Width="10" Height="10" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z"
-                                  IsVisible="{Binding !.}" />
-                        <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                                  Width="10" Height="10" Data="M205 1024h819v-819h-205v469l-674 -674l-145 145l674 674h-469v205zM1374 1229h469v-205h-819v819h205v-469l674 674l145 -145z"
-                                  IsVisible="{Binding .}" />
+                        <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                       Size="10" Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z"
+                                       IsVisible="{Binding !.}" />
+                        <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                       Size="10" Data="M205 1024h819v-819h-205v469l-674 -674l-145 145l674 674h-469v205zM1374 1229h469v-205h-819v819h205v-469l674 674l145 -145z"
+                                       IsVisible="{Binding .}" />
                     </Panel>
                 </DataTemplate>
             </Setter>
@@ -77,8 +77,8 @@
         <Style Selector="^[Type=Minimize]">
             <Setter Property="ContentTemplate">
                 <DataTemplate>
-                    <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                              Width="10" Height="10" Margin="0 5 0 0" Data="M2048 1229v-205h-2048v205h2048z" />
+                    <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                   Size="10" Margin="0 5 0 0" Data="M2048 1229v-205h-2048v205h2048z" />
                 </DataTemplate>
             </Setter>
         </Style>
@@ -86,12 +86,12 @@
             <Setter Property="ContentTemplate">
                 <DataTemplate DataType="x:Boolean">
                     <Panel>
-                        <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                                  Width="10" Height="10" Data="M2048 2048v-2048h-2048v2048h2048zM1843 1843h-1638v-1638h1638v1638z"
-                                  IsVisible="{Binding !.}" />
-                        <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                                  Width="10" Height="10" Data="M2048 410h-410v-410h-1638v1638h410v410h1638v-1638zM1434 1434h-1229v-1229h1229v1229zM1843 1843h-1229v-205h1024v-1024h205v1229z"
-                                  IsVisible="{Binding .}" />
+                        <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                       Size="10" Data="M2048 2048v-2048h-2048v2048h2048zM1843 1843h-1638v-1638h1638v1638z"
+                                       IsVisible="{Binding !.}" />
+                        <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                       Size="10" Data="M2048 410h-410v-410h-1638v1638h410v410h1638v-1638zM1434 1434h-1229v-1229h1229v1229zM1843 1843h-1229v-205h1024v-1024h205v1229z"
+                                       IsVisible="{Binding .}" />
                     </Panel>
                 </DataTemplate>
             </Setter>
@@ -99,8 +99,8 @@
         <Style Selector="^[Type=Close]">
             <Setter Property="ContentTemplate">
                 <DataTemplate>
-                    <PathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
-                              Width="10" Height="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+                    <LightPathIcon Foreground="{Binding $parent[LightTitleBarButton].Foreground}"
+                                   Size="10" Data="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
                 </DataTemplate>
             </Setter>
             <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0}" />
