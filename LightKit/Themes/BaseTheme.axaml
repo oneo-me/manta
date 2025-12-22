@@ -14,6 +14,7 @@
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Supported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
@@ -32,7 +33,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Canvas.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CaptionButtons.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ChromeOverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ComboBox.axaml" />
@@ -97,6 +97,7 @@
                 <MergeResourceInclude Source="../Controls/LightBreadcrumb.axaml" />
                 <MergeResourceInclude Source="../Controls/LightButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightCard.axaml" />
+                <MergeResourceInclude Source="../Controls/LightCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/LightItems.axaml" />

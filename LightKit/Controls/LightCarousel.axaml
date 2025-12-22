@@ -1,0 +1,70 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightText Text="PageSlide" />
+            <LightPanel Mode="Vertical" Spacing="12">
+                <LightCarousel x:Name="Carousel1" Width="300" Height="120">
+                    <LightCarousel.PageTransition>
+                        <PageSlide Duration="0:00:0.3" Orientation="Horizontal" />
+                    </LightCarousel.PageTransition>
+                    <LightCard>
+                        <LightText Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                    <LightCard>
+                        <LightText Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                    <LightCard>
+                        <LightText Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                </LightCarousel>
+                <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                    <LightButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel1, Path=Previous}" />
+                    <LightButton Variant="Outline" Content="Next" Command="{Binding ElementName=Carousel1, Path=Next}" />
+                </LightPanel>
+            </LightPanel>
+            <LightText Text="Rotate3DTransition" />
+            <LightPanel Mode="Vertical" Spacing="12">
+                <LightCarousel x:Name="Carousel2" Width="300" Height="120">
+                    <LightCarousel.PageTransition>
+                        <Rotate3DTransition Duration="0:0:0.3" />
+                    </LightCarousel.PageTransition>
+                    <LightCard>
+                        <LightText Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                    <LightCard>
+                        <LightText Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                    <LightCard>
+                        <LightText Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </LightCard>
+                </LightCarousel>
+                <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                    <LightButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel2, Path=Previous}" />
+                    <LightButton Variant="Outline" Content="Next" Command="{Binding ElementName=Carousel2, Path=Next}" />
+                </LightPanel>
+            </LightPanel>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightCarousel}" TargetType="LightCarousel">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightScrollViewer Name="PART_ScrollViewer"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                   BringIntoViewOnFocusChange="False"
+                                   HorizontalScrollBarVisibility="Hidden"
+                                   VerticalScrollBarVisibility="Hidden"
+                                   ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    Margin="{TemplateBinding Padding}" />
+                </LightScrollViewer>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

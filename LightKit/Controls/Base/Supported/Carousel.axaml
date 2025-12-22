@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'Carousel' is not supported" />
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightCarousel'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
