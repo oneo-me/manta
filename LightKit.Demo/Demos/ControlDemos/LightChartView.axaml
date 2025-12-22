@@ -1,0 +1,10 @@
+<LightView
+    x:Class="LightKit.Demo.Demos.ControlDemos.LightChartView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
+    x:DataType="local:LightChartView_Model" Design.DataContext="{x:Static local:LightChartView_Model.Design}">
+    <LightCard Margin="12" Width="520" Height="380" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <LightChart Title="{Binding Title}" Data="{Binding Data}" />
+    </LightCard>
+</LightView>
