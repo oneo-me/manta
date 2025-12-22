@@ -181,6 +181,7 @@ sealed class ControlsScanner(Options options)
             typeof(ContentControl),
             typeof(LayoutTransformControl),
 
+            typeof(Canvas),
             typeof(Image),
             typeof(Viewbox),
             typeof(TextSelectorLayer),

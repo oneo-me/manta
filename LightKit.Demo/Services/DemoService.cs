@@ -42,8 +42,13 @@ sealed class DemoService
     {
         foreach (var file in Directory.GetFiles(controlsDir, "*.axaml"))
         {
+            var header = Path.GetFileNameWithoutExtension(file);
+            if (_demos.Any(x => string.Equals(x.Header, header, StringComparison.Ordinal)))
+                continue;
+
             var sb = new StringBuilder();
             var isStart = false;
+
             foreach (var line in File.ReadLines(file, Encoding.UTF8))
             {
                 if (line.Contains("<Design.PreviewWith>"))
@@ -61,7 +66,6 @@ sealed class DemoService
 
             if (sb.Length > 0)
             {
-                var header = Path.GetFileNameWithoutExtension(file);
                 var xaml = sb.ToString();
                 _demos.Add(new XamlDemo(header, xaml));
             }

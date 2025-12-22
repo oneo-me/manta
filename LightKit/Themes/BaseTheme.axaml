@@ -31,7 +31,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Canvas.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CaptionButtons.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ChromeOverlayLayer.axaml" />
