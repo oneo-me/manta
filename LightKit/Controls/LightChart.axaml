@@ -18,16 +18,16 @@
                         <LightText Grid.Row="0" Text="{TemplateBinding Title}" Margin="12" FontWeight="SemiBold" HorizontalAlignment="Center" />
                         <Panel Grid.Row="1" Margin="12 0">
                             <Grid RowDefinitions="* Auto">
-                                <UniformGrid Grid.Row="0" Name="PART_Background" Rows="4">
+                                <LightPanel Grid.Row="0" Name="PART_Background" Mode="VerticalUniform">
                                     <Border />
                                     <Border />
                                     <Border />
                                     <Border />
-                                </UniformGrid>
+                                </LightPanel>
                                 <LightItems Grid.Row="0" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
                                     <LightItems.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=LightChart}, Path=Data.Columns.Count}" ColumnSpacing="4" />
+                                            <LightPanel Mode="HorizontalUniform" Spacing="4" />
                                         </ItemsPanelTemplate>
                                     </LightItems.ItemsPanel>
                                     <LightItems.ItemTemplate>
@@ -40,7 +40,7 @@
                                             Margin="0 12 0 0">
                                     <LightItems.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=LightChart}, Path=Data.Columns.Count}" ColumnSpacing="4" />
+                                            <LightPanel Mode="HorizontalUniform" Spacing="4" />
                                         </ItemsPanelTemplate>
                                     </LightItems.ItemsPanel>
                                     <LightItems.ItemTemplate>
@@ -70,7 +70,7 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ UniformGrid#PART_Background Border">
+        <Style Selector="^ /template/ LightPanel#PART_Background Border">
             <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
             <Setter Property="BorderThickness" Value="0 1 0 0" />
             <Style Selector="^:nth-last-child(1)">
@@ -150,7 +150,7 @@
                     <LightItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
                         <LightItems.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType=LightChartColumn}, Path=Data.Data.Count}" ColumnSpacing="4" />
+                                <LightPanel Mode="HorizontalUniform" Spacing="4" />
                             </ItemsPanelTemplate>
                         </LightItems.ItemsPanel>
                         <LightItems.ItemTemplate>

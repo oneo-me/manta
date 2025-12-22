@@ -46,15 +46,16 @@ public class LightPanel : LightPanelBase
     {
         return Mode switch
         {
-            LightPanelMode.Horizontal    => HorizontalLayout.Measure(this, children, availableSize),
-            LightPanelMode.Vertical      => VerticalLayout.Measure(this, children, availableSize),
-            LightPanelMode.Wrap          => WrapLayout.Measure(this, children, availableSize),
-            LightPanelMode.WrapFull      => WrapLayout.Measure(this, children, availableSize),
-            LightPanelMode.Column        => ColumnLayout.Measure(this, children, availableSize),
-            LightPanelMode.Waterfall     => WaterfallLayout.Measure(this, children, availableSize, false),
-            LightPanelMode.WaterfallBest => WaterfallLayout.Measure(this, children, availableSize, true),
-
-            _ => throw new ArgumentOutOfRangeException(nameof(Mode))
+            LightPanelMode.Horizontal        => HorizontalLayout.Measure(this, children, availableSize),
+            LightPanelMode.Vertical          => VerticalLayout.Measure(this, children, availableSize),
+            LightPanelMode.Wrap              => WrapLayout.Measure(this, children, availableSize),
+            LightPanelMode.WrapFull          => WrapLayout.Measure(this, children, availableSize),
+            LightPanelMode.Column            => ColumnLayout.Measure(this, children, availableSize),
+            LightPanelMode.Waterfall         => WaterfallLayout.Measure(this, children, availableSize, false),
+            LightPanelMode.WaterfallBest     => WaterfallLayout.Measure(this, children, availableSize, true),
+            LightPanelMode.VerticalUniform   => VerticalUniformLayout.Measure(this, children, availableSize),
+            LightPanelMode.HorizontalUniform => HorizontalUniformLayout.Measure(this, children, availableSize),
+            _                                => throw new ArgumentOutOfRangeException(nameof(Mode))
         };
     }
 
@@ -89,6 +90,14 @@ public class LightPanel : LightPanelBase
 
             case LightPanelMode.WaterfallBest:
                 WaterfallLayout.Arrange(this, children, finalSize, true);
+                break;
+
+            case LightPanelMode.VerticalUniform:
+                VerticalUniformLayout.Arrange(this, children, finalSize);
+                break;
+
+            case LightPanelMode.HorizontalUniform:
+                HorizontalUniformLayout.Arrange(this, children, finalSize);
                 break;
 
             default:

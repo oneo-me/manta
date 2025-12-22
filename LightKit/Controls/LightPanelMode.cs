@@ -9,5 +9,8 @@ public enum LightPanelMode
     Column,
 
     Waterfall,
-    WaterfallBest
+    WaterfallBest,
+
+    VerticalUniform,
+    HorizontalUniform
 }
