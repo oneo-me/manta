@@ -59,9 +59,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/OverlayLayer.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/OverlayPopupHost.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Popup.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/PopupRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
@@ -85,6 +83,7 @@
                 <!-- Base Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Border.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/GridSplitter.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/PopupRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <!-- Controls -->

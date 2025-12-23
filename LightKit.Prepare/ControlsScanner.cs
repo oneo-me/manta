@@ -239,6 +239,7 @@ sealed class ControlsScanner(Options options)
             };
             GroupName = ImplName switch
             {
+                nameof(OverlayPopupHost)  => nameof(PopupRoot),
                 nameof(CalendarButton)    => nameof(Calendar),
                 nameof(CalendarDayButton) => nameof(Calendar),
                 nameof(CalendarItem)      => nameof(Calendar),

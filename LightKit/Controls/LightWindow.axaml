@@ -19,6 +19,8 @@
     <ControlTheme x:Key="{x:Type LightWindow}" TargetType="LightWindow">
         <Setter Property="Title" Value="LightKit" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
         <Setter Property="Background" Value="{ThemeColorSet Background}" />
         <Setter Property="Template">
