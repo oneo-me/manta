@@ -99,6 +99,7 @@
                 <MergeResourceInclude Source="../Controls/LightChart.axaml" />
                 <MergeResourceInclude Source="../Controls/LightCheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/LightClipContentControl.axaml" />
+                <MergeResourceInclude Source="../Controls/LightCommand.axaml" />
                 <MergeResourceInclude Source="../Controls/LightIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/LightItems.axaml" />
                 <MergeResourceInclude Source="../Controls/LightLabel.axaml" />
