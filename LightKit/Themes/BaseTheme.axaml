@@ -25,6 +25,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AdornerLayer.axaml" />
@@ -74,7 +75,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TitleBar.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSwitch.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToolTip.axaml" />
@@ -115,6 +115,7 @@
                 <MergeResourceInclude Source="../Controls/LightTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightTitleBarButtons.axaml" />
+                <MergeResourceInclude Source="../Controls/LightToggleButton.axaml" />
                 <MergeResourceInclude Source="../Controls/LightWindow.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

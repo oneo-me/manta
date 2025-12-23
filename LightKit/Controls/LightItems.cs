@@ -14,3 +14,5 @@ public class LightItems : ItemsControl
         return NeedsContainer<LightItem>(item, out recycleKey);
     }
 }
+
+public class LightItem : ContentControl;

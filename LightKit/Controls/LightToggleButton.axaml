@@ -1,0 +1,101 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightPanel.Styles>
+                <Style Selector="LightPathIcon.Checked">
+                    <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+                </Style>
+            </LightPanel.Styles>
+            <LightToggleButton HorizontalAlignment="Left" IsChecked="True">
+                <LightPanel Mode="Horizontal" Spacing="8">
+                    <LightPathIcon Classes.Checked="{Binding $parent[LightToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                    <LightText Text="Bookmark" VerticalAlignment="Center" />
+                </LightPanel>
+            </LightToggleButton>
+            <LightToggleButton HorizontalAlignment="Left">
+                <LightPathIcon Classes.Checked="{Binding $parent[LightToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+            </LightToggleButton>
+            <LightToggleButton Variant="WithText" HorizontalAlignment="Left">
+                <LightPanel Mode="Horizontal" Spacing="8">
+                    <LightPathIcon Classes.Checked="{Binding $parent[LightToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                    <LightText Text="Bookmark" VerticalAlignment="Center" />
+                </LightPanel>
+            </LightToggleButton>
+            <LightPanel Mode="Horizontal" Spacing="8">
+                <LightToggleButton Size="Small" Content="Small" VerticalAlignment="Top" />
+                <LightToggleButton Size="Default" Content="Default" VerticalAlignment="Top" />
+                <LightToggleButton Size="Large" Content="Large" VerticalAlignment="Top" />
+            </LightPanel>
+        </LightPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type LightToggleButton}" TargetType="LightToggleButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="12 6" />
+        </Style>
+        <Style Selector="^[Size=Default]">
+            <Setter Property="Padding" Value="16 8" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Padding" Value="20 10" />
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{ThemeShadow XS}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=WithText]">
+            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.8}" />
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
