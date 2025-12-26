@@ -93,6 +93,6 @@ public static class Lang
         if (assemblyName is null)
             throw new InvalidOperationException("Assembly name is null.");
 
-        return $"{assemblyName}_{key}";
+        return CreateKey(assemblyName, key);
     }
 }

@@ -22,7 +22,7 @@ sealed class DemoItem(DemoViewModel viewModel) : IDemoItem
 sealed class DemoGroupItem(DemoSubGroup subGroup) : IDemoItem
 {
     public DemoSubGroup SubGroup { get; } = subGroup;
-    public string GroupName { get; } = Lang.CreateKey(typeof(LightApp).Assembly, $"SubGroup_{subGroup}");
+    public string GroupName { get; } = Lang.CreateKey(typeof(App).Assembly, $"SubGroup_{subGroup}");
     public bool IsGroup => true;
 }
 
