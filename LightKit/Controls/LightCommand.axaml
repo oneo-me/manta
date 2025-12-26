@@ -196,7 +196,7 @@
             <Setter Property="Margin" Value="4 0" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.1" />
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
                 </Transitions>
             </Setter>
             <Style Selector="^:pointerover">

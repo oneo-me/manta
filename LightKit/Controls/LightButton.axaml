@@ -68,7 +68,7 @@
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
         <Style Selector="^[Size=Small]">
@@ -90,12 +90,13 @@
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background}" />
             <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
                 <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="BoxShadow" Value="{ThemeShadow XS}" />

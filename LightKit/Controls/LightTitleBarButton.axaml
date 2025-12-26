@@ -48,8 +48,8 @@
         </Setter>
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Property="Foreground" Duration="0:0:0.1" />
-                <BrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
         <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />

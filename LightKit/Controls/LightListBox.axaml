@@ -93,9 +93,9 @@
         </Setter>
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Property="BorderBrush" Duration="0:0:0.05" />
-                <BrushTransition Property="Background" Duration="0:0:0.05" />
-                <BrushTransition Property="Foreground" Duration="0:0:0.05" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.05" />
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.05" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.05" />
             </Transitions>
         </Setter>
         <Style Selector="^[Type=Sidebar]">
