@@ -70,7 +70,7 @@
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{ThemeColorSet Background}" />
             <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />

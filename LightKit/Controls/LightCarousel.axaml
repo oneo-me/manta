@@ -6,7 +6,7 @@
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Text="PageSlide" />
             <LightPanel Mode="Vertical" Spacing="12">
-                <LightCarousel x:Name="Carousel1" Width="300" Height="120">
+                <LightCarousel Name="Carousel1" Width="300" Height="120">
                     <LightCarousel.PageTransition>
                         <PageSlide Duration="0:00:0.3" Orientation="Horizontal" />
                     </LightCarousel.PageTransition>
@@ -27,7 +27,7 @@
             </LightPanel>
             <LightText Text="Rotate3DTransition" />
             <LightPanel Mode="Vertical" Spacing="12">
-                <LightCarousel x:Name="Carousel2" Width="300" Height="120">
+                <LightCarousel Name="Carousel2" Width="300" Height="120">
                     <LightCarousel.PageTransition>
                         <Rotate3DTransition Duration="0:0:0.3" />
                     </LightCarousel.PageTransition>

@@ -156,23 +156,52 @@ public class LightChart : TemplatedControl
     }
 
     LightItems? PART_Columns;
-    LightChartToolTip? PART_ToolTip;
+    LightChartToolTip? _toolTip;
+    OverlayLayer? _overlayLayer;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
 
         PART_Columns = e.NameScope.Get<LightItems>(nameof(PART_Columns));
-        PART_ToolTip = e.NameScope.Get<LightChartToolTip>(nameof(PART_ToolTip));
 
         PART_Columns.PointerEntered += ColumnsOnPointerEntered;
         PART_Columns.PointerExited += ColumnsOnPointerExited;
         PART_Columns.PointerMoved += ColumnsOnPointerMoved;
     }
 
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnDetachedFromVisualTree(e);
+        RemoveToolTip();
+    }
+
+    void EnsureToolTip()
+    {
+        if (_toolTip != null) return;
+
+        _overlayLayer = OverlayLayer.GetOverlayLayer(this);
+        if (_overlayLayer == null) return;
+
+        _toolTip = new() { Opacity = 0 };
+        _overlayLayer.Children.Add(_toolTip);
+    }
+
+    void RemoveToolTip()
+    {
+        if (_toolTip != null && _overlayLayer != null)
+        {
+            _overlayLayer.Children.Remove(_toolTip);
+            _toolTip = null;
+            _overlayLayer = null;
+        }
+    }
+
     void ColumnsOnPointerMoved(object? sender, PointerEventArgs e)
     {
-        if (PART_ToolTip is null)
+        EnsureToolTip();
+
+        if (_toolTip == null || _overlayLayer == null)
             return;
 
         var point = e.GetPosition(this);
@@ -183,23 +212,34 @@ public class LightChart : TemplatedControl
             .FirstOrDefault();
 
         if (column is null)
+        {
+            _toolTip.Opacity = 0;
             return;
+        }
 
-        if (PART_ToolTip.Data != column.Data)
-            PART_ToolTip.Data = column.Data;
+        if (_toolTip.Data != column.Data)
+            _toolTip.Data = column.Data;
 
-        PART_ToolTip[Canvas.LeftProperty] = point.X + 10;
-        PART_ToolTip[Canvas.TopProperty] = point.Y + 10;
+        // Convert position to overlay layer coordinates
+        var overlayPos = this.TranslatePoint(point, _overlayLayer);
+        if (overlayPos.HasValue)
+        {
+            Canvas.SetLeft(_toolTip, overlayPos.Value.X + 15);
+            Canvas.SetTop(_toolTip, overlayPos.Value.Y + 15);
+        }
+
+        _toolTip.Opacity = 1;
     }
 
     void ColumnsOnPointerExited(object? sender, PointerEventArgs pointerEventArgs)
     {
-        PART_ToolTip?.Opacity = 0;
+        if (_toolTip != null)
+            _toolTip.Opacity = 0;
     }
 
     void ColumnsOnPointerEntered(object? sender, PointerEventArgs pointerEventArgs)
     {
-        PART_ToolTip?.Opacity = 1;
+        EnsureToolTip();
     }
 }
 

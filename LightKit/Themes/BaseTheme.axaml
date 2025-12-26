@@ -28,7 +28,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AccessText.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
@@ -58,7 +57,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/OverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Popup.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />

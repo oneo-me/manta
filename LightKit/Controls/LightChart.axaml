@@ -13,61 +13,57 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <Grid RowDefinitions="Auto * Auto">
-                        <ContentPresenter Grid.Row="0" Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleDataTemplate}" Margin="12" FontWeight="SemiBold" HorizontalAlignment="Center" />
-                        <Panel Grid.Row="1" Margin="12 0">
-                            <Grid RowDefinitions="* Auto">
-                                <LightPanel Grid.Row="0" Name="PART_Background" Mode="VerticalUniform">
-                                    <Border />
-                                    <Border />
-                                    <Border />
-                                    <Border />
-                                </LightPanel>
-                                <LightItems Grid.Row="0" x:Name="PART_Columns" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
-                                    <LightItems.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <LightPanel Mode="HorizontalUniform" Spacing="4" />
-                                        </ItemsPanelTemplate>
-                                    </LightItems.ItemsPanel>
-                                    <LightItems.ItemTemplate>
-                                        <DataTemplate DataType="LightChartData+Column">
-                                            <LightChartColumn Data="{Binding}" />
-                                        </DataTemplate>
-                                    </LightItems.ItemTemplate>
-                                </LightItems>
-                                <LightItems Grid.Row="1" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}"
-                                            Margin="0 12 0 0">
-                                    <LightItems.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <LightPanel Mode="HorizontalUniform" Spacing="4" />
-                                        </ItemsPanelTemplate>
-                                    </LightItems.ItemsPanel>
-                                    <LightItems.ItemTemplate>
-                                        <DataTemplate DataType="LightChartData+Column">
-                                            <LightText Text="{Binding Name}" Opacity="0.5" HorizontalAlignment="Center" />
-                                        </DataTemplate>
-                                    </LightItems.ItemTemplate>
-                                </LightItems>
-                            </Grid>
-                        </Panel>
-                        <LightItems Grid.Row="2" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Legends}" IsVisible="{TemplateBinding ShowLegends}">
-                            <LightItems.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <LightPanel Margin="12" Mode="Wrap" Spacing="8" HorizontalAlignment="Center" />
-                                </ItemsPanelTemplate>
-                            </LightItems.ItemsPanel>
-                            <LightItems.ItemTemplate>
-                                <DataTemplate DataType="LightChartData+Legend">
-                                    <LightChartLegend Brush="{Binding Brush}" Data="{Binding Data}" />
-                                </DataTemplate>
-                            </LightItems.ItemTemplate>
-                        </LightItems>
-                    </Grid>
-                    <Canvas>
-                        <LightChartToolTip x:Name="PART_ToolTip" />
-                    </Canvas>
-                </Panel>
+                <Grid RowDefinitions="Auto * Auto">
+                    <ContentPresenter Grid.Row="0" Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleDataTemplate}"
+                                      Margin="12 12 12 0" FontWeight="SemiBold" HorizontalAlignment="Center" />
+                    <Panel Grid.Row="1" Margin="12 12 12 0">
+                        <Grid RowDefinitions="* Auto">
+                            <LightPanel Grid.Row="0" Name="PART_Background" Mode="VerticalUniform">
+                                <Border />
+                                <Border />
+                                <Border />
+                                <Border />
+                            </LightPanel>
+                            <LightItems Grid.Row="0" Name="PART_Columns" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
+                                <LightItems.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <LightPanel Mode="HorizontalUniform" Spacing="2" />
+                                    </ItemsPanelTemplate>
+                                </LightItems.ItemsPanel>
+                                <LightItems.ItemTemplate>
+                                    <DataTemplate DataType="LightChartData+Column">
+                                        <LightChartColumn Data="{Binding}" />
+                                    </DataTemplate>
+                                </LightItems.ItemTemplate>
+                            </LightItems>
+                            <LightItems Grid.Row="1" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}"
+                                        Margin="0 12 0 0">
+                                <LightItems.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <LightPanel Mode="HorizontalUniform" Spacing="2" />
+                                    </ItemsPanelTemplate>
+                                </LightItems.ItemsPanel>
+                                <LightItems.ItemTemplate>
+                                    <DataTemplate DataType="LightChartData+Column">
+                                        <LightText Text="{Binding Name}" Opacity="0.5" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </LightItems.ItemTemplate>
+                            </LightItems>
+                        </Grid>
+                    </Panel>
+                    <LightItems Grid.Row="2" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Legends}" IsVisible="{TemplateBinding ShowLegends}">
+                        <LightItems.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <LightPanel Margin="12" Mode="Wrap" Spacing="8" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </LightItems.ItemsPanel>
+                        <LightItems.ItemTemplate>
+                            <DataTemplate DataType="LightChartData+Legend">
+                                <LightChartLegend Brush="{Binding Brush}" Data="{Binding Data}" />
+                            </DataTemplate>
+                        </LightItems.ItemTemplate>
+                    </LightItems>
+                </Grid>
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ ContentPresenter:empty">
@@ -102,7 +98,6 @@
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type LightChartToolTip}" TargetType="LightChartToolTip">
-        <Setter Property="Opacity" Value="0" />
         <Setter Property="IsHitTestVisible" Value="False" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
@@ -146,7 +141,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="{TemplateBinding CornerRadius}">
+                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                     <LightItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
                         <LightItems.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -156,7 +151,7 @@
                         <LightItems.ItemTemplate>
                             <DataTemplate DataType="LightChartData+ColumnData">
                                 <LightChartBarPanel Ratio="{Binding RenderRatio}">
-                                    <Border CornerRadius="6" Background="{Binding Brush}" />
+                                    <Border CornerRadius="5" Background="{Binding Brush}" />
                                 </LightChartBarPanel>
                             </DataTemplate>
                         </LightItems.ItemTemplate>
@@ -164,17 +159,20 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
         <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
         <Setter Property="Transitions">
             <Transitions>
                 <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Margin" Value="-2 -2 -2 -4" />
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="BorderThickness" Value="1" />
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0.8}" />
+            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
