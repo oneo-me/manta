@@ -67,11 +67,13 @@
                                 <LightPathIcon Grid.Column="1" Name="Icon" />
                             </Grid>
                         </Border>
-                        <ContentPresenter Grid.Row="1" Name="PART_ContentPresenter"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          Content="{TemplateBinding Content}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        <LightAnimatedExpander Grid.Row="1" IsExpanded="{TemplateBinding IsExpanded}">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </LightAnimatedExpander>
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -102,14 +104,8 @@
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="FontWeight" Value="SemiBold" />
         </Style>
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
         <Style Selector="^:expanded">
             <Setter Property="Padding" Value="0 0 0 12" />
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
             <Style Selector="^ /template/ LightPathIcon#Icon">
                 <Setter Property="RenderTransform" Value="rotate(180deg)" />
             </Style>

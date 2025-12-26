@@ -80,7 +80,7 @@ LightKit.Prepare/               # Build preparation utilities
 - LightListBox, LightChart, LightCarousel, LightTabStrip
 
 **Specialized:**
-- LightProgressRing, LightRing, LightAspectRatio, LightAutoGrid, LightScrollViewer, LightTitleBarButtons
+- LightProgressRing, LightRing, LightAspectRatio, LightAutoGrid, LightScrollViewer, LightTitleBarButtons, LightAnimatedExpander
 
 ### Layout Panels
 8 custom layout panel types for flexible UI arrangement (Waterfall, Wrap, Auto-grid, Uniform, etc.)
@@ -91,6 +91,22 @@ LightKit.Prepare/               # Build preparation utilities
 - Code generation for type-safe language keys
 
 ## Recent Additions
+
+### LightAnimatedExpander (Dec 26, 2024)
+Location: `/LightKit/Controls/LightAnimatedExpander.cs`
+
+A container that animates height changes when expanding/collapsing content. Solves Avalonia's limitation of not supporting transitions for Auto-sized values.
+
+**Properties:**
+- `IsExpanded` (bool) - Controls expand/collapse state
+- `Duration` (TimeSpan) - Animation duration (default: 200ms)
+- `Easing` (Easing) - Easing function (default: CubicEaseOut)
+
+**Features:**
+- Measures child's natural height and animates to/from it
+- Uses DispatcherTimer at ~120fps for smooth animation
+- After expansion completes, allows dynamic content height changes (no clipping)
+- Used by LightAccordion for smooth expand/collapse animations
 
 ### SmoothBrushTransition (Dec 26, 2024)
 Location: `/LightKit/Animation/SmoothBrushTransition.cs`
