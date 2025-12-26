@@ -59,7 +59,7 @@ public sealed class SmoothBrushTransition : InterpolatingTransitionBase<IBrush?>
         return brush switch
         {
             ISolidColorBrush solid => ApplyBrushOpacity(solid.Color, solid.Opacity),
-            IGradientBrush gradient when gradient.GradientStops.Count > 0 =>
+            IGradientBrush { GradientStops.Count: > 0 } gradient =>
                 ApplyBrushOpacity(gradient.GradientStops[0].Color, gradient.Opacity),
             _ => Colors.Transparent
         };

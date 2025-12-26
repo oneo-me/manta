@@ -4,7 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:LightKit.Demo.Demos.ControlDemos"
     x:DataType="local:LightChartView_Model" Design.DataContext="{x:Static local:LightChartView_Model.Design}">
-    <LightCard Margin="12" Width="520" Height="380" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <LightChart Title="{Binding Title}" Data="{Binding Data}" />
-    </LightCard>
+    <LightScrollViewer>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightCard Width="320" Height="180" HorizontalAlignment="Left">
+                <LightChart Data="{Binding Data1}" ShowLegends="False" />
+            </LightCard>
+            <LightCard Width="520" Height="380" HorizontalAlignment="Left">
+                <LightChart Title="{Binding Title}" Data="{Binding Data2}" />
+            </LightCard>
+        </LightPanel>
+    </LightScrollViewer>
 </LightView>

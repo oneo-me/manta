@@ -15,7 +15,7 @@
             <ControlTemplate>
                 <Panel>
                     <Grid RowDefinitions="Auto * Auto">
-                        <LightText Grid.Row="0" Text="{TemplateBinding Title}" Margin="12" FontWeight="SemiBold" HorizontalAlignment="Center" />
+                        <ContentPresenter Grid.Row="0" Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleDataTemplate}" Margin="12" FontWeight="SemiBold" HorizontalAlignment="Center" />
                         <Panel Grid.Row="1" Margin="12 0">
                             <Grid RowDefinitions="* Auto">
                                 <LightPanel Grid.Row="0" Name="PART_Background" Mode="VerticalUniform">
@@ -51,7 +51,7 @@
                                 </LightItems>
                             </Grid>
                         </Panel>
-                        <LightItems Grid.Row="2" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Legends}">
+                        <LightItems Grid.Row="2" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Legends}" IsVisible="{TemplateBinding ShowLegends}">
                             <LightItems.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <LightPanel Margin="12" Mode="Wrap" Spacing="8" HorizontalAlignment="Center" />
@@ -70,12 +70,12 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter:empty">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
         <Style Selector="^ /template/ LightPanel#PART_Background Border">
             <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="BorderThickness" Value="0 1 0 0" />
-            <Style Selector="^:nth-last-child(1)">
-                <Setter Property="BorderThickness" Value="0 1" />
-            </Style>
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type LightChartLegend}" TargetType="LightChartLegend">
@@ -146,7 +146,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" Margin="-4 0" Padding="4 0">
+                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="{TemplateBinding CornerRadius}">
                     <LightItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
                         <LightItems.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -170,6 +170,9 @@
                 <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Margin" Value="-2 -2 -2 -4" />
+        <Setter Property="Padding" Value="4" />
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
         </Style>

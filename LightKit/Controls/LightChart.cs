@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
@@ -118,13 +119,31 @@ public class LightChartData
 [TemplatePart(nameof(PART_Columns), typeof(LightItems))]
 public class LightChart : TemplatedControl
 {
-    public static readonly StyledProperty<string> TitleProperty = AvaloniaProperty.Register<LightChart, string>(
+    public static readonly StyledProperty<object?> TitleProperty = AvaloniaProperty.Register<LightChart, object?>(
         nameof(Title));
 
-    public string Title
+    public object? Title
     {
         get => GetValue(TitleProperty);
         set => SetValue(TitleProperty, value);
+    }
+
+    public static readonly StyledProperty<IDataTemplate?> TitleDataTemplateProperty = AvaloniaProperty.Register<LightChart, IDataTemplate?>(
+        nameof(TitleDataTemplate));
+
+    public IDataTemplate? TitleDataTemplate
+    {
+        get => GetValue(TitleDataTemplateProperty);
+        set => SetValue(TitleDataTemplateProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> ShowLegendsProperty = AvaloniaProperty.Register<LightChart, bool>(
+        nameof(ShowLegends), true);
+
+    public bool ShowLegends
+    {
+        get => GetValue(ShowLegendsProperty);
+        set => SetValue(ShowLegendsProperty, value);
     }
 
     public static readonly StyledProperty<LightChartData?> DataProperty = AvaloniaProperty.Register<LightChart, LightChartData?>(
