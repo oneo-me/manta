@@ -222,8 +222,30 @@ public class LightChart : TemplatedControl
         var overlayPos = this.TranslatePoint(point, _overlayLayer);
         if (overlayPos.HasValue)
         {
-            Canvas.SetLeft(_toolTip, overlayPos.Value.X + 15);
-            Canvas.SetTop(_toolTip, overlayPos.Value.Y + 15);
+            const double offset = 15;
+            const double edgePadding = 20;
+            var tooltipWidth = _toolTip.Bounds.Width;
+            var tooltipHeight = _toolTip.Bounds.Height;
+            var overlayWidth = _overlayLayer.Bounds.Width;
+            var overlayHeight = _overlayLayer.Bounds.Height;
+
+            var x = overlayPos.Value.X + offset;
+            var y = overlayPos.Value.Y + offset;
+
+            // Adjust position if tooltip would exceed right edge (with padding)
+            if (x + tooltipWidth + edgePadding > overlayWidth)
+                x = overlayPos.Value.X - tooltipWidth - offset;
+
+            // Adjust position if tooltip would exceed bottom edge (with padding)
+            if (y + tooltipHeight + edgePadding > overlayHeight)
+                y = overlayPos.Value.Y - tooltipHeight - offset;
+
+            // Ensure tooltip doesn't go beyond left/top edges (with padding)
+            x = Math.Max(edgePadding, x);
+            y = Math.Max(edgePadding, y);
+
+            Canvas.SetLeft(_toolTip, x);
+            Canvas.SetTop(_toolTip, y);
         }
 
         _toolTip.Opacity = 1;
