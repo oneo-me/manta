@@ -2,6 +2,7 @@ using LightKit.Controls.Icons;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
 using LightKit.Demo.Services;
+using LightKit.Globalization;
 using LightKit.Reactive.Services;
 using LightKit.Reactive.Views;
 
@@ -21,7 +22,7 @@ sealed class DemoItem(DemoViewModel viewModel) : IDemoItem
 sealed class DemoGroupItem(DemoSubGroup subGroup) : IDemoItem
 {
     public DemoSubGroup SubGroup { get; } = subGroup;
-    public string GroupName { get; } = $"LightKit.Demo.SubGroup_{subGroup}";
+    public string GroupName { get; } = Lang.CreateKey(typeof(LightApp).Assembly, $"SubGroup_{subGroup}");
     public bool IsGroup => true;
 }
 

@@ -1,3 +1,4 @@
+using System.Reflection;
 using Avalonia.Data;
 using LightKit.Globalization.Core;
 using LightKit.Globalization.Markups;
@@ -79,5 +80,19 @@ public static class Lang
         }
 
         return langExtension.ToBinding();
+    }
+
+    public static string CreateKey(string assemblyName, string key)
+    {
+        return $"{assemblyName.Replace(".", "_")}_{key}";
+    }
+
+    public static string CreateKey(Assembly assembly, string key)
+    {
+        var assemblyName = assembly.GetName().Name;
+        if (assemblyName is null)
+            throw new InvalidOperationException("Assembly name is null.");
+
+        return $"{assemblyName}_{key}";
     }
 }

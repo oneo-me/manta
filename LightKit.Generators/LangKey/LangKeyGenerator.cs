@@ -162,6 +162,8 @@ sealed class LangKeyGenerator : GeneratorBase
 
         sb.AppendLine("{");
 
+        var replace = assemblyName.Replace(".", "_");
+
         foreach (var baseValue in baseData.Values)
         {
             sb.AppendLine("    /// <summary>");
@@ -170,7 +172,7 @@ sealed class LangKeyGenerator : GeneratorBase
             else
                 sb.AppendLine($"    ///     {baseValue.Value}");
             sb.AppendLine("    /// </summary>");
-            sb.AppendLine($"    public const string {baseValue.Key} = \"{assemblyName}.{baseValue.Key}\";");
+            sb.AppendLine($"    public const string {baseValue.Key} = \"{replace}_{baseValue.Key}\";");
             sb.AppendLine();
         }
 

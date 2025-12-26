@@ -8,7 +8,7 @@
         <InvariantGlobalization>true</InvariantGlobalization>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <Version>1.2025.0-preview.4</Version>
+        <Version>1.2025.0-preview.6</Version>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />

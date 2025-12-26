@@ -24,6 +24,9 @@ public sealed class LangData : LangDataBase
     public static LangDataBase LoadFromAssembly(Assembly assembly)
     {
         var assemblyName = assembly.GetName().Name;
+        if (assemblyName is null)
+            throw new InvalidOperationException("Assembly must have a valid name.");
+
         var configUri = new Uri($"avares://{assemblyName}/Langs/@config.yml");
         var config = new LangConfig();
         if (AssetLoader.Exists(configUri))
@@ -49,7 +52,7 @@ public sealed class LangData : LangDataBase
             var deserializeYaml = yaml.DeserializeYaml<Dictionary<string, string>>();
             result._items[culture] = new();
             foreach (var keyValuePair in deserializeYaml)
-                result._items[culture][$"{assemblyName}.{keyValuePair.Key}"] = keyValuePair.Value;
+                result._items[culture][Lang.CreateKey(assemblyName, keyValuePair.Key)] = keyValuePair.Value;
         }
 
         return result;

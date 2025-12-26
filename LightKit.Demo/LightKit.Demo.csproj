@@ -8,6 +8,6 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.10" />
-        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.4" PrivateAssets="all" />
+        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.5" PrivateAssets="all" />
     </ItemGroup>
 </Project>
