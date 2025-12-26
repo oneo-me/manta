@@ -11,9 +11,24 @@ enum DemoGroup
     MultiLanguage
 }
 
+enum DemoSubGroup
+{
+    None,
+    Chart,
+    Button,
+    Text,
+    Progress,
+    List,
+    Switch,
+    Icon,
+    Base,
+    Other
+}
+
 abstract class DemoViewModel : ViewModel
 {
     public abstract DemoGroup Group { get; }
+    public abstract DemoSubGroup SubGroup { get; }
     public virtual IconSource? Icon => null;
     public abstract string Header { get; }
 }

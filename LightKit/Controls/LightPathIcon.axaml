@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
+        <!-- Icon -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPathIcon Data="m6 9 6 6 6-6" />
             <LightPathIcon Data="m6 9 6 6 6-6" UseStroke="True" />

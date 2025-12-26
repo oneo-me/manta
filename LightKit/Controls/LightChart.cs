@@ -95,8 +95,6 @@ public class LightChartData
         foreach (var column in _columns)
         foreach (var data in column.Data)
             data.RenderRatio = data.Value / maxValue;
-
-        Console.WriteLine($"Created {_columns.Count} columns.");
     }
 
     public static LightChartData Create<T>(IReadOnlyList<T> items, Expression<Func<T, object>> columnMember, params (string, Expression<Func<T, object>>)[] dataMembers)

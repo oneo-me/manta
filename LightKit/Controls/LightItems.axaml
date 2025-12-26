@@ -5,6 +5,7 @@
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
     <Design.PreviewWith>
+        <!-- List -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightItems BorderThickness="1">
                 <LightItems.ItemsSource>

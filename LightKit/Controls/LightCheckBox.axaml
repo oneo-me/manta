@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
+        <!-- Switch -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightCheckBox Header="Accept terms and conditions" />
             <LightCheckBox IsChecked="True" Header="Accept terms and conditions" Content="By clicking this checkbox, you agree to the terms and conditions." />

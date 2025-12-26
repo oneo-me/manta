@@ -5,6 +5,7 @@
     xmlns:converters1="clr-namespace:LightKit.Converters"
     x:ClassModifier="internal">
     <Design.PreviewWith>
+        <!-- Progress -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall">
                 <LightProgressRing />

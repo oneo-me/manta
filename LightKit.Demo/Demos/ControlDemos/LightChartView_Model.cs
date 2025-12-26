@@ -10,6 +10,7 @@ sealed class LightChartView_Model : DemoViewModel
     public static LightChartView_Model Design => new();
 
     public override DemoGroup Group => DemoGroup.Controls;
+    public override DemoSubGroup SubGroup => DemoSubGroup.Chart;
     public override string Header => nameof(LightChart);
 
     sealed class TestData(string month, string desktop, string mobile)

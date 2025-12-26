@@ -25,11 +25,15 @@ sealed class DemoService
         var controlsDir = Path.Combine(projectDir, "Controls");
         var baseControlsDir = Path.Combine(controlsDir, "Base");
 
-        ScanXamls(controlsDir);
-        ScanXamls(baseControlsDir);
+        ScanXamls(controlsDir, null);
+        ScanXamls(baseControlsDir, DemoSubGroup.Base);
 
         _demos.Sort((a, b) =>
         {
+            var subGroupComparison = a.SubGroup.CompareTo(b.SubGroup);
+            if (subGroupComparison != 0)
+                return subGroupComparison;
+
             var groupComparison = a.Group.CompareTo(b.Group);
             if (groupComparison != 0)
                 return groupComparison;
@@ -38,7 +42,7 @@ sealed class DemoService
         });
     }
 
-    void ScanXamls(string controlsDir)
+    void ScanXamls(string controlsDir, DemoSubGroup? subGroup)
     {
         foreach (var file in Directory.GetFiles(controlsDir, "*.axaml"))
         {
@@ -67,7 +71,7 @@ sealed class DemoService
             if (sb.Length > 0)
             {
                 var xaml = sb.ToString();
-                _demos.Add(new XamlDemo(header, xaml));
+                _demos.Add(new XamlDemo(header, xaml, subGroup));
             }
         }
     }
@@ -75,11 +79,30 @@ sealed class DemoService
     [View<LightView>]
     sealed class XamlDemo : DemoViewModel
     {
+        public override DemoSubGroup SubGroup { get; }
+
         readonly string _xaml;
 
-        public XamlDemo(string header, string xaml)
+        public XamlDemo(string header, string xaml, DemoSubGroup? subGroup)
         {
             Header = header;
+
+            if (subGroup is null)
+            {
+                foreach (var chekcGroup in Enum.GetValues<DemoSubGroup>())
+                    if (xaml.Contains($"<!-- {chekcGroup} -->"))
+                    {
+                        SubGroup = chekcGroup;
+                        break;
+                    }
+            }
+            else
+            {
+                SubGroup = subGroup.Value;
+            }
+
+            if (SubGroup == DemoSubGroup.None)
+                SubGroup = DemoSubGroup.Other;
 
             var sb = new StringBuilder();
             sb.AppendLine("<LightView");
@@ -95,6 +118,7 @@ sealed class DemoService
         }
 
         public override DemoGroup Group => DemoGroup.Controls;
+
         public override string Header { get; }
 
         protected override void OnInitialized()

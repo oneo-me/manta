@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
+        <!-- Text -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightText Theme.TextSize="ExtraSmall" Text="LightText" />
             <LightText Theme.TextSize="Small" Text="LightText" />
