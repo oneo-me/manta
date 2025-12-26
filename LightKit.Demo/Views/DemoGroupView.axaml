@@ -18,7 +18,7 @@
             </LightListBox.Styles>
             <LightListBox.DataTemplates>
                 <DataTemplate DataType="local:DemoGroupItem">
-                    <LightText Text="{Binding SubGroup}" />
+                    <LightText Text="{Lang {Binding GroupName}}" />
                 </DataTemplate>
                 <DataTemplate DataType="local:DemoItem">
                     <LightPanel Mode="Horizontal" Spacing="8">
