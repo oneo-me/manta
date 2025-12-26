@@ -24,7 +24,7 @@
                                     <Border />
                                     <Border />
                                 </LightPanel>
-                                <LightItems Grid.Row="0" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
+                                <LightItems Grid.Row="0" x:Name="PART_Columns" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
                                     <LightItems.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <LightPanel Mode="HorizontalUniform" Spacing="4" />

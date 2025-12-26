@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
@@ -114,6 +115,7 @@ public class LightChartData
     }
 }
 
+[TemplatePart(nameof(PART_Columns), typeof(LightItems))]
 public class LightChart : TemplatedControl
 {
     public static readonly StyledProperty<string> TitleProperty = AvaloniaProperty.Register<LightChart, string>(
@@ -134,30 +136,23 @@ public class LightChart : TemplatedControl
         set => SetValue(DataProperty, value);
     }
 
+    LightItems? PART_Columns;
     LightChartToolTip? PART_ToolTip;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
+
+        PART_Columns = e.NameScope.Get<LightItems>(nameof(PART_Columns));
         PART_ToolTip = e.NameScope.Get<LightChartToolTip>(nameof(PART_ToolTip));
+
+        PART_Columns.PointerEntered += ColumnsOnPointerEntered;
+        PART_Columns.PointerExited += ColumnsOnPointerExited;
+        PART_Columns.PointerMoved += ColumnsOnPointerMoved;
     }
 
-    protected override void OnPointerEntered(PointerEventArgs e)
+    void ColumnsOnPointerMoved(object? sender, PointerEventArgs e)
     {
-        base.OnPointerEntered(e);
-        PART_ToolTip?.Opacity = 1;
-    }
-
-    protected override void OnPointerExited(PointerEventArgs e)
-    {
-        base.OnPointerExited(e);
-        PART_ToolTip?.Opacity = 0;
-    }
-
-    protected override void OnPointerMoved(PointerEventArgs e)
-    {
-        base.OnPointerMoved(e);
-
         if (PART_ToolTip is null)
             return;
 
@@ -176,6 +171,16 @@ public class LightChart : TemplatedControl
 
         PART_ToolTip[Canvas.LeftProperty] = point.X + 10;
         PART_ToolTip[Canvas.TopProperty] = point.Y + 10;
+    }
+
+    void ColumnsOnPointerExited(object? sender, PointerEventArgs pointerEventArgs)
+    {
+        PART_ToolTip?.Opacity = 0;
+    }
+
+    void ColumnsOnPointerEntered(object? sender, PointerEventArgs pointerEventArgs)
+    {
+        PART_ToolTip?.Opacity = 1;
     }
 }
 
