@@ -19,22 +19,24 @@
                 </Style>
             </MPanel.Styles>
             <Border Classes="Box">
-                <Panel>
-                    <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                <Grid RowDefinitions="Auto *" Height="100">
+                    <Panel Grid.Row="0">
+                        <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
                                 Spacing="8" Margin="12 0"
                                 Tag="{x:Static Design.IsDesignMode}">
-                        <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
-                        <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
-                        <Ellipse Width="12" Height="12" Fill="#61C554" />
-                    </MPanel>
-                    <MTitleBar />
-                </Panel>
+                            <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                            <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                            <Ellipse Width="12" Height="12" Fill="#61C554" />
+                        </MPanel>
+                        <MTitleBar BorderThickness="0 0 0 1" />
+                    </Panel>
+                </Grid>
             </Border>
             <Border Classes="Box">
                 <Panel>
                     <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
-                                Spacing="8" Margin="12 0"
-                                Tag="{x:Static Design.IsDesignMode}">
+                            Spacing="8" Margin="12 0"
+                            Tag="{x:Static Design.IsDesignMode}">
                         <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
                         <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
                         <Ellipse Width="12" Height="12" Fill="#61C554" />
@@ -51,8 +53,8 @@
             <Border Classes="Box">
                 <Panel>
                     <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
-                                Spacing="8" Margin="12 0"
-                                Tag="{x:Static Design.IsDesignMode}">
+                            Spacing="8" Margin="12 0"
+                            Tag="{x:Static Design.IsDesignMode}">
                         <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
                         <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
                         <Ellipse Width="12" Height="12" Fill="#61C554" />
@@ -60,7 +62,7 @@
                     <MTitleBar>
                         <Grid ColumnDefinitions="* Auto" ColumnSpacing="12">
                             <MScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
-                                               BorderThickness="1 0" Padding="-1 0">
+                                           BorderThickness="1 0" Padding="-1 0">
                                 <MTabStrip Type="RootTab">
                                     <MTabStripItem Content="TabItem 1" />
                                     <MTabStripItem Content="TabItem 2" />
@@ -99,14 +101,13 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTitleBar}" TargetType="MTitleBar">
-        <Setter Property="Height" Value="38" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="PART_Event" Background="#00000000">
+                <Border Name="PART_Event" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="* Auto">
                         <Panel Name="PART_Content" Grid.Column="0">
                             <MText Name="PART_Title"
-                                       IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
+                                   IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
@@ -116,6 +117,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Style Selector="^ /template/ Panel#PART_Content">
+            <Setter Property="Height" Value="38" />
+        </Style>
         <Style Selector="^ /template/ MText#PART_Title">
             <Setter Property="Padding" Value="12 0" />
             <Setter Property="FontWeight" Value="SemiBold" />
@@ -143,10 +148,10 @@
                 <Border Name="Border" Background="#00000000">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
                         <MPanel Name="Panel" Mode="Horizontal"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <MPathIcon Name="Icon" Data="{TemplateBinding IconData}"
-                                           IsVisible="{TemplateBinding IconData, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                       IsVisible="{TemplateBinding IconData, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
