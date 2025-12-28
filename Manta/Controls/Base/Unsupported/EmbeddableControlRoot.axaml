@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <EmbeddableControlRoot />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'EmbeddableControlRoot' is not supported" />
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'EmbeddableControlRoot' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -6,7 +6,7 @@ namespace Manta.Controls.Panels;
 
 static class WrapLayout
 {
-    public static Size Measure(MtPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(MPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
         var result = new Size();
@@ -42,7 +42,7 @@ static class WrapLayout
         return result;
     }
 
-    public static void Arrange(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(MPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var width = finalSize.Width;
@@ -71,7 +71,7 @@ static class WrapLayout
         }
     }
 
-    public static void ArrangeFull(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void ArrangeFull(MPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var width = finalSize.Width;

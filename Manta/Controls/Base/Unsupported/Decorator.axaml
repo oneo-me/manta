@@ -3,12 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <Decorator />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <!-- The control 'Decorator' is not supported -->
     <ControlTheme x:Key="{x:Type Decorator}" TargetType="Decorator">
-        <Setter Property="Mt.ColorScheme" Value="Danger" />
+        <Setter Property="M.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

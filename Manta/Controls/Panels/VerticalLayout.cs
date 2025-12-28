@@ -6,7 +6,7 @@ namespace Manta.Controls.Panels;
 
 static class VerticalLayout
 {
-    public static Size Measure(MtPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(MPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
 
@@ -28,7 +28,7 @@ static class VerticalLayout
         return result;
     }
 
-    public static void Arrange(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(MPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
 

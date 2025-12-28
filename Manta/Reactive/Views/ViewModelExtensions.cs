@@ -10,7 +10,7 @@ public static class ViewModelExtensions
 {
     extension(ViewModel viewModel)
     {
-        public MtView CreateView()
+        public MView CreateView()
         {
             if (viewModel.InnerView is not null)
                 return viewModel.InnerView;
@@ -21,13 +21,13 @@ public static class ViewModelExtensions
                 throw new InvalidOperationException($"ViewAttribute not found for {viewModelType}");
 
             var viewType = viewAttribute.GetViewType();
-            var view = Service.CreateInstance<MtView>(viewType);
+            var view = Service.CreateInstance<MView>(viewType);
             viewModel.InnerView = view;
             view.DataContext = viewModel;
             return view;
         }
 
-        public MtView GetView()
+        public MView GetView()
         {
             if (viewModel.InnerView is null)
                 throw new InvalidOperationException($"View not found for {viewModel}");
@@ -35,7 +35,7 @@ public static class ViewModelExtensions
             return viewModel.InnerView;
         }
 
-        public T GetView<T>() where T : MtView
+        public T GetView<T>() where T : MView
         {
             if (viewModel.GetView() is T view)
                 return view;

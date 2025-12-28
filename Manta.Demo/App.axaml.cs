@@ -7,7 +7,7 @@ using Manta.Demo.Views;
 
 namespace Manta.Demo;
 
-sealed class App : LightApp
+sealed class App : MApp
 {
     public App()
     {

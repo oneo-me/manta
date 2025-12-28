@@ -6,7 +6,7 @@ namespace Manta.Controls.Panels;
 
 static class WaterfallLayout
 {
-    public static Size Measure(MtPanel panel, ReadOnlyCollection<Control> children, Size availableSize, bool isBest)
+    public static Size Measure(MPanel panel, ReadOnlyCollection<Control> children, Size availableSize, bool isBest)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : availableSize.Width / (panel.ColumnSize > 0 ? panel.ColumnSize : 120d)));
@@ -17,7 +17,7 @@ static class WaterfallLayout
         var tops = new double[column];
         var maxHeight = 0d;
 
-        MtPanelBase.ForeachItems(children, column, (row, items) =>
+        MPanelBase.ForeachItems(children, column, (row, items) =>
         {
             for (var i = 0; i < items.Length; i++)
             {
@@ -52,7 +52,7 @@ static class WaterfallLayout
         return result;
     }
 
-    public static void Arrange(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize, bool isBest)
+    public static void Arrange(MPanel panel, ReadOnlyCollection<Control> children, Size finalSize, bool isBest)
     {
         var spacing = panel.Spacing;
         var column = (int)Math.Max(1, Math.Round(panel.Column > 0 ? panel.Column : finalSize.Width / (panel.ColumnSize > 0 ? panel.ColumnSize : 120d)));
@@ -60,7 +60,7 @@ static class WaterfallLayout
 
         var tops = new double[column];
 
-        MtPanelBase.ForeachItems(children, column, (row, items) =>
+        MPanelBase.ForeachItems(children, column, (row, items) =>
         {
             for (var i = 0; i < items.Length; i++)
             {

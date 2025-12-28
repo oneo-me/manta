@@ -1,37 +1,37 @@
-<MtView
+<MView
     x:Class="Manta.Demo.Views.Main"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Views"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
-        <MtViewHost Grid.Row="1" Background="{MtBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
+        <MViewHost Grid.Row="1" Background="{MBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
         <Border Grid.Row="0" Name="TitleBar" BorderThickness="0 0 0 1">
             <Grid ColumnDefinitions="* Auto Auto">
-                <MtTabStrip Grid.Column="0" Type="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
-                    <MtTabStrip.ItemTemplate>
+                <MTabStrip Grid.Column="0" Type="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                    <MTabStrip.ItemTemplate>
                         <DataTemplate>
-                            <MtPanel Mode="Horizontal" Spacing="8">
-                                <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
-                                <MtText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
-                            </MtPanel>
+                            <MPanel Mode="Horizontal" Spacing="8">
+                                <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
+                                <MText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                            </MPanel>
                         </DataTemplate>
-                    </MtTabStrip.ItemTemplate>
-                </MtTabStrip>
-                <MtPanel Grid.Column="1" Mode="Horizontal">
-                    <MtTitleBarButton>
-                        <MtPanel Mode="Horizontal" Spacing="8">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtTitleBarButton>
-                    <MtTitleBarButton Command="{Binding OpenSettings}">
-                        <MtPanel Mode="Horizontal" Spacing="8">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtTitleBarButton>
-                </MtPanel>
-                <MtTitleBarButtons Name="TitleBarButtons" Grid.Column="2" />
+                    </MTabStrip.ItemTemplate>
+                </MTabStrip>
+                <MPanel Grid.Column="1" Mode="Horizontal">
+                    <MTitleBarButton>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                    <MTitleBarButton Command="{Binding OpenSettings}">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                </MPanel>
+                <MTitleBarButtons Name="TitleBarButtons" Grid.Column="2" />
             </Grid>
         </Border>
     </Grid>
-</MtView>
+</MView>

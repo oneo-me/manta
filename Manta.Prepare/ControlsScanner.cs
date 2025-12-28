@@ -34,8 +34,8 @@ sealed class ControlsScanner(Options options)
 
             if (File.Exists(Path.Combine(options.BaseControlsDir, $"{grouping.Key}.axaml")))
                 supportLevel = ControlSupportLevel.Basic;
-            else if (File.Exists(Path.Combine(options.ControlsDir, $"Mt{grouping.Key}.cs")))
-                supportLevel = File.Exists(Path.Combine(options.ControlsDir, $"Mt{grouping.Key}.axaml")) ? ControlSupportLevel.Advanced : ControlSupportLevel.AdvancedNoXaml;
+            else if (File.Exists(Path.Combine(options.ControlsDir, $"M{grouping.Key}.cs")))
+                supportLevel = File.Exists(Path.Combine(options.ControlsDir, $"M{grouping.Key}.axaml")) ? ControlSupportLevel.Advanced : ControlSupportLevel.AdvancedNoXaml;
             else if (File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.cs")))
                 supportLevel = File.Exists(Path.Combine(options.ControlsDir, $"{grouping.Key}.axaml")) ? ControlSupportLevel.Advanced : ControlSupportLevel.AdvancedNoXaml;
 
@@ -56,7 +56,7 @@ sealed class ControlsScanner(Options options)
             switch (grouping.First().SupportLevel)
             {
                 case ControlSupportLevel.Advanced:
-                    CreateXamlFile(options.SupportedControlsDir, grouping, info => $"Please use the '{(info.ImplName.StartsWith("Mt", StringComparison.Ordinal) ? info.ImplName : $"Mt{info.ImplName}")}'");
+                    CreateXamlFile(options.SupportedControlsDir, grouping, info => $"Please use the '{(info.ImplName.StartsWith('M') ? info.ImplName : $"M{info.ImplName}")}'");
                     break;
 
                 case ControlSupportLevel.AdvancedNoXaml:
@@ -76,7 +76,7 @@ sealed class ControlsScanner(Options options)
 
     static void CreateXamlFile(string targetDir, IGrouping<string, ControlInfo> grouping, Func<ControlInfo, string> formatMessage)
     {
-        var file = Path.Combine(targetDir, $"{(grouping.Key.StartsWith("Mt", StringComparison.Ordinal) ? grouping.First().ContorlType.Name : grouping.Key)}.axaml");
+        var file = Path.Combine(targetDir, $"{(grouping.Key.StartsWith('M') ? grouping.First().ContorlType.Name : grouping.Key)}.axaml");
         using var writer = new StreamWriter(file, false);
         writer.WriteLine("<ResourceDictionary");
         writer.WriteLine("    xmlns=\"https://github.com/avaloniaui\"");
@@ -96,9 +96,9 @@ sealed class ControlsScanner(Options options)
         else
         {
             writer.WriteLine("    <Design.PreviewWith>");
-            writer.WriteLine("        <MtPanel Mode=\"Vertical\" Spacing=\"12\" Margin=\"12\">");
+            writer.WriteLine("        <MPanel Mode=\"Vertical\" Spacing=\"12\" Margin=\"12\">");
             writer.Write(sb.ToString());
-            writer.WriteLine("        </MtPanel>");
+            writer.WriteLine("        </MPanel>");
             writer.WriteLine("    </Design.PreviewWith>");
         }
 
@@ -114,7 +114,7 @@ sealed class ControlsScanner(Options options)
                 if (templateParts.Count > 0)
                 {
                     writer.WriteLine("                <Panel>");
-                    writer.WriteLine($"                    <MtSelectableText Mt.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                    <MSelectableText M.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
 
                     foreach (var templatePart in templateParts)
                         writer.WriteLine($"                    <{templatePart.Type.Name} Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
@@ -123,7 +123,7 @@ sealed class ControlsScanner(Options options)
                 }
                 else
                 {
-                    writer.WriteLine($"                <MtSelectableText Mt.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                <MSelectableText M.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
                 }
 
                 writer.WriteLine("            </ControlTemplate>");
@@ -137,7 +137,7 @@ sealed class ControlsScanner(Options options)
                 if (hasText is false)
                     writer.WriteLine($"    <!-- {formatMessage(info)} -->");
                 writer.WriteLine($"    <ControlTheme x:Key=\"{{x:Type {info.ContorlType.Name}}}\" TargetType=\"{info.ContorlType.Name}\">");
-                writer.WriteLine("        <Setter Property=\"Mt.ColorScheme\" Value=\"Danger\" />");
+                writer.WriteLine("        <Setter Property=\"M.ColorScheme\" Value=\"Danger\" />");
                 if (hasText)
                     writer.WriteLine($"        <Setter Property=\"Text\" Value=\"{formatMessage(info)}\" />");
                 writer.WriteLine("    </ControlTheme>");
@@ -233,17 +233,17 @@ sealed class ControlsScanner(Options options)
 
             ImplName = type.Name switch
             {
-                nameof(SelectableTextBlock) => "MtSelectableText",
-                nameof(TextBlock)           => "MtText",
-                nameof(UserControl)         => "MtView",
-                nameof(ItemsControl)        => "MtItems",
-                nameof(CaptionButtons)      => "MtTitleBarButtons",
+                nameof(SelectableTextBlock) => "MSelectableText",
+                nameof(TextBlock)           => "MText",
+                nameof(UserControl)         => "MView",
+                nameof(ItemsControl)        => "MItems",
+                nameof(CaptionButtons)      => "MTitleBarButtons",
 
                 _ => type.Name
             };
             GroupName = ImplName switch
             {
-                "MtTitleBarButtons"    => nameof(TitleBar),
+                "MTitleBarButtons"        => nameof(TitleBar),
                 nameof(OverlayPopupHost)  => nameof(PopupRoot),
                 nameof(CalendarButton)    => nameof(Calendar),
                 nameof(CalendarDayButton) => nameof(Calendar),

@@ -1,0 +1,101 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MBreadcrumb>
+                <MBreadcrumbItem Content="Home" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="•••" FontSize="8" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="Components" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="Breadcrumb" />
+            </MBreadcrumb>
+            <MBreadcrumb>
+                <MBreadcrumbItem Content="Home" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="•••" FontSize="8" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="Components" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="Breadcrumb" />
+            </MBreadcrumb>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MBreadcrumb}" TargetType="MBreadcrumb">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Horizontal" Spacing="12" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MBreadcrumbItem}" TargetType="MBreadcrumbItem">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="#00000000">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Type=Text]">
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:nth-last-child(1)">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^:not(:nth-last-child(1))">
+                <Style Selector="^:pointerover">
+                    <Setter Property="Opacity" Value="1" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Type=Arrow]">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <MPathIcon Data="m9 18 6-6-6-6"
+                                   UseStroke="True"
+                                   Size="6"
+                                   Opacity="0.5" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[Type=Slash]">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <MPathIcon Data="M22 2 2 22"
+                                   UseStroke="True"
+                                   Size="10"
+                                   Opacity="0.5" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

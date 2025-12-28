@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ToggleSplitButton />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleSplitButton}" TargetType="ToggleSplitButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'ToggleSplitButton' is not supported" />
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'ToggleSplitButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

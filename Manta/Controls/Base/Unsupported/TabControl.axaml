@@ -3,22 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <TabControl />
             <TabItem />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'TabControl' is not supported" />
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'TabControl' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'TabItem' is not supported" />
+                <MSelectableText M.ColorScheme="Danger" Text="The control 'TabItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

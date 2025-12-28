@@ -1,0 +1,70 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MText Text="PageSlide" />
+            <MPanel Mode="Vertical" Spacing="12">
+                <MCarousel Name="Carousel1" Width="300" Height="120">
+                    <MCarousel.PageTransition>
+                        <PageSlide Duration="0:00:0.3" Orientation="Horizontal" />
+                    </MCarousel.PageTransition>
+                    <MCard>
+                        <MText Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                    <MCard>
+                        <MText Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                    <MCard>
+                        <MText Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                </MCarousel>
+                <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                    <MButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel1, Path=Previous}" />
+                    <MButton Variant="Outline" Content="Next" Command="{Binding ElementName=Carousel1, Path=Next}" />
+                </MPanel>
+            </MPanel>
+            <MText Text="Rotate3DTransition" />
+            <MPanel Mode="Vertical" Spacing="12">
+                <MCarousel Name="Carousel2" Width="300" Height="120">
+                    <MCarousel.PageTransition>
+                        <Rotate3DTransition Duration="0:0:0.3" />
+                    </MCarousel.PageTransition>
+                    <MCard>
+                        <MText Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                    <MCard>
+                        <MText Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                    <MCard>
+                        <MText Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </MCard>
+                </MCarousel>
+                <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                    <MButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel2, Path=Previous}" />
+                    <MButton Variant="Outline" Content="Next" Command="{Binding ElementName=Carousel2, Path=Next}" />
+                </MPanel>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MCarousel}" TargetType="MCarousel">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MScrollViewer Name="PART_ScrollViewer"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                   BringIntoViewOnFocusChange="False"
+                                   HorizontalScrollBarVisibility="Hidden"
+                                   VerticalScrollBarVisibility="Hidden"
+                                   ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    Margin="{TemplateBinding Padding}" />
+                </MScrollViewer>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

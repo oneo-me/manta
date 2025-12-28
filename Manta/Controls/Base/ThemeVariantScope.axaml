@@ -3,20 +3,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Horizontal" Spacing="12" Margin="12">
+        <MPanel Mode="Horizontal" Spacing="12" Margin="12">
             <ThemeVariantScope Width="100" RequestedThemeVariant="Light">
-                <Panel Background="{MtBrush Background}">
-                    <MtText Text="LightText" Margin="33 11" />
+                <Panel Background="{MBrush Background}">
+                    <MText Text="Text" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
             <ThemeVariantScope Width="100" RequestedThemeVariant="Dark">
-                <Panel Background="{MtBrush Background}">
-                    <MtText Text="LightText" Margin="33 11" />
+                <Panel Background="{MBrush Background}">
+                    <MText Text="Text" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ThemeVariantScope}" TargetType="ThemeVariantScope">
-        <Setter Property="TextElement.Foreground" Value="{MtBrush Foreground}" />
+        <Setter Property="TextElement.Foreground" Value="{MBrush Foreground}" />
     </ControlTheme>
 </ResourceDictionary>

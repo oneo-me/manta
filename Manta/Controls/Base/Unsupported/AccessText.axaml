@@ -3,12 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <AccessText />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AccessText}" TargetType="AccessText">
-        <Setter Property="Mt.ColorScheme" Value="Danger" />
+        <Setter Property="M.ColorScheme" Value="Danger" />
         <Setter Property="Text" Value="The control 'AccessText' is not supported" />
     </ControlTheme>
 </ResourceDictionary>

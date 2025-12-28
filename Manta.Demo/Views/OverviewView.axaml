@@ -1,46 +1,46 @@
-<MtView
+<MView
     x:Class="Manta.Demo.Views.OverviewView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Views"
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     Name="View">
-    <MtPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <MtText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Mt.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
-        <MtText Text="{Lang {x:Static LangKey.Description}}" />
-        <MtItems ItemsSource="{Binding Items}">
-            <MtItems.ItemsPanel>
+    <MPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <MText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" M.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
+        <MText Text="{Lang {x:Static LangKey.Description}}" />
+        <MItems ItemsSource="{Binding Items}">
+            <MItems.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <MtPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
+                    <MPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
-            </MtItems.ItemsPanel>
-            <MtItems.ItemTemplate>
+            </MItems.ItemsPanel>
+            <MItems.ItemTemplate>
                 <DataTemplate>
-                    <MtButton Size="Small" Mt.ColorScheme="Primary"
+                    <MButton Size="Small" M.ColorScheme="Primary"
                                  Content="{Lang {Binding Header}}"
                                  Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
                                  CommandParameter="{Binding}" />
                 </DataTemplate>
-            </MtItems.ItemTemplate>
-        </MtItems>
-        <MtItems ItemsSource="{Binding SupportedLanguages}">
-            <MtItems.ItemsPanel>
+            </MItems.ItemTemplate>
+        </MItems>
+        <MItems ItemsSource="{Binding SupportedLanguages}">
+            <MItems.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <MtPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
+                    <MPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
-            </MtItems.ItemsPanel>
-            <MtItems.ItemTemplate>
+            </MItems.ItemsPanel>
+            <MItems.ItemTemplate>
                 <DataTemplate>
-                    <MtButton Variant="Outline" Size="Small"
+                    <MButton Variant="Outline" Size="Small"
                                  Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
                                  CommandParameter="{Binding}">
-                        <MtPanel Mode="Horizontal" Spacing="6">
-                            <MtText Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
-                            <MtText Text="{LangName {Binding}}" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtButton>
+                        <MPanel Mode="Horizontal" Spacing="6">
+                            <MText Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
+                            <MText Text="{LangName {Binding}}" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MButton>
                 </DataTemplate>
-            </MtItems.ItemTemplate>
-        </MtItems>
-    </MtPanel>
-</MtView>
+            </MItems.ItemTemplate>
+        </MItems>
+    </MPanel>
+</MView>

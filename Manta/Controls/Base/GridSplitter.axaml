@@ -3,25 +3,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <Grid ColumnDefinitions="*,*" Width="300" Height="300">
-                <MtText Grid.Column="0" Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
+                <MText Grid.Column="0" Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
                 <Border Grid.Column="1" BorderThickness="1 0 0 0">
-                    <MtText Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
+                    <MText Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
                 </Border>
                 <GridSplitter Grid.Column="0" Width="4" HorizontalAlignment="Right" />
             </Grid>
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Margin" Value="-4" />
         <Setter Property="MinWidth" Value="8" />
         <Setter Property="MinHeight" Value="8" />
-        <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0}" />
+        <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
         <Setter Property="PreviewContent">
             <Template>
-                <Rectangle Fill="{MtBrush Foreground, Opacity=0.15}" Margin="2" />
+                <Rectangle Fill="{MBrush Foreground, Opacity=0.15}" Margin="2" />
             </Template>
         </Setter>
         <Setter Property="Template">

@@ -1,0 +1,225 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MCard Width="320" Padding="0" CornerRadius="6">
+                <MCommand Text="Test Search">
+                    <MCommandItem Variant="NoResults" Content="No results found." />
+                </MCommand>
+            </MCard>
+            <MCard Width="320" Padding="0" CornerRadius="6">
+                <MCommand Watermark="Type a command or search...">
+                    <MCommandItem Variant="Group" Content="Suggestions" />
+                    <MCommandItem>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <MText Text="Calendar" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandItem>
+                    <MCommandItem>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <MText Text="Search Emoji" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandItem>
+                    <MCommandItem IsEnabled="False">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <MText Text="Calculator" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandItem>
+                    <MCommandItem Variant="Separator" />
+                    <MCommandItem Variant="Group" Content="Settings" />
+                    <MCommandItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <MText Text="Profile" VerticalAlignment="Center" />
+                            </MPanel>
+                            <MText Grid.Column="1" Text="⌘ P" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandItem>
+                    <MCommandItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <MText Text="Billing" VerticalAlignment="Center" />
+                            </MPanel>
+                            <MText Grid.Column="1" Text="⌘ B" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandItem>
+                    <MCommandItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <MText Text="Settings" VerticalAlignment="Center" />
+                            </MPanel>
+                            <MText Grid.Column="1" Text="⌘ S" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandItem>
+                </MCommand>
+            </MCard>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="BlankTextBox" TargetType="MTextBox">
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MScrollViewer
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                    <Panel Margin="{TemplateBinding Padding}">
+                        <MText
+                            Name="WatermarkTextBlock"
+                            Opacity="0.5"
+                            Text="{TemplateBinding Watermark}"
+                            Foreground="{TemplateBinding Foreground}"
+                            TextAlignment="{TemplateBinding TextAlignment}"
+                            TextWrapping="{TemplateBinding TextWrapping}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <TextPresenter Name="PART_TextPresenter"
+                                       Background="#00000000"
+                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                       LineHeight="{TemplateBinding LineHeight}"
+                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                       RevealPassword="{TemplateBinding RevealPassword}"
+                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       CaretBrush="{TemplateBinding CaretBrush}" />
+                    </Panel>
+                </MScrollViewer>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ MText#WatermarkTextBlock">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:empty:not(:focus) /template/ MText#WatermarkTextBlock">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Cursor" Value="IBeam" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MCommand}" TargetType="MCommand">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto *">
+                    <Grid Grid.Row="0" Name="InpuBox" ColumnDefinitions="Auto *">
+                        <MPathIcon Name="Icon" Grid.Column="0" />
+                        <MTextBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
+                                      Watermark="{TemplateBinding Watermark}"
+                                      Text="{TemplateBinding Text}" />
+                    </Grid>
+                    <MScrollViewer Grid.Row="1" Name="ScrollViewer" BorderBrush="{TemplateBinding BorderBrush}"
+                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </MScrollViewer>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Style Selector="^ /template/ MPathIcon#Icon">
+            <Setter Property="Data" Value="M19 19L14.7 14.7M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="Size" Value="12" />
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Margin" Value="12 0 2 0" />
+        </Style>
+        <Style Selector="^ /template/ MTextBox#TextBox">
+            <Setter Property="CaretBrush" Value="{MBrush Foreground}" />
+            <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
+            <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+            <Setter Property="Padding" Value="8 8 12 8" />
+        </Style>
+        <Style Selector="^ /template/ MScrollViewer#ScrollViewer">
+            <Setter Property="BorderThickness" Value="0 1 0 0" />
+        </Style>
+        <Setter Property="Padding" Value="0 4" />
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MCommandItem}" TargetType="MCommandItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Variant=NoResults]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Margin" Value="12 24" />
+        </Style>
+        <Style Selector="^[Variant=Group]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Opacity" Value="0.7" />
+            <Setter Property="Margin" Value="12 8" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Padding" Value="12 6" />
+            <Setter Property="Margin" Value="4 0" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Separator]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0 1 0 0" />
+            <Setter Property="Margin" Value="0 6" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

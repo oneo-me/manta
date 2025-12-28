@@ -7,7 +7,7 @@ public abstract class WindowModel : ViewModel
 {
     internal Window? InnerWindow { get; set; }
 
-    public virtual void OnWindowInitialized(MtWindow window)
+    public virtual void OnWindowInitialized(MWindow window)
     {
     }
 }

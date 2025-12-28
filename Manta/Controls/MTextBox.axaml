@@ -1,0 +1,163 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Text -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Vertical" Spacing="12" Width="280">
+                <MTextBox />
+                <MTextBox Watermark="Watermark..." />
+                <MTextBox Text="Text Text" />
+                <MTextBox Text="Text Text" IsReadOnly="True" />
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="12" Width="280" M.ColorScheme="Primary">
+                <MTextBox />
+                <MTextBox Watermark="Watermark..." />
+                <MTextBox Text="Text Text" />
+                <MTextBox Text="Text Text" IsReadOnly="True" />
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="12" Width="280" M.ColorScheme="Danger">
+                <MTextBox />
+                <MTextBox Watermark="Watermark..." />
+                <MTextBox Text="Text Text" />
+                <MTextBox Text="Text Text" IsReadOnly="True" />
+                <MTextBox Text="Text Text" IsReadOnly="True">
+                    <MTextBox.InnerLeftContent>
+                        <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
+                    </MTextBox.InnerLeftContent>
+                    <MTextBox.InnerRightContent>
+                        <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
+                    </MTextBox.InnerRightContent>
+                </MTextBox>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MTextBox}" TargetType="MTextBox">
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BoxShadow="{TemplateBinding BoxShadow}">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                        <MScrollViewer Grid.Column="1"
+                                           HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                           VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                           IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                           BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                            <Panel Margin="{TemplateBinding Padding}">
+                                <MText
+                                    Name="WatermarkTextBlock"
+                                    Opacity="0.5"
+                                    Text="{TemplateBinding Watermark}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <TextPresenter Name="PART_TextPresenter"
+                                               Background="#00000000"
+                                               Text="{TemplateBinding Text, Mode=TwoWay}"
+                                               CaretIndex="{TemplateBinding CaretIndex}"
+                                               SelectionStart="{TemplateBinding SelectionStart}"
+                                               SelectionEnd="{TemplateBinding SelectionEnd}"
+                                               TextAlignment="{TemplateBinding TextAlignment}"
+                                               TextWrapping="{TemplateBinding TextWrapping}"
+                                               LineHeight="{TemplateBinding LineHeight}"
+                                               PasswordChar="{TemplateBinding PasswordChar}"
+                                               RevealPassword="{TemplateBinding RevealPassword}"
+                                               SelectionBrush="{TemplateBinding SelectionBrush}"
+                                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                               CaretBrush="{TemplateBinding CaretBrush}" />
+                            </Panel>
+                        </MScrollViewer>
+                        <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <!-- PasswordChar -->
+        <Style Selector="^[IsPasswordBox=True]">
+            <Setter Property="PasswordChar" Value="•" />
+        </Style>
+        <!-- Watermark -->
+        <Style Selector="^ /template/ MText#WatermarkTextBlock">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:empty:not(:focus) /template/ MText#WatermarkTextBlock">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <!-- Cursor -->
+        <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Cursor" Value="IBeam" />
+        </Style>
+        <!-- Custom -->
+        <Setter Property="Padding" Value="10 8" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="BorderThickness" Value="1" />
+        <!-- Colors -->
+        <Setter Property="CaretBrush" Value="{MBrush Foreground}" />
+        <Setter Property="Background" Value="{MBrush Background, Opacity=0.5}" />
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+        <Style Selector="^[IsReadOnly=True]">
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+        </Style>
+        <Style Selector="^[IsReadOnly=False]">
+            <Style Selector="^:pointerover, ^:focus">
+                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
+                <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" />
+            </Style>
+            <Style Selector="^[(M.ColorScheme)=Primary]">
+                <Setter Property="CaretBrush" Value="{MBrush Primary}" />
+                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.3}" />
+                <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+                <Style Selector="^:pointerover, ^:focus">
+                    <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" />
+                </Style>
+            </Style>
+            <Style Selector="^[(M.ColorScheme)=Success]">
+                <Setter Property="CaretBrush" Value="{MBrush Success}" />
+                <Setter Property="BorderBrush" Value="{MBrush Success, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MBrush Success, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+                <Style Selector="^:pointerover, ^:focus">
+                    <Setter Property="BorderBrush" Value="{MBrush Success, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Success}" />
+                </Style>
+            </Style>
+            <Style Selector="^[(M.ColorScheme)=Warning]">
+                <Setter Property="CaretBrush" Value="{MBrush Warning}" />
+                <Setter Property="BorderBrush" Value="{MBrush Warning, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MBrush Warning, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+                <Style Selector="^:pointerover, ^:focus">
+                    <Setter Property="BorderBrush" Value="{MBrush Warning, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Warning}" />
+                </Style>
+            </Style>
+            <Style Selector="^[(M.ColorScheme)=Danger]">
+                <Setter Property="CaretBrush" Value="{MBrush Danger}" />
+                <Setter Property="BorderBrush" Value="{MBrush Danger, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MBrush Danger, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
+                <Style Selector="^:pointerover, ^:focus">
+                    <Setter Property="BorderBrush" Value="{MBrush Danger, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Danger}" />
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -21,7 +21,7 @@ sealed class DemoService
             _demos.Add(demoViewModel);
         }
 
-        var projectDir = Path.Combine(Path.GetFullPath(Path.Combine(LightApp.Folder, "../../../..")), "Manta");
+        var projectDir = Path.Combine(Path.GetFullPath(Path.Combine(MApp.Folder, "../../../..")), "Manta");
         var controlsDir = Path.Combine(projectDir, "Controls");
         var baseControlsDir = Path.Combine(controlsDir, "Base");
 
@@ -76,7 +76,7 @@ sealed class DemoService
         }
     }
 
-    [View<MtView>]
+    [View<MView>]
     sealed class XamlDemo : DemoViewModel
     {
         public override DemoSubGroup SubGroup { get; }
@@ -105,14 +105,14 @@ sealed class DemoService
                 SubGroup = DemoSubGroup.Other;
 
             var sb = new StringBuilder();
-            sb.AppendLine("<MtView");
+            sb.AppendLine("<MView");
             sb.AppendLine("    xmlns=\"https://github.com/avaloniaui\"");
             sb.AppendLine("    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"");
             sb.AppendLine("    xmlns:asyncImageLoader=\"clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia\"");
             sb.AppendLine("    xmlns:generic=\"clr-namespace:System.Collections.Generic;assembly=System.Collections\"");
             sb.AppendLine("    xmlns:system=\"clr-namespace:System;assembly=System.Runtime\">");
             sb.AppendLine(xaml);
-            sb.AppendLine("</MtView>");
+            sb.AppendLine("</MView>");
 
             _xaml = sb.ToString();
         }
@@ -127,7 +127,7 @@ sealed class DemoService
 
             var contentControl = new ContentControl
             {
-                Content = AvaloniaRuntimeXamlLoader.Load(_xaml, typeof(LightApp).Assembly),
+                Content = AvaloniaRuntimeXamlLoader.Load(_xaml, typeof(MApp).Assembly),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top
             };

@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ToggleButton />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtToggleButton'" />
+                <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MToggleButton'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -1,0 +1,91 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Text -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MLabel M.TextSize="ExtraSmall" Content="Label" />
+            <MLabel M.TextSize="Small" Content="Label" />
+            <MLabel M.TextSize="Normal" Content="Label" />
+            <MLabel M.TextSize="Large" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge2" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge3" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge4" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge5" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge6" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge7" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge8" Content="Label" />
+            <MLabel M.TextSize="ExtraLarge9" Content="Label" />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MLabel}" TargetType="MLabel">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[(M.TextSize)=ExtraSmall]">
+            <Setter Property="FontSize" Value="8" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=Small]">
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=Normal]">
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=Large]">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge]">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge2]">
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge3]">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge4]">
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge5]">
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge6]">
+            <Setter Property="FontSize" Value="36" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge7]">
+            <Setter Property="FontSize" Value="48" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge8]">
+            <Setter Property="FontSize" Value="60" />
+        </Style>
+        <Style Selector="^[(M.TextSize)=ExtraLarge9]">
+            <Setter Property="FontSize" Value="72" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Primary]">
+            <Setter Property="Foreground" Value="{MBrush Primary}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Success]">
+            <Setter Property="Foreground" Value="{MBrush Success}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Warning]">
+            <Setter Property="Foreground" Value="{MBrush Warning}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Danger]">
+            <Setter Property="Foreground" Value="{MBrush Danger}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

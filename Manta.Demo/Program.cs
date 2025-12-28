@@ -13,6 +13,6 @@ static class Program
 
     public static AppBuilder BuildAvaloniaApp()
     {
-        return LightApp.Build<App>();
+        return MApp.Build<App>();
     }
 }

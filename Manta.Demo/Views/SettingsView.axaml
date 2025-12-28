@@ -1,4 +1,4 @@
-<MtView
+<MView
     x:Class="Manta.Demo.Views.SettingsView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,145 +8,145 @@
         <Border Grid.Column="0" BorderThickness="0 0 1 0">
             <Panel>
                 <Border Name="SidebarBackground" />
-                <MtListBox Name="Sidebar" Type="Sidebar" VerticalAlignment="Top">
-                    <MtListBox.Styles>
-                        <Style Selector="MtListBox[Type=Sidebar]">
+                <MListBox Name="Sidebar" Type="Sidebar" VerticalAlignment="Top">
+                    <MListBox.Styles>
+                        <Style Selector="MListBox[Type=Sidebar]">
                             <Setter Property="Padding" Value="7" />
                         </Style>
-                        <Style Selector="MtListBoxItem[Type=Sidebar]">
+                        <Style Selector="MListBoxItem[Type=Sidebar]">
                             <Setter Property="Padding" Value="12 7" />
                         </Style>
-                    </MtListBox.Styles>
-                    <MtListBoxItem>
-                        <MtPanel Mode="Horizontal" Spacing="4">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                            <MtText Text="Group Item 1" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtListBoxItem>
-                    <MtListBoxItem>
-                        <MtPanel Mode="Horizontal" Spacing="4">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                            <MtText Text="Group Item 2" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtListBoxItem>
-                    <MtListBoxItem>
-                        <MtPanel Mode="Horizontal" Spacing="4">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                            <MtText Text="Group Item 3" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtListBoxItem>
-                    <MtListBoxItem>
-                        <MtPanel Mode="Horizontal" Spacing="4">
-                            <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                            <MtText Text="Group Item 4" VerticalAlignment="Center" />
-                        </MtPanel>
-                    </MtListBoxItem>
-                </MtListBox>
+                    </MListBox.Styles>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MText Text="Group Item 1" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MText Text="Group Item 2" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MText Text="Group Item 3" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MText Text="Group Item 4" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                </MListBox>
             </Panel>
         </Border>
-        <Border Grid.Column="1" Background="{MtBrush Background}">
+        <Border Grid.Column="1" Background="{MBrush Background}">
             <Grid RowDefinitions="Auto *">
                 <Border Grid.Row="0" Name="TitleBar" Height="39" BorderThickness="0 0 0 1">
                     <Grid ColumnDefinitions="* Auto">
-                        <MtText Grid.Column="0" Text="Group Item 1" FontWeight="SemiBold" Margin="12 0" VerticalAlignment="Center" />
-                        <MtTitleBarButtons Grid.Column="1" Name="TitleBarButtons" />
+                        <MText Grid.Column="0" Text="Group Item 1" FontWeight="SemiBold" Margin="12 0" VerticalAlignment="Center" />
+                        <MTitleBarButtons Grid.Column="1" Name="TitleBarButtons" />
                     </Grid>
                 </Border>
                 <Border Grid.Row="1">
                     <Grid ColumnDefinitions="160 *">
                         <Border Grid.Column="0" BorderThickness="0 0 1 0">
                             <Grid RowDefinitions="* Auto">
-                                <MtListBox Grid.Row="0" Type="Sidebar" BorderThickness="0 0 0 1">
-                                    <MtListBox.Styles>
-                                        <Style Selector="MtListBox[Type=Sidebar]">
+                                <MListBox Grid.Row="0" Type="Sidebar" BorderThickness="0 0 0 1">
+                                    <MListBox.Styles>
+                                        <Style Selector="MListBox[Type=Sidebar]">
                                             <Setter Property="Padding" Value="6" />
                                         </Style>
-                                        <Style Selector="MtListBoxItem[Type=Sidebar]">
+                                        <Style Selector="MListBoxItem[Type=Sidebar]">
                                             <Setter Property="Padding" Value="12 6" />
                                         </Style>
-                                    </MtListBox.Styles>
-                                    <MtListBoxItem Content="Item 1" />
-                                    <MtListBoxItem Content="Item 2" />
-                                    <MtListBoxItem Content="Item 3" />
-                                    <MtListBoxItem Content="Item 4" />
-                                    <MtListBoxItem Content="Item 5" />
-                                </MtListBox>
+                                    </MListBox.Styles>
+                                    <MListBoxItem Content="Item 1" />
+                                    <MListBoxItem Content="Item 2" />
+                                    <MListBoxItem Content="Item 3" />
+                                    <MListBoxItem Content="Item 4" />
+                                    <MListBoxItem Content="Item 5" />
+                                </MListBox>
                                 <Grid Grid.Row="1" ColumnDefinitions="* Auto">
-                                    <MtPanel Grid.Column="0" Mode="Horizontal" Spacing="3" Margin="3">
-                                        <MtButton Variant="Ghost" Padding="4">
-                                            <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                        </MtButton>
-                                        <MtButton Variant="Ghost" Padding="4">
-                                            <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                        </MtButton>
-                                    </MtPanel>
-                                    <MtPanel Grid.Column="1" Mode="Horizontal" Spacing="3" Margin="3">
-                                        <MtButton Variant="Ghost" Padding="4">
-                                            <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                        </MtButton>
-                                    </MtPanel>
+                                    <MPanel Grid.Column="0" Mode="Horizontal" Spacing="3" Margin="3">
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                    </MPanel>
+                                    <MPanel Grid.Column="1" Mode="Horizontal" Spacing="3" Margin="3">
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                    </MPanel>
                                 </Grid>
                             </Grid>
                         </Border>
                         <Grid Grid.Column="1" RowDefinitions="Auto *">
-                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MtBrush BorderBrush, Opacity=0.6}">
-                                <MtText Text="Item 1" FontWeight="SemiBold" Margin="12 6" />
+                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MBrush BorderBrush, Opacity=0.6}">
+                                <MText Text="Item 1" FontWeight="SemiBold" Margin="12 6" />
                             </Border>
-                            <MtScrollViewer Grid.Row="1">
-                                <MtPanel Mode="Vertical" Spacing="12" Margin="12">
-                                    <MtText Text="About" FontWeight="SemiBold" />
-                                    <MtPanel Mode="Vertical" Spacing="12" TextBlock.TextAlignment="Center">
-                                        <MtIcon Mt.ColorScheme="Primary" IconSize="62" IconSource="{Binding TestIcon}" />
-                                        <MtPanel Mode="Vertical" Spacing="3">
-                                            <MtText Text="Manta" FontSize="14" FontWeight="SemiBold" />
-                                            <MtText Text="v1.0.0" />
-                                            <MtText Text="2025/10/31" Opacity="0.5" />
-                                            <MtPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                                <MtText Text="Website" Opacity="0.5" />
-                                                <MtText Text="Copy Debug Info" Opacity="0.5" />
-                                            </MtPanel>
-                                        </MtPanel>
-                                        <MtPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <MtButton Size="Small" Variant="Ghost">
-                                                <MtPanel Mode="Horizontal" Spacing="4">
-                                                    <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                    <MtText Text="Issues" VerticalAlignment="Center" />
-                                                </MtPanel>
-                                            </MtButton>
-                                            <MtButton Size="Small" Variant="Ghost">
-                                                <MtPanel Mode="Horizontal" Spacing="4">
-                                                    <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                    <MtText Text="Discord" VerticalAlignment="Center" />
-                                                </MtPanel>
-                                            </MtButton>
-                                            <MtButton Size="Small" Variant="Ghost">
-                                                <MtPanel Mode="Horizontal" Spacing="4">
-                                                    <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                    <MtText Text="Twitter" VerticalAlignment="Center" />
-                                                </MtPanel>
-                                            </MtButton>
-                                            <MtButton Size="Small" Variant="Ghost">
-                                                <MtPanel Mode="Horizontal" Spacing="4">
-                                                    <MtIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                    <MtText Text="Github" VerticalAlignment="Center" />
-                                                </MtPanel>
-                                            </MtButton>
-                                        </MtPanel>
-                                        <MtPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <MtButton Mt.ColorScheme="Primary" Size="Small" Content="Update log" />
-                                            <MtButton Mt.ColorScheme="Primary" Size="Small" Content="check for updates" />
-                                        </MtPanel>
-                                    </MtPanel>
-                                    <MtText Text="Group format" FontWeight="SemiBold" />
-                                    <MtItems>
-                                        <MtItems.Styles>
-                                            <Style Selector="MtItems">
+                            <MScrollViewer Grid.Row="1">
+                                <MPanel Mode="Vertical" Spacing="12" Margin="12">
+                                    <MText Text="About" FontWeight="SemiBold" />
+                                    <MPanel Mode="Vertical" Spacing="12" TextBlock.TextAlignment="Center">
+                                        <MIcon M.ColorScheme="Primary" IconSize="62" IconSource="{Binding TestIcon}" />
+                                        <MPanel Mode="Vertical" Spacing="3">
+                                            <MText Text="Manta" FontSize="14" FontWeight="SemiBold" />
+                                            <MText Text="v1.0.0" />
+                                            <MText Text="2025/10/31" Opacity="0.5" />
+                                            <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                                <MText Text="Website" Opacity="0.5" />
+                                                <MText Text="Copy Debug Info" Opacity="0.5" />
+                                            </MPanel>
+                                        </MPanel>
+                                        <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                            <MButton Size="Small" Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MText Text="Issues" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Size="Small" Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MText Text="Discord" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Size="Small" Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MText Text="Twitter" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Size="Small" Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MText Text="Github" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                        </MPanel>
+                                        <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                            <MButton M.ColorScheme="Primary" Size="Small" Content="Update log" />
+                                            <MButton M.ColorScheme="Primary" Size="Small" Content="check for updates" />
+                                        </MPanel>
+                                    </MPanel>
+                                    <MText Text="Group format" FontWeight="SemiBold" />
+                                    <MItems>
+                                        <MItems.Styles>
+                                            <Style Selector="MItems">
                                                 <Setter Property="BorderThickness" Value="1" />
                                                 <Setter Property="CornerRadius" Value="8" />
-                                                <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0.2}" />
+                                                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.2}" />
                                             </Style>
-                                            <Style Selector="MtItem">
-                                                <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+                                            <Style Selector="MItem">
+                                                <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
                                                 <Setter Property="BorderThickness" Value="0 1 0 0" />
                                                 <Setter Property="Margin" Value="8 0" />
                                                 <Setter Property="Padding" Value="8" />
@@ -154,76 +154,76 @@
                                                     <Setter Property="BorderThickness" Value="0" />
                                                 </Style>
                                             </Style>
-                                        </MtItems.Styles>
-                                        <MtItem>
+                                        </MItems.Styles>
+                                        <MItem>
                                             <Grid ColumnDefinitions="* Auto">
-                                                <MtPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
-                                                    <MtText Text="Language" />
-                                                    <MtText Text="Change the display language of the interface" Opacity="0.5" />
-                                                </MtPanel>
+                                                <MPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
+                                                    <MText Text="Language" />
+                                                    <MText Text="Change the display language of the interface" Opacity="0.5" />
+                                                </MPanel>
                                                 <Panel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
-                                                    <MtButton Content="Button" />
+                                                    <MButton Content="Button" />
                                                 </Panel>
                                             </Grid>
-                                        </MtItem>
-                                        <MtItem>
+                                        </MItem>
+                                        <MItem>
                                             <Grid ColumnDefinitions="* Auto">
-                                                <MtPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
-                                                    <MtText Text="Network proxy" />
-                                                    <MtText Text="Supports HTTP and SOCKS5 proxies" Opacity="0.5" />
-                                                </MtPanel>
+                                                <MPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
+                                                    <MText Text="Network proxy" />
+                                                    <MText Text="Supports HTTP and SOCKS5 proxies" Opacity="0.5" />
+                                                </MPanel>
                                                 <Panel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
-                                                    <MtTextBox Width="160" Padding="8 4" Watermark="http://127.0.0.1:7897" />
+                                                    <MTextBox Width="160" Padding="8 4" Watermark="http://127.0.0.1:7897" />
                                                 </Panel>
                                             </Grid>
-                                        </MtItem>
-                                    </MtItems>
-                                    <MtText Text="Direct format" FontWeight="SemiBold" />
-                                    <MtText Text="OpenAI-compatible provider" Opacity="0.5" />
-                                    <MtPanel Mode="Vertical" Spacing="3">
-                                        <MtText Text="Provider name" />
+                                        </MItem>
+                                    </MItems>
+                                    <MText Text="Direct format" FontWeight="SemiBold" />
+                                    <MText Text="OpenAI-compatible provider" Opacity="0.5" />
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <MText Text="Provider name" />
                                         <Grid ColumnDefinitions="Auto *">
-                                            <MtButton Grid.Column="0" Variant="Outline" Padding="6 4">
-                                                <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                            </MtButton>
-                                            <MtTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
+                                            <MButton Grid.Column="0" Variant="Outline" Padding="6 4">
+                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                            </MButton>
+                                            <MTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
                                         </Grid>
-                                    </MtPanel>
-                                    <MtPanel Mode="Vertical" Spacing="3">
-                                        <MtText Text="API Base URL" />
-                                        <MtText Text="Do NOT include /chat/completions in the URL" Opacity="0.5" />
-                                        <MtTextBox Padding="8 4" Watermark="https://api.openai.com/v1" />
-                                    </MtPanel>
-                                    <MtPanel Mode="Vertical" Spacing="3">
-                                        <MtText Text="API Key" />
-                                        <MtTextBox Padding="8 4" Text="https://api.openai.com/v1" IsPasswordBox="True" />
-                                    </MtPanel>
-                                    <MtPanel Mode="Vertical" Spacing="3">
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <MText Text="API Base URL" />
+                                        <MText Text="Do NOT include /chat/completions in the URL" Opacity="0.5" />
+                                        <MTextBox Padding="8 4" Watermark="https://api.openai.com/v1" />
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <MText Text="API Key" />
+                                        <MTextBox Padding="8 4" Text="https://api.openai.com/v1" IsPasswordBox="True" />
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
                                         <Grid ColumnDefinitions="* Auto">
-                                            <MtText Grid.Column="0" Text="Models" VerticalAlignment="Center" />
-                                            <MtPanel Grid.Column="1" Mode="Horizontal" Spacing="4" VerticalAlignment="Center">
-                                                <MtButton Variant="Ghost" Padding="4 2">
-                                                    <MtPanel Mode="Horizontal" Spacing="4">
-                                                        <MtIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                        <MtText Text="Delete all" VerticalAlignment="Center" />
-                                                    </MtPanel>
-                                                </MtButton>
-                                                <MtButton Variant="Ghost" Padding="4 2">
-                                                    <MtPanel Mode="Horizontal" Spacing="4">
-                                                        <MtIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                        <MtText Text="New" VerticalAlignment="Center" />
-                                                    </MtPanel>
-                                                </MtButton>
-                                                <MtButton Variant="Ghost" Padding="4 2">
-                                                    <MtPanel Mode="Horizontal" Spacing="4">
-                                                        <MtIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
-                                                        <MtText Text="Fetch models" VerticalAlignment="Center" />
-                                                    </MtPanel>
-                                                </MtButton>
-                                            </MtPanel>
+                                            <MText Grid.Column="0" Text="Models" VerticalAlignment="Center" />
+                                            <MPanel Grid.Column="1" Mode="Horizontal" Spacing="4" VerticalAlignment="Center">
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MText Text="Delete all" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MText Text="New" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MText Text="Fetch models" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                            </MPanel>
                                         </Grid>
                                         <Border BorderThickness="1" CornerRadius="8">
-                                            <MtPanel Mode="Vertical" Spacing="6" Margin="6" Grid.IsSharedSizeScope="True">
+                                            <MPanel Mode="Vertical" Spacing="6" Margin="6" Grid.IsSharedSizeScope="True">
                                                 <Grid>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition />
@@ -231,16 +231,16 @@
                                                         <ColumnDefinition Width="Auto" SharedSizeGroup="Setting" />
                                                         <ColumnDefinition Width="Auto" SharedSizeGroup="Delete" />
                                                     </Grid.ColumnDefinitions>
-                                                    <MtText Grid.Column="0" Text="Nick name" Margin="6 0" />
-                                                    <MtText Grid.Column="1" Text="Model Id" Margin="6 0" />
+                                                    <MText Grid.Column="0" Text="Nick name" Margin="6 0" />
+                                                    <MText Grid.Column="1" Text="Model Id" Margin="6 0" />
                                                 </Grid>
-                                                <MtItems BorderThickness="0 1 0 0">
-                                                    <MtItems.ItemsPanel>
+                                                <MItems BorderThickness="0 1 0 0">
+                                                    <MItems.ItemsPanel>
                                                         <ItemsPanelTemplate>
-                                                            <MtPanel Mode="Vertical" Spacing="6" Margin="0 6 0 0" />
+                                                            <MPanel Mode="Vertical" Spacing="6" Margin="0 6 0 0" />
                                                         </ItemsPanelTemplate>
-                                                    </MtItems.ItemsPanel>
-                                                    <MtItem>
+                                                    </MItems.ItemsPanel>
+                                                    <MItem>
                                                         <Grid>
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition />
@@ -248,26 +248,26 @@
                                                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Setting" />
                                                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Delete" />
                                                             </Grid.ColumnDefinitions>
-                                                            <MtTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
-                                                            <MtTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
-                                                            <MtButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
-                                                                <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                                            </MtButton>
-                                                            <MtButton Grid.Column="3" Variant="Ghost" Padding="4">
-                                                                <MtIcon IconSize="14" IconSource="{Binding TestIcon}" />
-                                                            </MtButton>
+                                                            <MTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
+                                                            <MTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
+                                                            <MButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
+                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                            </MButton>
+                                                            <MButton Grid.Column="3" Variant="Ghost" Padding="4">
+                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                            </MButton>
                                                         </Grid>
-                                                    </MtItem>
-                                                </MtItems>
-                                            </MtPanel>
+                                                    </MItem>
+                                                </MItems>
+                                            </MPanel>
                                         </Border>
-                                    </MtPanel>
-                                </MtPanel>
-                            </MtScrollViewer>
+                                    </MPanel>
+                                </MPanel>
+                            </MScrollViewer>
                         </Grid>
                     </Grid>
                 </Border>
             </Grid>
         </Border>
     </Grid>
-</MtView>
+</MView>

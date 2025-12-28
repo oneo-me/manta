@@ -3,16 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ComboBox />
             <ComboBoxItem />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtComboBox'" />
+                    <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MComboBox'" />
                     <Popup Name="PART_Popup" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
@@ -21,7 +21,7 @@
     <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtComboBoxItem'" />
+                <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MComboBoxItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

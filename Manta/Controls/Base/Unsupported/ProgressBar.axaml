@@ -3,15 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ProgressBar />
-        </MtPanel>
+        </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'ProgressBar' is not supported" />
+                    <MSelectableText M.ColorScheme="Danger" Text="The control 'ProgressBar' is not supported" />
                     <Border Name="PART_Indicator" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

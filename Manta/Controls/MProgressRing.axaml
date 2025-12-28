@@ -1,0 +1,160 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:converters1="clr-namespace:Manta.Converters"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Progress -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <MText Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Primary">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <MText Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Success">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <MText Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Warning">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <MText Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Danger">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <MText Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <converters1:Number2ThicknessConverter x:Key="ProgressRingNumber2ThicknessConverter" />
+    <converters:StringFormatConverter x:Key="ProgressRingStringFormatConverter" />
+    <ControlTheme x:Key="{x:Type MProgressRing}" TargetType="MProgressRing">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="RingStrokeSize" Value="2.5" />
+        <Setter Property="RingSize" Value="28" />
+        <Setter Property="CornerRadius" Value="3000" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border Name="PART_Indicator" />
+                    <MRing Name="Ring"
+                               Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
+                               Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
+                               Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
+                    <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
+                        <MClipContentControl
+                            Background="{TemplateBinding Background}"
+                            Foreground="{TemplateBinding Foreground}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BoxShadow="{TemplateBinding BoxShadow}"
+                            Margin="{TemplateBinding RingStrokeSize, Converter={StaticResource ProgressRingNumber2ThicknessConverter}}">
+                            <Panel>
+                                <LayoutTransformControl Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        IsVisible="{TemplateBinding ShowProgressText}">
+                                    <MText>
+                                        <MText.Text>
+                                            <MultiBinding Converter="{StaticResource ProgressRingStringFormatConverter}">
+                                                <TemplateBinding Property="ProgressTextFormat" />
+                                                <Binding Path="Value"
+                                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                                <TemplateBinding Property="Percentage" />
+                                                <TemplateBinding Property="Minimum" />
+                                                <TemplateBinding Property="Maximum" />
+                                            </MultiBinding>
+                                        </MText.Text>
+                                    </MText>
+                                </LayoutTransformControl>
+                                <ContentControl Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Panel>
+                        </MClipContentControl>
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:indeterminate /template/ MRing#Ring">
+            <Setter Property="Value" Value="0" />
+            <Setter Property="Maximum" Value="360" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:3" Easing="LinearEasing">
+                    <KeyFrame KeyTime="0:0:0">
+                        <Setter Property="Value" Value="0" />
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.8">
+                        <Setter Property="Value" Value="270" />
+                        <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:3">
+                        <Setter Property="Value" Value="0" />
+                        <Setter Property="RotateTransform.Angle" Value="1080" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Normal]">
+            <Setter Property="RingForeground" Value="{MBrush Foreground, Opacity=0.6}" />
+            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Primary]">
+            <Setter Property="RingForeground" Value="{MBrush Primary}" />
+            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Success]">
+            <Setter Property="RingForeground" Value="{MBrush Success}" />
+            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Warning]">
+            <Setter Property="RingForeground" Value="{MBrush Warning}" />
+            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <Style Selector="^[(M.ColorScheme)=Danger]">
+            <Setter Property="RingForeground" Value="{MBrush Danger}" />
+            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

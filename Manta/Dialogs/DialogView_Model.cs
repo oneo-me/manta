@@ -8,11 +8,11 @@ using Manta.Reactive.Views;
 namespace Manta.Dialogs;
 
 [View<DialogView>]
-sealed class DialogView_Model(LightDialogOptions options) : WindowModel
+sealed class DialogView_Model(MDialogOptions options) : WindowModel
 {
     public static DialogView_Model Design => new(new("Message...") { ShowCancel = true, ShowConfirm = true });
 
-    public LightDialogOptions Options { get; } = options;
+    public MDialogOptions Options { get; } = options;
     public bool Result { get; private set; }
 
     public void OnConfirm()
@@ -32,7 +32,7 @@ sealed class DialogView_Model(LightDialogOptions options) : WindowModel
         this.GetWindow().Close();
     }
 
-    public override void OnWindowInitialized(MtWindow window)
+    public override void OnWindowInitialized(MWindow window)
     {
         base.OnWindowInitialized(window);
 

@@ -10,16 +10,16 @@ public static class WindowModelExtensions
     {
         public Window CreateWindow()
         {
-            var result = new MtWindow
+            var result = new MWindow
             {
                 Content = windowModel.CreateView()
             };
             windowModel.InnerWindow = result;
 
             // Set window properties
-            if (LightApp.Current.Icon is not null)
-                result.Icon = new(LightApp.Current.Icon);
-            result.Title = LightApp.Current.Name;
+            if (MApp.Current.Icon is not null)
+                result.Icon = new(MApp.Current.Icon);
+            result.Title = MApp.Current.Name;
 
             // Activate window on open
             result.Opened += (sender, _) =>
