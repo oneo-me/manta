@@ -1,5 +1,6 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
+using LightKit.Controls;
 using LightKit.Extensions;
 using LightKit.Reactive.Extensions;
 using LightKit.Reactive.Views;
@@ -31,7 +32,7 @@ sealed class DialogView_Model(LightDialogOptions options) : WindowModel
         this.GetWindow().Close();
     }
 
-    public override void OnWindowInitialized(Window window)
+    public override void OnWindowInitialized(LightWindow window)
     {
         base.OnWindowInitialized(window);
 

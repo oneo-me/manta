@@ -15,6 +15,7 @@ enum DemoSubGroup
 {
     None,
     Chart,
+    Window,
     Button,
     Text,
     Progress,

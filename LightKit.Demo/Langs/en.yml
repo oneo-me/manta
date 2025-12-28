@@ -15,6 +15,7 @@ Demo_Style_Radius: Radius
 Demo_Style_Shadow: Shadow
 
 SubGroup_Chart: Chart
+SubGroup_Window: Window
 SubGroup_Button: Button
 SubGroup_Text: Text
 SubGroup_Progress: Progress

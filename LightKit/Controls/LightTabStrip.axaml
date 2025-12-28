@@ -66,6 +66,13 @@
                                   CornerRadius="{TemplateBinding CornerRadius}" />
             </ControlTemplate>
         </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
         <Style Selector="^[Type=Normal]">
             <Setter Property="Padding" Value="12 4" />
             <Setter Property="BorderThickness" Value="1" />

@@ -1,5 +1,6 @@
 using System.Text;
 using Avalonia.Controls;
+using Avalonia.Controls.Chrome;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
@@ -236,11 +237,13 @@ sealed class ControlsScanner(Options options)
                 nameof(TextBlock)           => "LightText",
                 nameof(UserControl)         => "LightView",
                 nameof(ItemsControl)        => "LightItems",
+                nameof(CaptionButtons)      => "LightTitleBarButtons",
 
                 _ => type.Name
             };
             GroupName = ImplName switch
             {
+                "LightTitleBarButtons"    => nameof(TitleBar),
                 nameof(OverlayPopupHost)  => nameof(PopupRoot),
                 nameof(CalendarButton)    => nameof(Calendar),
                 nameof(CalendarDayButton) => nameof(Calendar),

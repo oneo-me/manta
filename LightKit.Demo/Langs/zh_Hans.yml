@@ -15,6 +15,7 @@ Demo_Style_Radius: 圆角
 Demo_Style_Shadow: 阴影
 
 SubGroup_Chart: 图表
+SubGroup_Window: 窗口
 SubGroup_Button: 按钮
 SubGroup_Text: 文本
 SubGroup_Progress: 进度

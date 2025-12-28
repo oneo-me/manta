@@ -4,14 +4,22 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <CaptionButtons />
             <TitleBar />
         </LightPanel>
     </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTitleBarButtons'" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
     <ControlTheme x:Key="{x:Type TitleBar}" TargetType="TitleBar">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TitleBar' is not supported" />
+                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTitleBar'" />
                     <CaptionButtons Name="PART_CaptionButtons" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

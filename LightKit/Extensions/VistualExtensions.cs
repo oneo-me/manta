@@ -15,16 +15,13 @@ public static class VisualExtensions
 {
     extension<T>(T view) where T : InputElement
     {
-        public IDisposable SubscribeWindowStatus(Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action)
+        public IDisposable SubscribeWindowStatus(Window window, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action)
         {
             if (Design.IsDesignMode)
             {
                 action((false, true, 0, 0, 38));
                 return Disposable.Empty;
             }
-
-            if (view.GetVisualRoot() is not Window window)
-                return Disposable.Empty;
 
             var isMacos = OperatingSystem.IsMacOS();
 
@@ -40,12 +37,34 @@ public static class VisualExtensions
                 });
         }
 
+        public IDisposable SubscribeWindowStatus(Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action)
+        {
+            if (Design.IsDesignMode)
+            {
+                action((false, true, 0, 0, 38));
+                return Disposable.Empty;
+            }
+
+            if (view.GetVisualRoot() is not Window window)
+                return Disposable.Empty;
+
+            return view.SubscribeWindowStatus(window, action);
+        }
+
         public IDisposable SubscribeTitleBarEvents(Func<T, InputElement> func)
         {
             if (Design.IsDesignMode)
                 return Disposable.Empty;
 
             if (view.GetVisualRoot() is not Window window)
+                return Disposable.Empty;
+
+            return view.SubscribeTitleBarEvents(window, func);
+        }
+
+        public IDisposable SubscribeTitleBarEvents(Window window, Func<T, InputElement> func)
+        {
+            if (Design.IsDesignMode)
                 return Disposable.Empty;
 
             var inputElement = func(view);

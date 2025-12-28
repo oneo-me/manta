@@ -1,5 +1,6 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
+using LightKit.Controls;
 using LightKit.Controls.Icons;
 using LightKit.Demo.Langs;
 using LightKit.Demo.Reactive;
@@ -25,7 +26,7 @@ sealed class Main_Model : WindowModel
     public IconSource ThemeSystemIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sun-Fog--Streamline-Solar-Ar.svg"));
     public IconSource SettingsIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Settings--Streamline-Solar-Ar.svg"));
 
-    public override void OnWindowInitialized(Window window)
+    public override void OnWindowInitialized(LightWindow window)
     {
         base.OnWindowInitialized(window);
 
