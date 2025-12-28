@@ -1,13 +1,11 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 
 namespace Manta.Reactive.Extensions;
 
-public static class Observable
+public static class ObservableEvent
 {
-    [SuppressMessage("Reliability", "CA2000:丢失范围之前释放对象")]
-    public static IObservable<(object? sender, T args)> FromEventHandler<T>(Action<EventHandler<T>> addHandler, Action<EventHandler<T>> removeHandler) where T : EventArgs
+    public static IObservable<(object? sender, T args)> FromHandler<T>(Action<EventHandler<T>> addHandler, Action<EventHandler<T>> removeHandler) where T : EventArgs
     {
         var subject = new Subject<(object? sender, T args)>();
         var handler = new EventHandler<T>((sender, args) => subject.OnNext((sender, args)));

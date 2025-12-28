@@ -1,8 +1,8 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
+using Manta.Controls;
 using Manta.Extensions;
 using Manta.Reactive.Extensions;
-using Manta.Controls;
 using Manta.Reactive.Views;
 
 namespace Manta.Dialogs;
@@ -50,6 +50,7 @@ sealed class DialogView_Model(MDialogOptions options) : WindowModel
 
         var view = this.GetView<DialogView>();
 
-        view.SubscribeTitleBarEvents(x => x).DisposeWithIfDisposable(disposables);
+        view.BindTitleBarEvents()
+            .DisposeWithIfDisposable(disposables);
     }
 }

@@ -1,116 +1,98 @@
 using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
+using Manta.Controls;
 using Manta.Reactive.Extensions;
-using Observable = Manta.Reactive.Extensions.Observable;
+using Observable = System.Reactive.Linq.Observable;
 
 namespace Manta.Extensions;
 
 public static class VisualExtensions
 {
-    extension<T>(T view) where T : InputElement
+    static readonly SolidColorBrush _transparentBrush = new(Color.FromArgb(0, 0, 0, 0));
+
+    extension(InputElement inputElement)
     {
-        public IDisposable SubscribeWindowStatus(Window window, Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action)
+        public void EnsureBackground()
         {
-            if (Design.IsDesignMode)
+            switch (inputElement)
             {
-                action((false, true, 0, 0, 38));
-                return Disposable.Empty;
+                case TemplatedControl templatedControl:
+                    templatedControl.Background ??= _transparentBrush;
+                    break;
+
+                case Border border:
+                    border.Background ??= _transparentBrush;
+                    break;
+
+                case Panel panel:
+                    panel.Background ??= _transparentBrush;
+                    break;
             }
-
-            var isMacos = OperatingSystem.IsMacOS();
-
-            return window.GetObservable(Window.WindowStateProperty)
-                .StartWith(window.WindowState)
-                .Subscribe(x =>
-                {
-                    var isShowButtons = x is not WindowState.FullScreen;
-                    var leftOffset = isShowButtons ? 78 : 0;
-                    var topOffset = isShowButtons ? 38 : 0;
-
-                    action((isShowButtons is false, isShowButtons && isMacos is false, isMacos ? leftOffset : 0, isMacos ? topOffset : 0, 38));
-                });
         }
 
-        public IDisposable SubscribeWindowStatus(Action<(bool isFullscreen, bool isShowButtons, double leftOffset, double topOffset, double titleBarHeight)> action)
+        public IDisposable BindTitleBarEvents(Window? window = null, bool stateControl = true)
         {
-            if (Design.IsDesignMode)
-            {
-                action((false, true, 0, 0, 38));
-                return Disposable.Empty;
-            }
-
-            if (view.GetVisualRoot() is not Window window)
-                return Disposable.Empty;
-
-            return view.SubscribeWindowStatus(window, action);
-        }
-
-        public IDisposable SubscribeTitleBarEvents(Func<T, InputElement> func)
-        {
-            if (Design.IsDesignMode)
-                return Disposable.Empty;
-
-            if (view.GetVisualRoot() is not Window window)
-                return Disposable.Empty;
-
-            return view.SubscribeTitleBarEvents(window, func);
-        }
-
-        public IDisposable SubscribeTitleBarEvents(Window window, Func<T, InputElement> func)
-        {
-            if (Design.IsDesignMode)
-                return Disposable.Empty;
-
-            var inputElement = func(view);
             inputElement.EnsureBackground();
 
             var disposables = new CompositeDisposable();
 
-            Observable.FromEventHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
+            if (stateControl)
+                ObservableEvent.FromHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
+                    {
+                        var currentWindow = GetWindow();
+                        if (currentWindow is null)
+                            return;
+
+                        if (currentWindow.CanResize is false)
+                            return;
+
+                        if (OperatingSystem.IsMacOS() && currentWindow.WindowState == WindowState.FullScreen)
+                            return;
+
+                        currentWindow.WindowState = currentWindow.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                    })
+                    .DisposeWith(disposables);
+
+            ObservableEvent.FromHandler<PointerPressedEventArgs>(x => inputElement.PointerPressed += x, x => inputElement.PointerPressed -= x).Subscribe(x =>
                 {
-                    if (window.CanResize is false)
+                    var currentWindow = GetWindow();
+                    if (currentWindow is null)
                         return;
 
-                    if (OperatingSystem.IsMacOS() && window.WindowState == WindowState.FullScreen)
+                    if (x.args.GetCurrentPoint(inputElement).Properties.IsLeftButtonPressed is false)
                         return;
 
-                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-                })
-                .DisposeWith(disposables);
-
-            Observable.FromEventHandler<PointerPressedEventArgs>(x => inputElement.PointerPressed += x, x => inputElement.PointerPressed -= x).Subscribe(x =>
-                {
-                    window.BeginMoveDrag(x.args);
+                    currentWindow.BeginMoveDrag(x.args);
                 })
                 .DisposeWith(disposables);
 
             return disposables;
+
+            Window? GetWindow()
+            {
+                if (window is not null)
+                    return window;
+
+                if (inputElement.GetVisualRoot() is Window newWindow)
+                    return window = newWindow;
+
+                return window;
+            }
         }
     }
 
-    static readonly SolidColorBrush _transparentBrush = new(Color.FromArgb(0, 0, 0, 0));
-
-    public static void EnsureBackground(this InputElement inputElement)
+    extension(MView view)
     {
-        switch (inputElement)
+        public IObservable<WindowStatus> GetWindowStatusObservable()
         {
-            case TemplatedControl templatedControl:
-                templatedControl.Background ??= _transparentBrush;
-                break;
+            if (view.GetVisualRoot() is not Window window)
+                return Observable.Empty<WindowStatus>();
 
-            case Border border:
-                border.Background ??= _transparentBrush;
-                break;
-
-            case Panel panel:
-                panel.Background ??= _transparentBrush;
-                break;
+            return window.GetWindowStatusObservable();
         }
     }
 }
