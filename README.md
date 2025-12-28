@@ -1,1 +1,1 @@
-# LightKit
+# Manta

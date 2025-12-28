@@ -1,0 +1,17 @@
+<LightView
+    x:Class="Manta.Demo.Demos.ControlDemos.LightChartView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
+    x:DataType="local:LightChartView_Model" Design.DataContext="{x:Static local:LightChartView_Model.Design}">
+    <LightScrollViewer>
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+            <LightCard Width="320" Height="180" HorizontalAlignment="Left">
+                <LightChart Data="{Binding Data1}" ShowLegends="False" />
+            </LightCard>
+            <LightCard Width="520" Height="380" HorizontalAlignment="Left">
+                <LightChart Title="{Binding Title}" Data="{Binding Data2}" />
+            </LightCard>
+        </LightPanel>
+    </LightScrollViewer>
+</LightView>

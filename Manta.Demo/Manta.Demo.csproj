@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Manta\Manta.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.10" />
+        <PackageReference Include="LightKit.Generators " Version="1.2025.0-preview.6" PrivateAssets="all" />
+    </ItemGroup>
+</Project>

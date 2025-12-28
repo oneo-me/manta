@@ -1,8 +1,8 @@
-# LightKit - Project Guide for Claude
+# Mantan - Project Guide for Claude
 
 ## Project Overview
 
-LightKit is a comprehensive UI toolkit and MVVM framework built on Avalonia 11.3.10 for cross-platform desktop applications. It provides a rich set of 40+ themeable controls, a reactive MVVM infrastructure, and a sophisticated theming system with light/dark mode support.
+Mantan is a comprehensive UI toolkit and MVVM framework built on Avalonia 11.3.10 for cross-platform desktop applications. It provides a rich set of 40+ themeable controls, a reactive MVVM infrastructure, and a sophisticated theming system with light/dark mode support.
 
 **Technology Stack:**
 - .NET 10.0
@@ -15,7 +15,7 @@ LightKit is a comprehensive UI toolkit and MVVM framework built on Avalonia 11.3
 ## Project Structure
 
 ```
-LightKit/                       # Main library project
+Mantan/                       # Main library project
 ├── Animation/                  # Custom animations (SmoothBrushTransition)
 ├── Controls/                   # 40+ custom controls
 │   ├── Base/Supported/        # Styled Avalonia controls
@@ -37,17 +37,17 @@ LightKit/                       # Main library project
 ├── Logging/                    # Structured logging
 └── Extensions/                 # Utility extensions
 
-LightKit.Demo/                  # Reference application
+Mantan.Demo/                  # Reference application
 ├── Views/                      # Main UI views and view models
 ├── Demos/                      # Control showcase
 │   ├── ControlDemos/          # Individual control examples
 │   └── StyleDemos/            # Style/theme demonstrations
 └── Services/                   # Config, Demo, ViewService
 
-LightKit.Generators/            # Roslyn source generators
+Mantan.Generators/            # Roslyn source generators
 └── Language key generation from YAML
 
-LightKit.Prepare/               # Build preparation utilities
+Mantan.Prepare/               # Build preparation utilities
 ```
 
 ## Key Features
@@ -93,7 +93,7 @@ LightKit.Prepare/               # Build preparation utilities
 ## Recent Additions
 
 ### LightAnimatedExpander (Dec 26, 2024)
-Location: `/LightKit/Controls/LightAnimatedExpander.cs`
+Location: `/Mantan/Controls/LightAnimatedExpander.cs`
 
 A container that animates height changes when expanding/collapsing content. Solves Avalonia's limitation of not supporting transitions for Auto-sized values.
 
@@ -109,7 +109,7 @@ A container that animates height changes when expanding/collapsing content. Solv
 - Used by LightAccordion for smooth expand/collapse animations
 
 ### SmoothBrushTransition (Dec 26, 2024)
-Location: `/LightKit/Animation/SmoothBrushTransition.cs`
+Location: `/Mantan/Animation/SmoothBrushTransition.cs`
 
 Smooth color/brush interpolation with premultiplied alpha blending:
 - Supports SolidColorBrush and GradientBrush transitions
@@ -117,7 +117,7 @@ Smooth color/brush interpolation with premultiplied alpha blending:
 - Applied to: LightButton, LightChart, LightCommand, LightListBox, LightTitleBarButton, LightToggleButton
 
 ### LightCommand Control (Dec 23, 2024)
-Location: `/LightKit/Controls/LightCommand.cs` and `.axaml`
+Location: `/Mantan/Controls/LightCommand.cs` and `.axaml`
 
 Command palette / searchable command menu control:
 - Properties: Watermark (placeholder), Text (search/input)
@@ -125,19 +125,19 @@ Command palette / searchable command menu control:
 - Use case: Quick action/command selection interface
 
 ### PopupRoot Control (Dec 23, 2024)
-Location: `/LightKit/Controls/Base/PopupRoot.axaml`
+Location: `/Mantan/Controls/Base/PopupRoot.axaml`
 
 Root container for popup windows with transparent background and VisualLayerManager integration.
 
 ### LightToggleButton (Dec 24, 2024)
-Location: `/LightKit/Controls/LightToggleButton.cs` and `.axaml`
+Location: `/Mantan/Controls/LightToggleButton.cs` and `.axaml`
 
 Toggle button with variants and size options:
 - Variants: Outline, WithText
 - Sizes: Default, Small, Large
 
 ### LightCheckBox (Dec 22, 2024)
-Location: `/LightKit/Controls/LightCheckBox.cs` and `.axaml`
+Location: `/Mantan/Controls/LightCheckBox.cs` and `.axaml`
 
 Enhanced checkbox with custom header support:
 - Variants: Default, Bordered
@@ -150,14 +150,14 @@ Enhanced checkbox with custom header support:
 When creating new controls:
 1. Inherit from appropriate Avalonia base control or create custom control
 2. Define variants using enums (e.g., `LightCheckBoxVariant`)
-3. Create corresponding `.axaml` theme file in `/LightKit/Controls/`
+3. Create corresponding `.axaml` theme file in `/Mantan/Controls/`
 4. Register styles in `BaseTheme.axaml`
-5. Add demo to `/LightKit.Demo/Demos/ControlDemos/`
+5. Add demo to `/Mantan.Demo/Demos/ControlDemos/`
 6. Apply `SmoothBrushTransition` for color/brush animations where appropriate
 
 ### Theme Integration
 - All color values use OKLch color space for perceptually uniform interpolation
-- Define colors in `/LightKit/Themes/Values/`
+- Define colors in `/Mantan/Themes/Values/`
 - Use `@Light.axaml` and `@Dark.axaml` for theme-specific values
 - Reference via `{StaticResource}` or `{DynamicResource}` in XAML
 
@@ -188,12 +188,12 @@ var service = Services.Get<IYourService>();
 
 **Build:**
 ```bash
-dotnet build LightKit.slnx
+dotnet build Mantan.slnx
 ```
 
 **Run Demo:**
 ```bash
-dotnet run --project LightKit.Demo/LightKit.Demo.csproj
+dotnet run --project Mantan.Demo/Mantan.Demo.csproj
 ```
 
 ## Code Style
@@ -207,20 +207,20 @@ dotnet run --project LightKit.Demo/LightKit.Demo.csproj
 ## Testing Strategy
 
 - Demo application serves as interactive test suite
-- Each control has corresponding demo in `/LightKit.Demo/Demos/ControlDemos/`
-- Visual verification through theme demos in `/LightKit.Demo/Demos/StyleDemos/`
+- Each control has corresponding demo in `/Mantan.Demo/Demos/ControlDemos/`
+- Visual verification through theme demos in `/Mantan.Demo/Demos/StyleDemos/`
 
 ## Common Tasks
 
 ### Adding a New Control
-1. Create control class in `/LightKit/Controls/YourControl.cs`
-2. Create theme file `/LightKit/Controls/YourControl.axaml`
-3. Register in `/LightKit/Themes/BaseTheme.axaml`
-4. Create demo in `/LightKit.Demo/Demos/ControlDemos/YourControlDemo.axaml`
+1. Create control class in `/Mantan/Controls/YourControl.cs`
+2. Create theme file `/Mantan/Controls/YourControl.axaml`
+3. Register in `/Mantan/Themes/BaseTheme.axaml`
+4. Create demo in `/Mantan.Demo/Demos/ControlDemos/YourControlDemo.axaml`
 5. Update this documentation
 
 ### Adding a New Theme Color
-1. Define color in `/LightKit/Themes/Values/`
+1. Define color in `/Mantan/Themes/Values/`
 2. Add light variant to `@Light.axaml`
 3. Add dark variant to `@Dark.axaml`
 4. Reference in control themes
@@ -232,10 +232,10 @@ dotnet run --project LightKit.Demo/LightKit.Demo.csproj
 
 ## Important Files
 
-- `/LightKit/Themes/BaseTheme.axaml` - Master theme orchestrator (123 lines)
+- `/Mantan/Themes/BaseTheme.axaml` - Master theme orchestrator (123 lines)
 - `/Directory.Build.props` - Shared MSBuild properties
-- `/LightKit.sln.DotSettings` - ReSharper/Rider settings
-- `/LightKit/Animation/SmoothBrushTransition.cs` - Core animation logic
+- `/Mantan.sln.DotSettings` - ReSharper/Rider settings
+- `/Mantan/Animation/SmoothBrushTransition.cs` - Core animation logic
 
 ## Git Workflow
 

@@ -1,0 +1,17 @@
+<LightView
+    x:Class="Manta.Demo.Demos.ControlDemos.LightIconView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
+    x:DataType="local:LightIconView_Model" Design.DataContext="{x:Static local:LightIconView_Model.Design}">
+    <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <LightPanel Mode="Horizontal" Spacing="12">
+            <LightIcon IconSize="80" IconSource="{Binding TestIcon}" />
+            <LightIcon IconSize="80" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" />
+        </LightPanel>
+        <LightPanel Mode="Horizontal" Spacing="12">
+            <LightIcon IconSize="50" IconSource="{Binding TestIcon}" Background="{ThemeColorSet Primary, Opacity=0.1}" Foreground="{ThemeColorSet Primary}" />
+            <LightIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" Foreground="{ThemeColorSet Primary}" />
+        </LightPanel>
+    </LightPanel>
+</LightView>

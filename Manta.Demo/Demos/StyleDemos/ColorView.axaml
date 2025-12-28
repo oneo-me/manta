@@ -1,0 +1,188 @@
+<LightView
+    x:Class="Manta.Demo.Demos.StyleDemos.ColorView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
+    x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}">
+    <LightView.Styles>
+        <Style Selector="LightText.Key">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Border.Color">
+            <Setter Property="Width" Value="38" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="LightPanel.ColorBox">
+            <Setter Property="Spacing" Value="6" />
+            <Setter Property="Mode" Value="Horizontal" />
+        </Style>
+    </LightView.Styles>
+    <LightScrollViewer HorizontalScrollBarVisibility="Auto">
+        <LightPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
+            <LightText Text="ColorTest" FontWeight="SemiBold" />
+            <LightPanel Mode="Vertical" Spacing="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="{Binding H, StringFormat=H: {0}}" VerticalAlignment="Center" />
+                    <Slider Grid.Column="1" Minimum="0" Maximum="360" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding H}" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Tests" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Colors" VerticalAlignment="Center" />
+                    <LightItems Grid.Column="1" ItemsSource="{Binding Colors}">
+                        <LightItems.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <LightPanel Mode="Horizontal" Classes="ColorBox" />
+                            </ItemsPanelTemplate>
+                        </LightItems.ItemsPanel>
+                        <LightItems.ItemTemplate>
+                            <DataTemplate>
+                                <Border Classes="Color" Background="{Binding}" />
+                            </DataTemplate>
+                        </LightItems.ItemTemplate>
+                    </LightItems>
+                </Grid>
+            </LightPanel>
+            <LightText Text="ColorSet" FontWeight="SemiBold" />
+            <LightPanel Mode="Vertical" Spacing="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Background" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="BorderBrush" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Foreground" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="ColorForeground" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Primary" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Success" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Warning" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ColorSet" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <LightText Grid.Column="0" Classes="Key" Text="Error" />
+                    <LightPanel Grid.Column="1" Classes="ColorBox">
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light3}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark1}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark2}" />
+                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark3}" />
+                    </LightPanel>
+                </Grid>
+            </LightPanel>
+        </LightPanel>
+    </LightScrollViewer>
+</LightView>

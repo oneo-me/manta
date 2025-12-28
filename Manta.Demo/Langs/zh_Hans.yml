@@ -1,0 +1,26 @@
+Title: Manta
+Description: 这是一个基于 Avalonia UI 实现的界面开发框架，将在这个项目中演示其所有的功能。
+
+Overview: 概览
+Styles: 样式
+Reactive: 响应式
+MultiLanguage: 多语言
+Controls: 控件
+Settings: 设置
+
+Demo_Style_Color: 颜色
+Demo_Style_Font: 字体
+Demo_Style_Font_TestText: 敏捷的棕色狐狸跳过了懒惰的狗
+Demo_Style_Radius: 圆角
+Demo_Style_Shadow: 阴影
+
+SubGroup_Chart: 图表
+SubGroup_Window: 窗口
+SubGroup_Button: 按钮
+SubGroup_Text: 文本
+SubGroup_Progress: 进度
+SubGroup_List: 列表
+SubGroup_Switch: 开关
+SubGroup_Icon: 图标
+SubGroup_Base: 基础
+SubGroup_Other: 其他
