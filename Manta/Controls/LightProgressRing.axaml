@@ -7,7 +7,7 @@
     <Design.PreviewWith>
         <!-- Progress -->
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall">
+            <LightPanel Mode="Horizontal" Spacing="12" Mt.TextSize="ExtraSmall">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -18,7 +18,7 @@
                     <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Primary">
+            <LightPanel Mode="Horizontal" Spacing="12" Mt.TextSize="ExtraSmall" Mt.ColorScheme="Primary">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -29,7 +29,7 @@
                     <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Success">
+            <LightPanel Mode="Horizontal" Spacing="12" Mt.TextSize="ExtraSmall" Mt.ColorScheme="Success">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -40,7 +40,7 @@
                     <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Warning">
+            <LightPanel Mode="Horizontal" Spacing="12" Mt.TextSize="ExtraSmall" Mt.ColorScheme="Warning">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -51,7 +51,7 @@
                     <LightText Text="TEST" />
                 </LightProgressRing>
             </LightPanel>
-            <LightPanel Mode="Horizontal" Spacing="12" Theme.TextSize="ExtraSmall" Theme.ColorScheme="Danger">
+            <LightPanel Mode="Horizontal" Spacing="12" Mt.TextSize="ExtraSmall" Mt.ColorScheme="Danger">
                 <LightProgressRing />
                 <LightProgressRing Value="50" />
                 <LightProgressRing Value="100" />
@@ -136,25 +136,25 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Normal]">
-            <Setter Property="RingForeground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
-            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        <Style Selector="^[(Mt.ColorScheme)=Normal]">
+            <Setter Property="RingForeground" Value="{MtBrush Foreground, Opacity=0.6}" />
+            <Setter Property="RingBackground" Value="{MtBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Primary]">
-            <Setter Property="RingForeground" Value="{ThemeColorSet Primary}" />
-            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        <Style Selector="^[(Mt.ColorScheme)=Primary]">
+            <Setter Property="RingForeground" Value="{MtBrush Primary}" />
+            <Setter Property="RingBackground" Value="{MtBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Success]">
-            <Setter Property="RingForeground" Value="{ThemeColorSet Success}" />
-            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        <Style Selector="^[(Mt.ColorScheme)=Success]">
+            <Setter Property="RingForeground" Value="{MtBrush Success}" />
+            <Setter Property="RingBackground" Value="{MtBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Warning]">
-            <Setter Property="RingForeground" Value="{ThemeColorSet Warning}" />
-            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        <Style Selector="^[(Mt.ColorScheme)=Warning]">
+            <Setter Property="RingForeground" Value="{MtBrush Warning}" />
+            <Setter Property="RingBackground" Value="{MtBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Danger]">
-            <Setter Property="RingForeground" Value="{ThemeColorSet Danger}" />
-            <Setter Property="RingBackground" Value="{ThemeColorSet Foreground, Opacity=0.08}" />
+        <Style Selector="^[(Mt.ColorScheme)=Danger]">
+            <Setter Property="RingForeground" Value="{MtBrush Danger}" />
+            <Setter Property="RingBackground" Value="{MtBrush Foreground, Opacity=0.08}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

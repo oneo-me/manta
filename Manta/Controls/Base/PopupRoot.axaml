@@ -8,7 +8,7 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground}" />
         <!-- TODO <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" /> -->
         <Setter Property="Template">
             <ControlTemplate>
@@ -31,7 +31,7 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground}" />
         <!-- TODO <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" /> -->
         <Setter Property="Template">
             <ControlTemplate>

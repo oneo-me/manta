@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ToggleSwitch' is not supported" />
+                    <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'ToggleSwitch' is not supported" />
                     <Panel Name="PART_MovingKnobs" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

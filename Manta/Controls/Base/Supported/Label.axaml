@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type Label}" TargetType="Label">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightLabel'" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightLabel'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

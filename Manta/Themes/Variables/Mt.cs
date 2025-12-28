@@ -30,10 +30,11 @@ public enum TextSize
     ExtraLarge9
 }
 
-public class Theme
+[Obsolete]
+public class Mt
 {
     public static readonly AttachedProperty<ColorScheme> ColorSchemeProperty =
-        AvaloniaProperty.RegisterAttached<Theme, AvaloniaObject, ColorScheme>("ColorScheme", ColorScheme.Normal, true);
+        AvaloniaProperty.RegisterAttached<Mt, AvaloniaObject, ColorScheme>("ColorScheme", ColorScheme.Normal, true);
 
     public static void SetColorScheme(AvaloniaObject obj, ColorScheme value)
     {
@@ -46,7 +47,7 @@ public class Theme
     }
 
     public static readonly AttachedProperty<TextSize> TextSizeProperty =
-        AvaloniaProperty.RegisterAttached<Theme, AvaloniaObject, TextSize>("TextSize", TextSize.Normal, true);
+        AvaloniaProperty.RegisterAttached<Mt, AvaloniaObject, TextSize>("TextSize", TextSize.Normal, true);
 
     public static void SetTextSize(AvaloniaObject obj, TextSize value)
     {

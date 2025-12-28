@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ProgressBar' is not supported" />
+                    <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'ProgressBar' is not supported" />
                     <Border Name="PART_Indicator" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

@@ -9,21 +9,21 @@
                 <Viewbox Name="PART_ViewBox" ClipToBounds="False" />
             </ControlTemplate>
         </Setter>
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.6}" />
-        <Style Selector="^[(Theme.ColorScheme)=Normal]">
-            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground, Opacity=0.6}" />
+        <Style Selector="^[(Mt.ColorScheme)=Normal]">
+            <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Primary]">
-            <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.2}" />
+        <Style Selector="^[(Mt.ColorScheme)=Primary]">
+            <Setter Property="Background" Value="{MtBrush Primary, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Success]">
-            <Setter Property="Background" Value="{ThemeColorSet Success, Opacity=0.2}" />
+        <Style Selector="^[(Mt.ColorScheme)=Success]">
+            <Setter Property="Background" Value="{MtBrush Success, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Warning]">
-            <Setter Property="Background" Value="{ThemeColorSet Warning, Opacity=0.2}" />
+        <Style Selector="^[(Mt.ColorScheme)=Warning]">
+            <Setter Property="Background" Value="{MtBrush Warning, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(Theme.ColorScheme)=Danger]">
-            <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.2}" />
+        <Style Selector="^[(Mt.ColorScheme)=Danger]">
+            <Setter Property="Background" Value="{MtBrush Danger, Opacity=0.2}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

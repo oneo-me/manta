@@ -18,7 +18,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightScrollViewer}" TargetType="LightScrollViewer">
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -54,7 +54,7 @@
     </ControlTheme>
     <ControlTheme x:Key="{x:Type LightScrollBar}" TargetType="LightScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
-        <Setter Property="Background" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Background" Value="{MtBrush Foreground}" />
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="ShowDelay" Value="0:0:0" />
         <Setter Property="HideDelay" Value="0:0:0.2" />

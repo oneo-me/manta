@@ -76,17 +76,17 @@
         <Style Selector="^[Type=Normal]">
             <Setter Property="Padding" Value="12 4" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.5}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground, Opacity=0.5}" />
             <Style Selector="^:pointerover:not(:selected)">
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             </Style>
             <Style Selector="^:selected">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground, Opacity=0.2}" />
-                <Setter Property="Background" Value="{ThemeColorSet Background}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Foreground, Opacity=0.2}" />
+                <Setter Property="Background" Value="{MtBrush Background}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground}" />
                 <Setter Property="ZIndex" Value="999" />
             </Style>
             <Style Selector="^:nth-child(1)">
@@ -103,20 +103,20 @@
             <Setter Property="Padding" Value="14 0" />
             <Setter Property="Margin" Value="0 0 0 1" />
             <Setter Property="BorderThickness" Value="1 0 0 0" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.5}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground, Opacity=0.5}" />
             <Style Selector="^:pointerover:not(:selected)">
                 <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.05}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             </Style>
             <Style Selector="^:selected">
                 <Setter Property="Padding" Value="14 0 14 1" />
                 <Setter Property="Margin" Value="0" />
-                <Setter Property="Background" Value="{ThemeColorSet Background}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="Background" Value="{MtBrush Background}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             </Style>
             <Style Selector="^:nth-last-child(1)">
                 <Setter Property="BorderThickness" Value="1 0" />

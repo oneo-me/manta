@@ -5,18 +5,18 @@
     <Design.PreviewWith>
         <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
             <ThemeVariantScope Width="100" RequestedThemeVariant="Light">
-                <Panel Background="{ThemeColorSet Background}">
+                <Panel Background="{MtBrush Background}">
                     <LightText Text="LightText" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
             <ThemeVariantScope Width="100" RequestedThemeVariant="Dark">
-                <Panel Background="{ThemeColorSet Background}">
+                <Panel Background="{MtBrush Background}">
                     <LightText Text="LightText" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ThemeVariantScope}" TargetType="ThemeVariantScope">
-        <Setter Property="TextElement.Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="TextElement.Foreground" Value="{MtBrush Foreground}" />
     </ControlTheme>
 </ResourceDictionary>

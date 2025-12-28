@@ -4,31 +4,31 @@
     xmlns:values="clr-namespace:Manta.Themes.Values"
     x:ClassModifier="internal">
     <!-- ColorSets -->
-    <values:RgbColor x:Key="{ThemeColorSetKey Background}" R="255" G="255" B="255" />
-    <values:RgbColor x:Key="{ThemeColorSetKey BorderBrush}" R="55" G="55" B="55" Opacity="0.08" />
-    <values:RgbColor x:Key="{ThemeColorSetKey Foreground}" R="55" G="55" B="55" />
-    <values:RgbColor x:Key="{ThemeColorSetKey ColorForeground}" R="255" G="255" B="255" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Primary}" H="243" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Success}" H="151" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Warning}" H="93" />
-    <values:ColorSet x:Key="{ThemeColorSetKey Danger}" H="14" />
+    <values:RgbColor x:Key="{MtBrushKey Background}" R="255" G="255" B="255" />
+    <values:RgbColor x:Key="{MtBrushKey BorderBrush}" R="55" G="55" B="55" Opacity="0.08" />
+    <values:RgbColor x:Key="{MtBrushKey Foreground}" R="55" G="55" B="55" />
+    <values:RgbColor x:Key="{MtBrushKey ColorForeground}" R="255" G="255" B="255" />
+    <values:ColorSet x:Key="{MtBrushKey Primary}" H="243" />
+    <values:ColorSet x:Key="{MtBrushKey Success}" H="151" />
+    <values:ColorSet x:Key="{MtBrushKey Warning}" H="93" />
+    <values:ColorSet x:Key="{MtBrushKey Danger}" H="14" />
     <!-- Shadows -->
-    <BoxShadows x:Key="{ThemeShadowKey XS2}">0 1 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey XS}">0 1 2 0 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey SM}">0 1 3 0 #1A000000, 0 1 2 -1 #1A000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey MD}">0 4 6 -1 #1A000000, 0 2 4 -2 #1A000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey LG}">0 10 15 -3 #1A000000, 0 4 6 -4 #1A000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey XL}">0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey XL2}">0 25 50 -12 #40000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey InsetXS2}">inset 0 1 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey InsetXS}">inset 0 1 1 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey InsetSM}">inset 0 2 4 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropXS}">0 1 1 #0D000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropSM}">0 1 2 #26000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropMD}">0 3 3 #1F000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropLG}">0 4 4 #26000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropXL}">0 9 7 #1A000000</BoxShadows>
-    <BoxShadows x:Key="{ThemeShadowKey DropXL2}">0 25 25 #26000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey XS2}">0 1 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey XS}">0 1 2 0 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey SM}">0 1 3 0 #1A000000, 0 1 2 -1 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey MD}">0 4 6 -1 #1A000000, 0 2 4 -2 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey LG}">0 10 15 -3 #1A000000, 0 4 6 -4 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey XL}">0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey XL2}">0 25 50 -12 #40000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey InsetXS2}">inset 0 1 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey InsetXS}">inset 0 1 1 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey InsetSM}">inset 0 2 4 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropXS}">0 1 1 #0D000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropSM}">0 1 2 #26000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropMD}">0 3 3 #1F000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropLG}">0 4 4 #26000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropXL}">0 9 7 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey DropXL2}">0 25 25 #26000000</BoxShadows>
     <!-- Menu Shadow -->
-    <BoxShadows x:Key="{ThemeShadowKey Menu}">0 0 5 #26000000</BoxShadows>
+    <BoxShadows x:Key="{MtShadowKey Menu}">0 0 5 #26000000</BoxShadows>
 </ResourceDictionary>

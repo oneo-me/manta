@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'MaskedTextBox' is not supported" />
+                    <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'MaskedTextBox' is not supported" />
                     <TextPresenter Name="PART_TextPresenter" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

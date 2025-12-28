@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type HeaderedItemsControl}" TargetType="HeaderedItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'HeaderedItemsControl' is not supported" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'HeaderedItemsControl' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -56,8 +56,8 @@
             </ControlTemplate>
         </Setter>
         <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="Background" Value="{ThemeColorSet Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="Background" Value="{MtBrush Background}" />
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="12" />
         <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
@@ -78,7 +78,7 @@
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Foreground" Value="{ThemeColorSet Danger}" />
+            <Setter Property="Foreground" Value="{MtBrush Danger}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

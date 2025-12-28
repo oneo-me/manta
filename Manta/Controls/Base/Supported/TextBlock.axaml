@@ -8,7 +8,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
-        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Mt.ColorScheme" Value="Danger" />
         <Setter Property="Text" Value="Please use the 'LightText'" />
     </ControlTheme>
 </ResourceDictionary>

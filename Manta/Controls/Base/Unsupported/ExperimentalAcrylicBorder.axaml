@@ -9,6 +9,6 @@
     </Design.PreviewWith>
     <!-- The control 'ExperimentalAcrylicBorder' is not supported -->
     <ControlTheme x:Key="{x:Type ExperimentalAcrylicBorder}" TargetType="ExperimentalAcrylicBorder">
-        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Mt.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

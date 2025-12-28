@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'AutoCompleteBox' is not supported" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'AutoCompleteBox' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ToolTip' is not supported" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'ToolTip' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

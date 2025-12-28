@@ -59,11 +59,11 @@
                            IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                            PlacementTarget="{Binding ElementName=PopupTarget}"
                            InheritsTransform="True">
-                        <Border Background="{ThemeColorSet Background}"
-                                BorderBrush="{ThemeColorSet BorderBrush}"
+                        <Border Background="{MtBrush Background}"
+                                BorderBrush="{MtBrush BorderBrush}"
                                 BorderThickness="1"
                                 CornerRadius="8"
-                                Margin="5" BoxShadow="{ThemeShadow Menu}">
+                                Margin="5" BoxShadow="{MtShadow Menu}">
                             <LightCommand ItemsSource="{TemplateBinding ItemsSource}" ItemTemplate="{TemplateBinding ItemTemplate}" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
                     </Popup>
@@ -72,7 +72,7 @@
         </Setter>
         <Style Selector="^ /template/ LightToggleButton#Toggle">
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0}" />
             </Style>
             <Style Selector="^ LightPathIcon#Icon">
                 <Setter Property="Data" Value="M1 12L6 17L11 12M1 6L6 1L11 6" />

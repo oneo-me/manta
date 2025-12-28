@@ -6,7 +6,7 @@
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     Name="View">
     <LightPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Theme.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
+        <LightText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" Mt.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
         <LightText Text="{Lang {x:Static LangKey.Description}}" />
         <LightItems ItemsSource="{Binding Items}">
             <LightItems.ItemsPanel>
@@ -16,7 +16,7 @@
             </LightItems.ItemsPanel>
             <LightItems.ItemTemplate>
                 <DataTemplate>
-                    <LightButton Size="Small" Theme.ColorScheme="Primary"
+                    <LightButton Size="Small" Mt.ColorScheme="Primary"
                                  Content="{Lang {Binding Header}}"
                                  Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
                                  CommandParameter="{Binding}" />

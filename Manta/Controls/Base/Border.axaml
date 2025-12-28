@@ -8,6 +8,6 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Border}" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
     </ControlTheme>
 </ResourceDictionary>

@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightListBox'" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightListBox'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightListBoxItem'" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightListBoxItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

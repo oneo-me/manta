@@ -7,7 +7,7 @@
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightPanel.Styles>
                 <Style Selector="LightPathIcon.Checked">
-                    <Setter Property="Foreground" Value="{ThemeColorSet Primary}" />
+                    <Setter Property="Foreground" Value="{MtBrush Primary}" />
                 </Style>
             </LightPanel.Styles>
             <LightToggleButton HorizontalAlignment="Left" IsChecked="True">
@@ -70,32 +70,32 @@
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet Background}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
+                <Setter Property="BoxShadow" Value="{MtShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
+                <Setter Property="BorderBrush" Value="{MtBrush BorderBrush, Opacity=0.6}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="BoxShadow" Value="{ThemeShadow XS}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow XS}" />
                 </Style>
             </Style>
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=WithText]">
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground, Opacity=0.8}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground, Opacity=0.8}" />
             </Style>
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush}" />
+                <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             </Style>
         </Style>
     </ControlTheme>

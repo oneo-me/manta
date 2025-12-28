@@ -7,7 +7,7 @@ using Manta.Themes.Values;
 namespace Manta.Themes.Variables;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public enum ThemeColorSetKey
+public enum MtBrushKey
 {
     Background,
     BorderBrush,
@@ -20,7 +20,7 @@ public enum ThemeColorSetKey
     Danger
 }
 
-public enum ThemeColorType
+public enum MtBrushType
 {
     Normal,
 
@@ -33,12 +33,12 @@ public enum ThemeColorType
     Dark3
 }
 
-public sealed class ThemeColorSetKeyExtension(ThemeColorSetKey key) : ThemeKeyBase(key);
+public sealed class MtBrushKeyExtension(MtBrushKey key) : MtKeyBase(key);
 
-public sealed class ThemeColorSet(ThemeColorSetKey key) : ThemeValueBase
+public sealed class MtBrush(MtBrushKey key) : MtValueBase
 {
-    public ThemeColorSetKey Key { get; } = key;
-    public ThemeColorType Type { get; set; } = ThemeColorType.Normal;
+    public MtBrushKey Key { get; } = key;
+    public MtBrushType Type { get; set; } = MtBrushType.Normal;
     public double Opacity { get; set; } = 1.0;
 
     protected override IEnumerable<object> GetKeys()
@@ -46,22 +46,22 @@ public sealed class ThemeColorSet(ThemeColorSetKey key) : ThemeValueBase
         yield return Key;
     }
 
-    static int ColorType2Step(ThemeColorType colorType)
+    static int ColorType2Step(MtBrushType colorType)
     {
         return colorType switch
         {
-            ThemeColorType.Dark3  => 0,
-            ThemeColorType.Dark2  => 1,
-            ThemeColorType.Dark1  => 2,
-            ThemeColorType.Normal => 3,
-            ThemeColorType.Light1 => 4,
-            ThemeColorType.Light2 => 5,
-            ThemeColorType.Light3 => 6,
-            _                     => throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null)
+            MtBrushType.Dark3  => 0,
+            MtBrushType.Dark2  => 1,
+            MtBrushType.Dark1  => 2,
+            MtBrushType.Normal => 3,
+            MtBrushType.Light1 => 4,
+            MtBrushType.Light2 => 5,
+            MtBrushType.Light3 => 6,
+            _                  => throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null)
         };
     }
 
-    public static ColorBase? GetColor(object? value, ThemeColorType colorType)
+    public static ColorBase? GetColor(object? value, MtBrushType colorType)
     {
         if (value is ColorBase colorBase)
             return colorBase;

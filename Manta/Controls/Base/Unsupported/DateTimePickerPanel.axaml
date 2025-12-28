@@ -9,6 +9,6 @@
     </Design.PreviewWith>
     <!-- The control 'DateTimePickerPanel' is not supported -->
     <ControlTheme x:Key="{x:Type DateTimePickerPanel}" TargetType="DateTimePickerPanel">
-        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Mt.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

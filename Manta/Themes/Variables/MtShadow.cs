@@ -5,7 +5,7 @@ using Manta.Themes.Base;
 namespace Manta.Themes.Variables;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public enum ThemeShadowKey
+public enum MtShadowKey
 {
     XS2,
     XS,
@@ -29,13 +29,13 @@ public enum ThemeShadowKey
     Menu
 }
 
-public sealed class ThemeShadowKeyExtension(ThemeShadowKey key) : ThemeKeyBase(key);
+public sealed class MtShadowKeyExtension(MtShadowKey key) : MtKeyBase(key);
 
-public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
+public sealed class MtShadow(MtShadowKey key) : MtValueBase
 {
-    public ThemeShadowKey Key { get; } = key;
-    public ThemeColorSetKey ColorKey { get; init; } = ThemeColorSetKey.Foreground;
-    public ThemeColorType ColorType { get; set; } = ThemeColorType.Normal;
+    public MtShadowKey Key { get; } = key;
+    public MtBrushKey ColorKey { get; init; } = MtBrushKey.Foreground;
+    public MtBrushType ColorType { get; set; } = MtBrushType.Normal;
     public double BrushOpacity { get; init; } = -1;
 
     protected override IEnumerable<object> GetKeys()
@@ -47,7 +47,7 @@ public sealed class ThemeShadow(ThemeShadowKey key) : ThemeValueBase
     protected override object ProcessValues(IList<object?> values)
     {
         var value0 = values[0];
-        var value1 = ThemeColorSet.GetColor(values[1], ColorType);
+        var value1 = MtBrush.GetColor(values[1], ColorType);
 
         if (value0 is not BoxShadows boxShadows || value1 is null)
             return default(BoxShadows);

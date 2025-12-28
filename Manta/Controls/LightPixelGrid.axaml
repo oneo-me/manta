@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <Panel Background="{ThemeColorSet Background}">
+        <Panel Background="{MtBrush Background}">
             <LightPanel Mode="Horizontal" Spacing="12" Margin="12">
                 <Border BorderThickness="1">
                     <LightPixelGrid Width="100" Height="100" />
@@ -18,7 +18,7 @@
         </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type LightPixelGrid}" TargetType="LightPixelGrid">
-        <Setter Property="Background" Value="{ThemeColorSet Background}" />
+        <Setter Property="Background" Value="{MtBrush Background}" />
         <Setter Property="Opacity" Value="0.1" />
         <Setter Property="Template">
             <ControlTemplate>

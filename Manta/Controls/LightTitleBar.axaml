@@ -9,7 +9,7 @@
                 <Style Selector="Border.Box">
                     <Setter Property="BorderThickness" Value="1" />
                     <Setter Property="CornerRadius" Value="12" />
-                    <Setter Property="Background" Value="{ThemeColorSet Background}" />
+                    <Setter Property="Background" Value="{MtBrush Background}" />
                 </Style>
                 <Style Selector="LightPanel.MacOS">
                     <Setter Property="IsVisible" Value="False" />
@@ -177,10 +177,10 @@
                 <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground}" />
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.1}" />
+            <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.1}" />
         </Style>
         <Style Selector="^[Type=None]">
             <Setter Property="Padding" Value="10 0" />
@@ -202,11 +202,11 @@
         </Style>
         <Style Selector="^[Type=Close]">
             <Setter Property="IconData" Value="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
-            <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Background" Value="{MtBrush Danger, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet Danger}" />
-                <Setter Property="Foreground" Value="{ThemeColorSet ColorForeground}" />
+                <Setter Property="Background" Value="{MtBrush Danger}" />
+                <Setter Property="Foreground" Value="{MtBrush ColorForeground}" />
             </Style>
         </Style>
     </ControlTheme>

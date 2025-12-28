@@ -10,8 +10,8 @@
             <LightIcon IconSize="80" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" />
         </LightPanel>
         <LightPanel Mode="Horizontal" Spacing="12">
-            <LightIcon IconSize="50" IconSource="{Binding TestIcon}" Background="{ThemeColorSet Primary, Opacity=0.1}" Foreground="{ThemeColorSet Primary}" />
-            <LightIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" Foreground="{ThemeColorSet Primary}" />
+            <LightIcon IconSize="50" IconSource="{Binding TestIcon}" Background="{MtBrush Primary, Opacity=0.1}" Foreground="{MtBrush Primary}" />
+            <LightIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" Foreground="{MtBrush Primary}" />
         </LightPanel>
     </LightPanel>
 </LightView>

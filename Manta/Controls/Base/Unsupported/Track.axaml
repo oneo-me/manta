@@ -9,6 +9,6 @@
     </Design.PreviewWith>
     <!-- The control 'Track' is not supported -->
     <ControlTheme x:Key="{x:Type Track}" TargetType="Track">
-        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Mt.ColorScheme" Value="Danger" />
     </ControlTheme>
 </ResourceDictionary>

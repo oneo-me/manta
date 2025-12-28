@@ -39,11 +39,11 @@
         <Style Selector="^ /template/ Border#Icon">
             <Setter Property="Width" Value="16" />
             <Setter Property="Height" Value="16" />
-            <Setter Property="Background" Value="{ThemeColorSet Background}" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="4" />
-            <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
+            <Setter Property="BoxShadow" Value="{MtShadow MD}" />
             <Style Selector="^ LightPathIcon">
                 <Setter Property="Data" Value="M20 6 9 17l-5-5" />
                 <Setter Property="UseStroke" Value="True" />
@@ -51,7 +51,7 @@
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Opacity" Value="0" />
-                <Setter Property="Foreground" Value="{ThemeColorSet Background}" />
+                <Setter Property="Foreground" Value="{MtBrush Background}" />
             </Style>
         </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
@@ -69,9 +69,9 @@
         <Style Selector="^[Variant=Default]">
             <Style Selector="^:checked">
                 <Style Selector="^ /template/ Border#Icon">
-                    <Setter Property="Background" Value="{ThemeColorSet Foreground}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Foreground}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow MD, BrushOpacity=0}" />
+                    <Setter Property="Background" Value="{MtBrush Foreground}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Foreground}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow MD, BrushOpacity=0}" />
                     <Style Selector="^ LightPathIcon">
                         <Setter Property="Opacity" Value="1" />
                     </Style>
@@ -79,18 +79,18 @@
             </Style>
         </Style>
         <Style Selector="^[Variant=Bordered]">
-            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0}" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Padding" Value="12" />
             <Setter Property="CornerRadius" Value="8" />
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{ThemeColorSet Primary, Opacity=0.05}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary}" />
+                <Setter Property="Background" Value="{MtBrush Primary, Opacity=0.05}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Primary}" />
                 <Style Selector="^ /template/ Border#Icon">
-                    <Setter Property="Background" Value="{ThemeColorSet Primary}" />
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow MD, BrushOpacity=0}" />
+                    <Setter Property="Background" Value="{MtBrush Primary}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Primary}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow MD, BrushOpacity=0}" />
                     <Style Selector="^ LightPathIcon">
                         <Setter Property="Opacity" Value="1" />
                     </Style>

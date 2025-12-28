@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'TimePicker' is not supported" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'TimePicker' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

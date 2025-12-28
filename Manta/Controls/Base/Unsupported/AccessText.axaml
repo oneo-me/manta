@@ -8,7 +8,7 @@
         </LightPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AccessText}" TargetType="AccessText">
-        <Setter Property="Theme.ColorScheme" Value="Danger" />
+        <Setter Property="Mt.ColorScheme" Value="Danger" />
         <Setter Property="Text" Value="The control 'AccessText' is not supported" />
     </ControlTheme>
 </ResourceDictionary>

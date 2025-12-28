@@ -61,13 +61,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Background" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Background, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Background}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Background, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -77,13 +77,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="BorderBrush" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet BorderBrush, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush BorderBrush, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -93,13 +93,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Foreground" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Foreground, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Foreground, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -109,13 +109,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="ColorForeground" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet ColorForeground, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush ColorForeground, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -125,13 +125,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Primary" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Primary, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Primary}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Primary, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -141,13 +141,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Success" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Success, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Success}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Success, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -157,13 +157,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Warning" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Warning, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Warning}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Warning, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
                 <Grid>
@@ -173,13 +173,13 @@
                     </Grid.ColumnDefinitions>
                     <LightText Grid.Column="0" Classes="Key" Text="Error" />
                     <LightPanel Grid.Column="1" Classes="ColorBox">
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light3}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Light1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark1}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark2}" />
-                        <Border Classes="Color" Background="{ThemeColorSet Danger, Type=Dark3}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Light3}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Light2}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Light1}" />
+                        <Border Classes="Color" Background="{MtBrush Danger}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Dark1}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Dark2}" />
+                        <Border Classes="Color" Background="{MtBrush Danger, Type=Dark3}" />
                     </LightPanel>
                 </Grid>
             </LightPanel>

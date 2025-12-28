@@ -5,12 +5,12 @@
     <Design.PreviewWith>
         <LightPanel Mode="Vertical" Spacing="12" Margin="12">
             <LightAspectRatio Ratio="16 / 9">
-                <Border Background="{ThemeColorSet BorderBrush}" Width="320" CornerRadius="8">
+                <Border Background="{MtBrush BorderBrush}" Width="320" CornerRadius="8">
                     <LightText Text="16 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
             </LightAspectRatio>
             <LightAspectRatio Ratio="21 / 9">
-                <Border Background="{ThemeColorSet BorderBrush}" Width="320" CornerRadius="8">
+                <Border Background="{MtBrush BorderBrush}" Width="320" CornerRadius="8">
                     <LightText Text="21 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
             </LightAspectRatio>

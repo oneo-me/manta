@@ -31,8 +31,8 @@
     <ControlTheme x:Key="{x:Type LightAvatar}" TargetType="LightAvatar">
         <Setter Property="Size" Value="36" />
         <Setter Property="CornerRadius" Value="999" />
-        <Setter Property="BorderBrush" Value="{ThemeColorSet Background}" />
-        <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MtBrush Background}" />
+        <Setter Property="Background" Value="{MtBrush BorderBrush}" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>

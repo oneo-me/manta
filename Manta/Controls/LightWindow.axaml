@@ -18,8 +18,8 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-        <Setter Property="Background" Value="{ThemeColorSet Background}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground}" />
+        <Setter Property="Background" Value="{MtBrush Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Name="Root">
@@ -27,7 +27,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
                         <VisualLayerManager>
                             <ContentPresenter Name="PART_ContentPresenter"
-                                              Background="{ThemeColorSet Primary, Opacity=0.035}"
+                                              Background="{MtBrush Primary, Opacity=0.035}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}" />
                         </VisualLayerManager>

@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightScrollViewer'" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightScrollViewer'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightScrollBar'" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightScrollBar'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

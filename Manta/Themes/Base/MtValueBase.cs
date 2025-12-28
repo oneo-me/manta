@@ -8,7 +8,7 @@ using Avalonia.Markup.Xaml.MarkupExtensions;
 
 namespace Manta.Themes.Base;
 
-public abstract class ThemeValueBase : MarkupExtension, IMultiValueConverter
+public abstract class MtValueBase : MarkupExtension, IMultiValueConverter
 {
     protected abstract IEnumerable<object> GetKeys();
     protected abstract object ProcessValues(IList<object?> values);

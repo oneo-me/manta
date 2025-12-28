@@ -8,8 +8,8 @@
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
         <Setter Property="Title" Value="Manta" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
-        <Setter Property="Background" Value="{ThemeColorSet Background}" />
+        <Setter Property="Foreground" Value="{MtBrush Foreground}" />
+        <Setter Property="Background" Value="{MtBrush Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="{TemplateBinding Background}">

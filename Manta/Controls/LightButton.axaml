@@ -82,51 +82,51 @@
             <Setter Property="Padding" Value="20 10" />
         </Style>
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{ThemeColorSet Foreground}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Background}" />
+            <Setter Property="Background" Value="{MtBrush Foreground}" />
+            <Setter Property="Foreground" Value="{MtBrush Background}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.8}" />
+                <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.8}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Background" Value="{ThemeColorSet Background}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="BoxShadow" Value="{ThemeShadow MD}" />
+                <Setter Property="BoxShadow" Value="{MtShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush, Opacity=0.6}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush}" />
+                <Setter Property="BorderBrush" Value="{MtBrush BorderBrush, Opacity=0.6}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="BoxShadow" Value="{ThemeShadow XS}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow XS}" />
                 </Style>
             </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Background" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0.3}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0.3}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Ghost]">
-            <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet BorderBrush}" />
+                <Setter Property="Background" Value="{MtBrush BorderBrush}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Background" Value="{ThemeColorSet Danger}" />
-            <Setter Property="Foreground" Value="{ThemeColorSet ColorForeground}" />
+            <Setter Property="Background" Value="{MtBrush Danger}" />
+            <Setter Property="Foreground" Value="{MtBrush ColorForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{ThemeColorSet Danger, Opacity=0.8}" />
+                <Setter Property="Background" Value="{MtBrush Danger, Opacity=0.8}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Link]">
-            <Setter Property="Foreground" Value="{ThemeColorSet Foreground}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
             <Style Selector="^:pointerover">
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="TextBlock.TextDecorations" Value="Underline" />

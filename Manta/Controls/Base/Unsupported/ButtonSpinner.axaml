@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Theme.ColorScheme="Danger" Text="The control 'ButtonSpinner' is not supported" />
+                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'ButtonSpinner' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

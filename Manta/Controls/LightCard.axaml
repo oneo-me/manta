@@ -23,13 +23,13 @@
                                   ContentTemplate="{TemplateBinding ContentTemplate}" />
             </ControlTemplate>
         </Setter>
-        <Setter Property="Background" Value="{ThemeColorSet Background}" />
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+        <Setter Property="Background" Value="{MtBrush Background}" />
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="12" />
         <Setter Property="Padding" Value="12" />
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="BoxShadow" Value="{ThemeShadow DropMD}" />
+            <Setter Property="BoxShadow" Value="{MtShadow DropMD}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

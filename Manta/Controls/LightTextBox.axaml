@@ -11,13 +11,13 @@
                 <LightTextBox Text="Text Text" />
                 <LightTextBox Text="Text Text" IsReadOnly="True" />
             </LightPanel>
-            <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Primary">
+            <LightPanel Mode="Vertical" Spacing="12" Width="280" Mt.ColorScheme="Primary">
                 <LightTextBox />
                 <LightTextBox Watermark="Watermark..." />
                 <LightTextBox Text="Text Text" />
                 <LightTextBox Text="Text Text" IsReadOnly="True" />
             </LightPanel>
-            <LightPanel Mode="Vertical" Spacing="12" Width="280" Theme.ColorScheme="Danger">
+            <LightPanel Mode="Vertical" Spacing="12" Width="280" Mt.ColorScheme="Danger">
                 <LightTextBox />
                 <LightTextBox Watermark="Watermark..." />
                 <LightTextBox Text="Text Text" />
@@ -105,57 +105,57 @@
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="BorderThickness" Value="1" />
         <!-- Colors -->
-        <Setter Property="CaretBrush" Value="{ThemeColorSet Foreground}" />
-        <Setter Property="Background" Value="{ThemeColorSet Background, Opacity=0.5}" />
-        <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
-        <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
-        <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
+        <Setter Property="CaretBrush" Value="{MtBrush Foreground}" />
+        <Setter Property="Background" Value="{MtBrush Background, Opacity=0.5}" />
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+        <Setter Property="SelectionBrush" Value="{MtBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionForegroundBrush" Value="{MtBrush Foreground}" />
         <Style Selector="^[IsReadOnly=True]">
-            <Setter Property="Background" Value="{ThemeColorSet Foreground, Opacity=0.05}" />
+            <Setter Property="Background" Value="{MtBrush Foreground, Opacity=0.05}" />
         </Style>
         <Style Selector="^[IsReadOnly=False]">
             <Style Selector="^:pointerover, ^:focus">
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.5}" />
-                <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Primary}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Primary, Opacity=0.5}" />
+                <Setter Property="BoxShadow" Value="{MtShadow LG, ColorKey=Primary}" />
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Primary]">
-                <Setter Property="CaretBrush" Value="{ThemeColorSet Primary}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
-                <Setter Property="SelectionBrush" Value="{ThemeColorSet Primary, Opacity=0.3}" />
-                <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^[(Mt.ColorScheme)=Primary]">
+                <Setter Property="CaretBrush" Value="{MtBrush Primary}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Primary, Opacity=0.3}" />
+                <Setter Property="SelectionBrush" Value="{MtBrush Primary, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MtBrush Foreground}" />
                 <Style Selector="^:pointerover, ^:focus">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Primary, Opacity=0.8}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Primary}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Primary, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow LG, ColorKey=Primary}" />
                 </Style>
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Success]">
-                <Setter Property="CaretBrush" Value="{ThemeColorSet Success}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.5}" />
-                <Setter Property="SelectionBrush" Value="{ThemeColorSet Success, Opacity=0.3}" />
-                <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^[(Mt.ColorScheme)=Success]">
+                <Setter Property="CaretBrush" Value="{MtBrush Success}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Success, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MtBrush Success, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MtBrush Foreground}" />
                 <Style Selector="^:pointerover, ^:focus">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Success, Opacity=0.8}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Success}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Success, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow LG, ColorKey=Success}" />
                 </Style>
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Warning]">
-                <Setter Property="CaretBrush" Value="{ThemeColorSet Warning}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.5}" />
-                <Setter Property="SelectionBrush" Value="{ThemeColorSet Warning, Opacity=0.3}" />
-                <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^[(Mt.ColorScheme)=Warning]">
+                <Setter Property="CaretBrush" Value="{MtBrush Warning}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Warning, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MtBrush Warning, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MtBrush Foreground}" />
                 <Style Selector="^:pointerover, ^:focus">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Warning, Opacity=0.8}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Warning}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Warning, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow LG, ColorKey=Warning}" />
                 </Style>
             </Style>
-            <Style Selector="^[(Theme.ColorScheme)=Danger]">
-                <Setter Property="CaretBrush" Value="{ThemeColorSet Danger}" />
-                <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.5}" />
-                <Setter Property="SelectionBrush" Value="{ThemeColorSet Danger, Opacity=0.3}" />
-                <Setter Property="SelectionForegroundBrush" Value="{ThemeColorSet Foreground}" />
+            <Style Selector="^[(Mt.ColorScheme)=Danger]">
+                <Setter Property="CaretBrush" Value="{MtBrush Danger}" />
+                <Setter Property="BorderBrush" Value="{MtBrush Danger, Opacity=0.5}" />
+                <Setter Property="SelectionBrush" Value="{MtBrush Danger, Opacity=0.3}" />
+                <Setter Property="SelectionForegroundBrush" Value="{MtBrush Foreground}" />
                 <Style Selector="^:pointerover, ^:focus">
-                    <Setter Property="BorderBrush" Value="{ThemeColorSet Danger, Opacity=0.8}" />
-                    <Setter Property="BoxShadow" Value="{ThemeShadow LG, ColorKey=Danger}" />
+                    <Setter Property="BorderBrush" Value="{MtBrush Danger, Opacity=0.8}" />
+                    <Setter Property="BoxShadow" Value="{MtShadow LG, ColorKey=Danger}" />
                 </Style>
             </Style>
         </Style>

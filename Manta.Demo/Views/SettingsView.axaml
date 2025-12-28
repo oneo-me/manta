@@ -19,32 +19,32 @@
                     </LightListBox.Styles>
                     <LightListBoxItem>
                         <LightPanel Mode="Horizontal" Spacing="4">
-                            <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                             <LightText Text="Group Item 1" VerticalAlignment="Center" />
                         </LightPanel>
                     </LightListBoxItem>
                     <LightListBoxItem>
                         <LightPanel Mode="Horizontal" Spacing="4">
-                            <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                             <LightText Text="Group Item 2" VerticalAlignment="Center" />
                         </LightPanel>
                     </LightListBoxItem>
                     <LightListBoxItem>
                         <LightPanel Mode="Horizontal" Spacing="4">
-                            <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                             <LightText Text="Group Item 3" VerticalAlignment="Center" />
                         </LightPanel>
                     </LightListBoxItem>
                     <LightListBoxItem>
                         <LightPanel Mode="Horizontal" Spacing="4">
-                            <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                             <LightText Text="Group Item 4" VerticalAlignment="Center" />
                         </LightPanel>
                     </LightListBoxItem>
                 </LightListBox>
             </Panel>
         </Border>
-        <Border Grid.Column="1" Background="{ThemeColorSet Background}">
+        <Border Grid.Column="1" Background="{MtBrush Background}">
             <Grid RowDefinitions="Auto *">
                 <Border Grid.Row="0" Name="TitleBar" Height="39" BorderThickness="0 0 0 1">
                     <Grid ColumnDefinitions="* Auto">
@@ -89,14 +89,14 @@
                             </Grid>
                         </Border>
                         <Grid Grid.Column="1" RowDefinitions="Auto *">
-                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{ThemeColorSet BorderBrush, Opacity=0.6}">
+                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MtBrush BorderBrush, Opacity=0.6}">
                                 <LightText Text="Item 1" FontWeight="SemiBold" Margin="12 6" />
                             </Border>
                             <LightScrollViewer Grid.Row="1">
                                 <LightPanel Mode="Vertical" Spacing="12" Margin="12">
                                     <LightText Text="About" FontWeight="SemiBold" />
                                     <LightPanel Mode="Vertical" Spacing="12" TextBlock.TextAlignment="Center">
-                                        <LightIcon Theme.ColorScheme="Primary" IconSize="62" IconSource="{Binding TestIcon}" />
+                                        <LightIcon Mt.ColorScheme="Primary" IconSize="62" IconSource="{Binding TestIcon}" />
                                         <LightPanel Mode="Vertical" Spacing="3">
                                             <LightText Text="Manta" FontSize="14" FontWeight="SemiBold" />
                                             <LightText Text="v1.0.0" />
@@ -109,32 +109,32 @@
                                         <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
                                             <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
-                                                    <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Issues" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
                                             <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
-                                                    <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Discord" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
                                             <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
-                                                    <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Twitter" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
                                             <LightButton Size="Small" Variant="Ghost">
                                                 <LightPanel Mode="Horizontal" Spacing="4">
-                                                    <LightIcon Theme.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <LightIcon Mt.ColorScheme="Primary" IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <LightText Text="Github" VerticalAlignment="Center" />
                                                 </LightPanel>
                                             </LightButton>
                                         </LightPanel>
                                         <LightPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Content="Update log" />
-                                            <LightButton Theme.ColorScheme="Primary" Size="Small" Content="check for updates" />
+                                            <LightButton Mt.ColorScheme="Primary" Size="Small" Content="Update log" />
+                                            <LightButton Mt.ColorScheme="Primary" Size="Small" Content="check for updates" />
                                         </LightPanel>
                                     </LightPanel>
                                     <LightText Text="Group format" FontWeight="SemiBold" />
@@ -143,10 +143,10 @@
                                             <Style Selector="LightItems">
                                                 <Setter Property="BorderThickness" Value="1" />
                                                 <Setter Property="CornerRadius" Value="8" />
-                                                <Setter Property="Background" Value="{ThemeColorSet BorderBrush, Opacity=0.2}" />
+                                                <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0.2}" />
                                             </Style>
                                             <Style Selector="LightItem">
-                                                <Setter Property="BorderBrush" Value="{ThemeColorSet BorderBrush}" />
+                                                <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
                                                 <Setter Property="BorderThickness" Value="0 1 0 0" />
                                                 <Setter Property="Margin" Value="8 0" />
                                                 <Setter Property="Padding" Value="8" />

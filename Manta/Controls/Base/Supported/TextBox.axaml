@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Theme.ColorScheme="Danger" Text="Please use the 'LightTextBox'" />
+                    <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightTextBox'" />
                     <TextPresenter Name="PART_TextPresenter" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
