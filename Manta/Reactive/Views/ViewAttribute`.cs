@@ -3,7 +3,7 @@ using Manta.Controls;
 namespace Manta.Reactive.Views;
 
 [AttributeUsage(AttributeTargets.Class)]
-public sealed class ViewAttribute<T> : ViewAttribute where T : LightView, new()
+public sealed class ViewAttribute<T> : ViewAttribute where T : MtView, new()
 {
     protected internal override Type GetViewType()
     {

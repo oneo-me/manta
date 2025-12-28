@@ -1,0 +1,65 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MtPanel Mode="Horizontal" Spacing="8">
+                <MtBadge Content="Badge" />
+                <MtBadge Variant="Secondary" Content="Secondary" />
+                <MtBadge Variant="Destructive" Content="Destructive" />
+                <MtBadge Variant="Outline" Content="Outline" />
+            </MtPanel>
+            <MtPanel Mode="Horizontal" Spacing="8">
+                <MtBadge Background="{MtBrush Primary}">
+                    <MtPanel Mode="Horizontal" Spacing="4">
+                        <MtPathIcon Size="12" StrokeThickness="1" UseStroke="True" Data="M9.388 4.29a4.302 4.302 0 0 0-6.127-.016c-1.688 1.705-1.68 4.476.016 6.189l6.277 6.34c.26.263.682.263.942 0l6.245-6.304a4.408 4.408 0 0 0-.017-6.187 4.305 4.305 0 0 0-6.135-.015l-.596.603-.605-.61Z M 0 0 M 20 20"
+                                       VerticalAlignment="Center" />
+                        <MtText Text="Verified" VerticalAlignment="Center" />
+                    </MtPanel>
+                </MtBadge>
+                <MtBadge Content="8" />
+                <MtBadge Variant="Destructive" Content="99" />
+                <MtBadge Variant="Outline" Content="20+" />
+            </MtPanel>
+        </MtPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MtBadge}" TargetType="MtBadge">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="22" />
+        <Setter Property="CornerRadius" Value="999" />
+        <Setter Property="Padding" Value="8 2" />
+        <Setter Property="Background" Value="{MtBrush Foreground}" />
+        <Setter Property="Foreground" Value="{MtBrush Background}" />
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Background" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
+        </Style>
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="Background" Value="{MtBrush Danger}" />
+            <Setter Property="Foreground" Value="{MtBrush ColorForeground}" />
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="Padding" Value="6 1" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MtBrush Background}" />
+            <Setter Property="Foreground" Value="{MtBrush Foreground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

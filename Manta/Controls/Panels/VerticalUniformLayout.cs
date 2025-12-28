@@ -6,7 +6,7 @@ namespace Manta.Controls.Panels;
 
 public static class VerticalUniformLayout
 {
-    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(MtPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
         var row = children.Count;
@@ -29,7 +29,7 @@ public static class VerticalUniformLayout
         return result;
     }
 
-    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
         var row = children.Count;

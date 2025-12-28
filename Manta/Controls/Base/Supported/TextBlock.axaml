@@ -3,12 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <TextBlock />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
         <Setter Property="Mt.ColorScheme" Value="Danger" />
-        <Setter Property="Text" Value="Please use the 'LightText'" />
+        <Setter Property="Text" Value="Please use the 'MtText'" />
     </ControlTheme>
 </ResourceDictionary>

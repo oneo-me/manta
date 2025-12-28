@@ -3,38 +3,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <Calendar />
             <CalendarButton />
             <CalendarDayButton />
             <CalendarItem />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'Calendar' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'Calendar' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarButton' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarDayButton' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarDayButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarItem' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'CalendarItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

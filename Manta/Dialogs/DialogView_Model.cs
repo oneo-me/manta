@@ -32,7 +32,7 @@ sealed class DialogView_Model(LightDialogOptions options) : WindowModel
         this.GetWindow().Close();
     }
 
-    public override void OnWindowInitialized(LightWindow window)
+    public override void OnWindowInitialized(MtWindow window)
     {
         base.OnWindowInitialized(window);
 

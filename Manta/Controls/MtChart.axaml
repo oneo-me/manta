@@ -1,0 +1,178 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MtCard Width="520" Height="380">
+                <MtChart />
+            </MtCard>
+        </MtPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MtChart}" TargetType="MtChart">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto * Auto">
+                    <ContentPresenter Grid.Row="0" Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleDataTemplate}"
+                                      Margin="12 12 12 0" FontWeight="SemiBold" HorizontalAlignment="Center" />
+                    <Panel Grid.Row="1" Margin="12 12 12 0">
+                        <Grid RowDefinitions="* Auto">
+                            <MtPanel Grid.Row="0" Name="PART_Background" Mode="VerticalUniform">
+                                <Border />
+                                <Border />
+                                <Border />
+                                <Border />
+                            </MtPanel>
+                            <MtItems Grid.Row="0" Name="PART_Columns" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}">
+                                <MtItems.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <MtPanel Mode="HorizontalUniform" Spacing="2" />
+                                    </ItemsPanelTemplate>
+                                </MtItems.ItemsPanel>
+                                <MtItems.ItemTemplate>
+                                    <DataTemplate DataType="MtChartData+Column">
+                                        <MtChartColumn Data="{Binding}" />
+                                    </DataTemplate>
+                                </MtItems.ItemTemplate>
+                            </MtItems>
+                            <MtItems Grid.Row="1" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Columns}"
+                                        Margin="0 12 0 0">
+                                <MtItems.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <MtPanel Mode="HorizontalUniform" Spacing="2" />
+                                    </ItemsPanelTemplate>
+                                </MtItems.ItemsPanel>
+                                <MtItems.ItemTemplate>
+                                    <DataTemplate DataType="MtChartData+Column">
+                                        <MtText Text="{Binding Name}" Opacity="0.5" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </MtItems.ItemTemplate>
+                            </MtItems>
+                        </Grid>
+                    </Panel>
+                    <MtItems Grid.Row="2" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Legends}" IsVisible="{TemplateBinding ShowLegends}">
+                        <MtItems.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <MtPanel Margin="12" Mode="Wrap" Spacing="8" HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </MtItems.ItemsPanel>
+                        <MtItems.ItemTemplate>
+                            <DataTemplate DataType="MtChartData+Legend">
+                                <MtChartLegend Brush="{Binding Brush}" Data="{Binding Data}" />
+                            </DataTemplate>
+                        </MtItems.ItemTemplate>
+                    </MtItems>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ ContentPresenter:empty">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^ /template/ MtPanel#PART_Background Border">
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MtChartLegend}" TargetType="MtChartLegend">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MtPanel>
+                    <Border Background="{TemplateBinding Brush}" />
+                    <MtText Text="{TemplateBinding Data}" />
+                </MtPanel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ MtPanel">
+            <Setter Property="Mode" Value="Horizontal" />
+            <Setter Property="Spacing" Value="4" />
+        </Style>
+        <Style Selector="^ /template/ Border">
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="CornerRadius" Value="3" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^ /template/ MtText">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MtChartToolTip}" TargetType="MtChartToolTip">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderBrush="{MtBrush BorderBrush}" BoxShadow="{MtShadow DropXL2, BrushOpacity=0.08}" Background="{MtBrush Background}" CornerRadius="8" BorderThickness="1"
+                        Padding="12 8">
+                    <MtPanel Mode="Vertical" Spacing="4" Grid.IsSharedSizeScope="True">
+                        <MtText Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Name}" FontWeight="SemiBold" />
+                        <MtItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
+                            <MtItems.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <MtPanel Mode="Vertical" Spacing="4" />
+                                </ItemsPanelTemplate>
+                            </MtItems.ItemsPanel>
+                            <MtItems.ItemTemplate>
+                                <DataTemplate DataType="MtChartData+ColumnData">
+                                    <Grid ColumnSpacing="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Value" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0" Width="10" Height="10" CornerRadius="3" Background="{Binding Brush}" VerticalAlignment="Center" />
+                                        <MtText Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
+                                        <MtText Grid.Column="2" Text="{Binding Value}" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="SemiBold" />
+                                    </Grid>
+                                </DataTemplate>
+                            </MtItems.ItemTemplate>
+                        </MtItems>
+                    </MtPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MtChartColumn}" TargetType="MtChartColumn">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <MtItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
+                        <MtItems.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <MtPanel Mode="HorizontalUniform" Spacing="4" />
+                            </ItemsPanelTemplate>
+                        </MtItems.ItemsPanel>
+                        <MtItems.ItemTemplate>
+                            <DataTemplate DataType="MtChartData+ColumnData">
+                                <MtChartBarPanel Ratio="{Binding RenderRatio}">
+                                    <Border CornerRadius="5" Background="{Binding Brush}" />
+                                </MtChartBarPanel>
+                            </DataTemplate>
+                        </MtItems.ItemTemplate>
+                    </MtItems>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush, Opacity=0}" />
+        <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Margin" Value="-2 -2 -2 -4" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{MtBrush BorderBrush, Opacity=0.8}" />
+            <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

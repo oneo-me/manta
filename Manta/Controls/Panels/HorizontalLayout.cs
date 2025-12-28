@@ -6,7 +6,7 @@ namespace Manta.Controls.Panels;
 
 static class HorizontalLayout
 {
-    public static Size Measure(LightPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
+    public static Size Measure(MtPanel panel, ReadOnlyCollection<Control> children, Size availableSize)
     {
         var spacing = panel.Spacing;
 
@@ -28,7 +28,7 @@ static class HorizontalLayout
         return result;
     }
 
-    public static void Arrange(LightPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
+    public static void Arrange(MtPanel panel, ReadOnlyCollection<Control> children, Size finalSize)
     {
         var spacing = panel.Spacing;
 

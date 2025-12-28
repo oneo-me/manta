@@ -2,7 +2,7 @@ using Manta.Controls;
 
 namespace Manta.Demo.Views;
 
-sealed partial class DemoGroupView : LightView
+sealed partial class DemoGroupView : MtView
 {
     public DemoGroupView()
     {

@@ -1,83 +1,83 @@
-<LightView
+<MtView
     x:Class="Manta.Demo.Demos.StyleDemos.ShadowView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
     x:DataType="local:ShadowView_Model" Design.DataContext="{x:Static local:ShadowView_Model.Design}">
-    <LightScrollViewer>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
-            <LightText Text="Shadows" FontWeight="SemiBold" />
-            <LightPanel Mode="Wrap" Spacing="12">
+    <MtScrollViewer>
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MtText Text="Shadows" FontWeight="SemiBold" />
+            <MtPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XS2}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XS}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow MD}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow LG}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XL}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XL2}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-            </LightPanel>
-            <LightText Text="Drop Shadows" FontWeight="SemiBold" />
-            <LightPanel Mode="Wrap" Spacing="12">
+            </MtPanel>
+            <MtText Text="Drop Shadows" FontWeight="SemiBold" />
+            <MtPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow DropXS}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="DropXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow DropMD}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="DropMD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow DropLG}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="DropLG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow DropXL}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="DropXL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow DropXL2}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="DropXL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-            </LightPanel>
-            <LightText Text="Insert Shadows" FontWeight="SemiBold" />
-            <LightPanel Mode="Wrap" Spacing="12">
+            </MtPanel>
+            <MtText Text="Insert Shadows" FontWeight="SemiBold" />
+            <MtPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow InsetXS2}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="InsetXS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow InsetXS}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="InsetXS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow InsetSM}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="InsetSM" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-            </LightPanel>
-            <LightText Text="Custom Color or Opacity" FontWeight="SemiBold" />
-            <LightPanel Mode="Wrap" Spacing="12">
+            </MtPanel>
+            <MtText Text="Custom Color or Opacity" FontWeight="SemiBold" />
+            <MtPanel Mode="Wrap" Spacing="12">
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XS2, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XS2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XS, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XS" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow MD, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="MD" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow LG, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="LG" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XL, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XL" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
                 <Border Width="100" Height="100" BorderThickness="1" BoxShadow="{MtShadow XL2, ColorKey=Primary}" CornerRadius="12" Background="{MtBrush Foreground, Opacity=0.3}">
-                    <LightText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
+                    <MtText Text="XL2" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" />
                 </Border>
-            </LightPanel>
-        </LightPanel>
-    </LightScrollViewer>
-</LightView>
+            </MtPanel>
+        </MtPanel>
+    </MtScrollViewer>
+</MtView>

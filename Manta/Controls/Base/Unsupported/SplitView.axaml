@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <SplitView />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'SplitView' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'SplitView' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

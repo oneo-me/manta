@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <PathIcon />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightPathIcon'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtPathIcon'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

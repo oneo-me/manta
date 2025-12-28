@@ -3,22 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <ListBox />
             <ListBoxItem />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightListBox'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtListBox'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightListBoxItem'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtListBoxItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

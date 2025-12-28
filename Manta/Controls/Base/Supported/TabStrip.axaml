@@ -3,22 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <TabStrip />
             <TabStripItem />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightTabStrip'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtTabStrip'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightTabStripItem'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtTabStripItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

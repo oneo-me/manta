@@ -1,0 +1,19 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MtPanelAspectRatio Ratio="16 / 9">
+                <Border Background="{MtBrush BorderBrush}" Width="320" CornerRadius="8">
+                    <MtText Text="16 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+            </MtPanelAspectRatio>
+            <MtPanelAspectRatio Ratio="21 / 9">
+                <Border Background="{MtBrush BorderBrush}" Width="320" CornerRadius="8">
+                    <MtText Text="21 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+            </MtPanelAspectRatio>
+        </MtPanel>
+    </Design.PreviewWith>
+</ResourceDictionary>

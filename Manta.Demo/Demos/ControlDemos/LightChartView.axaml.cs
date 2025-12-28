@@ -2,9 +2,9 @@ using Manta.Controls;
 
 namespace Manta.Demo.Demos.ControlDemos;
 
-sealed partial class LightChartView : LightView
+sealed partial class MtChartView : MtView
 {
-    public LightChartView()
+    public MtChartView()
     {
         InitializeComponent();
     }

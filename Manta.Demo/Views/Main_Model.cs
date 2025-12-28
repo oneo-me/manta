@@ -26,7 +26,7 @@ sealed class Main_Model : WindowModel
     public IconSource ThemeSystemIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sun-Fog--Streamline-Solar-Ar.svg"));
     public IconSource SettingsIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Settings--Streamline-Solar-Ar.svg"));
 
-    public override void OnWindowInitialized(LightWindow window)
+    public override void OnWindowInitialized(MtWindow window)
     {
         base.OnWindowInitialized(window);
 

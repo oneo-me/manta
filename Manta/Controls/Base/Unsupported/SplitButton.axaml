@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <SplitButton />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'SplitButton' is not supported" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'SplitButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

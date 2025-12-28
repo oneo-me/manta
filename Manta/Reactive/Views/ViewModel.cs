@@ -8,7 +8,7 @@ public abstract class ViewModel : Model
 {
     protected static bool IsDesignMode { get; } = Design.IsDesignMode;
 
-    internal LightView? InnerView { get; set; }
+    internal MtView? InnerView { get; set; }
 
     bool _isInitialized;
 

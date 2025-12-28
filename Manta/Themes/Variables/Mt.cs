@@ -30,7 +30,6 @@ public enum TextSize
     ExtraLarge9
 }
 
-[Obsolete]
 public class Mt
 {
     public static readonly AttachedProperty<ColorScheme> ColorSchemeProperty =

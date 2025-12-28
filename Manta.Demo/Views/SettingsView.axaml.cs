@@ -2,7 +2,7 @@ using Manta.Controls;
 
 namespace Manta.Demo.Views;
 
-sealed partial class SettingsView : LightView
+sealed partial class SettingsView : MtView
 {
     public SettingsView()
     {

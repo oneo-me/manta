@@ -3,15 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <CaptionButtons />
             <TitleBar />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons">
         <Setter Property="Template">
             <ControlTemplate>
-                <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightTitleBarButtons'" />
+                <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtTitleBarButtons'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -19,7 +19,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Mt.ColorScheme="Danger" Text="Please use the 'LightTitleBar'" />
+                    <MtSelectableText Mt.ColorScheme="Danger" Text="Please use the 'MtTitleBar'" />
                     <CaptionButtons Name="PART_CaptionButtons" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

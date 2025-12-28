@@ -3,15 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <NumericUpDown />
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <LightSelectableText Mt.ColorScheme="Danger" Text="The control 'NumericUpDown' is not supported" />
+                    <MtSelectableText Mt.ColorScheme="Danger" Text="The control 'NumericUpDown' is not supported" />
                     <TextBox Name="PART_TextBox" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

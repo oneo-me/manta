@@ -16,7 +16,7 @@ sealed class SettingsView_Model : WindowModel
 
     public IconSource TestIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg"));
 
-    public override void OnWindowInitialized(LightWindow window)
+    public override void OnWindowInitialized(MtWindow window)
     {
         base.OnWindowInitialized(window);
 

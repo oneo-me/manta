@@ -1,0 +1,40 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MtPanel Mode="Horizontal" Spacing="12" Margin="12">
+            <MtClipContentControl BorderThickness="10" Padding="8" CornerRadius="100" BoxShadow="0 0 30 #19000000">
+                <Border Background="Bisque" Width="100" Height="100" />
+            </MtClipContentControl>
+        </MtPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MtClipContentControl}" TargetType="MtClipContentControl">
+        <Setter Property="BorderBrush" Value="{MtBrush BorderBrush}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BoxShadow="{TemplateBinding BoxShadow}"
+                        IsHitTestVisible="False" />
+                    <Border
+                        Name="PART_Border"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        IsHitTestVisible="False" />
+                    <Border Name="PART_Host" ClipToBounds="True" Margin="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Background="{TemplateBinding Background}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          Padding="{TemplateBinding Padding}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

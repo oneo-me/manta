@@ -3,15 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <LightPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MtPanel Mode="Vertical" Spacing="12" Margin="12">
             <Grid ColumnDefinitions="*,*" Width="300" Height="300">
-                <LightText Grid.Column="0" Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
+                <MtText Grid.Column="0" Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
                 <Border Grid.Column="1" BorderThickness="1 0 0 0">
-                    <LightText Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
+                    <MtText Text="LightTextLightTextLightTextLightText" TextTrimming="CharacterEllipsis" />
                 </Border>
                 <GridSplitter Grid.Column="0" Width="4" HorizontalAlignment="Right" />
             </Grid>
-        </LightPanel>
+        </MtPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
         <Setter Property="Focusable" Value="True" />

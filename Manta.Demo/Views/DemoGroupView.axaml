@@ -1,13 +1,13 @@
-<LightView
+<MtView
     x:Class="Manta.Demo.Views.DemoGroupView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Views"
     x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
     <Grid ColumnDefinitions="200 1 *">
-        <LightListBox Grid.Column="0" Type="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
-            <LightListBox.Styles>
-                <Style Selector="LightListBoxItem">
+        <MtListBox Grid.Column="0" Type="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+            <MtListBox.Styles>
+                <Style Selector="MtListBoxItem">
                     <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="local:IDemoItem" />
                     <Style Selector="^:disabled">
                         <Setter Property="Padding" Value="0 6" />
@@ -15,21 +15,21 @@
                         <Setter Property="FontWeight" Value="SemiBold" />
                     </Style>
                 </Style>
-            </LightListBox.Styles>
-            <LightListBox.DataTemplates>
+            </MtListBox.Styles>
+            <MtListBox.DataTemplates>
                 <DataTemplate DataType="local:DemoGroupItem">
-                    <LightText Text="{Lang {Binding GroupName}}" />
+                    <MtText Text="{Lang {Binding GroupName}}" />
                 </DataTemplate>
                 <DataTemplate DataType="local:DemoItem">
-                    <LightPanel Mode="Horizontal" Spacing="8">
-                        <LightIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding ViewModel.Icon}" Margin="0 -10" VerticalAlignment="Center"
+                    <MtPanel Mode="Horizontal" Spacing="8">
+                        <MtIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding ViewModel.Icon}" Margin="0 -10" VerticalAlignment="Center"
                                    IsVisible="{Binding ViewModel.Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                        <LightText Text="{Lang {Binding ViewModel.Header}}" VerticalAlignment="Center" />
-                    </LightPanel>
+                        <MtText Text="{Lang {Binding ViewModel.Header}}" VerticalAlignment="Center" />
+                    </MtPanel>
                 </DataTemplate>
-            </LightListBox.DataTemplates>
-        </LightListBox>
+            </MtListBox.DataTemplates>
+        </MtListBox>
         <Panel Grid.Column="1" Background="{MtBrush BorderBrush}" Margin="0 12" />
-        <LightViewHost Grid.Column="2" ViewModel="{Binding CurrentViewModel}" />
+        <MtViewHost Grid.Column="2" ViewModel="{Binding CurrentViewModel}" />
     </Grid>
-</LightView>
+</MtView>

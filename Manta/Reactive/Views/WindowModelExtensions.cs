@@ -10,7 +10,7 @@ public static class WindowModelExtensions
     {
         public Window CreateWindow()
         {
-            var result = new LightWindow
+            var result = new MtWindow
             {
                 Content = windowModel.CreateView()
             };
