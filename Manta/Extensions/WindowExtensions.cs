@@ -1,3 +1,5 @@
+using System.Reactive.Linq;
+using Avalonia;
 using Avalonia.Controls;
 
 namespace Manta.Extensions;
@@ -47,5 +49,30 @@ public static class WindowExtensions
                 window.Position = new((int)newLeft, (int)newTop);
             }
         }
+
+        public IObservable<WindowStatus> GetWindowStatusObservable()
+        {
+            return window.GetObservable(Window.WindowStateProperty)
+                .StartWith(window.WindowState)
+                .Select(x =>
+                {
+                    var isMacos = OperatingSystem.IsMacOS();
+                    var isShowButtons = x is not WindowState.FullScreen;
+
+                    return new WindowStatus
+                    {
+                        IsFullScreen = x is WindowState.FullScreen,
+                        IsShowButtons = isShowButtons && isMacos is false,
+                        Offset = new(isMacos ? isShowButtons ? 78 : 0 : 0, isMacos ? isShowButtons ? 38 : 0 : 0, 0, 0)
+                    };
+                });
+        }
     }
+}
+
+public struct WindowStatus
+{
+    public bool IsFullScreen { get; set; }
+    public bool IsShowButtons { get; set; }
+    public Thickness Offset { get; set; }
 }

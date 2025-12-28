@@ -3,13 +3,14 @@ using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Controls.Icons;
 using Manta.Demo.Langs;
+using Manta.Demo.Reactive;
+using Manta.Demo.Services;
 using Manta.Extensions;
 using Manta.Globalization;
+using Manta.Reactive.Extensions;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using Manta.Demo.Reactive;
-using Manta.Demo.Services;
 
 namespace Manta.Demo.Views;
 
@@ -51,14 +52,19 @@ sealed class Main_Model : WindowModel
 
         var view = this.GetView<Main>();
 
-        view.SubscribeTitleBarEvents(x => x.TitleBar);
-        view.SubscribeWindowStatus(x =>
-        {
-            view.TitleBar.Height = 38 + view.TitleBar.BorderThickness.Top + view.TitleBar.BorderThickness.Bottom;
-            view.TitleBarButtons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
-            if (OperatingSystem.IsMacOS())
-                view.TitleBar.Padding = new(IsDesignMode || x.isFullscreen ? 0 : x.leftOffset, 0, 0, 0);
-        });
+        view.TitleBar
+            .BindTitleBarEvents()
+            .DisposeWith(disposables);
+
+        view.GetWindowStatusObservable()
+            .Subscribe(x =>
+            {
+                view.TitleBar.Height = 38 + view.TitleBar.BorderThickness.Top + view.TitleBar.BorderThickness.Bottom;
+                view.TitleBarButtons.IsVisible = x is { IsShowButtons: true, IsFullScreen: false };
+                if (OperatingSystem.IsMacOS())
+                    view.TitleBar.Padding = new(IsDesignMode || x.IsFullScreen ? 0 : x.Offset.Left, 0, 0, 0);
+            })
+            .DisposeWith(disposables);
     }
 
     public void OpenSettings()

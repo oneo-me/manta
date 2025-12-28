@@ -5,6 +5,7 @@ using Manta.Controls.Icons;
 using Manta.Demo.Langs;
 using Manta.Extensions;
 using Manta.Globalization;
+using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.Demo.Views;
@@ -32,16 +33,22 @@ sealed class SettingsView_Model : WindowModel
         var view = this.GetView<SettingsView>();
 
         // Sidebar and TitleBar events
-        view.SubscribeTitleBarEvents(x => x.SidebarBackground);
-        view.SubscribeTitleBarEvents(x => x.TitleBar);
+        view.SidebarBackground
+            .BindTitleBarEvents()
+            .DisposeWith(disposables);
+        view.TitleBar
+            .BindTitleBarEvents()
+            .DisposeWith(disposables);
 
-        view.SubscribeWindowStatus(x =>
-        {
-            // Sidebar adjustments
-            view.Sidebar.Margin = x.topOffset > 0 ? new(0, x.topOffset - view.Sidebar.Padding.Top, 0, 0) : default;
+        view.GetWindowStatusObservable()
+            .Subscribe(x =>
+            {
+                // Sidebar adjustments
+                view.Sidebar.Margin = x.Offset.Top > 0 ? new(0, x.Offset.Top - view.Sidebar.Padding.Top, 0, 0) : default;
 
-            // TitleBar adjustments
-            view.TitleBarButtons.IsVisible = x is { isShowButtons: true, isFullscreen: false };
-        });
+                // TitleBar adjustments
+                view.TitleBarButtons.IsVisible = x is { IsShowButtons: true, IsFullScreen: false };
+            })
+            .DisposeWith(disposables);
     }
 }

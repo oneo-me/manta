@@ -66,20 +66,19 @@ public class MTitleBar : ContentControl
         _disposables = new();
 
         PART_Event
-            .SubscribeTitleBarEvents(window, x => x)
+            .BindTitleBarEvents(window)
             .DisposeWith(_disposables);
 
-        PART_Event
-            .SubscribeWindowStatus(window, x =>
-            {
-                if (OperatingSystem.IsMacOS() is false)
-                    return;
+        if (OperatingSystem.IsMacOS())
+            window.GetWindowStatusObservable()
+                .Subscribe(x =>
+                {
+                    var isFull = x.IsFullScreen || x.Offset.Left <= 0;
 
-                var isFull = x.isFullscreen || x.leftOffset <= 0;
-
-                PART_Content?.Margin = isFull ? default : new Thickness(x.leftOffset, 0, 0, 0);
-                PART_Title?.Margin = isFull ? default : new Thickness(-PART_Title?.Padding.Left ?? 0, 0, 0, 0);
-            });
+                    PART_Content?.Margin = isFull ? default : new Thickness(x.Offset.Left, 0, 0, 0);
+                    PART_Title?.Margin = isFull ? default : new Thickness(-PART_Title?.Padding.Left ?? 0, 0, 0, 0);
+                })
+                .DisposeWith(_disposables);
 
         window.GetObservable(Window.TitleProperty).Subscribe(x =>
         {
