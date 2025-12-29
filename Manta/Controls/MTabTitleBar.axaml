@@ -1,0 +1,158 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Window -->
+        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="Border.Box">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Setter Property="Background" Value="{MBrush Background}" />
+                    <Style Selector="^ > Border">
+                        <Setter Property="CornerRadius" Value="12" />
+                        <Setter Property="ClipToBounds" Value="True" />
+                    </Style>
+                </Style>
+                <Style Selector="MPanel.MacOS">
+                    <Setter Property="IsVisible" Value="False" />
+                    <Style Selector="^[Tag=False][(CurrentSystem.IsMacOS)=True]">
+                        <Setter Property="IsVisible" Value="True" />
+                    </Style>
+                </Style>
+                <Style Selector="MTabTitleBar">
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                </Style>
+                <Style Selector="MTitleBar">
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                </Style>
+                <Style Selector="Border.TitleBar">
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                </Style>
+            </MPanel.Styles>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar>
+                                <MTabTitleBarItem Content="TabItem 1" IsSelected="True" />
+                                <MTabTitleBarItem Content="TabItem 2" />
+                                <MTabTitleBarItem Content="TabItem 3" />
+                            </MTabTitleBar>
+                        </Panel>
+                    </Grid>
+                </Border>
+            </Border>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar>
+                                <MTabTitleBar.RightContent>
+                                    <MPanel Mode="Horizontal">
+                                        <MTitleBarButton Content="Button" />
+                                    </MPanel>
+                                </MTabTitleBar.RightContent>
+                                <MTabTitleBarItem Content="TabItem 1" IsSelected="True" />
+                                <MTabTitleBarItem Content="TabItem 2" />
+                                <MTabTitleBarItem Content="TabItem 3" />
+                                <MTabTitleBarItem Content="TabItem 4" />
+                                <MTabTitleBarItem Content="TabItem 5" />
+                                <MTabTitleBarItem Content="TabItem 6" />
+                            </MTabTitleBar>
+                        </Panel>
+                    </Grid>
+                </Border>
+            </Border>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MTabTitleBar}" TargetType="MTabTitleBar">
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderThickness" Value="0 0 0 1" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MTitleBar Background="{TemplateBinding Background}"
+                           BorderBrush="{TemplateBinding BorderBrush}"
+                           BorderThickness="{TemplateBinding BorderThickness}"
+                           CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="* Auto" ColumnSpacing="4">
+                        <Panel Grid.Column="0" HorizontalAlignment="Left" Margin="-1 0 -1 -1" ClipToBounds="True">
+                            <MScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                                           ClipToBounds="True" Padding="-1 0">
+                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            </MScrollViewer>
+                            <Border BorderThickness="1 0" />
+                        </Panel>
+                        <ContentPresenter Grid.Column="1" Name="PART_RightContentPresenter" Content="{TemplateBinding RightContent}" ContentTemplate="{TemplateBinding RightContentTemplate}" />
+                    </Grid>
+                </MTitleBar>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MTabTitleBarItem}" TargetType="MTabTitleBarItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Padding" Value="14 0" />
+        <Setter Property="Margin" Value="0 0 0 1" />
+        <Setter Property="BorderThickness" Value="1 0 0 0" />
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+        <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+        <Style Selector="^:pointerover:not(:selected)">
+            <Setter Property="Padding" Value="14 0 14 1" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+        </Style>
+        <Style Selector="^:selected">
+            <Setter Property="Padding" Value="14 0 14 1" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+        </Style>
+        <Style Selector="^:nth-last-child(1)">
+            <Setter Property="BorderThickness" Value="1 0" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -98,6 +98,7 @@
                 <MergeResourceInclude Source="../Controls/MRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/MTabStrip.axaml" />
+                <MergeResourceInclude Source="../Controls/MTabTitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MTitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MToggleButton.axaml" />

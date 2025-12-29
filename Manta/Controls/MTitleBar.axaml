@@ -46,64 +46,6 @@
             </Border>
             <Border Classes="Box">
                 <Border>
-                    <Grid RowDefinitions="Auto *" Height="100">
-                        <Panel Grid.Row="0">
-                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
-                                    Spacing="8" Margin="12 0"
-                                    Tag="{x:Static Design.IsDesignMode}">
-                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
-                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
-                                <Ellipse Width="12" Height="12" Fill="#61C554" />
-                            </MPanel>
-                            <MTitleBar BorderThickness="0 0 0 1">
-                                <MTabStrip Type="RootTab" Margin="-1 0 -1 -1">
-                                    <MTabStripItem Content="TabItem 1" IsSelected="True" />
-                                    <MTabStripItem Content="TabItem 2" />
-                                    <MTabStripItem Content="TabItem 3" />
-                                </MTabStrip>
-                            </MTitleBar>
-                        </Panel>
-                    </Grid>
-                </Border>
-            </Border>
-            <Border Classes="Box">
-                <Border>
-                    <Grid RowDefinitions="Auto *" Height="100">
-                        <Panel Grid.Row="0">
-                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
-                                    Spacing="8" Margin="12 0"
-                                    Tag="{x:Static Design.IsDesignMode}">
-                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
-                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
-                                <Ellipse Width="12" Height="12" Fill="#61C554" />
-                            </MPanel>
-                            <MTitleBar BorderThickness="0 0 0 1">
-                                <Grid ColumnDefinitions="* Auto" ColumnSpacing="4">
-                                    <Panel Grid.Column="0" HorizontalAlignment="Left" Margin="-1 0 -1 -1" ClipToBounds="True">
-                                        <MScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
-                                                       ClipToBounds="True" Padding="-1 0">
-                                            <MTabStrip Type="RootTab">
-                                                <MTabStripItem Content="TabItem 1" IsSelected="True" />
-                                                <MTabStripItem Content="TabItem 2" />
-                                                <MTabStripItem Content="TabItem 3" />
-                                                <MTabStripItem Content="TabItem 4" />
-                                                <MTabStripItem Content="TabItem 5" />
-                                                <MTabStripItem Content="TabItem 6" />
-                                            </MTabStrip>
-                                        </MScrollViewer>
-                                        <Border BorderThickness="1 0" />
-                                    </Panel>
-                                    <MPanel Grid.Column="1" Mode="Horizontal">
-                                        <MTitleBarButton Content="Button" />
-                                    </MPanel>
-                                </Grid>
-                            </MTitleBar>
-                        </Panel>
-                    </Grid>
-                </Border>
-            </Border>
-            <Border Classes="Box">
-                <Border>
                     <Border Classes="TitleBar">
                         <MTitleBarButtons HorizontalAlignment="Right" />
                     </Border>

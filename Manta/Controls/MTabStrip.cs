@@ -6,8 +6,7 @@ namespace Manta.Controls;
 
 public enum MTabStripType
 {
-    Normal,
-    RootTab
+    Normal
 }
 
 public class MTabStrip : ListBox
