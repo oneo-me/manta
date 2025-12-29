@@ -79,18 +79,20 @@
                             </MPanel>
                             <MTitleBar BorderThickness="0 0 0 1">
                                 <Grid ColumnDefinitions="* Auto" ColumnSpacing="4">
-                                    <MScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
-                                                   ClipToBounds="True" Padding="-1 0" Margin="-1 0 -1 -1">
-                                        <MTabStrip Type="RootTab">
-                                            <MTabStripItem Content="TabItem 1" IsSelected="True" />
-                                            <MTabStripItem Content="TabItem 2" />
-                                            <MTabStripItem Content="TabItem 3" />
-                                            <MTabStripItem Content="TabItem 4" />
-                                            <MTabStripItem Content="TabItem 5" />
-                                            <MTabStripItem Content="TabItem 6" />
-                                        </MTabStrip>
-                                    </MScrollViewer>
-                                    <Border Grid.Column="0" BorderThickness="1 0" />
+                                    <Panel Grid.Column="0" HorizontalAlignment="Left" Margin="-1 0 -1 -1" ClipToBounds="True">
+                                        <MScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                                                       ClipToBounds="True" Padding="-1 0">
+                                            <MTabStrip Type="RootTab">
+                                                <MTabStripItem Content="TabItem 1" IsSelected="True" />
+                                                <MTabStripItem Content="TabItem 2" />
+                                                <MTabStripItem Content="TabItem 3" />
+                                                <MTabStripItem Content="TabItem 4" />
+                                                <MTabStripItem Content="TabItem 5" />
+                                                <MTabStripItem Content="TabItem 6" />
+                                            </MTabStrip>
+                                        </MScrollViewer>
+                                        <Border BorderThickness="1 0" />
+                                    </Panel>
                                     <MPanel Grid.Column="1" Mode="Horizontal">
                                         <MTitleBarButton Content="Button" />
                                     </MPanel>
@@ -143,7 +145,7 @@
                         </Border>
                         <Panel Name="PART_Content" Grid.Column="0">
                             <TextBlock Name="PART_Title"
-                                   IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
+                                       IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
