@@ -9,6 +9,6 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AccessText}" TargetType="AccessText">
         <Setter Property="M.ColorScheme" Value="Danger" />
-        <Setter Property="Text" Value="The control 'AccessText' is not supported" />
+        <Setter Property="Text" Value="Please use the 'MAccessText'" />
     </ControlTheme>
 </ResourceDictionary>
