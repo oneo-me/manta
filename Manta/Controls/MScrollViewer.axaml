@@ -38,7 +38,13 @@
                             VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}"
                             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                             VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
-                            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
+                            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}">
+                            <ScrollContentPresenter.GestureRecognizers>
+                                <ScrollGestureRecognizer CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                                         CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                                         IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                            </ScrollContentPresenter.GestureRecognizers>
+                        </ScrollContentPresenter>
                         <MScrollBar Grid.Column="0" Grid.Row="1" Name="PART_HorizontalScrollBar" Orientation="Horizontal" />
                         <MScrollBar Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Name="PART_VerticalScrollBar" Orientation="Vertical" />
                     </Grid>
@@ -51,13 +57,17 @@
         <Style Selector="^:pointerover /template/ MScrollBar">
             <Setter Property="Opacity" Value="1" />
         </Style>
+        <Style Selector="^[IsExpanded=True] /template/ MScrollBar">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MScrollBar}" TargetType="MScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="{MBrush Foreground}" />
         <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="ShowDelay" Value="0:0:0" />
-        <Setter Property="HideDelay" Value="0:0:0.2" />
+        <Setter Property="AllowAutoHide" Value="True" />
+        <Setter Property="ShowDelay" Value="0:0:0.1" />
+        <Setter Property="HideDelay" Value="0:0:2" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Transitions">
             <Transitions>
@@ -68,8 +78,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="#00000000">
-                    <Track Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
-                           Value="{TemplateBinding Value, Mode=TwoWay}" ViewportSize="{TemplateBinding ViewportSize}"
+                    <Track Minimum="{TemplateBinding Minimum}"
+                           Maximum="{TemplateBinding Maximum}"
+                           Value="{TemplateBinding Value, Mode=TwoWay}"
+                           ViewportSize="{TemplateBinding ViewportSize}"
+                           DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                            Orientation="{TemplateBinding Orientation}">
                         <Track.DecreaseButton>
                             <RepeatButton Name="PART_PageUpButton" Focusable="False" />
@@ -96,8 +109,8 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
-            <Setter Property="Width" Value="18" />
-            <Setter Property="Padding" Value="11 4 4 4" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Padding" Value="5 2 2 2" />
             <Style Selector="^ /template/ Track">
                 <Setter Property="IsDirectionReversed" Value="True" />
             </Style>
@@ -106,8 +119,8 @@
             </Style>
         </Style>
         <Style Selector="^:horizontal">
-            <Setter Property="Height" Value="18" />
-            <Setter Property="Padding" Value="4 11 4 4" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="Padding" Value="2 5 2 2" />
             <Style Selector="^ /template/ Track">
                 <Setter Property="IsDirectionReversed" Value="False" />
             </Style>
@@ -115,23 +128,18 @@
                 <Setter Property="MinWidth" Value="36" />
             </Style>
         </Style>
-        <Style Selector="^:pointerover">
-            <Style Selector="^:vertical">
-                <Setter Property="Padding" Value="4 6 6 6" />
-            </Style>
-            <Style Selector="^:horizontal">
-                <Setter Property="Padding" Value="6 4 6 6" />
-            </Style>
-        </Style>
         <Style Selector="^ /template/ Track">
             <Setter Property="Opacity" Value="0.2" />
-            <Setter Property="Transitions">
-                <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
-                </Transitions>
-            </Setter>
-            <Style Selector="^:pointerover">
+        </Style>
+        <Style Selector="^[IsExpanded=True]">
+            <Style Selector="^ /template/ Track">
                 <Setter Property="Opacity" Value="0.5" />
+            </Style>
+            <Style Selector="^:vertical">
+                <Setter Property="Padding" Value="0 4 4 4" />
+            </Style>
+            <Style Selector="^:horizontal">
+                <Setter Property="Padding" Value="4 0 4 4" />
             </Style>
         </Style>
     </ControlTheme>
