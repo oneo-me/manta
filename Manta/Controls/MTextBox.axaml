@@ -6,77 +6,82 @@
         <!-- Text -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MPanel Mode="Vertical" Spacing="12" Width="280">
-                <TextBlockBox />
-                <TextBlockBox Watermark="Watermark..." />
-                <TextBlockBox Text="Text Text" />
-                <TextBlockBox Text="Text Text" IsReadOnly="True" />
+                <MTextBox />
+                <MTextBox Watermark="Watermark..." />
+                <MTextBox Text="Text Text" />
+                <MTextBox Text="Text Text" IsReadOnly="True" />
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12" Width="280">
-                <TextBlockBox />
-                <TextBlockBox Watermark="Watermark..." />
-                <TextBlockBox Text="Text Text" />
-                <TextBlockBox Text="Text Text" IsReadOnly="True" />
-                <TextBlockBox Text="Text Text" IsReadOnly="True">
-                    <TextBlockBox.InnerLeftContent>
+                <MTextBox />
+                <MTextBox Watermark="Watermark..." />
+                <MTextBox Text="Text Text" />
+                <MTextBox Text="Text Text" IsReadOnly="True" />
+                <MTextBox Text="Text Text" IsReadOnly="True">
+                    <MTextBox.InnerLeftContent>
                         <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
-                    </TextBlockBox.InnerLeftContent>
-                    <TextBlockBox.InnerRightContent>
+                    </MTextBox.InnerLeftContent>
+                    <MTextBox.InnerRightContent>
                         <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
-                    </TextBlockBox.InnerRightContent>
-                </TextBlockBox>
+                    </MTextBox.InnerRightContent>
+                </MTextBox>
             </MPanel>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type TextBlockBox}" TargetType="TextBlockBox">
+    <ControlTheme x:Key="{x:Type MTextBox}" TargetType="MTextBox">
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        BoxShadow="{TemplateBinding BoxShadow}">
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
-                        <MScrollViewer Grid.Column="1"
-                                       HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                       VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                                       IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                       BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
-                            <Panel Margin="{TemplateBinding Padding}">
-                                <TextBlock
-                                    Name="WatermarkTextBlock"
-                                    Opacity="0.5"
-                                    Text="{TemplateBinding Watermark}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    TextAlignment="{TemplateBinding TextAlignment}"
-                                    TextWrapping="{TemplateBinding TextWrapping}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                <TextPresenter Name="PART_TextPresenter"
-                                               Background="#00000000"
-                                               Text="{TemplateBinding Text, Mode=TwoWay}"
-                                               CaretIndex="{TemplateBinding CaretIndex}"
-                                               SelectionStart="{TemplateBinding SelectionStart}"
-                                               SelectionEnd="{TemplateBinding SelectionEnd}"
-                                               TextAlignment="{TemplateBinding TextAlignment}"
-                                               TextWrapping="{TemplateBinding TextWrapping}"
-                                               LineHeight="{TemplateBinding LineHeight}"
-                                               PasswordChar="{TemplateBinding PasswordChar}"
-                                               RevealPassword="{TemplateBinding RevealPassword}"
-                                               SelectionBrush="{TemplateBinding SelectionBrush}"
-                                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                               CaretBrush="{TemplateBinding CaretBrush}" />
-                            </Panel>
-                        </MScrollViewer>
-                        <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
-                    </Grid>
-                </Border>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BoxShadow="{TemplateBinding BoxShadow}">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                            <MScrollViewer Grid.Column="1"
+                                           HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                           VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                           IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                           BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                                <Panel Margin="{TemplateBinding Padding}">
+                                    <TextBlock
+                                        Name="WatermarkTextBlock"
+                                        Opacity="0.5"
+                                        Text="{TemplateBinding Watermark}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        TextAlignment="{TemplateBinding TextAlignment}"
+                                        TextWrapping="{TemplateBinding TextWrapping}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    <TextPresenter Name="PART_TextPresenter"
+                                                   Background="#00000000"
+                                                   Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                   CaretIndex="{TemplateBinding CaretIndex}"
+                                                   SelectionStart="{TemplateBinding SelectionStart}"
+                                                   SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                                   TextWrapping="{TemplateBinding TextWrapping}"
+                                                   LineHeight="{TemplateBinding LineHeight}"
+                                                   PasswordChar="{TemplateBinding PasswordChar}"
+                                                   RevealPassword="{TemplateBinding RevealPassword}"
+                                                   SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                   CaretBrush="{TemplateBinding CaretBrush}" />
+                                </Panel>
+                            </MScrollViewer>
+                            <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                        </Grid>
+                    </Border>
+                    <Canvas IsHitTestVisible="False">
+                        <Border Name="PART_Caret" Width="1.5" Background="{MBrush Primary}" CornerRadius="999" BoxShadow="{MShadow DropMD, BrushOpacity=0.3, ColorKey=Primary}" Opacity="0" />
+                    </Canvas>
+                </Panel>
             </ControlTemplate>
         </Setter>
         <!-- PasswordChar -->
@@ -99,7 +104,7 @@
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="BorderThickness" Value="1" />
         <!-- Colors -->
-        <Setter Property="CaretBrush" Value="{MBrush Foreground}" />
+        <Setter Property="CaretBrush" Value="#00000000" />
         <Setter Property="Background" Value="{MBrush Background, Opacity=0.5}" />
         <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
         <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
