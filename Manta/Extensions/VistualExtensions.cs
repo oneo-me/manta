@@ -18,6 +18,9 @@ public static class VisualExtensions
     {
         public void EnsureBackground()
         {
+            if (Design.IsDesignMode)
+                return;
+
             switch (inputElement)
             {
                 case TemplatedControl templatedControl:
@@ -36,6 +39,9 @@ public static class VisualExtensions
 
         public IDisposable BindTitleBarEvents(Window? window = null, bool stateControl = true)
         {
+            if (Design.IsDesignMode)
+                return Disposable.Empty;
+
             inputElement.EnsureBackground();
 
             var disposables = new CompositeDisposable();
