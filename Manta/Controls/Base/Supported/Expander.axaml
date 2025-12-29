@@ -4,11 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ChromeOverlayLayer />
+            <Expander />
         </MPanel>
     </Design.PreviewWith>
-    <!-- The control 'ChromeOverlayLayer' is not supported -->
-    <ControlTheme x:Key="{x:Type ChromeOverlayLayer}" TargetType="ChromeOverlayLayer">
-        <Setter Property="M.ColorScheme" Value="Danger" />
+    <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MExpander'" />
+            </ControlTemplate>
+        </Setter>
     </ControlTheme>
 </ResourceDictionary>

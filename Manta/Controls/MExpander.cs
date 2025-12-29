@@ -7,18 +7,18 @@ using Avalonia.LogicalTree;
 
 namespace Manta.Controls;
 
-public enum MAccordionType
+public enum MExpanderType
 {
     Single,
     Multiple
 }
 
-public class MAccordion : ItemsControl
+public class MExpander : ItemsControl
 {
-    public static readonly StyledProperty<MAccordionType> TypeProperty = AvaloniaProperty.Register<MAccordion, MAccordionType>(
+    public static readonly StyledProperty<MExpanderType> TypeProperty = AvaloniaProperty.Register<MExpander, MExpanderType>(
         nameof(Type));
 
-    public MAccordionType Type
+    public MExpanderType Type
     {
         get => GetValue(TypeProperty);
         set => SetValue(TypeProperty, value);
@@ -26,17 +26,17 @@ public class MAccordion : ItemsControl
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
-        return new MAccordionItem();
+        return new MExpanderItem();
     }
 
     protected override bool NeedsContainerOverride(object? item, int index, out object? recycleKey)
     {
-        return NeedsContainer<MAccordionItem>(item, out recycleKey);
+        return NeedsContainer<MExpanderItem>(item, out recycleKey);
     }
 
     bool _ignored;
 
-    public void CollapseOtherItems(MAccordionItem currentItem)
+    public void CollapseOtherItems(MExpanderItem currentItem)
     {
         try
         {
@@ -45,11 +45,11 @@ public class MAccordion : ItemsControl
 
             _ignored = true;
 
-            if (Type != MAccordionType.Single)
+            if (Type != MExpanderType.Single)
                 return;
 
             foreach (var item in Items)
-                if (item is MAccordionItem accordionItem && accordionItem != currentItem)
+                if (item is MExpanderItem accordionItem && accordionItem != currentItem)
                     accordionItem.IsExpanded = false;
         }
         finally
@@ -61,9 +61,9 @@ public class MAccordion : ItemsControl
 
 [PseudoClasses(":expanded")]
 [TemplatePart("PART_Header", typeof(Border))]
-public class MAccordionItem : HeaderedContentControl
+public class MExpanderItem : HeaderedContentControl
 {
-    public static readonly StyledProperty<bool> IsExpandedProperty = AvaloniaProperty.Register<MAccordionItem, bool>(
+    public static readonly StyledProperty<bool> IsExpandedProperty = AvaloniaProperty.Register<MExpanderItem, bool>(
         nameof(IsExpanded));
 
     public bool IsExpanded
@@ -98,7 +98,7 @@ public class MAccordionItem : HeaderedContentControl
             PseudoClasses.Set(":expanded", newValue);
 
             if (newValue)
-                this.GetLogicalParent<MAccordion>()?.CollapseOtherItems(this);
+                this.GetLogicalParent<MExpander>()?.CollapseOtherItems(this);
         }
     }
 }
