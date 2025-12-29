@@ -63,7 +63,7 @@
             </MCard>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="BlankTextBox" TargetType="TextBlockBox">
+    <ControlTheme x:Key="BlankTextBox" TargetType="MTextBox">
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
@@ -127,7 +127,7 @@
                 <Grid RowDefinitions="Auto *">
                     <Grid Grid.Row="0" Name="InpuBox" ColumnDefinitions="Auto *">
                         <MPathIcon Name="Icon" Grid.Column="0" />
-                        <TextBlockBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
+                        <MTextBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
                                       Watermark="{TemplateBinding Watermark}"
                                       Text="{TemplateBinding Text}" />
                     </Grid>
@@ -150,7 +150,7 @@
             <Setter Property="Opacity" Value="0.5" />
             <Setter Property="Margin" Value="12 0 2 0" />
         </Style>
-        <Style Selector="^ /template/ TextBlockBox#TextBox">
+        <Style Selector="^ /template/ MTextBox#TextBox">
             <Setter Property="CaretBrush" Value="{MBrush Foreground}" />
             <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
             <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
