@@ -29,6 +29,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTextBox}" TargetType="MTextBox">
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ClipToBounds" Value="False" />
@@ -42,21 +43,13 @@
                             BoxShadow="{TemplateBinding BoxShadow}">
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
-                            <MScrollViewer Grid.Column="1"
-                                           HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                           VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                                           IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                           BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
-                                <Panel Margin="{TemplateBinding Padding}">
-                                    <TextBlock
-                                        Name="WatermarkTextBlock"
-                                        Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
-                                        Foreground="{TemplateBinding Foreground}"
-                                        TextAlignment="{TemplateBinding TextAlignment}"
-                                        TextWrapping="{TemplateBinding TextWrapping}"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Panel Grid.Column="1">
+                                <MScrollViewer
+                                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                    Padding="{TemplateBinding Padding}">
                                     <TextPresenter Name="PART_TextPresenter"
                                                    Background="#00000000"
                                                    Text="{TemplateBinding Text, Mode=TwoWay}"
@@ -73,8 +66,18 @@
                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                    CaretBrush="{TemplateBinding CaretBrush}" />
-                                </Panel>
-                            </MScrollViewer>
+                                </MScrollViewer>
+                                <TextBlock
+                                    Name="WatermarkTextBlock"
+                                    Opacity="0.5"
+                                    Padding="{TemplateBinding Padding}"
+                                    Text="{TemplateBinding Watermark}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Panel>
                             <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                         </Grid>
                     </Border>
@@ -90,6 +93,7 @@
         </Style>
         <!-- Watermark -->
         <Style Selector="^ /template/ TextBlock#WatermarkTextBlock">
+            <Setter Property="Margin" Value="1" />
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:empty:not(:focus) /template/ TextBlock#WatermarkTextBlock">
@@ -97,10 +101,11 @@
         </Style>
         <!-- Cursor -->
         <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="1" />
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
         <!-- Custom -->
-        <Setter Property="Padding" Value="10 8" />
+        <Setter Property="Padding" Value="8 6" />
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="BorderThickness" Value="1" />
         <!-- Colors -->
