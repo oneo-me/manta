@@ -184,13 +184,18 @@ dotnet run --project Manta.Demo/Manta.Demo.csproj
 - `/Manta.sln.DotSettings` - ReSharper/Rider settings
 - `/Manta/Animation/SmoothBrushTransition.cs` - Core animation logic
 - `/CHANGELOG.md` - Project change history
+- `/README.md` & `/README.zh-CN.md` - Project documentation (bilingual)
 
 ## Git Workflow
 
 Current branch: `live`
 Main branch: `main` (use for PRs)
 
-Recent commits demonstrate active control development with focus on interactive controls and smooth animations.
+### Commit Convention
+- `[CLAUDE] message` - Changes made by Claude
+- No prefix - Changes made by user
+
+When asked to update documentation, use `git log` to identify recent changes and their authors.
 
 ## Notes for AI Assistants
 
@@ -202,4 +207,7 @@ Recent commits demonstrate active control development with focus on interactive 
 - The Demo project serves as living documentation - keep it updated
 - Source generators run at compile time - rebuild after modifying language files
 - **Change History**: Use `git log` or `CHANGELOG.md` to view recent changes
-- **After coding tasks**: Consider updating CLAUDE.md (architecture/patterns) and CHANGELOG.md (feature changes)
+- **After coding tasks**: Consider updating:
+  - `CLAUDE.md` - Architecture and development patterns
+  - `CHANGELOG.md` - Feature changes and bug fixes
+  - `README.md` & `README.zh-CN.md` - New controls or features (keep both in sync)
