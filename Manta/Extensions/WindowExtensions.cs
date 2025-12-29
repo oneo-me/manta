@@ -52,6 +52,9 @@ public static class WindowExtensions
 
         public IObservable<WindowStatus> GetWindowStatusObservable()
         {
+            if (Design.IsDesignMode)
+                return Observable.Empty<WindowStatus>();
+
             return window.GetObservable(Window.WindowStateProperty)
                 .StartWith(window.WindowState)
                 .Select(x =>

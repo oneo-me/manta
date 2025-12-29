@@ -6,18 +6,22 @@
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
     <Grid RowDefinitions="Auto *">
         <MViewHost Grid.Row="1" Background="{MBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
-        <Border Grid.Row="0" Name="TitleBar" BorderThickness="0 0 0 1">
-            <Grid ColumnDefinitions="* Auto Auto">
-                <MTabStrip Grid.Column="0" Type="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
-                    <MTabStrip.ItemTemplate>
-                        <DataTemplate>
-                            <MPanel Mode="Horizontal" Spacing="8">
-                                <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
-                                <MText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
-                            </MPanel>
-                        </DataTemplate>
-                    </MTabStrip.ItemTemplate>
-                </MTabStrip>
+        <MTitleBar Grid.Row="0" BorderThickness="0 0 0 1">
+            <Grid ColumnDefinitions="* Auto" ColumnSpacing="4">
+                <MScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                               ClipToBounds="True" Padding="-1 0" Margin="-1 0 -1 -1">
+                    <MTabStrip Type="RootTab" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+                        <MTabStrip.ItemTemplate>
+                            <DataTemplate>
+                                <MPanel Mode="Horizontal" Spacing="8">
+                                    <MIcon M.ColorScheme="Primary" IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
+                                    <MText Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                                </MPanel>
+                            </DataTemplate>
+                        </MTabStrip.ItemTemplate>
+                    </MTabStrip>
+                </MScrollViewer>
+                <Border Grid.Column="0" BorderThickness="1 0" />
                 <MPanel Grid.Column="1" Mode="Horizontal">
                     <MTitleBarButton>
                         <MPanel Mode="Horizontal" Spacing="8">
@@ -30,8 +34,7 @@
                         </MPanel>
                     </MTitleBarButton>
                 </MPanel>
-                <MTitleBarButtons Name="TitleBarButtons" Grid.Column="2" />
             </Grid>
-        </Border>
+        </MTitleBar>
     </Grid>
 </MView>
