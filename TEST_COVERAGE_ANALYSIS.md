@@ -220,7 +220,7 @@ Solution Root/
 │   │   ├── Regions/
 │   │   │   └── RegionManagerTests.cs    [Priority 1]
 │   │   ├── Commands/
-│   │   │   └── CommandWarperTests.cs
+│   │   │   └── CommandWrapperTests.cs
 │   │   └── Extensions/
 │   │       └── ObservableExtensionsTests.cs
 │   ├── Logging/
