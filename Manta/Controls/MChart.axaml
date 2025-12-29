@@ -45,7 +45,7 @@
                                 </MItems.ItemsPanel>
                                 <MItems.ItemTemplate>
                                     <DataTemplate DataType="MChartData+Column">
-                                        <MText Text="{Binding Name}" Opacity="0.5" HorizontalAlignment="Center" />
+                                        <TextBlock Text="{Binding Name}" Opacity="0.5" HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </MItems.ItemTemplate>
                             </MItems>
@@ -79,7 +79,7 @@
             <ControlTemplate>
                 <MPanel>
                     <Border Background="{TemplateBinding Brush}" />
-                    <MText Text="{TemplateBinding Data}" />
+                    <TextBlock Text="{TemplateBinding Data}" />
                 </MPanel>
             </ControlTemplate>
         </Setter>
@@ -93,7 +93,7 @@
             <Setter Property="CornerRadius" Value="3" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        <Style Selector="^ /template/ MText">
+        <Style Selector="^ /template/ TextBlock">
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
     </ControlTheme>
@@ -105,7 +105,7 @@
                 <Border BorderBrush="{MBrush BorderBrush}" BoxShadow="{MShadow DropXL2, BrushOpacity=0.08}" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1"
                         Padding="12 8">
                     <MPanel Mode="Vertical" Spacing="4" Grid.IsSharedSizeScope="True">
-                        <MText Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Name}" FontWeight="SemiBold" />
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Name}" FontWeight="SemiBold" />
                         <MItems ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Data.Data}">
                             <MItems.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -121,8 +121,8 @@
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Value" />
                                         </Grid.ColumnDefinitions>
                                         <Border Grid.Column="0" Width="10" Height="10" CornerRadius="3" Background="{Binding Brush}" VerticalAlignment="Center" />
-                                        <MText Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
-                                        <MText Grid.Column="2" Text="{Binding Value}" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="SemiBold" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Text="{Binding Value}" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="SemiBold" />
                                     </Grid>
                                 </DataTemplate>
                             </MItems.ItemTemplate>

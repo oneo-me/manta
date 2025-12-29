@@ -4,9 +4,9 @@ using Avalonia.Media;
 
 namespace Manta.Controls;
 
-public class MTextBox : TextBox
+public class TextBlockBox : TextBox
 {
-    public static readonly StyledProperty<bool> IsPasswordBoxProperty = AvaloniaProperty.Register<MTextBox, bool>(
+    public static readonly StyledProperty<bool> IsPasswordBoxProperty = AvaloniaProperty.Register<TextBlockBox, bool>(
         nameof(IsPasswordBox));
 
     public bool IsPasswordBox
@@ -15,7 +15,7 @@ public class MTextBox : TextBox
         set => SetValue(IsPasswordBoxProperty, value);
     }
 
-    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<MTextBox, BoxShadows>(
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<TextBlockBox, BoxShadows>(
         nameof(BoxShadow));
 
     public BoxShadows BoxShadow

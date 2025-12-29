@@ -8,7 +8,7 @@
         <!-- List -->
         <MPanel Mode="Horizontal" Spacing="12" Margin="12">
             <MPanel Mode="Vertical" Spacing="12">
-                <MText Text="Normal" />
+                <TextBlock Text="Normal" />
                 <Border BorderThickness="1">
                     <MListBox>
                         <MListBox.ItemsSource>
@@ -20,14 +20,14 @@
                         </MListBox.ItemsSource>
                         <MListBox.ItemTemplate>
                             <DataTemplate>
-                                <MText Text="{Binding}" />
+                                <TextBlock Text="{Binding}" />
                             </DataTemplate>
                         </MListBox.ItemTemplate>
                     </MListBox>
                 </Border>
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12">
-                <MText Text="Sidebar" />
+                <TextBlock Text="Sidebar" />
                 <Border BorderThickness="1">
                     <MListBox Type="Sidebar">
                         <MListBox.ItemsSource>
@@ -39,7 +39,7 @@
                         </MListBox.ItemsSource>
                         <MListBox.ItemTemplate>
                             <DataTemplate>
-                                <MText Text="{Binding}" />
+                                <TextBlock Text="{Binding}" />
                             </DataTemplate>
                         </MListBox.ItemTemplate>
                     </MListBox>

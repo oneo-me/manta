@@ -9,8 +9,26 @@ using Path = Avalonia.Controls.Shapes.Path;
 
 namespace Manta.Controls;
 
+public enum MIconVariant
+{
+    Default,
+    Secondary,
+    Destructive,
+    Success,
+    Warning
+}
+
 public sealed class MIcon : TemplatedControl
 {
+    public static readonly StyledProperty<MIconVariant> VariantProperty = AvaloniaProperty.Register<MIcon, MIconVariant>(
+        nameof(Variant));
+
+    public MIconVariant Variant
+    {
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
+    }
+
     public static readonly StyledProperty<double?> IconSizeProperty = AvaloniaProperty.Register<MIcon, double?>(
         nameof(IconSize));
 

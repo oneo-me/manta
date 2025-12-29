@@ -5,9 +5,9 @@
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <Grid ColumnDefinitions="*,*" Width="300" Height="300">
-                <MText Grid.Column="0" Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Column="0" Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
                 <Border Grid.Column="1" BorderThickness="1 0 0 0">
-                    <MText Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="Text Text Text Text Text Text Text Text Text Text" TextTrimming="CharacterEllipsis" />
                 </Border>
                 <GridSplitter Grid.Column="0" Width="4" HorizontalAlignment="Right" />
             </Grid>

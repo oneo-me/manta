@@ -114,7 +114,7 @@ sealed class ControlsScanner(Options options)
                 if (templateParts.Count > 0)
                 {
                     writer.WriteLine("                <Panel>");
-                    writer.WriteLine($"                    <MSelectableText M.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                    <SelectableTextBlock Foreground=\"{{MBrush Danger}}\" Text=\"{formatMessage(info)}\" />");
 
                     foreach (var templatePart in templateParts)
                         writer.WriteLine($"                    <{templatePart.Type.Name} Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
@@ -123,7 +123,7 @@ sealed class ControlsScanner(Options options)
                 }
                 else
                 {
-                    writer.WriteLine($"                <MSelectableText M.ColorScheme=\"Danger\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                <SelectableTextBlock Foreground=\"{{MBrush Danger}}\" Text=\"{formatMessage(info)}\" />");
                 }
 
                 writer.WriteLine("            </ControlTemplate>");
@@ -137,7 +137,7 @@ sealed class ControlsScanner(Options options)
                 if (hasText is false)
                     writer.WriteLine($"    <!-- {formatMessage(info)} -->");
                 writer.WriteLine($"    <ControlTheme x:Key=\"{{x:Type {info.ContorlType.Name}}}\" TargetType=\"{info.ContorlType.Name}\">");
-                writer.WriteLine("        <Setter Property=\"M.ColorScheme\" Value=\"Danger\" />");
+                writer.WriteLine("        <Setter Property=\"Foreground\" Value=\"{MBrush Danger}\" />");
                 if (hasText)
                     writer.WriteLine($"        <Setter Property=\"Text\" Value=\"{formatMessage(info)}\" />");
                 writer.WriteLine("    </ControlTheme>");
@@ -182,7 +182,13 @@ sealed class ControlsScanner(Options options)
             typeof(HeaderedContentControl),
             typeof(ContentControl),
             typeof(LayoutTransformControl),
+            typeof(ExperimentalAcrylicBorder),
 
+            typeof(DateTimePickerPanel),
+            typeof(NativeControlHost),
+            typeof(Popup),
+            typeof(TickBar),
+            typeof(Track),
             typeof(Canvas),
             typeof(Image),
             typeof(Viewbox),
@@ -237,8 +243,8 @@ sealed class ControlsScanner(Options options)
 
             ImplName = type.Name switch
             {
-                nameof(SelectableTextBlock) => "MSelectableText",
-                nameof(TextBlock)           => "MText",
+                nameof(SelectableTextBlock) => "SelectableTextBlock",
+                nameof(TextBlock)           => "TextBlock",
                 nameof(UserControl)         => "MView",
                 nameof(ItemsControl)        => "MItems",
                 nameof(CaptionButtons)      => "MTitleBarButtons",

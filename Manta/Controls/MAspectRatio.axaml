@@ -6,12 +6,12 @@
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MPanelAspectRatio Ratio="16 / 9">
                 <Border Background="{MBrush BorderBrush}" Width="320" CornerRadius="8">
-                    <MText Text="16 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Text="16 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
             </MPanelAspectRatio>
             <MPanelAspectRatio Ratio="21 / 9">
                 <Border Background="{MBrush BorderBrush}" Width="320" CornerRadius="8">
-                    <MText Text="21 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Text="21 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
             </MPanelAspectRatio>
         </MPanel>

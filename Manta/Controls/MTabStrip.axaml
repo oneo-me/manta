@@ -6,7 +6,7 @@
         <!-- List -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MPanel Mode="Vertical" Spacing="12">
-                <MText Text="Normal" />
+                <TextBlock Text="Normal" />
                 <Border BorderThickness="1">
                     <MTabStrip Margin="12">
                         <MTabStripItem Content="TabItem 1" />
@@ -16,7 +16,7 @@
                 </Border>
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12">
-                <MText Text="RooTab" />
+                <TextBlock Text="RooTab" />
                 <Border BorderThickness="1" Height="180" Background="White">
                     <Border ClipToBounds="True" BorderThickness="0 0 0 1" Height="36" VerticalAlignment="Top">
                         <MTabStrip Type="RootTab" Background="Wheat">

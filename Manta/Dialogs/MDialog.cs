@@ -1,7 +1,7 @@
 using Avalonia.Controls;
+using Manta.Controls;
 using Manta.Langs;
 using Manta.Reactive.Views;
-using Manta.Themes.Variables;
 
 namespace Manta.Dialogs;
 
@@ -11,10 +11,10 @@ public class MDialogOptions(string message)
     public string Message { get; init; } = message;
 
     public string CancelText { get; init; } = InnerLangKey.Dialog_Cancel;
-    public string ConfirmText { get; init; } = InnerLangKey.Dialog_Confirm;
+    public string ConfirTextBlock { get; init; } = InnerLangKey.Dialog_Confirm;
 
-    public ColorScheme CancelColor { get; init; } = ColorScheme.Normal;
-    public ColorScheme ConfirmColor { get; init; } = ColorScheme.Primary;
+    public MButtonVariant CancelVariant { get; init; } = MButtonVariant.Secondary;
+    public MButtonVariant ConfirmVariant { get; init; } = MButtonVariant.Default;
 
     public bool ShowCancel { get; internal set; }
     public bool ShowConfirm { get; internal set; }

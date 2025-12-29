@@ -13,13 +13,13 @@ namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_Event), typeof(Border))]
 [TemplatePart(nameof(PART_Content), typeof(Panel))]
-[TemplatePart(nameof(PART_Title), typeof(MText))]
+[TemplatePart(nameof(PART_Title), typeof(TextBlock))]
 [TemplatePart(nameof(PART_Buttons), typeof(MTitleBarButtons))]
 public class MTitleBar : ContentControl
 {
     Border? PART_Event;
     Panel? PART_Content;
-    MText? PART_Title;
+    TextBlock? PART_Title;
     MTitleBarButtons? PART_Buttons;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -28,7 +28,7 @@ public class MTitleBar : ContentControl
 
         PART_Event = e.NameScope.Get<Border>(nameof(PART_Event));
         PART_Content = e.NameScope.Get<Panel>(nameof(PART_Content));
-        PART_Title = e.NameScope.Get<MText>(nameof(PART_Title));
+        PART_Title = e.NameScope.Get<TextBlock>(nameof(PART_Title));
         PART_Buttons = e.NameScope.Get<MTitleBarButtons>(nameof(PART_Buttons));
 
         PART_Buttons.IsVisible = OperatingSystem.IsMacOS() is false;

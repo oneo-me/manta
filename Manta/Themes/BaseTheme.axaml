@@ -13,20 +13,16 @@
                 <!-- Design -->
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Supported Controls -->
-                <MergeResourceInclude Source="../Controls/Base/Supported/AccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/TextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
@@ -39,10 +35,8 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/DateTimePickerPanel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/EmbeddableControlRoot.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ExperimentalAcrylicBorder.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedSelectingItemsControl.axaml" />
@@ -50,11 +44,9 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MenuFlyoutPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeControlHost.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Popup.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
@@ -64,24 +56,25 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TabControl.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/TickBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSwitch.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToolTip.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Track.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TreeView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/WindowNotificationManager.axaml" />
                 <!-- Base Controls -->
+                <MergeResourceInclude Source="../Controls/Base/AccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Border.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/GridSplitter.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/PopupRoot.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/SelectableTextBlock.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <!-- Controls -->
-                <MergeResourceInclude Source="../Controls/MAccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/MAspectRatio.axaml" />
                 <MergeResourceInclude Source="../Controls/MAvatar.axaml" />
@@ -98,16 +91,13 @@
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
-                <MergeResourceInclude Source="../Controls/MLabel.axaml" />
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MScrollViewer.axaml" />
-                <MergeResourceInclude Source="../Controls/MSelectableText.axaml" />
                 <MergeResourceInclude Source="../Controls/MTabStrip.axaml" />
-                <MergeResourceInclude Source="../Controls/MText.axaml" />
                 <MergeResourceInclude Source="../Controls/MTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MTitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MToggleButton.axaml" />

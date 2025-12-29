@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'Menu' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'Menu' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'MenuItem' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'MenuItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

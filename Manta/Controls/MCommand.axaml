@@ -15,19 +15,19 @@
                     <MCommandItem>
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                            <MText Text="Calendar" VerticalAlignment="Center" />
+                            <TextBlock Text="Calendar" VerticalAlignment="Center" />
                         </MPanel>
                     </MCommandItem>
                     <MCommandItem>
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                            <MText Text="Search Emoji" VerticalAlignment="Center" />
+                            <TextBlock Text="Search Emoji" VerticalAlignment="Center" />
                         </MPanel>
                     </MCommandItem>
                     <MCommandItem IsEnabled="False">
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                            <MText Text="Calculator" VerticalAlignment="Center" />
+                            <TextBlock Text="Calculator" VerticalAlignment="Center" />
                         </MPanel>
                     </MCommandItem>
                     <MCommandItem Variant="Separator" />
@@ -36,34 +36,34 @@
                         <Grid ColumnDefinitions="* Auto">
                             <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
                                 <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                                <MText Text="Profile" VerticalAlignment="Center" />
+                                <TextBlock Text="Profile" VerticalAlignment="Center" />
                             </MPanel>
-                            <MText Grid.Column="1" Text="⌘ P" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Text="⌘ P" Opacity="0.6" VerticalAlignment="Center" />
                         </Grid>
                     </MCommandItem>
                     <MCommandItem>
                         <Grid ColumnDefinitions="* Auto">
                             <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
                                 <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                                <MText Text="Billing" VerticalAlignment="Center" />
+                                <TextBlock Text="Billing" VerticalAlignment="Center" />
                             </MPanel>
-                            <MText Grid.Column="1" Text="⌘ B" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Text="⌘ B" Opacity="0.6" VerticalAlignment="Center" />
                         </Grid>
                     </MCommandItem>
                     <MCommandItem>
                         <Grid ColumnDefinitions="* Auto">
                             <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
                                 <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
-                                <MText Text="Settings" VerticalAlignment="Center" />
+                                <TextBlock Text="Settings" VerticalAlignment="Center" />
                             </MPanel>
-                            <MText Grid.Column="1" Text="⌘ S" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Text="⌘ S" Opacity="0.6" VerticalAlignment="Center" />
                         </Grid>
                     </MCommandItem>
                 </MCommand>
             </MCard>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="BlankTextBox" TargetType="MTextBox">
+    <ControlTheme x:Key="BlankTextBox" TargetType="TextBlockBox">
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
@@ -80,7 +80,7 @@
                     IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                     BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
                     <Panel Margin="{TemplateBinding Padding}">
-                        <MText
+                        <TextBlock
                             Name="WatermarkTextBlock"
                             Opacity="0.5"
                             Text="{TemplateBinding Watermark}"
@@ -109,10 +109,10 @@
                 </MScrollViewer>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ MText#WatermarkTextBlock">
+        <Style Selector="^ /template/ TextBlock#WatermarkTextBlock">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^:empty:not(:focus) /template/ MText#WatermarkTextBlock">
+        <Style Selector="^:empty:not(:focus) /template/ TextBlock#WatermarkTextBlock">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
@@ -127,7 +127,7 @@
                 <Grid RowDefinitions="Auto *">
                     <Grid Grid.Row="0" Name="InpuBox" ColumnDefinitions="Auto *">
                         <MPathIcon Name="Icon" Grid.Column="0" />
-                        <MTextBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
+                        <TextBlockBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
                                       Watermark="{TemplateBinding Watermark}"
                                       Text="{TemplateBinding Text}" />
                     </Grid>
@@ -150,7 +150,7 @@
             <Setter Property="Opacity" Value="0.5" />
             <Setter Property="Margin" Value="12 0 2 0" />
         </Style>
-        <Style Selector="^ /template/ MTextBox#TextBox">
+        <Style Selector="^ /template/ TextBlockBox#TextBox">
             <Setter Property="CaretBrush" Value="{MBrush Foreground}" />
             <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
             <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />

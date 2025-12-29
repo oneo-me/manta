@@ -17,7 +17,7 @@
                 </MItems.ItemsSource>
                 <MItems.ItemTemplate>
                     <DataTemplate>
-                        <MText Text="{Binding}" />
+                        <TextBlock Text="{Binding}" />
                     </DataTemplate>
                 </MItems.ItemTemplate>
             </MItems>

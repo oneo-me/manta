@@ -6,8 +6,8 @@
     x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
     Name="View">
     <MPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <MText Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" M.TextSize="ExtraLarge6" HorizontalAlignment="Center" />
-        <MText Text="{Lang {x:Static LangKey.Description}}" />
+        <TextBlock Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" FontSize="72" HorizontalAlignment="Center" />
+        <TextBlock Text="{Lang {x:Static LangKey.Description}}" />
         <MItems ItemsSource="{Binding Items}">
             <MItems.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -16,10 +16,10 @@
             </MItems.ItemsPanel>
             <MItems.ItemTemplate>
                 <DataTemplate>
-                    <MButton Size="Small" M.ColorScheme="Primary"
-                                 Content="{Lang {Binding Header}}"
-                                 Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
-                                 CommandParameter="{Binding}" />
+                    <MButton Size="Small"
+                             Content="{Lang {Binding Header}}"
+                             Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
+                             CommandParameter="{Binding}" />
                 </DataTemplate>
             </MItems.ItemTemplate>
         </MItems>
@@ -32,11 +32,11 @@
             <MItems.ItemTemplate>
                 <DataTemplate>
                     <MButton Variant="Outline" Size="Small"
-                                 Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
-                                 CommandParameter="{Binding}">
+                             Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
+                             CommandParameter="{Binding}">
                         <MPanel Mode="Horizontal" Spacing="6">
-                            <MText Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
-                            <MText Text="{LangName {Binding}}" VerticalAlignment="Center" />
+                            <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
+                            <TextBlock Text="{LangName {Binding}}" VerticalAlignment="Center" />
                         </MPanel>
                     </MButton>
                 </DataTemplate>

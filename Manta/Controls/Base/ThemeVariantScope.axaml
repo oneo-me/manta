@@ -6,12 +6,12 @@
         <MPanel Mode="Horizontal" Spacing="12" Margin="12">
             <ThemeVariantScope Width="100" RequestedThemeVariant="Light">
                 <Panel Background="{MBrush Background}">
-                    <MText Text="Text" Margin="33 11" />
+                    <TextBlock Text="Text" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
             <ThemeVariantScope Width="100" RequestedThemeVariant="Dark">
                 <Panel Background="{MBrush Background}">
-                    <MText Text="Text" Margin="33 11" />
+                    <TextBlock Text="Text" Margin="33 11" />
                 </Panel>
             </ThemeVariantScope>
         </MPanel>

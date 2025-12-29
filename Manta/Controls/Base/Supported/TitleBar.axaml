@@ -11,7 +11,7 @@
     <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MTitleBarButtons'" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTitleBarButtons'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -19,7 +19,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MTitleBar'" />
+                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTitleBar'" />
                     <CaptionButtons Name="PART_CaptionButtons" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

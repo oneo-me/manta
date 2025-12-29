@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'EmbeddableControlRoot' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'EmbeddableControlRoot' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

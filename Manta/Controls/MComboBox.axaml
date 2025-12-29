@@ -17,12 +17,12 @@
                 </MComboBox.ItemsSource>
                 <MComboBox.ItemTemplate>
                     <DataTemplate>
-                        <MText Text="{Binding}" />
+                        <TextBlock Text="{Binding}" />
                     </DataTemplate>
                 </MComboBox.ItemTemplate>
                 <MComboBox.SelectedIteMemplate>
                     <DataTemplate>
-                        <MText Text="{Binding}" />
+                        <TextBlock Text="{Binding}" />
                     </DataTemplate>
                 </MComboBox.SelectedIteMemplate>
             </MComboBox>

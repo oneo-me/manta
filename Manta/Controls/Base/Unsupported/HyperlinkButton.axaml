@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'HyperlinkButton' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'HyperlinkButton' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
