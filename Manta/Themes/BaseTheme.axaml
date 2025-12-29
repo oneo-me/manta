@@ -13,6 +13,7 @@
                 <!-- Design -->
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Supported Controls -->
+                <MergeResourceInclude Source="../Controls/Base/Supported/AccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
@@ -30,7 +31,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
                 <!-- Unsupported Controls -->
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/AccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
@@ -81,6 +81,7 @@
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <!-- Controls -->
+                <MergeResourceInclude Source="../Controls/MAccessText.axaml" />
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/MAspectRatio.axaml" />
                 <MergeResourceInclude Source="../Controls/MAvatar.axaml" />
