@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'TabControl' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'TabControl' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'TabItem' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'TabItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

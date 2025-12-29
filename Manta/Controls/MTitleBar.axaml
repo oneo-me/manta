@@ -142,7 +142,7 @@
                             <Panel x:Name="Size" />
                         </Border>
                         <Panel Name="PART_Content" Grid.Column="0">
-                            <MText Name="PART_Title"
+                            <TextBlock Name="PART_Title"
                                    IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
@@ -161,7 +161,7 @@
             <Setter Property="Height" Value="38" />
             <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
-        <Style Selector="^ /template/ MText#PART_Title">
+        <Style Selector="^ /template/ TextBlock#PART_Title">
             <Setter Property="Padding" Value="12 0" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="VerticalAlignment" Value="Center" />

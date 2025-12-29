@@ -8,8 +8,26 @@ using Avalonia.Metadata;
 
 namespace Manta.Controls;
 
+public enum MProgressRingVariant
+{
+    Default,
+    Secondary,
+    Destructive,
+    Success,
+    Warning
+}
+
 public class MProgressRing : ProgressBar
 {
+    public static readonly StyledProperty<MProgressRingVariant> VariantProperty = AvaloniaProperty.Register<MProgressRing, MProgressRingVariant>(
+        nameof(Variant));
+
+    public MProgressRingVariant Variant
+    {
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
+    }
+
     public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<MProgressRing, BoxShadows>(
         nameof(BoxShadow));
 

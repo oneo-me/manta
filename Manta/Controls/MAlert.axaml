@@ -8,7 +8,7 @@
                 <MAlert.Icon>
                     <MPathIcon Size="16" UseStroke="True" Data="M9.388 4.29a4.302 4.302 0 0 0-6.127-.016c-1.688 1.705-1.68 4.476.016 6.189l6.277 6.34c.26.263.682.263.942 0l6.245-6.304a4.408 4.408 0 0 0-.017-6.187 4.305 4.305 0 0 0-6.135-.015l-.596.603-.605-.61Z M 0 0 M 20 20" />
                 </MAlert.Icon>
-                <MText Text="This is an alert with icon, title and description." Opacity="0.5" />
+                <TextBlock Text="This is an alert with icon, title and description." Opacity="0.5" />
             </MAlert>
             <MAlert Header="This Alert has a title and an icon. No description.">
                 <MAlert.Icon>
@@ -20,11 +20,11 @@
                     <MPathIcon Size="16" UseStroke="True" Data="M9.388 4.29a4.302 4.302 0 0 0-6.127-.016c-1.688 1.705-1.68 4.476.016 6.189l6.277 6.34c.26.263.682.263.942 0l6.245-6.304a4.408 4.408 0 0 0-.017-6.187 4.305 4.305 0 0 0-6.135-.015l-.596.603-.605-.61Z M 0 0 M 20 20" />
                 </MAlert.Icon>
                 <MPanel Mode="Vertical" Spacing="4">
-                    <MText Text="Please verify your billing information and try again." />
+                    <TextBlock Text="Please verify your billing information and try again." />
                     <MPanel Mode="Vertical">
-                        <MText Text="•  Check your card details" />
-                        <MText Text="•  Ensure sufficient funds" />
-                        <MText Text="•  Verify billing address" />
+                        <TextBlock Text="•  Check your card details" />
+                        <TextBlock Text="•  Ensure sufficient funds" />
+                        <TextBlock Text="•  Verify billing address" />
                     </MPanel>
                 </MPanel>
             </MAlert>

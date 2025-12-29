@@ -13,7 +13,7 @@
             <MToggleButton HorizontalAlignment="Left" IsChecked="True">
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
-                    <MText Text="Bookmark" VerticalAlignment="Center" />
+                    <TextBlock Text="Bookmark" VerticalAlignment="Center" />
                 </MPanel>
             </MToggleButton>
             <MToggleButton HorizontalAlignment="Left">
@@ -22,7 +22,7 @@
             <MToggleButton Variant="WithText" HorizontalAlignment="Left">
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
-                    <MText Text="Bookmark" VerticalAlignment="Center" />
+                    <TextBlock Text="Bookmark" VerticalAlignment="Center" />
                 </MPanel>
             </MToggleButton>
             <MPanel Mode="Horizontal" Spacing="8">

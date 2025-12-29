@@ -10,19 +10,19 @@
             </ControlTemplate>
         </Setter>
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.6}" />
-        <Style Selector="^[(M.ColorScheme)=Normal]">
+        <Style Selector="^[Variant=Secondary]">
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Primary]">
+        <Style Selector="^[Variant=Default]">
             <Setter Property="Background" Value="{MBrush Primary, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Success]">
+        <Style Selector="^[Variant=Success]">
             <Setter Property="Background" Value="{MBrush Success, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Warning]">
+        <Style Selector="^[Variant=Warning]">
             <Setter Property="Background" Value="{MBrush Warning, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Danger]">
+        <Style Selector="^[Variant=Destructive]">
             <Setter Property="Background" Value="{MBrush Danger, Opacity=0.2}" />
         </Style>
     </ControlTheme>

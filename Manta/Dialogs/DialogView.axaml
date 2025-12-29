@@ -6,11 +6,11 @@
     x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}"
     Background="{MBrush Background, Opacity=0.8}">
     <MPanel Mode="Vertical" Spacing="18" Margin="18">
-        <MText Text="{Lang {Binding Options.Title}}" FontWeight="SemiBold" HorizontalAlignment="Center" />
-        <MSelectableText Text="{Lang {Binding Options.Message}}" TextAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Text="{Lang {Binding Options.Title}}" FontWeight="SemiBold" HorizontalAlignment="Center" />
+        <SelectableTextBlock Text="{Lang {Binding Options.Message}}" TextAlignment="Center" HorizontalAlignment="Center" />
         <MPanel Mode="Horizontal" Spacing="18" HorizontalAlignment="Center">
-            <MButton Size="Default" MinWidth="80" M.ColorScheme="{Binding Options.CancelColor}" IsCancel="True" Content="{Lang {Binding Options.CancelText}}" Command="{Binding OnCancel}" IsVisible="{Binding Options.ShowCancel}" />
-            <MButton Size="Default" MinWidth="80" M.ColorScheme="{Binding Options.ConfirmColor}" IsDefault="True" Content="{Lang {Binding Options.ConfirmText}}" Command="{Binding OnConfirm}" IsVisible="{Binding Options.ShowConfirm}" />
+            <MButton Size="Default" MinWidth="80" Variant="{Binding Options.CancelVariant}" IsCancel="True" Content="{Lang {Binding Options.CancelText}}" Command="{Binding OnCancel}" IsVisible="{Binding Options.ShowCancel}" />
+            <MButton Size="Default" MinWidth="80" Variant="{Binding Options.ConfirmVariant}" IsDefault="True" Content="{Lang {Binding Options.ConfirTextBlock}}" Command="{Binding OnConfirm}" IsVisible="{Binding Options.ShowConfirm}" />
         </MPanel>
     </MPanel>
 </MView>

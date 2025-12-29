@@ -4,11 +4,11 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <DateTimePickerPanel />
+            <SelectableTextBlock />
         </MPanel>
     </Design.PreviewWith>
-    <!-- The control 'DateTimePickerPanel' is not supported -->
-    <ControlTheme x:Key="{x:Type DateTimePickerPanel}" TargetType="DateTimePickerPanel">
-        <Setter Property="M.ColorScheme" Value="Danger" />
+    <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
+        <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
+        <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
     </ControlTheme>
 </ResourceDictionary>

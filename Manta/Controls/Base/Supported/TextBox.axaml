@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <MSelectableText M.ColorScheme="Danger" Text="Please use the 'MTextBox'" />
+                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTextBox'" />
                     <TextPresenter Name="PART_TextPresenter" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

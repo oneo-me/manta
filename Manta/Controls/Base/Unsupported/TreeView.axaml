@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'TreeView' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'TreeView' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <MSelectableText M.ColorScheme="Danger" Text="The control 'TreeViewItem' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'TreeViewItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

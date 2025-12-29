@@ -4,11 +4,8 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Popup />
+            <AccessText />
         </MPanel>
     </Design.PreviewWith>
-    <!-- The control 'Popup' is not supported -->
-    <ControlTheme x:Key="{x:Type Popup}" TargetType="Popup">
-        <Setter Property="M.ColorScheme" Value="Danger" />
-    </ControlTheme>
+    <ControlTheme x:Key="{x:Type AccessText}" TargetType="AccessText" />
 </ResourceDictionary>

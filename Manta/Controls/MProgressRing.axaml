@@ -7,7 +7,7 @@
     <Design.PreviewWith>
         <!-- Progress -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall">
+            <MPanel Mode="Horizontal" Spacing="12">
                 <MProgressRing />
                 <MProgressRing Value="50" />
                 <MProgressRing Value="100" />
@@ -15,51 +15,51 @@
                 <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
                 <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
                 <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <MText Text="TEST" />
+                    <TextBlock Text="TEST" />
                 </MProgressRing>
             </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Primary">
-                <MProgressRing />
-                <MProgressRing Value="50" />
-                <MProgressRing Value="100" />
-                <MProgressRing IsIndeterminate="True" />
-                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <MText Text="TEST" />
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing Variant="Secondary" />
+                <MProgressRing Variant="Secondary" Value="50" />
+                <MProgressRing Variant="Secondary" Value="100" />
+                <MProgressRing Variant="Secondary" IsIndeterminate="True" />
+                <MProgressRing Variant="Secondary" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Secondary" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Secondary" IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
                 </MProgressRing>
             </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Success">
-                <MProgressRing />
-                <MProgressRing Value="50" />
-                <MProgressRing Value="100" />
-                <MProgressRing IsIndeterminate="True" />
-                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <MText Text="TEST" />
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing Variant="Success" />
+                <MProgressRing Variant="Success" Value="50" />
+                <MProgressRing Variant="Success" Value="100" />
+                <MProgressRing Variant="Success" IsIndeterminate="True" />
+                <MProgressRing Variant="Success" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Success" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Success" IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
                 </MProgressRing>
             </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Warning">
-                <MProgressRing />
-                <MProgressRing Value="50" />
-                <MProgressRing Value="100" />
-                <MProgressRing IsIndeterminate="True" />
-                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <MText Text="TEST" />
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing Variant="Warning" />
+                <MProgressRing Variant="Warning" Value="50" />
+                <MProgressRing Variant="Warning" Value="100" />
+                <MProgressRing Variant="Warning" IsIndeterminate="True" />
+                <MProgressRing Variant="Warning" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Warning" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Warning" IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
                 </MProgressRing>
             </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12" M.TextSize="ExtraSmall" M.ColorScheme="Danger">
-                <MProgressRing />
-                <MProgressRing Value="50" />
-                <MProgressRing Value="100" />
-                <MProgressRing IsIndeterminate="True" />
-                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
-                    <MText Text="TEST" />
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing Variant="Destructive" />
+                <MProgressRing Variant="Destructive" Value="50" />
+                <MProgressRing Variant="Destructive" Value="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" />
+                <MProgressRing Variant="Destructive" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
                 </MProgressRing>
             </MPanel>
         </MPanel>
@@ -78,9 +78,9 @@
                 <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border Name="PART_Indicator" />
                     <MRing Name="Ring"
-                               Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
-                               Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
-                               Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
+                           Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
+                           Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
+                           Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
                     <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
                         <MClipContentControl
                             Background="{TemplateBinding Background}"
@@ -93,8 +93,8 @@
                             <Panel>
                                 <LayoutTransformControl Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         IsVisible="{TemplateBinding ShowProgressText}">
-                                    <MText>
-                                        <MText.Text>
+                                    <TextBlock>
+                                        <TextBlock.Text>
                                             <MultiBinding Converter="{StaticResource ProgressRingStringFormatConverter}">
                                                 <TemplateBinding Property="ProgressTextFormat" />
                                                 <Binding Path="Value"
@@ -103,8 +103,8 @@
                                                 <TemplateBinding Property="Minimum" />
                                                 <TemplateBinding Property="Maximum" />
                                             </MultiBinding>
-                                        </MText.Text>
-                                    </MText>
+                                        </TextBlock.Text>
+                                    </TextBlock>
                                 </LayoutTransformControl>
                                 <ContentControl Content="{TemplateBinding Content}"
                                                 ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -136,23 +136,23 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Normal]">
+        <Style Selector="^[Variant=Secondary]">
             <Setter Property="RingForeground" Value="{MBrush Foreground, Opacity=0.6}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Primary]">
+        <Style Selector="^[Variant=Default]">
             <Setter Property="RingForeground" Value="{MBrush Primary}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Success]">
+        <Style Selector="^[Variant=Success]">
             <Setter Property="RingForeground" Value="{MBrush Success}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Warning]">
+        <Style Selector="^[Variant=Warning]">
             <Setter Property="RingForeground" Value="{MBrush Warning}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[(M.ColorScheme)=Danger]">
+        <Style Selector="^[Variant=Destructive]">
             <Setter Property="RingForeground" Value="{MBrush Danger}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>

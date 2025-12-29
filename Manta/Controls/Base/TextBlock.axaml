@@ -4,11 +4,8 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <Track />
+            <TextBlock />
         </MPanel>
     </Design.PreviewWith>
-    <!-- The control 'Track' is not supported -->
-    <ControlTheme x:Key="{x:Type Track}" TargetType="Track">
-        <Setter Property="M.ColorScheme" Value="Danger" />
-    </ControlTheme>
+    <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock" />
 </ResourceDictionary>
