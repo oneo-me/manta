@@ -6,30 +6,30 @@
         <!-- List -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MCard Width="320">
-                <MAccordion>
-                    <MAccordionItem Header="Product Information">
+                <MExpander>
+                    <MExpanderItem Header="Product Information">
                         <MPanel Mode="Vertical" Spacing="3">
                             <MText Text="Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability." TextWrapping="Wrap" />
                             <MText Text="Key features include advanced processing capabilities, and an intuitive user interface designed for both beginners and experts." TextWrapping="Wrap" />
                         </MPanel>
-                    </MAccordionItem>
-                    <MAccordionItem Header="Shipping Details">
+                    </MExpanderItem>
+                    <MExpanderItem Header="Shipping Details">
                         <MPanel Mode="Vertical" Spacing="3">
                             <MText Text="We offer worldwide shipping through trusted courier partners. Standard delivery takes 3-5 business days, while express shipping ensures delivery within 1-2 business days." TextWrapping="Wrap" />
                             <MText Text="All orders are carefully packaged and fully insured. Track your shipment in real-time through our dedicated tracking portal." TextWrapping="Wrap" />
                         </MPanel>
-                    </MAccordionItem>
-                    <MAccordionItem Header="Return Policy">
+                    </MExpanderItem>
+                    <MExpanderItem Header="Return Policy">
                         <MPanel Mode="Vertical" Spacing="3">
                             <MText Text="We stand behind our products with a comprehensive 30-day return policy. If you&apos;re not completely satisfied, simply return the item in its original condition." TextWrapping="Wrap" />
                             <MText Text="Our hassle-free return process includes free return shipping and full refunds processed within 48 hours of receiving the returned item." TextWrapping="Wrap" />
                         </MPanel>
-                    </MAccordionItem>
-                </MAccordion>
+                    </MExpanderItem>
+                </MExpander>
             </MCard>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type MAccordion}" TargetType="MAccordion">
+    <ControlTheme x:Key="{x:Type MExpander}" TargetType="MExpander">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <MPanel Mode="Vertical" />
@@ -50,7 +50,7 @@
         <Setter Property="Padding" Value="12 0" />
         <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type MAccordionItem}" TargetType="MAccordionItem">
+    <ControlTheme x:Key="{x:Type MExpanderItem}" TargetType="MExpanderItem">
         <Setter Property="Template">
             <ControlTemplate>
                 <Border

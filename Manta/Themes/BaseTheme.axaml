@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
@@ -34,22 +35,18 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ChromeOverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ContextMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DateTimePickerPanel.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Decorator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/EmbeddableControlRoot.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Expander.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ExperimentalAcrylicBorder.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedSelectingItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HyperlinkButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/LightDismissOverlayLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MenuFlyoutPresenter.axaml" />
@@ -84,7 +81,6 @@
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <!-- Controls -->
-                <MergeResourceInclude Source="../Controls/MAccordion.axaml" />
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/MAspectRatio.axaml" />
                 <MergeResourceInclude Source="../Controls/MAvatar.axaml" />
@@ -98,6 +94,7 @@
                 <MergeResourceInclude Source="../Controls/MClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommand.axaml" />
+                <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
                 <MergeResourceInclude Source="../Controls/MLabel.axaml" />

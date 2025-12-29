@@ -175,6 +175,7 @@ sealed class ControlsScanner(Options options)
             typeof(ContentPresenter),
             typeof(ItemsPresenter),
 
+            typeof(Decorator),
             typeof(Control),
             typeof(TemplatedControl),
             typeof(UserControl),
@@ -186,6 +187,9 @@ sealed class ControlsScanner(Options options)
             typeof(Image),
             typeof(Viewbox),
             typeof(AdornerLayer),
+            typeof(OverlayLayer),
+            typeof(ChromeOverlayLayer),
+            typeof(LightDismissOverlayLayer),
             typeof(OverlayLayer),
             typeof(TextSelectorLayer),
             typeof(TextSelectionHandle),
