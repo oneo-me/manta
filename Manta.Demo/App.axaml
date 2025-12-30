@@ -5,6 +5,7 @@
     RequestedThemeVariant="Default">
     <Application.Styles>
         <MantaTheme />
+        <MantaChartsTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </Application.Styles>
 </Application>

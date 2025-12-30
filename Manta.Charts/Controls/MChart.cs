@@ -7,9 +7,10 @@ using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
+using Manta.Controls;
 using Manta.Themes.Values;
 
-namespace Manta.Controls;
+namespace Manta.Charts.Controls;
 
 public class MChartData
 {

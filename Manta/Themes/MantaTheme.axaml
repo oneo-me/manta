@@ -83,7 +83,6 @@
                 <MergeResourceInclude Source="../Controls/MButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MCard.axaml" />
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
-                <MergeResourceInclude Source="../Controls/MChart.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
