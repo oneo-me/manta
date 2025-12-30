@@ -4,7 +4,7 @@
     x:Class="Manta.Demo.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <BaseTheme />
+        <MantaTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </Application.Styles>
 </Application>

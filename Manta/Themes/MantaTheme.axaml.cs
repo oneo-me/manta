@@ -3,9 +3,9 @@ using Avalonia.Styling;
 
 namespace Manta.Themes;
 
-public sealed class BaseTheme : Styles
+public sealed class MantaTheme : Styles
 {
-    public BaseTheme(IServiceProvider? sp = null)
+    public MantaTheme(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
     }
