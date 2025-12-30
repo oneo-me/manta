@@ -7,10 +7,13 @@
     <MScrollViewer>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MCard Width="320" Height="180" HorizontalAlignment="Left">
-                <MChart Data="{Binding Data1}" ShowLegends="False" />
+                <MChart Data="{Binding BarData}" />
             </MCard>
-            <MCard Width="520" Height="380" HorizontalAlignment="Left">
-                <MChart Title="{Binding Title}" Data="{Binding Data2}" />
+            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+                <MChart Data="{Binding LineData}" />
+            </MCard>
+            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+                <MChart Data="{Binding PieData}" />
             </MCard>
         </MPanel>
     </MScrollViewer>
