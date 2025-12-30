@@ -1,6 +1,6 @@
-using Manta.Controls;
-using Manta.Reactive.Views;
+using Manta.Charts.Controls;
 using Manta.Demo.Reactive;
+using Manta.Reactive.Views;
 
 namespace Manta.Demo.Demos.ControlDemos;
 
