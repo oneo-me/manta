@@ -1,5 +1,5 @@
 <Styles
-    x:Class="Manta.Themes.BaseTheme"
+    x:Class="Manta.Themes.MantaTheme"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Styles.Resources>
