@@ -32,7 +32,6 @@ sealed class ChartView_Model : DemoViewModel
 
         BarData = new()
         {
-            Title = "Bar Chart",
             Items = data.Select(x => new BarChartDataItem
             {
                 Category = x.month,
@@ -46,7 +45,6 @@ sealed class ChartView_Model : DemoViewModel
 
         LineData = new()
         {
-            Title = "Line Chart",
             Type = BarChartType.Line,
             Items = data.Select(x => new BarChartDataItem
             {
@@ -61,7 +59,6 @@ sealed class ChartView_Model : DemoViewModel
 
         PieData = new()
         {
-            Title = "Pie Chart",
             Values = data.Select(x => new ChartDataValue
             {
                 Name = x.month,

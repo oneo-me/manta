@@ -6,6 +6,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <MergeResourceInclude Source="../Controls/MChart.axaml" />
+                <MergeResourceInclude Source="../Controls/MChartRender.axaml" />
+                <MergeResourceInclude Source="../Controls/MChartLegend.axaml" />
+                <MergeResourceInclude Source="../Controls/MChartTooltip.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

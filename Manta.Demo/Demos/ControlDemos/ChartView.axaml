@@ -13,13 +13,13 @@
     <MScrollViewer>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MCard>
-                <MChart Data="{Binding BarData}" />
+                <MChart Data="{Binding BarData}" Title="Bar Chart" ShowLegend="True" />
             </MCard>
             <MCard>
-                <MChart Data="{Binding LineData}" />
+                <MChart Data="{Binding LineData}" Title="Line Chart" ShowLegend="True" />
             </MCard>
             <MCard>
-                <MChart Data="{Binding PieData}" />
+                <MChart Data="{Binding PieData}" Title="Pie Chart" ShowLegend="True" />
             </MCard>
         </MPanel>
     </MScrollViewer>

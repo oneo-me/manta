@@ -1,13 +1,118 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Manta.Charts.Controls"
+    xmlns:models="clr-namespace:Manta.Charts.Models"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MCard Width="520" Height="380">
-                <MChart />
-            </MCard>
+        <MPanel Mode="WrapFull" Width="700" Spacing="12" Margin="12">
+            <MPanel.Resources>
+                <models:PieChartData x:Key="PieData">
+                    <models:PieChartData.Values>
+                        <models:ChartDataValue Name="Key 1" Value="100" />
+                        <models:ChartDataValue Name="Key 2" Value="130" />
+                        <models:ChartDataValue Name="Key 3" Value="130" />
+                        <models:ChartDataValue Name="Key 4" Value="130" />
+                        <models:ChartDataValue Name="Key 5" Value="130" />
+                    </models:PieChartData.Values>
+                </models:PieChartData>
+                <models:BarChartData x:Key="BarData">
+                    <models:BarChartData.Items>
+                        <models:BarChartDataItem Category="Test 1">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="100" />
+                                <models:ChartDataValue Name="Key 2" Value="130" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                        <models:BarChartDataItem Category="Test 2">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="180" />
+                                <models:ChartDataValue Name="Key 2" Value="30" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                        <models:BarChartDataItem Category="Test 3">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="280" />
+                                <models:ChartDataValue Name="Key 2" Value="13" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                    </models:BarChartData.Items>
+                </models:BarChartData>
+                <models:BarChartData x:Key="LineData" Type="Line">
+                    <models:BarChartData.Items>
+                        <models:BarChartDataItem Category="Test 1">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="100" />
+                                <models:ChartDataValue Name="Key 2" Value="130" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                        <models:BarChartDataItem Category="Test 2">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="180" />
+                                <models:ChartDataValue Name="Key 2" Value="30" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                        <models:BarChartDataItem Category="Test 3">
+                            <models:BarChartDataItem.Values>
+                                <models:ChartDataValue Name="Key 1" Value="280" />
+                                <models:ChartDataValue Name="Key 2" Value="13" />
+                            </models:BarChartDataItem.Values>
+                        </models:BarChartDataItem>
+                    </models:BarChartData.Items>
+                </models:BarChartData>
+            </MPanel.Resources>
+            <MChart Title="Pie Chart Example" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource PieData}" />
+            <MChart Title="Pie (No Legend)" ShowLegend="False" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource PieData}" />
+            <MChart Title="Bar Chart Example" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource BarData}" />
+            <MChart Title="Bar (No Legend)" ShowLegend="False" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource BarData}" />
+            <MChart Title="Line Chart Example" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource LineData}" />
+            <MChart Title="Line (No Legend)" ShowLegend="False" MinWidth="300" Height="255" Background="{MBrush Background}" CornerRadius="8" BorderThickness="1" Data="{StaticResource LineData}" />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type MChart}" TargetType="MChart" />
+    <ControlTheme x:Key="{x:Type MChart}" TargetType="MChart">
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="Spacing" Value="12" />
+        <Setter Property="ShowLegend" Value="True" />
+        <Setter Property="ShowTooltip" Value="True" />
+        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="MChart">
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <controls:MChartTooltipHost Name="PART_TooltipHost">
+                        <DockPanel>
+                            <!-- Title -->
+                            <TextBlock Name="PART_Title"
+                                       DockPanel.Dock="Top"
+                                       Text="{TemplateBinding Title}"
+                                       FontSize="13"
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,12" />
+                            <!-- Legend (Horizontal - for Bar/Line) -->
+                            <controls:MChartLegend Name="PART_Legend"
+                                                   DockPanel.Dock="Bottom"
+                                                   Items="{Binding LegendItems, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   Orientation="{TemplateBinding LegendOrientation}"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,12,0,0" />
+                            <!-- Chart Render -->
+                            <MChartRender Data="{TemplateBinding Data}" />
+                        </DockPanel>
+                    </controls:MChartTooltipHost>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <!-- Hide Title when empty -->
+        <Style Selector="^:empty-title /template/ TextBlock#PART_Title">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <!-- Hide Legend when ShowLegend=False -->
+        <Style Selector="^:not(:show-legend) /template/ controls|MChartLegend#PART_Legend">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
