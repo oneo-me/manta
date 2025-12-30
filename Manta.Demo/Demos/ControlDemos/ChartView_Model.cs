@@ -1,4 +1,5 @@
 using Manta.Charts.Controls;
+using Manta.Charts.Models;
 using Manta.Demo.Reactive;
 using Manta.Reactive.Views;
 
