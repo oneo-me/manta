@@ -1,4 +1,3 @@
-using System.Reflection;
 using Avalonia;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
@@ -11,7 +10,7 @@ using Avalonia.Threading;
 namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_Caret), typeof(Border))]
-[TemplatePart("PART_TextPresenter", typeof(TextPresenter))]
+[TemplatePart(nameof(PART_TextPresenter), typeof(TextPresenter))]
 public class MTextBox : TextBox
 {
     public static readonly StyledProperty<bool> IsPasswordBoxProperty = AvaloniaProperty.Register<MTextBox, bool>(
@@ -42,7 +41,7 @@ public class MTextBox : TextBox
     }
 
     Border? PART_Caret;
-    TextPresenter? _textPresenter;
+    TextPresenter? PART_TextPresenter;
 
     // Position animation state
     double _currentX;
@@ -64,27 +63,19 @@ public class MTextBox : TextBox
     bool _isCaretVisible = true;
     long _focusGainedTime; // Timestamp when focus was gained, to skip animation briefly
 
-    // Reflection cache for preedit text (IME composition)
-    static readonly FieldInfo? _preeditTextStyledProperty = typeof(TextPresenter).GetField("PreeditTextProperty", BindingFlags.Public | BindingFlags.Static);
-    static readonly FieldInfo? _preeditTextCursorPositionStyledProperty = typeof(TextPresenter).GetField("PreeditTextCursorPositionProperty", BindingFlags.Public | BindingFlags.Static);
-
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
 
         PART_Caret = e.NameScope.Get<Border>(nameof(PART_Caret));
-        _textPresenter = e.NameScope.Find<TextPresenter>("PART_TextPresenter");
+        PART_TextPresenter = e.NameScope.Get<TextPresenter>(nameof(PART_TextPresenter));
 
-        if (_textPresenter is not null)
-        {
-            _textPresenter.LayoutUpdated += OnTextPresenterLayoutUpdated;
+        // TextPresenter.PreeditTextProperty
+        PART_TextPresenter.LayoutUpdated += OnTextPresenterLayoutUpdated;
 
-            // Subscribe to preedit property changes for IME support
-            if (_preeditTextStyledProperty?.GetValue(null) is AvaloniaProperty preeditProp)
-                _textPresenter.GetObservable(preeditProp).Subscribe(_ => OnPreeditChanged());
-            if (_preeditTextCursorPositionStyledProperty?.GetValue(null) is AvaloniaProperty cursorProp)
-                _textPresenter.GetObservable(cursorProp).Subscribe(_ => OnPreeditChanged());
-        }
+        // Subscribe to preedit property changes for IME support
+        PART_TextPresenter.GetObservable(TextPresenter.PreeditTextProperty).Subscribe(_ => OnPreeditChanged());
+        PART_TextPresenter.GetObservable(TextPresenter.PreeditTextCursorPositionProperty).Subscribe(_ => OnPreeditChanged());
 
         UpdateCaretPosition(false);
     }
@@ -143,31 +134,26 @@ public class MTextBox : TextBox
 
     void UpdateCaretPosition(bool animate)
     {
-        if (PART_Caret is null || _textPresenter is null) return;
+        if (PART_Caret is null || PART_TextPresenter is null) return;
 
-        var textLayout = _textPresenter.TextLayout;
+        var textLayout = PART_TextPresenter.TextLayout;
 
         // Get caret position, considering preedit text (IME composition)
         var caretIndex = CaretIndex;
 
         // Check for preedit text (IME input)
-        if (_preeditTextStyledProperty?.GetValue(null) is AvaloniaProperty preeditProp)
+        var preeditText = PART_TextPresenter.PreeditText;
+        if (!string.IsNullOrEmpty(preeditText))
         {
-            var preeditText = _textPresenter.GetValue(preeditProp) as string;
-            if (!string.IsNullOrEmpty(preeditText))
-            {
-                // Get preedit cursor position within the preedit text
-                var preeditCursorPos = preeditText.Length;
-                if (_preeditTextCursorPositionStyledProperty?.GetValue(null) is AvaloniaProperty cursorProp)
-                    preeditCursorPos = _textPresenter.GetValue(cursorProp) as int? ?? preeditText.Length;
-                caretIndex += preeditCursorPos;
-            }
+            // Get preedit cursor position within the preedit text
+            var preeditCursorPos = PART_TextPresenter.PreeditTextCursorPosition ?? preeditText.Length;
+            caretIndex += preeditCursorPos;
         }
 
         var hitTestResult = textLayout.HitTestTextPosition(caretIndex);
 
         // Get position relative to TextPresenter, then transform to Canvas coordinate space
-        var presenterPosition = _textPresenter.TranslatePoint(new(0, 0), this);
+        var presenterPosition = PART_TextPresenter.TranslatePoint(new(0, 0), this);
         if (presenterPosition is null) return;
 
         var x = hitTestResult.X + presenterPosition.Value.X;
