@@ -3,16 +3,22 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
-    x:DataType="local:ChartView_Model" Design.DataContext="{x:Static local:ChartView_Model.Design}">
+    x:DataType="local:ChartView_Model" Design.DataContext="{x:Static local:ChartView_Model.Design}"
+    Design.Width="500">
+    <MView.Styles>
+        <Style Selector="MChart">
+            <Setter Property="Height" Value="300" />
+        </Style>
+    </MView.Styles>
     <MScrollViewer>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+            <MCard>
                 <MChart Data="{Binding BarData}" />
             </MCard>
-            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+            <MCard>
                 <MChart Data="{Binding LineData}" />
             </MCard>
-            <MCard Width="320" Height="180" HorizontalAlignment="Left">
+            <MCard>
                 <MChart Data="{Binding PieData}" />
             </MCard>
         </MPanel>
