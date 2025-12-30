@@ -63,62 +63,6 @@
             </MCard>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="BlankTextBox" TargetType="MTextBox">
-        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <MScrollViewer
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
-                    <Panel Margin="{TemplateBinding Padding}">
-                        <TextBlock
-                            Name="WatermarkTextBlock"
-                            Opacity="0.5"
-                            Text="{TemplateBinding Watermark}"
-                            Foreground="{TemplateBinding Foreground}"
-                            TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        <TextPresenter Name="PART_TextPresenter"
-                                       Background="#00000000"
-                                       Text="{TemplateBinding Text, Mode=TwoWay}"
-                                       CaretIndex="{TemplateBinding CaretIndex}"
-                                       SelectionStart="{TemplateBinding SelectionStart}"
-                                       SelectionEnd="{TemplateBinding SelectionEnd}"
-                                       TextAlignment="{TemplateBinding TextAlignment}"
-                                       TextWrapping="{TemplateBinding TextWrapping}"
-                                       LineHeight="{TemplateBinding LineHeight}"
-                                       PasswordChar="{TemplateBinding PasswordChar}"
-                                       RevealPassword="{TemplateBinding RevealPassword}"
-                                       SelectionBrush="{TemplateBinding SelectionBrush}"
-                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       CaretBrush="{TemplateBinding CaretBrush}" />
-                    </Panel>
-                </MScrollViewer>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^ /template/ TextBlock#WatermarkTextBlock">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:empty:not(:focus) /template/ TextBlock#WatermarkTextBlock">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-        <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
-            <Setter Property="Cursor" Value="IBeam" />
-        </Style>
-    </ControlTheme>
     <ControlTheme x:Key="{x:Type MCommand}" TargetType="MCommand">
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ClipToBounds" Value="False" />
@@ -127,14 +71,15 @@
                 <Grid RowDefinitions="Auto *">
                     <Grid Grid.Row="0" Name="InpuBox" ColumnDefinitions="Auto *">
                         <MPathIcon Name="Icon" Grid.Column="0" />
-                        <MTextBox Name="TextBox" Grid.Column="1" Theme="{StaticResource BlankTextBox}"
-                                      Watermark="{TemplateBinding Watermark}"
-                                      Text="{TemplateBinding Text}" />
+                        <MTextBox Name="TextBox" Grid.Column="1"
+                                  Watermark="{TemplateBinding Watermark}"
+                                  Text="{TemplateBinding Text}"
+                                  CaretBrush="#00000000"/>
                     </Grid>
                     <MScrollViewer Grid.Row="1" Name="ScrollViewer" BorderBrush="{TemplateBinding BorderBrush}"
-                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
-                                       IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+                                   HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                   VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                   IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Margin="{TemplateBinding Padding}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
