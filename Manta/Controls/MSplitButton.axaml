@@ -1,0 +1,236 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="20">
+                <MSplitButton Size="Small" Content="Small" VerticalAlignment="Top">
+                    <MSplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Size="Default" Content="Default" VerticalAlignment="Top">
+                    <MSplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Size="Large" Content="Large" VerticalAlignment="Top">
+                    <MSplitButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+            </MPanel>
+            <MSplitButton Content="Default" HorizontalAlignment="Left">
+                <MSplitButton.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Copy" />
+                        <MenuItem Header="Paste" />
+                        <MenuItem Header="-" />
+                        <MenuItem Header="Delete" />
+                    </MenuFlyout>
+                </MSplitButton.Flyout>
+            </MSplitButton>
+            <MSplitButton Variant="Outline" Content="Outline" HorizontalAlignment="Left">
+                <MSplitButton.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Option 1" />
+                        <MenuItem Header="Option 2" />
+                    </MenuFlyout>
+                </MSplitButton.Flyout>
+            </MSplitButton>
+            <MSplitButton Variant="Secondary" Content="Secondary" HorizontalAlignment="Left">
+                <MSplitButton.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Option 1" />
+                        <MenuItem Header="Option 2" />
+                    </MenuFlyout>
+                </MSplitButton.Flyout>
+            </MSplitButton>
+            <MSplitButton Variant="Ghost" Content="Ghost" HorizontalAlignment="Left">
+                <MSplitButton.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Option 1" />
+                        <MenuItem Header="Option 2" />
+                    </MenuFlyout>
+                </MSplitButton.Flyout>
+            </MSplitButton>
+            <MSplitButton Variant="Destructive" Content="Destructive" HorizontalAlignment="Left">
+                <MSplitButton.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Option 1" />
+                        <MenuItem Header="Option 2" />
+                    </MenuFlyout>
+                </MSplitButton.Flyout>
+            </MSplitButton>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MSplitButton}" TargetType="MSplitButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Name="PART_PrimaryButton"
+                                Grid.Column="0"
+                                Background="Transparent"
+                                Foreground="{TemplateBinding Foreground}"
+                                BorderThickness="0"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Command="{TemplateBinding Command}"
+                                CommandParameter="{TemplateBinding CommandParameter}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                FontWeight="{TemplateBinding FontWeight}" />
+                        <Rectangle Name="Separator"
+                                   Grid.Column="1"
+                                   Width="1"
+                                   Fill="{TemplateBinding BorderBrush}"
+                                   Opacity="0.3" />
+                        <Button Name="PART_SecondaryButton"
+                                Grid.Column="2"
+                                Background="Transparent"
+                                Foreground="{TemplateBinding Foreground}"
+                                BorderThickness="0"
+                                Padding="10 0"
+                                VerticalContentAlignment="Center">
+                            <MPathIcon Name="DropdownIcon"
+                                       Data="M1 4L6 9L11 4"
+                                       UseStroke="True"
+                                       Size="8">
+                                <MPathIcon.RenderTransform>
+                                    <TransformOperations>
+                                        rotate(0deg)
+                                    </TransformOperations>
+                                </MPathIcon.RenderTransform>
+                                <MPathIcon.Transitions>
+                                    <Transitions>
+                                        <TransformOperationsTransition Property="RenderTransform"
+                                                                       Duration="0:0:0.1" />
+                                    </Transitions>
+                                </MPathIcon.Transitions>
+                            </MPathIcon>
+                        </Button>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^ /template/ Button">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="12 6" />
+        </Style>
+        <Style Selector="^[Size=Default]">
+            <Setter Property="Padding" Value="16 8" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Padding" Value="20 10" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush Foreground}" />
+            <Setter Property="Foreground" Value="{MBrush Background}" />
+            <Style Selector="^ /template/ Rectangle#Separator">
+                <Setter Property="Fill" Value="{MBrush Background}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Style Selector="^ /template/ Border#PART_Border">
+                    <Setter Property="BoxShadow" Value="{MShadow XS}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^ /template/ Rectangle#Separator">
+                <Setter Property="Fill" Value="{MBrush Foreground}" />
+                <Setter Property="Opacity" Value="0.15" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.3}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^ /template/ Rectangle#Separator">
+                <Setter Property="Fill" Value="{MBrush Foreground}" />
+                <Setter Property="Opacity" Value="0.15" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="Background" Value="{MBrush Danger}" />
+            <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+            <Style Selector="^ /template/ Rectangle#Separator">
+                <Setter Property="Fill" Value="{MBrush ColorForeground}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Danger, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <Style Selector="^:flyout-open /template/ MPathIcon#DropdownIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
