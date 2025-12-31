@@ -1,0 +1,105 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MRadioButton GroupName="Group1" Header="Option A" />
+            <MRadioButton GroupName="Group1" IsChecked="True" Header="Option B" Content="This option is selected by default." />
+            <MRadioButton GroupName="Group1" Header="Option C" IsEnabled="False" />
+            <MRadioButton GroupName="Group2" Variant="Bordered" IsChecked="True" Header="Bordered Option" Content="You can select this bordered radio button." />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MRadioButton}" TargetType="MRadioButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                    <Grid ColumnDefinitions="Auto *" RowDefinitions="Auto *" ColumnSpacing="12" RowSpacing="6">
+                        <Border Name="Icon" Grid.Column="0" Grid.Row="0">
+                            <Ellipse Name="Dot" />
+                        </Border>
+                        <ContentPresenter Grid.Column="1" Grid.Row="0" Name="PART_HeaderPresenter"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          Content="{TemplateBinding Header}" />
+                        <ContentPresenter Grid.Column="1" Grid.Row="1" Name="PART_ContentPresenter"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^ /template/ Border#Icon">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Style Selector="^ Ellipse#Dot">
+                <Setter Property="Width" Value="6" />
+                <Setter Property="Height" Value="6" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Fill" Value="{MBrush Background}" />
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <SmoothBrushTransition Property="Fill" Duration="0:0:0.1" />
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Style Selector="^:checked">
+                <Style Selector="^ /template/ Border#Icon">
+                    <Setter Property="Background" Value="{MBrush Foreground}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Foreground}" />
+                    <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
+                    <Style Selector="^ Ellipse#Dot">
+                        <Setter Property="Opacity" Value="1" />
+                    </Style>
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Bordered]">
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="12" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+                <Setter Property="BorderBrush" Value="{MBrush Primary}" />
+                <Style Selector="^ /template/ Border#Icon">
+                    <Setter Property="Background" Value="{MBrush Primary}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Primary}" />
+                    <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
+                    <Style Selector="^ Ellipse#Dot">
+                        <Setter Property="Opacity" Value="1" />
+                    </Style>
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
