@@ -19,7 +19,7 @@ static class Program
             options.BaseControlsDir = Path.Combine(options.ControlsDir, "Base");
             options.SupportedControlsDir = Path.Combine(options.BaseControlsDir, "Supported");
             options.UnSupportedControlsDir = Path.Combine(options.BaseControlsDir, "Unsupported");
-            options.BaseThemeFile = Path.Combine(options.ProjectDir, "Themes", "BaseTheme.axaml");
+            options.MantaThemeFile = Path.Combine(options.ProjectDir, "Themes", "MantaTheme.axaml");
 
             Console.WriteLine("Scanning controls...");
 
