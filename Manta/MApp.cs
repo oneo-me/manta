@@ -8,6 +8,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using Manta.Globalization;
+using Manta.Langs;
 using Manta.Logging;
 using Manta.Logging.Inner;
 using Manta.Reactive.Extensions;
@@ -103,10 +104,27 @@ public abstract class MApp : Application
     {
         base.OnFrameworkInitializationCompleted();
 
+        Lang.Register(LangData.LoadFromAssembly(typeof(MApp).Assembly));
+
         if (Design.IsDesignMode is false && OperatingSystem.IsMacOS())
         {
             var menu = NativeMenu.GetMenu(this);
-            menu?.Items.RemoveAt(0);
+            if (menu is null)
+                return;
+
+            menu.Items.RemoveAt(0);
+
+            foreach (var item in menu.Items.OfType<NativeMenuItem>())
+                if (item.Header?.StartsWith("Services") is true)
+                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Services));
+                else if (item.Header?.StartsWith("Hide") is true)
+                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Hide_App, Name));
+                else if (item.Header?.StartsWith("Hide Other") is true)
+                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Hide_Others));
+                else if (item.Header?.StartsWith("Show All") is true)
+                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Show_All));
+                else if (item.Header?.StartsWith("Quit") is true)
+                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Quit, Name));
         }
 
         OnInitializeCore(out var mainModel, out var onExit);
