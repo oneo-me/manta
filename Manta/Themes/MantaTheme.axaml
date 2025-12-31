@@ -21,6 +21,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
@@ -48,7 +49,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SelectingItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
@@ -84,6 +84,7 @@
                 <MergeResourceInclude Source="../Controls/MCard.axaml" />
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
+                <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommand.axaml" />
