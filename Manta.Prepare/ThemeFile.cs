@@ -15,10 +15,10 @@ sealed class ThemeFile(Options options)
 
     public void Prepare()
     {
-        using var writer = new StreamWriter(options.BaseThemeFile, false);
+        using var writer = new StreamWriter(options.MantaThemeFile, false);
 
         writer.WriteLine("<Styles");
-        writer.WriteLine("    x:Class=\"Manta.Themes.BaseTheme\"");
+        writer.WriteLine("    x:Class=\"Manta.Themes.MantaTheme\"");
         writer.WriteLine("    xmlns=\"https://github.com/avaloniaui\"");
         writer.WriteLine("    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">");
         writer.WriteLine("    <Styles.Resources>");

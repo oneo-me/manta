@@ -18,6 +18,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
@@ -27,7 +28,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
@@ -84,7 +84,6 @@
                 <MergeResourceInclude Source="../Controls/MCard.axaml" />
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
-                <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommand.axaml" />
@@ -96,6 +95,7 @@
                 <MergeResourceInclude Source="../Controls/MPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
+                <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/MTabStrip.axaml" />
