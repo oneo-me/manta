@@ -1,0 +1,118 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Width="300">
+            <!-- Default Variant -->
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Default" Opacity="0.5" />
+                <MProgressBar Value="0" />
+                <MProgressBar Value="50" />
+                <MProgressBar Value="100" />
+                <MProgressBar IsIndeterminate="True" />
+            </MPanel>
+            <!-- Secondary Variant -->
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Secondary" Opacity="0.5" />
+                <MProgressBar Variant="Secondary" Value="0" />
+                <MProgressBar Variant="Secondary" Value="50" />
+                <MProgressBar Variant="Secondary" Value="100" />
+                <MProgressBar Variant="Secondary" IsIndeterminate="True" />
+            </MPanel>
+            <!-- Success Variant -->
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Success" Opacity="0.5" />
+                <MProgressBar Variant="Success" Value="0" />
+                <MProgressBar Variant="Success" Value="50" />
+                <MProgressBar Variant="Success" Value="100" />
+                <MProgressBar Variant="Success" IsIndeterminate="True" />
+            </MPanel>
+            <!-- Warning Variant -->
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Warning" Opacity="0.5" />
+                <MProgressBar Variant="Warning" Value="0" />
+                <MProgressBar Variant="Warning" Value="50" />
+                <MProgressBar Variant="Warning" Value="100" />
+                <MProgressBar Variant="Warning" IsIndeterminate="True" />
+            </MPanel>
+            <!-- Destructive Variant -->
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Destructive" Opacity="0.5" />
+                <MProgressBar Variant="Destructive" Value="0" />
+                <MProgressBar Variant="Destructive" Value="50" />
+                <MProgressBar Variant="Destructive" Value="100" />
+                <MProgressBar Variant="Destructive" IsIndeterminate="True" />
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MProgressBar}" TargetType="MProgressBar">
+        <Setter Property="Height" Value="6" />
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        <Setter Property="Foreground" Value="{MBrush Primary}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="True">
+                    <Panel>
+                        <Border Name="PART_Indicator"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                HorizontalAlignment="Left" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Border#PART_Indicator">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:indeterminate /template/ Border#PART_Indicator">
+            <Setter Property="Width" Value="60" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:1.5">
+                    <KeyFrame KeyTime="0:0:0" KeySpline="0.4,0,0.6,1">
+                        <Setter Property="TranslateTransform.X" Value="-60" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.75" KeySpline="0.4,0,0.6,1">
+                        <Setter Property="TranslateTransform.X" Value="300" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.5">
+                        <Setter Property="TranslateTransform.X" Value="-60" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <!-- Variant: Default -->
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Foreground" Value="{MBrush Primary}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <!-- Variant: Secondary -->
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.6}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <!-- Variant: Success -->
+        <Style Selector="^[Variant=Success]">
+            <Setter Property="Foreground" Value="{MBrush Success}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <!-- Variant: Warning -->
+        <Style Selector="^[Variant=Warning]">
+            <Setter Property="Foreground" Value="{MBrush Warning}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+        <!-- Variant: Destructive -->
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="Foreground" Value="{MBrush Danger}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

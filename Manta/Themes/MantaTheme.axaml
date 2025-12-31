@@ -49,7 +49,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Slider.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitButton.axaml" />
@@ -91,6 +91,7 @@
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />
+                <MergeResourceInclude Source="../Controls/MProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MRepeatButton.axaml" />
