@@ -1,0 +1,125 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MToggleSwitch />
+            <MToggleSwitch IsChecked="True" />
+            <MToggleSwitch OnContent="On" OffContent="Off" />
+            <MToggleSwitch IsChecked="True" OnContent="On" OffContent="Off" />
+            <MToggleSwitch IsEnabled="False" />
+            <MToggleSwitch IsEnabled="False" IsChecked="True" />
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MToggleSwitch Size="Small" VerticalAlignment="Center" />
+                <MToggleSwitch Size="Default" VerticalAlignment="Center" />
+                <MToggleSwitch Size="Large" VerticalAlignment="Center" />
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MToggleSwitch}" TargetType="MToggleSwitch">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="Auto Auto" ColumnSpacing="12">
+                    <Border Name="SwitchTrack"
+                            Grid.Column="0"
+                            VerticalAlignment="Center">
+                        <Panel Name="PART_MovingKnobs" Margin="2">
+                            <Border Name="SwitchKnob" HorizontalAlignment="Left" />
+                        </Panel>
+                    </Border>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Grid.Column="1"
+                                      VerticalAlignment="Center"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <!-- Default size (Size=Default) -->
+        <Style Selector="^ /template/ Border#SwitchTrack">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^ /template/ Border#SwitchKnob">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+            <Setter Property="RenderTransform" Value="translateX(0px)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" Easing="CubicEaseOut" />
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <!-- Small size: track 32x18, knob 14x14, margin 2 → travel = 32-4-14 = 14px -->
+        <Style Selector="^[Size=Small]">
+            <Style Selector="^ /template/ Border#SwitchTrack">
+                <Setter Property="Width" Value="32" />
+                <Setter Property="Height" Value="18" />
+                <Setter Property="CornerRadius" Value="9" />
+            </Style>
+            <Style Selector="^ /template/ Border#SwitchKnob">
+                <Setter Property="Width" Value="14" />
+                <Setter Property="Height" Value="14" />
+                <Setter Property="CornerRadius" Value="7" />
+            </Style>
+        </Style>
+        <!-- Large size: track 52x32, knob 26x26, margin 3 → travel = 52-6-26 = 20px -->
+        <Style Selector="^[Size=Large]">
+            <Style Selector="^ /template/ Panel#PART_MovingKnobs">
+                <Setter Property="Margin" Value="3" />
+            </Style>
+            <Style Selector="^ /template/ Border#SwitchTrack">
+                <Setter Property="Width" Value="52" />
+                <Setter Property="Height" Value="32" />
+                <Setter Property="CornerRadius" Value="16" />
+            </Style>
+            <Style Selector="^ /template/ Border#SwitchKnob">
+                <Setter Property="Width" Value="26" />
+                <Setter Property="Height" Value="26" />
+                <Setter Property="CornerRadius" Value="13" />
+            </Style>
+        </Style>
+        <!-- Checked state - default size: travel = 40-4-20 = 16px -->
+        <Style Selector="^:checked /template/ Border#SwitchKnob">
+            <Setter Property="RenderTransform" Value="translateX(16px)" />
+        </Style>
+        <Style Selector="^[Size=Small]:checked /template/ Border#SwitchKnob">
+            <Setter Property="RenderTransform" Value="translateX(14px)" />
+        </Style>
+        <Style Selector="^[Size=Large]:checked /template/ Border#SwitchKnob">
+            <Setter Property="RenderTransform" Value="translateX(20px)" />
+        </Style>
+        <Style Selector="^:checked /template/ Border#SwitchTrack">
+            <Setter Property="Background" Value="{MBrush Primary}" />
+        </Style>
+        <!-- Pointer over -->
+        <Style Selector="^:pointerover /template/ Border#SwitchTrack">
+            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.8}" />
+        </Style>
+        <Style Selector="^:checked:pointerover /template/ Border#SwitchTrack">
+            <Setter Property="Background" Value="{MBrush Primary, Opacity=0.85}" />
+        </Style>
+        <!-- Disabled state -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
