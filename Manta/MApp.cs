@@ -117,9 +117,38 @@ public abstract class MApp : Application
         if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
             throw new("The application lifetime is not supported.");
 
-        desktop.ShutdownMode = ShutdownMode.OnMainWindowClose;
+        var isActivatableLifetime = false;
+        if (TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatableLifetime)
+        {
+            isActivatableLifetime = true;
+            activatableLifetime.Activated += delegate
+            {
+                if (desktop.MainWindow is null)
+                    return;
+
+                if (desktop.MainWindow.IsVisible)
+                    desktop.MainWindow.Activate();
+                else
+                    desktop.MainWindow.Show();
+            };
+        }
+
+        desktop.ShutdownMode = isActivatableLifetime ? ShutdownMode.OnExplicitShutdown : ShutdownMode.OnMainWindowClose;
+
         if (mainModel is not null)
+        {
             desktop.MainWindow = mainModel.CreateWindow();
+
+            if (isActivatableLifetime)
+                desktop.MainWindow.Closing += (_, args) =>
+                {
+                    if (args.CloseReason == WindowCloseReason.ApplicationShutdown)
+                        return;
+
+                    args.Cancel = true;
+                    desktop.MainWindow.Hide();
+                };
+        }
 
         if (onExit is not null)
             desktop.Exit += delegate
