@@ -249,6 +249,8 @@ sealed class ControlsScanner(Options options)
                 nameof(SelectableTextBlock) => "SelectableTextBlock",
                 nameof(TextBlock)           => "TextBlock",
                 nameof(UserControl)         => "MView",
+                nameof(TreeView)            => "MTree",
+                nameof(TreeViewItem)        => "MTreeItem",
                 nameof(ItemsControl)        => "MItems",
                 nameof(CaptionButtons)      => "MTitleBarButtons",
 
@@ -257,6 +259,7 @@ sealed class ControlsScanner(Options options)
             GroupName = ImplName switch
             {
                 "MTitleBarButtons"        => nameof(TitleBar),
+                "MTreeItem"               => "MTree",
                 nameof(OverlayPopupHost)  => nameof(PopupRoot),
                 nameof(CalendarButton)    => nameof(Calendar),
                 nameof(CalendarDayButton) => nameof(Calendar),

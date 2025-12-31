@@ -23,13 +23,14 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/RadioButton.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleSwitch.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/TreeView.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
@@ -59,7 +60,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToolTip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TransitioningContentControl.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/TreeView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/WindowNotificationManager.axaml" />
                 <!-- Base Controls -->
                 <MergeResourceInclude Source="../Controls/Base/AccessText.axaml" />
@@ -102,6 +102,7 @@
                 <MergeResourceInclude Source="../Controls/MTitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MToggleButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MToggleSwitch.axaml" />
+                <MergeResourceInclude Source="../Controls/MTree.axaml" />
                 <MergeResourceInclude Source="../Controls/MWindow.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
