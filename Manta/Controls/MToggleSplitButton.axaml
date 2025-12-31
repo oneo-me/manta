@@ -1,0 +1,202 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MToggleSplitButton Size="Small" Content="Small" />
+                <MToggleSplitButton Size="Default" Content="Default" />
+                <MToggleSplitButton Size="Large" Content="Large" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MToggleSplitButton Variant="Default" Content="Default" />
+                <MToggleSplitButton Variant="Default" Content="Checked" IsChecked="True" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MToggleSplitButton Variant="Outline" Content="Outline" />
+                <MToggleSplitButton Variant="Outline" Content="Checked" IsChecked="True" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MToggleSplitButton Variant="Secondary" Content="Secondary" />
+                <MToggleSplitButton Variant="Secondary" Content="Checked" IsChecked="True" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MToggleSplitButton Variant="Ghost" Content="Ghost" />
+                <MToggleSplitButton Variant="Ghost" Content="Checked" IsChecked="True" />
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MToggleSplitButton}" TargetType="MToggleSplitButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="* Auto Auto">
+                        <Button Name="PART_PrimaryButton"
+                                Grid.Column="0"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                CornerRadius="8 0 0 8"
+                                Foreground="{TemplateBinding Foreground}"
+                                FontWeight="{TemplateBinding FontWeight}" />
+                        <Rectangle Name="Separator"
+                                   Grid.Column="1"
+                                   Width="1"
+                                   VerticalAlignment="Stretch"
+                                   Margin="0 6" />
+                        <Button Name="PART_SecondaryButton"
+                                Grid.Column="2"
+                                Padding="8"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                CornerRadius="0 8 8 0"
+                                Foreground="{TemplateBinding Foreground}">
+                            <MPathIcon Name="ChevronIcon"
+                                       Data="M6 9L12 15L18 9"
+                                       UseStroke="True"
+                                       Size="10" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^ /template/ Button">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <!-- Size Variants -->
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="12 6" />
+        </Style>
+        <Style Selector="^[Size=Default]">
+            <Setter Property="Padding" Value="16 8" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Padding" Value="20 10" />
+        </Style>
+        <!-- Separator Color -->
+        <Style Selector="^ /template/ Rectangle#Separator">
+            <Setter Property="Fill" Value="{MBrush BorderBrush}" />
+        </Style>
+        <!-- Default Variant -->
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush Foreground}" />
+            <Setter Property="Foreground" Value="{MBrush Background}" />
+            <Style Selector="^ /template/ Rectangle#Separator">
+                <Setter Property="Fill" Value="{MBrush Background, Opacity=0.3}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{MBrush Primary}" />
+                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Style Selector="^ /template/ Rectangle#Separator">
+                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked:pointerover">
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <!-- Outline Variant -->
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Style Selector="^ /template/ Border#PART_Border">
+                    <Setter Property="BoxShadow" Value="{MShadow XS}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{MBrush Primary}" />
+                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="BorderBrush" Value="{MBrush Primary}" />
+                <Style Selector="^ /template/ Rectangle#Separator">
+                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked:pointerover">
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <!-- Secondary Variant -->
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.3}" />
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{MBrush Primary}" />
+                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Style Selector="^ /template/ Rectangle#Separator">
+                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked:pointerover">
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <!-- Ghost Variant -->
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            </Style>
+            <Style Selector="^:checked">
+                <Setter Property="Background" Value="{MBrush Primary}" />
+                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Style Selector="^ /template/ Rectangle#Separator">
+                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked:pointerover">
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.8}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
