@@ -1,0 +1,72 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MHyperlinkButton Content="Default Hyperlink" NavigateUri="https://github.com" />
+            <MHyperlinkButton Content="Hover to see underline" />
+            <MHyperlinkButton Variant="Subtle" Content="Subtle Hyperlink" />
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MHyperlinkButton Content="Link with Icon">
+                    <MHyperlinkButton.ContentTemplate>
+                        <DataTemplate>
+                            <MPanel Mode="Horizontal" Spacing="4">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                                <TextBlock Text="External Link" VerticalAlignment="Center" />
+                            </MPanel>
+                        </DataTemplate>
+                    </MHyperlinkButton.ContentTemplate>
+                </MHyperlinkButton>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MHyperlinkButton}" TargetType="MHyperlinkButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Foreground" Value="{MBrush Primary}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.8}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.6}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Subtle]">
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Foreground" Value="{MBrush Primary}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.8}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

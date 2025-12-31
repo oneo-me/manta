@@ -26,6 +26,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
@@ -40,7 +41,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/HeaderedSelectingItemsControl.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MenuFlyoutPresenter.axaml" />
@@ -88,6 +88,7 @@
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommand.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
+                <MergeResourceInclude Source="../Controls/MHyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
