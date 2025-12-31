@@ -1,0 +1,121 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MCard Width="280">
+                <MTree>
+                    <MTreeItem Header="Documents" IsExpanded="True">
+                        <MTreeItem Header="Work">
+                            <MTreeItem Header="Reports" />
+                            <MTreeItem Header="Presentations" />
+                        </MTreeItem>
+                        <MTreeItem Header="Personal">
+                            <MTreeItem Header="Photos" />
+                            <MTreeItem Header="Music" />
+                        </MTreeItem>
+                    </MTreeItem>
+                    <MTreeItem Header="Downloads" IsExpanded="True">
+                        <MTreeItem Header="Software" />
+                        <MTreeItem Header="Movies" />
+                    </MTreeItem>
+                    <MTreeItem Header="Desktop" />
+                </MTree>
+            </MCard>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MTree}" TargetType="MTree">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Vertical" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <converters:MarginMultiplierConverter x:Key="TreeViewItemLeftMarginConverter" Indent="12" Left="True" />
+    <ControlTheme x:Key="{x:Type MTreeItem}" TargetType="MTreeItem">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Vertical" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <MPanel Mode="Vertical">
+                        <Border Name="PART_Header" Background="#00000000"
+                                Margin="{TemplateBinding Level, Converter={StaticResource TreeViewItemLeftMarginConverter}}"
+                                Padding="{TemplateBinding Padding}">
+                            <Grid ColumnDefinitions="Auto *" ColumnSpacing="6">
+                                <Border Grid.Column="0" Name="PART_ExpandCollapseIcon" Background="#00000000" VerticalAlignment="Center">
+                                    <Border Width="12" Height="12">
+                                        <MPathIcon Foreground="{TemplateBinding Foreground}"
+                                                   Data="m6 9 6 6 6-6"
+                                                   UseStroke="True"
+                                                   Size="8" />
+                                    </Border>
+                                </Border>
+                                <ContentPresenter Grid.Column="1" Name="PART_HeaderPresenter"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  Content="{TemplateBinding Header}" />
+                            </Grid>
+                        </Border>
+                        <MAnimatedExpander IsExpanded="{TemplateBinding IsExpanded}">
+                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </MAnimatedExpander>
+                    </MPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Padding" Value="6 4" />
+        <Style Selector="^ /template/ Border#PART_Header">
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^ /template/ Border#PART_Header:pointerover">
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.06}" />
+        </Style>
+        <Style Selector="^:selected /template/ Border#PART_Header">
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.06}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PART_ExpandCollapseIcon">
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="RenderTransform" Value="rotate(-90deg)" />
+            <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^[IsExpanded=True] /template/ Border#PART_ExpandCollapseIcon">
+            <Setter Property="RenderTransform" Value="rotate(0deg)" />
+        </Style>
+        <Style Selector="^:empty /template/ Border#PART_ExpandCollapseIcon">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
