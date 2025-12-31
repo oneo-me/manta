@@ -97,10 +97,11 @@ When creating new controls:
 1. Inherit from appropriate Avalonia base control or create custom control
 2. Define variants using enums (e.g., `MCheckBoxVariant`)
 3. Create corresponding `.axaml` theme file in `/Manta/Controls/`
-4. Register styles in `BaseTheme.axaml`
-5. Add demo to `/Manta.Demo/Demos/ControlDemos/`
-6. Apply `SmoothBrushTransition` for color/brush animations where appropriate
-7. **Update CLAUDE.md** if adding significant new features
+4. Register styles in `MantaTheme.axaml`
+5. **Do NOT create separate Demo files** - The Demo app automatically scans `Design.PreviewWith` sections in control AXAML files
+6. Move corresponding Avalonia base control style from `Base/Unsupported/` to `Base/Supported/` with message like `"Please use the 'MYourControl'"`
+7. Apply `SmoothBrushTransition` for color/brush animations where appropriate
+8. **Update CLAUDE.md** if adding significant new features
 
 ### Theme Integration
 - All color values use OKLch color space for perceptually uniform interpolation
@@ -161,9 +162,9 @@ dotnet run --project Manta.Demo/Manta.Demo.csproj
 
 ### Adding a New Control
 1. Create control class in `/Manta/Controls/YourControl.cs`
-2. Create theme file `/Manta/Controls/YourControl.axaml`
-3. Register in `/Manta/Themes/BaseTheme.axaml`
-4. Create demo in `/Manta.Demo/Demos/ControlDemos/YourControlDemo.axaml`
+2. Create theme file `/Manta/Controls/YourControl.axaml` with `Design.PreviewWith` section for auto-demo
+3. Register in `/Manta/Themes/MantaTheme.axaml`
+4. Move base control from `Base/Unsupported/` to `Base/Supported/` with usage guidance message
 5. Update this documentation (CLAUDE.md)
 
 ### Adding a New Theme Color
@@ -192,7 +193,7 @@ Current branch: `live`
 Main branch: `main` (use for PRs)
 
 ### Commit Convention
-- `[CLAUDE] message` - Changes made by Claude
+- **Claude commits MUST start with `[CLAUDE] `** - e.g., `[CLAUDE] Add MRadioButton control`
 - No prefix - Changes made by user
 
 When asked to update documentation, use `git log` to identify recent changes and their authors.
@@ -200,13 +201,14 @@ When asked to update documentation, use `git log` to identify recent changes and
 ## Notes for AI Assistants
 
 - Always check existing control implementations before creating new ones
-- Follow the established pattern: Control class + AXAML theme + Demo
+- Follow the established pattern: Control class + AXAML theme (with `Design.PreviewWith`)
+- **Do NOT create separate ControlDemo files** - Demo app auto-scans `Design.PreviewWith` sections
 - Use `SmoothBrushTransition` for brush/color animations
 - Respect the OKLch color space for theme consistency
 - When modifying themes, update both light and dark variants
-- The Demo project serves as living documentation - keep it updated
 - Source generators run at compile time - rebuild after modifying language files
 - **Change History**: Use `git log` or `CHANGELOG.md` to view recent changes
+- **Commit messages**: Always prefix with `[CLAUDE] ` when making commits
 - **After coding tasks**: Consider updating:
   - `CLAUDE.md` - Architecture and development patterns
   - `CHANGELOG.md` - Feature changes and bug fixes
