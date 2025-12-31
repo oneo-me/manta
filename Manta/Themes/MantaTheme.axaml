@@ -28,6 +28,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ToggleSwitch.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
@@ -56,7 +57,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSplitButton.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ToggleSwitch.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ToolTip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TreeView.axaml" />
@@ -100,6 +100,7 @@
                 <MergeResourceInclude Source="../Controls/MTextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MTitleBar.axaml" />
                 <MergeResourceInclude Source="../Controls/MToggleButton.axaml" />
+                <MergeResourceInclude Source="../Controls/MToggleSwitch.axaml" />
                 <MergeResourceInclude Source="../Controls/MWindow.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
