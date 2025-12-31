@@ -27,6 +27,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ToggleSwitch.axaml" />
                 <!-- Unsupported Controls -->
@@ -48,7 +49,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Slider.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitButton.axaml" />
@@ -93,6 +93,7 @@
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
+                <MergeResourceInclude Source="../Controls/MRepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/MTabStrip.axaml" />
