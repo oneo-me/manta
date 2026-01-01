@@ -122,7 +122,14 @@
                                    UseStroke="True"
                                    Size="10"
                                    Margin="8 0 0 0"
-                                   VerticalAlignment="Center" />
+                                   VerticalAlignment="Center">
+                            <MPathIcon.Transitions>
+                                <Transitions>
+                                    <TransformOperationsTransition Property="RenderTransform"
+                                                                   Duration="0:0:0.1" />
+                                </Transitions>
+                            </MPathIcon.Transitions>
+                        </MPathIcon>
                     </Grid>
                 </Border>
             </ControlTemplate>
