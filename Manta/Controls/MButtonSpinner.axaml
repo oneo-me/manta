@@ -92,6 +92,7 @@
         <Setter Property="Transitions">
             <Transitions>
                 <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
         <!-- Size styles -->
