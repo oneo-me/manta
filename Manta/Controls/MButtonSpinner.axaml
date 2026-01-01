@@ -155,11 +155,6 @@
             <Style Selector="^ /template/ MPanel#PART_RightSpinnerButtons">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Style Selector="^ /template/ MRepeatButton#PART_DecreaseButton">
-                <Style Selector="^ /template/ MPathIcon">
-                    <Setter Property="Data" Value="m15 18-6-6 6-6" />
-                </Style>
-            </Style>
         </Style>
         <Style Selector="^[ButtonSpinnerLocation=Right]">
             <Style Selector="^ /template/ MPanel#PART_LeftSpinnerButtons">
