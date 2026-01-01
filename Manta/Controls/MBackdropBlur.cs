@@ -9,7 +9,7 @@ using SkiaSharp;
 
 namespace Manta.Controls;
 
-public class MBackgroundBlur : ContentControl
+public class MBackdropBlur : ContentControl
 {
     [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
     public override void Render(DrawingContext context)
