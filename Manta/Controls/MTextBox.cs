@@ -9,10 +9,25 @@ using Avalonia.Threading;
 
 namespace Manta.Controls;
 
+public enum MTextBoxVariant
+{
+    Default,
+    Embedded
+}
+
 [TemplatePart(nameof(PART_Caret), typeof(Border))]
 [TemplatePart(nameof(PART_TextPresenter), typeof(TextPresenter))]
 public class MTextBox : TextBox
 {
+    public static readonly StyledProperty<MTextBoxVariant> VariantProperty = AvaloniaProperty.Register<MTextBox, MTextBoxVariant>(
+        nameof(Variant));
+
+    public MTextBoxVariant Variant
+    {
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
+    }
+
     public static readonly StyledProperty<bool> IsPasswordBoxProperty = AvaloniaProperty.Register<MTextBox, bool>(
         nameof(IsPasswordBox));
 

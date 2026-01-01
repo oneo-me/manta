@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'NumericUpDown' is not supported" />
+                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MNumericUpDown'" />
                     <TextBox Name="PART_TextBox" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

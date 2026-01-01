@@ -23,10 +23,12 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/RadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/RepeatButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ScrollViewer.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/SplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TabStrip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TextBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/TitleBar.axaml" />
@@ -49,11 +51,9 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MenuFlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ProgressBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Separator.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Slider.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Supported/SplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TabControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
@@ -91,6 +91,7 @@
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
+                <MergeResourceInclude Source="../Controls/MNumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/MPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
