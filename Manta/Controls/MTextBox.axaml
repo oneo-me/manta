@@ -5,26 +5,30 @@
     <Design.PreviewWith>
         <!-- Text -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanel Mode="Vertical" Spacing="12" Width="280">
-                <MTextBox />
-                <MTextBox Watermark="Watermark..." />
-                <MTextBox Text="Text Text" />
-                <MTextBox Text="Text Text" IsReadOnly="True" />
-            </MPanel>
-            <MPanel Mode="Vertical" Spacing="12" Width="280">
-                <MTextBox />
-                <MTextBox Watermark="Watermark..." />
-                <MTextBox Text="Text Text" />
-                <MTextBox Text="Text Text" IsReadOnly="True" />
-                <MTextBox Text="Text Text" IsReadOnly="True">
-                    <MTextBox.InnerLeftContent>
-                        <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Left" />
-                    </MTextBox.InnerLeftContent>
-                    <MTextBox.InnerRightContent>
-                        <MButton Variant="Ghost" Size="Small" Margin="7 -10" VerticalAlignment="Center" Content="Right" />
-                    </MTextBox.InnerRightContent>
-                </MTextBox>
-            </MPanel>
+            <TextBlock Text="Embedded" />
+            <Border BorderThickness="1">
+                <MTextBox Variant="Embedded" />
+            </Border>
+            <Border BorderThickness="1">
+                <MTextBox Variant="Embedded" Watermark="Watermark..." />
+            </Border>
+            <Border BorderThickness="1">
+                <MTextBox Variant="Embedded" Text="Input Text" />
+            </Border>
+            <TextBlock Text="Default" />
+            <MTextBox />
+            <MTextBox Watermark="Watermark..." />
+            <MTextBox Text="Input Text" />
+            <MTextBox Text="ReadOnly" IsReadOnly="True" />
+            <MTextBox Text="ReadOnly" IsPasswordBox="True" />
+            <MTextBox Text="Custom left and right" Padding="0 8">
+                <MTextBox.InnerLeftContent>
+                    <MButton Variant="Ghost" Size="Small" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Left" />
+                </MTextBox.InnerLeftContent>
+                <MTextBox.InnerRightContent>
+                    <MButton Variant="Ghost" Size="Small" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Right" />
+                </MTextBox.InnerRightContent>
+            </MTextBox>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTextBox}" TargetType="MTextBox">
@@ -43,133 +47,104 @@
                             BoxShadow="{TemplateBinding BoxShadow}">
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                            <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             <Panel Grid.Column="1">
                                 <MScrollViewer
+                                    Name="PART_ScrollViewer"
                                     HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                     VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                     IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                     BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                                     Padding="{TemplateBinding Padding}">
-                                    <TextPresenter Name="PART_TextPresenter"
-                                                   Background="#00000000"
-                                                   Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                   CaretIndex="{TemplateBinding CaretIndex}"
-                                                   SelectionStart="{TemplateBinding SelectionStart}"
-                                                   SelectionEnd="{TemplateBinding SelectionEnd}"
+                                    <MScrollViewer.Styles>
+                                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Cursor" Value="IBeam" />
+                                        </Style>
+                                    </MScrollViewer.Styles>
+                                    <Panel Margin="1 0">
+                                        <TextBlock Name="PART_Watermark"
+                                                   Opacity="0.5"
+                                                   Text="{TemplateBinding Watermark}"
                                                    TextAlignment="{TemplateBinding TextAlignment}"
                                                    TextWrapping="{TemplateBinding TextWrapping}"
-                                                   LineHeight="{TemplateBinding LineHeight}"
-                                                   PasswordChar="{TemplateBinding PasswordChar}"
-                                                   RevealPassword="{TemplateBinding RevealPassword}"
-                                                   SelectionBrush="{TemplateBinding SelectionBrush}"
-                                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                   CaretBrush="{TemplateBinding CaretBrush}" />
+                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                            <TextBlock.IsVisible>
+                                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                                    <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                </MultiBinding>
+                                            </TextBlock.IsVisible>
+                                        </TextBlock>
+                                        <TextPresenter Name="PART_TextPresenter"
+                                                       CaretBrush="#00000000"
+                                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                       CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                                       LineHeight="{TemplateBinding LineHeight}"
+                                                       LetterSpacing="{TemplateBinding LetterSpacing}"
+                                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                                       RevealPassword="{TemplateBinding RevealPassword}"
+                                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    </Panel>
                                 </MScrollViewer>
-                                <TextBlock
-                                    Name="WatermarkTextBlock"
-                                    Opacity="0.5"
-                                    Padding="{TemplateBinding Padding}"
-                                    Text="{TemplateBinding Watermark}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    TextAlignment="{TemplateBinding TextAlignment}"
-                                    TextWrapping="{TemplateBinding TextWrapping}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Panel>
-                            <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                         </Grid>
                     </Border>
                     <Canvas IsHitTestVisible="False">
-                        <Border Name="PART_Caret" Width="1.5" Background="{MBrush Primary}" CornerRadius="999" BoxShadow="{MShadow DropMD, BrushOpacity=0.3, ColorKey=Primary}" Opacity="0" />
+                        <Border Name="PART_Caret" Background="{TemplateBinding CaretBrush}" CornerRadius="999" Opacity="0" />
                     </Canvas>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <!-- PasswordChar -->
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="SelectionBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="SelectionForegroundBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="CaretBrush" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
         <Style Selector="^[IsPasswordBox=True]">
             <Setter Property="PasswordChar" Value="•" />
         </Style>
-        <!-- Watermark -->
-        <Style Selector="^ /template/ TextBlock#WatermarkTextBlock">
-            <Setter Property="Margin" Value="1" />
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:empty:not(:focus) /template/ TextBlock#WatermarkTextBlock">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-        <!-- Cursor -->
-        <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
-            <Setter Property="Margin" Value="1" />
-            <Setter Property="Cursor" Value="IBeam" />
-        </Style>
-        <!-- Custom -->
-        <Setter Property="Padding" Value="8 6" />
-        <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="BorderThickness" Value="1" />
-        <!-- Colors -->
-        <Setter Property="CaretBrush" Value="#00000000" />
-        <Setter Property="Background" Value="{MBrush Background, Opacity=0.5}" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="CaretBrush" Value="{MBrush Primary}" />
         <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
         <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
-        <Style Selector="^[IsReadOnly=True]">
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+        <Style Selector="^ /template/ Border#PART_Caret">
+            <Setter Property="Width" Value="1.5" />
+            <Setter Property="BoxShadow" Value="{MShadow DropMD, BrushOpacity=0.3, ColorKey=Primary}" />
         </Style>
-        <!-- Embedded variant - transparent, no border, for use inside other controls -->
-        <Style Selector="^[Variant=Embedded]">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="CornerRadius" Value="0" />
-            <Setter Property="Padding" Value="0" />
-        </Style>
-        <!-- Default variant hover/focus styles -->
-        <Style Selector="^[Variant=Default][IsReadOnly=False]">
-            <Style Selector="^:pointerover, ^:focus">
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Padding" Value="10 8" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BoxShadow" Value="{MShadow XS}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
+                <Setter Property="BoxShadow" Value="{MShadow XS, ColorKey=Primary}" />
+            </Style>
+            <Style Selector="^:focus">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
                 <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" />
             </Style>
-            <!-- <Style Selector="^[Variant=Primary]"> -->
-            <!--     <Setter Property="CaretBrush" Value="{MBrush Primary}" /> -->
-            <!--     <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.3}" /> -->
-            <!--     <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" /> -->
-            <!--     <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" /> -->
-            <!--     <Style Selector="^:pointerover, ^:focus"> -->
-            <!--         <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.8}" /> -->
-            <!--         <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" /> -->
-            <!--     </Style> -->
-            <!-- </Style> -->
-            <!-- <Style Selector="^[Variant=Success]"> -->
-            <!--     <Setter Property="CaretBrush" Value="{MBrush Success}" /> -->
-            <!--     <Setter Property="BorderBrush" Value="{MBrush Success, Opacity=0.5}" /> -->
-            <!--     <Setter Property="SelectionBrush" Value="{MBrush Success, Opacity=0.3}" /> -->
-            <!--     <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" /> -->
-            <!--     <Style Selector="^:pointerover, ^:focus"> -->
-            <!--         <Setter Property="BorderBrush" Value="{MBrush Success, Opacity=0.8}" /> -->
-            <!--         <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Success}" /> -->
-            <!--     </Style> -->
-            <!-- </Style> -->
-            <!-- <Style Selector="^[Variant=Warning]"> -->
-            <!--     <Setter Property="CaretBrush" Value="{MBrush Warning}" /> -->
-            <!--     <Setter Property="BorderBrush" Value="{MBrush Warning, Opacity=0.5}" /> -->
-            <!--     <Setter Property="SelectionBrush" Value="{MBrush Warning, Opacity=0.3}" /> -->
-            <!--     <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" /> -->
-            <!--     <Style Selector="^:pointerover, ^:focus"> -->
-            <!--         <Setter Property="BorderBrush" Value="{MBrush Warning, Opacity=0.8}" /> -->
-            <!--         <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Warning}" /> -->
-            <!--     </Style> -->
-            <!-- </Style> -->
-            <!-- <Style Selector="^[Variant=Danger]"> -->
-            <!--     <Setter Property="CaretBrush" Value="{MBrush Danger}" /> -->
-            <!--     <Setter Property="BorderBrush" Value="{MBrush Danger, Opacity=0.5}" /> -->
-            <!--     <Setter Property="SelectionBrush" Value="{MBrush Danger, Opacity=0.3}" /> -->
-            <!--     <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" /> -->
-            <!--     <Style Selector="^:pointerover, ^:focus"> -->
-            <!--         <Setter Property="BorderBrush" Value="{MBrush Danger, Opacity=0.8}" /> -->
-            <!--         <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Danger}" /> -->
-            <!--     </Style> -->
-            <!-- </Style> -->
+            <Style Selector="^[IsReadOnly=True]">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+                <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+                <Setter Property="BoxShadow" Value="{MShadow InsetSM}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
