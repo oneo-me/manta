@@ -14,6 +14,7 @@
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Supported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
@@ -35,7 +36,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/TreeView.axaml" />
                 <!-- Unsupported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/AutoCompleteBox.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ContextMenu.axaml" />
@@ -78,6 +78,7 @@
                 <MergeResourceInclude Source="../Controls/MBadge.axaml" />
                 <MergeResourceInclude Source="../Controls/MBreadcrumb.axaml" />
                 <MergeResourceInclude Source="../Controls/MButton.axaml" />
+                <MergeResourceInclude Source="../Controls/MButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/MCard.axaml" />
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
