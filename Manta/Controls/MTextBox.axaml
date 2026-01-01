@@ -117,7 +117,15 @@
         <Style Selector="^[IsReadOnly=True]">
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
         </Style>
-        <Style Selector="^[IsReadOnly=False]">
+        <!-- Embedded variant - transparent, no border, for use inside other controls -->
+        <Style Selector="^[Variant=Embedded]">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <!-- Default variant hover/focus styles -->
+        <Style Selector="^[Variant=Default][IsReadOnly=False]">
             <Style Selector="^:pointerover, ^:focus">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
                 <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" />
