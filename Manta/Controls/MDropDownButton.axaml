@@ -1,0 +1,202 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="20">
+                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <MDropDownButton Variant="Outline" Size="Small" Content="Small">
+                        <MDropDownButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option 1" />
+                                <MenuItem Header="Option 2" />
+                            </MenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <MDropDownButton Variant="Outline" Size="Default" Content="Default">
+                        <MDropDownButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option 1" />
+                                <MenuItem Header="Option 2" />
+                            </MenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
+                    <MDropDownButton Variant="Outline" Size="Large" Content="Large">
+                        <MDropDownButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option 1" />
+                                <MenuItem Header="Option 2" />
+                            </MenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Content="Default">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Outline" Content="Outline">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Secondary" Content="Secondary">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Ghost" Content="Ghost">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Destructive" Content="Destructive">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Link" Content="Link">
+                    <MDropDownButton.Flyout>
+                        <MenuFlyout>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </MenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MDropDownButton}" TargetType="MDropDownButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="Border"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="* Auto">
+                        <ContentPresenter Grid.Column="0" Name="PART_ContentPresenter"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          RecognizesAccessKey="True" />
+                        <MPathIcon Grid.Column="1" Name="DropDownIcon"
+                                   Data="M6 9L12 15L18 9"
+                                   UseStroke="True"
+                                   Size="10"
+                                   Margin="8 0 0 0"
+                                   VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Padding" Value="12 6" />
+        </Style>
+        <Style Selector="^[Size=Default]">
+            <Setter Property="Padding" Value="16 8" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Padding" Value="20 10" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush Foreground}" />
+            <Setter Property="Foreground" Value="{MBrush Background}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^ /template/ Border#Border">
+                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Style Selector="^ /template/ Border#Border">
+                    <Setter Property="BoxShadow" Value="{MShadow XS}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.3}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="Background" Value="{MBrush Danger}" />
+            <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Danger, Opacity=0.8}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Link]">
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Border#Border">
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^:flyout-open /template/ MPathIcon#DropDownIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

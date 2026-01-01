@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
@@ -40,7 +41,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/MaskedTextBox.axaml" />
@@ -84,6 +84,7 @@
                 <MergeResourceInclude Source="../Controls/MClipContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommand.axaml" />
+                <MergeResourceInclude Source="../Controls/MDropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MHyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
