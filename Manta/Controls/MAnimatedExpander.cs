@@ -57,10 +57,7 @@ public class MAnimatedExpander : Decorator
         base.OnPropertyChanged(change);
 
         if (change.Property == IsExpandedProperty)
-        {
-            var isExpanded = change.NewValue is true;
-            StartAnimation(isExpanded);
-        }
+            StartAnimation(change.GetNewValue<bool>());
     }
 
     protected override Size MeasureOverride(Size availableSize)

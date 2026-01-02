@@ -29,7 +29,7 @@ sealed class DemoGroupItem(DemoSubGroup subGroup) : IDemoItem
 [View<DemoGroupView>]
 sealed class DemoGroupView_Model : HeaderRegionModel
 {
-    public static DemoGroupView_Model Design => new(DemoGroup.Styles, LangKey.Styles, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg")));
+    public static DemoGroupView_Model Design => new(DemoGroup.Controls, LangKey.Controls, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg")));
 
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly DemoService _demoService = Service.GetService<DemoService>();

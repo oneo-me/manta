@@ -11,10 +11,10 @@ public class MPanelAspectRatio : MPanelBase
         AffectsMeasure<MPanelAspectRatio>(RatioProperty);
     }
 
-    public static readonly StyledProperty<string> RatioProperty = AvaloniaProperty.Register<MPanelAspectRatio, string>(
+    public static readonly StyledProperty<string?> RatioProperty = AvaloniaProperty.Register<MPanelAspectRatio, string?>(
         nameof(Ratio));
 
-    public string Ratio
+    public string? Ratio
     {
         get => GetValue(RatioProperty);
         set => SetValue(RatioProperty, value);
@@ -27,11 +27,13 @@ public class MPanelAspectRatio : MPanelBase
         base.OnPropertyChanged(change);
 
         if (change.Property == RatioProperty)
-            if (change.NewValue is string str)
-            {
-                var doubles = str.Split('/').Select(x => double.Parse(x.Trim())).ToArray();
+        {
+            var doubles = change.GetNewValue<string?>()?.Split('/').Select(x => double.Parse(x.Trim())).ToArray();
+            if (doubles is null || doubles.Length != 2 || doubles[1] == 0)
+                _ratio = 1.0;
+            else
                 _ratio = doubles[0] / doubles[1];
-            }
+        }
     }
 
     protected override Size MeasureOverride(ReadOnlyCollection<Control> children, Size availableSize)

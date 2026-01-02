@@ -93,11 +93,11 @@ public class MExpanderItem : HeaderedContentControl
 
         if (change.Property == IsExpandedProperty)
         {
-            var newValue = change.NewValue is true;
+            var isExpanded = change.GetNewValue<bool>();
 
-            PseudoClasses.Set(":expanded", newValue);
+            PseudoClasses.Set(":expanded", isExpanded);
 
-            if (newValue)
+            if (isExpanded)
                 this.GetLogicalParent<MExpander>()?.CollapseOtherItems(this);
         }
     }
