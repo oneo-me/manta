@@ -74,7 +74,6 @@
                 <!-- Controls -->
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/MAspectRatio.axaml" />
-                <MergeResourceInclude Source="../Controls/MAvatar.axaml" />
                 <MergeResourceInclude Source="../Controls/MBadge.axaml" />
                 <MergeResourceInclude Source="../Controls/MBreadcrumb.axaml" />
                 <MergeResourceInclude Source="../Controls/MButton.axaml" />
