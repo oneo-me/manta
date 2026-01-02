@@ -1,0 +1,160 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="MImage">
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="Height" Value="100" />
+                </Style>
+            </MPanel.Styles>
+            <MImage Content="Fallback" CornerRadius="100" ClipToBounds="True" />
+            <MImage Source="https://avatars.githubusercontent.com/u/7909582?v=4" CornerRadius="100" ClipToBounds="True" />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MImage}" TargetType="MImage">
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="{TemplateBinding ClipToBounds}">
+                        <Panel>
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                            <Image Name="PART_Image"
+                                   BlendMode="{TemplateBinding BlendMode}"
+                                   Stretch="{TemplateBinding Stretch}"
+                                   StretchDirection="{TemplateBinding StretchDirection}" />
+                            <MPathIcon Name="Icon" Size="{TemplateBinding LoadingSize}">
+                                <MPathIcon.Foreground>
+                                    <ConicGradientBrush>
+                                        <GradientStop Color="#000000" Offset="0" />
+                                        <GradientStop Color="#00000000" Offset="0.05" />
+                                        <GradientStop Color="#000000" Offset="1" />
+                                    </ConicGradientBrush>
+                                </MPathIcon.Foreground>
+                            </MPathIcon>
+                        </Panel>
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="LoadingSize" Value="22" />
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:no-image /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^ /template/ Image#PART_Image">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:image /template/ Image#PART_Image">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^ /template/ MPathIcon#Icon">
+            <Setter Property="Data" Value="M7 15.995H1M31 15.995H25M16.005 7V1M16.005 31V25M8.20827 11.4957L3.01212 8.49567M28.9929 23.4957L23.7967 20.4957M20.5043 8.20828L23.5043 3.01212M8.50433 28.9929L11.5043 23.7967M8.20327 20.4957L3.00712 23.4957M28.9879 8.49567L23.7917 11.4957M11.5043 8.20328L8.50433 3.00712M23.5043 28.9879L20.5043 23.7917" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:loading /template/ MPathIcon#Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="RotateTransform.Angle" Value="0" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:1.2">
+                    <KeyFrame KeyTime="0:0:0.0">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.09999">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.1">
+                        <Setter Property="RotateTransform.Angle" Value="30" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.19999">
+                        <Setter Property="RotateTransform.Angle" Value="30" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.2">
+                        <Setter Property="RotateTransform.Angle" Value="60" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.29999">
+                        <Setter Property="RotateTransform.Angle" Value="60" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.3">
+                        <Setter Property="RotateTransform.Angle" Value="90" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.39999">
+                        <Setter Property="RotateTransform.Angle" Value="90" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.4">
+                        <Setter Property="RotateTransform.Angle" Value="120" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.49999">
+                        <Setter Property="RotateTransform.Angle" Value="120" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.5">
+                        <Setter Property="RotateTransform.Angle" Value="150" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.59999">
+                        <Setter Property="RotateTransform.Angle" Value="150" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.6">
+                        <Setter Property="RotateTransform.Angle" Value="180" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.69999">
+                        <Setter Property="RotateTransform.Angle" Value="180" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.7">
+                        <Setter Property="RotateTransform.Angle" Value="210" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.79999">
+                        <Setter Property="RotateTransform.Angle" Value="210" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.8">
+                        <Setter Property="RotateTransform.Angle" Value="240" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.89999">
+                        <Setter Property="RotateTransform.Angle" Value="240" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.9">
+                        <Setter Property="RotateTransform.Angle" Value="270" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.99999">
+                        <Setter Property="RotateTransform.Angle" Value="270" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.0">
+                        <Setter Property="RotateTransform.Angle" Value="300" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.09999">
+                        <Setter Property="RotateTransform.Angle" Value="300" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.1">
+                        <Setter Property="RotateTransform.Angle" Value="330" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.19999">
+                        <Setter Property="RotateTransform.Angle" Value="330" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.2">
+                        <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

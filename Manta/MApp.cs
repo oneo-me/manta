@@ -12,7 +12,9 @@ using Manta.Langs;
 using Manta.Logging;
 using Manta.Logging.Inner;
 using Manta.Reactive.Extensions;
+using Manta.Reactive.Services;
 using Manta.Reactive.Views;
+using Manta.Services;
 
 namespace Manta;
 
@@ -129,6 +131,7 @@ public abstract class MApp : Application
                     item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Quit, Name));
         }
 
+        OnInitializeInternal();
         OnInitializeCore(out var mainModel, out var onExit);
 
         if (Design.IsDesignMode)
@@ -175,6 +178,11 @@ public abstract class MApp : Application
             {
                 onExit();
             };
+    }
+
+    void OnInitializeInternal()
+    {
+        Service.Register(new ImageLoadService());
     }
 
     void OnInitializeCore(out WindowModel? mainModel, out Action? onExit)

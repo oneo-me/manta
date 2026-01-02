@@ -1,18 +1,13 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Presenters;
-using Avalonia.Controls.Templates;
-using Avalonia.LogicalTree;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Manta.Media.Imaging;
 
 namespace Manta.Controls;
 
 public class MAvatar : ContentControl
 {
-    static MAvatar()
-    {
-        FallbackContentProperty.Changed.AddClassHandler<MAvatar>((x, e) => x.FallbackContentChanged(e));
-    }
-
     public static readonly StyledProperty<double> SizeProperty = AvaloniaProperty.Register<MAvatar, double>(
         nameof(Size));
 
@@ -22,45 +17,48 @@ public class MAvatar : ContentControl
         set => SetValue(SizeProperty, value);
     }
 
-    public static readonly StyledProperty<object?> FallbackContentProperty = AvaloniaProperty.Register<MAvatar, object?>(nameof(FallbackContent));
+    public static readonly StyledProperty<double> LoadingSizeProperty = AvaloniaProperty.Register<MAvatar, double>(
+        nameof(LoadingSize));
 
-    public object? FallbackContent
+    public double LoadingSize
     {
-        get => GetValue(FallbackContentProperty);
-        set => SetValue(FallbackContentProperty, value);
+        get => GetValue(LoadingSizeProperty);
+        set => SetValue(LoadingSizeProperty, value);
     }
 
-    public static readonly StyledProperty<IDataTemplate?> FallbackContentTemplateProperty = AvaloniaProperty.Register<MAvatar, IDataTemplate?>(nameof(FallbackContentTemplate));
+    public static readonly StyledProperty<IImageSource?> SourceProperty = AvaloniaProperty.Register<MAvatar, IImageSource?>(
+        nameof(Source));
 
-    public IDataTemplate? FallbackContentTemplate
+    public IImageSource? Source
     {
-        get => GetValue(FallbackContentTemplateProperty);
-        set => SetValue(FallbackContentTemplateProperty, value);
+        get => GetValue(SourceProperty);
+        set => SetValue(SourceProperty, value);
     }
 
-    public ContentPresenter? FallbackContentPresenter { get; private set; }
+    public static readonly StyledProperty<BitmapBlendingMode> BlendModeProperty = AvaloniaProperty.Register<MAvatar, BitmapBlendingMode>(
+        nameof(BlendMode));
 
-    protected override bool RegisterContentPresenter(ContentPresenter presenter)
+    public BitmapBlendingMode BlendMode
     {
-        var flag = base.RegisterContentPresenter(presenter);
-
-        if (presenter.Name == "PART_FallbackContentPresenter")
-        {
-            FallbackContentPresenter = presenter;
-            flag = true;
-        }
-
-        return flag;
+        get => GetValue(BlendModeProperty);
+        set => SetValue(BlendModeProperty, value);
     }
 
-    void FallbackContentChanged(AvaloniaPropertyChangedEventArgs e)
+    public static readonly StyledProperty<Stretch> StretchProperty = AvaloniaProperty.Register<MAvatar, Stretch>(
+        nameof(Stretch), Stretch.Uniform);
+
+    public Stretch Stretch
     {
-        if (e.OldValue is ILogical oldValue)
-            LogicalChildren.Remove(oldValue);
+        get => GetValue(StretchProperty);
+        set => SetValue(StretchProperty, value);
+    }
 
-        if (e.NewValue is not ILogical newValue)
-            return;
+    public static readonly StyledProperty<StretchDirection> StretchDirectionProperty = AvaloniaProperty.Register<MAvatar, StretchDirection>(
+        nameof(StretchDirection), StretchDirection.Both);
 
-        LogicalChildren.Add(newValue);
+    public StretchDirection StretchDirection
+    {
+        get => GetValue(StretchDirectionProperty);
+        set => SetValue(StretchDirectionProperty, value);
     }
 }
