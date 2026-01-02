@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MListBox'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MListBox'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MListBoxItem'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MListBoxItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

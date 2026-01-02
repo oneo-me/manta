@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTree'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTree'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTreeItem'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTreeItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

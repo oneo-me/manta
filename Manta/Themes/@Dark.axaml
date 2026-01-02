@@ -2,9 +2,57 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:values="clr-namespace:Manta.Themes.Values"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
-    <values:RgbColor x:Key="{MBrushKey Background}" R="22" G="22" B="22" Opacity="0.8" />
-    <values:RgbColor x:Key="{MBrushKey BorderBrush}" R="235" G="235" B="235" Opacity="0.08" />
-    <values:RgbColor x:Key="{MBrushKey Foreground}" R="235" G="235" B="235" />
-    <values:RgbColor x:Key="{MBrushKey ColorForeground}" R="235" G="235" B="235" />
+    <values:OklchColor x:Key="{MBrushKey Background}" L="0.145" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Foreground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Card}" L="0.205" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey CardForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Popover}" L="0.269" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey PopoverForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Primary}" L="0.922" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey PrimaryForeground}" L="0.205" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Secondary}" L="0.269" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SecondaryForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Muted}" L="0.269" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey MutedForeground}" L="0.708" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Accent}" L="0.371" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey AccentForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Destructive}" L="0.704" C="0.191" H="22.216" />
+    <values:OklchColor x:Key="{MBrushKey DestructiveForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Border}" L="0.275" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Input}" L="0.325" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Ring}" L="0.556" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Chart1}" L="0.81" C="0.1" H="252" />
+    <values:OklchColor x:Key="{MBrushKey Chart2}" L="0.62" C="0.19" H="260" />
+    <values:OklchColor x:Key="{MBrushKey Chart3}" L="0.55" C="0.22" H="263" />
+    <values:OklchColor x:Key="{MBrushKey Chart4}" L="0.49" C="0.22" H="264" />
+    <values:OklchColor x:Key="{MBrushKey Chart5}" L="0.42" C="0.18" H="266" />
+    <values:OklchColor x:Key="{MBrushKey SidebarBackground}" L="0.205" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarPrimary}" L="0.488" C="0.243" H="264.376" />
+    <values:OklchColor x:Key="{MBrushKey SidebarPrimaryForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarAccent}" L="0.269" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarAccentForeground}" L="0.985" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarBorder}" L="0.275" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey SidebarRing}" L="0.439" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Shadow}" L="0" C="0" H="0" />
+    <BoxShadows x:Key="{MShadowKey XXS}">0 2 5 0 #07000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey XS}">0 2 5 0 #07000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey SM}">0 2 5 0 #0C000000, 0 1 2 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey Default}">0 2 5 0 #0C000000, 0 1 2 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey MD}">0 2 5 0 #0C000000, 0 2 4 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey LG}">0 2 5 0 #0C000000, 0 4 6 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey XL}">0 2 5 0 #0C000000, 0 8 10 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey XXL}">0 2 5 0 #21000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetXXS}">inset 0 2 5 0 #07000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetXS}">inset 0 2 5 0 #07000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetSM}">inset 0 2 5 0 #0C000000, inset 0 1 2 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey Inset}">inset 0 2 5 0 #0C000000, inset 0 1 2 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetMD}">inset 0 2 5 0 #0C000000, inset 0 2 4 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetLG}">inset 0 2 5 0 #0C000000, inset 0 4 6 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetXL}">inset 0 2 5 0 #0C000000, inset 0 8 10 -1 #0C000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey InsetXXL}">inset 0 2 5 0 #21000000</BoxShadows>
+    <system:Double x:Key="{MRadiusKey Radius}">10</system:Double>
+    <system:Double x:Key="{MSpacingKey Spacing}">0</system:Double>
 </ResourceDictionary>

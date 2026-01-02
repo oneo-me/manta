@@ -18,7 +18,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MScrollViewer}" TargetType="MScrollViewer">
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>

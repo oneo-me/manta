@@ -12,9 +12,7 @@ public enum MProgressRingVariant
 {
     Default,
     Secondary,
-    Destructive,
-    Success,
-    Warning
+    Destructive
 }
 
 public class MProgressRing : ProgressBar

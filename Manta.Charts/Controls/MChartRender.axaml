@@ -5,6 +5,6 @@
     <ControlTheme x:Key="{x:Type MChartRender}" TargetType="MChartRender">
         <Setter Property="Background" Value="{MBrush Background}" />
         <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
     </ControlTheme>
 </ResourceDictionary>

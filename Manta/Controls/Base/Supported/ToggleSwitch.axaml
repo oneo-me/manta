@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MToggleSwitch'" />
+                    <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MToggleSwitch'" />
                     <Panel Name="PART_MovingKnobs" IsVisible="False" />
                 </Panel>
             </ControlTemplate>

@@ -30,28 +30,6 @@
                 </MProgressRing>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="12">
-                <MProgressRing Variant="Success" />
-                <MProgressRing Variant="Success" Value="50" />
-                <MProgressRing Variant="Success" Value="100" />
-                <MProgressRing Variant="Success" IsIndeterminate="True" />
-                <MProgressRing Variant="Success" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Success" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Success" IsIndeterminate="True" Value="50" Maximum="100">
-                    <TextBlock Text="TEST" />
-                </MProgressRing>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12">
-                <MProgressRing Variant="Warning" />
-                <MProgressRing Variant="Warning" Value="50" />
-                <MProgressRing Variant="Warning" Value="100" />
-                <MProgressRing Variant="Warning" IsIndeterminate="True" />
-                <MProgressRing Variant="Warning" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Warning" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Warning" IsIndeterminate="True" Value="50" Maximum="100">
-                    <TextBlock Text="TEST" />
-                </MProgressRing>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12">
                 <MProgressRing Variant="Destructive" />
                 <MProgressRing Variant="Destructive" Value="50" />
                 <MProgressRing Variant="Destructive" Value="100" />
@@ -144,16 +122,8 @@
             <Setter Property="RingForeground" Value="{MBrush Primary}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
-        <Style Selector="^[Variant=Success]">
-            <Setter Property="RingForeground" Value="{MBrush Success}" />
-            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
-        </Style>
-        <Style Selector="^[Variant=Warning]">
-            <Setter Property="RingForeground" Value="{MBrush Warning}" />
-            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
-        </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="RingForeground" Value="{MBrush Danger}" />
+            <Setter Property="RingForeground" Value="{MBrush Destructive}" />
             <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
     </ControlTheme>

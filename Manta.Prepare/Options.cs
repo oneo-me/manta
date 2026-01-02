@@ -12,4 +12,7 @@ sealed class Options(string appDir)
     public string SupportedControlsDir { get; set; } = string.Empty;
     public string UnSupportedControlsDir { get; set; } = string.Empty;
     public string MantaThemeFile { get; set; } = string.Empty;
+    public string ThemeSourceFile { get; set; } = string.Empty;
+    public string LightThemeFile { get; set; } = string.Empty;
+    public string DarkThemeFile { get; set; } = string.Empty;
 }

@@ -30,7 +30,7 @@
                 </DataTemplate>
             </MListBox.DataTemplates>
         </MListBox>
-        <Panel Grid.Column="1" Background="{MBrush BorderBrush}" Margin="0 12" />
+        <Panel Grid.Column="1" Background="{MBrush Border}" Margin="0 12" />
         <MViewHost Grid.Column="2" ViewModel="{Binding CurrentViewModel}" />
     </Grid>
 </MView>

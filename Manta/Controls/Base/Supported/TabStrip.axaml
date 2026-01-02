@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTabStrip'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTabStrip'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MTabStripItem'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTabStripItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

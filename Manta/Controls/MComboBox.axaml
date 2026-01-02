@@ -6,7 +6,7 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12"
-                    Width="520" Height="320">
+                Width="520" Height="320">
             <MComboBox BorderThickness="1" Margin="30">
                 <MComboBox.ItemsSource>
                     <generic:List x:TypeArguments="system:String">
@@ -60,10 +60,10 @@
                            PlacementTarget="{Binding ElementName=PopupTarget}"
                            InheritsTransform="True">
                         <Border Background="{MBrush Background}"
-                                BorderBrush="{MBrush BorderBrush}"
+                                BorderBrush="{MBrush Border}"
                                 BorderThickness="1"
                                 CornerRadius="8"
-                                Margin="5" BoxShadow="{MShadow Menu}">
+                                Margin="5" BoxShadow="{MShadow XS}">
                             <MCommand ItemsSource="{TemplateBinding ItemsSource}" ItemTemplate="{TemplateBinding ItemTemplate}" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </Border>
                     </Popup>
@@ -72,7 +72,7 @@
         </Setter>
         <Style Selector="^ /template/ MToggleButton#Toggle">
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+                <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
             </Style>
             <Style Selector="^ MPathIcon#Icon">
                 <Setter Property="Data" Value="M1 12L6 17L11 12M1 6L6 1L11 6" />

@@ -47,17 +47,17 @@
         <Setter Property="Background" Value="{MBrush Foreground}" />
         <Setter Property="Foreground" Value="{MBrush Background}" />
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Border}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
         </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Background" Value="{MBrush Danger}" />
-            <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+            <Setter Property="Background" Value="{MBrush Destructive}" />
+            <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="Padding" Value="6 1" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
         </Style>

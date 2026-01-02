@@ -89,7 +89,7 @@
                             </Grid>
                         </Border>
                         <Grid Grid.Column="1" RowDefinitions="Auto *">
-                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MBrush BorderBrush, Opacity=0.6}">
+                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MBrush Border, Opacity=0.6}">
                                 <TextBlock Text="Item 1" FontWeight="SemiBold" Margin="12 6" />
                             </Border>
                             <MScrollViewer Grid.Row="1">
@@ -143,10 +143,10 @@
                                             <Style Selector="MItems">
                                                 <Setter Property="BorderThickness" Value="1" />
                                                 <Setter Property="CornerRadius" Value="8" />
-                                                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.2}" />
+                                                <Setter Property="Background" Value="{MBrush Border, Opacity=0.2}" />
                                             </Style>
                                             <Style Selector="MItem">
-                                                <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+                                                <Setter Property="BorderBrush" Value="{MBrush Border}" />
                                                 <Setter Property="BorderThickness" Value="0 1 0 0" />
                                                 <Setter Property="Margin" Value="8 0" />
                                                 <Setter Property="Padding" Value="8" />

@@ -97,7 +97,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Style Selector="^ /template/ Panel#Size">
             <Setter Property="Height" Value="38" />
         </Style>
@@ -191,11 +191,11 @@
         </Style>
         <Style Selector="^[Type=Close]">
             <Setter Property="IconData" Value="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
-            <Setter Property="Background" Value="{MBrush Danger, Opacity=0}" />
+            <Setter Property="Background" Value="{MBrush Destructive, Opacity=0}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Danger}" />
-                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="Background" Value="{MBrush Destructive}" />
+                <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
             </Style>
         </Style>
     </ControlTheme>

@@ -87,7 +87,7 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Style Selector="^ /template/ MPathIcon#Icon">
             <Setter Property="Data" Value="M19 19L14.7 14.7M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" />
             <Setter Property="UseStroke" Value="True" />
@@ -135,7 +135,7 @@
             <Setter Property="Margin" Value="12 8" />
         </Style>
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
             <Setter Property="CornerRadius" Value="6" />
             <Setter Property="Padding" Value="12 6" />
             <Setter Property="Margin" Value="4 0" />
@@ -145,10 +145,10 @@
                 </Transitions>
             </Setter>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
             </Style>
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
             </Style>
             <Style Selector="^:disabled">
                 <Setter Property="Opacity" Value="0.5" />
@@ -157,7 +157,7 @@
         <Style Selector="^[Variant=Separator]">
             <Setter Property="IsEnabled" Value="False" />
             <Setter Property="IsHitTestVisible" Value="False" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="BorderThickness" Value="0 1 0 0" />
             <Setter Property="Margin" Value="0 6" />
             <Setter Property="Template">

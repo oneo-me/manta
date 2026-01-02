@@ -10,7 +10,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MClipContentControl}" TargetType="MClipContentControl">
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>

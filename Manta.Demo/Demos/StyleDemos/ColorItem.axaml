@@ -1,0 +1,38 @@
+<MView
+    x:Class="Manta.Demo.Demos.StyleDemos.ColorItem"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Name="View" Key="Background" Brush="{MBrush Background}" ClipToBounds="False">
+    <MView.Styles>
+        <Style Selector="Border.Root">
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.05" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^ Border.Color">
+                <Setter Property="BoxShadow" Value="{MShadow XXL}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Style Selector="^ Border.Color">
+                    <Setter Property="BoxShadow" Value="{MShadow XXS}" />
+                </Style>
+            </Style>
+        </Style>
+    </MView.Styles>
+    <Border Classes="Root">
+        <Grid ColumnDefinitions="Auto *" ColumnSpacing="12" Margin="4">
+            <Panel Grid.Column="0" Width="52" Height="52">
+                <Border Classes="Color" CornerRadius="8" Background="{Binding #View.Brush}" />
+                <Border CornerRadius="8" BorderBrush="#19000000" BorderThickness="1" />
+            </Panel>
+            <MPanel Grid.Column="1" Mode="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="{Binding #View.Key}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock Text="{Binding #View.Brush}" Opacity="0.5" />
+            </MPanel>
+        </Grid>
+    </Border>
+</MView>

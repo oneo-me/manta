@@ -134,15 +134,15 @@
         <!-- Outline variant -->
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="BoxShadow" Value="{MShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
-                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
                 <Style Selector="^ /template/ Border#PART_Border">
                     <Setter Property="BoxShadow" Value="{MShadow XS}" />
                 </Style>
