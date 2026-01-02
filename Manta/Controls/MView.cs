@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
@@ -6,7 +5,6 @@ using Manta.Reactive.Views;
 
 namespace Manta.Controls;
 
-[SuppressMessage("Design", "CA1001:具有可释放字段的类型应该是可释放的")]
 public class MView : ContentControl
 {
     CompositeDisposable? _disposables;
@@ -21,7 +19,7 @@ public class MView : ContentControl
         if (DataContext is not ViewModel viewModel)
             return;
 
-        if (Design.IsDesignMode)
+        if (Design.IsDesignMode && viewModel.InnerView is null)
             viewModel.InnerView = this;
 
         viewModel.OnInnerViewActivated(_disposables);
