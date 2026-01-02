@@ -89,6 +89,7 @@
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MHyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
+                <MergeResourceInclude Source="../Controls/MImage.axaml" />
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MNumericUpDown.axaml" />

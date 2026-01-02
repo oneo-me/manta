@@ -1,9 +1,10 @@
 using Avalonia.Markup.Xaml;
+using Manta.Demo.Services;
+using Manta.Demo.Views;
 using Manta.Globalization;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using Manta.Demo.Services;
-using Manta.Demo.Views;
+using Manta.Services;
 
 namespace Manta.Demo;
 
@@ -23,7 +24,12 @@ sealed class App : MApp
     {
         var appFolder = Folder;
         var dataFolder = Path.Combine(appFolder, "Data");
+        var cacheFolder = Path.Combine(dataFolder, "Cache");
         Directory.CreateDirectory(dataFolder);
+        Directory.CreateDirectory(cacheFolder);
+
+        var imageLoadService = Service.GetService<ImageLoadService>();
+        imageLoadService.CacheDirectory = cacheFolder;
 
         Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
 

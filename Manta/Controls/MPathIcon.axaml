@@ -18,7 +18,7 @@
             <ControlTemplate>
                 <Viewbox Width="{TemplateBinding Size}" Height="{TemplateBinding Size}"
                          ClipToBounds="False">
-                    <Panel Width="{TemplateBinding Size}" Height="{TemplateBinding Size}">
+                    <Panel Width="{TemplateBinding Size}" Height="{TemplateBinding Size}" Margin="{TemplateBinding Padding}">
                         <Path Data="{TemplateBinding Data}"
                               Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Panel>
