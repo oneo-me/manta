@@ -3,7 +3,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Views"
-    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}">
+    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}"
+    Design.Width="720" Design.Height="720">
     <Grid ColumnDefinitions="200 1 *">
         <MListBox Grid.Column="0" Type="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
             <MListBox.Styles>
@@ -23,7 +24,7 @@
                 <DataTemplate DataType="local:DemoItem">
                     <MPanel Mode="Horizontal" Spacing="8">
                         <MIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding ViewModel.Icon}" Margin="0 -10" VerticalAlignment="Center"
-                                   IsVisible="{Binding ViewModel.Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                               IsVisible="{Binding ViewModel.Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         <TextBlock Text="{Lang {Binding ViewModel.Header}}" VerticalAlignment="Center" />
                     </MPanel>
                 </DataTemplate>

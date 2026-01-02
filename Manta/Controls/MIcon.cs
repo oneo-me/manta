@@ -74,9 +74,9 @@ public sealed class MIcon : TemplatedControl
         base.OnPropertyChanged(change);
 
         if (change.Property == IconSourceProperty)
-            OnSourceChanged(change.NewValue as IconSource);
+            OnSourceChanged(change.GetNewValue<IconSource?>());
         else if (change.Property == IconSizeProperty)
-            OnIconSizeChanged(change.NewValue is double value ? value : 0);
+            OnIconSizeChanged(change.GetNewValue<double?>());
     }
 
     void OnIconSizeChanged(double? size)

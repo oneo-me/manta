@@ -31,17 +31,12 @@ public class MViewHost : ContentControl
 
         if (change.Property == ViewModelTypeProperty)
         {
-            if (change.NewValue is Type type)
-                ViewModel = Service.CreateInstance<ViewModel>(type);
-            else
-                ViewModel = null;
+            var viewModelType = change.GetNewValue<Type?>();
+            ViewModel = viewModelType is null ? null : Service.CreateInstance<ViewModel>(viewModelType);
         }
         else if (change.Property == ViewModelProperty)
         {
-            if (change.NewValue is ViewModel viewModel)
-                Content = viewModel.CreateView();
-            else
-                Content = null;
+            Content = change.GetNewValue<ViewModel?>()?.CreateView();
         }
     }
 }
