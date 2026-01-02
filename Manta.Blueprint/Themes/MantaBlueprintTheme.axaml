@@ -1,0 +1,14 @@
+<Styles
+    x:Class="Manta.Blueprint.Themes.MantaBlueprintTheme"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="../Controls/MBlueprint.axaml" />
+                <MergeResourceInclude Source="../Controls/MBlueprintNode.axaml" />
+                <MergeResourceInclude Source="../Controls/MBlueprintPort.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

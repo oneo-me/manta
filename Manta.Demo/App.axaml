@@ -6,6 +6,7 @@
     <Application.Styles>
         <MantaTheme />
         <MantaChartsTheme />
+        <MantaBlueprintTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </Application.Styles>
 </Application>
