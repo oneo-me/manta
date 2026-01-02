@@ -8,6 +8,7 @@
         <MantaWebViewTheme />
         <MantaMarkdownTheme />
         <MantaChatTheme />
+        <MantaBlueprintTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>
