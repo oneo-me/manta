@@ -31,7 +31,7 @@ public class MTitleBar : ContentControl
         PART_Title = e.NameScope.Get<TextBlock>(nameof(PART_Title));
         PART_Buttons = e.NameScope.Get<MTitleBarButtons>(nameof(PART_Buttons));
 
-        PART_Buttons.IsVisible = OperatingSystem.IsMacOS() is false;
+        PART_Buttons.IsVisible = Design.IsDesignMode || OperatingSystem.IsMacOS() is false;
 
         AttachEvents();
     }
@@ -65,9 +65,10 @@ public class MTitleBar : ContentControl
 
         _disposables = new();
 
-        PART_Event
-            .BindTitleBarEvents(window)
-            .DisposeWith(_disposables);
+        if (Design.IsDesignMode is false)
+            PART_Event
+                .BindTitleBarEvents(window)
+                .DisposeWith(_disposables);
 
         if (OperatingSystem.IsMacOS())
             window.GetWindowStatusObservable()
@@ -107,10 +108,13 @@ public class MTitleBarButtons : ContentControl
         PART_MaximizeRestoreButton = e.NameScope.Get<MTitleBarButton>(nameof(PART_MaximizeRestoreButton));
         PART_CloseButton = e.NameScope.Get<MTitleBarButton>(nameof(PART_CloseButton));
 
-        PART_FullScreenButton.Click += FullScreenButtonOnClick;
-        PART_MinimizeButton.Click += MinimizeButtonOnClick;
-        PART_MaximizeRestoreButton.Click += MaximizeRestoreButtonOnClick;
-        PART_CloseButton.Click += CloseButtonOnClick;
+        if (Design.IsDesignMode is false)
+        {
+            PART_FullScreenButton.Click += FullScreenButtonOnClick;
+            PART_MinimizeButton.Click += MinimizeButtonOnClick;
+            PART_MaximizeRestoreButton.Click += MaximizeRestoreButtonOnClick;
+            PART_CloseButton.Click += CloseButtonOnClick;
+        }
 
         AttachEvents();
     }
