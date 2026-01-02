@@ -100,6 +100,8 @@ public abstract class MApp : Application
         protected init => base.Name = value;
     }
 
+    public virtual bool SupportActivatableLifetime => false;
+
     public override void OnFrameworkInitializationCompleted()
     {
         base.OnFrameworkInitializationCompleted();
@@ -136,7 +138,7 @@ public abstract class MApp : Application
             throw new("The application lifetime is not supported.");
 
         var isActivatableLifetime = false;
-        if (TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatableLifetime)
+        if (SupportActivatableLifetime && TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatableLifetime)
         {
             isActivatableLifetime = true;
             activatableLifetime.Activated += delegate
