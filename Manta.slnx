@@ -10,6 +10,7 @@
     <File Path=".globalconfig" />
     <File Path=".gitattributes" />
   </Folder>
+  <Project Path="Manta.Blueprint/Manta.Blueprint.csproj" />
   <Project Path="Manta.Charts/Manta.Charts.csproj" />
   <Project Path="Manta.Chat/Manta.Chat.csproj" />
   <Project Path="Manta.Demo\Manta.Demo.csproj" />
