@@ -16,14 +16,8 @@
         <Style Selector="^[Variant=Default]">
             <Setter Property="Background" Value="{MBrush Primary, Opacity=0.2}" />
         </Style>
-        <Style Selector="^[Variant=Success]">
-            <Setter Property="Background" Value="{MBrush Success, Opacity=0.2}" />
-        </Style>
-        <Style Selector="^[Variant=Warning]">
-            <Setter Property="Background" Value="{MBrush Warning, Opacity=0.2}" />
-        </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Background" Value="{MBrush Danger, Opacity=0.2}" />
+            <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.2}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

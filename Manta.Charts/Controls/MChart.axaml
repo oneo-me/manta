@@ -74,7 +74,7 @@
         <Setter Property="Spacing" Value="12" />
         <Setter Property="ShowLegend" Value="True" />
         <Setter Property="ShowTooltip" Value="True" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="MChart">
                 <Border Background="{TemplateBinding Background}"

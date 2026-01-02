@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type ItemsControl}" TargetType="ItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MItems'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MItems'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

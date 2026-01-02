@@ -111,7 +111,7 @@
         </Style>
         <!-- Separator Color -->
         <Style Selector="^ /template/ Rectangle#Separator">
-            <Setter Property="Fill" Value="{MBrush BorderBrush}" />
+            <Setter Property="Fill" Value="{MBrush Border}" />
         </Style>
         <!-- Default Variant -->
         <Style Selector="^[Variant=Default]">
@@ -125,9 +125,9 @@
             </Style>
             <Style Selector="^:checked">
                 <Setter Property="Background" Value="{MBrush Primary}" />
-                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
                 <Style Selector="^ /template/ Rectangle#Separator">
-                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                    <Setter Property="Fill" Value="{MBrush PrimaryForeground, Opacity=0.3}" />
                 </Style>
             </Style>
             <Style Selector="^:checked:pointerover">
@@ -137,25 +137,25 @@
         <!-- Outline Variant -->
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="BoxShadow" Value="{MShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
-                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
                 <Style Selector="^ /template/ Border#PART_Border">
                     <Setter Property="BoxShadow" Value="{MShadow XS}" />
                 </Style>
             </Style>
             <Style Selector="^:checked">
                 <Setter Property="Background" Value="{MBrush Primary}" />
-                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
                 <Setter Property="BorderBrush" Value="{MBrush Primary}" />
                 <Style Selector="^ /template/ Rectangle#Separator">
-                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                    <Setter Property="Fill" Value="{MBrush PrimaryForeground, Opacity=0.3}" />
                 </Style>
             </Style>
             <Style Selector="^:checked:pointerover">
@@ -164,16 +164,16 @@
         </Style>
         <!-- Secondary Variant -->
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+            <Setter Property="Background" Value="{MBrush Border}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0.3}" />
+                <Setter Property="Background" Value="{MBrush Border, Opacity=0.3}" />
             </Style>
             <Style Selector="^:checked">
                 <Setter Property="Background" Value="{MBrush Primary}" />
-                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
                 <Style Selector="^ /template/ Rectangle#Separator">
-                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                    <Setter Property="Fill" Value="{MBrush PrimaryForeground, Opacity=0.3}" />
                 </Style>
             </Style>
             <Style Selector="^:checked:pointerover">
@@ -182,16 +182,16 @@
         </Style>
         <!-- Ghost Variant -->
         <Style Selector="^[Variant=Ghost]">
-            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
             </Style>
             <Style Selector="^:checked">
                 <Setter Property="Background" Value="{MBrush Primary}" />
-                <Setter Property="Foreground" Value="{MBrush ColorForeground}" />
+                <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
                 <Style Selector="^ /template/ Rectangle#Separator">
-                    <Setter Property="Fill" Value="{MBrush ColorForeground, Opacity=0.3}" />
+                    <Setter Property="Fill" Value="{MBrush PrimaryForeground, Opacity=0.3}" />
                 </Style>
             </Style>
             <Style Selector="^:checked:pointerover">

@@ -70,31 +70,31 @@
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BoxShadow" Value="{MShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="BorderBrush" Value="{MBrush BorderBrush, Opacity=0.6}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="BoxShadow" Value="{MShadow XS}" />
                 </Style>
             </Style>
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=WithText]">
-            <Setter Property="Background" Value="{MBrush BorderBrush, Opacity=0}" />
+            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
                 <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.8}" />
             </Style>
             <Style Selector="^:checked">
-                <Setter Property="Background" Value="{MBrush BorderBrush}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
                 <Setter Property="Foreground" Value="{MBrush Foreground}" />
             </Style>
         </Style>

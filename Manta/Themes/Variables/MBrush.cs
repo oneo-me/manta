@@ -10,19 +10,43 @@ namespace Manta.Themes.Variables;
 public enum MBrushKey
 {
     Background,
-    BorderBrush,
     Foreground,
-    ColorForeground,
-
+    Card,
+    CardForeground,
+    Popover,
+    PopoverForeground,
     Primary,
-    Success,
-    Warning,
-    Danger
+    PrimaryForeground,
+    Secondary,
+    SecondaryForeground,
+    Muted,
+    MutedForeground,
+    Accent,
+    AccentForeground,
+    Destructive,
+    DestructiveForeground,
+    Border,
+    Input,
+    Ring,
+    Chart1,
+    Chart2,
+    Chart3,
+    Chart4,
+    Chart5,
+    SidebarBackground,
+    SidebarForeground,
+    SidebarPrimary,
+    SidebarPrimaryForeground,
+    SidebarAccent,
+    SidebarAccentForeground,
+    SidebarBorder,
+    SidebarRing,
+    Shadow
 }
 
 public enum MBrushType
 {
-    Normal,
+    Default,
 
     Light1,
     Light2,
@@ -38,7 +62,7 @@ public sealed class MBrushKeyExtension(MBrushKey key) : MKeyBase(key);
 public sealed class MBrush(MBrushKey key) : MValueBase
 {
     public MBrushKey Key { get; } = key;
-    public MBrushType Type { get; set; } = MBrushType.Normal;
+    public MBrushType Type { get; set; } = MBrushType.Default;
     public double Opacity { get; set; } = 1.0;
 
     protected override IEnumerable<object> GetKeys()
@@ -46,53 +70,97 @@ public sealed class MBrush(MBrushKey key) : MValueBase
         yield return Key;
     }
 
-    static int ColorType2Step(MBrushType colorType)
-    {
-        return colorType switch
-        {
-            MBrushType.Dark3  => 0,
-            MBrushType.Dark2  => 1,
-            MBrushType.Dark1  => 2,
-            MBrushType.Normal => 3,
-            MBrushType.Light1 => 4,
-            MBrushType.Light2 => 5,
-            MBrushType.Light3 => 6,
-            _                  => throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null)
-        };
-    }
-
     public static ColorBase? GetColor(object? value, MBrushType colorType)
     {
         if (value is ColorBase colorBase)
             return colorBase;
 
-        if (value is ColorSet colorSet)
-        {
-            var step = ColorType2Step(colorType);
-            var oklchColor = colorSet.GetColor(step, 7);
-            return oklchColor;
-        }
-
         return null;
+    }
+
+    static OklchColor? GetOklchColor(object? value, MBrushType colorType)
+    {
+        OklchColor? color = null;
+
+        if (value is RgbColor rgbColor)
+            color = rgbColor.ToOklchColor();
+        else if (value is OklchColor oklchColor)
+            color = oklchColor;
+
+        if (color is null)
+            return null;
+
+        switch (colorType)
+        {
+            case MBrushType.Default:
+                return color;
+
+            case MBrushType.Light1:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Min(color.L + 0.1, 1.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            case MBrushType.Light2:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Min(color.L + 0.2, 1.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            case MBrushType.Light3:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Min(color.L + 0.3, 1.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            case MBrushType.Dark1:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Max(color.L - 0.1, 0.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            case MBrushType.Dark2:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Max(color.L - 0.2, 0.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            case MBrushType.Dark3:
+                return new()
+                {
+                    Opacity = color.Opacity,
+                    L = Math.Max(color.L - 0.3, 0.0),
+                    C = color.C,
+                    H = color.H
+                };
+
+            default:
+                throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null);
+        }
     }
 
     protected override object ProcessValues(IList<object?> values)
     {
-        if (values[0] is ColorBase colorBase)
-        {
-            var avaloniaColor = colorBase.ToColor(Opacity);
-            return new ImmutableSolidColorBrush(avaloniaColor);
-        }
+        var oklchColor = GetOklchColor(values[0], Type);
+        if (oklchColor is null)
+            return Brushes.Transparent;
 
-        if (values[0] is ColorSet colorSet)
-        {
-            var step = ColorType2Step(Type);
-            var oklchColor = colorSet.GetColor(step, 7);
-            var avaloniaColor = oklchColor.ToColor(Opacity);
-
-            return new ImmutableSolidColorBrush(avaloniaColor);
-        }
-
-        return Brushes.Transparent;
+        var avaloniaColor = oklchColor.ToColor(Opacity);
+        return new ImmutableSolidColorBrush(avaloniaColor);
     }
 }

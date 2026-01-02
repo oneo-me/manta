@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'ToolTip' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'ToolTip' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

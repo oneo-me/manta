@@ -114,7 +114,7 @@ sealed class ControlsScanner(Options options)
                 if (templateParts.Count > 0)
                 {
                     writer.WriteLine("                <Panel>");
-                    writer.WriteLine($"                    <SelectableTextBlock Foreground=\"{{MBrush Danger}}\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                    <SelectableTextBlock Foreground=\"{{MBrush Destructive}}\" Text=\"{formatMessage(info)}\" />");
 
                     foreach (var templatePart in templateParts)
                         writer.WriteLine($"                    <{templatePart.Type.Name} Name=\"{templatePart.Name}\" IsVisible=\"False\" />");
@@ -123,7 +123,7 @@ sealed class ControlsScanner(Options options)
                 }
                 else
                 {
-                    writer.WriteLine($"                <SelectableTextBlock Foreground=\"{{MBrush Danger}}\" Text=\"{formatMessage(info)}\" />");
+                    writer.WriteLine($"                <SelectableTextBlock Foreground=\"{{MBrush Destructive}}\" Text=\"{formatMessage(info)}\" />");
                 }
 
                 writer.WriteLine("            </ControlTemplate>");

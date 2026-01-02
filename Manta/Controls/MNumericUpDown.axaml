@@ -72,7 +72,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <!-- Colors -->
         <Setter Property="Background" Value="{MBrush Background, Opacity=0.5}" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <!-- ReadOnly state -->
         <Style Selector="^[IsReadOnly=True]">
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />

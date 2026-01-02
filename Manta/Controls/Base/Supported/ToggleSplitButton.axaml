@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type ToggleSplitButton}" TargetType="ToggleSplitButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MToggleSplitButton'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MToggleSplitButton'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

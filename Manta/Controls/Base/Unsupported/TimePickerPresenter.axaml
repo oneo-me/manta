@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="The control 'TimePickerPresenter' is not supported" />
+                    <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'TimePickerPresenter' is not supported" />
                     <Button Name="PART_AcceptButton" IsVisible="False" />
                     <DateTimePickerPanel Name="PART_HourSelector" IsVisible="False" />
                     <DateTimePickerPanel Name="PART_MinuteSelector" IsVisible="False" />

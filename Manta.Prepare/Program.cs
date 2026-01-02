@@ -20,6 +20,14 @@ static class Program
             options.SupportedControlsDir = Path.Combine(options.BaseControlsDir, "Supported");
             options.UnSupportedControlsDir = Path.Combine(options.BaseControlsDir, "Unsupported");
             options.MantaThemeFile = Path.Combine(options.ProjectDir, "Themes", "MantaTheme.axaml");
+            options.ThemeSourceFile = Path.Combine(options.SolutionDir, "Manta.Prepare", "theme.css");
+            options.LightThemeFile = Path.Combine(options.ProjectDir, "Themes", "@Light.axaml");
+            options.DarkThemeFile = Path.Combine(options.ProjectDir, "Themes", "@Dark.axaml");
+
+            Console.WriteLine("Parsing theme CSS...");
+
+            var themeParser = new ThemeParser(options);
+            themeParser.Parse();
 
             Console.WriteLine("Scanning controls...");
 

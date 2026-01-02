@@ -5,37 +5,34 @@ using Manta.Themes.Base;
 namespace Manta.Themes.Variables;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public enum MtShadowKey
+public enum MShadowKey
 {
-    XS2,
+    XXS,
     XS,
     SM,
+    Default,
     MD,
     LG,
     XL,
-    XL2,
+    XXL,
 
-    InsetXS2,
+    InsetXXS,
     InsetXS,
     InsetSM,
-
-    DropXS,
-    DropSM,
-    DropMD,
-    DropLG,
-    DropXL,
-    DropXL2,
-
-    Menu
+    Inset,
+    InsetMD,
+    InsetLG,
+    InsetXL,
+    InsetXXL
 }
 
-public sealed class MShadowKeyExtension(MtShadowKey key) : MKeyBase(key);
+public sealed class MShadowKeyExtension(MShadowKey key) : MKeyBase(key);
 
-public sealed class MShadow(MtShadowKey key) : MValueBase
+public sealed class MShadow(MShadowKey key) : MValueBase
 {
-    public MtShadowKey Key { get; } = key;
-    public MBrushKey ColorKey { get; init; } = MBrushKey.Foreground;
-    public MBrushType ColorType { get; set; } = MBrushType.Normal;
+    public MShadowKey Key { get; } = key;
+    public MBrushKey ColorKey { get; init; } = MBrushKey.Shadow;
+    public MBrushType ColorType { get; set; } = MBrushType.Default;
     public double BrushOpacity { get; init; } = -1;
 
     protected override IEnumerable<object> GetKeys()

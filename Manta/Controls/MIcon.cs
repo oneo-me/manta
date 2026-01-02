@@ -13,9 +13,7 @@ public enum MIconVariant
 {
     Default,
     Secondary,
-    Destructive,
-    Success,
-    Warning
+    Destructive
 }
 
 public sealed class MIcon : TemplatedControl

@@ -23,7 +23,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:MChartTooltip">
                 <Border Background="{MBrush Background}"
-                        BorderBrush="{MBrush BorderBrush}"
+                        BorderBrush="{MBrush Border}"
                         BorderThickness="1"
                         CornerRadius="6"
                         Padding="10"

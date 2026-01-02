@@ -55,7 +55,7 @@
         </Setter>
         <Setter Property="Padding" Value="12 4" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
         <Style Selector="^:pointerover:not(:selected)">

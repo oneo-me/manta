@@ -6,4 +6,7 @@
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.10" />
     </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Manta.Tools\Manta.Tools.csproj" />
+    </ItemGroup>
 </Project>

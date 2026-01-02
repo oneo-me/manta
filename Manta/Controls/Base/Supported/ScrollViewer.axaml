@@ -11,14 +11,14 @@
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MScrollViewer'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MScrollViewer'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MScrollBar'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MScrollBar'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

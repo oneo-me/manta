@@ -123,14 +123,14 @@
         <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
         <Style Selector="^ /template/ Border#PART_Caret">
             <Setter Property="Width" Value="1.5" />
-            <Setter Property="BoxShadow" Value="{MShadow DropMD, BrushOpacity=0.3, ColorKey=Primary}" />
+            <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0.3, ColorKey=Primary}" />
         </Style>
         <Style Selector="^[Variant=Default]">
             <Setter Property="Padding" Value="10 8" />
             <Setter Property="CornerRadius" Value="8" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Background" Value="{MBrush Background}" />
-            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="BoxShadow" Value="{MShadow XS}" />
             <Style Selector="^:pointerover">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
@@ -142,7 +142,7 @@
             </Style>
             <Style Selector="^[IsReadOnly=True]">
                 <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
-                <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border}" />
                 <Setter Property="BoxShadow" Value="{MShadow InsetSM}" />
             </Style>
         </Style>

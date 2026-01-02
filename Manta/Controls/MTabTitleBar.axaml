@@ -82,7 +82,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTabTitleBar}" TargetType="MTabTitleBar">
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="BorderThickness" Value="0 0 0 1" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
@@ -136,7 +136,7 @@
         <Setter Property="Padding" Value="14 0" />
         <Setter Property="Margin" Value="0 0 0 1" />
         <Setter Property="BorderThickness" Value="1 0 0 0" />
-        <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
         <Style Selector="^:pointerover:not(:selected)">
