@@ -1,0 +1,28 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Slider />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <SelectableTextBlock Foreground="{MBrush Danger}" Text="Please use the 'MSlider'" />
+                    <Track Name="PART_Track" IsVisible="False">
+                        <Track.DecreaseButton>
+                            <RepeatButton Name="PART_DecreaseButton" />
+                        </Track.DecreaseButton>
+                        <Track.IncreaseButton>
+                            <RepeatButton Name="PART_IncreaseButton" />
+                        </Track.IncreaseButton>
+                        <Thumb Name="PART_Thumb" />
+                    </Track>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

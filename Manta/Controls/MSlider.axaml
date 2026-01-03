@@ -1,0 +1,371 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="20" Margin="12" Width="400">
+            <!-- Horizontal sliders with different sizes -->
+            <MPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="Horizontal Sliders" FontWeight="SemiBold" />
+                <MPanel Mode="Vertical" Spacing="8">
+                    <MSlider Size="Small" Value="30" />
+                    <MSlider Size="Default" Value="50" />
+                    <MSlider Size="Large" Value="70" />
+                </MPanel>
+            </MPanel>
+
+            <!-- Horizontal slider states -->
+            <MPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="States" FontWeight="SemiBold" />
+                <MPanel Mode="Vertical" Spacing="8">
+                    <MSlider Value="25" />
+                    <MSlider Value="50" />
+                    <MSlider Value="75" />
+                    <MSlider Value="50" IsEnabled="False" />
+                </MPanel>
+            </MPanel>
+
+            <!-- Vertical sliders -->
+            <MPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="Vertical Orientation" FontWeight="SemiBold" />
+                <MPanel Mode="Horizontal" Spacing="12" Height="150">
+                    <MSlider Orientation="Vertical" Size="Small" Value="30" />
+                    <MSlider Orientation="Vertical" Size="Default" Value="50" />
+                    <MSlider Orientation="Vertical" Size="Large" Value="70" />
+                </MPanel>
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type MSlider}" TargetType="MSlider">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+
+        <!-- Horizontal Slider Template -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto,Auto,Auto">
+                    <!-- Track container -->
+                    <Border Name="TrackContainer"
+                            Grid.Row="1"
+                            VerticalAlignment="Center">
+                        <Grid>
+                            <!-- Background track -->
+                            <Border Name="PART_TrackBackground"
+                                    CornerRadius="4"
+                                    Background="{MBrush BorderBrush, Opacity=0.2}" />
+                            <!-- Progress track (filled portion) -->
+                            <Border Name="PART_SelectionRangeElement"
+                                    CornerRadius="4"
+                                    Background="{MBrush Primary}"
+                                    HorizontalAlignment="Left"
+                                    IsVisible="{TemplateBinding IsDirectionReversed, Converter={x:Static BoolConverters.Not}}" />
+                            <!-- Decrease button (hidden) -->
+                            <RepeatButton Name="PART_DecreaseButton"
+                                          Focusable="False"
+                                          IsVisible="False" />
+                            <!-- Increase button (hidden) -->
+                            <RepeatButton Name="PART_IncreaseButton"
+                                          Focusable="False"
+                                          IsVisible="False" />
+                        </Grid>
+                    </Border>
+
+                    <!-- Thumb (slider knob) -->
+                    <Thumb Name="PART_Thumb"
+                           Grid.Row="0"
+                           Grid.RowSpan="3"
+                           Margin="0"
+                           Padding="0"
+                           Focusable="False">
+                        <Thumb.Template>
+                            <ControlTemplate>
+                                <Border Name="ThumbBorder"
+                                        Background="{MBrush Background}"
+                                        BorderBrush="{MBrush Primary}"
+                                        BorderThickness="2"
+                                        CornerRadius="12"
+                                        BoxShadow="{MShadow SM}">
+                                    <Border.Transitions>
+                                        <Transitions>
+                                            <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" Easing="CubicEaseOut" />
+                                        </Transitions>
+                                    </Border.Transitions>
+                                </Border>
+                            </ControlTemplate>
+                        </Thumb.Template>
+                    </Thumb>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Default size (Horizontal) -->
+        <Style Selector="^:horizontal">
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="MinHeight" Value="24" />
+            <Setter Property="Height" Value="24" />
+        </Style>
+
+        <Style Selector="^:horizontal /template/ Border#TrackContainer">
+            <Setter Property="Height" Value="6" />
+        </Style>
+
+        <Style Selector="^:horizontal /template/ Border#PART_TrackBackground">
+            <Setter Property="Height" Value="6" />
+        </Style>
+
+        <Style Selector="^:horizontal /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Height" Value="6" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Width" Duration="0:0:0.1" Easing="CubicEaseOut" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:horizontal /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style Selector="^:horizontal /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <!-- Small size (Horizontal) -->
+        <Style Selector="^[Size=Small]:horizontal">
+            <Setter Property="MinHeight" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:horizontal /template/ Border#TrackContainer">
+            <Setter Property="Height" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:horizontal /template/ Border#PART_TrackBackground">
+            <Setter Property="Height" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:horizontal /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Height" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:horizontal /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:horizontal /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <!-- Large size (Horizontal) -->
+        <Style Selector="^[Size=Large]:horizontal">
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="Height" Value="28" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:horizontal /template/ Border#TrackContainer">
+            <Setter Property="Height" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:horizontal /template/ Border#PART_TrackBackground">
+            <Setter Property="Height" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:horizontal /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Height" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:horizontal /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:horizontal /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="CornerRadius" Value="12" />
+        </Style>
+
+        <!-- Vertical Slider (Default size) -->
+        <Style Selector="^:vertical">
+            <Setter Property="MinHeight" Value="100" />
+            <Setter Property="MinWidth" Value="24" />
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Grid ColumnDefinitions="Auto,Auto,Auto">
+                        <!-- Track container -->
+                        <Border Name="TrackContainer"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center">
+                            <Grid>
+                                <!-- Background track -->
+                                <Border Name="PART_TrackBackground"
+                                        CornerRadius="4"
+                                        Background="{MBrush BorderBrush, Opacity=0.2}" />
+                                <!-- Progress track (filled portion) -->
+                                <Border Name="PART_SelectionRangeElement"
+                                        CornerRadius="4"
+                                        Background="{MBrush Primary}"
+                                        VerticalAlignment="Bottom" />
+                                <!-- Decrease button (hidden) -->
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              Focusable="False"
+                                              IsVisible="False" />
+                                <!-- Increase button (hidden) -->
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              Focusable="False"
+                                              IsVisible="False" />
+                            </Grid>
+                        </Border>
+
+                        <!-- Thumb (slider knob) -->
+                        <Thumb Name="PART_Thumb"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
+                               Margin="0"
+                               Padding="0"
+                               Focusable="False">
+                            <Thumb.Template>
+                                <ControlTemplate>
+                                    <Border Name="ThumbBorder"
+                                            Background="{MBrush Background}"
+                                            BorderBrush="{MBrush Primary}"
+                                            BorderThickness="2"
+                                            CornerRadius="12"
+                                            BoxShadow="{MShadow SM}">
+                                        <Border.Transitions>
+                                            <Transitions>
+                                                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" Easing="CubicEaseOut" />
+                                            </Transitions>
+                                        </Border.Transitions>
+                                    </Border>
+                                </ControlTemplate>
+                            </Thumb.Template>
+                        </Thumb>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:vertical /template/ Border#TrackContainer">
+            <Setter Property="Width" Value="6" />
+        </Style>
+
+        <Style Selector="^:vertical /template/ Border#PART_TrackBackground">
+            <Setter Property="Width" Value="6" />
+        </Style>
+
+        <Style Selector="^:vertical /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Width" Value="6" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Height" Duration="0:0:0.1" Easing="CubicEaseOut" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:vertical /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style Selector="^:vertical /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <!-- Small size (Vertical) -->
+        <Style Selector="^[Size=Small]:vertical">
+            <Setter Property="MinWidth" Value="20" />
+            <Setter Property="Width" Value="20" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:vertical /template/ Border#TrackContainer">
+            <Setter Property="Width" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:vertical /template/ Border#PART_TrackBackground">
+            <Setter Property="Width" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:vertical /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Width" Value="4" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:vertical /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+        </Style>
+
+        <Style Selector="^[Size=Small]:vertical /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <!-- Large size (Vertical) -->
+        <Style Selector="^[Size=Large]:vertical">
+            <Setter Property="MinWidth" Value="28" />
+            <Setter Property="Width" Value="28" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:vertical /template/ Border#TrackContainer">
+            <Setter Property="Width" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:vertical /template/ Border#PART_TrackBackground">
+            <Setter Property="Width" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:vertical /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Width" Value="8" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:vertical /template/ Thumb#PART_Thumb">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+        </Style>
+
+        <Style Selector="^[Size=Large]:vertical /template/ Border#ThumbBorder">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="CornerRadius" Value="12" />
+        </Style>
+
+        <!-- Pointer over state -->
+        <Style Selector="^ /template/ Border#ThumbBorder:pointerover">
+            <Setter Property="RenderTransform" Value="scale(1.1)" />
+        </Style>
+
+        <!-- Dragging state -->
+        <Style Selector="^:pressed /template/ Border#ThumbBorder">
+            <Setter Property="RenderTransform" Value="scale(1.15)" />
+            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+        </Style>
+
+        <!-- Disabled state -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ Border#PART_SelectionRangeElement">
+            <Setter Property="Background" Value="{MBrush BorderBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ Border#ThumbBorder">
+            <Setter Property="BorderBrush" Value="{MBrush BorderBrush}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
