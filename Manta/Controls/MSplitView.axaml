@@ -1,0 +1,195 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <!-- Inline Display Mode -->
+            <Border Width="600" Height="400" BorderBrush="{MBrush BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <MSplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="250">
+                    <MSplitView.Pane>
+                        <MPanel Mode="Vertical" Spacing="8" Margin="12">
+                            <TextBlock Text="Navigation Pane" FontWeight="Bold" />
+                            <Separator />
+                            <MButton Content="Home" HorizontalAlignment="Stretch" />
+                            <MButton Content="Settings" HorizontalAlignment="Stretch" />
+                            <MButton Content="Profile" HorizontalAlignment="Stretch" />
+                            <MButton Content="About" HorizontalAlignment="Stretch" />
+                        </MPanel>
+                    </MSplitView.Pane>
+                    <MSplitView.Content>
+                        <MPanel Mode="Vertical" Spacing="12" Margin="24">
+                            <TextBlock Text="Main Content Area" FontSize="18" FontWeight="Bold" />
+                            <TextBlock Text="This is the main content area of the SplitView. The pane on the left provides navigation options." TextWrapping="Wrap" />
+                        </MPanel>
+                    </MSplitView.Content>
+                </MSplitView>
+            </Border>
+
+            <!-- CompactInline Display Mode -->
+            <Border Width="600" Height="400" BorderBrush="{MBrush BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <MSplitView IsPaneOpen="False" DisplayMode="CompactInline" CompactPaneLength="48" OpenPaneLength="250">
+                    <MSplitView.Pane>
+                        <MPanel Mode="Vertical" Spacing="8" Margin="12">
+                            <MPathIcon Data="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" Size="20" />
+                            <MPathIcon Data="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" Size="20" />
+                            <MPathIcon Data="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" Size="20" />
+                        </MPanel>
+                    </MSplitView.Pane>
+                    <MSplitView.Content>
+                        <MPanel Mode="Vertical" Spacing="12" Margin="24">
+                            <TextBlock Text="Compact Mode" FontSize="18" FontWeight="Bold" />
+                            <TextBlock Text="In compact mode, the pane shows only icons when closed. Click the icons to expand the pane." TextWrapping="Wrap" />
+                        </MPanel>
+                    </MSplitView.Content>
+                </MSplitView>
+            </Border>
+        </MPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type MSplitView}" TargetType="MSplitView">
+        <Setter Property="Background" Value="{MBrush Background}" />
+        <Setter Property="PaneBackground" Value="{MBrush Surface}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="{TemplateBinding Background}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Pane -->
+                    <Border Name="PART_PaneRoot"
+                            Grid.Column="0"
+                            Background="{TemplateBinding PaneBackground}"
+                            BorderBrush="{MBrush BorderBrush}"
+                            BorderThickness="0 0 1 0"
+                            ClipToBounds="True">
+                        <ContentPresenter Name="PART_PanePresenter"
+                                          Content="{TemplateBinding Pane}"
+                                          ContentTemplate="{TemplateBinding PaneTemplate}" />
+                    </Border>
+
+                    <!-- Content -->
+                    <Border Name="PART_ContentRoot"
+                            Grid.Column="1"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Inline DisplayMode -->
+        <Style Selector="^[DisplayMode=Inline]">
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].OpenPaneLength}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Width" Duration="0:0:0.2" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:not(:paneopen) /template/ Border#PART_PaneRoot">
+                <Setter Property="Width" Value="0" />
+            </Style>
+        </Style>
+
+        <!-- CompactInline DisplayMode -->
+        <Style Selector="^[DisplayMode=CompactInline]">
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].CompactPaneLength}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Width" Duration="0:0:0.2" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:paneopen /template/ Border#PART_PaneRoot">
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].OpenPaneLength}" />
+            </Style>
+        </Style>
+
+        <!-- Overlay DisplayMode -->
+        <Style Selector="^[DisplayMode=Overlay]">
+            <Style Selector="^ /template/ Grid">
+                <Setter Property="ColumnDefinitions" Value="* *" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="Grid.Column" Value="0" />
+                <Setter Property="Grid.ColumnSpan" Value="2" />
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].OpenPaneLength}" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="BoxShadow" Value="{MShadow DropLG}" />
+                <Setter Property="ZIndex" Value="1" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:not(:paneopen) /template/ Border#PART_PaneRoot">
+                <Setter Property="RenderTransform" Value="translateX(-100%)" />
+            </Style>
+            <Style Selector="^:paneopen /template/ Border#PART_PaneRoot">
+                <Setter Property="RenderTransform" Value="translateX(0)" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_ContentRoot">
+                <Setter Property="Grid.Column" Value="0" />
+                <Setter Property="Grid.ColumnSpan" Value="2" />
+            </Style>
+        </Style>
+
+        <!-- CompactOverlay DisplayMode -->
+        <Style Selector="^[DisplayMode=CompactOverlay]">
+            <Style Selector="^ /template/ Grid">
+                <Setter Property="ColumnDefinitions" Value="Auto *" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="Grid.Column" Value="0" />
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].CompactPaneLength}" />
+            </Style>
+            <Style Selector="^:paneopen /template/ Border#PART_PaneRoot">
+                <Setter Property="Width" Value="{Binding $parent[MSplitView].OpenPaneLength}" />
+                <Setter Property="BoxShadow" Value="{MShadow DropLG}" />
+                <Setter Property="ZIndex" Value="1" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Width" Duration="0:0:0.2" Easing="CubicEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Border#PART_ContentRoot">
+                <Setter Property="Grid.Column" Value="1" />
+            </Style>
+        </Style>
+
+        <!-- Right PanePlacement -->
+        <Style Selector="^[PanePlacement=Right]">
+            <Style Selector="^ /template/ Grid">
+                <Setter Property="ColumnDefinitions" Value="* Auto" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="Grid.Column" Value="1" />
+                <Setter Property="BorderThickness" Value="1 0 0 0" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_ContentRoot">
+                <Setter Property="Grid.Column" Value="0" />
+            </Style>
+        </Style>
+
+        <!-- Right PanePlacement with Overlay -->
+        <Style Selector="^[PanePlacement=Right][DisplayMode=Overlay]">
+            <Style Selector="^ /template/ Border#PART_PaneRoot">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+            <Style Selector="^:not(:paneopen) /template/ Border#PART_PaneRoot">
+                <Setter Property="RenderTransform" Value="translateX(100%)" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
