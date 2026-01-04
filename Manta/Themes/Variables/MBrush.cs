@@ -78,6 +78,21 @@ public sealed class MBrush(MBrushKey key) : MValueBase
         return null;
     }
 
+    static double GetTypeValue(MBrushType colorType)
+    {
+        return colorType switch
+        {
+            MBrushType.Default => 0.0,
+            MBrushType.Light1  => 0.1,
+            MBrushType.Light2  => 0.2,
+            MBrushType.Light3  => 0.3,
+            MBrushType.Dark1   => -0.1,
+            MBrushType.Dark2   => -0.2,
+            MBrushType.Dark3   => -0.3,
+            _                  => throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null)
+        };
+    }
+
     static OklchColor? GetOklchColor(object? value, MBrushType colorType)
     {
         OklchColor? color = null;
@@ -90,68 +105,13 @@ public sealed class MBrush(MBrushKey key) : MValueBase
         if (color is null)
             return null;
 
-        switch (colorType)
+        return new()
         {
-            case MBrushType.Default:
-                return color;
-
-            case MBrushType.Light1:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Min(color.L + 0.1, 1.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            case MBrushType.Light2:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Min(color.L + 0.2, 1.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            case MBrushType.Light3:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Min(color.L + 0.3, 1.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            case MBrushType.Dark1:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Max(color.L - 0.1, 0.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            case MBrushType.Dark2:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Max(color.L - 0.2, 0.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            case MBrushType.Dark3:
-                return new()
-                {
-                    Opacity = color.Opacity,
-                    L = Math.Max(color.L - 0.3, 0.0),
-                    C = color.C,
-                    H = color.H
-                };
-
-            default:
-                throw new ArgumentOutOfRangeException(nameof(colorType), colorType, null);
-        }
+            Opacity = color.Opacity,
+            L = Math.Max(color.L + GetTypeValue(colorType), 0.0),
+            C = color.C,
+            H = color.H
+        };
     }
 
     protected override object ProcessValues(IList<object?> values)
