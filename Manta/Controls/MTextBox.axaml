@@ -5,15 +5,15 @@
     <Design.PreviewWith>
         <!-- Text -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TextBlock Text="Embedded" />
+            <TextBlock Text="NoStyle" />
             <Border BorderThickness="1">
-                <MTextBox Variant="Embedded" />
+                <MTextBox Variant="NoStyle" />
             </Border>
             <Border BorderThickness="1">
-                <MTextBox Variant="Embedded" Watermark="Watermark..." />
+                <MTextBox Variant="NoStyle" Watermark="Watermark..." />
             </Border>
             <Border BorderThickness="1">
-                <MTextBox Variant="Embedded" Text="Input Text" />
+                <MTextBox Variant="NoStyle" Text="Input Text" />
             </Border>
             <TextBlock Text="Default" />
             <MTextBox />

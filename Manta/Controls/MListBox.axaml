@@ -9,72 +9,91 @@
         <MPanel Mode="Horizontal" Spacing="12" Margin="12">
             <MPanel Mode="Vertical" Spacing="12">
                 <TextBlock Text="Normal" />
-                <Border BorderThickness="1">
-                    <MListBox>
-                        <MListBox.ItemsSource>
-                            <generic:List x:TypeArguments="system:String">
-                                <system:String>0: Test 0</system:String>
-                                <system:String>1: Test 1</system:String>
-                                <system:String>2: Test 2</system:String>
-                            </generic:List>
-                        </MListBox.ItemsSource>
-                        <MListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" />
-                            </DataTemplate>
-                        </MListBox.ItemTemplate>
-                    </MListBox>
-                </Border>
+                <MListBox BorderThickness="1">
+                    <MListBox.ItemsSource>
+                        <generic:List x:TypeArguments="system:String">
+                            <system:String>0: Test 0</system:String>
+                            <system:String>1: Test 1</system:String>
+                            <system:String>2: Test 2</system:String>
+                        </generic:List>
+                    </MListBox.ItemsSource>
+                    <MListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </MListBox.ItemTemplate>
+                </MListBox>
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12">
                 <TextBlock Text="Sidebar" />
-                <Border BorderThickness="1">
-                    <MListBox Type="Sidebar">
-                        <MListBox.ItemsSource>
-                            <generic:List x:TypeArguments="system:String">
-                                <system:String>0: Test 0</system:String>
-                                <system:String>1: Test 1</system:String>
-                                <system:String>2: Test 2</system:String>
-                            </generic:List>
-                        </MListBox.ItemsSource>
-                        <MListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" />
-                            </DataTemplate>
-                        </MListBox.ItemTemplate>
-                    </MListBox>
-                </Border>
+                <MListBox Vertical="Sidebar" BorderThickness="1">
+                    <MListBox.ItemsSource>
+                        <generic:List x:TypeArguments="system:String">
+                            <system:String>0: Test 0</system:String>
+                            <system:String>1: Test 1</system:String>
+                            <system:String>2: Test 2</system:String>
+                        </generic:List>
+                    </MListBox.ItemsSource>
+                    <MListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </MListBox.ItemTemplate>
+                </MListBox>
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="12">
+                <TextBlock Text="NoStyle" />
+                <MListBox Vertical="NoStyle" BorderThickness="1">
+                    <MListBox.ItemsSource>
+                        <generic:List x:TypeArguments="system:String">
+                            <system:String>0: Test 0</system:String>
+                            <system:String>1: Test 1</system:String>
+                            <system:String>2: Test 2</system:String>
+                        </generic:List>
+                    </MListBox.ItemsSource>
+                    <MListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </MListBox.ItemTemplate>
+                </MListBox>
             </MPanel>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MListBox}" TargetType="MListBox">
-        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <MScrollViewer Name="PART_ScrollViewer"
-                                   Background="{TemplateBinding Background}"
-                                   BorderBrush="{TemplateBinding BorderBrush}"
-                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                   CornerRadius="{TemplateBinding CornerRadius}"
-                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                   IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                   IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                                   VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
-                                   HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               CornerRadius="{TemplateBinding CornerRadius}"
+                               AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                               BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                               HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                               IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                               IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                               VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                               VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
+                               HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     Margin="{TemplateBinding Padding}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </MScrollViewer>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[Type=Sidebar]">
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Style Selector="^[Vertical=Default]">
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style Selector="^[Vertical=Sidebar]">
             <Setter Property="Padding" Value="12" />
+        </Style>
+        <Style Selector="^[Vertical=NoStyle]">
+            <Setter Property="Padding" Value="0" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MListBoxItem}" TargetType="MListBoxItem">
@@ -99,20 +118,21 @@
                 <SmoothBrushTransition Property="Foreground" Duration="0:0:0.05" />
             </Transitions>
         </Setter>
-        <Style Selector="^[Type=Sidebar]">
-            <Setter Property="Margin" Value="0 0 0 2" />
-            <Setter Property="Padding" Value="12 8" />
-            <Setter Property="CornerRadius" Value="8" />
+        <Style Selector="^[Vertical=Default]">
+            <Setter Property="Padding" Value="10 6" />
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
             <Style Selector="^:selected">
                 <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
             </Style>
-            <Style Selector="^:pointerover:not(:selected)">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
-            </Style>
-            <Style Selector="^:nth-last-child(1)">
-                <Setter Property="Margin" Value="0" />
+        </Style>
+        <Style Selector="^[Vertical=Sidebar]">
+            <Setter Property="Padding" Value="12 8" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Style Selector="^:selected">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
             </Style>
         </Style>
+        <Style Selector="^[Vertical=NoStyle]" />
     </ControlTheme>
 </ResourceDictionary>

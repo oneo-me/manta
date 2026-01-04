@@ -20,7 +20,7 @@
             </Grid>
         </MTitleBar>
         <MTextBox Grid.Row="1"
-                  Variant="Embedded" Padding="8" Background="{MBrush Background}"
+                  Variant="NoStyle" Padding="8" Background="{MBrush Background}"
                   AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"
                   Watermark="Paste your tweakcn CSS here..."
                   Text="{Binding Input}" />
