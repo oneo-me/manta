@@ -8,7 +8,9 @@ sealed class ThemeParser(Options options)
     {
         var cssLines = File.ReadAllLines(options.ThemeSourceFile);
         var result = TweakcnParser.Parser(cssLines);
-        File.WriteAllText(options.LightThemeFile, result.LightTheme.ToXaml());
-        File.WriteAllText(options.DarkThemeFile, result.DarkTheme.ToXaml());
+        var lightStr = result.LightTheme.ToXaml(string.Empty, false);
+        var darkStr = result.DarkTheme.ToXaml(lightStr, false);
+        File.WriteAllText(options.LightThemeFile, lightStr);
+        File.WriteAllText(options.DarkThemeFile, darkStr);
     }
 }

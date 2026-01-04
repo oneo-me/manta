@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Manta.Themes.Values;
 using Manta.Tools.Values;
 
 namespace Manta.Tools.Extensions;
@@ -63,12 +64,31 @@ static partial class ValueExtensions
                     double.TryParse(parts[0], out var l) &&
                     double.TryParse(parts[1], out var c) &&
                     double.TryParse(parts[2], out var h))
-                    return new()
+                    return new(new()
                     {
                         L = l,
                         C = c,
                         H = h
-                    };
+                    });
+            }
+
+            // Example: #000000
+            if (value.StartsWith('#'))
+            {
+                var hex = value[1..];
+                if (hex.Length is 6 or 8)
+                {
+                    var r = Convert.ToInt32(hex.Substring(0, 2), 16);
+                    var g = Convert.ToInt32(hex.Substring(2, 2), 16);
+                    var b = Convert.ToInt32(hex.Substring(4, 2), 16);
+
+                    return new(new RgbColor
+                    {
+                        R = r,
+                        G = g,
+                        B = b
+                    }.ToOklchColor());
+                }
             }
 
             throw new FormatException($"Invalid oklch color format: {value}");
