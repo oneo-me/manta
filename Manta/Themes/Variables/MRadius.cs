@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Avalonia.Media;
+using Avalonia;
 using Manta.Themes.Base;
 
 namespace Manta.Themes.Variables;
@@ -10,48 +10,34 @@ public enum MRadiusKey
     Radius
 }
 
+public enum MRadiusVariant
+{
+    Default,
+    Small,
+    Medium,
+    Large,
+    ExtraLarge
+}
+
 public sealed class MRadiusKeyExtension(MRadiusKey key) : MKeyBase(key);
 
-public sealed class MRadius(MRadiusKey key) : MValueBase
+public sealed class MRadius(MRadiusVariant variant) : MValueBase
 {
-    public MRadiusKey Key { get; } = key;
-    public MBrushKey ColorKey { get; init; } = MBrushKey.Shadow;
-    public MBrushType ColorType { get; set; } = MBrushType.Default;
-    public double BrushOpacity { get; init; } = -1;
+    public MRadiusKey Key { get; set; } = MRadiusKey.Radius;
+    public MRadiusVariant Variant { get; } = variant;
 
     protected override IEnumerable<object> GetKeys()
     {
         yield return Key;
-        yield return ColorKey;
     }
 
     protected override object ProcessValues(IList<object?> values)
     {
-        var value0 = values[0];
-        var value1 = MBrush.GetColor(values[1], ColorType);
+        var value = values[0];
 
-        if (value0 is not BoxShadows boxShadows || value1 is null)
-            return default(BoxShadows);
+        if (value is not double number)
+            return default(CornerRadius);
 
-        var shadows = new List<BoxShadow>();
-
-        foreach (var boxShadow in boxShadows)
-            shadows.Add(new()
-            {
-                OffsetX = boxShadow.OffsetX,
-                OffsetY = boxShadow.OffsetY,
-                Blur = boxShadow.Blur,
-                Spread = boxShadow.Spread,
-                IsInset = boxShadow.IsInset,
-                Color = value1.ToColor(BrushOpacity > 0 ? BrushOpacity : boxShadow.Color.A / 255d)
-            });
-
-        if (shadows.Count == 0)
-            return default(BoxShadows);
-
-        if (shadows.Count == 1)
-            return new BoxShadows(shadows[0]);
-
-        return new BoxShadows(shadows[0], shadows.Skip(1).ToArray());
+        return new CornerRadius(number);
     }
 }
