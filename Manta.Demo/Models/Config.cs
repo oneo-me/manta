@@ -1,5 +1,5 @@
-using Manta.Globalization.Core;
 using Manta.Demo.Reactive;
+using Manta.Globalization.Core;
 
 namespace Manta.Demo.Models;
 
@@ -10,4 +10,5 @@ sealed class Config
     public Dictionary<DemoGroup, string> LastDemos { get; set; } = new();
     public double Width { get; set; } = 800;
     public double Height { get; set; } = 600;
+    public ToolConfig Tools { get; set; } = new();
 }

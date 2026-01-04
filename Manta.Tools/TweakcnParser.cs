@@ -52,11 +52,11 @@ public static class TweakcnParser
         { "spacing", (theme, value) => theme.Spacing = value.ParserNumber() }
     };
 
-    public static TweakcnParserResult Parser(string cssFile)
+    public static TweakcnParserResult Parser(string[] cssLines)
     {
         var themeSetter = new ThemeSetter();
 
-        foreach (var line in File.ReadLines(cssFile))
+        foreach (var line in cssLines)
         {
             var trimmedLine = line.Trim();
             if (trimmedLine == ":root {")
