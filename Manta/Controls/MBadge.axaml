@@ -14,7 +14,7 @@
                 <MBadge Background="{MBrush Primary}">
                     <MPanel Mode="Horizontal" Spacing="4">
                         <MPathIcon Size="12" StrokeThickness="1" UseStroke="True" Data="M9.388 4.29a4.302 4.302 0 0 0-6.127-.016c-1.688 1.705-1.68 4.476.016 6.189l6.277 6.34c.26.263.682.263.942 0l6.245-6.304a4.408 4.408 0 0 0-.017-6.187 4.305 4.305 0 0 0-6.135-.015l-.596.603-.605-.61Z M 0 0 M 20 20"
-                                       VerticalAlignment="Center" />
+                                   VerticalAlignment="Center" />
                         <TextBlock Text="Verified" VerticalAlignment="Center" />
                     </MPanel>
                 </MBadge>
@@ -44,11 +44,11 @@
         <Setter Property="MinWidth" Value="22" />
         <Setter Property="CornerRadius" Value="999" />
         <Setter Property="Padding" Value="8 2" />
-        <Setter Property="Background" Value="{MBrush Foreground}" />
-        <Setter Property="Foreground" Value="{MBrush Background}" />
+        <Setter Property="Background" Value="{MBrush Primary}" />
+        <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush Border}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Background" Value="{MBrush Secondary}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
         </Style>
         <Style Selector="^[Variant=Destructive]">
             <Setter Property="Background" Value="{MBrush Destructive}" />

@@ -82,10 +82,10 @@
             <Setter Property="Padding" Value="20 10" />
         </Style>
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{MBrush Foreground}" />
-            <Setter Property="Foreground" Value="{MBrush Background}" />
+            <Setter Property="Background" Value="{MBrush Primary}" />
+            <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+                <Setter Property="Background" Value="{MBrush Primary, Type=Dark1}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
@@ -97,32 +97,32 @@
                 <Setter Property="BoxShadow" Value="{MShadow MD}" />
             </Style>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
-                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
+                <Setter Property="Background" Value="{MBrush Background, Type=Dark1}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Type=Dark1}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="BoxShadow" Value="{MShadow XS}" />
                 </Style>
             </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush Border}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Background" Value="{MBrush Secondary}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border, Opacity=0.3}" />
+                <Setter Property="Background" Value="{MBrush Secondary, Type=Dark1}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Ghost]">
-            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Background" Value="{MBrush Secondary, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
+                <Setter Property="Background" Value="{MBrush Secondary}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
             <Setter Property="Background" Value="{MBrush Destructive}" />
             <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.8}" />
+                <Setter Property="Background" Value="{MBrush Destructive, Type=Dark1}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Link]">
