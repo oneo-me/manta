@@ -8,6 +8,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
+        <Setter Property="Cursor" Value="IBeam" />
         <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
         <Setter Property="SelectionForegroundBrush" Value="{MBrush Foreground}" />
     </ControlTheme>
