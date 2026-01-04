@@ -1,0 +1,28 @@
+<MView
+    x:Class="Manta.Demo.Views.TweakcnTool"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Views"
+    x:DataType="local:TweakcnTool_Model" Design.DataContext="{x:Static local:TweakcnTool_Model.Design}"
+    Design.Width="500" Design.Height="500">
+    <Grid RowDefinitions="Auto *">
+        <MTitleBar Grid.Row="0" BorderThickness="0 0 0 1">
+            <Grid ColumnDefinitions="* Auto">
+                <TextBlock Grid.Column="0" Text="{Binding $parent[Window].Title}" FontWeight="SemiBold" Padding="12 0" VerticalAlignment="Center" />
+                <MPanel Grid.Column="1" Mode="Horizontal">
+                    <MTitleBarButton Command="{Binding ExportAsync}">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon IconSize="18" IconSource="{Binding ExportIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <TextBlock Text="{Lang {x:Static LangKey.Export}}" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                </MPanel>
+            </Grid>
+        </MTitleBar>
+        <MTextBox Grid.Row="1"
+                  Variant="Embedded" Padding="8" Background="{MBrush Background}"
+                  AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"
+                  Watermark="Paste your tweakcn CSS here..."
+                  Text="{Binding Input}" />
+    </Grid>
+</MView>

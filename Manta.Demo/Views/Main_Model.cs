@@ -23,6 +23,7 @@ sealed class Main_Model : WindowModel
 
     public IconSource ThemeSystemIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sun-Fog--Streamline-Solar-Ar.svg"));
     public IconSource SettingsIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Settings--Streamline-Solar-Ar.svg"));
+    public IconSource TweakcnToolIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Ruler-Pen--Streamline-Solar-Ar.svg"));
 
     public override void OnWindowInitialized(MWindow window)
     {
@@ -46,6 +47,14 @@ sealed class Main_Model : WindowModel
     public void OpenSettings()
     {
         var mainModel = new SettingsView_Model();
+        var window = mainModel.CreateWindow();
+        var owner = this.GetWindow();
+        window.ShowDialog(owner);
+    }
+
+    public void OpenTweakcnTool()
+    {
+        var mainModel = new TweakcnTool_Model();
         var window = mainModel.CreateWindow();
         var owner = this.GetWindow();
         window.ShowDialog(owner);
