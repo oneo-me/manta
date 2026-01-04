@@ -58,8 +58,8 @@ public class TweakcnTool_Model : WindowModel
             return;
 
         var result = TweakcnParser.Parser(Input.Split('\n'));
-        var lightStr = result.LightTheme.ToXaml();
-        var darkStr = result.DarkTheme.ToXaml();
+        var lightStr = result.LightTheme.ToXaml(string.Empty, true);
+        var darkStr = result.DarkTheme.ToXaml(lightStr, true);
 
         var lightStream = await lightFile.OpenWriteAsync();
         await using (var writer = new StreamWriter(lightStream))
