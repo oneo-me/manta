@@ -34,13 +34,13 @@
                         <Grid ColumnDefinitions="*,Auto,Auto">
                             <!-- TextBox -->
                             <MTextBox Name="PART_TextBox"
-                                     Grid.Column="0"
-                                     Variant="Embedded"
-                                     Padding="{TemplateBinding Padding}"
-                                     Watermark="{TemplateBinding Watermark}"
-                                     IsReadOnly="{TemplateBinding IsReadOnly}"
-                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                      Grid.Column="0"
+                                      Variant="NoStyle"
+                                      Padding="{TemplateBinding Padding}"
+                                      Watermark="{TemplateBinding Watermark}"
+                                      IsReadOnly="{TemplateBinding IsReadOnly}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             <!-- Decrease button -->
                             <MRepeatButton Name="PART_DecreaseButton"
                                            Grid.Column="1"

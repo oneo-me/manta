@@ -12,7 +12,7 @@ namespace Manta.Controls;
 public enum MTextBoxVariant
 {
     Default,
-    Embedded
+    NoStyle
 }
 
 [TemplatePart(nameof(PART_Caret), typeof(Border))]

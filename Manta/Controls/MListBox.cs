@@ -4,21 +4,22 @@ using Avalonia.VisualTree;
 
 namespace Manta.Controls;
 
-public enum MListBoxType
+public enum MListBoxVertical
 {
-    Normal,
-    Sidebar
+    Default,
+    Sidebar,
+    NoStyle
 }
 
 public class MListBox : ListBox
 {
-    public static readonly StyledProperty<MListBoxType> TypeProperty = AvaloniaProperty.Register<MListBox, MListBoxType>(
-        nameof(Type));
+    public static readonly StyledProperty<MListBoxVertical> VerticalProperty = AvaloniaProperty.Register<MListBox, MListBoxVertical>(
+        nameof(Vertical));
 
-    public MListBoxType Type
+    public MListBoxVertical Vertical
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(VerticalProperty);
+        set => SetValue(VerticalProperty, value);
     }
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
@@ -34,13 +35,13 @@ public class MListBox : ListBox
 
 public class MListBoxItem : ListBoxItem
 {
-    public static readonly StyledProperty<MListBoxType> TypeProperty = AvaloniaProperty.Register<MListBoxItem, MListBoxType>(
-        nameof(Type));
+    public static readonly StyledProperty<MListBoxVertical> VerticalProperty = AvaloniaProperty.Register<MListBoxItem, MListBoxVertical>(
+        nameof(Vertical));
 
-    public MListBoxType Type
+    public MListBoxVertical Vertical
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(VerticalProperty);
+        set => SetValue(VerticalProperty, value);
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
@@ -48,6 +49,6 @@ public class MListBoxItem : ListBoxItem
         base.OnAttachedToVisualTree(e);
 
         if (this.FindAncestorOfType<MListBox>() is { } listBox)
-            Type = listBox.Type;
+            Vertical = listBox.Vertical;
     }
 }
