@@ -14,7 +14,7 @@ public enum MShadowKey
     MD,
     LG,
     XL,
-    XXL
+    XL2
 }
 
 public sealed class MShadowKeyExtension(MShadowKey key) : MKeyBase(key);

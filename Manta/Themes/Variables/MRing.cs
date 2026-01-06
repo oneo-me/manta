@@ -14,7 +14,7 @@ public enum MRingKey
     MD,
     LG,
     XL,
-    XXL
+    XL2
 }
 
 public sealed class MRingKeyExtension(MRingKey key) : MKeyBase(key);

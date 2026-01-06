@@ -13,7 +13,7 @@
                         <Setter Property="BorderThickness" Value="1" />
                         <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
                         <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
-                        <Setter Property="BoxShadow" Value="{MRing XXL}" />
+                        <Setter Property="BoxShadow" Value="{MRing XL2}" />
                         <Setter Property="Transitions">
                             <Transitions>
                                 <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -35,7 +35,7 @@
                     <Border Classes="Ring" BoxShadow="{MRing MD}" />
                     <Border Classes="Ring" BoxShadow="{MRing LG}" />
                     <Border Classes="Ring" BoxShadow="{MRing XL}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XXL}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL2}" />
                 </MPanel>
                 <TextBlock Text="Rings (Custom Brsuh Key)" />
                 <MPanel Mode="Horizontal" Spacing="30">
@@ -44,7 +44,7 @@
                     <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary}" />
                     <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary}" />
                     <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XXL, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Primary}" />
                 </MPanel>
                 <TextBlock Text="Rings (Custom BrushKey and Type)" />
                 <MPanel Mode="Horizontal" Spacing="30">
@@ -53,7 +53,7 @@
                     <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary, BrushType=Dark3}" />
                     <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary, BrushType=Dark3}" />
                     <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XXL, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Primary, BrushType=Dark3}" />
                 </MPanel>
             </MPanel>
         </Panel>
@@ -64,5 +64,5 @@
     <BoxShadows x:Key="{MRingKey MD}">0 0 0 2 #000000</BoxShadows>
     <BoxShadows x:Key="{MRingKey LG}">0 0 0 2.5 #000000</BoxShadows>
     <BoxShadows x:Key="{MRingKey XL}">0 0 0 3 #000000</BoxShadows>
-    <BoxShadows x:Key="{MRingKey XXL}">0 0 0 4 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey XL2}">0 0 0 4 #000000</BoxShadows>
 </ResourceDictionary>

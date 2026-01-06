@@ -12,7 +12,7 @@ public static class EnumExtensions
             return (T)Enum.ToObject(typeof(T), enumerable.Select(e => Convert.ToInt32(e, CultureInfo.InvariantCulture)).Aggregate((a, b) => a | b));
         }
 
-        public bool TryParseEnum<T>(out T result, char space = '|') where T : struct, Enum
+        public bool TryParseEnum<T>(out T result, char space) where T : struct, Enum
         {
             try
             {
