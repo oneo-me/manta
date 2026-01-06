@@ -14,6 +14,7 @@
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Common -->
                 <MergeResourceInclude Source="@Shadows.axaml" />
+                <MergeResourceInclude Source="@Rings.axaml" />
                 <!-- Supported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ButtonSpinner.axaml" />
@@ -100,7 +101,7 @@
                 <MergeResourceInclude Source="../Controls/MProgressRing.axaml" />
                 <MergeResourceInclude Source="../Controls/MRadioButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MRepeatButton.axaml" />
-                <MergeResourceInclude Source="../Controls/MRing.axaml" />
+                <MergeResourceInclude Source="../Controls/MRingShape.axaml" />
                 <MergeResourceInclude Source="../Controls/MScrollViewer.axaml" />
                 <MergeResourceInclude Source="../Controls/MSplitButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MTabStrip.axaml" />
