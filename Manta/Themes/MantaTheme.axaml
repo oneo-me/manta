@@ -58,7 +58,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TabControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ToolTip.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/WindowNotificationManager.axaml" />
                 <!-- Base Controls -->
@@ -71,6 +70,7 @@
                 <MergeResourceInclude Source="../Controls/Base/TextBlock.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/ToolTip.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
                 <MergeResourceInclude Source="../Controls/MAspectRatio.axaml" />
