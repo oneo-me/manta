@@ -1,0 +1,137 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Progress -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Text="Variant" />
+            <MPanel Mode="Vertical" Spacing="12" Width="180" HorizontalAlignment="Left">
+                <MProgressBar Variant="Default" IsIndeterminate="True" />
+                <MProgressBar Variant="Secondary" IsIndeterminate="True" />
+                <MProgressBar Variant="Destructive" IsIndeterminate="True" />
+            </MPanel>
+            <TextBlock Text="Vertical" />
+            <MPanel Mode="Vertical" Spacing="12" Width="180" HorizontalAlignment="Left">
+                <MProgressBar Value="50" Maximum="100" />
+                <MProgressBar IsIndeterminate="True" />
+                <MProgressBar ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressBar ShowProgressText="True" IsIndeterminate="True" />
+            </MPanel>
+            <TextBlock Text="Horizontal" />
+            <MPanel Mode="Horizontal" Spacing="12" Height="120" HorizontalAlignment="Left">
+                <MProgressBar Orientation="Vertical" Value="50" Maximum="100" />
+                <MProgressBar Orientation="Vertical" IsIndeterminate="True" />
+                <MProgressBar ShowProgressText="True" Orientation="Vertical" Value="50" Maximum="100" />
+                <MProgressBar ShowProgressText="True" Orientation="Vertical" IsIndeterminate="True" />
+            </MPanel>
+        </MPanel>
+    </Design.PreviewWith>
+    <converters:StringFormatConverter x:Key="ProgressBarStringFormatConverter" />
+    <ControlTheme x:Key="{x:Type MProgressBar}" TargetType="MProgressBar">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+                    <Panel>
+                        <Border x:Name="PART_Indicator"
+                                Background="{TemplateBinding BarBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
+                            <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    IsVisible="{TemplateBinding ShowProgressText}">
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource ProgressBarStringFormatConverter}">
+                                            <TemplateBinding Property="ProgressTextFormat" />
+                                            <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <TemplateBinding Property="Percentage" />
+                                            <TemplateBinding Property="Minimum" />
+                                            <TemplateBinding Property="Maximum" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </LayoutTransformControl>
+                        </Border>
+                        <Border x:Name="PART_IndeterminateIndicator"
+                                Background="{TemplateBinding BarBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:horizontal /template/ Border#PART_Indicator">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^:vertical /template/ Border#PART_Indicator">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="90" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style Selector="^:horizontal /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Width" Value="0" />
+        </Style>
+        <Style Selector="^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Height" Value="0" />
+        </Style>
+        <Style Selector="^:horizontal:indeterminate /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Width" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Style.Animations>
+                <Animation Easing="LinearEasing" IterationCount="Infinite" Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="^:vertical:indeterminate /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Style.Animations>
+                <Animation Easing="LinearEasing" IterationCount="Infinite" Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Setter Property="CornerRadius" Value="{MRadius Default}" />
+        <Setter Property="Padding" Value="3 1" />
+        <Setter Property="FontSize" Value="8" />
+        <Setter Property="MinWidth" Value="12" />
+        <Setter Property="MinHeight" Value="12" />
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="BarBrush" Value="{MBrush Primary}" />
+            <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
+            <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+        </Style>
+        <Style Selector="^[Variant=Secondary]">
+            <Setter Property="BarBrush" Value="{MBrush Foreground, Opacity=0.3}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+        </Style>
+        <Style Selector="^[Variant=Destructive]">
+            <Setter Property="BarBrush" Value="{MBrush Destructive}" />
+            <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
+            <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.05}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
