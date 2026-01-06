@@ -4,8 +4,8 @@ public sealed class NumberValue
 {
     public double Value { get; set; }
 
-    public string ToString(string prefix, string key)
+    public string ToString(string key)
     {
-        return $"<system:Double x:Key=\"{{M{prefix}Key {key}}}\">{Value}</system:Double>";
+        return $"<system:Double x:Key=\"{{MSizeKey {key}}}\">{Value}</system:Double>";
     }
 }

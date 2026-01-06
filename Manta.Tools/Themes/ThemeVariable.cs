@@ -117,8 +117,8 @@ public sealed class ThemeVariable : IEnumerable<string?>
         yield return InsetXL?.ToString(nameof(InsetXL));
         yield return InsetXXL?.ToString(nameof(InsetXXL));
 
-        yield return Radius?.ToString(nameof(Radius), nameof(Radius));
-        yield return Spacing?.ToString(nameof(Spacing), nameof(Spacing));
+        yield return Radius?.ToString(nameof(Radius));
+        yield return Spacing?.ToString(nameof(Spacing));
     }
 
     IEnumerator IEnumerable.GetEnumerator()

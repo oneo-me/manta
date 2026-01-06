@@ -22,7 +22,7 @@ public sealed class MRingKeyExtension(MRingKey key) : MKeyBase(key);
 public sealed class MRing(MRingKey key) : MValueBase
 {
     public MRingKey Key { get; } = key;
-    public MBrushKey BrushKey { get; init; } = MBrushKey.Shadow;
+    public MBrushKey BrushKey { get; init; } = MBrushKey.Primary;
     public MBrushType BrushType { get; init; } = MBrushType.Default;
     public double BrushOpacity { get; init; } = -1;
 

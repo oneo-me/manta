@@ -1,0 +1,67 @@
+<MView
+    x:Class="Manta.Demo.Demos.StyleDemos.SpacingView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
+    x:DataType="local:SpacingView_Model" Design.DataContext="{x:Static local:SpacingView_Model.Design}"
+    Design.Width="500">
+    <MScrollViewer>
+        <MPanel Mode="Column" ColumnSize="60" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="HeaderedContentControl">
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="BorderBrush" Value="{MBrush Border}" />
+                    <Setter Property="CornerRadius" Value="{MRadius MD}" />
+                    <Setter Property="BorderThickness" Value="{MThickness Px}" />
+                    <Setter Property="Background" Value="{MBrush Muted}" />
+                    <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+                                <MPanel Mode="Vertical" VerticalAlignment="Center">
+                                    <ContentPresenter FontWeight="SemiBold" HorizontalAlignment="Center" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" />
+                                    <ContentPresenter HorizontalAlignment="Center" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" />
+                                </MPanel>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter>
+                </Style>
+            </MPanel.Styles>
+            <HeaderedContentControl Header="S0" Content="{MSize S0}" />
+            <HeaderedContentControl Header="Px" Content="{MSize Px}" />
+            <HeaderedContentControl Header="S0_5" Content="{MSize S0_5}" />
+            <HeaderedContentControl Header="S1" Content="{MSize S1}" />
+            <HeaderedContentControl Header="S1_5" Content="{MSize S1_5}" />
+            <HeaderedContentControl Header="S2" Content="{MSize S2}" />
+            <HeaderedContentControl Header="S2_5" Content="{MSize S2_5}" />
+            <HeaderedContentControl Header="S3" Content="{MSize S3}" />
+            <HeaderedContentControl Header="S3_5" Content="{MSize S3_5}" />
+            <HeaderedContentControl Header="S4" Content="{MSize S4}" />
+            <HeaderedContentControl Header="S5" Content="{MSize S5}" />
+            <HeaderedContentControl Header="S6" Content="{MSize S6}" />
+            <HeaderedContentControl Header="S7" Content="{MSize S7}" />
+            <HeaderedContentControl Header="S8" Content="{MSize S8}" />
+            <HeaderedContentControl Header="S9" Content="{MSize S9}" />
+            <HeaderedContentControl Header="S10" Content="{MSize S10}" />
+            <HeaderedContentControl Header="S11" Content="{MSize S11}" />
+            <HeaderedContentControl Header="S12" Content="{MSize S12}" />
+            <HeaderedContentControl Header="S14" Content="{MSize S14}" />
+            <HeaderedContentControl Header="S16" Content="{MSize S16}" />
+            <HeaderedContentControl Header="S20" Content="{MSize S20}" />
+            <HeaderedContentControl Header="S24" Content="{MSize S24}" />
+            <HeaderedContentControl Header="S28" Content="{MSize S28}" />
+            <HeaderedContentControl Header="S32" Content="{MSize S32}" />
+            <HeaderedContentControl Header="S36" Content="{MSize S36}" />
+            <HeaderedContentControl Header="S40" Content="{MSize S40}" />
+            <HeaderedContentControl Header="S44" Content="{MSize S44}" />
+            <HeaderedContentControl Header="S48" Content="{MSize S48}" />
+            <HeaderedContentControl Header="S52" Content="{MSize S52}" />
+            <HeaderedContentControl Header="S56" Content="{MSize S56}" />
+            <HeaderedContentControl Header="S60" Content="{MSize S60}" />
+            <HeaderedContentControl Header="S64" Content="{MSize S64}" />
+            <HeaderedContentControl Header="S72" Content="{MSize S72}" />
+            <HeaderedContentControl Header="S80" Content="{MSize S80}" />
+            <HeaderedContentControl Header="S96" Content="{MSize S96}" />
+        </MPanel>
+    </MScrollViewer>
+</MView>
