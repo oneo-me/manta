@@ -1,0 +1,68 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Panel Background="{MBrush Background}">
+            <MPanel Mode="Vertical" Spacing="30" Margin="30">
+                <MPanel.Styles>
+                    <Style Selector="Border.Ring">
+                        <Setter Property="Width" Value="60" />
+                        <Setter Property="Height" Value="60" />
+                        <Setter Property="CornerRadius" Value="10" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+                        <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
+                        <Setter Property="BoxShadow" Value="{MRing XXL}" />
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                            </Transitions>
+                        </Setter>
+                        <Style Selector="^:pointerover">
+                            <Setter Property="BoxShadow" Value="{MRing None}" />
+                        </Style>
+                    </Style>
+                </MPanel.Styles>
+                <TextBlock Text="Transition" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Ring" />
+                </MPanel>
+                <TextBlock Text="Rings" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Ring" BoxShadow="{MRing XS}" />
+                    <Border Classes="Ring" BoxShadow="{MRing SM}" />
+                    <Border Classes="Ring" BoxShadow="{MRing MD}" />
+                    <Border Classes="Ring" BoxShadow="{MRing LG}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XXL}" />
+                </MPanel>
+                <TextBlock Text="Rings (Custom Brsuh Key)" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XXL, BrushKey=Primary}" />
+                </MPanel>
+                <TextBlock Text="Rings (Custom BrushKey and Type)" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XXL, BrushKey=Primary, BrushType=Dark3}" />
+                </MPanel>
+            </MPanel>
+        </Panel>
+    </Design.PreviewWith>
+    <BoxShadows x:Key="{MRingKey None}">0 0 0 -1 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey XS}">0 0 0 1 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey SM}">0 0 0 1.5 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey MD}">0 0 0 2 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey LG}">0 0 0 2.5 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey XL}">0 0 0 3 #000000</BoxShadows>
+    <BoxShadows x:Key="{MRingKey XXL}">0 0 0 4 #000000</BoxShadows>
+</ResourceDictionary>

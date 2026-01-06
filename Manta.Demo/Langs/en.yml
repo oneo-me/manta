@@ -16,6 +16,7 @@ Demo_Style_Font: Font
 Demo_Style_Font_TestText: The quick brown fox jumps over the lazy dog
 Demo_Style_Radius: Radius
 Demo_Style_Shadow: Shadow
+Demo_Style_Ring: Ring
 
 SubGroup_Advanced: Advanced
 SubGroup_Window: Window
