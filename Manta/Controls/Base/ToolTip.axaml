@@ -7,7 +7,7 @@
             <MPanel.Styles>
                 <Style Selector="Border.Test">
                     <Setter Property="Background" Value="{MBrush Muted}" />
-                    <Setter Property="CornerRadius" Value="{MRadius Default}" />
+                    <Setter Property="CornerRadius" Value="{MRadius MD}" />
                     <Setter Property="BorderThickness" Value="1" />
                     <Setter Property="Padding" Value="12" />
                     <Style Selector="^ > TextBlock">
@@ -31,7 +31,7 @@
         <Setter Property="Foreground" Value="{MBrush PopoverForeground}" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{MRadius Default}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Padding" Value="10 5" />
         <Setter Property="FontWeight" Value="Normal" />
@@ -44,7 +44,7 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
-                    BoxShadow="{MShadow XXL}"
+                    BoxShadow="{MShadow XL2}"
                     Margin="12"
                     Padding="{TemplateBinding Padding}">
                     <ContentPresenter x:Name="PART_ContentPresenter"

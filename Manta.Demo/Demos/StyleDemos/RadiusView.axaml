@@ -1,0 +1,47 @@
+<MView
+    x:Class="Manta.Demo.Demos.StyleDemos.RadiusView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.StyleDemos"
+    x:DataType="local:RadiusView_Model" Design.DataContext="{x:Static local:RadiusView_Model.Design}"
+    Design.Width="500">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="30" Margin="30">
+            <MPanel.Styles>
+                <Style Selector="Border.Radius">
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="Height" Value="100" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Background" Value="{MBrush Background}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Border}" />
+                    <Setter Property="CornerRadius" Value="{MRadius XL4}" />
+                    <Setter Property="BoxShadow" Value="{MShadow MD}" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <CornerRadiusTransition Property="CornerRadius" Duration="0:0:0.1" />
+                        </Transitions>
+                    </Setter>
+                    <Style Selector="^:pointerover">
+                        <Setter Property="CornerRadius" Value="{MRadius None}" />
+                    </Style>
+                </Style>
+            </MPanel.Styles>
+            <TextBlock Text="Transition" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Radius" />
+            </MPanel>
+            <TextBlock Text="Rings" />
+            <MPanel Mode="Wrap" Spacing="30">
+                <Border Classes="Radius" CornerRadius="{MRadius XS}" />
+                <Border Classes="Radius" CornerRadius="{MRadius SM}" />
+                <Border Classes="Radius" CornerRadius="{MRadius MD}" />
+                <Border Classes="Radius" CornerRadius="{MRadius LG}" />
+                <Border Classes="Radius" CornerRadius="{MRadius XL}" />
+                <Border Classes="Radius" CornerRadius="{MRadius XL2}" />
+                <Border Classes="Radius" CornerRadius="{MRadius XL3}" />
+                <Border Classes="Radius" CornerRadius="{MRadius XL4}" />
+                <Border Classes="Radius" CornerRadius="{MRadius Full}" />
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>

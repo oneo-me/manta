@@ -113,7 +113,7 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Setter Property="CornerRadius" Value="{MRadius Default}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
         <Setter Property="Padding" Value="3 1" />
         <Setter Property="FontSize" Value="8" />
         <Setter Property="MinWidth" Value="12" />

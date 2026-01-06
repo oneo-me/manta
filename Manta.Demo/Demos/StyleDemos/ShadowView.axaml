@@ -14,7 +14,7 @@
                     <Setter Property="BorderThickness" Value="1" />
                     <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
                     <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
-                    <Setter Property="BoxShadow" Value="{MShadow XXL}" />
+                    <Setter Property="BoxShadow" Value="{MShadow XL2}" />
                     <Setter Property="Transitions">
                         <Transitions>
                             <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -36,7 +36,7 @@
                 <Border Classes="Shadow" BoxShadow="{MShadow MD}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow LG}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow XL}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XXL}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL2}" />
             </MPanel>
             <TextBlock Text="Shadows (Inset)" />
             <MPanel Mode="Horizontal" Spacing="30">
@@ -45,7 +45,7 @@
                 <Border Classes="Shadow" BoxShadow="{MShadow MD, IsInset=True}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow LG, IsInset=True}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow XL, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XXL, IsInset=True}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL2, IsInset=True}" />
             </MPanel>
             <TextBlock Text="Shadows (Custom Brsuh Key)" />
             <MPanel Mode="Horizontal" Spacing="30">
@@ -54,7 +54,7 @@
                 <Border Classes="Shadow" BoxShadow="{MShadow MD, BrushKey=Primary}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow LG, BrushKey=Primary}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow XL, BrushKey=Primary}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XXL, BrushKey=Primary}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL2, BrushKey=Primary}" />
             </MPanel>
             <TextBlock Text="Shadows (Custom BrushKey and Type)" />
             <MPanel Mode="Horizontal" Spacing="30">
@@ -63,7 +63,7 @@
                 <Border Classes="Shadow" BoxShadow="{MShadow MD, BrushKey=Primary, BrushType=Dark3}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow LG, BrushKey=Primary, BrushType=Dark3}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow XL, BrushKey=Primary, BrushType=Dark3}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XXL, BrushKey=Primary, BrushType=Dark3}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL2, BrushKey=Primary, BrushType=Dark3}" />
             </MPanel>
         </MPanel>
     </MScrollViewer>
