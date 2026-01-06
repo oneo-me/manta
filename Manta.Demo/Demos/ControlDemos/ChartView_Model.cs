@@ -11,7 +11,7 @@ sealed class ChartView_Model : DemoViewModel
     public static ChartView_Model Design => new();
 
     public override DemoGroup Group => DemoGroup.Controls;
-    public override DemoSubGroup SubGroup => DemoSubGroup.Chart;
+    public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MChart);
 
     public BarChartData BarData { get; }

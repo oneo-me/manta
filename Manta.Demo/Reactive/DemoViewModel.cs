@@ -14,16 +14,10 @@ enum DemoGroup
 enum DemoSubGroup
 {
     None,
-    Chart,
+    Advanced,
     Window,
-    Button,
-    Text,
-    Progress,
-    List,
-    Switch,
-    Icon,
-    Base,
-    Other
+    Custom,
+    Base
 }
 
 abstract class DemoViewModel : ViewModel

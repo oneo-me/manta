@@ -6,7 +6,7 @@
         <!-- List -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <MCard Width="320">
-                <MExpander>
+                <MAccordion>
                     <MExpanderItem Header="Product Information">
                         <MPanel Mode="Vertical" Spacing="3">
                             <TextBlock Text="Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability." TextWrapping="Wrap" />
@@ -25,11 +25,11 @@
                             <TextBlock Text="Our hassle-free return process includes free return shipping and full refunds processed within 48 hours of receiving the returned item." TextWrapping="Wrap" />
                         </MPanel>
                     </MExpanderItem>
-                </MExpander>
+                </MAccordion>
             </MCard>
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type MExpander}" TargetType="MExpander">
+    <ControlTheme x:Key="{x:Type MAccordion}" TargetType="MAccordion">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <MPanel Mode="Vertical" />
