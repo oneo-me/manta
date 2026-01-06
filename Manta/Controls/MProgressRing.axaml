@@ -55,10 +55,10 @@
             <ControlTemplate>
                 <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border Name="PART_Indicator" />
-                    <MRing Name="Ring"
-                           Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
-                           Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
-                           Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
+                    <MRingShape Name="Ring"
+                                Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}"
+                                Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
+                                Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
                     <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
                         <MClipContentControl
                             Background="{TemplateBinding Background}"
@@ -94,7 +94,7 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:indeterminate /template/ MRing#Ring">
+        <Style Selector="^:indeterminate /template/ MRingShape#Ring">
             <Setter Property="Value" Value="0" />
             <Setter Property="Maximum" Value="360" />
             <Style.Animations>

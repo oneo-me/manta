@@ -8,10 +8,10 @@ using Avalonia.Controls.Shapes;
 namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_Arc), typeof(Arc))]
-public class MRing : TemplatedControl
+public class MRingShape : TemplatedControl
 {
     public static readonly StyledProperty<double> ValueProperty =
-        AvaloniaProperty.Register<MRing, double>(nameof(Value));
+        AvaloniaProperty.Register<MRingShape, double>(nameof(Value));
 
     [SuppressMessage("Naming", "CA1721:Property names should not match get methods")]
     public double Value
@@ -21,7 +21,7 @@ public class MRing : TemplatedControl
     }
 
     public static readonly StyledProperty<double> MaximumProperty =
-        AvaloniaProperty.Register<MRing, double>(nameof(Maximum));
+        AvaloniaProperty.Register<MRingShape, double>(nameof(Maximum));
 
     public double Maximum
     {
@@ -29,7 +29,7 @@ public class MRing : TemplatedControl
         set => SetValue(MaximumProperty, value);
     }
 
-    public static readonly StyledProperty<double> SizeProperty = AvaloniaProperty.Register<MRing, double>(
+    public static readonly StyledProperty<double> SizeProperty = AvaloniaProperty.Register<MRingShape, double>(
         nameof(Size));
 
     public double Size
@@ -39,7 +39,7 @@ public class MRing : TemplatedControl
     }
 
     public static readonly StyledProperty<float> StrokeSizeProperty =
-        AvaloniaProperty.Register<MRing, float>(nameof(StrokeSize));
+        AvaloniaProperty.Register<MRingShape, float>(nameof(StrokeSize));
 
     public float StrokeSize
     {
