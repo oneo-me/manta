@@ -7,18 +7,18 @@ using Avalonia.LogicalTree;
 
 namespace Manta.Controls;
 
-public enum MExpanderType
+public enum MAccordionType
 {
     Single,
     Multiple
 }
 
-public class MExpander : ItemsControl
+public class MAccordion : ItemsControl
 {
-    public static readonly StyledProperty<MExpanderType> TypeProperty = AvaloniaProperty.Register<MExpander, MExpanderType>(
+    public static readonly StyledProperty<MAccordionType> TypeProperty = AvaloniaProperty.Register<MAccordion, MAccordionType>(
         nameof(Type));
 
-    public MExpanderType Type
+    public MAccordionType Type
     {
         get => GetValue(TypeProperty);
         set => SetValue(TypeProperty, value);
@@ -45,7 +45,7 @@ public class MExpander : ItemsControl
 
             _ignored = true;
 
-            if (Type != MExpanderType.Single)
+            if (Type != MAccordionType.Single)
                 return;
 
             foreach (var item in Items)
@@ -98,7 +98,7 @@ public class MExpanderItem : HeaderedContentControl
             PseudoClasses.Set(":expanded", isExpanded);
 
             if (isExpanded)
-                this.GetLogicalParent<MExpander>()?.CollapseOtherItems(this);
+                this.GetLogicalParent<MAccordion>()?.CollapseOtherItems(this);
         }
     }
 }

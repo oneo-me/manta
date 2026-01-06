@@ -3,9 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Manta.Controls;
+using Manta.Demo.Reactive;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using Manta.Demo.Reactive;
 
 namespace Manta.Demo.Services;
 
@@ -102,7 +102,7 @@ sealed class DemoService
             }
 
             if (SubGroup == DemoSubGroup.None)
-                SubGroup = DemoSubGroup.Other;
+                SubGroup = DemoSubGroup.Custom;
 
             var sb = new StringBuilder();
             sb.AppendLine("<MView");

@@ -17,13 +17,7 @@ Demo_Style_Font_TestText: The quick brown fox jumps over the lazy dog
 Demo_Style_Radius: Radius
 Demo_Style_Shadow: Shadow
 
-SubGroup_Chart: Chart
+SubGroup_Advanced: Advanced
 SubGroup_Window: Window
-SubGroup_Button: Button
-SubGroup_Text: Text
-SubGroup_Progress: Progress
-SubGroup_List: List
-SubGroup_Switch: Switch
-SubGroup_Icon: Icon
+SubGroup_Custom: Custom
 SubGroup_Base: Base
-SubGroup_Other: Other
