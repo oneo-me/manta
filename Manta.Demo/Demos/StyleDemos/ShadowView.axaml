@@ -12,9 +12,23 @@
                     <Setter Property="Height" Value="60" />
                     <Setter Property="CornerRadius" Value="10" />
                     <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
                     <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
+                    <Setter Property="BoxShadow" Value="{MShadow XXL}" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                        </Transitions>
+                    </Setter>
+                    <Style Selector="^:pointerover">
+                        <Setter Property="BoxShadow" Value="{MShadow None}" />
+                    </Style>
                 </Style>
             </MPanel.Styles>
+            <TextBlock Text="Transition" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Shadow" />
+            </MPanel>
             <TextBlock Text="Shadows" />
             <MPanel Mode="Horizontal" Spacing="30">
                 <Border Classes="Shadow" BoxShadow="{MShadow XS}" />
