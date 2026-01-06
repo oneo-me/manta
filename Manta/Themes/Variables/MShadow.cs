@@ -7,6 +7,8 @@ namespace Manta.Themes.Variables;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum MShadowKey
 {
+    None,
+
     XS,
     SM,
     MD,
