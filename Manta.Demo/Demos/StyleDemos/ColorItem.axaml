@@ -13,13 +13,10 @@
                 </Transitions>
             </Setter>
             <Style Selector="^ Border.Color">
-                <Setter Property="BoxShadow" Value="{MShadow XXL}" />
+                <Setter Property="BoxShadow" Value="{MShadow XS}" />
             </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
-                <Style Selector="^ Border.Color">
-                    <Setter Property="BoxShadow" Value="{MShadow XXS}" />
-                </Style>
             </Style>
         </Style>
     </MView.Styles>

@@ -37,22 +37,6 @@
     <values:OklchColor x:Key="{MBrushKey SidebarBorder}" L="0.922" C="0" H="0" />
     <values:OklchColor x:Key="{MBrushKey SidebarRing}" L="0.708" C="0" H="0" />
     <values:OklchColor x:Key="{MBrushKey Shadow}" L="0" C="0" H="0" />
-    <BoxShadows x:Key="{MShadowKey XXS}">0 2 5 0 #07000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey XS}">0 2 5 0 #07000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey SM}">0 2 5 0 #0C000000, 0 1 2 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey Default}">0 2 5 0 #0C000000, 0 1 2 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey MD}">0 2 5 0 #0C000000, 0 2 4 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey LG}">0 2 5 0 #0C000000, 0 4 6 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey XL}">0 2 5 0 #0C000000, 0 8 10 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey XXL}">0 2 5 0 #21000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetXXS}">inset 0 2 5 0 #07000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetXS}">inset 0 2 5 0 #07000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetSM}">inset 0 2 5 0 #0C000000, inset 0 1 2 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey Inset}">inset 0 2 5 0 #0C000000, inset 0 1 2 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetMD}">inset 0 2 5 0 #0C000000, inset 0 2 4 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetLG}">inset 0 2 5 0 #0C000000, inset 0 4 6 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetXL}">inset 0 2 5 0 #0C000000, inset 0 8 10 -1 #0C000000</BoxShadows>
-    <BoxShadows x:Key="{MShadowKey InsetXXL}">inset 0 2 5 0 #21000000</BoxShadows>
     <system:Double x:Key="{MRadiusKey Radius}">10</system:Double>
     <system:Double x:Key="{MSpacingKey Spacing}">4</system:Double>
 </ResourceDictionary>

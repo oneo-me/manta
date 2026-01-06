@@ -7,23 +7,12 @@ namespace Manta.Themes.Variables;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum MShadowKey
 {
-    XXS,
     XS,
     SM,
-    Default,
     MD,
     LG,
     XL,
-    XXL,
-
-    InsetXXS,
-    InsetXS,
-    InsetSM,
-    Inset,
-    InsetMD,
-    InsetLG,
-    InsetXL,
-    InsetXXL
+    XXL
 }
 
 public sealed class MShadowKeyExtension(MShadowKey key) : MKeyBase(key);
@@ -31,43 +20,47 @@ public sealed class MShadowKeyExtension(MShadowKey key) : MKeyBase(key);
 public sealed class MShadow(MShadowKey key) : MValueBase
 {
     public MShadowKey Key { get; } = key;
-    public MBrushKey ColorKey { get; init; } = MBrushKey.Shadow;
-    public MBrushType ColorType { get; set; } = MBrushType.Default;
+    public bool IsInset { get; init; }
+    public MBrushKey BrushKey { get; init; } = MBrushKey.Shadow;
+    public MBrushType BrushType { get; init; } = MBrushType.Default;
     public double BrushOpacity { get; init; } = -1;
 
     protected override IEnumerable<object> GetKeys()
     {
         yield return Key;
-        yield return ColorKey;
+        yield return BrushKey;
     }
 
     protected override object ProcessValues(IList<object?> values)
     {
         var value0 = values[0];
-        var value1 = MBrush.GetColor(values[1], ColorType);
+        var value1 = MBrush.GetOklchColor(values[1], BrushType);
 
         if (value0 is not BoxShadows boxShadows || value1 is null)
             return default(BoxShadows);
 
-        var shadows = new List<BoxShadow>();
+        var shadows = new BoxShadow[boxShadows.Count];
 
-        foreach (var boxShadow in boxShadows)
-            shadows.Add(new()
+        for (var i = 0; i < boxShadows.Count; i++)
+        {
+            var boxShadow = boxShadows[i];
+
+            shadows[i] = new()
             {
                 OffsetX = boxShadow.OffsetX,
                 OffsetY = boxShadow.OffsetY,
                 Blur = boxShadow.Blur,
                 Spread = boxShadow.Spread,
-                IsInset = boxShadow.IsInset,
-                Color = value1.ToColor(BrushOpacity > 0 ? BrushOpacity : boxShadow.Color.A / 255d)
-            });
+                IsInset = IsInset,
+                Color = value1.ToColor(BrushOpacity >= 0 ? BrushOpacity : boxShadow.Color.A / 255d)
+            };
+        }
 
-        if (shadows.Count == 0)
-            return default(BoxShadows);
-
-        if (shadows.Count == 1)
-            return new BoxShadows(shadows[0]);
-
-        return new BoxShadows(shadows[0], shadows.Skip(1).ToArray());
+        return shadows.Length switch
+        {
+            0 => default(BoxShadows),
+            1 => new(shadows[0]),
+            _ => new(shadows[0], shadows.Skip(1).ToArray())
+        };
     }
 }
