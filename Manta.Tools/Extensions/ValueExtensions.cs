@@ -1,14 +1,10 @@
-using System.Text.RegularExpressions;
 using Manta.Themes.Values;
 using Manta.Tools.Values;
 
 namespace Manta.Tools.Extensions;
 
-static partial class ValueExtensions
+static class ValueExtensions
 {
-    [GeneratedRegex(@"hsl\((\d+)\s+(\d+%)\s+(\d+%)\s*/\s*([\d.]+)\)")]
-    private static partial Regex HslRegex();
-
     extension(string value)
     {
         public NumberValue ParserNumber()
@@ -29,36 +25,24 @@ static partial class ValueExtensions
             throw new FormatException($"Invalid rem value format: {value}");
         }
 
-        public ShadowValue ParseShadow()
-        {
-            var converted = HslRegex().Replace(value, match =>
-            {
-                var h = match.Groups[1].Value;
-                var s = match.Groups[2].Value;
-                var l = match.Groups[3].Value;
-                var a = match.Groups[4].Value;
-
-                if (h == "0" && s == "0%" && l == "0%")
-                {
-                    var alpha = (int)(double.Parse(a) * 255);
-                    return $"#{alpha:X2}000000";
-                }
-
-                return $"hsla({h}, {s}, {l}, {a})";
-            });
-
-            return new() { Value = converted.Replace("px", "") };
-        }
-
         public OklchColorValue ParserColor()
         {
-            // Example: oklch(0.927 0.123 250)
-            const string prefix = "oklch(";
-            const string suffix = ")";
+            // Example: hsl(0 0% 0%)
+            if (value is "hsl(0 0% 0%)")
+                return new(new()
+                {
+                    L = 0,
+                    C = 0,
+                    H = 0
+                });
 
-            if (value.StartsWith(prefix) && value.EndsWith(suffix))
+            // Example: oklch(0.927 0.123 250)
+            const string oklchPrefix = "oklch(";
+            const string oklchSuffix = ")";
+
+            if (value.StartsWith(oklchPrefix) && value.EndsWith(oklchSuffix))
             {
-                var content = value[prefix.Length..^suffix.Length];
+                var content = value[oklchPrefix.Length..^oklchSuffix.Length];
                 var parts = content.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (parts.Length == 3 &&
                     double.TryParse(parts[0], out var l) &&

@@ -39,21 +39,21 @@
                 </MPanel>
                 <TextBlock Text="Rings (Custom Brsuh Key)" />
                 <MPanel Mode="Horizontal" Spacing="30">
-                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Primary}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Destructive}" />
+                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Destructive}" />
+                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Destructive}" />
+                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Destructive}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Destructive}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Destructive}" />
                 </MPanel>
                 <TextBlock Text="Rings (Custom BrushKey and Type)" />
                 <MPanel Mode="Horizontal" Spacing="30">
-                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Primary, BrushType=Dark3}" />
-                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Destructive, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Destructive, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Destructive, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Destructive, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Destructive, BrushType=Dark3}" />
+                    <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Destructive, BrushType=Dark3}" />
                 </MPanel>
             </MPanel>
         </Panel>
