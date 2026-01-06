@@ -81,7 +81,7 @@
         <Style Selector="^[IsReadOnly=False]">
             <Style Selector="^:pointerover, ^:focus-within">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
-                <Setter Property="BoxShadow" Value="{MShadow LG, ColorKey=Primary}" />
+                <Setter Property="BoxShadow" Value="{MShadow LG, BrushKey=Primary}" />
             </Style>
         </Style>
         <!-- Buttons -->

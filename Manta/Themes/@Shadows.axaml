@@ -1,0 +1,62 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Panel Background="{MBrush Background}">
+            <MPanel Mode="Vertical" Spacing="30" Margin="30">
+                <MPanel.Styles>
+                    <Style Selector="Border.Shadow">
+                        <Setter Property="Width" Value="60" />
+                        <Setter Property="Height" Value="60" />
+                        <Setter Property="CornerRadius" Value="10" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
+                    </Style>
+                </MPanel.Styles>
+                <TextBlock Text="Shadows" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XXL}" />
+                </MPanel>
+                <TextBlock Text="Shadows (Inset)" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XXL, IsInset=True}" />
+                </MPanel>
+                <TextBlock Text="Shadows (Custom Brsuh Key)" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS, BrushKey=Primary}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM, BrushKey=Primary}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD, BrushKey=Primary}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG, BrushKey=Primary}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL, BrushKey=Primary}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XXL, BrushKey=Primary}" />
+                </MPanel>
+                <TextBlock Text="Shadows (Custom BrushKey and Type)" />
+                <MPanel Mode="Horizontal" Spacing="30">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL, BrushKey=Primary, BrushType=Dark3}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XXL, BrushKey=Primary, BrushType=Dark3}" />
+                </MPanel>
+            </MPanel>
+        </Panel>
+    </Design.PreviewWith>
+    <BoxShadows x:Key="{MShadowKey XS}">0 1 3 0 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey SM}">0 2 3 0 #1A000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey MD}">0 2 5 0 #33000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey LG}">0 5 10 0 #33000000, 0 2 6 -4 #80000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey XL}">0 10 15 0 #33000000, 0 5 10 -5 #B3000000</BoxShadows>
+    <BoxShadows x:Key="{MShadowKey XXL}">0 15 30 0 #33000000, 0 5 15 -5 #CC000000</BoxShadows>
+</ResourceDictionary>

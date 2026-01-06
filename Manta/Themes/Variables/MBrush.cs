@@ -70,14 +70,6 @@ public sealed class MBrush(MBrushKey key) : MValueBase
         yield return Key;
     }
 
-    public static ColorBase? GetColor(object? value, MBrushType colorType)
-    {
-        if (value is ColorBase colorBase)
-            return colorBase;
-
-        return null;
-    }
-
     static double GetTypeValue(MBrushType colorType)
     {
         return colorType switch
@@ -93,7 +85,7 @@ public sealed class MBrush(MBrushKey key) : MValueBase
         };
     }
 
-    static OklchColor? GetOklchColor(object? value, MBrushType colorType)
+    internal static OklchColor? GetOklchColor(object? value, MBrushType colorType)
     {
         OklchColor? color = null;
 

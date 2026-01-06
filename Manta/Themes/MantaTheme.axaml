@@ -12,6 +12,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <!-- Design -->
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
+                <!-- Common -->
+                <MergeResourceInclude Source="@Shadows.axaml" />
                 <!-- Supported Controls -->
                 <MergeResourceInclude Source="../Controls/Base/Supported/Button.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ButtonSpinner.axaml" />

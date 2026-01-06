@@ -34,6 +34,10 @@ sealed class ThemeFile(Options options)
         foreach (var xamlFile in GetXamlFiles(options.DesignControlsDir))
             writer.WriteLine($"                <MergeResourceInclude Source=\"../{Path.GetRelativePath(options.ProjectDir, xamlFile).Replace('\\', '/')}\" />");
 
+        writer.WriteLine("                <!-- Common -->");
+        writer.WriteLine("                <MergeResourceInclude Source=\"@Shadows.axaml\" />");
+        writer.WriteLine("                <MergeResourceInclude Source=\"@Rings.axaml\" />");
+
         writer.WriteLine("                <!-- Supported Controls -->");
         foreach (var xamlFile in GetXamlFiles(options.SupportedControlsDir))
             writer.WriteLine($"                <MergeResourceInclude Source=\"../{Path.GetRelativePath(options.ProjectDir, xamlFile).Replace('\\', '/')}\" />");
