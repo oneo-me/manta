@@ -143,7 +143,7 @@
             <Style Selector="^[IsReadOnly=True]">
                 <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
                 <Setter Property="BorderBrush" Value="{MBrush Border}" />
-                <Setter Property="BoxShadow" Value="{MShadow XS, IsInset=True}" />
+                <Setter Property="BoxShadow" Value="{MShadow XS, ValueType=InsetShadow}" />
             </Style>
         </Style>
     </ControlTheme>

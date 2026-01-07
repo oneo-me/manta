@@ -7,6 +7,11 @@
     <MScrollViewer>
         <MPanel Mode="Vertical" Spacing="30" Margin="30">
             <MPanel.Styles>
+                <Style Selector="Border.Test">
+                    <Setter Property="BorderBrush" Value="{MBrush Destructive}" />
+                    <Setter Property="BorderThickness" Value="{MThickness Px}" />
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                </Style>
                 <Style Selector="Border.Shadow">
                     <Setter Property="Width" Value="60" />
                     <Setter Property="Height" Value="60" />
@@ -18,16 +23,29 @@
                     <Setter Property="Transitions">
                         <Transitions>
                             <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                            <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
                         </Transitions>
                     </Setter>
+                    <Style Selector="^.Margin">
+                        <Setter Property="Margin" Value="{MShadow XL2, ValueType=Margin}" />
+                    </Style>
                     <Style Selector="^:pointerover">
                         <Setter Property="BoxShadow" Value="{MShadow None}" />
+                        <Style Selector="^.Margin">
+                            <Setter Property="Margin" Value="{MShadow None, ValueType=Margin}" />
+                        </Style>
                     </Style>
                 </Style>
             </MPanel.Styles>
             <TextBlock Text="Transition" />
             <MPanel Mode="Horizontal" Spacing="30">
                 <Border Classes="Shadow" />
+            </MPanel>
+            <TextBlock Text="Calculate Margin" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Test">
+                    <Border Classes="Shadow Margin" />
+                </Border>
             </MPanel>
             <TextBlock Text="Shadows" />
             <MPanel Mode="Horizontal" Spacing="30">
@@ -38,14 +56,35 @@
                 <Border Classes="Shadow" BoxShadow="{MShadow XL}" />
                 <Border Classes="Shadow" BoxShadow="{MShadow XL2}" />
             </MPanel>
+            <TextBlock Text="Shadows Margin" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS}" Margin="{MShadow XS, ValueType=Margin}" />
+                </Border>
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM}" Margin="{MShadow SM, ValueType=Margin}" />
+                </Border>
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD}" Margin="{MShadow MD, ValueType=Margin}" />
+                </Border>
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG}" Margin="{MShadow LG, ValueType=Margin}" />
+                </Border>
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL}" Margin="{MShadow XL, ValueType=Margin}" />
+                </Border>
+                <Border Classes="Test">
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL2}" Margin="{MShadow XL2, ValueType=Margin}" />
+                </Border>
+            </MPanel>
             <TextBlock Text="Shadows (Inset)" />
             <MPanel Mode="Horizontal" Spacing="30">
-                <Border Classes="Shadow" BoxShadow="{MShadow XS, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow SM, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow MD, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow LG, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XL, IsInset=True}" />
-                <Border Classes="Shadow" BoxShadow="{MShadow XL2, IsInset=True}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XS, ValueType=InsetShadow}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow SM, ValueType=InsetShadow}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow MD, ValueType=InsetShadow}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow LG, ValueType=InsetShadow}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL, ValueType=InsetShadow}" />
+                <Border Classes="Shadow" BoxShadow="{MShadow XL2, ValueType=InsetShadow}" />
             </MPanel>
             <TextBlock Text="Shadows (Custom Brsuh Key)" />
             <MPanel Mode="Horizontal" Spacing="30">
