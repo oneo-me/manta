@@ -24,14 +24,17 @@
             <ControlTemplate>
                 <Panel Name="Root">
                     <Border Name="Background" Background="{TemplateBinding Background}" />
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{ TemplateBinding OffScreenMargin}">
-                        <VisualLayerManager>
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Background="{MBrush Primary, Opacity=0.035}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Content="{TemplateBinding Content}" />
-                        </VisualLayerManager>
-                    </Border>
+                    <Panel Margin="{ TemplateBinding OffScreenMargin}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <VisualLayerManager>
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  Background="{MBrush Primary, Opacity=0.035}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}" />
+                            </VisualLayerManager>
+                        </Border>
+                        <Panel x:Name="PART_Decorations" />
+                    </Panel>
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -76,6 +79,12 @@
             </Style>
             <Style Selector="^[WindowState=FullScreen]">
                 <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Panel#PART_Decorations">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^[CanResize=True][WindowState=Normal] /template/ Panel#PART_Decorations">
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
     </ControlTheme>
