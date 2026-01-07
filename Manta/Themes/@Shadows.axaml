@@ -39,12 +39,12 @@
                 </MPanel>
                 <TextBlock Text="Shadows (Inset)" />
                 <MPanel Mode="Horizontal" Spacing="30">
-                    <Border Classes="Shadow" BoxShadow="{MShadow XS, IsInset=True}" />
-                    <Border Classes="Shadow" BoxShadow="{MShadow SM, IsInset=True}" />
-                    <Border Classes="Shadow" BoxShadow="{MShadow MD, IsInset=True}" />
-                    <Border Classes="Shadow" BoxShadow="{MShadow LG, IsInset=True}" />
-                    <Border Classes="Shadow" BoxShadow="{MShadow XL, IsInset=True}" />
-                    <Border Classes="Shadow" BoxShadow="{MShadow XL2, IsInset=True}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XS, ValueType=InsetShadow}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow SM, ValueType=InsetShadow}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow MD, ValueType=InsetShadow}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow LG, ValueType=InsetShadow}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL, ValueType=InsetShadow}" />
+                    <Border Classes="Shadow" BoxShadow="{MShadow XL2, ValueType=InsetShadow}" />
                 </MPanel>
                 <TextBlock Text="Shadows (Custom Brsuh Key)" />
                 <MPanel Mode="Horizontal" Spacing="30">
