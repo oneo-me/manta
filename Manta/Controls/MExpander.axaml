@@ -1,0 +1,75 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- List -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Height="300">
+            <MCard Width="320">
+                <MPanel Mode="Vertical">
+                    <MExpander Header="Product Information">
+                        <MPanel Mode="Vertical" Spacing="3">
+                            <TextBlock Text="Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability." TextWrapping="Wrap" />
+                            <TextBlock Text="Key features include advanced processing capabilities, and an intuitive user interface designed for both beginners and experts." TextWrapping="Wrap" />
+                        </MPanel>
+                    </MExpander>
+                </MPanel>
+            </MCard>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MExpander}" TargetType="MExpander">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}">
+                    <Grid RowDefinitions="Auto *">
+                        <Border Grid.Row="0" Name="PART_Header" Background="#00000000">
+                            <Grid ColumnDefinitions="* Auto">
+                                <ContentPresenter Grid.Column="0" Name="PART_HeaderPresenter"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  Content="{TemplateBinding Header}" />
+                                <MPathIcon Grid.Column="1" Name="Icon" />
+                            </Grid>
+                        </Border>
+                        <MAnimatedExpander Grid.Row="1" IsExpanded="{TemplateBinding IsExpanded}">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </MAnimatedExpander>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="Padding" Value="{MThickness S2}" />
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Padding" Value="{MThickness S2, Filter=Top}" />
+        </Style>
+        <Style Selector="^ /template/ MPathIcon#Icon">
+            <Setter Property="Data" Value="m6 9 6 6 6-6" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="Size" Value="8" />
+            <Setter Property="StrokeThickness" Value="1.5" />
+            <Setter Property="Margin" Value="8 0" />
+            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="RenderTransform" Value="rotate(0deg)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:expanded /template/ MPathIcon#Icon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

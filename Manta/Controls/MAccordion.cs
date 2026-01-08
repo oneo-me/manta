@@ -26,17 +26,17 @@ public class MAccordion : ItemsControl
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
-        return new MExpanderItem();
+        return new MAccordionItem();
     }
 
     protected override bool NeedsContainerOverride(object? item, int index, out object? recycleKey)
     {
-        return NeedsContainer<MExpanderItem>(item, out recycleKey);
+        return NeedsContainer<MAccordionItem>(item, out recycleKey);
     }
 
     bool _ignored;
 
-    public void CollapseOtherItems(MExpanderItem currentItem)
+    public void CollapseOtherItems(MAccordionItem currentItem)
     {
         try
         {
@@ -49,7 +49,7 @@ public class MAccordion : ItemsControl
                 return;
 
             foreach (var item in Items)
-                if (item is MExpanderItem accordionItem && accordionItem != currentItem)
+                if (item is MAccordionItem accordionItem && accordionItem != currentItem)
                     accordionItem.IsExpanded = false;
         }
         finally
@@ -61,9 +61,9 @@ public class MAccordion : ItemsControl
 
 [PseudoClasses(":expanded")]
 [TemplatePart("PART_Header", typeof(Border))]
-public class MExpanderItem : HeaderedContentControl
+public class MAccordionItem : HeaderedContentControl
 {
-    public static readonly StyledProperty<bool> IsExpandedProperty = AvaloniaProperty.Register<MExpanderItem, bool>(
+    public static readonly StyledProperty<bool> IsExpandedProperty = AvaloniaProperty.Register<MAccordionItem, bool>(
         nameof(IsExpanded));
 
     public bool IsExpanded
