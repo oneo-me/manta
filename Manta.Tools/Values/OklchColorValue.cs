@@ -8,6 +8,6 @@ public sealed class OklchColorValue(OklchColor? oklchColor = null)
 
     public string ToString(string key)
     {
-        return $"<values:OklchColor x:Key=\"{{MBrushKey {key}}}\" L=\"{Color.L}\" C=\"{Color.C}\" H=\"{Color.H}\" />";
+        return $"<values:OklchColor x:Key=\"{{MBrushKey {key}}}\" L=\"{Color.L}\" C=\"{Color.C}\" H=\"{Color.H}\" Opacity=\"{Color.Opacity}\" />";
     }
 }

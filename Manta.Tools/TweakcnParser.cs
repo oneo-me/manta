@@ -23,7 +23,7 @@ public static class TweakcnParser
         { "accent-foreground", (theme, value) => theme.AccentForeground = value.ParserColor() },
         { "destructive", (theme, value) => theme.Destructive = value.ParserColor() },
         { "destructive-foreground", (theme, value) => theme.DestructiveForeground = value.ParserColor() },
-        { "border", (theme, value) => theme.Border = value.ParserColor() },
+        // { "border", (theme, value) => theme.Border = value.ParserColor() },
         { "input", (theme, value) => theme.Input = value.ParserColor() },
         { "ring", (theme, value) => theme.Ring = value.ParserColor() },
         { "chart-1", (theme, value) => theme.Chart1 = value.ParserColor() },
