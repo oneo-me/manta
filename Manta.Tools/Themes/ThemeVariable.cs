@@ -6,7 +6,7 @@ using Manta.Tools.Values;
 namespace Manta.Tools.Themes;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-public sealed class ThemeVariable : IEnumerable<string?>
+public sealed class ThemeVariable(bool isDark) : IEnumerable<string?>
 {
     public OklchColorValue? Background { get; set; }
     public OklchColorValue? Foreground { get; set; }
@@ -24,7 +24,17 @@ public sealed class ThemeVariable : IEnumerable<string?>
     public OklchColorValue? AccentForeground { get; set; }
     public OklchColorValue? Destructive { get; set; }
     public OklchColorValue? DestructiveForeground { get; set; }
-    public OklchColorValue? Border { get; set; }
+
+    public OklchColorValue? Border => Foreground is null
+        ? null
+        : new OklchColorValue(new()
+        {
+            Opacity = Foreground.Color.Opacity * (isDark ? 0.15 : 0.1),
+            L = Foreground.Color.L,
+            C = Foreground.Color.C,
+            H = Foreground.Color.H
+        });
+
     public OklchColorValue? Input { get; set; }
     public OklchColorValue? Ring { get; set; }
     public OklchColorValue? Chart1 { get; set; }

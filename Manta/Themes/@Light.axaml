@@ -4,39 +4,39 @@
     xmlns:values="clr-namespace:Manta.Themes.Values"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     x:ClassModifier="internal">
-    <values:OklchColor x:Key="{MBrushKey Background}" L="1" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Foreground}" L="0.145" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Card}" L="1" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey CardForeground}" L="0.145" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Popover}" L="1" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey PopoverForeground}" L="0.145" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Primary}" L="0.5975" C="0.2188" H="262.059" />
-    <values:OklchColor x:Key="{MBrushKey PrimaryForeground}" L="0.985" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Secondary}" L="0.97" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SecondaryForeground}" L="0.205" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Muted}" L="0.97" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey MutedForeground}" L="0.556" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Accent}" L="0.97" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey AccentForeground}" L="0.205" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Destructive}" L="0.6589" C="0.2175" H="25.4779" />
-    <values:OklchColor x:Key="{MBrushKey DestructiveForeground}" L="1" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Border}" L="0.922" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Input}" L="0.922" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Ring}" L="0.708" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Chart1}" L="0.81" C="0.1" H="252" />
-    <values:OklchColor x:Key="{MBrushKey Chart2}" L="0.62" C="0.19" H="260" />
-    <values:OklchColor x:Key="{MBrushKey Chart3}" L="0.55" C="0.22" H="263" />
-    <values:OklchColor x:Key="{MBrushKey Chart4}" L="0.49" C="0.22" H="264" />
-    <values:OklchColor x:Key="{MBrushKey Chart5}" L="0.42" C="0.18" H="266" />
-    <values:OklchColor x:Key="{MBrushKey SidebarBackground}" L="0.985" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarForeground}" L="0.145" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarPrimary}" L="0.5975" C="0.2188" H="262.059" />
-    <values:OklchColor x:Key="{MBrushKey SidebarPrimaryForeground}" L="0.985" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarAccent}" L="0.97" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarAccentForeground}" L="0.205" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarBorder}" L="0.922" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey SidebarRing}" L="0.708" C="0" H="0" />
-    <values:OklchColor x:Key="{MBrushKey Shadow}" L="0" C="0" H="0" />
+    <values:OklchColor x:Key="{MBrushKey Background}" L="1" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Foreground}" L="0.145" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Card}" L="1" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey CardForeground}" L="0.145" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Popover}" L="1" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey PopoverForeground}" L="0.145" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Primary}" L="0.5975" C="0.2188" H="262.059" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey PrimaryForeground}" L="0.985" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Secondary}" L="0.97" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SecondaryForeground}" L="0.205" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Muted}" L="0.97" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey MutedForeground}" L="0.556" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Accent}" L="0.97" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey AccentForeground}" L="0.205" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Destructive}" L="0.6589" C="0.2175" H="25.4779" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey DestructiveForeground}" L="1" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Border}" L="0.145" C="0" H="0" Opacity="0.1" />
+    <values:OklchColor x:Key="{MBrushKey Input}" L="0.922" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Ring}" L="0.708" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Chart1}" L="0.81" C="0.1" H="252" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Chart2}" L="0.62" C="0.19" H="260" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Chart3}" L="0.55" C="0.22" H="263" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Chart4}" L="0.49" C="0.22" H="264" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Chart5}" L="0.42" C="0.18" H="266" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarBackground}" L="0.985" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarForeground}" L="0.145" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarPrimary}" L="0.5975" C="0.2188" H="262.059" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarPrimaryForeground}" L="0.985" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarAccent}" L="0.97" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarAccentForeground}" L="0.205" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarBorder}" L="0.922" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey SidebarRing}" L="0.708" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey Shadow}" L="0" C="0" H="0" Opacity="1" />
     <system:Double x:Key="{MSizeKey Radius}">10</system:Double>
     <system:Double x:Key="{MSizeKey Spacing}">4</system:Double>
 </ResourceDictionary>
