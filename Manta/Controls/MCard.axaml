@@ -25,9 +25,9 @@
         </Setter>
         <Setter Property="Background" Value="{MBrush Background}" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="12" />
-        <Setter Property="Padding" Value="12" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="CornerRadius" Value="{MRadius XL}" />
+        <Setter Property="Padding" Value="{MThickness S3}" />
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BoxShadow" Value="{MShadow MD}" />
         </Style>

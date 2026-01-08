@@ -12,13 +12,6 @@ public enum MSplitButtonVariant
     Destructive
 }
 
-public enum MSplitButtonSize
-{
-    Default,
-    Small,
-    Large
-}
-
 public class MSplitButton : SplitButton
 {
     public static readonly StyledProperty<MSplitButtonVariant> VariantProperty = AvaloniaProperty.Register<MSplitButton, MSplitButtonVariant>(
@@ -28,14 +21,5 @@ public class MSplitButton : SplitButton
     {
         get => GetValue(VariantProperty);
         set => SetValue(VariantProperty, value);
-    }
-
-    public static readonly StyledProperty<MSplitButtonSize> SizeProperty = AvaloniaProperty.Register<MSplitButton, MSplitButtonSize>(
-        nameof(Size));
-
-    public MSplitButtonSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
     }
 }

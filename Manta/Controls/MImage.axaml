@@ -10,12 +10,12 @@
                     <Setter Property="Height" Value="100" />
                 </Style>
             </MPanel.Styles>
-            <MImage Content="Fallback" CornerRadius="100" ClipToBounds="True" />
+            <MImage Content="Fallback" FontWeight="Bold" Foreground="{MBrush MutedForeground}" CornerRadius="100" ClipToBounds="True" />
             <MImage Source="https://avatars.githubusercontent.com/u/7909582?v=4" CornerRadius="100" ClipToBounds="True" />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MImage}" TargetType="MImage">
-        <Setter Property="Padding" Value="12" />
+        <Setter Property="Padding" Value="{MThickness S3}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -52,6 +52,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Setter Property="Background" Value="{MBrush Background}" />
         <Setter Property="LoadingSize" Value="22" />
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="IsVisible" Value="False" />

@@ -3,33 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanel Mode="Horizontal" Spacing="20">
-                <MSplitButton Size="Small" Content="Small" VerticalAlignment="Top">
-                    <MSplitButton.Flyout>
-                        <MenuFlyout>
-                            <MenuItem Header="Option 1" />
-                            <MenuItem Header="Option 2" />
-                        </MenuFlyout>
-                    </MSplitButton.Flyout>
-                </MSplitButton>
-                <MSplitButton Size="Default" Content="Default" VerticalAlignment="Top">
-                    <MSplitButton.Flyout>
-                        <MenuFlyout>
-                            <MenuItem Header="Option 1" />
-                            <MenuItem Header="Option 2" />
-                        </MenuFlyout>
-                    </MSplitButton.Flyout>
-                </MSplitButton>
-                <MSplitButton Size="Large" Content="Large" VerticalAlignment="Top">
-                    <MSplitButton.Flyout>
-                        <MenuFlyout>
-                            <MenuItem Header="Option 1" />
-                            <MenuItem Header="Option 2" />
-                        </MenuFlyout>
-                    </MSplitButton.Flyout>
-                </MSplitButton>
-            </MPanel>
+        <MPanel Mode="Wrap" Spacing="12" Margin="12">
             <MSplitButton Content="Default" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
                     <MenuFlyout>
@@ -78,159 +52,119 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="PART_Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Button Name="PART_PrimaryButton"
-                                Grid.Column="0"
-                                Background="Transparent"
-                                Foreground="{TemplateBinding Foreground}"
-                                BorderThickness="0"
-                                Padding="{TemplateBinding Padding}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Command="{TemplateBinding Command}"
-                                CommandParameter="{TemplateBinding CommandParameter}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                FontWeight="{TemplateBinding FontWeight}" />
-                        <Rectangle Name="Separator"
-                                   Grid.Column="1"
-                                   Width="1"
-                                   Fill="{TemplateBinding BorderBrush}"
-                                   Opacity="0.3" />
-                        <Button Name="PART_SecondaryButton"
-                                Grid.Column="2"
-                                Background="Transparent"
-                                Foreground="{TemplateBinding Foreground}"
-                                BorderThickness="0"
-                                Padding="10 0"
-                                VerticalContentAlignment="Center">
-                            <MPathIcon Name="DropdownIcon"
-                                       Data="M1 4L6 9L11 4"
-                                       UseStroke="True"
-                                       Size="8">
-                                <MPathIcon.RenderTransform>
-                                    <TransformOperations>
-                                        rotate(0deg)
-                                    </TransformOperations>
-                                </MPathIcon.RenderTransform>
-                                <MPathIcon.Transitions>
-                                    <Transitions>
-                                        <TransformOperationsTransition Property="RenderTransform"
-                                                                       Duration="0:0:0.1" />
-                                    </Transitions>
-                                </MPathIcon.Transitions>
-                            </MPathIcon>
-                        </Button>
-                    </Grid>
-                </Border>
+                <Grid ColumnDefinitions="* Auto">
+                    <MButton Grid.Column="0" Name="PART_PrimaryButton"
+                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                             Command="{TemplateBinding Command}"
+                             CommandParameter="{TemplateBinding CommandParameter}"
+                             Content="{TemplateBinding Content}"
+                             ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <Border Grid.Column="0" Name="Line">
+                        <Border />
+                    </Border>
+                    <MDropDownButton Grid.Column="1" Name="PART_SecondaryButton">
+                        <MPathIcon Name="DropDownIcon" />
+                    </MDropDownButton>
+                </Grid>
             </ControlTemplate>
         </Setter>
-        <Setter Property="Transitions">
-            <Transitions>
-                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
-            </Transitions>
-        </Setter>
-        <Style Selector="^ /template/ Button">
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Background="{TemplateBinding Background}"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      CornerRadius="{TemplateBinding CornerRadius}"
-                                      RecognizesAccessKey="True" />
-                </ControlTemplate>
+        <Style Selector="^ /template/ Border#Line">
+            <Setter Property="ZIndex" Value="2" />
+            <Setter Property="Width" Value="{MSize Px}" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="{MThickness S2, Filter=Top|Bottom}" />
+        </Style>
+        <Style Selector="^ /template/ MPathIcon#DropDownIcon">
+            <Setter Property="Data" Value="M6 9L12 15L18 9" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="Size" Value="{MSize S2}" />
+            <Setter Property="RenderTransform" Value="rotate(0deg)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+                </Transitions>
             </Setter>
         </Style>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="Padding" Value="12 6" />
+        <Style Selector="^:flyout-open /template/ MPathIcon#DropDownIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
-        <Style Selector="^[Size=Default]">
-            <Setter Property="Padding" Value="16 8" />
+        <Style Selector="^ /template/ MButton">
+            <Setter Property="CornerRadius" Value="{MRadius MD, Filter=Left}" />
         </Style>
-        <Style Selector="^[Size=Large]">
-            <Setter Property="Padding" Value="20 10" />
+        <Style Selector="^ /template/ MDropDownButton">
+            <Setter Property="CornerRadius" Value="{MRadius MD, Filter=Right}" />
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S2_5}" />
+        </Style>
+        <Style Selector="^ /template/ MButton:pointerover">
+            <Setter Property="ZIndex" Value="1" />
+        </Style>
+        <Style Selector="^ /template/ MDropDownButton:pointerover">
+            <Setter Property="ZIndex" Value="1" />
         </Style>
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{MBrush Foreground}" />
-            <Setter Property="Foreground" Value="{MBrush Background}" />
-            <Style Selector="^ /template/ Rectangle#Separator">
-                <Setter Property="Fill" Value="{MBrush Background}" />
+            <Style Selector="^ /template/ MButton">
+                <Setter Property="Variant" Value="Default" />
             </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+            <Style Selector="^ /template/ MDropDownButton">
+                <Setter Property="Variant" Value="Default" />
             </Style>
-        </Style>
-        <Style Selector="^[Variant=Outline]">
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="Background" Value="{MBrush Background}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="BoxShadow" Value="{MShadow MD}" />
-            </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
-                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
-                <Style Selector="^ /template/ Border#PART_Border">
-                    <Setter Property="BoxShadow" Value="{MShadow XS}" />
-                </Style>
+            <Style Selector="^ /template/ Border#Line">
+                <Setter Property="Background" Value="{MBrush PrimaryForeground, Opacity=0.3}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush Border}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^ /template/ Rectangle#Separator">
-                <Setter Property="Fill" Value="{MBrush Foreground}" />
-                <Setter Property="Opacity" Value="0.15" />
+            <Style Selector="^ /template/ MButton">
+                <Setter Property="Variant" Value="Secondary" />
             </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border, Opacity=0.3}" />
+            <Style Selector="^ /template/ MDropDownButton">
+                <Setter Property="Variant" Value="Secondary" />
             </Style>
-        </Style>
-        <Style Selector="^[Variant=Ghost]">
-            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^ /template/ Rectangle#Separator">
-                <Setter Property="Fill" Value="{MBrush Foreground}" />
-                <Setter Property="Opacity" Value="0.15" />
-            </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
+            <Style Selector="^ /template/ Border#Line">
+                <Setter Property="Background" Value="{MBrush SecondaryForeground, Opacity=0.1}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Background" Value="{MBrush Destructive}" />
-            <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
-            <Style Selector="^ /template/ Rectangle#Separator">
-                <Setter Property="Fill" Value="{MBrush DestructiveForeground}" />
+            <Style Selector="^ /template/ MButton">
+                <Setter Property="Variant" Value="Destructive" />
             </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.8}" />
+            <Style Selector="^ /template/ MDropDownButton">
+                <Setter Property="Variant" Value="Destructive" />
+            </Style>
+            <Style Selector="^ /template/ Border#Line">
+                <Setter Property="Background" Value="{MBrush DestructiveForeground, Opacity=0.3}" />
             </Style>
         </Style>
-        <Style Selector="^:flyout-open /template/ MPathIcon#DropdownIcon">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        <Style Selector="^[Variant=Outline]">
+            <Style Selector="^ /template/ MButton">
+                <Setter Property="Variant" Value="Outline" />
+            </Style>
+            <Style Selector="^ /template/ MDropDownButton">
+                <Setter Property="Padding" Value="{MThickness S3, Vertical=S2_5}" />
+                <Setter Property="Variant" Value="Outline" />
+            </Style>
+            <!-- TODO setting BorderThickness causes inability to render BoxShadow, temporarily resolved this way -->
+            <Style Selector="^ /template/ Border#Line">
+                <Setter Property="Width" Value="2" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Background" Value="{MBrush Background}" />
+                <Setter Property="Margin" Value="0 1 -1 1" />
+                <Style Selector="^ > Border">
+                    <Setter Property="Width" Value="{MSize Px}" />
+                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                    <Setter Property="Margin" Value="{MThickness S2, Filter=Top|Bottom}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Style Selector="^ /template/ MButton">
+                <Setter Property="Variant" Value="Ghost" />
+            </Style>
+            <Style Selector="^ /template/ MDropDownButton">
+                <Setter Property="Variant" Value="Ghost" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

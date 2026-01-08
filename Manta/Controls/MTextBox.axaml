@@ -23,10 +23,10 @@
             <MTextBox Text="ReadOnly" IsPasswordBox="True" />
             <MTextBox Text="Custom left and right" Padding="0 8">
                 <MTextBox.InnerLeftContent>
-                    <MButton Variant="Ghost" Size="Small" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Left" />
+                    <MButton Variant="Ghost" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Left" />
                 </MTextBox.InnerLeftContent>
                 <MTextBox.InnerRightContent>
-                    <MButton Variant="Ghost" Size="Small" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Right" />
+                    <MButton Variant="Ghost" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Right" />
                 </MTextBox.InnerRightContent>
             </MTextBox>
         </MPanel>
@@ -126,19 +126,18 @@
             <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0.3, BrushKey=Primary}" />
         </Style>
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Padding" Value="10 8" />
-            <Setter Property="CornerRadius" Value="8" />
-            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="BoxShadow" Value="{MShadow XS}" />
+            <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
             <Style Selector="^:pointerover">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
-                <Setter Property="BoxShadow" Value="{MShadow XS, BrushKey=Primary}" />
             </Style>
             <Style Selector="^:focus">
-                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
-                <Setter Property="BoxShadow" Value="{MShadow MD, BrushKey=Primary}" />
+                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.7}" />
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.3}" />
             </Style>
             <Style Selector="^[IsReadOnly=True]">
                 <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />

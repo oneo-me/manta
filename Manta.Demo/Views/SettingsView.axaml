@@ -107,25 +107,25 @@
                                             </MPanel>
                                         </MPanel>
                                         <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <MButton Size="Small" Variant="Ghost">
+                                            <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
                                                     <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Issues" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
-                                            <MButton Size="Small" Variant="Ghost">
+                                            <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
                                                     <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Discord" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
-                                            <MButton Size="Small" Variant="Ghost">
+                                            <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
                                                     <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Twitter" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
-                                            <MButton Size="Small" Variant="Ghost">
+                                            <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
                                                     <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Github" VerticalAlignment="Center" />
@@ -133,8 +133,8 @@
                                             </MButton>
                                         </MPanel>
                                         <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                                            <MButton Size="Small" Content="Update log" />
-                                            <MButton Size="Small" Content="check for updates" />
+                                            <MButton Content="Update log" />
+                                            <MButton Content="check for updates" />
                                         </MPanel>
                                     </MPanel>
                                     <TextBlock Text="Group format" FontWeight="SemiBold" />

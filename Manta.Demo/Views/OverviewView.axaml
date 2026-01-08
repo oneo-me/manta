@@ -16,8 +16,7 @@
             </MItems.ItemsPanel>
             <MItems.ItemTemplate>
                 <DataTemplate>
-                    <MButton Size="Small"
-                             Content="{Lang {Binding Header}}"
+                    <MButton Content="{Lang {Binding Header}}"
                              Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
                              CommandParameter="{Binding}" />
                 </DataTemplate>
@@ -31,7 +30,7 @@
             </MItems.ItemsPanel>
             <MItems.ItemTemplate>
                 <DataTemplate>
-                    <MButton Variant="Outline" Size="Small"
+                    <MButton Variant="Outline"
                              Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
                              CommandParameter="{Binding}">
                         <MPanel Mode="Horizontal" Spacing="6">

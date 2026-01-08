@@ -19,7 +19,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MPixelGrid}" TargetType="MPixelGrid">
         <Setter Property="Background" Value="{MBrush Background}" />
-        <Setter Property="Opacity" Value="0.1" />
+        <Setter Property="Opacity" Value="0.07" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

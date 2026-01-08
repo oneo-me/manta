@@ -11,8 +11,8 @@
                 <MHyperlinkButton Content="Link with Icon">
                     <MHyperlinkButton.ContentTemplate>
                         <DataTemplate>
-                            <MPanel Mode="Horizontal" Spacing="4">
-                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                            <MPanel Mode="Horizontal" Spacing="6">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="6" VerticalAlignment="Center" />
                                 <TextBlock Text="External Link" VerticalAlignment="Center" />
                             </MPanel>
                         </DataTemplate>
@@ -23,9 +23,9 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MHyperlinkButton}" TargetType="MHyperlinkButton">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="{MThickness S0}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"
@@ -44,28 +44,23 @@
                 <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+            </Style>
+        </Style>
+        <Style Selector="^:pressed">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="TextBlock.TextDecorations" Value="" />
+            </Style>
+        </Style>
         <Style Selector="^[Variant=Default]">
             <Setter Property="Foreground" Value="{MBrush Primary}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.8}" />
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-                </Style>
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.6}" />
-            </Style>
         </Style>
         <Style Selector="^[Variant=Subtle]">
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Style Selector="^:pointerover">
                 <Setter Property="Foreground" Value="{MBrush Primary}" />
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-                </Style>
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.8}" />
             </Style>
         </Style>
     </ControlTheme>

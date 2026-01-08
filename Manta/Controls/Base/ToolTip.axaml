@@ -33,7 +33,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{MRadius MD}" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Padding" Value="10 5" />
+        <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S1}" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
         <!-- TODO <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" /> -->
@@ -44,8 +44,8 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
-                    BoxShadow="{MShadow XL2}"
-                    Margin="12"
+                    BoxShadow="{MShadow MD}"
+                    Margin="{MShadow MD, ValueType=Margin}"
                     Padding="{TemplateBinding Padding}">
                     <ContentPresenter x:Name="PART_ContentPresenter"
                                       Content="{TemplateBinding Content}"

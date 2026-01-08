@@ -41,10 +41,12 @@
         </Setter>
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="22" />
-        <Setter Property="CornerRadius" Value="999" />
-        <Setter Property="Padding" Value="8 2" />
+        <Setter Property="MinWidth" Value="{MSize S6}" />
+        <Setter Property="CornerRadius" Value="{MRadius Full}" />
+        <Setter Property="Padding" Value="{MThickness S2, Vertical=S0_5}" />
         <Setter Property="Background" Value="{MBrush Primary}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
         <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
         <Style Selector="^[Variant=Secondary]">
             <Setter Property="Background" Value="{MBrush Secondary}" />
@@ -55,8 +57,8 @@
             <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
         </Style>
         <Style Selector="^[Variant=Outline]">
-            <Setter Property="Padding" Value="6 1" />
-            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="{MThickness S2, Vertical=S0_5, OffsetNegative=Px}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />

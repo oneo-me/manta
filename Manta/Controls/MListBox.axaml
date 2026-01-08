@@ -9,7 +9,7 @@
         <MPanel Mode="Horizontal" Spacing="12" Margin="12">
             <MPanel Mode="Vertical" Spacing="12">
                 <TextBlock Text="Normal" />
-                <MListBox BorderThickness="1">
+                <MListBox BorderThickness="1" SelectedIndex="0">
                     <MListBox.ItemsSource>
                         <generic:List x:TypeArguments="system:String">
                             <system:String>0: Test 0</system:String>
@@ -26,7 +26,7 @@
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12">
                 <TextBlock Text="Sidebar" />
-                <MListBox Vertical="Sidebar" BorderThickness="1">
+                <MListBox Vertical="Sidebar" BorderThickness="1" SelectedIndex="0">
                     <MListBox.ItemsSource>
                         <generic:List x:TypeArguments="system:String">
                             <system:String>0: Test 0</system:String>
@@ -43,7 +43,7 @@
             </MPanel>
             <MPanel Mode="Vertical" Spacing="12">
                 <TextBlock Text="NoStyle" />
-                <MListBox Vertical="NoStyle" BorderThickness="1">
+                <MListBox Vertical="NoStyle" BorderThickness="1" SelectedIndex="0">
                     <MListBox.ItemsSource>
                         <generic:List x:TypeArguments="system:String">
                             <system:String>0: Test 0</system:String>
@@ -119,18 +119,18 @@
             </Transitions>
         </Setter>
         <Style Selector="^[Vertical=Default]">
-            <Setter Property="Padding" Value="10 6" />
+            <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S1_5}" />
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
             </Style>
         </Style>
         <Style Selector="^[Vertical=Sidebar]">
-            <Setter Property="Padding" Value="12 8" />
-            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S2}" />
+            <Setter Property="CornerRadius" Value="{MRadius LG}" />
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
             </Style>
         </Style>
         <Style Selector="^[Vertical=NoStyle]" />

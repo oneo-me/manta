@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 
 namespace Manta.Controls;
 
@@ -10,14 +11,8 @@ public enum MRepeatButtonVariant
     Secondary,
     Ghost,
     Destructive,
-    Link
-}
 
-public enum MRepeatButtonSize
-{
-    Default,
-    Small,
-    Large
+    NoStyle
 }
 
 public class MRepeatButton : RepeatButton
@@ -31,12 +26,12 @@ public class MRepeatButton : RepeatButton
         set => SetValue(VariantProperty, value);
     }
 
-    public static readonly StyledProperty<MRepeatButtonSize> SizeProperty = AvaloniaProperty.Register<MRepeatButton, MRepeatButtonSize>(
-        nameof(Size));
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<MRepeatButton, BoxShadows>(
+        nameof(BoxShadow));
 
-    public MRepeatButtonSize Size
+    public BoxShadows BoxShadow
     {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
+        get => GetValue(BoxShadowProperty);
+        set => SetValue(BoxShadowProperty, value);
     }
 }

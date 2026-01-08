@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:anim="using:Manta.Animation"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12" Width="200">
@@ -12,95 +11,74 @@
             <MNumericUpDown Value="3.14" FormatString="F2" />
             <MNumericUpDown Value="50" IsReadOnly="True" />
             <MNumericUpDown Watermark="Enter value..." />
+            <MNumericUpDown Watermark="Enter value..." AllowSpin="False" />
+            <MNumericUpDown Watermark="Enter value..." ButtonSpinnerLocation="Left" />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MNumericUpDown}" TargetType="MNumericUpDown">
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            BoxShadow="{TemplateBinding BoxShadow}">
-                        <Border.Transitions>
-                            <Transitions>
-                                <anim:SmoothBrushTransition Property="Background" Duration="0:0:0.15" />
-                                <anim:SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.15" />
-                                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.15" />
-                            </Transitions>
-                        </Border.Transitions>
-                        <Grid ColumnDefinitions="*,Auto,Auto">
-                            <!-- TextBox -->
-                            <MTextBox Name="PART_TextBox"
-                                      Grid.Column="0"
-                                      Variant="NoStyle"
-                                      Padding="{TemplateBinding Padding}"
-                                      Watermark="{TemplateBinding Watermark}"
-                                      IsReadOnly="{TemplateBinding IsReadOnly}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <!-- Decrease button -->
-                            <MRepeatButton Name="PART_DecreaseButton"
-                                           Grid.Column="1"
-                                           Variant="Ghost"
-                                           Padding="6 0"
-                                           CornerRadius="0"
-                                           VerticalAlignment="Stretch">
-                                <MPathIcon Data="M20 12H4" UseStroke="True" StrokeThickness="1.5" Size="12" />
-                            </MRepeatButton>
-                            <!-- Increase button -->
-                            <MRepeatButton Name="PART_IncreaseButton"
-                                           Grid.Column="2"
-                                           Variant="Ghost"
-                                           Padding="6 0"
-                                           CornerRadius="0"
-                                           VerticalAlignment="Stretch">
-                                <MPathIcon Data="M12 4V20M20 12H4" UseStroke="True" StrokeThickness="1.5" Size="12" />
-                            </MRepeatButton>
-                        </Grid>
-                    </Border>
-                </Panel>
+                <MButtonSpinner Name="PART_Spinner"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BoxShadow="{TemplateBinding BoxShadow}"
+                                IsTabStop="False"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"
+                                AllowSpin="{TemplateBinding AllowSpin}"
+                                ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
+                                ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
+                    <MTextBox Name="PART_TextBox"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              Padding="{TemplateBinding Padding}"
+                              Foreground="{TemplateBinding Foreground}"
+                              Watermark="{TemplateBinding Watermark}"
+                              IsReadOnly="{TemplateBinding IsReadOnly}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Text="{TemplateBinding Text}"
+                              TextAlignment="{TemplateBinding TextAlignment}"
+                              AcceptsReturn="False"
+                              TextWrapping="NoWrap"
+                              InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
+                              InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MButtonSpinner>
             </ControlTemplate>
         </Setter>
-        <!-- Custom -->
-        <Setter Property="Padding" Value="8 6" />
-        <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <!-- Colors -->
-        <Setter Property="Background" Value="{MBrush Background, Opacity=0.5}" />
-        <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <!-- ReadOnly state -->
-        <Style Selector="^[IsReadOnly=True]">
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+        <Style Selector="^ /template/ MTextBox#PART_TextBox">
+            <Setter Property="Variant" Value="NoStyle" />
         </Style>
-        <!-- Hover/focus styles -->
-        <Style Selector="^[IsReadOnly=False]">
-            <Style Selector="^:pointerover, ^:focus-within">
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.2" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
+            <Style Selector="^:pointerover">
                 <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
-                <Setter Property="BoxShadow" Value="{MShadow LG, BrushKey=Primary}" />
             </Style>
-        </Style>
-        <!-- Buttons -->
-        <Style Selector="^ /template/ MRepeatButton">
-            <Setter Property="Opacity" Value="0.4" />
-            <Setter Property="Transitions">
-                <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.15" />
-                </Transitions>
-            </Setter>
-        </Style>
-        <Style Selector="^ /template/ MRepeatButton:pointerover">
-            <Setter Property="Opacity" Value="0.8" />
-        </Style>
-        <Style Selector="^:pointerover /template/ MRepeatButton, ^:focus-within /template/ MRepeatButton">
-            <Setter Property="Opacity" Value="0.6" />
-        </Style>
-        <Style Selector="^:pointerover /template/ MRepeatButton:pointerover, ^:focus-within /template/ MRepeatButton:pointerover">
-            <Setter Property="Opacity" Value="1" />
+            <Style Selector="^:focus">
+                <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.7}" />
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.3}" />
+            </Style>
+            <Style Selector="^[IsReadOnly=True]">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border}" />
+                <Setter Property="BoxShadow" Value="{MShadow XS, ValueType=InsetShadow}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

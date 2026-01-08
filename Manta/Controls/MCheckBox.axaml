@@ -37,21 +37,33 @@
             </Transitions>
         </Setter>
         <Style Selector="^ /template/ Border#Icon">
-            <Setter Property="Width" Value="16" />
-            <Setter Property="Height" Value="16" />
+            <Setter Property="Width" Value="{MSize S4}" />
+            <Setter Property="Height" Value="{MSize S4}" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="4" />
-            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius SM, OffsetNegative=Px}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                    <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                    <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
             <Style Selector="^ MPathIcon">
                 <Setter Property="Data" Value="M20 6 9 17l-5-5" />
                 <Setter Property="UseStroke" Value="True" />
-                <Setter Property="Size" Value="8" />
+                <Setter Property="Size" Value="{MSize S4, OffsetNegative=S2}" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Opacity" Value="0" />
                 <Setter Property="Foreground" Value="{MBrush Background}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
             </Style>
         </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
@@ -69,9 +81,9 @@
         <Style Selector="^[Variant=Default]">
             <Style Selector="^:checked">
                 <Style Selector="^ /template/ Border#Icon">
-                    <Setter Property="Background" Value="{MBrush Foreground}" />
-                    <Setter Property="BorderBrush" Value="{MBrush Foreground}" />
-                    <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
+                    <Setter Property="Background" Value="{MBrush Primary}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Primary}" />
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
                     <Style Selector="^ MPathIcon">
                         <Setter Property="Opacity" Value="1" />
                     </Style>
@@ -81,16 +93,16 @@
         <Style Selector="^[Variant=Bordered]">
             <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Padding" Value="12" />
-            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="Padding" Value="{MThickness S3}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
             <Style Selector="^:checked">
                 <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
                 <Setter Property="BorderBrush" Value="{MBrush Primary}" />
                 <Style Selector="^ /template/ Border#Icon">
                     <Setter Property="Background" Value="{MBrush Primary}" />
                     <Setter Property="BorderBrush" Value="{MBrush Primary}" />
-                    <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
                     <Style Selector="^ MPathIcon">
                         <Setter Property="Opacity" Value="1" />
                     </Style>
