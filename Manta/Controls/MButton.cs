@@ -13,13 +13,6 @@ public enum MButtonVariant
     Link
 }
 
-public enum MButtonSize
-{
-    Default,
-    Small,
-    Large
-}
-
 public class MButton : Button
 {
     public static readonly StyledProperty<MButtonVariant> VariantProperty = AvaloniaProperty.Register<MButton, MButtonVariant>(
@@ -29,14 +22,5 @@ public class MButton : Button
     {
         get => GetValue(VariantProperty);
         set => SetValue(VariantProperty, value);
-    }
-
-    public static readonly StyledProperty<MButtonSize> SizeProperty = AvaloniaProperty.Register<MButton, MButtonSize>(
-        nameof(Size));
-
-    public MButtonSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
     }
 }

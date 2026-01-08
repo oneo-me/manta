@@ -8,9 +8,9 @@ namespace Manta.Controls;
 
 [TemplatePart(Name = "PART_Border", Type = typeof(Border))]
 [TemplatePart(Name = "PART_Host", Type = typeof(Border))]
-public class MClipContentControl : ContentControl
+public class MClip : ContentControl
 {
-    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<MClipContentControl, BoxShadows>(
+    public static readonly StyledProperty<BoxShadows> BoxShadowProperty = AvaloniaProperty.Register<MClip, BoxShadows>(
         nameof(BoxShadow));
 
     public BoxShadows BoxShadow

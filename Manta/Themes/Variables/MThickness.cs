@@ -18,6 +18,10 @@ public enum MThicknessFilter
 
 public sealed class MThickness(MSizeVariant variant) : MSizeBase
 {
+    public MSizeVariant Offset { get; init; } = MSizeVariant.S0;
+    public MSizeVariant OffsetNegative { get; init; } = MSizeVariant.S0;
+    public bool Reverse { get; init; }
+
     MThicknessFilter _filter = MThicknessFilter.All;
 
     public string Filter
@@ -33,10 +37,18 @@ public sealed class MThickness(MSizeVariant variant) : MSizeBase
         if (values[0] is double number)
             size = number;
 
-        var horizontalSize = CalculateSize(size, variant);
-        var verticalSize = Vertical.HasValue ? CalculateSize(size, Vertical.Value) : horizontalSize;
+        var offsetSize = CalculateSize(size, Offset);
+        var offsetNegativeSize = CalculateSize(size, OffsetNegative);
+        var horizontalSize = CalculateSize(size, variant) + offsetSize - offsetNegativeSize;
+        var verticalSize = Vertical.HasValue ? CalculateSize(size, Vertical.Value) + offsetSize - offsetNegativeSize : horizontalSize;
         if (size <= 0 && verticalSize <= 0)
             return default(Thickness);
+
+        if (Reverse)
+        {
+            horizontalSize = -horizontalSize;
+            verticalSize = -verticalSize;
+        }
 
         return new Thickness(
             _filter.HasFlag(MThicknessFilter.Left, horizontalSize),

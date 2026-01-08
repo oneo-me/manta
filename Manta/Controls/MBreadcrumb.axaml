@@ -62,18 +62,18 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[Type=Text]">
-            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                    <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
                 </Transitions>
             </Setter>
             <Style Selector="^:nth-last-child(1)">
-                <Setter Property="Opacity" Value="1" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
             </Style>
             <Style Selector="^:not(:nth-last-child(1))">
                 <Style Selector="^:pointerover">
-                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="Foreground" Value="{MBrush Foreground}" />
                 </Style>
             </Style>
         </Style>
@@ -81,9 +81,9 @@
             <Setter Property="Template">
                 <ControlTemplate>
                     <MPathIcon Data="m9 18 6-6-6-6"
-                                   UseStroke="True"
-                                   Size="6"
-                                   Opacity="0.5" />
+                               UseStroke="True"
+                               Size="6"
+                               Opacity="0.5" />
                 </ControlTemplate>
             </Setter>
         </Style>
@@ -91,9 +91,9 @@
             <Setter Property="Template">
                 <ControlTemplate>
                     <MPathIcon Data="M22 2 2 22"
-                                   UseStroke="True"
-                                   Size="10"
-                                   Opacity="0.5" />
+                               UseStroke="True"
+                               Size="10"
+                               Opacity="0.5" />
                 </ControlTemplate>
             </Setter>
         </Style>

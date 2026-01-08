@@ -12,7 +12,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MRingShape}" TargetType="MRingShape">
-        <Setter Property="Size" Value="28" />
+        <Setter Property="Size" Value="{MSize S9}" />
         <Setter Property="StrokeSize" Value="2.5" />
         <Setter Property="Value" Value="0" />
         <Setter Property="Maximum" Value="100" />

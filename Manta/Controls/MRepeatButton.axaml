@@ -3,45 +3,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <!-- RepeatButton -->
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanel Mode="Horizontal" Spacing="20">
-                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
-                    <MRepeatButton Variant="Outline" Size="Small" Content="Small" />
-                    <MRepeatButton Variant="Outline" Size="Small">
-                        <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
-                    </MRepeatButton>
-                </MPanel>
-                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
-                    <MRepeatButton Variant="Outline" Size="Default" Content="Default" />
-                    <MRepeatButton Variant="Outline" Size="Default">
-                        <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
-                    </MRepeatButton>
-                </MPanel>
-                <MPanel Mode="Horizontal" Spacing="8" VerticalAlignment="Top">
-                    <MRepeatButton Variant="Outline" Size="Large" Content="Large" />
-                    <MRepeatButton Variant="Outline" Size="Large">
-                        <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
-                    </MRepeatButton>
-                </MPanel>
-            </MPanel>
+        <!-- Button -->
+        <MPanel Mode="Wrap" Spacing="12" Margin="12">
             <MPanel Mode="Horizontal" Spacing="8">
-                <MRepeatButton Content="RepeatButton" />
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MRepeatButton Variant="Outline" Content="Outline" />
+                <MRepeatButton Content="Button" />
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
                 <MRepeatButton Variant="Secondary" Content="Secondary" />
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MRepeatButton Variant="Ghost" Content="Ghost" />
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
                 <MRepeatButton Variant="Destructive" Content="Destructive" />
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MRepeatButton Variant="Link" Content="Link" />
+                <MRepeatButton Variant="Outline" Content="Outline" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MRepeatButton Variant="Ghost" Content="Ghost" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MRepeatButton Variant="NoStyle" Content="NoStyle" />
             </MPanel>
         </MPanel>
     </Design.PreviewWith>
@@ -51,86 +31,136 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  Padding="{TemplateBinding Padding}"
-                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  Background="{TemplateBinding Background}"
-                                  Foreground="{TemplateBinding Foreground}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  Content="{TemplateBinding Content}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  CornerRadius="{TemplateBinding CornerRadius}"
-                                  RecognizesAccessKey="True" />
+                <Panel>
+                    <Border Classes="Ring" CornerRadius="{TemplateBinding CornerRadius}" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      BoxShadow="{TemplateBinding BoxShadow}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
         <Setter Property="Transitions">
             <Transitions>
                 <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="Padding" Value="12 6" />
-        </Style>
-        <Style Selector="^[Size=Default]">
-            <Setter Property="Padding" Value="16 8" />
-        </Style>
-        <Style Selector="^[Size=Large]">
-            <Setter Property="Padding" Value="20 10" />
-        </Style>
+        <Setter Property="Padding" Value="{MThickness S4, Vertical=S2}" />
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{MBrush Foreground}" />
-            <Setter Property="Foreground" Value="{MBrush Background}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.8}" />
+            <Setter Property="Background" Value="{MBrush Primary}" />
+            <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+            <Style Selector="^ /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing None, BrushKey=Primary, BrushOpacity=0.2}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
             </Style>
-        </Style>
-        <Style Selector="^[Variant=Outline]">
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="Background" Value="{MBrush Background}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Style Selector="^:pointerover /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.2}" />
             </Style>
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
-                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.6}" />
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="BoxShadow" Value="{MShadow XS}" />
-                </Style>
+            <Style Selector="^:pressed /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush Border}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border, Opacity=0.3}" />
+            <Setter Property="Background" Value="{MBrush Secondary}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM, BrushKey=Secondary, BrushType=Dark1}" />
+            <Style Selector="^ /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
             </Style>
-        </Style>
-        <Style Selector="^[Variant=Ghost]">
-            <Setter Property="Background" Value="{MBrush Border, Opacity=0}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Border}" />
+            <Style Selector="^:pointerover /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
             <Setter Property="Background" Value="{MBrush Destructive}" />
             <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.8}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+            <Style Selector="^ /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing None, BrushKey=Destructive, BrushOpacity=0.2}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Destructive, BrushOpacity=0.2}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Destructive, BrushOpacity=0}" />
             </Style>
         </Style>
-        <Style Selector="^[Variant=Link]">
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="Padding" Value="{MThickness S4, Vertical=S2, OffsetNegative=Px}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="Background" Value="{MBrush Background}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+            <Style Selector="^ /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing None, BrushKey=Shadow, BrushOpacity=0.1}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Shadow, BrushOpacity=0.1}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Shadow, BrushOpacity=0}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Background" Value="{MBrush Secondary, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^ /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^:pointerover">
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-                </Style>
+                <Setter Property="Background" Value="{MBrush Secondary}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border.Ring">
+                <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}" />
             </Style>
         </Style>
     </ControlTheme>

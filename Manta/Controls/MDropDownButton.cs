@@ -9,15 +9,7 @@ public enum MDropDownButtonVariant
     Outline,
     Secondary,
     Ghost,
-    Destructive,
-    Link
-}
-
-public enum MDropDownButtonSize
-{
-    Default,
-    Small,
-    Large
+    Destructive
 }
 
 public class MDropDownButton : DropDownButton
@@ -29,14 +21,5 @@ public class MDropDownButton : DropDownButton
     {
         get => GetValue(VariantProperty);
         set => SetValue(VariantProperty, value);
-    }
-
-    public static readonly StyledProperty<MDropDownButtonSize> SizeProperty = AvaloniaProperty.Register<MDropDownButton, MDropDownButtonSize>(
-        nameof(Size));
-
-    public MDropDownButtonSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
     }
 }

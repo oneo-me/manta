@@ -37,6 +37,6 @@
     <values:OklchColor x:Key="{MBrushKey SidebarBorder}" L="0.922" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey SidebarRing}" L="0.708" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey Shadow}" L="0" C="0" H="0" Opacity="1" />
-    <system:Double x:Key="{MSizeKey Radius}">10</system:Double>
+    <system:Double x:Key="{MSizeKey Radius}">12</system:Double>
     <system:Double x:Key="{MSizeKey Spacing}">4</system:Double>
 </ResourceDictionary>

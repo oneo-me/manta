@@ -8,17 +8,54 @@ namespace Manta.Themes.Variables;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public enum MRadiusVariant
 {
+    /// <summary>
+    ///     0
+    /// </summary>
     None,
 
+    /// <summary>
+    ///     12 * 0.25 = 3
+    /// </summary>
     XS,
+
+    /// <summary>
+    ///     12 * 0.5 = 6
+    /// </summary>
     SM,
+
+    /// <summary>
+    ///     12 * 0.75 = 9
+    /// </summary>
     MD,
+
+    /// <summary>
+    ///     12 * 1.0 = 12
+    /// </summary>
     LG,
+
+    /// <summary>
+    ///     12 * 1.5 = 18
+    /// </summary>
     XL,
+
+    /// <summary>
+    ///     12 * 2.0 = 24
+    /// </summary>
     XL2,
+
+    /// <summary>
+    ///     12 * 3.0 = 36
+    /// </summary>
     XL3,
+
+    /// <summary>
+    ///     12 * 4.0 = 48
+    /// </summary>
     XL4,
 
+    /// <summary>
+    ///     9999
+    /// </summary>
     Full
 }
 
@@ -42,7 +79,8 @@ public enum MRadiusFilter
 
 public sealed class MRadius(MRadiusVariant variant) : MValueBase
 {
-    public MRadiusVariant Variant { get; } = variant;
+    public MSizeVariant? Offset { get; init; }
+    public MSizeVariant? OffsetNegative { get; init; }
 
     MRadiusFilter _filter = MRadiusFilter.All;
 
@@ -54,6 +92,8 @@ public sealed class MRadius(MRadiusVariant variant) : MValueBase
     protected override IEnumerable<object> GetKeys()
     {
         yield return MSizeKey.Radius;
+        if (Offset is not null || OffsetNegative is not null)
+            yield return MSizeKey.Spacing;
     }
 
     static readonly double[] _multipliers =
@@ -67,11 +107,27 @@ public sealed class MRadius(MRadiusVariant variant) : MValueBase
         if (values[0] is double number)
             size = number;
 
-        var multiplier = _multipliers[(int)Variant];
-        var newSize = size * multiplier;
+        var multiplier = _multipliers[(int)variant];
+        double newSize;
 
-        if (newSize <= 0d)
-            return default(CornerRadius);
+        if (multiplier < 0)
+        {
+            newSize = 9999d;
+        }
+        else
+        {
+            newSize = size * multiplier;
+
+            if ((Offset is not null || OffsetNegative is not null) && values[1] is double offsetNumber)
+            {
+                var offsetSize = Offset.HasValue ? MSizeBase.CalculateSize(offsetNumber, Offset.Value) : 0d;
+                var offsetNegativeSize = OffsetNegative.HasValue ? MSizeBase.CalculateSize(offsetNumber, OffsetNegative.Value) : 0d;
+                newSize = newSize + offsetSize - offsetNegativeSize;
+            }
+
+            if (newSize <= 0d)
+                return default(CornerRadius);
+        }
 
         return new CornerRadius(
             _filter.HasFlag(MRadiusFilter.LeftTop, newSize),

@@ -19,17 +19,6 @@
                 </MProgressRing>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="12">
-                <MProgressRing Variant="Secondary" />
-                <MProgressRing Variant="Secondary" Value="50" />
-                <MProgressRing Variant="Secondary" Value="100" />
-                <MProgressRing Variant="Secondary" IsIndeterminate="True" />
-                <MProgressRing Variant="Secondary" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Secondary" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
-                <MProgressRing Variant="Secondary" IsIndeterminate="True" Value="50" Maximum="100">
-                    <TextBlock Text="TEST" />
-                </MProgressRing>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="12">
                 <MProgressRing Variant="Destructive" />
                 <MProgressRing Variant="Destructive" Value="50" />
                 <MProgressRing Variant="Destructive" Value="100" />
@@ -47,8 +36,9 @@
     <ControlTheme x:Key="{x:Type MProgressRing}" TargetType="MProgressRing">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="8" />
         <Setter Property="RingStrokeSize" Value="2.5" />
-        <Setter Property="RingSize" Value="28" />
+        <Setter Property="RingSize" Value="{MSize S9}" />
         <Setter Property="CornerRadius" Value="3000" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
@@ -60,7 +50,7 @@
                                 Size="{TemplateBinding RingSize}" StrokeSize="{TemplateBinding RingStrokeSize}"
                                 Background="{TemplateBinding RingBackground}" Foreground="{TemplateBinding RingForeground}" />
                     <Panel Width="{TemplateBinding RingSize}" Height="{TemplateBinding RingSize}">
-                        <MClipContentControl
+                        <MClip
                             Background="{TemplateBinding Background}"
                             Foreground="{TemplateBinding Foreground}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -89,7 +79,7 @@
                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Panel>
-                        </MClipContentControl>
+                        </MClip>
                     </Panel>
                 </Panel>
             </ControlTemplate>
@@ -113,10 +103,6 @@
                     </KeyFrame>
                 </Animation>
             </Style.Animations>
-        </Style>
-        <Style Selector="^[Variant=Secondary]">
-            <Setter Property="RingForeground" Value="{MBrush Foreground, Opacity=0.6}" />
-            <Setter Property="RingBackground" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <Style Selector="^[Variant=Default]">
             <Setter Property="RingForeground" Value="{MBrush Primary}" />

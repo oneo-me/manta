@@ -9,7 +9,6 @@
             <TextBlock Text="Variant" />
             <MPanel Mode="Vertical" Spacing="12" Width="180" HorizontalAlignment="Left">
                 <MProgressBar Variant="Default" IsIndeterminate="True" />
-                <MProgressBar Variant="Secondary" IsIndeterminate="True" />
                 <MProgressBar Variant="Destructive" IsIndeterminate="True" />
             </MPanel>
             <TextBlock Text="Vertical" />
@@ -121,17 +120,12 @@
         <Style Selector="^[Variant=Default]">
             <Setter Property="BarBrush" Value="{MBrush Primary}" />
             <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
-            <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
-        </Style>
-        <Style Selector="^[Variant=Secondary]">
-            <Setter Property="BarBrush" Value="{MBrush Foreground, Opacity=0.3}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <Style Selector="^[Variant=Destructive]">
             <Setter Property="BarBrush" Value="{MBrush Destructive}" />
             <Setter Property="Foreground" Value="{MBrush DestructiveForeground}" />
-            <Setter Property="Background" Value="{MBrush Destructive, Opacity=0.05}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
