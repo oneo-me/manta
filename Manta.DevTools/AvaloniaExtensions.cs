@@ -4,11 +4,13 @@ namespace Manta.DevTools;
 
 public static class AvaloniaExtensions
 {
+    static DevTools? _devTools;
+
     extension(AppBuilder appBuilder)
     {
-        public AppBuilder UseDevTools()
+        public AppBuilder UseDevTools(DevToolsOptions options = default)
         {
-            DevTools.IsEnabled = true;
+            _devTools ??= new(options);
             return appBuilder;
         }
     }
