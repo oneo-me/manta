@@ -5,6 +5,7 @@
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Manta.Charts\Manta.Charts.csproj" />
+        <ProjectReference Include="..\Manta.DevTools\Manta.DevTools.csproj" />
         <ProjectReference Include="..\Manta.Tools\Manta.Tools.csproj" />
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
