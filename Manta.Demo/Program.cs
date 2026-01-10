@@ -15,6 +15,9 @@ static class Program
     public static AppBuilder BuildAvaloniaApp()
     {
         return MApp.Build<App>()
-            .UseDevTools();
+            .UseDevTools(new()
+            {
+                AutoShowDevToolsOnStart = true
+            });
     }
 }

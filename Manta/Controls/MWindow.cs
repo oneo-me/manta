@@ -9,7 +9,8 @@ using Avalonia.Media;
 namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_Decorations), typeof(Panel))]
-public sealed class MWindow : Window
+[TemplatePart(nameof(PART_WindowContent), typeof(Grid))]
+public sealed partial class MWindow : Window
 {
     protected override Type StyleKeyOverride { get; } = typeof(MWindow);
 
@@ -37,6 +38,7 @@ public sealed class MWindow : Window
     }
 
     Panel? PART_Decorations;
+    Grid? PART_WindowContent;
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
@@ -44,6 +46,9 @@ public sealed class MWindow : Window
 
         if (Design.IsDesignMode)
             return;
+
+        PART_WindowContent = e.NameScope.Get<Grid>(nameof(PART_WindowContent));
+        PrepareAttach?.Invoke(this, PART_WindowContent);
 
         if (OperatingSystem.IsLinux() is false)
             return;

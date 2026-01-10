@@ -26,12 +26,13 @@
                     <Border Name="Background" Background="{TemplateBinding Background}" />
                     <Panel Margin="{ TemplateBinding OffScreenMargin}">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <VisualLayerManager>
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  Background="{MBrush Primary, Opacity=0.035}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  Content="{TemplateBinding Content}" />
-                            </VisualLayerManager>
+                            <Grid Name="PART_WindowContent" Background="{MBrush Primary, Opacity=0.035}">
+                                <VisualLayerManager>
+                                    <ContentPresenter Name="PART_ContentPresenter"
+                                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                      Content="{TemplateBinding Content}" />
+                                </VisualLayerManager>
+                            </Grid>
                         </Border>
                         <Panel x:Name="PART_Decorations" />
                     </Panel>

@@ -1,6 +1,24 @@
+using Avalonia.Controls;
+using Manta.Controls;
+
 namespace Manta.DevTools;
 
-static class DevTools
+sealed class DevTools
 {
-    public static bool IsEnabled { get; set; }
+    readonly DevToolsOptions _options;
+
+    public DevTools(DevToolsOptions options)
+    {
+        _options = options;
+
+        if (MWindow.PrepareAttach is not null)
+            return;
+
+        MWindow.PrepareAttach = OnPrepareAttach;
+    }
+
+    void OnPrepareAttach(MWindow window, Grid windowContent)
+    {
+        _ = new DevToolsAttacher(_options, window, windowContent);
+    }
 }
