@@ -47,7 +47,7 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-    <converters:MarginMultiplierConverter x:Key="TreeViewItemLeftMarginConverter" Indent="12" Left="True" />
+    <converters:MarginMultiplierConverter x:Key="TreeViewItemLeftMarginConverter" Indent="8" Left="True" />
     <ControlTheme x:Key="{x:Type MTreeItem}" TargetType="MTreeItem">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
