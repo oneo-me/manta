@@ -27,6 +27,8 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTree}" TargetType="MTree">
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="Padding" Value="{MThickness S1_5}" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
                 <MPanel Mode="Vertical" />
@@ -34,14 +36,14 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <MScrollViewer Padding="{TemplateBinding Padding}"
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               CornerRadius="{TemplateBinding CornerRadius}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
-                </Border>
+                </MScrollViewer>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
