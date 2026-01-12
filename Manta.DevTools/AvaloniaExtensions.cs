@@ -1,4 +1,5 @@
 using Avalonia;
+using Manta.Globalization;
 
 namespace Manta.DevTools;
 
@@ -10,8 +11,14 @@ public static class AvaloniaExtensions
     {
         public AppBuilder UseDevTools(DevToolsOptions options = default)
         {
-            _devTools ??= new(options);
-            return appBuilder;
+            return appBuilder.AfterSetup(_ =>
+            {
+                if (_devTools is not null)
+                    return;
+
+                _devTools = new(options);
+                Lang.Register(LangData.LoadFromAssembly(typeof(DevTools).Assembly));
+            });
         }
     }
 }

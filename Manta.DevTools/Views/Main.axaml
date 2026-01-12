@@ -4,4 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.DevTools.Views"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}">
+    <Grid ColumnDefinitions="280 *">
+        <MTree Grid.Column="0" ItemsSource="{Binding Root}"
+               BorderThickness="{MThickness Px, Filter=Right}">
+            <MTree.Styles>
+                <Style Selector="MTreeItem">
+                    <Setter Property="IsExpanded" Value="True" />
+                </Style>
+            </MTree.Styles>
+            <MTree.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding Container.Children}">
+                    <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                </TreeDataTemplate>
+            </MTree.ItemTemplate>
+        </MTree>
+    </Grid>
 </MView>
