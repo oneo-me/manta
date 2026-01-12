@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -34,8 +35,9 @@ public static class Extensions
         .IgnoreUnmatchedProperties()
         .Build();
 
-    public static T DeserializeYaml<T>(this string yml) where T : class
+    [SuppressMessage("ReSharper", "NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract")]
+    public static T DeserializeYaml<T>(this string yml) where T : class, new()
     {
-        return _deserializer.Deserialize<T>(yml) ?? throw new InvalidOperationException("Deserialize result is null");
+        return _deserializer.Deserialize<T>(yml) ?? new T();
     }
 }
