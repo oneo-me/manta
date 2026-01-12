@@ -20,6 +20,8 @@ Demo_Style_Ring: 环绕
 Demo_Style_Spacing: 间距
 Demo_Style_Thickness: 边距
 
+Demo_Reactive_ViewContext: 视图上下文
+
 SubGroup_Advanced: 高级
 SubGroup_Window: 窗口
 SubGroup_Custom: 自定义

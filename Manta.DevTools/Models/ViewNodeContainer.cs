@@ -8,13 +8,15 @@ namespace Manta.DevTools.Models;
 
 sealed class ViewNodeContainer : IDisposable
 {
+    readonly ViewNode _parent;
     readonly CompositeDisposable _subscriptions = new();
     readonly Dictionary<MView, ILogical> _viewSources = new();
 
     public AvaloniaList<ViewNode> Children { get; } = [];
 
-    public ViewNodeContainer(MView? view)
+    public ViewNodeContainer(ViewNode parent, MView? view)
     {
+        _parent = parent;
         if (view is not ILogical logical)
             return;
 
@@ -36,7 +38,7 @@ sealed class ViewNodeContainer : IDisposable
         if (item is MView { DataContext: ViewModel viewModel } childView)
         {
             _viewSources[childView] = source;
-            Children.Add(new(childView, viewModel));
+            Children.Add(new(_parent, childView, viewModel));
         }
         else if (item is { } childLogical)
         {

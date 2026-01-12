@@ -27,6 +27,8 @@ public abstract class ViewModel : Model
     {
     }
 
+    internal Dictionary<string, object?>? Context { get; set; }
+
     protected virtual void OnViewActivated(CompositeDisposable disposables)
     {
     }
