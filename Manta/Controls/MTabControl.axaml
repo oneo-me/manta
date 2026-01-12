@@ -1,0 +1,120 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- List -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MTabControl>
+                <MTabItem Header="TabItem 1" Content="TabItem 1 Content" IsSelected="True" />
+                <MTabItem Header="TabItem 2" Content="TabItem 2 Content" />
+                <MTabItem Header="TabItem 3" Content="TabItem 3 Content" />
+            </MTabControl>
+            <MTabControl TabStripPlacement="Bottom">
+                <MTabItem Header="TabItem 1" Content="TabItem 1 Content" IsSelected="True" />
+                <MTabItem Header="TabItem 2" Content="TabItem 2 Content" />
+                <MTabItem Header="TabItem 3" Content="TabItem 3 Content" />
+            </MTabControl>
+            <MTabControl TabStripPlacement="Left">
+                <MTabItem Header="TabItem 1" Content="TabItem 1 Content" IsSelected="True" />
+                <MTabItem Header="TabItem 2" Content="TabItem 2 Content" />
+                <MTabItem Header="TabItem 3" Content="TabItem 3 Content" />
+            </MTabControl>
+            <MTabControl TabStripPlacement="Right">
+                <MTabItem Header="TabItem 1" Content="TabItem 1 Content" IsSelected="True" />
+                <MTabItem Header="TabItem 2" Content="TabItem 2 Content" />
+                <MTabItem Header="TabItem 3" Content="TabItem 3 Content" />
+            </MTabControl>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MTabControl}" TargetType="MTabControl">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <MPanel Mode="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <Border DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                    <ContentPresenter Name="PART_SelectedContentHost"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding SelectedContent}"
+                                      ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/DockPanel">
+            <Setter Property="HorizontalSpacing" Value="{MSize S1}" />
+            <Setter Property="VerticalSpacing" Value="{MSize S1}" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter > MPanel">
+            <Setter Property="Mode" Value="Vertical" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter > MPanel">
+            <Setter Property="Mode" Value="Vertical" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush Muted}" />
+            <Setter Property="Padding" Value="{MThickness S1}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MTabItem}" TargetType="MTabItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Header}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
+            <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+            <Setter Property="CornerRadius" Value="{MRadius SM}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Background" Value="{MBrush Background}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{MShadow MD}" />
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

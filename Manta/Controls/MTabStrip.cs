@@ -4,20 +4,15 @@ using Avalonia.VisualTree;
 
 namespace Manta.Controls;
 
-public enum MTabStripType
-{
-    Normal
-}
-
 public class MTabStrip : ListBox
 {
-    public static readonly StyledProperty<MTabStripType> TypeProperty = AvaloniaProperty.Register<MTabStrip, MTabStripType>(
-        nameof(Type));
+    public static readonly StyledProperty<MTabVariant> VariantProperty = AvaloniaProperty.Register<MTabStrip, MTabVariant>(
+        nameof(Variant));
 
-    public MTabStripType Type
+    public MTabVariant Variant
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
     }
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
@@ -33,13 +28,13 @@ public class MTabStrip : ListBox
 
 public class MTabStripItem : ListBoxItem
 {
-    public static readonly StyledProperty<MTabStripType> TypeProperty = AvaloniaProperty.Register<MTabStripItem, MTabStripType>(
-        nameof(Type));
+    public static readonly StyledProperty<MTabVariant> VariantProperty = AvaloniaProperty.Register<MTabStripItem, MTabVariant>(
+        nameof(Variant));
 
-    public MTabStripType Type
+    public MTabVariant Variant
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(VariantProperty);
+        set => SetValue(VariantProperty, value);
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
@@ -47,6 +42,6 @@ public class MTabStripItem : ListBoxItem
         base.OnAttachedToVisualTree(e);
 
         if (this.FindAncestorOfType<MTabStrip>() is { } tabStrip)
-            Type = tabStrip.Type;
+            Variant = tabStrip.Variant;
     }
 }
