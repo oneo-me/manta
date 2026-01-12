@@ -1,10 +1,11 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.VisualTree;
 
 namespace Manta.Controls;
 
-public class MTabStrip : ListBox
+public class MTabStrip : TabStrip
 {
     public static readonly StyledProperty<MTabVariant> VariantProperty = AvaloniaProperty.Register<MTabStrip, MTabVariant>(
         nameof(Variant));
@@ -26,7 +27,7 @@ public class MTabStrip : ListBox
     }
 }
 
-public class MTabStripItem : ListBoxItem
+public class MTabStripItem : TabStripItem
 {
     public static readonly StyledProperty<MTabVariant> VariantProperty = AvaloniaProperty.Register<MTabStripItem, MTabVariant>(
         nameof(Variant));
