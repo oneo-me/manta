@@ -2,5 +2,6 @@ namespace Manta.Controls;
 
 public enum MTabVariant
 {
-    Default
+    Default,
+    Outline
 }

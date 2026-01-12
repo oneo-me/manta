@@ -10,6 +10,11 @@
                 <MTabStripItem Content="TabItem 2" />
                 <MTabStripItem Content="TabItem 3" />
             </MTabStrip>
+            <MTabStrip Variant="Outline">
+                <MTabStripItem Content="TabItem 1" IsSelected="True" />
+                <MTabStripItem Content="TabItem 2" />
+                <MTabStripItem Content="TabItem 3" />
+            </MTabStrip>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MTabStrip}" TargetType="MTabStrip">
@@ -42,16 +47,19 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  Padding="{TemplateBinding Padding}"
-                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                  Background="{TemplateBinding Background}"
-                                  BorderBrush="{TemplateBinding BorderBrush}"
-                                  BorderThickness="{TemplateBinding BorderThickness}"
-                                  Content="{TemplateBinding Content}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  CornerRadius="{TemplateBinding CornerRadius}" />
+                <Panel Background="#00000000">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border Name="Bar" />
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Setter Property="Transitions">
@@ -61,6 +69,10 @@
                 <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
+        <Style Selector="^ /template/ Border#Bar">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
         <Style Selector="^[Variant=Default]">
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
             <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
@@ -79,6 +91,28 @@
                 <Setter Property="Foreground" Value="{MBrush Foreground}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="BoxShadow" Value="{MShadow MD}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Outline]">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+            <Style Selector="^ /template/ Border#Bar">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="CornerRadius" Value="{MRadius Full}" />
+                <Setter Property="Height" Value="{MSize S0_5}" />
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Foreground" Value="{MBrush Foreground}" />
+                <Style Selector="^ /template/ Border#Bar">
+                    <Setter Property="Background" Value="{MBrush Primary}" />
                 </Style>
             </Style>
         </Style>
