@@ -17,13 +17,16 @@ sealed class DevToolsAttacher
     readonly MWindow _window;
     readonly MView _view;
     readonly Grid _windowContent;
-    readonly Main_Model _mainModel = new();
+    readonly Main_Model _mainModel;
+
+    public Window SourceWindow => _window;
 
     public DevToolsAttacher(DevToolsOptions options, MWindow window, Grid windowContent)
     {
         _options = options;
         _window = window;
         _windowContent = windowContent;
+        _mainModel = new(this);
         _view = _mainModel.CreateView();
 
         window.KeyUp += WindowOnKeyUp;
@@ -44,7 +47,7 @@ sealed class DevToolsAttacher
 
     bool _isCreated;
 
-    void ShowOrHideDevTools()
+    public void ShowOrHideDevTools()
     {
         if (_isCreated)
         {
