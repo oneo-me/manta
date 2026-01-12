@@ -44,6 +44,13 @@ sealed class Main_Model : WindowModel
         };
     }
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        this.SetContext("title", Lang.Get(new(LangKey.Title)));
+    }
+
     public void OpenSettings()
     {
         var mainModel = new SettingsView_Model();

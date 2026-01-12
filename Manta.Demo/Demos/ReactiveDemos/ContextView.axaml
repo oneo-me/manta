@@ -1,0 +1,22 @@
+<MView
+    x:Class="Manta.Demo.Demos.ReactiveDemos.ContextView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.ReactiveDemos"
+    x:DataType="local:ContextView_Model" Design.DataContext="{x:Static local:ContextView_Model.Design}">
+    <MItems ItemsSource="{Binding Contexts}" Grid.IsSharedSizeScope="True"
+            Margin="{MThickness S3}">
+        <MItems.ItemTemplate>
+            <DataTemplate>
+                <Grid ColumnSpacing="{MSize S2}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="ContextKey" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding Key, StringFormat={}{0}:}" />
+                    <SelectableTextBlock Grid.Column="1" Text="{Binding Value}" />
+                </Grid>
+            </DataTemplate>
+        </MItems.ItemTemplate>
+    </MItems>
+</MView>

@@ -1,10 +1,10 @@
 using Manta.Controls.Icons;
 using Manta.Demo.Langs;
+using Manta.Demo.Reactive;
+using Manta.Demo.Services;
 using Manta.Globalization;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using Manta.Demo.Reactive;
-using Manta.Demo.Services;
 
 namespace Manta.Demo.Views;
 
@@ -83,6 +83,13 @@ sealed class DemoGroupView_Model : HeaderRegionModel
             CurrentDemo = Demos.OfType<DemoItem>().FirstOrDefault(x => string.Equals(item, x.ViewModel.Header.ToString()));
 
         CurrentDemo ??= Demos.OfType<DemoItem>().FirstOrDefault();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        this.SetContext("header", Header);
     }
 
     protected override void OnClosed()
