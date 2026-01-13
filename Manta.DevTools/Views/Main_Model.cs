@@ -28,6 +28,7 @@ sealed class Main_Model : ViewModel
         {
             if (SetValue(ref field, value))
             {
+                // Update Contexts
                 Contexts.Clear();
 
                 var current = value;

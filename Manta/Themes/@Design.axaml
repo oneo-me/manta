@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:values="clr-namespace:Manta.Themes.Values">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

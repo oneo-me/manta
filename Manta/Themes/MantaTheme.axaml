@@ -13,6 +13,7 @@
                 <!-- Design -->
                 <MergeResourceInclude Source="../Controls/Design/Window.axaml" />
                 <!-- Common -->
+                <MergeResourceInclude Source="@Design.axaml" />
                 <MergeResourceInclude Source="@Shadows.axaml" />
                 <MergeResourceInclude Source="@Rings.axaml" />
                 <!-- Supported Controls -->

@@ -3,13 +3,11 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 
 namespace Manta.Controls;
 
-/// <summary>
-///     A tree view control with animated expand/collapse functionality.
-/// </summary>
 public class MTree : TreeView
 {
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
@@ -44,11 +42,30 @@ public class MTree : TreeView
     }
 }
 
-/// <summary>
-///     An item in the MTree control that can contain child items and supports animated expand/collapse.
-/// </summary>
+public sealed class HeaderPointerEnteredArgs(RoutedEvent routedEvent) : RoutedEventArgs(routedEvent);
+
+public sealed class HeaderPointerExitedArgs(RoutedEvent routedEvent) : RoutedEventArgs(routedEvent);
+
 public class MTreeItem : TreeViewItem
 {
+    public static readonly RoutedEvent<HeaderPointerEnteredArgs> HeaderPointerEnteredEvent = RoutedEvent.Register<MTreeItem, HeaderPointerEnteredArgs>(
+        nameof(HeaderPointerEntered), RoutingStrategies.Direct);
+
+    public event EventHandler<HeaderPointerEnteredArgs>? HeaderPointerEntered
+    {
+        add => AddHandler(HeaderPointerEnteredEvent, value);
+        remove => RemoveHandler(HeaderPointerEnteredEvent, value);
+    }
+
+    public static readonly RoutedEvent<HeaderPointerExitedArgs> HeaderPointerExitedEvent = RoutedEvent.Register<MTreeItem, HeaderPointerExitedArgs>(
+        nameof(HeaderPointerExited), RoutingStrategies.Direct);
+
+    public event EventHandler<HeaderPointerExitedArgs>? HeaderPointerExited
+    {
+        add => AddHandler(HeaderPointerExitedEvent, value);
+        remove => RemoveHandler(HeaderPointerExitedEvent, value);
+    }
+
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
         return new MTreeItem();
@@ -72,6 +89,19 @@ public class MTreeItem : TreeViewItem
         PART_Header.PointerPressed += HeaderOnPointerPressed;
         PART_Header.DoubleTapped += HeaderOnDoubleTapped;
         PART_ExpandCollapseIcon.PointerPressed += ExpandCollapseIconOnPointerPressed;
+
+        PART_Header.PointerEntered += HeaderOnPointerEntered;
+        PART_Header.PointerExited += HeaderOnPointerExited;
+    }
+
+    void HeaderOnPointerEntered(object? sender, PointerEventArgs e)
+    {
+        RaiseEvent(new HeaderPointerEnteredArgs(HeaderPointerEnteredEvent));
+    }
+
+    void HeaderOnPointerExited(object? sender, PointerEventArgs e)
+    {
+        RaiseEvent(new HeaderPointerExitedArgs(HeaderPointerExitedEvent));
     }
 
     void HeaderOnPointerPressed(object? sender, PointerPressedEventArgs e)
