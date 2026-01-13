@@ -9,7 +9,7 @@
     <values:OklchColor x:Key="{MBrushKey CardForeground}" L="0.985" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey Popover}" L="0.269" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey PopoverForeground}" L="0.985" C="0" H="0" Opacity="1" />
-    <values:OklchColor x:Key="{MBrushKey PrimaryForeground}" L="0.205" C="0" H="0" Opacity="1" />
+    <values:OklchColor x:Key="{MBrushKey PrimaryForeground}" L="0.985" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey Secondary}" L="0.269" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey SecondaryForeground}" L="0.985" C="0" H="0" Opacity="1" />
     <values:OklchColor x:Key="{MBrushKey Muted}" L="0.269" C="0" H="0" Opacity="1" />
