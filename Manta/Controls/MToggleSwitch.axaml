@@ -80,7 +80,7 @@
             <Setter Property="Width" Value="20" />
             <Setter Property="Height" Value="20" />
             <Setter Property="Background" Value="{MBrush Background}" />
-            <Setter Property="BoxShadow" Value="{MShadow XL}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
             <Setter Property="CornerRadius" Value="{MRadius Full}" />
         </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">

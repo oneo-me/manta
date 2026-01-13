@@ -19,7 +19,10 @@
             </MListBox.Styles>
             <MListBox.DataTemplates>
                 <DataTemplate DataType="local:DemoGroupItem">
-                    <TextBlock Text="{Lang {Binding GroupName}}" />
+                    <MPanel Mode="Horizontal">
+                        <TextBlock Text="{Lang {Binding GroupName}}" />
+                        <TextBlock Text="{Binding Count, StringFormat={} ({0})}" />
+                    </MPanel>
                 </DataTemplate>
                 <DataTemplate DataType="local:DemoItem">
                     <MPanel Mode="Horizontal" Spacing="8">

@@ -10,20 +10,28 @@ namespace Manta.Demo.Views;
 
 interface IDemoItem
 {
+    int Count { get; set; }
     bool IsGroup { get; }
 }
 
 sealed class DemoItem(DemoViewModel viewModel) : IDemoItem
 {
     public DemoViewModel ViewModel { get; } = viewModel;
+    public int Count { get; set; }
     public bool IsGroup => false;
 }
 
-sealed class DemoGroupItem(DemoSubGroup subGroup) : IDemoItem
+sealed class DemoGroupItem(DemoSubGroup subGroup) : Model, IDemoItem
 {
     public DemoSubGroup SubGroup { get; } = subGroup;
     public string GroupName { get; } = Lang.CreateKey(typeof(App).Assembly, $"SubGroup_{subGroup}");
     public bool IsGroup => true;
+
+    public int Count
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
 }
 
 [View<DemoGroupView>]
@@ -70,11 +78,17 @@ sealed class DemoGroupView_Model : HeaderRegionModel
         var list = new List<IDemoItem>();
 
         var demos = _demoService.GetDemos(group);
+        DemoGroupItem? currentGroup = null;
         foreach (var demo in demos)
         {
             if (list.OfType<DemoGroupItem>().All(x => x.SubGroup != demo.SubGroup) && demo.SubGroup != DemoSubGroup.None)
-                list.Add(new DemoGroupItem(demo.SubGroup));
+            {
+                currentGroup = new(demo.SubGroup);
+                list.Add(currentGroup);
+            }
+
             list.Add(new DemoItem(demo));
+            currentGroup?.Count += 1;
         }
 
         Demos = list;
