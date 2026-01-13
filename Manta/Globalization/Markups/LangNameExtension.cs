@@ -9,7 +9,7 @@ public sealed class LangNameExtension(object langType) : LangExtensionBase
 
     protected override void Initialize(MultiBinding multiBinding)
     {
-        BindingValue(multiBinding, LangType, nameof(LangType));
+        BindingValue(multiBinding, LangType, this, x => x.LangType);
     }
 
     protected override object ProcessValues(IList<object?> values)

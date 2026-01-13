@@ -1,5 +1,6 @@
 using Avalonia.Data;
 using Manta.Globalization.Core;
+using Manta.Reactive;
 
 namespace Manta.Globalization.Markups;
 
@@ -18,20 +19,16 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
     protected override void Initialize(MultiBinding multiBinding)
     {
         if (LangType is null)
-            BindingValue(multiBinding, new Binding(nameof(LangSource.Current))
-            {
-                Source = Lang.Source,
-                Mode = BindingMode.OneWay
-            });
+            multiBinding.Bindings.Add(Bind.Create(Lang.Source, x => x.Current, mode: BindingMode.OneWay));
         else
-            BindingValue(multiBinding, LangType, nameof(LangType));
-        BindingValue(multiBinding, LangKey, nameof(LangKey));
-        BindingValue(multiBinding, DefValue, nameof(DefValue));
-        BindingValue(multiBinding, Data1, nameof(Data1));
-        BindingValue(multiBinding, Data2, nameof(Data2));
-        BindingValue(multiBinding, Data3, nameof(Data3));
-        BindingValue(multiBinding, Data4, nameof(Data4));
-        BindingValue(multiBinding, Data5, nameof(Data5));
+            BindingValue(multiBinding, LangType, this, x => x.LangType);
+        BindingValue(multiBinding, LangKey, this, x => x.LangKey);
+        BindingValue(multiBinding, DefValue, this, x => x.DefValue);
+        BindingValue(multiBinding, Data1, this, x => x.Data1);
+        BindingValue(multiBinding, Data2, this, x => x.Data2);
+        BindingValue(multiBinding, Data3, this, x => x.Data3);
+        BindingValue(multiBinding, Data4, this, x => x.Data4);
+        BindingValue(multiBinding, Data5, this, x => x.Data5);
     }
 
     protected override object ProcessValues(IList<object?> values)

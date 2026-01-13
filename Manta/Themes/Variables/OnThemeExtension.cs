@@ -1,10 +1,12 @@
 using System.Globalization;
+using System.Linq.Expressions;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.MarkupExtensions;
+using Manta.Reactive;
 using Manta.Themes.Base;
 
 namespace Manta.Themes.Variables;
@@ -32,9 +34,9 @@ public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueC
 
         multiBinding.Bindings.Add(new DynamicResourceExtension(MThemeKey.Variant).ProvideValue(serviceProvider));
 
-        BindingValue(multiBinding, Default, nameof(Default));
-        BindingValue(multiBinding, Light, nameof(Light));
-        BindingValue(multiBinding, Dark, nameof(Dark));
+        BindingValue(multiBinding, Default, this, x => x.Default);
+        BindingValue(multiBinding, Light, this, x => x.Light);
+        BindingValue(multiBinding, Dark, this, x => x.Dark);
 
         return multiBinding;
     }
@@ -49,22 +51,19 @@ public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueC
 
         multiBinding.Bindings.Add(control.GetResourceObservable(MThemeKey.Variant).ToBinding());
 
-        BindingValue(multiBinding, Default, nameof(Default));
-        BindingValue(multiBinding, Light, nameof(Light));
-        BindingValue(multiBinding, Dark, nameof(Dark));
+        BindingValue(multiBinding, Default, this, x => x.Default);
+        BindingValue(multiBinding, Light, this, x => x.Light);
+        BindingValue(multiBinding, Dark, this, x => x.Dark);
 
         return multiBinding;
     }
 
-    void BindingValue(MultiBinding multiBinding, object? value, string valueName = "")
+    void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
     {
         if (value is BindingBase keyBinding)
             multiBinding.Bindings.Add(keyBinding);
         else
-            multiBinding.Bindings.Add(new Binding(valueName)
-            {
-                Source = this
-            });
+            multiBinding.Bindings.Add(Bind.Create(source, expression, mode: BindingMode.OneWay));
     }
 
     public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)

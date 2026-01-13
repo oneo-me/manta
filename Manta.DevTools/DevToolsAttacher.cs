@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Manta.Controls;
 using Manta.DevTools.Views;
+using Manta.Reactive;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools;
@@ -88,7 +88,7 @@ sealed class DevToolsAttacher
         Grid.SetColumn(gridSplitter, 1);
         _windowContent.Children.Add(gridSplitter);
 
-        _view[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
-        gridSplitter[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
+        _view[!Visual.IsVisibleProperty] = Bind.Create(_mainModel, x => x.IsVisible);
+        gridSplitter[!Visual.IsVisibleProperty] = Bind.Create(_mainModel, x => x.IsVisible);
     }
 }
