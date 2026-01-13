@@ -35,7 +35,7 @@ sealed class ViewNodeContainer : IDisposable
 
     void OnChildAdded(ILogical item, ILogical source)
     {
-        if (item is MView { DataContext: ViewModel viewModel } childView)
+        if (item is MView { DataContext: ViewModel viewModel } childView && viewModel != _parent.ViewModel)
         {
             _viewSources[childView] = source;
             Children.Add(new(_parent, childView, viewModel));
