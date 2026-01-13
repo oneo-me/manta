@@ -3,6 +3,10 @@
         <IsPackable>false</IsPackable>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
+    <PropertyGroup>
+        <IsTrimmable>false</IsTrimmable>
+        <IsAotCompatible>false</IsAotCompatible>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" />
     </ItemGroup>

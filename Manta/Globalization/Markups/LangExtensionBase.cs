@@ -1,7 +1,9 @@
 using System.Globalization;
+using System.Linq.Expressions;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
+using Manta.Reactive;
 
 namespace Manta.Globalization.Markups;
 
@@ -33,14 +35,11 @@ public abstract class LangExtensionBase : MarkupExtension, IMultiValueConverter
         return ProcessValues(values);
     }
 
-    protected void BindingValue(MultiBinding multiBinding, object? value, string valueName = "")
+    protected void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
     {
         if (value is BindingBase keyBinding)
             multiBinding.Bindings.Add(keyBinding);
         else
-            multiBinding.Bindings.Add(new Binding(valueName)
-            {
-                Source = this
-            });
+            multiBinding.Bindings.Add(Bind.Create(source, expression, mode: BindingMode.OneWay));
     }
 }
