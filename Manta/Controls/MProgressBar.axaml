@@ -38,11 +38,11 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     ClipToBounds="True">
                     <Panel>
-                        <Border x:Name="PART_Indicator"
+                        <Border Name="PART_Indicator"
                                 Background="{TemplateBinding BarBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
-                            <LayoutTransformControl x:Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            <LayoutTransformControl Name="PART_LayoutTransformControl" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                     IsVisible="{TemplateBinding ShowProgressText}">
                                 <TextBlock>
                                     <TextBlock.Text>
@@ -57,7 +57,7 @@
                                 </TextBlock>
                             </LayoutTransformControl>
                         </Border>
-                        <Border x:Name="PART_IndeterminateIndicator"
+                        <Border Name="PART_IndeterminateIndicator"
                                 Background="{TemplateBinding BarBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />

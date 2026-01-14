@@ -83,7 +83,7 @@
                 <Border Name="PART_Event" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="* Auto">
                         <Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
-                            <Panel x:Name="Size" />
+                            <Panel Name="Size" />
                         </Border>
                         <Panel Name="PART_Content" Grid.Column="0">
                             <TextBlock Name="PART_Title"

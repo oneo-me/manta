@@ -40,7 +40,7 @@ public class MNumericUpDown : NumericUpDown
 
         // Synchronize focus style with TextBox
 
-        PART_TextBox = e.NameScope.Get<TextBox>("PART_TextBox");
+        PART_TextBox = e.NameScope.Get<TextBox>(nameof(PART_TextBox));
         PART_TextBox.GotFocus += TextBoxOnGotFocus;
         PART_TextBox.LostFocus += TextBoxOnLostFocus;
     }

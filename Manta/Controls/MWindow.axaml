@@ -34,7 +34,7 @@
                                 </VisualLayerManager>
                             </Grid>
                         </Border>
-                        <Panel x:Name="PART_Decorations" />
+                        <Panel Name="PART_Decorations" />
                     </Panel>
                 </Panel>
             </ControlTemplate>
