@@ -4,6 +4,7 @@ using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Manta.Controls;
 using Manta.Demo.Reactive;
+using Manta.Logging;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
 
@@ -13,15 +14,51 @@ sealed class DemoService
 {
     readonly List<DemoViewModel> _demos = [];
 
+    static IEnumerable<string> GetCodeFiles(string dir, params string[] extensions)
+    {
+        foreach (var subDir in Directory.EnumerateDirectories(dir))
+        {
+            var dirName = Path.GetFileName(subDir);
+            if (dirName == "bin" || dirName == "obj" || dirName.StartsWith('.'))
+                continue;
+
+            foreach (var codeFile in GetCodeFiles(subDir, extensions))
+                yield return codeFile;
+        }
+
+        var hashSet = new HashSet<string>(extensions, StringComparer.OrdinalIgnoreCase);
+
+        foreach (var file in Directory.GetFiles(dir))
+            if (hashSet.Contains(Path.GetExtension(file)))
+                yield return file;
+    }
+
+    public int CodeLines { get; }
+
     public DemoService()
     {
+        var projectDir = Path.Combine(Path.GetFullPath(Path.Combine(MApp.Folder, "../../../..")), "Manta");
+
+        // Calculate the number of lines of code
+        var codeFiles = GetCodeFiles(projectDir, ".cs", ".axaml");
+        var codeLines = 0;
+        foreach (var codeFile in codeFiles)
+        {
+            var lines = File.ReadLines(codeFile);
+            codeLines += lines.Count(line => !string.IsNullOrWhiteSpace(line));
+        }
+
+        CodeLines = codeLines;
+
+        Log.Information("Total lines of code: {CodeLines}", CodeLines);
+
+        // Register demos
         foreach (var type in GetType().Assembly.GetTypes().Where(x => typeof(DemoViewModel).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false } && x != typeof(XamlDemo)))
         {
             var demoViewModel = Service.CreateInstance<DemoViewModel>(type);
             _demos.Add(demoViewModel);
         }
 
-        var projectDir = Path.Combine(Path.GetFullPath(Path.Combine(MApp.Folder, "../../../..")), "Manta");
         var controlsDir = Path.Combine(projectDir, "Controls");
         var baseControlsDir = Path.Combine(controlsDir, "Base");
 
