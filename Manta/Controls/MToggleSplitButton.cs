@@ -5,17 +5,7 @@ namespace Manta.Controls;
 
 public enum MToggleSplitButtonVariant
 {
-    Default,
-    Outline,
-    Secondary,
-    Ghost
-}
-
-public enum MToggleSplitButtonSize
-{
-    Default,
-    Small,
-    Large
+    Outline
 }
 
 public class MToggleSplitButton : ToggleSplitButton
@@ -29,14 +19,5 @@ public class MToggleSplitButton : ToggleSplitButton
     {
         get => GetValue(VariantProperty);
         set => SetValue(VariantProperty, value);
-    }
-
-    public static readonly StyledProperty<MToggleSplitButtonSize> SizeProperty = AvaloniaProperty.Register<MToggleSplitButton, MToggleSplitButtonSize>(
-        nameof(Size));
-
-    public MToggleSplitButtonSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
     }
 }
