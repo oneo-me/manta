@@ -5,15 +5,7 @@ namespace Manta.Controls;
 
 public enum MToggleButtonVariant
 {
-    Outline,
-    WithText
-}
-
-public enum MToggleButtonSize
-{
-    Default,
-    Small,
-    Large
+    Outline
 }
 
 public class MToggleButton : ToggleButton
@@ -25,14 +17,5 @@ public class MToggleButton : ToggleButton
     {
         get => GetValue(VariantProperty);
         set => SetValue(VariantProperty, value);
-    }
-
-    public static readonly StyledProperty<MToggleButtonSize> SizeProperty = AvaloniaProperty.Register<MToggleButton, MToggleButtonSize>(
-        nameof(Size));
-
-    public MToggleButtonSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
     }
 }
