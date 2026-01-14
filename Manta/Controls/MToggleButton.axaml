@@ -29,7 +29,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Classes="Ring" CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border Name="Ring" CornerRadius="{TemplateBinding CornerRadius}" />
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Padding="{TemplateBinding Padding}"
                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -62,7 +62,7 @@
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BoxShadow" Value="{MShadow SM}" />
             </Style>
-            <Style Selector="^ /template/ Border.Ring">
+            <Style Selector="^ /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{MRing None, BrushKey=Shadow, BrushOpacity=0.1}" />
                 <Setter Property="Transitions">
                     <Transitions>
@@ -72,7 +72,7 @@
             </Style>
             <Style Selector="^:checked">
                 <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
-                <Style Selector="^ /template/ Border.Ring">
+                <Style Selector="^ /template/ Border#Ring">
                     <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.7}" />
                 </Style>
             </Style>
