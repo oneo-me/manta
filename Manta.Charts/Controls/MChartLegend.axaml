@@ -28,7 +28,7 @@
                 <MItems ItemsSource="{TemplateBinding Items}">
                     <MItems.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel x:Name="PART_Panel" Orientation="Horizontal" Spacing="12" />
+                            <StackPanel Name="PART_Panel" Orientation="Horizontal" Spacing="12" />
                         </ItemsPanelTemplate>
                     </MItems.ItemsPanel>
                     <MItems.ItemTemplate>

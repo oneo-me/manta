@@ -95,7 +95,7 @@
                 <ControlTemplate>
                     <Panel>
                         <Border
-                            x:Name="PART_Header"
+                            Name="PART_Header"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -113,7 +113,7 @@
                                         </DataTemplate>
                                     </ContentPresenter.DataTemplates>
                                 </ContentPresenter>
-                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -125,17 +125,17 @@
                                 </ContentPresenter>
                             </MPanel>
                         </Border>
-                        <Border x:Name="PopupTargetOffset" IsHitTestVisible="False">
-                            <Border x:Name="PopupTargetParent">
-                                <Border x:Name="PopupTarget" />
+                        <Border Name="PopupTargetOffset" IsHitTestVisible="False">
+                            <Border Name="PopupTargetParent">
+                                <Border Name="PopupTarget" />
                             </Border>
                         </Border>
-                        <Popup x:Name="PART_Popup" IsLightDismissEnabled="False"
+                        <Popup Name="PART_Popup" IsLightDismissEnabled="False"
                                PlacementTarget="PopupTarget"
                                Placement="BottomEdgeAlignedLeft"
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
-                            <Border x:Name="PopupContent">
-                                <ItemsPresenter x:Name="PART_ItemsPresenter"
+                            <Border Name="PopupContent">
+                                <ItemsPresenter Name="PART_ItemsPresenter"
                                                 ItemsPanel="{TemplateBinding ItemsPanel}"
                                                 Grid.IsSharedSizeScope="True" />
                             </Border>
@@ -209,7 +209,7 @@
                 <ControlTemplate>
                     <Panel>
                         <Border
-                            x:Name="PART_Header"
+                            Name="PART_Header"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -223,11 +223,11 @@
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="InputGesture" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Border x:Name="Checked" Grid.Column="0" Width="16" Height="16" Margin="0 -10 3 -10" VerticalAlignment="Center">
+                                <Border Name="Checked" Grid.Column="0" Width="16" Height="16" Margin="0 -10 3 -10" VerticalAlignment="Center">
                                     <Panel>
-                                        <MPathIcon x:Name="CheckBox" Size="10" Foreground="{TemplateBinding Foreground}"
+                                        <MPathIcon Name="CheckBox" Size="10" Foreground="{TemplateBinding Foreground}"
                                                    Data="M10.9787902,1.279146 C11.3769068,0.715147388 12.1568554,0.580673502 12.720854,0.978790171 C13.2472527,1.35036573 13.3994876,2.05455927 13.0937625,2.60535206 L13.0212098,2.720854 L7.02120983,11.220854 C6.62017791,11.7889825 5.8407192,11.9144232 5.28487761,11.5254052 L5.17686924,11.4407209 L1.17686924,7.94072087 C0.657323451,7.4861183 0.604676566,6.69641503 1.05927913,6.17686924 C1.48357486,5.69195984 2.19978054,5.61377126 2.71579884,5.97510999 L2.82313076,6.05927913 L5.778,8.646 L10.9787902,1.279146 Z" />
-                                        <Ellipse x:Name="Radio" Width="5" Height="5" Fill="{TemplateBinding Foreground}" />
+                                        <Ellipse Name="Radio" Width="5" Height="5" Fill="{TemplateBinding Foreground}" />
                                     </Panel>
                                 </Border>
                                 <ContentPresenter Grid.Column="1" Content="{TemplateBinding Icon}" Margin="0 0 5 0"
@@ -241,7 +241,7 @@
                                         </DataTemplate>
                                     </ContentPresenter.DataTemplates>
                                 </ContentPresenter>
-                                <ContentPresenter Grid.Column="2" x:Name="PART_ContentPresenter"
+                                <ContentPresenter Grid.Column="2" Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   HorizontalAlignment="Left">
@@ -253,24 +253,24 @@
                                 </ContentPresenter>
                                 <TextBlock Grid.Column="3" Text="{TemplateBinding InputGesture, Converter={StaticResource MenuItemKeyGestureConverter}}"
                                            Opacity="0.5" Margin="16 0 0 0" />
-                                <Border x:Name="PART_ChevronPath" Grid.Column="4" VerticalAlignment="Center"
+                                <Border Name="PART_ChevronPath" Grid.Column="4" VerticalAlignment="Center"
                                         Opacity="0.5" Margin="8 -10 0 -10">
                                     <MPathIcon Size="9" Foreground="{TemplateBinding Foreground}"
                                                Data="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8.07107 6.65685C8.2586 6.84439 8.36396 7.09874 8.36396 7.36396C8.36396 7.62918 8.2586 7.88353 8.07107 8.07107L1.70711 14.435C1.31658 14.8256 0.683418 14.8256 0.292893 14.435C-0.0976311 14.0445 -0.0976311 13.4113 0.292893 13.0208L5.94975 7.36396L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z" />
                                 </Border>
                             </Grid>
                         </Border>
-                        <Border x:Name="PopupTargetOffset" IsHitTestVisible="False">
-                            <Border x:Name="PopupTargetParent">
-                                <Border x:Name="PopupTarget" />
+                        <Border Name="PopupTargetOffset" IsHitTestVisible="False">
+                            <Border Name="PopupTargetParent">
+                                <Border Name="PopupTarget" />
                             </Border>
                         </Border>
-                        <Popup x:Name="PART_Popup" IsLightDismissEnabled="False"
+                        <Popup Name="PART_Popup" IsLightDismissEnabled="False"
                                PlacementTarget="PopupTarget"
                                Placement="RightEdgeAlignedTop"
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
-                            <Border x:Name="PopupContent">
-                                <ItemsPresenter x:Name="PART_ItemsPresenter"
+                            <Border Name="PopupContent">
+                                <ItemsPresenter Name="PART_ItemsPresenter"
                                                 ItemsPanel="{TemplateBinding ItemsPanel}"
                                                 Grid.IsSharedSizeScope="True" />
                             </Border>
@@ -336,7 +336,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"
+                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"
                                     Grid.IsSharedSizeScope="True"
                                     KeyboardNavigation.TabNavigation="Continue" />
                 </Border>
@@ -365,7 +365,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                    <ItemsPresenter Name="PART_ItemsPresenter"
                                     Grid.IsSharedSizeScope="True"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
                                     KeyboardNavigation.TabNavigation="Continue" />

@@ -104,6 +104,7 @@
         <Setter Property="Padding" Value="{MThickness S1, Filter=Top|Bottom}" />
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MCommandPanelItem}" TargetType="MCommandPanelItem">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"

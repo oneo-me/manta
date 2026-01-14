@@ -34,7 +34,7 @@
                             <MPanel Mode="Vertical" Spacing="8">
                                 <TextBlock Text="Are you sure you want to continue?" Margin="0 0 20 20" />
                                 <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
-                                    <MButton x:Name="Button" Content="Cancel" Padding="8 3" Variant="Secondary" Command="{Binding $parent[MButton].Flyout.Hide}" />
+                                    <MButton Name="Button" Content="Cancel" Padding="8 3" Variant="Secondary" Command="{Binding $parent[MButton].Flyout.Hide}" />
                                     <MButton Content="Confirm" Padding="8 3" Variant="Destructive" />
                                 </MPanel>
                             </MPanel>
@@ -234,7 +234,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
-                    <ContentPresenter x:Name="PART_ContentPresenter"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
@@ -320,7 +320,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                    <ItemsPresenter Name="PART_ItemsPresenter"
                                     Grid.IsSharedSizeScope="True"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
                                     KeyboardNavigation.TabNavigation="Continue" />

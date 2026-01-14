@@ -47,7 +47,7 @@
                     BoxShadow="{MShadow MD}"
                     Margin="{MShadow MD, ValueType=Margin}"
                     Padding="{TemplateBinding Padding}">
-                    <ContentPresenter x:Name="PART_ContentPresenter"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Border>
