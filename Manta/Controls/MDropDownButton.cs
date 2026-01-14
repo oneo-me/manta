@@ -9,7 +9,8 @@ public enum MDropDownButtonVariant
     Outline,
     Secondary,
     Ghost,
-    Destructive
+    Destructive,
+    Flat
 }
 
 public class MDropDownButton : DropDownButton
