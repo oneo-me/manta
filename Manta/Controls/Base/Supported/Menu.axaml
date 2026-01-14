@@ -4,13 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MenuFlyoutPresenter />
+            <Menu />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
+    <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'MenuFlyoutPresenter' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'Menu'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

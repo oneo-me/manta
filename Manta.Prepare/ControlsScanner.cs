@@ -258,19 +258,22 @@ sealed class ControlsScanner(Options options)
             };
             GroupName = ImplName switch
             {
-                "MTitleBarButtons"        => nameof(TitleBar),
-                "MTreeItem"               => "MTree",
-                nameof(OverlayPopupHost)  => nameof(PopupRoot),
-                nameof(CalendarButton)    => nameof(Calendar),
-                nameof(CalendarDayButton) => nameof(Calendar),
-                nameof(CalendarItem)      => nameof(Calendar),
-                nameof(ListBoxItem)       => nameof(ListBox),
-                nameof(ComboBoxItem)      => nameof(ComboBox),
-                nameof(MenuItem)          => nameof(Menu),
-                nameof(TabStripItem)      => nameof(TabStrip),
-                nameof(TabItem)           => nameof(TabControl),
-                nameof(TreeViewItem)      => nameof(TreeView),
-                nameof(ScrollBar)         => nameof(ScrollViewer),
+                "MTitleBarButtons"          => nameof(TitleBar),
+                "MTreeItem"                 => "MTree",
+                nameof(MenuItem)            => "MMenu",
+                nameof(ContextMenu)         => "MMenu",
+                nameof(MenuFlyout)          => "MMenu",
+                nameof(MenuFlyoutPresenter) => "MMenu",
+                nameof(OverlayPopupHost)    => nameof(PopupRoot),
+                nameof(CalendarButton)      => nameof(Calendar),
+                nameof(CalendarDayButton)   => nameof(Calendar),
+                nameof(CalendarItem)        => nameof(Calendar),
+                nameof(ListBoxItem)         => nameof(ListBox),
+                nameof(ComboBoxItem)        => nameof(ComboBox),
+                nameof(TabStripItem)        => nameof(TabStrip),
+                nameof(TabItem)             => nameof(TabControl),
+                nameof(TreeViewItem)        => nameof(TreeView),
+                nameof(ScrollBar)           => nameof(ScrollViewer),
 
                 _ => ImplName
             };

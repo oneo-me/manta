@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 
 namespace Manta.Controls;
 
@@ -16,6 +17,8 @@ public enum MTextBoxVariant
 [TemplatePart(nameof(PART_TextPresenter), typeof(TextPresenter))]
 public class MTextBox : TextBox
 {
+    public static KeyGesture? SelectAllGesture => Application.Current?.PlatformSettings?.HotkeyConfiguration.SelectAll.FirstOrDefault();
+
     public static readonly StyledProperty<MTextBoxVariant> VariantProperty = AvaloniaProperty.Register<MTextBox, MTextBoxVariant>(
         nameof(Variant));
 
