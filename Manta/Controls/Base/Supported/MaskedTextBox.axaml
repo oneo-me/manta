@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'MaskedTextBox' is not supported" />
+                    <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MaskedTextBox'" />
                     <TextPresenter Name="PART_TextPresenter" IsVisible="False" />
                 </Panel>
             </ControlTemplate>
