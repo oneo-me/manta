@@ -6,3 +6,7 @@ AppMenu_Hide_App: 隐藏 {0}
 AppMenu_Hide_Others: 隐藏其他
 AppMenu_Show_All: 全部显示
 AppMenu_Quit: 退出 {0}
+TextBox_ContextMenu_Cut: 剪切
+TextBox_ContextMenu_Copy: 复制
+TextBox_ContextMenu_Paste: 粘贴
+TextBox_ContextMenu_Select_All: 全选

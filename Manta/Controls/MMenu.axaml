@@ -1,0 +1,414 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:icons="clr-namespace:Manta.Controls.Icons"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Text="ContextMenu" />
+            <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8">
+                <Border.ContextMenu>
+                    <MContextMenu>
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2">
+                            <MMenuItem Header="MenuItem 1" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="MenuItem 2" />
+                            <MMenuItem Header="MenuItem 3" />
+                        </MMenuItem>
+                        <MMenuItem Header="MenuItem 3" />
+                    </MContextMenu>
+                </Border.ContextMenu>
+                <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+            </Border>
+            <TextBlock Text="ContextFlyout" />
+            <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8">
+                <Border.ContextFlyout>
+                    <MMenuFlyout>
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2">
+                            <MMenuItem Header="MenuItem 1" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="MenuItem 2" />
+                            <MMenuItem Header="MenuItem 3" />
+                        </MMenuItem>
+                        <MMenuItem Header="MenuItem 3" />
+                    </MMenuFlyout>
+                </Border.ContextFlyout>
+                <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+            </Border>
+            <TextBlock Text="Menu" />
+            <MMenu>
+                <MMenuItem Header="MenuItem 1">
+                    <MMenuItem Header="MenuItem 1">
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2" />
+                        <MMenuItem Header="MenuItem 3" />
+                    </MMenuItem>
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 2" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="CheckBox" IsChecked="True" />
+                </MMenuItem>
+                <MMenuItem Header="-" />
+                <MMenuItem Header="MenuItem 2" />
+                <MMenuItem Header="MenuItem 3" />
+                <MMenuItem Header="MenuItem 4" IsEnabled="False" />
+            </MMenu>
+            <TextBlock Text="Submenu" />
+            <Border
+                Background="{MBrush Popover}"
+                BorderBrush="{MBrush Border}"
+                TextElement.Foreground="{MBrush PopoverForeground}"
+                BorderThickness="{MThickness Px}"
+                BoxShadow="{MShadow MD}"
+                CornerRadius="{MRadius MD}"
+                Padding="{MThickness S1_5}"
+                HorizontalAlignment="Left">
+                <MPanel Mode="Vertical" Spacing="1" Grid.IsSharedSizeScope="True">
+                    <MMenuItem Header="MenuItem 1" InputGesture="Ctrl+C">
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2" />
+                        <MMenuItem Header="MenuItem 3" />
+                    </MMenuItem>
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" IsChecked="True" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" />
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 2" InputGesture="Ctrl+C" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="CheckBox" IsChecked="True" />
+                    <MMenuItem Header="MenuItem 4" IsEnabled="False" />
+                </MPanel>
+            </Border>
+        </MPanel>
+    </Design.PreviewWith>
+    <converters:PlatformKeyGestureConverter x:Key="MenuItemKeyGestureConverter" />
+    <ControlTheme x:Key="{x:Type MMenuItem}" TargetType="MMenuItem">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Background" Value="{MBrush Muted, Opacity=0}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="CornerRadius" Value="{MRadius SM}" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{MBrush Muted}" />
+        </Style>
+        <Style Selector="^:open">
+            <Setter Property="Background" Value="{MBrush Muted}" />
+        </Style>
+        <!-- TopLevel -->
+        <Style Selector="^:top-level">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S1_5}" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <Border
+                            x:Name="PART_Header"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                            <MPanel Mode="Horizontal" Spacing="5">
+                                <ContentPresenter Content="{TemplateBinding Icon}"
+                                                  IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="Bitmap">
+                                            <Image Source="{Binding}" Width="14" Height="14" Margin="0 -10" VerticalAlignment="Center" />
+                                        </DataTemplate>
+                                        <DataTemplate DataType="icons:IconSource">
+                                            <MIcon IconSource="{Binding}" IconSize="16" Margin="0 -10" VerticalAlignment="Center" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="system:String">
+                                            <AccessText Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                            </MPanel>
+                        </Border>
+                        <Border x:Name="PopupTargetOffset" IsHitTestVisible="False">
+                            <Border x:Name="PopupTargetParent">
+                                <Border x:Name="PopupTarget" />
+                            </Border>
+                        </Border>
+                        <Popup x:Name="PART_Popup" IsLightDismissEnabled="False"
+                               PlacementTarget="PopupTarget"
+                               Placement="BottomEdgeAlignedLeft"
+                               IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+                            <Border x:Name="PopupContent">
+                                <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Grid.IsSharedSizeScope="True" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:separator">
+                <Setter Property="Background" Value="{MBrush Border}" />
+                <Setter Property="Margin" Value="{MThickness S1, Filter=Top|Bottom}" />
+                <Setter Property="Width" Value="1" />
+                <Setter Property="MaxHeight" Value="14" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Border Background="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTargetOffset">
+                <Setter Property="Margin" Value="{MThickness S0_5, Filter=Bottom, Reverse=True}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTargetParent">
+                <Setter Property="Margin" Value="{MThickness S1, Filter=Left|Right, Reverse=True}" />
+                <Setter Property="Padding" Value="{MThickness Px, Filter=Left, Reverse=True}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTarget">
+                <Setter Property="Margin" Value="{MShadow MD, ValueType=MarginNegative}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter:empty">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+        <!-- Popup -->
+        <Style Selector="^ /template/ StackPanel">
+            <Setter Property="Spacing" Value="1" />
+        </Style>
+        <Style Selector="^ /template/ Border#PopupContent">
+            <Setter Property="Background" Value="{MBrush Popover}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="TextBlock.Foreground" Value="{MBrush PopoverForeground}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="Padding" Value="{MThickness S1_5}" />
+            <Setter Property="BoxShadow" Value="{MShadow XS}" />
+            <Setter Property="Margin" Value="{MShadow XS, ValueType=Margin}" />
+        </Style>
+        <!-- Not TopLevel -->
+        <Style Selector="^:not(:top-level)">
+            <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S1_5}" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <Border
+                            x:Name="PART_Header"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="CheckMark" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="InputGesture" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="Checked" Grid.Column="0" Width="16" Height="16" Margin="0 -10 3 -10" VerticalAlignment="Center">
+                                    <Panel>
+                                        <MPathIcon x:Name="CheckBox" Size="10" Foreground="{TemplateBinding Foreground}"
+                                                   Data="M10.9787902,1.279146 C11.3769068,0.715147388 12.1568554,0.580673502 12.720854,0.978790171 C13.2472527,1.35036573 13.3994876,2.05455927 13.0937625,2.60535206 L13.0212098,2.720854 L7.02120983,11.220854 C6.62017791,11.7889825 5.8407192,11.9144232 5.28487761,11.5254052 L5.17686924,11.4407209 L1.17686924,7.94072087 C0.657323451,7.4861183 0.604676566,6.69641503 1.05927913,6.17686924 C1.48357486,5.69195984 2.19978054,5.61377126 2.71579884,5.97510999 L2.82313076,6.05927913 L5.778,8.646 L10.9787902,1.279146 Z" />
+                                        <Ellipse x:Name="Radio" Width="5" Height="5" Fill="{TemplateBinding Foreground}" />
+                                    </Panel>
+                                </Border>
+                                <ContentPresenter Grid.Column="1" Content="{TemplateBinding Icon}" Margin="0 0 5 0"
+                                                  IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="Bitmap">
+                                            <Image Source="{Binding}" Width="14" Height="14" Margin="0 -10" VerticalAlignment="Center" />
+                                        </DataTemplate>
+                                        <DataTemplate DataType="icons:IconSource">
+                                            <MIcon IconSource="{Binding}" IconSize="16" Margin="0 -10" VerticalAlignment="Center" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <ContentPresenter Grid.Column="2" x:Name="PART_ContentPresenter"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  HorizontalAlignment="Left">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="system:String">
+                                            <AccessText Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <TextBlock Grid.Column="3" Text="{TemplateBinding InputGesture, Converter={StaticResource MenuItemKeyGestureConverter}}"
+                                           Opacity="0.5" Margin="16 0 0 0" />
+                                <Border x:Name="PART_ChevronPath" Grid.Column="4" VerticalAlignment="Center"
+                                        Opacity="0.5" Margin="8 -10 0 -10">
+                                    <MPathIcon Size="9" Foreground="{TemplateBinding Foreground}"
+                                               Data="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8.07107 6.65685C8.2586 6.84439 8.36396 7.09874 8.36396 7.36396C8.36396 7.62918 8.2586 7.88353 8.07107 8.07107L1.70711 14.435C1.31658 14.8256 0.683418 14.8256 0.292893 14.435C-0.0976311 14.0445 -0.0976311 13.4113 0.292893 13.0208L5.94975 7.36396L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <Border x:Name="PopupTargetOffset" IsHitTestVisible="False">
+                            <Border x:Name="PopupTargetParent">
+                                <Border x:Name="PopupTarget" />
+                            </Border>
+                        </Border>
+                        <Popup x:Name="PART_Popup" IsLightDismissEnabled="False"
+                               PlacementTarget="PopupTarget"
+                               Placement="RightEdgeAlignedTop"
+                               IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+                            <Border x:Name="PopupContent">
+                                <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Grid.IsSharedSizeScope="True" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^ /template/ Border#Checked">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^:checked /template/ Border#Checked">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ MPathIcon#CheckBox">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Ellipse#Radio">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^:toggle /template/ MPathIcon#CheckBox">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:radio /template/ Ellipse#Radio">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:empty /template/ Border#PART_ChevronPath">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^:separator">
+                <Setter Property="Height" Value="1" />
+                <Setter Property="Margin" Value="{MThickness S1}" />
+                <Setter Property="Background" Value="{MBrush Border}" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="Template">
+                    <ControlTemplate>
+                        <Border Background="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTargetOffset">
+                <Setter Property="Margin" Value="{MThickness S3, Filter=Right}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTargetParent">
+                <Setter Property="Margin" Value="{MThickness S1, Filter=Top|Bottom|Right, Reverse=True}" />
+                <Setter Property="Padding" Value="{MThickness Px, Filter=Top, Reverse=True}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PopupTarget">
+                <Setter Property="Margin" Value="{MShadow MD, ValueType=MarginNegative}" />
+            </Style>
+        </Style>
+        <!-- Disabled -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MMenu}" TargetType="MMenu">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    Grid.IsSharedSizeScope="True"
+                                    KeyboardNavigation.TabNavigation="Continue" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Background" Value="{MBrush Background}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        <Setter Property="Padding" Value="{MThickness S1_5}" />
+        <Style Selector="^ /template/ StackPanel">
+            <Setter Property="Spacing" Value="2" />
+        </Style>
+        <Style Selector="^ /template/ Border">
+            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Setter Property="Margin" Value="{MShadow MD, ValueType=Margin}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MMenuFlyoutPresenter}" TargetType="MMenuFlyoutPresenter">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                    Grid.IsSharedSizeScope="True"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    KeyboardNavigation.TabNavigation="Continue" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Background" Value="{MBrush Popover}" />
+        <Setter Property="Foreground" Value="{MBrush PopoverForeground}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        <Setter Property="Padding" Value="{MThickness S1_5}" />
+        <Setter Property="FontSize" Value="12" />
+        <Style Selector="^ /template/ Border">
+            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Setter Property="Margin" Value="{MShadow MD, ValueType=Margin}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MContextMenu}" TargetType="MContextMenu">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                    Grid.IsSharedSizeScope="True"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    KeyboardNavigation.TabNavigation="Continue" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Background" Value="{MBrush Popover}" />
+        <Setter Property="Foreground" Value="{MBrush PopoverForeground}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        <Setter Property="Padding" Value="{MThickness S1_5}" />
+        <Setter Property="FontSize" Value="12" />
+        <Style Selector="^ /template/ Border">
+            <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            <Setter Property="Margin" Value="{MShadow MD, ValueType=Margin}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

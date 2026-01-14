@@ -21,12 +21,14 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ContextMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/MaskedTextBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/Menu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/PathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ProgressBar.axaml" />
@@ -49,14 +51,11 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/Calendar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/ComboBox.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ContextMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/Menu.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/MenuFlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
@@ -95,6 +94,7 @@
                 <MergeResourceInclude Source="../Controls/MItems.axaml" />
                 <MergeResourceInclude Source="../Controls/MListBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MMaskedTextBox.axaml" />
+                <MergeResourceInclude Source="../Controls/MMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/MNumericUpDown.axaml" />
                 <MergeResourceInclude Source="../Controls/MPathIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MPixelGrid.axaml" />

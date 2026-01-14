@@ -6,3 +6,7 @@ AppMenu_Hide_App: Hide {0}
 AppMenu_Hide_Others: Hide Others
 AppMenu_Show_All: Show All
 AppMenu_Quit: Quit
+TextBox_ContextMenu_Cut: Cut
+TextBox_ContextMenu_Copy: Copy
+TextBox_ContextMenu_Paste: Paste
+TextBox_ContextMenu_Select_All: Select All

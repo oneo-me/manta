@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:langs="clr-namespace:Manta.Langs"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <!-- Text -->
@@ -37,6 +38,26 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="ContextFlyout">
+            <MMenuFlyout Placement="Bottom">
+                <MMenuItem Header="{Lang {x:Static langs:InnerLangKey.TextBox_ContextMenu_Cut}}"
+                           Command="{Binding $parent[MTextBox].Cut}"
+                           IsEnabled="{Binding $parent[MTextBox].CanCut}"
+                           InputGesture="{x:Static MTextBox.CutGesture}" />
+                <MMenuItem Header="{Lang {x:Static langs:InnerLangKey.TextBox_ContextMenu_Copy}}"
+                           Command="{Binding $parent[MTextBox].Copy}"
+                           IsEnabled="{Binding $parent[MTextBox].CanCopy}"
+                           InputGesture="{x:Static MTextBox.CopyGesture}" />
+                <MMenuItem Header="{Lang {x:Static langs:InnerLangKey.TextBox_ContextMenu_Paste}}"
+                           Command="{Binding $parent[MTextBox].Paste}"
+                           IsEnabled="{Binding $parent[MTextBox].CanPaste}"
+                           InputGesture="{x:Static MTextBox.PasteGesture}" />
+                <MMenuItem Header="-" />
+                <MMenuItem Header="{Lang {x:Static langs:InnerLangKey.TextBox_ContextMenu_Select_All}}"
+                           Command="{Binding $parent[MTextBox].SelectAll}"
+                           InputGesture="{x:Static MTextBox.SelectAllGesture}" />
+            </MMenuFlyout>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
