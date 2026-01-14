@@ -22,6 +22,8 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/CaptionButtons.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Carousel.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/CheckBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ComboBox.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/ComboBoxItem.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ContextMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
@@ -62,8 +64,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarDayButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/CalendarItem.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ComboBox.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/ComboBoxItem.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
@@ -99,6 +99,7 @@
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MClip.axaml" />
+                <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommandPanel.axaml" />
                 <MergeResourceInclude Source="../Controls/MDropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />

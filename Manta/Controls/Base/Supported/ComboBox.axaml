@@ -4,13 +4,16 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <ComboBoxItem />
+            <ComboBox />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+    <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'ComboBoxItem' is not supported" />
+                <Panel>
+                    <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MComboBox'" />
+                    <Popup Name="PART_Popup" IsVisible="False" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -1,0 +1,242 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MComboBox SelectedIndex="0" Width="220">
+                <MComboBox.ItemsSource>
+                    <generic:List x:TypeArguments="system:String">
+                        <system:String>0: Test 0</system:String>
+                        <system:String>1: Test 1</system:String>
+                        <system:String>2: Test 2</system:String>
+                    </generic:List>
+                </MComboBox.ItemsSource>
+                <MComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </MComboBox.ItemTemplate>
+                <MComboBox.SelectionBoxItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="{MBrush Primary}" />
+                    </DataTemplate>
+                </MComboBox.SelectionBoxItemTemplate>
+            </MComboBox>
+            <MComboBox SelectedIndex="0" IsEditable="True" Width="220">
+                <MComboBox.ItemsSource>
+                    <generic:List x:TypeArguments="system:String">
+                        <system:String>0: Test 0</system:String>
+                        <system:String>1: Test 1</system:String>
+                        <system:String>2: Test 2</system:String>
+                    </generic:List>
+                </MComboBox.ItemsSource>
+                <MComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </MComboBox.ItemTemplate>
+                <MComboBox.SelectionBoxItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="{MBrush Primary}" />
+                    </DataTemplate>
+                </MComboBox.SelectionBoxItemTemplate>
+            </MComboBox>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MComboBox}" TargetType="MComboBox">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0" Name="PlaceholderTextBlock" Opacity="0.5"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Margin="{TemplateBinding Padding}"
+                                       Text="{TemplateBinding PlaceholderText}"
+                                       Foreground="{TemplateBinding PlaceholderForeground}"
+                                       IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                            <ContentControl Grid.Column="0" Name="ContentPresenter"
+                                            Content="{TemplateBinding SelectionBoxItem}"
+                                            ContentTemplate="{TemplateBinding ItemTemplate}"
+                                            Margin="{TemplateBinding Padding}"
+                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            IsVisible="{TemplateBinding IsEditable, Converter={x:Static BoolConverters.Not}}" />
+                            <MTextBox Name="PART_EditableTextBox"
+                                      Grid.Column="0"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      Background="Transparent"
+                                      Text="{TemplateBinding Text, Mode=TwoWay}"
+                                      Watermark="{TemplateBinding PlaceholderText}"
+                                      BorderThickness="0"
+                                      IsVisible="{TemplateBinding IsEditable}" />
+                            <MPathIcon Grid.Column="1" Name="DropDownIcon" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <Border Name="PopupTargetOffset" IsHitTestVisible="False">
+                        <Border Name="PopupTarget" />
+                    </Border>
+                    <Popup Name="PART_Popup"
+                           IsLightDismissEnabled="True"
+                           IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                           Width="{Binding ElementName=PopupTarget, Path=Bounds.Width}"
+                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                           PlacementTarget="PopupTarget"
+                           Placement="Bottom">
+                        <Border Name="PopupContent">
+                            <MScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ItemsPresenter Name="PART_ItemsPresenter"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Grid.IsSharedSizeScope="True" />
+                            </MScrollViewer>
+                        </Border>
+                    </Popup>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Accent}}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Style Selector="^ /template/ Border#Border">
+            <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
+        </Style>
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.7}" />
+            <Style Selector="^ /template/ Border#Border">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.3}" />
+            </Style>
+        </Style>
+        <Style Selector="^:dropdownopen">
+            <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.7}" />
+            <Style Selector="^ /template/ Border#Border">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.3}" />
+            </Style>
+        </Style>
+        <!-- TextBox -->
+        <Style Selector="^ /template/ MTextBox#PART_EditableTextBox">
+            <Setter Property="Variant" Value="NoStyle" />
+        </Style>
+        <!-- Icon -->
+        <Style Selector="^ /template/ MPathIcon#DropDownIcon">
+            <Setter Property="Margin" Value="{MThickness S4, Vertical=S2}" />
+            <Setter Property="Data" Value="M6 9L12 15L18 9" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="Size" Value="{MSize S2}" />
+            <Setter Property="RenderTransform" Value="rotate(0deg)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:dropdownopen /template/ MPathIcon#DropDownIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+        <!-- Popup -->
+        <Style Selector="^ /template/ Border#PopupTargetOffset">
+            <Setter Property="Margin" Value="{MThickness S0_5, Filter=Bottom, Reverse=True}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PopupTarget">
+            <Setter Property="Margin" Value="{MThickness S1, Filter=Left|Right, Reverse=True}" />
+            <Setter Property="Padding" Value="{MThickness Px, Filter=Left, Reverse=True}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PopupContent">
+            <Setter Property="Background" Value="{MBrush Popover}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="TextBlock.Foreground" Value="{MBrush PopoverForeground}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="Padding" Value="{MThickness S1_5}" />
+            <Setter Property="BoxShadow" Value="{MShadow XS}" />
+            <Setter Property="Margin" Value="{MShadow XS, ValueType=Margin}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PopupContent">
+            <Setter Property="RenderTransformOrigin" Value="50%,0%" />
+        </Style>
+        <Style Selector="^:dropdownopen /template/ Border#PopupContent">
+            <Style.Animations>
+                <Animation Duration="0:0:0.15" Easing="CubicEaseOut" FillMode="Forward">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MComboBoxItem}" TargetType="MComboBoxItem">
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Background" Value="{MBrush Accent, Opacity=0}" />
+        <Setter Property="CornerRadius" Value="{MRadius SM}" />
+        <Setter Property="Padding" Value="{MThickness S3, Vertical=S1_5}" />
+        <Setter Property="Margin" Value="{MThickness Px, Filter=Top}" />
+        <Style Selector="^:nth-child(1)">
+            <Setter Property="Margin" Value="{MThickness S0}" />
+        </Style>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{MBrush Accent}" />
+        </Style>
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{MBrush Accent}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
