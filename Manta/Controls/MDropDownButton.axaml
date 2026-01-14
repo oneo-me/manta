@@ -20,6 +20,9 @@
             <MPanel Mode="Horizontal" Spacing="8">
                 <MDropDownButton Variant="Ghost" Content="Ghost" />
             </MPanel>
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MDropDownButton Variant="Flat" Content="Flat" />
+            </MPanel>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MDropDownButton}" TargetType="MDropDownButton">
@@ -163,6 +166,18 @@
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Flat]">
+            <Setter Property="Background" Value="{MBrush Secondary, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush SecondaryForeground}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Secondary}" />
             </Style>
         </Style>
     </ControlTheme>

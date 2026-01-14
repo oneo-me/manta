@@ -10,7 +10,8 @@ public enum MButtonVariant
     Secondary,
     Ghost,
     Destructive,
-    Link
+    Link,
+    Flat
 }
 
 public class MButton : Button
