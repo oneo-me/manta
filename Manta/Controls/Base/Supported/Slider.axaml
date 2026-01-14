@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'Slider' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MSlider'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

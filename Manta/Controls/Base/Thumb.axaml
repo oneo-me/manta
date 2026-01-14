@@ -8,6 +8,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Thumb}" TargetType="Thumb">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="#00000000">
