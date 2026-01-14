@@ -3,7 +3,7 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.10" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.11" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\Manta\Themes\Values\*.cs">
