@@ -56,6 +56,8 @@
             <ControlTemplate>
                 <Grid ColumnDefinitions="* Auto">
                     <MButton Grid.Column="0" Name="PART_PrimaryButton"
+                             Foreground="{TemplateBinding Foreground}"
+                             Padding="{TemplateBinding Padding}"
                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                              Command="{TemplateBinding Command}"
@@ -71,6 +73,7 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Setter Property="Padding" Value="{MThickness S4, Vertical=S2}" />
         <Style Selector="^ /template/ Border#Line">
             <Setter Property="ZIndex" Value="2" />
             <Setter Property="Width" Value="{MSize Px}" />
@@ -138,6 +141,7 @@
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
+            <Setter Property="Padding" Value="{MThickness S4, Vertical=S2, OffsetNegative=Px}" />
             <Style Selector="^ /template/ MButton">
                 <Setter Property="Variant" Value="Outline" />
             </Style>
