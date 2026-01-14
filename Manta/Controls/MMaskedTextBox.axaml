@@ -1,0 +1,13 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <!-- Text -->
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="(LLL) 999-0000" />
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="000.000.000.000" />
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="000.000.000.000" IsReadOnly="True" />
+        </MPanel>
+    </Design.PreviewWith>
+</ResourceDictionary>
