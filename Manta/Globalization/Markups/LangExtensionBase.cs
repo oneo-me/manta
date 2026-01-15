@@ -35,7 +35,7 @@ public abstract class LangExtensionBase : MarkupExtension, IMultiValueConverter
 
     protected void BindingValue(MultiBinding multiBinding, object? value, string valueName = "")
     {
-        if (value is BindingBase keyBinding)
+        if (value is IBinding keyBinding)
             multiBinding.Bindings.Add(keyBinding);
         else
             multiBinding.Bindings.Add(new Binding(valueName)

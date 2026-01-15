@@ -35,7 +35,7 @@ sealed class ThemeFile(Options options)
             writer.WriteLine($"                <MergeResourceInclude Source=\"../{Path.GetRelativePath(options.ProjectDir, xamlFile).Replace('\\', '/')}\" />");
 
         writer.WriteLine("                <!-- Common -->");
-        writer.WriteLine("                <MergeResourceInclude Source=\"@Design.axaml\" />");
+        writer.WriteLine("                <MergeResourceInclude Source=\"@Base.axaml\" />");
         writer.WriteLine("                <MergeResourceInclude Source=\"@Shadows.axaml\" />");
         writer.WriteLine("                <MergeResourceInclude Source=\"@Rings.axaml\" />");
 
