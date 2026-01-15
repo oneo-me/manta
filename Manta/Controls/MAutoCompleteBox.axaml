@@ -35,7 +35,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <MTextBox Name="PART_TextBox"
-                                  Watermark="{TemplateBinding Watermark}"
+                                  PlaceholderText="{TemplateBinding PlaceholderText}"
                                   Width="{TemplateBinding Width}"
                                   Foreground="{TemplateBinding Foreground}"
                                   CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"

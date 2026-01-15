@@ -107,7 +107,8 @@ public class MCanvas : ContentControl
         _transformContainer = e.NameScope.Find<Panel>("PART_TransformContainer");
 
         // Trackpad pinch-to-zoom
-        AddHandler(Gestures.PointerTouchPadGestureMagnifyEvent, OnMagnify, RoutingStrategies.Bubble);
+        // TODO 暂时没有支持 Avalonia 12
+        // AddHandler(Gestures.PointerTouchPadGestureMagnifyEvent, OnMagnify, RoutingStrategies.Bubble);
 
         UpdateTransform();
     }

@@ -173,7 +173,7 @@
                                                     <TextBlock Text="Supports HTTP and SOCKS5 proxies" Opacity="0.5" />
                                                 </MPanel>
                                                 <Panel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
-                                                    <MTextBox Width="160" Padding="8 4" Watermark="http://127.0.0.1:7897" />
+                                                    <MTextBox Width="160" Padding="8 4" PlaceholderText="http://127.0.0.1:7897" />
                                                 </Panel>
                                             </Grid>
                                         </MItem>
@@ -186,13 +186,13 @@
                                             <MButton Grid.Column="0" Variant="Outline" Padding="6 4">
                                                 <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                             </MButton>
-                                            <MTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
+                                            <MTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" PlaceholderText="OpenAI" />
                                         </Grid>
                                     </MPanel>
                                     <MPanel Mode="Vertical" Spacing="3">
                                         <TextBlock Text="API Base URL" />
                                         <TextBlock Text="Do NOT include /chat/completions in the URL" Opacity="0.5" />
-                                        <MTextBox Padding="8 4" Watermark="https://api.openai.com/v1" />
+                                        <MTextBox Padding="8 4" PlaceholderText="https://api.openai.com/v1" />
                                     </MPanel>
                                     <MPanel Mode="Vertical" Spacing="3">
                                         <TextBlock Text="API Key" />
@@ -248,7 +248,7 @@
                                                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Setting" />
                                                                 <ColumnDefinition Width="Auto" SharedSizeGroup="Delete" />
                                                             </Grid.ColumnDefinitions>
-                                                            <MTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
+                                                            <MTextBox Grid.Column="0" PlaceholderText="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
                                                             <MTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
                                                             <MButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
                                                                 <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />

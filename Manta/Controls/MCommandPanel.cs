@@ -15,13 +15,13 @@ public class MCommandPanel : ListBox
         return NeedsContainer<MCommandPanelItem>(item, out recycleKey);
     }
 
-    public static readonly StyledProperty<string> WatermarkProperty = AvaloniaProperty.Register<MCommandPanel, string>(
-        nameof(Watermark));
+    public static readonly StyledProperty<string> PlaceholderTextProperty = AvaloniaProperty.Register<MCommandPanel, string>(
+        nameof(PlaceholderText));
 
-    public string Watermark
+    public string PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public static readonly StyledProperty<string> TextProperty = AvaloniaProperty.Register<MCommandPanel, string>(

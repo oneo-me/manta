@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <NavigationPage />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'NavigationPage' is not supported" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

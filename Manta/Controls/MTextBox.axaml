@@ -11,14 +11,14 @@
                 <MTextBox Variant="NoStyle" />
             </Border>
             <Border BorderThickness="1">
-                <MTextBox Variant="NoStyle" Watermark="Watermark..." />
+                <MTextBox Variant="NoStyle" PlaceholderText="Watermark..." />
             </Border>
             <Border BorderThickness="1">
                 <MTextBox Variant="NoStyle" Text="Input Text" />
             </Border>
             <TextBlock Text="Default" />
             <MTextBox />
-            <MTextBox Watermark="Watermark..." />
+            <MTextBox PlaceholderText="Watermark..." />
             <MTextBox Text="Input Text" />
             <MTextBox Text="ReadOnly" IsReadOnly="True" />
             <MTextBox Text="ReadOnly" IsPasswordBox="True" />

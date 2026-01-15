@@ -66,7 +66,7 @@ public class MTitleBar : ContentControl
         if (PART_Event is null)
             return;
 
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         _disposables?.Dispose();
@@ -130,7 +130,7 @@ public class MTitleBarButtons : ContentControl
 
     void FullScreenButtonOnClick(object? sender, RoutedEventArgs routedEventArgs)
     {
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         window.WindowState = window.WindowState == WindowState.FullScreen ? WindowState.Normal : WindowState.FullScreen;
@@ -138,7 +138,7 @@ public class MTitleBarButtons : ContentControl
 
     void MinimizeButtonOnClick(object? sender, RoutedEventArgs routedEventArgs)
     {
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         window.WindowState = WindowState.Minimized;
@@ -146,7 +146,7 @@ public class MTitleBarButtons : ContentControl
 
     void MaximizeRestoreButtonOnClick(object? sender, RoutedEventArgs routedEventArgs)
     {
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
@@ -154,7 +154,7 @@ public class MTitleBarButtons : ContentControl
 
     void CloseButtonOnClick(object? sender, RoutedEventArgs e)
     {
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         window.Close();
@@ -178,7 +178,7 @@ public class MTitleBarButtons : ContentControl
 
     void AttachEvents()
     {
-        if (VisualRoot is not Window window)
+        if (VisualRoot?.Parent is not Window window)
             return;
 
         _disposables?.Dispose();

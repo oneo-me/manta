@@ -1,15 +1,15 @@
 <Project>
-  <PropertyGroup>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageVersion Include="Avalonia.Desktop" Version="11.3.12" />
-    <PackageVersion Include="Avalonia.Markup.Xaml.Loader" Version="11.3.12" />
-    <PackageVersion Include="DynamicData" Version="9.4.31" />
-    <PackageVersion Include="YamlDotNet" Version="16.3.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0" />
-    <PackageVersion Include="Manta.Generators" Version="1.2026.8" />
-  </ItemGroup>
+    <PropertyGroup>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageVersion Include="Avalonia.Desktop" Version="12.0.0-rc2" />
+        <PackageVersion Include="Avalonia.Markup.Xaml.Loader" Version="12.0.0-rc2" />
+        <PackageVersion Include="DynamicData" Version="9.4.31" />
+        <PackageVersion Include="YamlDotNet" Version="16.3.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
+        <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0" />
+        <PackageVersion Include="Manta.Generators" Version="1.2026.8" />
+    </ItemGroup>
 </Project>

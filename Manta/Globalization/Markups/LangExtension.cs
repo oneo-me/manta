@@ -18,9 +18,10 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
     protected override void Initialize(MultiBinding multiBinding)
     {
         if (LangType is null)
-            BindingValue(multiBinding, new Binding(nameof(LangSource.Current), BindingMode.OneWay)
+            BindingValue(multiBinding, new Binding(nameof(LangSource.Current))
             {
-                Source = Lang.Source
+                Source = Lang.Source,
+                Mode = BindingMode.OneWay
             });
         else
             BindingValue(multiBinding, LangType, nameof(LangType));

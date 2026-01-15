@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <PipsPager />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'PipsPager' is not supported" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

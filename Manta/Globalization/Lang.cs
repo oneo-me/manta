@@ -57,7 +57,7 @@ public static class Lang
         return string.Format(Current.ToCultureInfo(), langStr, options.Args);
     }
 
-    public static IBinding GetBinding(LangGetOptions options)
+    public static BindingBase GetBinding(LangGetOptions options)
     {
         var langExtension = new LangExtension(options.LangKey)
         {
