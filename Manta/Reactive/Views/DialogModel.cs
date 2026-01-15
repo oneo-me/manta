@@ -73,7 +73,7 @@ public abstract class DialogModel : WindowModel
         window.CanMinimize = false;
         window.CanMaximize = false;
         window.ShowInTaskbar = false;
-        window.SystemDecorations = SystemDecorations.BorderOnly;
+        window.WindowDecorations = WindowDecorations.BorderOnly;
         window.WindowStartupLocation = WindowStartupLocation.Manual;
         window.SizeToContent = SizeToContent.WidthAndHeight;
     }

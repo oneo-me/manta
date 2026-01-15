@@ -32,7 +32,7 @@ public abstract class MValueBase : MarkupExtension, IMultiValueConverter
         return ProcessValues(values);
     }
 
-    public IBinding GetResourceBinding(IResourceHost control)
+    public BindingBase GetResourceBinding(IResourceHost control)
     {
         var multiBinding = new MultiBinding
         {

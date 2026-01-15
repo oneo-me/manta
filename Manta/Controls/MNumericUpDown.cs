@@ -45,7 +45,7 @@ public class MNumericUpDown : NumericUpDown
         PART_TextBox.LostFocus += TextBoxOnLostFocus;
     }
 
-    void TextBoxOnGotFocus(object? sender, GotFocusEventArgs gotFocusEventArgs)
+    void TextBoxOnGotFocus(object? sender, FocusChangedEventArgs focusChangedEventArgs)
     {
         PseudoClasses.Set(":focus", true);
     }

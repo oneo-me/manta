@@ -10,9 +10,9 @@
             <MNumericUpDown Value="25" Increment="5" />
             <MNumericUpDown Value="3.14" FormatString="F2" />
             <MNumericUpDown Value="50" IsReadOnly="True" />
-            <MNumericUpDown Watermark="Enter value..." />
-            <MNumericUpDown Watermark="Enter value..." AllowSpin="False" />
-            <MNumericUpDown Watermark="Enter value..." ButtonSpinnerLocation="Left" />
+            <MNumericUpDown PlaceholderText="Enter value..." />
+            <MNumericUpDown PlaceholderText="Enter value..." AllowSpin="False" />
+            <MNumericUpDown PlaceholderText="Enter value..." ButtonSpinnerLocation="Left" />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MNumericUpDown}" TargetType="MNumericUpDown">
@@ -36,7 +36,7 @@
                               BorderBrush="Transparent"
                               Padding="{TemplateBinding Padding}"
                               Foreground="{TemplateBinding Foreground}"
-                              Watermark="{TemplateBinding Watermark}"
+                              PlaceholderText="{TemplateBinding PlaceholderText}"
                               IsReadOnly="{TemplateBinding IsReadOnly}"
                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

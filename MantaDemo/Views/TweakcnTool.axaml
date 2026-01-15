@@ -22,7 +22,7 @@
         <MTextBox Grid.Row="1"
                   Variant="NoStyle" Padding="8" Background="{MBrush Background}"
                   AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"
-                  Watermark="Paste your tweakcn CSS here..."
+                  PlaceholderText="Paste your tweakcn CSS here..."
                   Text="{Binding Input}" />
     </Grid>
 </MView>

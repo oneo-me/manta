@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using Avalonia.Input.Platform;
 using Avalonia.Media;
 using Manta.Controls.Icons;
 using Manta.Reactive.Commands;

@@ -39,7 +39,7 @@ public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueC
         return multiBinding;
     }
 
-    public IBinding GetResourceBinding(IResourceHost control)
+    public BindingBase GetResourceBinding(IResourceHost control)
     {
         var multiBinding = new MultiBinding
         {
@@ -58,7 +58,7 @@ public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueC
 
     void BindingValue(MultiBinding multiBinding, object? value, string valueName = "")
     {
-        if (value is IBinding keyBinding)
+        if (value is BindingBase keyBinding)
             multiBinding.Bindings.Add(keyBinding);
         else
             multiBinding.Bindings.Add(new Binding(valueName)

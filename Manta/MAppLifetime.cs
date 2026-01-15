@@ -32,7 +32,6 @@ sealed class MAppLifetime
         if (func is not null)
         {
             var mainWindow = func().CreateWindow();
-            mainWindow.IsMainWindow = true;
             _desktop.MainWindow = mainWindow;
 
             if (_isActivatableLifetime)

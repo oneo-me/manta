@@ -81,7 +81,7 @@
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Foreground="{TemplateBinding Foreground}"
                                       Text="{TemplateBinding Text, Mode=TwoWay}"
-                                      Watermark="{TemplateBinding PlaceholderText}"
+                                      PlaceholderText="{TemplateBinding PlaceholderText}"
                                       IsVisible="{TemplateBinding IsEditable}" />
                             <MPathIcon Grid.Column="1" Name="DropDownIcon" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>

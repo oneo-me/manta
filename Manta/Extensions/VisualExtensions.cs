@@ -5,6 +5,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
+using Manta.Ava;
 using Manta.Controls;
 using Manta.Reactive.Extensions;
 using Observable = System.Reactive.Linq.Observable;

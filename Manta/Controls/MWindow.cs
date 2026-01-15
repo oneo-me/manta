@@ -16,15 +16,6 @@ public sealed partial class MWindow : Window
 {
     protected override Type StyleKeyOverride { get; } = typeof(MWindow);
 
-    public static readonly StyledProperty<bool> IsMainWindowProperty = AvaloniaProperty.Register<MWindow, bool>(
-        nameof(IsMainWindow));
-
-    public bool IsMainWindow
-    {
-        get => GetValue(IsMainWindowProperty);
-        internal set => SetValue(IsMainWindowProperty, value);
-    }
-
     public static readonly StyledProperty<bool> AllowFullScreenProperty = AvaloniaProperty.Register<MWindow, bool>(
         nameof(AllowFullScreen));
 
@@ -34,19 +25,8 @@ public sealed partial class MWindow : Window
         set => SetValue(AllowFullScreenProperty, value);
     }
 
-    public static readonly StyledProperty<bool> CloseWhenDeactivatedProperty = AvaloniaProperty.Register<MWindow, bool>(
-        nameof(CloseWhenDeactivated));
-
-    public bool CloseWhenDeactivated
-    {
-        get => GetValue(CloseWhenDeactivatedProperty);
-        set => SetValue(CloseWhenDeactivatedProperty, value);
-    }
-
     public MWindow()
     {
-        Deactivated += OnDeactivated;
-
         if (OperatingSystem.IsMacOS() is false)
             return;
 
@@ -63,12 +43,6 @@ public sealed partial class MWindow : Window
     {
         base.OnOpened(e);
         this.FocusActivate();
-    }
-
-    void OnDeactivated(object? sender, EventArgs e)
-    {
-        if (CloseWhenDeactivated)
-            Close();
     }
 
     void OnKeyUp(object? sender, KeyEventArgs e)
