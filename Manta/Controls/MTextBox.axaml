@@ -150,7 +150,7 @@
             <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
             <Setter Property="CornerRadius" Value="{MRadius MD}" />
             <Setter Property="BorderThickness" Value="{MThickness Px}" />
-            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Background" Value="{MTheme Default={MBrush Background}, Dark={MBrush Muted}}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Style Selector="^ /template/ Border#Border">
                 <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
@@ -170,7 +170,6 @@
                 </Style>
             </Style>
             <Style Selector="^[IsReadOnly=True]">
-                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
                 <Setter Property="BorderBrush" Value="{MBrush Border}" />
                 <Style Selector="^ /template/ Border#Border">
                     <Setter Property="BoxShadow" Value="{MShadow XS, ValueType=InsetShadow}" />

@@ -91,7 +91,7 @@
     <converters:PlatformKeyGestureConverter x:Key="MenuItemKeyGestureConverter" />
     <ControlTheme x:Key="{x:Type MMenuItem}" TargetType="MMenuItem">
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="Background" Value="{MBrush Muted, Opacity=0}" />
+        <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="CornerRadius" Value="{MRadius SM}" />
         <Setter Property="Transitions">
@@ -100,10 +100,10 @@
             </Transitions>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{MBrush Muted}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <Style Selector="^:open">
-            <Setter Property="Background" Value="{MBrush Muted}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <!-- TopLevel -->
         <Style Selector="^:top-level">
@@ -209,8 +209,8 @@
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                         <Setter Property="TranslateTransform.Y" Value="-4" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0.85" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
                         <Setter Property="Opacity" Value="1" />
@@ -409,8 +409,8 @@
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                         <Setter Property="TranslateTransform.Y" Value="-4" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0.85" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
                         <Setter Property="Opacity" Value="1" />
@@ -457,8 +457,8 @@
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                         <Setter Property="TranslateTransform.Y" Value="-4" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0.85" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
                         <Setter Property="Opacity" Value="1" />
