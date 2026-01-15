@@ -6,44 +6,44 @@
         <MPanel Mode="Wrap" Spacing="12" Margin="12">
             <MSplitButton Content="Default" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
-                    <MenuFlyout>
-                        <MenuItem Header="Copy" />
-                        <MenuItem Header="Paste" />
-                        <MenuItem Header="-" />
-                        <MenuItem Header="Delete" />
-                    </MenuFlyout>
+                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MMenuItem Header="Copy" />
+                        <MMenuItem Header="Paste" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="Delete" />
+                    </MMenuFlyout>
                 </MSplitButton.Flyout>
             </MSplitButton>
             <MSplitButton Variant="Outline" Content="Outline" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
-                    <MenuFlyout>
-                        <MenuItem Header="Option 1" />
-                        <MenuItem Header="Option 2" />
-                    </MenuFlyout>
+                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MMenuItem Header="Option 1" />
+                        <MMenuItem Header="Option 2" />
+                    </MMenuFlyout>
                 </MSplitButton.Flyout>
             </MSplitButton>
             <MSplitButton Variant="Secondary" Content="Secondary" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
-                    <MenuFlyout>
-                        <MenuItem Header="Option 1" />
-                        <MenuItem Header="Option 2" />
-                    </MenuFlyout>
+                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MMenuItem Header="Option 1" />
+                        <MMenuItem Header="Option 2" />
+                    </MMenuFlyout>
                 </MSplitButton.Flyout>
             </MSplitButton>
             <MSplitButton Variant="Ghost" Content="Ghost" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
-                    <MenuFlyout>
-                        <MenuItem Header="Option 1" />
-                        <MenuItem Header="Option 2" />
-                    </MenuFlyout>
+                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MMenuItem Header="Option 1" />
+                        <MMenuItem Header="Option 2" />
+                    </MMenuFlyout>
                 </MSplitButton.Flyout>
             </MSplitButton>
             <MSplitButton Variant="Destructive" Content="Destructive" HorizontalAlignment="Left">
                 <MSplitButton.Flyout>
-                    <MenuFlyout>
-                        <MenuItem Header="Option 1" />
-                        <MenuItem Header="Option 2" />
-                    </MenuFlyout>
+                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MMenuItem Header="Option 1" />
+                        <MMenuItem Header="Option 2" />
+                    </MMenuFlyout>
                 </MSplitButton.Flyout>
             </MSplitButton>
         </MPanel>
