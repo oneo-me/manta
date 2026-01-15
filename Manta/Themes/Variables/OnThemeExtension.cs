@@ -16,9 +16,9 @@ public enum MThemeKey
 
 public sealed class MThemeKeyExtension(MThemeKey key) : MKeyBase(key);
 
-public sealed class MThemeExtension : MarkupExtension, IMultiValueConverter
+public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueConverter
 {
-    public object? Default { get; set; }
+    public object? Default { get; } = def;
     public object? Light { get; set; }
     public object? Dark { get; set; }
 

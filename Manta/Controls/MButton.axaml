@@ -65,7 +65,7 @@
                 <Setter Property="BoxShadow" Value="{MShadow SM}" />
             </Style>
             <Style Selector="^ /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing None, BrushKey=Primary, BrushOpacity=0.2}, Dark={MRing None, BrushKey=Primary, BrushType=Light3, BrushOpacity=0.3}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing None, BrushKey=Primary, BrushOpacity=0.2}, Dark={MRing None, BrushKey=Primary, BrushType=Light3, BrushOpacity=0.3}}" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -73,10 +73,10 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XL, BrushKey=Primary, BrushOpacity=0.2}, Dark={MRing XL, BrushKey=Primary, BrushType=Light3, BrushOpacity=0.3}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XL, BrushKey=Primary, BrushOpacity=0.2}, Dark={MRing XL, BrushKey=Primary, BrushType=Light3, BrushOpacity=0.3}}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XS, BrushKey=Primary, BrushOpacity=0}, Dark={MRing XS, BrushKey=Primary, BrushType=Light3, BrushOpacity=0}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Primary, BrushOpacity=0}, Dark={MRing XS, BrushKey=Primary, BrushType=Light3, BrushOpacity=0}}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
@@ -86,7 +86,7 @@
                 <Setter Property="BoxShadow" Value="{MShadow SM, BrushKey=Secondary, BrushType=Dark1}" />
             </Style>
             <Style Selector="^ /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -94,10 +94,10 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
@@ -107,7 +107,7 @@
                 <Setter Property="BoxShadow" Value="{MShadow SM}" />
             </Style>
             <Style Selector="^ /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing None, BrushKey=Destructive, BrushOpacity=0.2}, Dark={MRing None, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0.3}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing None, BrushKey=Destructive, BrushOpacity=0.2}, Dark={MRing None, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0.3}}" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -115,10 +115,10 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XL, BrushKey=Destructive, BrushOpacity=0.2}, Dark={MRing XL, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0.3}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XL, BrushKey=Destructive, BrushOpacity=0.2}, Dark={MRing XL, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0.3}}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XS, BrushKey=Destructive, BrushOpacity=0}, Dark={MRing XS, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Destructive, BrushOpacity=0}, Dark={MRing XS, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0}}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
@@ -131,7 +131,7 @@
                 <Setter Property="BoxShadow" Value="{MShadow SM}" />
             </Style>
             <Style Selector="^ /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing None, BrushKey=Shadow, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing None, BrushKey=Shadow, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -139,10 +139,10 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XL, BrushKey=Shadow, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XL, BrushKey=Shadow, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XS, BrushKey=Shadow, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Shadow, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Ghost]">
@@ -157,7 +157,7 @@
                 <Setter Property="Background" Value="{MBrush Secondary}" />
             </Style>
             <Style Selector="^ /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing None, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing None, BrushKey=Foreground, BrushOpacity=0.15}}" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
@@ -165,10 +165,10 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XL, BrushKey=SecondaryForeground, BrushOpacity=0.1}, Dark={MRing XL, BrushKey=Foreground, BrushOpacity=0.15}}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
-                <Setter Property="BoxShadow" Value="{MTheme Default={MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
+                <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
             </Style>
         </Style>
         <Style Selector="^[Variant=Flat]">
