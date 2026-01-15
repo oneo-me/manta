@@ -6,22 +6,64 @@
         <!-- Button -->
         <MPanel Mode="Wrap" Spacing="12" Margin="12">
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Content="Button" />
+                <MDropDownButton Content="Button">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Secondary" Content="Secondary" />
+                <MDropDownButton Variant="Secondary" Content="Secondary">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Destructive" Content="Destructive" />
+                <MDropDownButton Variant="Destructive" Content="Destructive">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Outline" Content="Outline" />
+                <MDropDownButton Variant="Outline" Content="Outline">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Ghost" Content="Ghost" />
+                <MDropDownButton Variant="Ghost" Content="Ghost">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
             <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Flat" Content="Flat" />
+                <MDropDownButton Variant="Flat" Content="Flat">
+                    <MDropDownButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MDropDownButton.Flyout>
+                </MDropDownButton>
             </MPanel>
         </MPanel>
     </Design.PreviewWith>
