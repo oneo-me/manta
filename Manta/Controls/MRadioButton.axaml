@@ -56,7 +56,7 @@
                 <Setter Property="Height" Value="{MSize S4, OffsetNegative=S2_5}" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Fill" Value="{MBrush Background}" />
+                <Setter Property="Fill" Value="{MBrush PrimaryForeground}" />
                 <Setter Property="Opacity" Value="0" />
                 <Setter Property="Transitions">
                     <Transitions>

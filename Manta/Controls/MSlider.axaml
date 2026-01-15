@@ -85,7 +85,7 @@
         <Style Selector="^ /template/ Thumb#SliderThumb">
             <Setter Property="Width" Value="18" />
             <Setter Property="Height" Value="18" />
-            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Background" Value="{MBrush PrimaryForeground}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="BorderThickness" Value="{MThickness Px}" />
             <Setter Property="CornerRadius" Value="{MRadius Full}" />
