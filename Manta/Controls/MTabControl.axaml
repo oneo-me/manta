@@ -127,7 +127,7 @@
         </Setter>
         <Style Selector="^[Variant=Default]">
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
-            <Setter Property="Background" Value="{MTheme Default={MBrush Background, Opacity=0}, Dark={MBrush Primary, Opacity=0}}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0}, Dark={MBrush Primary, Opacity=0}}" />
             <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
             <Setter Property="CornerRadius" Value="{MRadius SM}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
@@ -139,8 +139,8 @@
                 </Setter>
             </Style>
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{MTheme Default={MBrush Background}, Dark={MBrush Primary}}" />
-                <Setter Property="Foreground" Value="{MTheme Default={MBrush Foreground}, Dark={MBrush PrimaryForeground}}" />
+                <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Primary}}" />
+                <Setter Property="Foreground" Value="{OnTheme {MBrush Foreground}, Dark={MBrush PrimaryForeground}}" />
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="BoxShadow" Value="{MShadow MD}" />
                 </Style>
