@@ -6,8 +6,8 @@
     xmlns:commands="clr-namespace:Manta.DevTools.Commands"
     xmlns:models="clr-namespace:Manta.DevTools.Models"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}"
-    Name="View">
-    <Grid ColumnDefinitions="280 280 *">
+    Name="View" Background="{MBrush Background}">
+    <Grid ColumnDefinitions="280 280 *" Background="{OnTheme {MBrush Desgin, Opacity=0.05}, Dark={MBrush Desgin, Opacity=0.08}}">
         <Border Grid.Column="0" BorderThickness="{MThickness Px, Filter=Right}">
             <Grid RowDefinitions="Auto *">
                 <TextBlock Grid.Row="0" Text="Views" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
