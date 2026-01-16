@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'FlyoutPresenter' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MFlyoutPresenter'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

@@ -2,11 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
-    <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TransitioningContentControl />
-        </MPanel>
-    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TransitioningContentControl}" TargetType="TransitioningContentControl">
         <Setter Property="Template">
             <ControlTemplate>
