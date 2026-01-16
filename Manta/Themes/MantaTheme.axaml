@@ -99,6 +99,7 @@
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MClip.axaml" />
+                <MergeResourceInclude Source="../Controls/MCommandPanel.axaml" />
                 <MergeResourceInclude Source="../Controls/MDropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MFlyout.axaml" />
