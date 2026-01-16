@@ -8,12 +8,12 @@
         <Border Grid.Column="0" BorderThickness="0 0 1 0">
             <Panel>
                 <Border Name="SidebarBackground" />
-                <MListBox Name="Sidebar" Vertical="Sidebar" VerticalAlignment="Top">
+                <MListBox Name="Sidebar" Variant="Sidebar" VerticalAlignment="Top">
                     <MListBox.Styles>
-                        <Style Selector="MListBox[Vertical=Sidebar]">
+                        <Style Selector="MListBox[Variant=Sidebar]">
                             <Setter Property="Padding" Value="7" />
                         </Style>
-                        <Style Selector="MListBoxItem[Vertical=Sidebar]">
+                        <Style Selector="MListBoxItem[Variant=Sidebar]">
                             <Setter Property="Padding" Value="12 7" />
                         </Style>
                     </MListBox.Styles>
@@ -56,12 +56,12 @@
                     <Grid ColumnDefinitions="160 *">
                         <Border Grid.Column="0" BorderThickness="0 0 1 0">
                             <Grid RowDefinitions="* Auto">
-                                <MListBox Grid.Row="0" Vertical="Sidebar" BorderThickness="0 0 0 1">
+                                <MListBox Grid.Row="0" Variant="Sidebar" BorderThickness="0 0 0 1">
                                     <MListBox.Styles>
-                                        <Style Selector="MListBox[Vertical=Sidebar]">
+                                        <Style Selector="MListBox[Variant=Sidebar]">
                                             <Setter Property="Padding" Value="6" />
                                         </Style>
-                                        <Style Selector="MListBoxItem[Vertical=Sidebar]">
+                                        <Style Selector="MListBoxItem[Variant=Sidebar]">
                                             <Setter Property="Padding" Value="12 6" />
                                         </Style>
                                     </MListBox.Styles>

@@ -6,7 +6,7 @@
     x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}"
     Design.Width="720" Design.Height="720">
     <Grid ColumnDefinitions="200 1 *">
-        <MListBox Grid.Column="0" Vertical="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+        <MListBox Grid.Column="0" Variant="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
             <MListBox.Styles>
                 <Style Selector="MListBoxItem">
                     <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="local:IDemoItem" />

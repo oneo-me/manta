@@ -136,7 +136,7 @@
         </Style>
         <!-- ListBox -->
         <Style Selector="^ /template/ MListBox#PART_SelectingItemsControl">
-            <Setter Property="Vertical" Value="NoStyle" />
+            <Setter Property="Variant" Value="NoStyle" />
             <Setter Property="ItemContainerTheme">
                 <ControlTheme TargetType="MListBoxItem">
                     <Setter Property="ClipToBounds" Value="False" />
