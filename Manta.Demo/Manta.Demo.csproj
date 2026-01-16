@@ -11,6 +11,6 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.11" />
-        <PackageReference Include="Manta.Generators " Version="1.2025.0-preview.11" PrivateAssets="all" />
+        <PackageReference Include="Manta.Generators " Version="1.2025.12" PrivateAssets="all" />
     </ItemGroup>
 </Project>
