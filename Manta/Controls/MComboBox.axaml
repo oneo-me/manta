@@ -47,6 +47,7 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MComboBox}" TargetType="MComboBox">
+        <Setter Property="MaxDropDownHeight" Value="{MSize S96}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ClipToBounds" Value="False" />
@@ -79,10 +80,8 @@
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Foreground="{TemplateBinding Foreground}"
-                                      Background="Transparent"
                                       Text="{TemplateBinding Text, Mode=TwoWay}"
                                       Watermark="{TemplateBinding PlaceholderText}"
-                                      BorderThickness="0"
                                       IsVisible="{TemplateBinding IsEditable}" />
                             <MPathIcon Grid.Column="1" Name="DropDownIcon" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Grid>
