@@ -4,17 +4,9 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <CaptionButtons />
             <TitleBar />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTitleBarButtons'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
     <ControlTheme x:Key="{x:Type TitleBar}" TargetType="TitleBar">
         <Setter Property="Template">
             <ControlTemplate>

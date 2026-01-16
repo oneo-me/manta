@@ -5,20 +5,12 @@
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ListBox />
-            <ListBoxItem />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
         <Setter Property="Template">
             <ControlTemplate>
                 <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MListBox'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MListBoxItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

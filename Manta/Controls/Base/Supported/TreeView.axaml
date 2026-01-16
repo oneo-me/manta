@@ -5,20 +5,12 @@
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <TreeView />
-            <TreeViewItem />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeView}" TargetType="TreeView">
         <Setter Property="Template">
             <ControlTemplate>
                 <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTree'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTreeItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

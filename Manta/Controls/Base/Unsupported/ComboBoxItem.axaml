@@ -4,13 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <EmbeddableControlRoot />
+            <ComboBoxItem />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
+    <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'EmbeddableControlRoot' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'ComboBoxItem' is not supported" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

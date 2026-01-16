@@ -5,28 +5,12 @@
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <ContextMenu />
-            <MenuFlyoutPresenter />
-            <MenuItem />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">
         <Setter Property="Template">
             <ControlTemplate>
                 <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MContextMenu'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MenuFlyoutPresenter'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MenuItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
