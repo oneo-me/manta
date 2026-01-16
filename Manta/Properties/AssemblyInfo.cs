@@ -3,6 +3,7 @@ using Avalonia.Metadata;
 
 [assembly: InternalsVisibleTo("Manta.DevTools")]
 
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta")]
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Animation")]
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Ava")]
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Controls")]
