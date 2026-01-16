@@ -1,0 +1,182 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" MinHeight="320">
+            <MAutoCompleteBox Width="220">
+                <MAutoCompleteBox.ItemsSource>
+                    <generic:List x:TypeArguments="x:String">
+                        Alabama
+                        Alaska
+                        Arizona
+                        Arkansas
+                        California
+                        Colorado
+                        Connecticut
+                        Delaware
+                    </generic:List>
+                </MAutoCompleteBox.ItemsSource>
+            </MAutoCompleteBox>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MAutoCompleteBox}" TargetType="MAutoCompleteBox">
+        <Setter Property="MaxDropDownHeight" Value="{MSize S96}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Name="PART_LayoutRoot">
+                    <Border Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <MTextBox Name="PART_TextBox"
+                                  Watermark="{TemplateBinding Watermark}"
+                                  Width="{TemplateBinding Width}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
+                                  ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
+                                  Padding="{TemplateBinding Padding}"
+                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                  MaxLength="{TemplateBinding MaxLength}"
+                                  InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                                  InnerRightContent="{TemplateBinding InnerRightContent}" />
+                    </Border>
+                    <Border Name="PopupTargetOffset" IsHitTestVisible="False">
+                        <Border Name="PopupTarget" />
+                    </Border>
+                    <Popup Name="PART_Popup"
+                           IsLightDismissEnabled="True"
+                           Width="{Binding ElementName=PopupTarget, Path=Bounds.Width}"
+                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                           PlacementTarget="PopupTarget">
+                        <Border Name="PART_SuggestionsContainer">
+                            <MListBox Name="PART_SelectingItemsControl"
+                                      ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                      ItemTemplate="{TemplateBinding ItemTemplate}" />
+                        </Border>
+                    </Popup>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
+        <Setter Property="CornerRadius" Value="{MRadius MD}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Accent}}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Style Selector="^ /template/ Border#Border">
+            <Setter Property="BoxShadow" Value="{MRing XS, BrushKey=Primary, BrushOpacity=0}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.5}" />
+        </Style>
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{MBrush Primary, Opacity=0.7}" />
+            <Style Selector="^ /template/ Border#Border">
+                <Setter Property="BoxShadow" Value="{MRing XL, BrushKey=Primary, BrushOpacity=0.3}" />
+            </Style>
+        </Style>
+        <!-- TextBox -->
+        <Style Selector="^ /template/ MTextBox#PART_TextBox">
+            <Setter Property="Variant" Value="NoStyle" />
+        </Style>
+        <!-- Popup -->
+        <Style Selector="^ /template/ Border#PopupTargetOffset">
+            <Setter Property="Margin" Value="{MThickness S0_5, Filter=Bottom, Reverse=True}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PopupTarget">
+            <Setter Property="Margin" Value="{MThickness S1, Filter=Left|Right, Reverse=True}" />
+            <Setter Property="Padding" Value="{MThickness Px, Filter=Left, Reverse=True}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PART_SuggestionsContainer">
+            <Setter Property="Background" Value="{MBrush Popover}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="TextBlock.Foreground" Value="{MBrush PopoverForeground}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="Padding" Value="{MThickness S1_5}" />
+            <Setter Property="BoxShadow" Value="{MShadow XS}" />
+            <Setter Property="Margin" Value="{MShadow XS, ValueType=Margin}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PART_SuggestionsContainer">
+            <Setter Property="RenderTransformOrigin" Value="50%,0%" />
+        </Style>
+        <Style Selector="^:dropdownopen /template/ Border#PART_SuggestionsContainer">
+            <Style.Animations>
+                <Animation Duration="0:0:0.15" Easing="CubicEaseOut" FillMode="Forward">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <!-- ListBox -->
+        <Style Selector="^ /template/ MListBox#PART_SelectingItemsControl">
+            <Setter Property="Vertical" Value="NoStyle" />
+            <Setter Property="ItemContainerTheme">
+                <ControlTheme TargetType="MListBoxItem">
+                    <Setter Property="ClipToBounds" Value="False" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Background="{TemplateBinding Background}"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              CornerRadius="{TemplateBinding CornerRadius}" />
+                        </ControlTemplate>
+                    </Setter>
+                    <Setter Property="Background" Value="{MBrush Accent, Opacity=0}" />
+                    <Setter Property="CornerRadius" Value="{MRadius SM}" />
+                    <Setter Property="Padding" Value="{MThickness S3, Vertical=S1_5}" />
+                    <Setter Property="Margin" Value="{MThickness Px, Filter=Top}" />
+                    <Style Selector="^:nth-child(1)">
+                        <Setter Property="Margin" Value="{MThickness S0}" />
+                    </Style>
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                        </Transitions>
+                    </Setter>
+                    <Style Selector="^:pointerover">
+                        <Setter Property="Background" Value="{MBrush Accent}" />
+                    </Style>
+                    <Style Selector="^:selected">
+                        <Setter Property="Background" Value="{MBrush Accent}" />
+                    </Style>
+                    <Style Selector="^:disabled">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </Style>
+                </ControlTheme>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
