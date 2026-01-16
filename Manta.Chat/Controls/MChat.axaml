@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="WrapFull" Width="700" Spacing="12" Margin="12">
+            <MChat />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MChat}" TargetType="MChat">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TextBlock Foreground="{MBrush Destructive}" Text="MChat not yet implemented" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
