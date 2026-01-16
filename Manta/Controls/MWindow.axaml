@@ -26,7 +26,7 @@
                     <Border Name="Background" Background="{TemplateBinding Background}" />
                     <Panel Margin="{ TemplateBinding OffScreenMargin}">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <Grid Name="PART_WindowContent" Background="{MBrush Primary, Opacity=0.035}">
+                            <Grid Name="PART_WindowContent" Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}">
                                 <VisualLayerManager>
                                     <ContentPresenter Name="PART_ContentPresenter"
                                                       ContentTemplate="{TemplateBinding ContentTemplate}"
