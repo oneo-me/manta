@@ -61,6 +61,7 @@ sealed class ControlInfo
             nameof(TickBar)                       => new(string.Empty, string.Empty),
             nameof(Track)                         => new(string.Empty, string.Empty),
             nameof(Image)                         => new(string.Empty, string.Empty),
+            nameof(NativeMenuBar)                 => new(string.Empty, string.Empty),
 
             // Exclude touch screen controls
             nameof(RefreshContainer)    => new(string.Empty, string.Empty),
