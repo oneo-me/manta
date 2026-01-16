@@ -66,18 +66,18 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/WindowNotificationManager.axaml" />
                 <!-- Base Controls -->
                 <MergeResourceInclude Source="../Controls/Base/AccessText.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Border.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/GridSplitter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Label.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/PopupRoot.axaml" />
@@ -86,6 +86,7 @@
                 <MergeResourceInclude Source="../Controls/Base/ThemeVariantScope.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Thumb.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/ToolTip.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/TransitioningContentControl.axaml" />
                 <!-- Controls -->
                 <MergeResourceInclude Source="../Controls/MAccordion.axaml" />
                 <MergeResourceInclude Source="../Controls/MAlert.axaml" />
