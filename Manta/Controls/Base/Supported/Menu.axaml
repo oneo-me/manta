@@ -10,7 +10,7 @@
     <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'Menu'" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MMenu'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

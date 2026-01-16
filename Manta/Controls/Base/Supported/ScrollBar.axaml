@@ -4,13 +4,13 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <TransitioningContentControl />
+            <ScrollBar />
         </MPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type TransitioningContentControl}" TargetType="TransitioningContentControl">
+    <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Template">
             <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'TransitioningContentControl' is not supported" />
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MScrollBar'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

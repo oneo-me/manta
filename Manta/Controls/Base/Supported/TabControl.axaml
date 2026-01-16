@@ -5,20 +5,12 @@
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
             <TabControl />
-            <TabItem />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Template">
             <ControlTemplate>
                 <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTabControl'" />
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="Please use the 'MTabItem'" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
