@@ -24,23 +24,6 @@
                 </Border.ContextMenu>
                 <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
             </Border>
-            <TextBlock Text="ContextFlyout" />
-            <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8">
-                <Border.ContextFlyout>
-                    <MMenuFlyout>
-                        <MMenuItem Header="MenuItem 1" />
-                        <MMenuItem Header="-" />
-                        <MMenuItem Header="MenuItem 2">
-                            <MMenuItem Header="MenuItem 1" />
-                            <MMenuItem Header="-" />
-                            <MMenuItem Header="MenuItem 2" />
-                            <MMenuItem Header="MenuItem 3" />
-                        </MMenuItem>
-                        <MMenuItem Header="MenuItem 3" />
-                    </MMenuFlyout>
-                </Border.ContextFlyout>
-                <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
-            </Border>
             <TextBlock Text="Menu" />
             <MMenu>
                 <MMenuItem Header="MenuItem 1">
@@ -372,54 +355,6 @@
         <Style Selector="^ /template/ Border">
             <Setter Property="BoxShadow" Value="{MShadow MD}" />
             <Setter Property="Margin" Value="{MShadow MD, ValueType=Margin}" />
-        </Style>
-    </ControlTheme>
-    <ControlTheme x:Key="{x:Type MMenuFlyoutPresenter}" TargetType="MMenuFlyoutPresenter">
-        <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter x:Name="PART_ItemsPresenter"
-                                    Grid.IsSharedSizeScope="True"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    KeyboardNavigation.TabNavigation="Continue" />
-                </Border>
-            </ControlTemplate>
-        </Setter>
-        <Setter Property="Background" Value="{MBrush Popover}" />
-        <Setter Property="Foreground" Value="{MBrush PopoverForeground}" />
-        <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <Setter Property="BorderThickness" Value="{MThickness Px}" />
-        <Setter Property="CornerRadius" Value="{MRadius MD}" />
-        <Setter Property="Padding" Value="{MThickness S1_5}" />
-        <Setter Property="FontSize" Value="12" />
-        <Style Selector="^ /template/ Border">
-            <Setter Property="BoxShadow" Value="{MShadow MD}" />
-            <Setter Property="Margin" Value="{MShadow MD, ValueType=Margin}" />
-            <Setter Property="RenderTransformOrigin" Value="0%,0%" />
-        </Style>
-        <Style Selector="^:open /template/ Border">
-            <Style.Animations>
-                <Animation Duration="0:0:0.15" Easing="CubicEaseOut" FillMode="Forward">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                        <Setter Property="TranslateTransform.Y" Value="-4" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0.95" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0.95" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="1" />
-                        <Setter Property="TranslateTransform.Y" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                    </KeyFrame>
-                </Animation>
-            </Style.Animations>
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MContextMenu}" TargetType="MContextMenu">

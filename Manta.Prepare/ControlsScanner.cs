@@ -91,7 +91,8 @@ sealed class ControlInfo
             // Rename specific controls
             nameof(ContextMenu)         => new($"M{nameof(Menu)}", $"M{nameof(ContextMenu)}"),
             nameof(MenuItem)            => new($"M{nameof(Menu)}", $"M{nameof(MenuItem)}"),
-            nameof(MenuFlyoutPresenter) => new($"M{nameof(Menu)}", $"M{nameof(MenuFlyoutPresenter)}"),
+            nameof(MenuFlyoutPresenter) => new($"M{nameof(Flyout)}", $"M{nameof(MenuFlyoutPresenter)}"),
+            nameof(FlyoutPresenter)     => new($"M{nameof(Flyout)}", $"M{nameof(FlyoutPresenter)}"),
             nameof(UserControl)         => new("MView", "MView"),
             nameof(TreeView)            => new("MTree", "MTree"),
             nameof(TreeViewItem)        => new("MTree", "MTreeItem"),
