@@ -1,0 +1,167 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MCard Width="320" Padding="0" CornerRadius="{MRadius LG}">
+                <MCommandPanel Text="Test Search">
+                    <MCommandPanelItem Variant="NoResults" Content="No results found." />
+                </MCommandPanel>
+            </MCard>
+            <MCard Width="320" Padding="0" CornerRadius="{MRadius LG}">
+                <MCommandPanel Watermark="Type a command or search...">
+                    <MCommandPanelItem Variant="Group" Content="Suggestions" />
+                    <MCommandPanelItem>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Text="Calendar" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandPanelItem>
+                    <MCommandPanelItem>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Text="Search Emoji" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandPanelItem>
+                    <MCommandPanelItem IsEnabled="False">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                            <TextBlock Text="Calculator" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MCommandPanelItem>
+                    <MCommandPanelItem Variant="Separator" />
+                    <MCommandPanelItem Variant="Group" Content="Settings" />
+                    <MCommandPanelItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <TextBlock Text="Profile" VerticalAlignment="Center" />
+                            </MPanel>
+                            <TextBlock Grid.Column="1" Text="⌘ P" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandPanelItem>
+                    <MCommandPanelItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <TextBlock Text="Billing" VerticalAlignment="Center" />
+                            </MPanel>
+                            <TextBlock Grid.Column="1" Text="⌘ B" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandPanelItem>
+                    <MCommandPanelItem>
+                        <Grid ColumnDefinitions="* Auto">
+                            <MPanel Grid.Column="0" Mode="Horizontal" Spacing="8">
+                                <MPathIcon Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" Opacity="0.6" VerticalAlignment="Center" />
+                                <TextBlock Text="Settings" VerticalAlignment="Center" />
+                            </MPanel>
+                            <TextBlock Grid.Column="1" Text="⌘ S" Opacity="0.6" VerticalAlignment="Center" />
+                        </Grid>
+                    </MCommandPanelItem>
+                </MCommandPanel>
+            </MCard>
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MCommandPanel}" TargetType="MCommandPanel">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto *">
+                    <Grid Grid.Row="0" Name="InputBox" ColumnDefinitions="Auto *">
+                        <MPathIcon Name="Icon" Grid.Column="0" />
+                        <MTextBox Name="TextBox" Grid.Column="1"
+                                  Watermark="{TemplateBinding Watermark}"
+                                  Text="{TemplateBinding Text}" />
+                    </Grid>
+                    <MScrollViewer Grid.Row="1" Name="ScrollViewer" BorderBrush="{TemplateBinding BorderBrush}"
+                                   HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                   VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                   IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </MScrollViewer>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Style Selector="^ /template/ MPathIcon#Icon">
+            <Setter Property="Data" Value="M19 19L14.7 14.7M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" />
+            <Setter Property="UseStroke" Value="True" />
+            <Setter Property="Size" Value="12" />
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Margin" Value="{MThickness S3, Filter=Left}" />
+        </Style>
+        <Style Selector="^ /template/ MTextBox#TextBox">
+            <Setter Property="Variant" Value="NoStyle" />
+            <Setter Property="Padding" Value="{MThickness S2_5, Vertical=S2}" />
+        </Style>
+        <Style Selector="^ /template/ MScrollViewer#ScrollViewer">
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Top}" />
+        </Style>
+        <Setter Property="Padding" Value="{MThickness S1, Filter=Top|Bottom}" />
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type MCommandPanelItem}" TargetType="MCommandPanelItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[Variant=NoResults]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Margin" Value="{MThickness S3, Vertical=S6}" />
+        </Style>
+        <Style Selector="^[Variant=Group]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Opacity" Value="0.7" />
+            <Setter Property="Margin" Value="{MThickness S3, Vertical=S2}" />
+        </Style>
+        <Style Selector="^[Variant=Default]">
+            <Setter Property="Background" Value="{MBrush Accent, Opacity=0}" />
+            <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S1_5}" />
+            <Setter Property="Margin" Value="{MThickness S1, Vertical=S0}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Accent}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Background" Value="{MBrush Accent}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Separator]">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Top}" />
+            <Setter Property="Margin" Value="{MThickness S0, Vertical=S1_5}" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
