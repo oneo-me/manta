@@ -119,7 +119,7 @@
             <Setter Property="Padding" Value="{MThickness S4, Vertical=S2, OffsetNegative=Px}" />
             <Setter Property="BorderThickness" Value="{MThickness Px}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
-            <Setter Property="Background" Value="{MBrush Background}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Accent}}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
             <Setter Property="BoxShadow" Value="{MShadow SM}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
