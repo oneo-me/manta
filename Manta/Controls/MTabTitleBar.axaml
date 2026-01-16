@@ -22,13 +22,13 @@
                     </Style>
                 </Style>
                 <Style Selector="MTabTitleBar">
-                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                    <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
                 </Style>
                 <Style Selector="MTitleBar">
-                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                    <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
                 </Style>
                 <Style Selector="Border.TitleBar">
-                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.03}" />
+                    <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
                 </Style>
             </MPanel.Styles>
             <Border Classes="Box">

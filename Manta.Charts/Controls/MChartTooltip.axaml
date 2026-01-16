@@ -22,7 +22,7 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:MChartTooltip">
-                <Border Background="{MBrush Background}"
+                <Border Background="{MBrush Popover}"
                         BorderBrush="{MBrush Border}"
                         BorderThickness="1"
                         CornerRadius="6"
