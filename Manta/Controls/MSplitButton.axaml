@@ -153,7 +153,7 @@
             <Style Selector="^ /template/ Border#Line">
                 <Setter Property="Width" Value="2" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="Background" Value="{MBrush Background}" />
+                <Setter Property="Background" Value="{MBrush Accent}" />
                 <Setter Property="Margin" Value="0 1 -1 1" />
                 <Style Selector="^ > Border">
                     <Setter Property="Width" Value="{MSize Px}" />
