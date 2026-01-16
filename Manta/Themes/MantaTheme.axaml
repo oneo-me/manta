@@ -25,6 +25,7 @@
                 <MergeResourceInclude Source="../Controls/Base/Supported/ContextMenu.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/DropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/Expander.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Supported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ItemsControl.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Supported/ListBox.axaml" />
@@ -66,7 +67,6 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/DatePickerPresenter.axaml" />
-                <MergeResourceInclude Source="../Controls/Base/Unsupported/FlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NativeMenuBar.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/NotificationCard.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
@@ -101,6 +101,7 @@
                 <MergeResourceInclude Source="../Controls/MClip.axaml" />
                 <MergeResourceInclude Source="../Controls/MDropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
+                <MergeResourceInclude Source="../Controls/MFlyout.axaml" />
                 <MergeResourceInclude Source="../Controls/MHyperlinkButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MIcon.axaml" />
                 <MergeResourceInclude Source="../Controls/MImage.axaml" />

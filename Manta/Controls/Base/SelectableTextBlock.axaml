@@ -2,11 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
-    <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <SelectableTextBlock />
-        </MPanel>
-    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
         <Setter Property="Cursor" Value="IBeam" />
         <Setter Property="SelectionBrush" Value="{MBrush Primary, Opacity=0.3}" />
