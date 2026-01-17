@@ -10,6 +10,7 @@ namespace Manta.WebView.Platform.macOS;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 sealed class WKWebViewWrapper : IDisposable
 {
+    IntPtr _webKitHandle;
     IntPtr _configuration;
     IntPtr _preferences;
     IntPtr _userContentController;
@@ -25,8 +26,8 @@ sealed class WKWebViewWrapper : IDisposable
     void CreateWebView()
     {
         // Load WebKit framework
-        var webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 0x1);
-        Log.Debug($"WebKit framework loaded: {webKitHandle != IntPtr.Zero}");
+        _webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 0x1);
+        Log.Debug($"WebKit framework loaded: {_webKitHandle != IntPtr.Zero}");
 
         var alloc = ObjCRuntime.GetSelector("alloc");
         var init = ObjCRuntime.GetSelector("init");
@@ -136,6 +137,9 @@ sealed class WKWebViewWrapper : IDisposable
 
     [DllImport("/usr/lib/libSystem.B.dylib")]
     static extern IntPtr dlopen(string path, int mode);
+
+    [DllImport("/usr/lib/libSystem.B.dylib")]
+    static extern int dlclose(IntPtr handle);
 
     public void LoadUrl(string url)
     {
@@ -340,6 +344,12 @@ sealed class WKWebViewWrapper : IDisposable
         {
             ObjCRuntime.Release(Handle);
             Handle = IntPtr.Zero;
+        }
+
+        if (_webKitHandle != IntPtr.Zero)
+        {
+            dlclose(_webKitHandle);
+            _webKitHandle = IntPtr.Zero;
         }
 
         GC.SuppressFinalize(this);
