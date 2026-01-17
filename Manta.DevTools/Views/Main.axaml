@@ -6,7 +6,7 @@
     xmlns:commands="clr-namespace:Manta.DevTools.Commands"
     xmlns:models="clr-namespace:Manta.DevTools.Models"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}"
-    Name="View" Background="{MBrush Background}">
+    Name="View">
     <MView.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
@@ -16,30 +16,35 @@
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </MView.Resources>
-    <Panel Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}">
+    <Panel>
+        <Panel Background="{MBrush Background}" IsHitTestVisible="False" />
+        <Panel Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" IsHitTestVisible="False" />
         <Grid RowDefinitions="Auto *">
-            <Border Grid.Row="0" Background="{MBrush Accent, Opacity=0.5}" BorderThickness="{MThickness Px, Filter=Top|Bottom}">
-                <Grid ColumnDefinitions="* Auto">
-                    <MPanel Grid.Column="0" Mode="Horizontal">
+            <Panel Grid.Row="0" Name="ToolBar">
+                <Border Background="{MBrush Background, Opacity=0.5}" BorderThickness="{MThickness Px, Filter=Top|Bottom}"
+                        IsHitTestVisible="False" />
+                <Grid ColumnDefinitions="* Auto" Margin="{MThickness Px, Filter=Top|Bottom}">
+                    <MPanel Grid.Column="0" Mode="Horizontal"
+                            IsHitTestVisible="False">
                         <TextBlock Text="Debuger" FontWeight="UltraBlack" VerticalAlignment="Center"
                                    Margin="{MThickness S2, Vertical=S0}" Foreground="{MBrush Primary, Type=Dark1}" />
                     </MPanel>
                     <MPanel Grid.Column="1" Mode="Horizontal" Spacing="{MSize S1}" Margin="{MThickness S2, Vertical=S0}">
                         <MToggleButton Content="FPS" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledFps}" />
-                        <MToggleButton Content="TimeGraph" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                        <MToggleButton Content="Time Graph" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledTimeGraph}" />
-                        <MToggleButton Content="DirtyRects" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                        <MToggleButton Content="Dirty Rects" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledDirtyRects}" />
                         <MButton Content="Hide" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
                                  Command="{Binding HideDevTools}" />
                     </MPanel>
                 </Grid>
-            </Border>
+            </Panel>
             <Grid Grid.Row="1" ColumnDefinitions="280 280 *">
                 <Border Grid.Column="0" BorderThickness="{MThickness Px, Filter=Right}">
                     <Grid RowDefinitions="Auto *">
-                        <TextBlock Grid.Row="0" Text="Views" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
+                        <TextBlock Grid.Row="0" Text="View Models" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
                         <MTree Grid.Row="1" ItemsSource="{Binding Root}" SelectedItem="{Binding SelectedItem}">
                             <MTree.Styles>
                                 <Style Selector="MTreeItem">

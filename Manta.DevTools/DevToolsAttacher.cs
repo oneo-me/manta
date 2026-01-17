@@ -74,17 +74,18 @@ sealed class DevToolsAttacher
             new(Options.DefaultHeight, GridUnitType.Pixel)
         ];
 
-        Grid.SetRow(_view, 1);
-        _windowContent.Children.Add(_view);
-
         var gridSplitter = new GridSplitter
         {
             Margin = default,
             HorizontalAlignment = HorizontalAlignment.Stretch,
-            VerticalAlignment = VerticalAlignment.Top
+            VerticalAlignment = VerticalAlignment.Top,
+            [!Layoutable.HeightProperty] = new Binding(nameof(Main_Model.ToolBarHeight), BindingMode.OneWay) { Source = _mainModel }
         };
         Grid.SetRow(gridSplitter, 1);
         _windowContent.Children.Add(gridSplitter);
+
+        Grid.SetRow(_view, 1);
+        _windowContent.Children.Add(_view);
 
         _view[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
         gridSplitter[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
