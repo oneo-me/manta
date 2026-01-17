@@ -4,5 +4,5 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
     x:DataType="local:WebView_Model" Design.DataContext="{x:Static local:WebView_Model.Design}">
-    <MWebView />
+    <MWebView Url="https://www.github.com" />
 </MView>
