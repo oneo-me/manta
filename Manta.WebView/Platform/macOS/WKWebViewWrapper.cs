@@ -317,12 +317,7 @@ sealed class WKWebViewWrapper : IDisposable
 
         _disposed = true;
 
-        if (Handle != IntPtr.Zero)
-        {
-            ObjCRuntime.Release(Handle);
-            Handle = IntPtr.Zero;
-        }
-
+        // Release in reverse order of creation: configuration objects first, then the WebView handle
         if (_userContentController != IntPtr.Zero)
         {
             ObjCRuntime.Release(_userContentController);
@@ -339,6 +334,12 @@ sealed class WKWebViewWrapper : IDisposable
         {
             ObjCRuntime.Release(_configuration);
             _configuration = IntPtr.Zero;
+        }
+
+        if (Handle != IntPtr.Zero)
+        {
+            ObjCRuntime.Release(Handle);
+            Handle = IntPtr.Zero;
         }
 
         GC.SuppressFinalize(this);
