@@ -27,6 +27,10 @@ sealed class WKWebViewWrapper : IDisposable
     {
         // Load WebKit framework
         _webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 0x1);
+        
+        if (_webKitHandle == IntPtr.Zero)
+            throw new InvalidOperationException("Failed to load WebKit framework");
+        
         Log.Debug($"WebKit framework loaded: {_webKitHandle != IntPtr.Zero}");
 
         var alloc = ObjCRuntime.GetSelector("alloc");
@@ -348,7 +352,14 @@ sealed class WKWebViewWrapper : IDisposable
 
         if (_webKitHandle != IntPtr.Zero)
         {
-            dlclose(_webKitHandle);
+            try
+            {
+                dlclose(_webKitHandle);
+            }
+            catch
+            {
+                // Ignore errors during dlclose as Dispose should not throw
+            }
             _webKitHandle = IntPtr.Zero;
         }
 
