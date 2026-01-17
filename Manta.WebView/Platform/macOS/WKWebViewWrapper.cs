@@ -354,14 +354,7 @@ sealed class WKWebViewWrapper : IDisposable
         }
 
         if (_webKitHandle != IntPtr.Zero)
-        {
-            try
-            {
-                dlclose(_webKitHandle);
-            }
-            catch
-            {
-                // Ignore errors during dlclose as Dispose should not throw
+            dlclose(_webKitHandle);
             }
             _webKitHandle = IntPtr.Zero;
         }
