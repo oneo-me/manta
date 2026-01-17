@@ -20,6 +20,8 @@ sealed class App : MApp
         AvaloniaXamlLoader.Load(this);
     }
 
+    public override bool SupportActivatableLifetime => true;
+
     protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
         var appFolder = Folder;
