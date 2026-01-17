@@ -1,36 +1,34 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Manta.Controls;
 using Manta.DevTools.Views;
 using Manta.Reactive.Views;
-using Manta.Themes.Variables;
 
 namespace Manta.DevTools;
 
 sealed class DevToolsAttacher
 {
-    readonly DevToolsOptions _options;
     readonly MWindow _window;
     readonly MView _view;
     readonly Grid _windowContent;
     readonly Main_Model _mainModel;
 
+    public DevToolsOptions Options { get; }
     public Window SourceWindow => _window;
 
     public DevToolsAttacher(DevToolsOptions options, MWindow window, Grid windowContent)
     {
-        _options = options;
+        Options = options;
         _window = window;
         _windowContent = windowContent;
         _mainModel = new(this);
         _view = _mainModel.CreateView();
 
         window.KeyUp += WindowOnKeyUp;
-        if (options.AutoShowDevToolsOnStart)
+        if (options.AutoShowByDefault)
             window.Opened += WindowOnOpened;
     }
 
@@ -61,7 +59,7 @@ sealed class DevToolsAttacher
             else
             {
                 _mainModel.IsVisible = true;
-                var height = _view.Height > 0 ? _view.Height : _options.DevToolsDefaultHeight;
+                var height = _view.Height > 0 ? _view.Height : Options.DefaultHeight;
                 _windowContent.RowDefinitions[1].Height = new(height, GridUnitType.Pixel);
                 _view.Height = double.NaN;
             }
@@ -73,7 +71,7 @@ sealed class DevToolsAttacher
         _windowContent.RowDefinitions =
         [
             new(GridLength.Star),
-            new(_options.DevToolsDefaultHeight, GridUnitType.Pixel)
+            new(Options.DefaultHeight, GridUnitType.Pixel)
         ];
 
         Grid.SetRow(_view, 1);
@@ -81,14 +79,12 @@ sealed class DevToolsAttacher
 
         var gridSplitter = new GridSplitter
         {
+            Margin = default,
             HorizontalAlignment = HorizontalAlignment.Stretch,
             VerticalAlignment = VerticalAlignment.Top
         };
         Grid.SetRow(gridSplitter, 1);
         _windowContent.Children.Add(gridSplitter);
-
-        _view[!TemplatedControl.BorderBrushProperty] = new MBrush(MBrushKey.Border).GetResourceBinding(_view);
-        _view[!TemplatedControl.BorderThicknessProperty] = new MThickness(MSizeVariant.Px) { Filter = "Top" }.GetResourceBinding(_view);
 
         _view[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
         gridSplitter[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
