@@ -26,7 +26,7 @@ sealed class WKWebViewWrapper : IDisposable
     void CreateWebView()
     {
         // Load WebKit framework
-        _webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", 0x1);
+        _webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", RTLD_LAZY);
         
         if (_webKitHandle == IntPtr.Zero)
             throw new InvalidOperationException("Failed to load WebKit framework");
@@ -144,6 +144,9 @@ sealed class WKWebViewWrapper : IDisposable
 
     [DllImport("/usr/lib/libSystem.B.dylib")]
     static extern int dlclose(IntPtr handle);
+
+    // dlopen mode constants
+    const int RTLD_LAZY = 0x1;
 
     public void LoadUrl(string url)
     {
