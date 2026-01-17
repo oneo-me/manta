@@ -1,16 +1,17 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:macos="clr-namespace:Manta.WebView.Platform.macOS"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="WrapFull" Width="700" Spacing="12" Margin="12">
-            <MWebView />
+            <MWebView Url="https://www.github.com" />
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MWebView}" TargetType="MWebView">
         <Setter Property="Template">
             <ControlTemplate>
-                <TextBlock Foreground="{MBrush Destructive}" Text="MWebView not yet implemented" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <macos:MacOSNativeControlHost Name="PART_NativeHost" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
