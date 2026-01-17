@@ -102,7 +102,7 @@ public abstract class MApp : Application
         protected init => base.Name = value;
     }
 
-    public virtual bool SupportActivatableLifetime => false;
+    protected bool SupportActivatableLifetime { get; init; } = false;
 
     public override void OnFrameworkInitializationCompleted()
     {
