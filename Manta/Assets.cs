@@ -34,4 +34,12 @@ public static partial class Assets
         using var stream = GetStream(uri);
         return new(stream);
     }
+
+    public static byte[] GetBytes(Uri uri)
+    {
+        using var stream = GetStream(uri);
+        using var memoryStream = new MemoryStream();
+        stream.CopyTo(memoryStream);
+        return memoryStream.ToArray();
+    }
 }

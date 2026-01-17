@@ -4,7 +4,6 @@ using Manta.Demo.Services;
 using Manta.Demo.Views;
 using Manta.Globalization;
 using Manta.Reactive.Services;
-using Manta.Reactive.Views;
 using Manta.Services;
 
 namespace Manta.Demo;
@@ -26,7 +25,7 @@ sealed class App : MApp
         AvaloniaXamlLoader.Load(this);
     }
 
-    protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
+    protected override void OnInitialize(out MAppOptions options)
     {
         var appFolder = Folder;
         var dataFolder = Path.Combine(appFolder, "Data");
@@ -47,11 +46,19 @@ sealed class App : MApp
 
         Lang.Current = configService.Config.Language;
 
-        mainModel = new Main_Model();
-        onExit = () =>
+        options = new()
         {
-            viewService.Save();
-            configService.Save();
+            MainModel = new Main_Model(),
+            Tary = new()
+            {
+                Model = new TrayView_Model(),
+                Icon = Assets.GetBytes("TrayIcon.png")
+            },
+            Exit = () =>
+            {
+                viewService.Save();
+                configService.Save();
+            }
         };
     }
 }

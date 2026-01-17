@@ -16,6 +16,7 @@ using Manta.Reactive.Extensions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
 using Manta.Services;
+using Manta.Tray;
 
 namespace Manta;
 
@@ -133,7 +134,7 @@ public abstract class MApp : Application
         }
 
         OnInitializeInternal();
-        OnInitializeCore(out var mainModel, out var onExit);
+        OnInitializeCore(out var initData);
 
         if (Design.IsDesignMode)
             return;
@@ -145,8 +146,11 @@ public abstract class MApp : Application
         if (SupportActivatableLifetime && TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatableLifetime)
         {
             isActivatableLifetime = true;
-            activatableLifetime.Activated += delegate
+            activatableLifetime.Activated += (_, e) =>
             {
+                if (e.Kind != ActivationKind.Reopen)
+                    return;
+
                 if (desktop.MainWindow is null)
                     return;
 
@@ -159,9 +163,9 @@ public abstract class MApp : Application
 
         desktop.ShutdownMode = isActivatableLifetime ? ShutdownMode.OnExplicitShutdown : ShutdownMode.OnMainWindowClose;
 
-        if (mainModel is not null)
+        if (initData.MainModel is not null)
         {
-            var mainWindow = mainModel.CreateWindow();
+            var mainWindow = initData.MainModel.CreateWindow();
             mainWindow.Variant = MWindowVariant.MainWindow;
             desktop.MainWindow = mainWindow;
 
@@ -176,19 +180,63 @@ public abstract class MApp : Application
                 };
         }
 
-        if (onExit is not null)
+        if (initData.Tary is not null)
+        {
+            if (initData.Tary.Model is null || initData.Tary.Icon is null)
+                throw new("TrayModel and Icon must be set when Tary is set.");
+
+            _trayIcon = TaryHelper.CreateTrayIcon(this, initData.Tary.Icon);
+            _trayIcon.Clicked += (_, e) =>
+            {
+                if (_trayWindow is null)
+                {
+                    _trayWindow = initData.Tary.Model.CreateWindow();
+                    _trayWindow.Closing += (_, args) =>
+                    {
+                        args.Cancel = true;
+                        _trayWindow.Hide();
+                    };
+                }
+
+                if (_trayWindow.IsActive)
+                {
+                    _trayWindow.Hide();
+                }
+                else
+                {
+                    _trayWindow.Show();
+                    _trayWindow.Activate();
+
+                    if (OperatingSystem.IsMacOS())
+                    {
+                        MacOSTrayWindowHelper.ConfigureAsTrayWindow(_trayWindow);
+                        // Position the window centered below the tray icon
+                        // e.Position contains the center-bottom of the tray icon in Avalonia coordinates
+                        var x = (int)(e.Position.X - _trayWindow.Bounds.Width / 2d);
+                        var y = (int)e.Position.Y;
+                        _trayWindow.Position = new(x, y);
+                    }
+                }
+            };
+        }
+
+        if (initData.Exit is not null)
             desktop.Exit += delegate
             {
-                onExit();
+                _trayIcon?.Dispose();
+                initData.Exit();
             };
     }
+
+    MWindow? _trayWindow;
+    TaryIconBase? _trayIcon;
 
     void OnInitializeInternal()
     {
         Service.Register(new ImageLoadService());
     }
 
-    void OnInitializeCore(out WindowModel? mainModel, out Action? onExit)
+    void OnInitializeCore(out MAppOptions options)
     {
         if (Design.IsDesignMode)
             Log.AddLogger(new ConsoleLogger(LogTimeType.None, LogLevel.All));
@@ -199,8 +247,8 @@ public abstract class MApp : Application
 
         Lang.Register(LangData.LoadFromAssembly(typeof(MApp).Assembly));
 
-        OnInitialize(out mainModel, out onExit);
+        OnInitialize(out options);
     }
 
-    protected abstract void OnInitialize(out WindowModel? mainModel, out Action? onExit);
+    protected abstract void OnInitialize(out MAppOptions options);
 }
