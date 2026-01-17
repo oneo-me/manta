@@ -1,4 +1,5 @@
 using Avalonia.Collections;
+using Avalonia.Controls;
 using Avalonia.Rendering;
 using Manta.Controls;
 using Manta.DevTools.Models;
@@ -18,6 +19,12 @@ sealed class Main_Model : ViewModel
         get;
         set => SetValue(ref field, value);
     } = true;
+
+    public double ToolBarHeight
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
 
     public AvaloniaList<ViewContext> Contexts { get; } = [];
     public AvaloniaList<ViewNode> Root { get; } = [];
@@ -75,6 +82,19 @@ sealed class Main_Model : ViewModel
         EnabledFps = _attacher.Options.EnableFpsByDefault;
         EnabledDirtyRects = _attacher.Options.EnableDirtyRectsByDefault;
         EnabledTimeGraph = _attacher.Options.EnableTimeGraphByDefault;
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        var view = this.GetView<Main>();
+        view.ToolBar.SizeChanged += ToolBarOnSizeChanged;
+    }
+
+    void ToolBarOnSizeChanged(object? sender, SizeChangedEventArgs e)
+    {
+        ToolBarHeight = e.NewSize.Height;
     }
 
     public void HideDevTools()
