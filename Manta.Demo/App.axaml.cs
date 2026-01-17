@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Avalonia.Markup.Xaml;
 using Manta.Demo.Services;
 using Manta.Demo.Views;
@@ -13,14 +14,17 @@ sealed class App : MApp
     public App()
     {
         Name = nameof(Manta);
+#if DEBUG
+        SupportActivatableLifetime = Debugger.IsAttached is false;
+#else
+        SupportActivatableLifetime = true;
+#endif
     }
 
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
-
-    public override bool SupportActivatableLifetime => true;
 
     protected override void OnInitialize(out WindowModel? mainModel, out Action? onExit)
     {
