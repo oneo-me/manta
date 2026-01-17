@@ -41,7 +41,7 @@
                     </MPanel>
                 </Grid>
             </Panel>
-            <Grid Grid.Row="1" ColumnDefinitions="280 280 *">
+            <Grid Grid.Row="1" ColumnDefinitions="280 280 280 *">
                 <Border Grid.Column="0" BorderThickness="{MThickness Px, Filter=Right}">
                     <Grid RowDefinitions="Auto *">
                         <TextBlock Grid.Row="0" Text="View Models" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
@@ -56,13 +56,33 @@
                             </MTree.Styles>
                             <MTree.ItemTemplate>
                                 <TreeDataTemplate ItemsSource="{Binding Container.Children}">
-                                    <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
                                 </TreeDataTemplate>
                             </MTree.ItemTemplate>
                         </MTree>
                     </Grid>
                 </Border>
                 <Border Grid.Column="1" BorderThickness="{MThickness Px, Filter=Right}">
+                    <Grid RowDefinitions="Auto *">
+                        <TextBlock Grid.Row="0" Text="Views" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
+                        <MTree Grid.Row="1" ItemsSource="{Binding LogicalRoot}">
+                            <MTree.Styles>
+                                <Style Selector="MTreeItem">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:LogicalNode" />
+                                    <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
+                                    <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:LogicalNode" />
+                                </Style>
+                            </MTree.Styles>
+                            <MTree.ItemTemplate>
+                                <TreeDataTemplate ItemsSource="{Binding Container.Children}">
+                                    <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+                                </TreeDataTemplate>
+                            </MTree.ItemTemplate>
+                        </MTree>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2" BorderThickness="{MThickness Px, Filter=Right}">
                     <Grid RowDefinitions="Auto *">
                         <TextBlock Grid.Row="0" Text="Contexts" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
                         <MScrollViewer Grid.Row="1" Padding="{MThickness S1_5, Vertical=S1}">
