@@ -10,13 +10,12 @@ namespace Manta.WebView.Platform.macOS;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 sealed class MacOSNativeControlHost : NativeControlHost
 {
-    public WKWebViewWrapper? WebView { get; private set; }
+    public WKWebViewWrapper WebView { get; } = new();
 
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {
         if (OperatingSystem.IsMacOS())
         {
-            WebView = new();
             var handle = WebView.Handle;
 
             // Validate the handle is a proper NSView
@@ -31,12 +30,5 @@ sealed class MacOSNativeControlHost : NativeControlHost
         }
 
         return base.CreateNativeControlCore(parent);
-    }
-
-    protected override void DestroyNativeControlCore(IPlatformHandle control)
-    {
-        WebView?.Dispose();
-        WebView = null;
-        base.DestroyNativeControlCore(control);
     }
 }
