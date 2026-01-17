@@ -17,7 +17,7 @@ static class Program
         return MApp.Build<App>()
             .UseDevTools(new()
             {
-                AutoShowDevToolsOnStart = true
+                AutoShowByDefault = true
             });
     }
 }
