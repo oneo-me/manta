@@ -50,4 +50,12 @@ public static partial class Assets
 
         return GetBitmap(uri);
     }
+
+    public static byte[] GetBytes(string path, Assembly? assembly = null)
+    {
+        assembly ??= Assembly.GetCallingAssembly();
+        var uri = GetUri(path, assembly);
+
+        return GetBytes(uri);
+    }
 }
