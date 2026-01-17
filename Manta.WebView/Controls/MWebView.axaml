@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:macos="clr-namespace:Manta.WebView.Platform.macOS"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="WrapFull" Width="700" Spacing="12" Margin="12">
@@ -9,9 +8,20 @@
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MWebView}" TargetType="MWebView">
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <macos:MacOSNativeControlHost Name="PART_NativeHost" />
+                <Border Name="PART_NativeHost"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        Padding="{TemplateBinding Padding}">
+                    <TextBlock Foreground="{MBrush MutedForeground}" Text="MWebView does not support the designer"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="{MThickness S8}" />
+                </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
