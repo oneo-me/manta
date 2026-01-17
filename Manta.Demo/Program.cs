@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Diagnostics;
+using Avalonia;
 using Manta.DevTools;
 
 namespace Manta.Demo;
@@ -14,10 +15,15 @@ static class Program
 
     public static AppBuilder BuildAvaloniaApp()
     {
-        return MApp.Build<App>()
-            .UseDevTools(new()
-            {
-                AutoShowByDefault = true
-            });
+        var appBuilder = MApp.Build<App>();
+
+#if DEBUG
+        appBuilder.UseDevTools(new()
+        {
+            AutoShowByDefault = Debugger.IsAttached
+        });
+#endif
+
+        return appBuilder;
     }
 }
