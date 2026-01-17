@@ -137,15 +137,6 @@ sealed class WKWebViewWrapper : IDisposable
         IntPtr config
     );
 
-    [DllImport("/usr/lib/libSystem.B.dylib")]
-    static extern IntPtr dlopen(string path, int mode);
-
-    [DllImport("/usr/lib/libSystem.B.dylib")]
-    static extern int dlclose(IntPtr handle);
-
-    // dlopen mode constants
-    const int RTLD_LAZY = 0x1;
-
     public void LoadUrl(string url)
     {
         if (_disposed || string.IsNullOrEmpty(url))
