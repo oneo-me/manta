@@ -5,6 +5,7 @@
     <MApp.Styles>
         <MantaTheme />
         <MantaChartsTheme />
+        <MantaWebViewTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>

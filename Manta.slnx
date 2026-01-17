@@ -16,5 +16,6 @@
   <Project Path="Manta.Generators\Manta.Generators.csproj" />
   <Project Path="Manta.Prepare\Manta.Prepare.csproj" />
   <Project Path="Manta.Tools/Manta.Tools.csproj" />
+  <Project Path="Manta.WebView/Manta.WebView.csproj" />
   <Project Path="Manta\Manta.csproj" />
 </Solution>
