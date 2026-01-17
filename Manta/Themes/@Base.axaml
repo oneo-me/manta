@@ -1,22 +1,15 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:values="clr-namespace:Manta.Themes.Values"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
-            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
-            <values:RgbColor x:Key="{MBrushKey Focus}" R="165" G="124" B="247" Opacity="1" />
             <system:Boolean x:Key="{MThemeKey Variant}">True</system:Boolean>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
-            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
-            <values:RgbColor x:Key="{MBrushKey Focus}" R="165" G="124" B="247" Opacity="1" />
             <system:Boolean x:Key="{MThemeKey Variant}">True</system:Boolean>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
-            <values:RgbColor x:Key="{MBrushKey Desgin}" R="165" G="124" B="247" Opacity="1" />
-            <values:RgbColor x:Key="{MBrushKey Focus}" R="165" G="124" B="247" Opacity="1" />
             <system:Boolean x:Key="{MThemeKey Variant}">False</system:Boolean>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>

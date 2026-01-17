@@ -35,7 +35,7 @@ sealed class ViewNode : IDisposable
 
     IDisposable? _disposable;
 
-    public void UpdateAdorner()
+    public void UpdateAdorner(IResourceHost control)
     {
         ClearAdorner();
 
@@ -46,11 +46,11 @@ sealed class ViewNode : IDisposable
             var adorner = new Border
             {
                 [AdornerLayer.AdornedElementProperty] = View,
-                [!Border.CornerRadiusProperty] = View[!TemplatedControl.CornerRadiusProperty]
+                [!Border.CornerRadiusProperty] = View[!TemplatedControl.CornerRadiusProperty],
+                [!Border.BackgroundProperty] = new MBrush(MBrushKey.Primary) { Opacity = 0.05 }.GetResourceBinding(control),
+                [!Border.BorderBrushProperty] = new MBrush(MBrushKey.Primary).GetResourceBinding(control),
+                [!Border.BorderThicknessProperty] = new MThickness(MSizeVariant.Px).GetResourceBinding(control)
             };
-            adorner[!Border.BackgroundProperty] = new MBrush(MBrushKey.Desgin) { Opacity = 0.05 }.GetResourceBinding(adorner);
-            adorner[!Border.BorderBrushProperty] = new MBrush(MBrushKey.Desgin).GetResourceBinding(adorner);
-            adorner[!Border.BorderThicknessProperty] = new MThickness(MSizeVariant.Px).GetResourceBinding(adorner);
 
             layer.Children.Add(adorner);
 

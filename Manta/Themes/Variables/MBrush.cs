@@ -41,9 +41,7 @@ public enum MBrushKey
     SidebarAccentForeground,
     SidebarBorder,
     SidebarRing,
-    Shadow,
-    Desgin,
-    Focus
+    Shadow
 }
 
 public enum MBrushType
