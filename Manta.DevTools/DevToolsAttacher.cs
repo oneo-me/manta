@@ -71,8 +71,13 @@ sealed class DevToolsAttacher
         _windowContent.RowDefinitions =
         [
             new(GridLength.Star),
-            new(Options.DefaultHeight, GridUnitType.Pixel)
+            new(Options.DefaultHeight, GridUnitType.Pixel) { MaxHeight = _window.Bounds.Height * 0.8 }
         ];
+
+        _window.SizeChanged += (_, e) =>
+        {
+            _windowContent.RowDefinitions[1].MaxHeight = e.NewSize.Height * 0.8;
+        };
 
         var gridSplitter = new GridSplitter
         {

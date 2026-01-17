@@ -29,14 +29,14 @@
                         <TextBlock Text="Debuger" FontWeight="UltraBlack" VerticalAlignment="Center"
                                    Margin="{MThickness S2, Vertical=S0}" Foreground="{MBrush Primary, Type=Dark1}" />
                     </MPanel>
-                    <MPanel Grid.Column="1" Mode="Horizontal" Spacing="{MSize S1}" Margin="{MThickness S2, Vertical=S0}">
-                        <MToggleButton Content="FPS" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                    <MPanel Grid.Column="1" Mode="Horizontal" Spacing="{MSize S1}" Margin="{MThickness S2, Vertical=S1}" VerticalAlignment="Center" Background="#00000000">
+                        <MToggleButton Content="FPS" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledFps}" />
-                        <MToggleButton Content="Time Graph" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                        <MToggleButton Content="Time Graph" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledTimeGraph}" />
-                        <MToggleButton Content="Dirty Rects" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                        <MToggleButton Content="Dirty Rects" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
                                        IsChecked="{Binding EnabledDirtyRects}" />
-                        <MButton Content="Hide" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" Margin="{MThickness S0, Vertical=S1}" CornerRadius="{MRadius Full}"
+                        <MButton Content="Hide" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
                                  Command="{Binding HideDevTools}" />
                     </MPanel>
                 </Grid>
