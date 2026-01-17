@@ -29,7 +29,7 @@ sealed class DevToolsAttacher
 
         window.KeyUp += WindowOnKeyUp;
         if (options.AutoShowByDefault)
-            window.Opened += WindowOnOpened;
+            window.Loaded += WindowOnLoaded;
     }
 
     void WindowOnKeyUp(object? sender, KeyEventArgs e)
@@ -38,7 +38,7 @@ sealed class DevToolsAttacher
             ShowOrHideDevTools();
     }
 
-    void WindowOnOpened(object? sender, EventArgs e)
+    void WindowOnLoaded(object? sender, EventArgs e)
     {
         ShowOrHideDevTools();
     }
