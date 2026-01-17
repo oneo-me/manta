@@ -31,8 +31,6 @@ sealed class WKWebViewWrapper : IDisposable
         if (_webKitHandle == IntPtr.Zero)
             throw new InvalidOperationException("Failed to load WebKit framework");
         
-        Log.Debug($"WebKit framework loaded: {_webKitHandle != IntPtr.Zero}");
-
         var alloc = ObjCRuntime.GetSelector("alloc");
         var init = ObjCRuntime.GetSelector("init");
 
