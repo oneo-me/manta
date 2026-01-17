@@ -7,8 +7,8 @@
             <FocusAdornerTemplate>
                 <Border BorderThickness="{MThickness Px}"
                         CornerRadius="{MRadius MD}"
-                        BorderBrush="{MBrush Focus}"
-                        Background="{MBrush Focus, Opacity=0.05}"
+                        BorderBrush="{MBrush Primary, Type=Light2}"
+                        Background="{MBrush Primary, Type=Light2, Opacity=0.05}"
                         IsHitTestVisible="False" />
             </FocusAdornerTemplate>
         </Setter>

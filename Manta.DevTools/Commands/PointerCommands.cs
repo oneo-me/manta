@@ -19,6 +19,19 @@ public class PointerCommands
         return obj.GetValue(EnterCommandProperty);
     }
 
+    public static readonly AttachedProperty<object?> EnterCommandParameterProperty =
+        AvaloniaProperty.RegisterAttached<PointerCommands, MTreeItem, object?>("EnterCommandParameter");
+
+    public static void SetEnterCommandParameter(MTreeItem obj, object? value)
+    {
+        obj.SetValue(EnterCommandParameterProperty, value);
+    }
+
+    public static object? GetEnterCommandParameter(MTreeItem obj)
+    {
+        return obj.GetValue(EnterCommandParameterProperty);
+    }
+
     public static readonly AttachedProperty<ICommand?> ExitCommandProperty =
         AvaloniaProperty.RegisterAttached<PointerCommands, MTreeItem, ICommand?>("ExitCommand");
 
@@ -55,8 +68,10 @@ public class PointerCommands
         if (command is null)
             return;
 
-        if (command.CanExecute(null))
-            command.Execute(null);
+        var commandParameter = GetEnterCommandParameter(control);
+
+        if (command.CanExecute(commandParameter))
+            command.Execute(commandParameter);
     }
 
     static void HandleExitCommandChanged(MTreeItem control, AvaloniaPropertyChangedEventArgs e)

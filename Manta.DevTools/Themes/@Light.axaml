@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:values="clr-namespace:Manta.Themes.Values;assembly=Manta"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <values:RgbColor x:Key="{MBrushKey Primary}" R="165" G="124" B="247" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarPrimary}" R="165" G="124" B="247" Opacity="1" />
+    <system:Double x:Key="{MSizeKey Radius}">12</system:Double>
+    <system:Double x:Key="{MSizeKey Spacing}">4</system:Double>
+</ResourceDictionary>

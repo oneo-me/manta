@@ -1,0 +1,7 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:values="clr-namespace:Manta.Themes.Values;assembly=Manta">
+    <values:RgbColor x:Key="{MBrushKey Primary}" R="165" G="124" B="247" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarPrimary}" R="165" G="124" B="247" Opacity="1" />
+</ResourceDictionary>

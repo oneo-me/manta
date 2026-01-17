@@ -25,6 +25,15 @@
                         </TreeDataTemplate>
                     </MTree.ItemTemplate>
                 </MTree>
+    <MView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceInclude x:Key="Default" Source="../Themes/@Light.axaml" />
+                <ResourceInclude x:Key="Light" Source="../Themes/@Light.axaml" />
+                <ResourceInclude x:Key="Dark" Source="../Themes/@Dark.axaml" />
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </MView.Resources>
             </Grid>
         </Border>
         <Border Grid.Column="1" BorderThickness="{MThickness Px, Filter=Right}">
