@@ -36,6 +36,16 @@ sealed class Main_Model : ViewModel
         {
             if (SetValue(ref field, value))
             {
+                for (var i = LogicalRoot.Count - 1; i >= 0; i--)
+                {
+                    var item = LogicalRoot[i];
+                    LogicalRoot.RemoveAt(i);
+                    item.Dispose();
+                }
+
+                if (value is not null)
+                    LogicalRoot.Add(new(null, value.View));
+
                 // Update Contexts
                 Contexts.Clear();
 
@@ -53,6 +63,8 @@ sealed class Main_Model : ViewModel
         }
     }
 
+    public AvaloniaList<LogicalNode> LogicalRoot { get; } = [];
+
     static ViewContext? GetViewContext(ViewNode? node)
     {
         if (node is null)
@@ -61,7 +73,7 @@ sealed class Main_Model : ViewModel
         if (node.ViewModel.Context is null)
             return null;
 
-        var context = new ViewContext(node.Name);
+        var context = new ViewContext(node.Header);
 
         foreach (var (key, value) in node.ViewModel.Context)
             context.Items.Add(new(key, value));
