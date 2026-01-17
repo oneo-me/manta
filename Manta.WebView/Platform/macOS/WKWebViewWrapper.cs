@@ -26,7 +26,7 @@ sealed class WKWebViewWrapper : IDisposable
     void CreateWebView()
     {
         // Load WebKit framework
-        _webKitHandle = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", RTLD_LAZY);
+        _webKitHandle = NativeLibrary.Load("/System/Library/Frameworks/WebKit.framework/WebKit");
         
         if (_webKitHandle == IntPtr.Zero)
             throw new InvalidOperationException("Failed to load WebKit framework");
