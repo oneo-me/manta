@@ -11,7 +11,7 @@
         <Setter Property="Background" Value="{MBrush Background}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="Root" Margin="{ TemplateBinding OffScreenMargin}">
+                <Panel Name="Root" Background="#00000000" Margin="{ TemplateBinding OffScreenMargin}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid Name="PART_WindowContent">
                             <Border Name="Background" Background="{TemplateBinding Background}" />
@@ -30,9 +30,6 @@
         <!-- TaryWindow -->
         <Style Selector="^[Variant=TaryWindow]">
             <Setter Property="Background" Value="#00000000" />
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="IsVisible" Value="False" />
             </Style>

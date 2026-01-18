@@ -8,6 +8,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using Manta.Controls;
+using Manta.Extensions;
 using Manta.Globalization;
 using Manta.Langs;
 using Manta.Logging;
@@ -155,7 +156,7 @@ public abstract class MApp : Application
                     return;
 
                 if (desktop.MainWindow.IsVisible)
-                    desktop.MainWindow.Activate();
+                    desktop.MainWindow.FocusActivate();
                 else
                     desktop.MainWindow.Show();
             };
@@ -165,7 +166,7 @@ public abstract class MApp : Application
 
         if (initData.MainModel is not null)
         {
-            var mainWindow = initData.MainModel.CreateWindow();
+            var mainWindow = initData.MainModel().CreateWindow();
             mainWindow.Variant = MWindowVariant.MainWindow;
             desktop.MainWindow = mainWindow;
 
@@ -188,33 +189,31 @@ public abstract class MApp : Application
             _trayIcon = TrayIconHelper.CreateTrayIcon(this, initData.Tary.Icon);
             _trayIcon.Clicked += (_, e) =>
             {
-                if (_trayWindow is null)
+                if (_trayWindowModel is not null)
                 {
-                    _trayWindow = initData.Tary.Model.CreateWindow();
-                    _trayWindow.Closing += (_, args) =>
-                    {
-                        args.Cancel = true;
-                        _trayWindow.Hide();
-                    };
+                    var isVisible = _trayWindowModel.InnerWindow?.IsVisible is true;
+                    _trayWindowModel.InnerWindow?.Close();
+                    _trayWindowModel.DisposeIfDisposable();
+                    _trayWindowModel = null;
+
+                    if (isVisible)
+                        return;
                 }
 
-                if (_trayWindow.IsActive)
+                _trayWindowModel = initData.Tary.Model();
+                var trayWindow = _trayWindowModel.CreateWindow();
+                trayWindow.Closed += delegate
                 {
-                    _trayWindow.Hide();
-                }
-                else
-                {
-                    _trayWindow.Show();
-                    _trayWindow.Activate();
+                    trayWindow = null;
+                };
 
-                    if (OperatingSystem.IsMacOS())
-                    {
-                        // Position the window centered below the tray icon
-                        // e.Position contains the center-bottom of the tray icon in Avalonia coordinates
-                        var x = (int)(e.Position.X - _trayWindow.Bounds.Width / 2d);
-                        var y = (int)e.Position.Y;
-                        _trayWindow.Position = new(x, y);
-                    }
+                trayWindow.Show();
+
+                if (OperatingSystem.IsMacOS())
+                {
+                    var x = (int)(e.Position.X - trayWindow.Bounds.Width / 2d);
+                    var y = (int)e.Position.Y;
+                    trayWindow.Position = new(x, y);
                 }
             };
         }
@@ -227,10 +226,10 @@ public abstract class MApp : Application
             };
     }
 
-    MWindow? _trayWindow;
+    TrayWindowModel? _trayWindowModel;
     TrayIconBase? _trayIcon;
 
-    void OnInitializeInternal()
+    static void OnInitializeInternal()
     {
         Service.Register(new ImageLoadService());
     }
