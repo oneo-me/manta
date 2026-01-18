@@ -4,7 +4,7 @@ namespace Manta;
 
 public sealed class MAppOptions
 {
-    public WindowModel? MainModel { get; init; }
+    public Func<WindowModel>? MainModel { get; init; }
     public MAppTaryOptions? Tary { get; init; }
     public Action? Exit { get; init; }
 }

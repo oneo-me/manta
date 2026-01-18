@@ -15,8 +15,8 @@ public abstract class TrayWindowModel : WindowModel
         window.CanMaximize = false;
         window.ShowInTaskbar = false;
         window.CloseWhenDeactivated = true;
-        window.SizeToContent = SizeToContent.WidthAndHeight;
-        window.WindowStartupLocation = WindowStartupLocation.Manual;
         window.SystemDecorations = SystemDecorations.BorderOnly;
+        window.WindowStartupLocation = WindowStartupLocation.Manual;
+        window.SizeToContent = SizeToContent.WidthAndHeight;
     }
 }

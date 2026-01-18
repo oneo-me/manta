@@ -48,10 +48,10 @@ sealed class App : MApp
 
         options = new()
         {
-            MainModel = new Main_Model(),
+            MainModel = () => new Main_Model(),
             Tary = new()
             {
-                Model = new TrayView_Model(),
+                Model = () => new TrayView_Model(),
                 Icon = Assets.GetBytes("TrayIcon.png")
             },
             Exit = () =>

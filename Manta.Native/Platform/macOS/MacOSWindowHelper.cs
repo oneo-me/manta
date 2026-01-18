@@ -32,17 +32,6 @@ public static class MacOSWindowHelper
     }
 
     /// <summary>
-    ///     Sets the window style mask.
-    /// </summary>
-    /// <param name="windowHandle">Native NSWindow pointer.</param>
-    /// <param name="styleMask">Style mask value.</param>
-    public static void SetWindowStyleMask(IntPtr windowHandle, uint styleMask)
-    {
-        if (windowHandle == IntPtr.Zero) return;
-        MantaNative.SetWindowStyleMask(windowHandle, styleMask);
-    }
-
-    /// <summary>
     ///     Gets the current window level.
     /// </summary>
     /// <param name="windowHandle">Native NSWindow pointer.</param>
@@ -51,15 +40,6 @@ public static class MacOSWindowHelper
     {
         if (windowHandle == IntPtr.Zero) return MacOSWindowLevel.Normal;
         return (MacOSWindowLevel)MantaNative.GetWindowLevel(windowHandle);
-    }
-
-    /// <summary>
-    ///     Checks if the current appearance is dark mode.
-    /// </summary>
-    /// <returns>True if dark mode, false otherwise.</returns>
-    public static bool IsDarkMode()
-    {
-        return MantaNative.IsDarkMode();
     }
 
     public static void ConfigureAsWindow(Window trayWindow)
@@ -91,9 +71,6 @@ public static class MacOSWindowHelper
             MacOSWindowCollectionBehavior.Transient |
             MacOSWindowCollectionBehavior.IgnoresCycle |
             MacOSWindowCollectionBehavior.MoveToActiveSpace);
-
-        // Set as inactive window
-        MantaNative.SetWindowNonActivating(handle, true);
     }
 
     static IntPtr GetNativeWindowHandle(Window window)
