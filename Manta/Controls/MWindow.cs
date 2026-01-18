@@ -5,6 +5,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Manta.Native.Platform.macOS;
 
 namespace Manta.Controls;
 
@@ -56,6 +57,24 @@ public sealed partial class MWindow : Window
             return;
 
         KeyUp += OnKeyUp;
+    }
+
+    protected override void OnOpened(EventArgs e)
+    {
+        base.OnOpened(e);
+
+        switch (Variant)
+        {
+            case MWindowVariant.TaryWindow:
+                MacOSWindowHelper.ConfigureAsTrayWindow(this);
+                break;
+
+            case MWindowVariant.Default:
+            case MWindowVariant.MainWindow:
+            default:
+                MacOSWindowHelper.ConfigureAsWindow(this);
+                break;
+        }
     }
 
     void OnDeactivated(object? sender, EventArgs e)

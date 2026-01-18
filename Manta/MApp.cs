@@ -185,7 +185,7 @@ public abstract class MApp : Application
             if (initData.Tary.Model is null || initData.Tary.Icon is null)
                 throw new("TrayModel and Icon must be set when Tary is set.");
 
-            _trayIcon = TaryHelper.CreateTrayIcon(this, initData.Tary.Icon);
+            _trayIcon = TrayIconHelper.CreateTrayIcon(this, initData.Tary.Icon);
             _trayIcon.Clicked += (_, e) =>
             {
                 if (_trayWindow is null)
@@ -209,7 +209,6 @@ public abstract class MApp : Application
 
                     if (OperatingSystem.IsMacOS())
                     {
-                        MacOSTrayWindowHelper.ConfigureAsTrayWindow(_trayWindow);
                         // Position the window centered below the tray icon
                         // e.Position contains the center-bottom of the tray icon in Avalonia coordinates
                         var x = (int)(e.Position.X - _trayWindow.Bounds.Width / 2d);
@@ -229,7 +228,7 @@ public abstract class MApp : Application
     }
 
     MWindow? _trayWindow;
-    TaryIconBase? _trayIcon;
+    TrayIconBase? _trayIcon;
 
     void OnInitializeInternal()
     {

@@ -70,11 +70,13 @@ static partial class MantaNative
     /// <param name="callback">Click callback function pointer.</param>
     /// <returns>Handle to the created tray instance.</returns>
     [LibraryImport(LibraryName, EntryPoint = "manta_tray_create")]
-    public static unsafe partial long CreateTray(
+    public static unsafe partial long CreateTray
+    (
         byte* iconData,
         int iconLength,
         [MarshalAs(UnmanagedType.Bool)] bool isTemplate,
-        TrayClickCallback? callback);
+        TrayClickCallback? callback
+    );
 
     /// <summary>
     ///     Destroys a Tray instance by its handle.
@@ -131,6 +133,49 @@ static partial class MantaNative
     [LibraryImport(LibraryName, EntryPoint = "manta_is_dark_mode")]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool IsDarkMode();
+
+    #endregion
+
+    #region Blur/Visual Effect State
+
+    /// <summary>
+    ///     Sets the NSVisualEffectView state to keep blur active even when window loses focus.
+    ///     This prevents the blur from dimming when the window is not active.
+    /// </summary>
+    /// <param name="windowHandle">Native NSWindow pointer.</param>
+    /// <param name="alwaysActive">If true, blur stays active even when window loses focus.</param>
+    [LibraryImport(LibraryName, EntryPoint = "manta_window_set_blur_always_active")]
+    public static partial void SetWindowBlurAlwaysActive(IntPtr windowHandle, [MarshalAs(UnmanagedType.Bool)] bool alwaysActive);
+
+    #endregion
+
+    #region Non-Activating Panel
+
+    /// <summary>
+    ///     Shows the window without activating the application.
+    ///     Useful for tray popup windows that should not steal focus.
+    /// </summary>
+    /// <param name="windowHandle">Native NSWindow pointer.</param>
+    [LibraryImport(LibraryName, EntryPoint = "manta_window_order_front_regardless")]
+    public static partial void OrderFrontRegardless(IntPtr windowHandle);
+
+    /// <summary>
+    ///     Sets whether the window can become the key window.
+    ///     Set to false for windows that should not receive keyboard focus.
+    /// </summary>
+    /// <param name="windowHandle">Native NSWindow pointer.</param>
+    /// <param name="canBecomeKey">Whether the window can become key window.</param>
+    [LibraryImport(LibraryName, EntryPoint = "manta_window_set_can_become_key")]
+    public static partial void SetWindowCanBecomeKey(IntPtr windowHandle, [MarshalAs(UnmanagedType.Bool)] bool canBecomeKey);
+
+    /// <summary>
+    ///     Configures the window as a non-activating panel.
+    ///     This is a convenience function that combines multiple settings for tray-style popups.
+    /// </summary>
+    /// <param name="windowHandle">Native NSWindow pointer.</param>
+    /// <param name="isNonActivating">If true, window will not activate the app when shown.</param>
+    [LibraryImport(LibraryName, EntryPoint = "manta_window_set_non_activating")]
+    public static partial void SetWindowNonActivating(IntPtr windowHandle, [MarshalAs(UnmanagedType.Bool)] bool isNonActivating);
 
     #endregion
 }

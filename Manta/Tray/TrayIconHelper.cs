@@ -1,8 +1,8 @@
 namespace Manta.Tray;
 
-static class TaryHelper
+static class TrayIconHelper
 {
-    public static TaryIconBase CreateTrayIcon(MApp app, byte[] icon)
+    public static TrayIconBase CreateTrayIcon(MApp app, byte[] icon)
     {
         if (OperatingSystem.IsWindows())
             return new WindowsTrayIcon(app, icon);

@@ -314,3 +314,86 @@ public func manta_is_dark_mode() -> Bool {
         return NSApp.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
     }
 }
+
+// MARK: - Blur/Visual Effect State
+
+/// Sets the NSVisualEffectView state to keep blur active even when window loses focus.
+/// This prevents the blur from dimming when the window is not active.
+/// - Parameters:
+///   - windowHandle: Native NSWindow pointer
+///   - alwaysActive: If true, blur stays active even when window loses focus
+@_cdecl("manta_window_set_blur_always_active")
+public func manta_window_set_blur_always_active(_ windowHandle: UnsafeMutableRawPointer, _ alwaysActive: Bool) {
+    runOnMainAsync {
+        let window = Unmanaged<NSWindow>.fromOpaque(windowHandle).takeUnretainedValue()
+        setVisualEffectState(for: window.contentView, alwaysActive: alwaysActive)
+    }
+}
+
+/// Recursively sets NSVisualEffectView state in the view hierarchy
+private func setVisualEffectState(for view: NSView?, alwaysActive: Bool) {
+    guard let view = view else { return }
+
+    if let effectView = view as? NSVisualEffectView {
+        effectView.state = alwaysActive ? .active : .followsWindowActiveState
+    }
+
+    for subview in view.subviews {
+        setVisualEffectState(for: subview, alwaysActive: alwaysActive)
+    }
+}
+
+// MARK: - Non-Activating Panel
+
+/// Shows the window without activating the application.
+/// Useful for tray popup windows that should not steal focus.
+/// - Parameters:
+///   - windowHandle: Native NSWindow pointer
+@_cdecl("manta_window_order_front_regardless")
+public func manta_window_order_front_regardless(_ windowHandle: UnsafeMutableRawPointer) {
+    runOnMainAsync {
+        let window = Unmanaged<NSWindow>.fromOpaque(windowHandle).takeUnretainedValue()
+        window.orderFrontRegardless()
+    }
+}
+
+/// Sets whether the window can become the key window.
+/// Set to false for windows that should not receive keyboard focus.
+/// - Parameters:
+///   - windowHandle: Native NSWindow pointer
+///   - canBecomeKey: Whether the window can become key window
+@_cdecl("manta_window_set_can_become_key")
+public func manta_window_set_can_become_key(_ windowHandle: UnsafeMutableRawPointer, _ canBecomeKey: Bool) {
+    // Note: NSWindow.canBecomeKey is read-only, we need to use styleMask
+    // For non-key windows, use NSPanel with .nonactivatingPanel style
+    runOnMainAsync {
+        let window = Unmanaged<NSWindow>.fromOpaque(windowHandle).takeUnretainedValue()
+        if canBecomeKey {
+            window.styleMask.remove(.nonactivatingPanel)
+        } else {
+            window.styleMask.insert(.nonactivatingPanel)
+        }
+    }
+}
+
+/// Configures the window as a non-activating panel.
+/// This is a convenience function that combines multiple settings for tray-style popups.
+/// - Parameters:
+///   - windowHandle: Native NSWindow pointer
+///   - isNonActivating: If true, window will not activate the app when shown
+@_cdecl("manta_window_set_non_activating")
+public func manta_window_set_non_activating(_ windowHandle: UnsafeMutableRawPointer, _ isNonActivating: Bool) {
+    runOnMainAsync {
+        let window = Unmanaged<NSWindow>.fromOpaque(windowHandle).takeUnretainedValue()
+
+        if isNonActivating {
+            // Add nonactivatingPanel to styleMask
+            window.styleMask.insert(.nonactivatingPanel)
+            // Prevent app activation
+            window.isExcludedFromWindowsMenu = true
+        } else {
+            window.styleMask.remove(.nonactivatingPanel)
+            window.isExcludedFromWindowsMenu = false
+        }
+    }
+}

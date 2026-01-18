@@ -2,17 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
-    <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Default">
-            <SolidColorBrush x:Key="MacBackground" Color="#00000000" />
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="Light">
-            <SolidColorBrush x:Key="MacBackground" Color="#00000000" />
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="Dark">
-            <SolidColorBrush x:Key="MacBackground" Color="#666666" />
-        </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
     <ControlTheme x:Key="{x:Type MWindow}" TargetType="MWindow">
         <Setter Property="Title" Value="Manta" />
         <Setter Property="FontSize" Value="12" />
@@ -62,7 +51,7 @@
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
             <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.9" />
+                <Setter Property="Opacity" Value="0.8" />
             </Style>
         </Style>
         <!-- macOS -->
@@ -72,10 +61,7 @@
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
             <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.9" />
-            </Style>
-            <Style Selector="^[CloseWhenDeactivated=False][IsActive=False] /template/ Panel#Root">
-                <Setter Property="Background" Value="{DynamicResource MacBackground}" />
+                <Setter Property="Opacity" Value="0.8" />
             </Style>
         </Style>
         <!-- Linux -->

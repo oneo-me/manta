@@ -3,7 +3,7 @@ using Avalonia.Media.Imaging;
 
 namespace Manta.Tray;
 
-sealed class WindowsTrayIcon : TaryIconBase
+sealed class WindowsTrayIcon : TrayIconBase
 {
     readonly TrayIcon _icon;
 

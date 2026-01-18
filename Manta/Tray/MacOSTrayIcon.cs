@@ -4,7 +4,7 @@ using Manta.Native.Platform.macOS;
 namespace Manta.Tray;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-sealed class MacOSTrayIcon : TaryIconBase, IDisposable
+sealed class MacOSTrayIcon : TrayIconBase, IDisposable
 {
     readonly NativeTrayWrapper _nativeTray;
     bool _disposed;
