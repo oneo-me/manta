@@ -9,14 +9,14 @@ public static class AvaloniaExtensions
 
     extension(AppBuilder appBuilder)
     {
-        public AppBuilder UseDevTools(DevToolsOptions options = default)
+        public AppBuilder UseDevTools(DevToolsOptions? options = null)
         {
             return appBuilder.AfterSetup(_ =>
             {
                 if (_devTools is not null)
                     return;
 
-                _devTools = new(options);
+                _devTools = new(options ??= new());
                 Lang.Register(LangData.LoadFromAssembly(typeof(DevTools).Assembly));
             });
         }

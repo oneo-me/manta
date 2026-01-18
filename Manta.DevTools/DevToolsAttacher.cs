@@ -28,8 +28,21 @@ sealed class DevToolsAttacher
         _view = _mainModel.CreateView();
 
         window.KeyUp += WindowOnKeyUp;
-        if (options.AutoShowByDefault)
-            window.Opened += WindowOnOpened;
+
+        switch (window.Variant)
+        {
+            case MWindowVariant.MainWindow:
+                if (options.AutoShowForMainWindow)
+                    window.Opened += WindowOnOpened;
+                break;
+
+            case MWindowVariant.Default:
+            case MWindowVariant.TaryWindow:
+            default:
+                if (options.AutoShowForOtherWindows)
+                    window.Opened += WindowOnOpened;
+                break;
+        }
     }
 
     bool _isAutoOpened;
