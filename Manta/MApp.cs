@@ -107,6 +107,28 @@ public abstract class MApp : Application
 
     protected bool SupportActivatableLifetime { get; init; } = false;
 
+    public void Activate()
+    {
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+            return;
+
+        if (desktop.MainWindow is null)
+            return;
+
+        if (desktop.MainWindow.IsVisible)
+            desktop.MainWindow.FocusActivate();
+        else
+            desktop.MainWindow.Show();
+    }
+
+    public void Exit()
+    {
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+            return;
+
+        desktop.Shutdown();
+    }
+
     public override void OnFrameworkInitializationCompleted()
     {
         base.OnFrameworkInitializationCompleted();
@@ -152,13 +174,7 @@ public abstract class MApp : Application
                 if (e.Kind != ActivationKind.Reopen)
                     return;
 
-                if (desktop.MainWindow is null)
-                    return;
-
-                if (desktop.MainWindow.IsVisible)
-                    desktop.MainWindow.FocusActivate();
-                else
-                    desktop.MainWindow.Show();
+                Activate();
             };
         }
 
@@ -211,7 +227,8 @@ public abstract class MApp : Application
 
                 if (OperatingSystem.IsMacOS())
                 {
-                    var x = (int)(e.Position.X - trayWindow.Bounds.Width / 2d);
+                    // var x = (int)(e.Position.X - trayWindow.Bounds.Width / 2d);
+                    var x = (int)e.Position.X - 22;
                     var y = (int)e.Position.Y;
                     trayWindow.Position = new(x, y);
                 }

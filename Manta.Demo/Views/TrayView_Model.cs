@@ -1,3 +1,4 @@
+using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Reactive.Views;
 
@@ -13,6 +14,16 @@ sealed class TrayView_Model : TrayWindowModel
         base.OnWindowInitialized(window);
 
         window.Width = 280;
-        window.Height = 420;
+        window.SizeToContent = SizeToContent.Height;
+    }
+
+    public void ActiveApp()
+    {
+        MApp.Current.Activate();
+    }
+
+    public void Exit()
+    {
+        MApp.Current.Exit();
     }
 }
