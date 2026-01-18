@@ -1,6 +1,6 @@
 using Avalonia.Controls;
-using Manta.Extensions;
 using Manta.Controls;
+using Manta.Extensions;
 
 namespace Manta.Reactive.Views;
 
@@ -8,7 +8,7 @@ public static class WindowModelExtensions
 {
     extension(WindowModel windowModel)
     {
-        public Window CreateWindow()
+        public MWindow CreateWindow()
         {
             var result = new MWindow
             {
@@ -36,7 +36,7 @@ public static class WindowModelExtensions
             return result;
         }
 
-        public Window GetWindow()
+        public MWindow GetWindow()
         {
             if (windowModel.InnerWindow is null)
                 throw new InvalidOperationException($"Window not found for {windowModel}");

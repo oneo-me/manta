@@ -7,6 +7,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
+using Manta.Controls;
 using Manta.Globalization;
 using Manta.Langs;
 using Manta.Logging;
@@ -160,7 +161,9 @@ public abstract class MApp : Application
 
         if (mainModel is not null)
         {
-            desktop.MainWindow = mainModel.CreateWindow();
+            var mainWindow = mainModel.CreateWindow();
+            mainWindow.Variant = MWindowVariant.MainWindow;
+            desktop.MainWindow = mainWindow;
 
             if (isActivatableLifetime)
                 desktop.MainWindow.Closing += (_, args) =>
