@@ -27,9 +27,14 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ Border#Background">
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
         <!-- TaryWindow -->
         <Style Selector="^[Variant=TaryWindow]">
-            <Setter Property="Background" Value="#00000000" />
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Opacity" Value="0.4" />
+            </Style>
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -47,9 +52,6 @@
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
             <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.8" />
-            </Style>
         </Style>
         <!-- macOS -->
         <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
@@ -57,9 +59,6 @@
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
             <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.8" />
-            </Style>
         </Style>
         <!-- Linux -->
         <Style Selector="^[(CurrentSystem.IsLinux)=True]">
@@ -72,6 +71,9 @@
             </Style>
             <Style Selector="^[WindowState=FullScreen]">
                 <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Opacity" Value="1" />
             </Style>
             <Style Selector="^ /template/ Panel#PART_Decorations">
                 <Setter Property="IsVisible" Value="False" />

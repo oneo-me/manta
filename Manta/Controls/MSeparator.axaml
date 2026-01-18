@@ -46,12 +46,10 @@
         <Style Selector="^[Orientation=Horizontal]">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Height" Value="{MSize Px}" />
-            <Setter Property="Margin" Value="{MThickness S0, Vertical=S1}" />
         </Style>
         <Style Selector="^[Orientation=Vertical]">
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="Width" Value="{MSize Px}" />
-            <Setter Property="Margin" Value="{MThickness S1, Vertical=S0}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
