@@ -26,7 +26,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid Name="PART_WindowContent">
                             <Border Name="Background" Background="{TemplateBinding Background}" />
-                            <Border Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+                            <Border Name="PrimaryColor" Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
                             <VisualLayerManager>
                                 <ContentPresenter Name="PART_ContentPresenter"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -38,6 +38,16 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <!-- TaryWindow -->
+        <Style Selector="^[Variant=TaryWindow]">
+            <Setter Property="Background" Value="#00000000" />
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Border#PrimaryColor">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
         <!-- Windows -->
         <Style Selector="^[(CurrentSystem.IsWindows)=True]">
             <Setter Property="BorderThickness" Value="1" />
@@ -64,7 +74,7 @@
             <Style Selector="^ /template/ Border#Background">
                 <Setter Property="Opacity" Value="0.9" />
             </Style>
-            <Style Selector="^[IsActive=False] /template/ Panel#Root">
+            <Style Selector="^[CloseWhenDeactivated=False][IsActive=False] /template/ Panel#Root">
                 <Setter Property="Background" Value="{DynamicResource MacBackground}" />
             </Style>
         </Style>

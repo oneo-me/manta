@@ -8,11 +8,27 @@ using Avalonia.Media;
 
 namespace Manta.Controls;
 
+public enum MWindowVariant
+{
+    Default,
+    MainWindow,
+    TaryWindow
+}
+
 [TemplatePart(nameof(PART_Decorations), typeof(Panel))]
 [TemplatePart(nameof(PART_WindowContent), typeof(Grid))]
 public sealed partial class MWindow : Window
 {
     protected override Type StyleKeyOverride { get; } = typeof(MWindow);
+
+    public static readonly StyledProperty<MWindowVariant> VariantProperty = AvaloniaProperty.Register<MWindow, MWindowVariant>(
+        nameof(Variant));
+
+    public MWindowVariant Variant
+    {
+        get => GetValue(VariantProperty);
+        internal set => SetValue(VariantProperty, value);
+    }
 
     public static readonly StyledProperty<bool> AllowFullScreenProperty = AvaloniaProperty.Register<MWindow, bool>(
         nameof(AllowFullScreen));
@@ -23,12 +39,29 @@ public sealed partial class MWindow : Window
         set => SetValue(AllowFullScreenProperty, value);
     }
 
+    public static readonly StyledProperty<bool> CloseWhenDeactivatedProperty = AvaloniaProperty.Register<MWindow, bool>(
+        nameof(CloseWhenDeactivated));
+
+    public bool CloseWhenDeactivated
+    {
+        get => GetValue(CloseWhenDeactivatedProperty);
+        set => SetValue(CloseWhenDeactivatedProperty, value);
+    }
+
     public MWindow()
     {
+        Deactivated += OnDeactivated;
+
         if (OperatingSystem.IsMacOS() is false)
             return;
 
         KeyUp += OnKeyUp;
+    }
+
+    void OnDeactivated(object? sender, EventArgs e)
+    {
+        if (CloseWhenDeactivated)
+            Close();
     }
 
     void OnKeyUp(object? sender, KeyEventArgs e)
