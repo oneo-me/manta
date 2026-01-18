@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
-using Manta.WebView.Platform.macOS;
+using Manta.Native.Platform.macOS;
 
 namespace Manta.WebView.Controls;
 
@@ -79,37 +79,5 @@ public class MWebView : TemplatedControl
             return;
 
         _nativeHost.WebView.LoadHtmlString(html);
-    }
-
-    public void Reload()
-    {
-        if (_nativeHost is null)
-            return;
-
-        _nativeHost.WebView.Reload();
-    }
-
-    public void GoBack()
-    {
-        if (_nativeHost is null)
-            return;
-
-        _nativeHost.WebView.GoBack();
-    }
-
-    public void GoForward()
-    {
-        if (_nativeHost is null)
-            return;
-
-        _nativeHost.WebView.GoForward();
-    }
-
-    public void ExecuteJavaScript(string script, Action<string?>? callback = null)
-    {
-        if (_nativeHost is null)
-            return;
-
-        _nativeHost.WebView.ExecuteJavaScript(script, callback);
     }
 }
