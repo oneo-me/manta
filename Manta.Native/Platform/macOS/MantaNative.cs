@@ -131,5 +131,13 @@ static partial class MantaNative
     [LibraryImport(LibraryName, EntryPoint = "manta_window_set_blur_always_active")]
     public static partial void SetWindowBlurAlwaysActive(IntPtr windowHandle, [MarshalAs(UnmanagedType.Bool)] bool alwaysActive);
 
+    /// <summary>
+    ///     Configures the window with liquid glass (vibrancy) effect.
+    ///     This creates a frosted glass appearance similar to macOS HUD windows.
+    /// </summary>
+    /// <param name="windowHandle">Native NSWindow pointer.</param>
+    [LibraryImport(LibraryName, EntryPoint = "manta_window_configure_liquid_glass")]
+    public static partial void ConfigureLiquidGlass(IntPtr windowHandle);
+
     #endregion
 }

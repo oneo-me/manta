@@ -60,8 +60,8 @@ public static class MacOSWindowHelper
         var handle = GetNativeWindowHandle(trayWindow);
         if (handle == IntPtr.Zero) return;
 
-        // Stay blurry and always active
-        MantaNative.SetWindowBlurAlwaysActive(handle, true);
+        // Apply liquid glass (vibrancy) effect for frosted glass appearance
+        MantaNative.ConfigureLiquidGlass(handle);
 
         // Set window level to PopUpMenu (above most windows)
         SetWindowLevel(handle, MacOSWindowLevel.PopUpMenu);

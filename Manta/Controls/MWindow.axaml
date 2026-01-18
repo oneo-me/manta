@@ -33,7 +33,7 @@
         <!-- TaryWindow -->
         <Style Selector="^[Variant=TaryWindow]">
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="0.4" />
+                <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="IsVisible" Value="False" />
