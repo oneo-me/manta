@@ -2,12 +2,12 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
-using Manta.Native.Platform.macOS;
+using Manta.Native.Platform;
 
 namespace Manta.WebView.Controls;
 
 [TemplatePart(nameof(PART_NativeHost), typeof(Border))]
-public class MWebView : TemplatedControl
+public class MWebView : TemplatedControl, IDisposable
 {
     public static readonly StyledProperty<string> UrlProperty = AvaloniaProperty.Register<MWebView, string>(
         nameof(Url), string.Empty);
@@ -27,7 +27,7 @@ public class MWebView : TemplatedControl
         set => SetValue(HtmlContentProperty, value);
     }
 
-    readonly MacOSNativeControlHost? _nativeHost;
+    readonly MantaWebViewHost? _nativeHost;
 
     public MWebView()
     {
@@ -61,23 +61,16 @@ public class MWebView : TemplatedControl
 
     void OnUrlChanged(string url)
     {
-        if (_nativeHost is null)
-            return;
-
-        if (string.IsNullOrEmpty(url))
-            return;
-
-        _nativeHost.WebView.LoadUrl(url);
+        _nativeHost?.LoadUrl(url);
     }
 
     void OnHtmlContentChanged(string html)
     {
-        if (_nativeHost is null)
-            return;
+        _nativeHost?.LoadHtmlString(html);
+    }
 
-        if (string.IsNullOrEmpty(html))
-            return;
-
-        _nativeHost.WebView.LoadHtmlString(html);
+    public void Dispose()
+    {
+        _nativeHost?.Dispose();
     }
 }
