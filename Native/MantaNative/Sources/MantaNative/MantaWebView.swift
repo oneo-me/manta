@@ -11,26 +11,23 @@ import AppKit
 final class WebViewManager {
     static let shared = WebViewManager()
 
-    private var webViews: [Int64: MantaWebView] = [:]
-    private var nextHandle: Int64 = 1
+    private var webViews: [UnsafeMutableRawPointer: MantaWebView] = [:]
     private let lock = NSLock()
 
     private init() {}
 
-    func create() -> Int64 {
+    func create() -> UnsafeMutableRawPointer {
         lock.lock()
         defer { lock.unlock() }
 
-        let handle = nextHandle
-        nextHandle += 1
-
         let webView = MantaWebView()
+        let handle = webView.nativeHandle
         webViews[handle] = webView
 
         return handle
     }
 
-    func destroy(handle: Int64) {
+    func destroy(handle: UnsafeMutableRawPointer) {
         lock.lock()
         defer { lock.unlock() }
 
@@ -39,7 +36,7 @@ final class WebViewManager {
         }
     }
 
-    func get(handle: Int64) -> MantaWebView? {
+    func get(handle: UnsafeMutableRawPointer) -> MantaWebView? {
         lock.lock()
         defer { lock.unlock() }
         return webViews[handle]
@@ -103,7 +100,7 @@ final class MantaWebView {
 
 /// Creates a new WebView instance and returns its handle
 @_cdecl("manta_webview_create")
-public func manta_webview_create() -> Int64 {
+public func manta_webview_create() -> UnsafeMutableRawPointer {
     return runOnMain {
         WebViewManager.shared.create()
     }
@@ -111,23 +108,15 @@ public func manta_webview_create() -> Int64 {
 
 /// Destroys a WebView instance by its handle
 @_cdecl("manta_webview_destroy")
-public func manta_webview_destroy(_ handle: Int64) {
+public func manta_webview_destroy(_ handle: UnsafeMutableRawPointer) {
     runOnMainAsync {
         WebViewManager.shared.destroy(handle: handle)
     }
 }
 
-/// Gets the native NSView pointer for the WebView
-@_cdecl("manta_webview_get_native_handle")
-public func manta_webview_get_native_handle(_ handle: Int64) -> UnsafeMutableRawPointer? {
-    return runOnMain {
-        WebViewManager.shared.get(handle: handle)?.nativeHandle
-    }
-}
-
 /// Loads a URL in the WebView
 @_cdecl("manta_webview_load_url")
-public func manta_webview_load_url(_ handle: Int64, _ url: UnsafePointer<CChar>?) {
+public func manta_webview_load_url(_ handle: UnsafeMutableRawPointer, _ url: UnsafePointer<CChar>?) {
     guard let url = url, let urlString = String(cString: url, encoding: .utf8) else { return }
     runOnMainAsync {
         WebViewManager.shared.get(handle: handle)?.loadUrl(urlString)
@@ -136,18 +125,10 @@ public func manta_webview_load_url(_ handle: Int64, _ url: UnsafePointer<CChar>?
 
 /// Loads HTML content in the WebView
 @_cdecl("manta_webview_load_html")
-public func manta_webview_load_html(_ handle: Int64, _ html: UnsafePointer<CChar>?, _ baseUrl: UnsafePointer<CChar>?) {
+public func manta_webview_load_html(_ handle: UnsafeMutableRawPointer, _ html: UnsafePointer<CChar>?, _ baseUrl: UnsafePointer<CChar>?) {
     guard let html = html, let htmlString = String(cString: html, encoding: .utf8) else { return }
     let baseUrlString = baseUrl.flatMap { String(cString: $0, encoding: .utf8) }
     runOnMainAsync {
         WebViewManager.shared.get(handle: handle)?.loadHtml(htmlString, baseUrl: baseUrlString)
-    }
-}
-
-/// Sets the frame (position and size) of the WebView
-@_cdecl("manta_webview_set_frame")
-public func manta_webview_set_frame(_ handle: Int64, _ x: Double, _ y: Double, _ width: Double, _ height: Double) {
-    runOnMainAsync {
-        WebViewManager.shared.get(handle: handle)?.setFrame(x: x, y: y, width: width, height: height)
     }
 }
