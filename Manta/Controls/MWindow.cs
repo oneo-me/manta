@@ -6,7 +6,7 @@ using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Manta.Extensions;
-using Manta.Native.Platform.macOS;
+using Manta.Native.Platform;
 
 namespace Manta.Controls;
 
@@ -14,7 +14,7 @@ public enum MWindowVariant
 {
     Default,
     MainWindow,
-    TaryWindow
+    TrayWindow
 }
 
 [TemplatePart(nameof(PART_Decorations), typeof(Panel))]
@@ -66,14 +66,14 @@ public sealed partial class MWindow : Window
 
         switch (Variant)
         {
-            case MWindowVariant.TaryWindow:
-                MacOSWindowHelper.ConfigureAsTrayWindow(this);
+            case MWindowVariant.TrayWindow:
+                MantaWindow.ConfigureTrayWindow(this);
                 break;
 
             case MWindowVariant.Default:
             case MWindowVariant.MainWindow:
             default:
-                MacOSWindowHelper.ConfigureAsWindow(this);
+                MantaWindow.ConfigureWindow(this);
                 break;
         }
     }
