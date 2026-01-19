@@ -99,24 +99,6 @@ final class MantaWebView {
     }
 }
 
-// MARK: - Main Thread Helpers
-
-private func runOnMain<T>(_ block: @escaping () -> T) -> T {
-    if Thread.isMainThread {
-        return block()
-    } else {
-        return DispatchQueue.main.sync { block() }
-    }
-}
-
-private func runOnMainAsync(_ block: @escaping () -> Void) {
-    if Thread.isMainThread {
-        block()
-    } else {
-        DispatchQueue.main.async { block() }
-    }
-}
-
 // MARK: - C Exports
 
 /// Creates a new WebView instance and returns its handle
