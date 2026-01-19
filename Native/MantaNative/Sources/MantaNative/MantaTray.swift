@@ -9,7 +9,7 @@ import AppKit
 /// Callback type for tray icon click events
 /// Parameters: x coordinate, y coordinate (center-bottom of the icon in Avalonia coordinates),
 ///             screenX, screenY (origin of the screen containing the tray icon)
-public typealias TrayClickCallback = @convention(c) (Double, Double, Double, Double) -> Void
+public typealias TrayClickCallback = @convention(c) (Double, Double) -> Void
 
 // MARK: - Tray Manager
 
@@ -23,14 +23,14 @@ final class TrayManager {
 
     private init() {}
 
-    func create(iconData: Data, isTemplate: Bool, callback: TrayClickCallback?) -> Int64 {
+    func create(iconData: Data, callback: TrayClickCallback?) -> Int64 {
         lock.lock()
         defer { lock.unlock() }
 
         let handle = nextHandle
         nextHandle += 1
 
-        let tray = MantaTray(iconData: iconData, isTemplate: isTemplate, callback: callback)
+        let tray = MantaTray(iconData: iconData, callback: callback)
         trays[handle] = tray
 
         return handle
@@ -60,9 +60,9 @@ final class MantaTray: NSObject {
     private let icon: NSImage?
     private var callback: TrayClickCallback?
 
-    init(iconData: Data, isTemplate: Bool, callback: TrayClickCallback?) {
+    init(iconData: Data, callback: TrayClickCallback?) {
         // Create image from data
-        self.icon = Self.createMenuBarImage(from: iconData, isTemplate: isTemplate)
+        self.icon = Self.createMenuBarImage(from: iconData, isTemplate: true)
         self.callback = callback
 
         // Create status item
@@ -150,11 +150,7 @@ final class MantaTray: NSObject {
         // Convert Y: Avalonia Y = primaryScreenHeight - macOS Y
         let bottomY = primaryScreenHeight - screenFrame.minY
 
-        // Get the screen origin in Avalonia coordinates
-        let screenOriginX = screen.frame.origin.x
-        let screenOriginY = primaryScreenHeight - screen.frame.maxY
-
-        callback(centerX, bottomY, screenOriginX, screenOriginY)
+        callback(centerX, bottomY)
     }
 
     func setCallback(_ callback: TrayClickCallback?) {
@@ -172,16 +168,11 @@ final class MantaTray: NSObject {
 ///   - callback: Click callback function pointer
 /// - Returns: Handle to the created tray instance
 @_cdecl("manta_tray_create")
-public func manta_tray_create(
-    _ iconData: UnsafePointer<UInt8>,
-    _ iconLength: Int32,
-    _ isTemplate: Bool,
-    _ callback: TrayClickCallback?
-) -> Int64 {
+public func manta_tray_create(_ iconData: UnsafePointer<UInt8>, _ iconLength: Int32, _ callback: TrayClickCallback?) -> Int64 {
     return runOnMain {
-        NSLog("MantaTray: manta_tray_create called, iconLength: \(iconLength), isTemplate: \(isTemplate)")
+        NSLog("MantaTray: manta_tray_create called, iconLength: \(iconLength)")
         let data = Data(bytes: iconData, count: Int(iconLength))
-        return TrayManager.shared.create(iconData: data, isTemplate: isTemplate, callback: callback)
+        return TrayManager.shared.create(iconData: data, callback: callback)
     }
 }
 
@@ -190,13 +181,5 @@ public func manta_tray_create(
 public func manta_tray_destroy(_ handle: Int64) {
     runOnMainAsync {
         TrayManager.shared.destroy(handle: handle)
-    }
-}
-
-/// Sets the click callback for a Tray instance
-@_cdecl("manta_tray_set_callback")
-public func manta_tray_set_callback(_ handle: Int64, _ callback: TrayClickCallback?) {
-    runOnMainAsync {
-        TrayManager.shared.get(handle: handle)?.setCallback(callback)
     }
 }

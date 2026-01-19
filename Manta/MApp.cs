@@ -13,11 +13,11 @@ using Manta.Globalization;
 using Manta.Langs;
 using Manta.Logging;
 using Manta.Logging.Inner;
+using Manta.Native;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
 using Manta.Services;
-using Manta.Tray;
 
 namespace Manta;
 
@@ -202,7 +202,7 @@ public abstract class MApp : Application
             if (initData.Tary.Model is null || initData.Tary.Icon is null)
                 throw new("TrayModel and Icon must be set when Tary is set.");
 
-            _trayIcon = TrayIconHelper.CreateTrayIcon(this, initData.Tary.Icon);
+            _trayIcon = new(this, initData.Tary.Icon);
             _trayIcon.Clicked += (_, e) =>
             {
                 if (_trayWindowModel is not null)
@@ -225,13 +225,9 @@ public abstract class MApp : Application
 
                 trayWindow.Show();
 
-                if (OperatingSystem.IsMacOS())
-                {
-                    // var x = (int)(e.Position.X - trayWindow.Bounds.Width / 2d);
-                    var x = (int)e.Position.X - 22;
-                    var y = (int)e.Position.Y;
-                    trayWindow.Position = new(x, y);
-                }
+                var x = (int)e.X;
+                var y = (int)e.Y;
+                trayWindow.Position = new(x, y);
             };
         }
 
@@ -244,7 +240,7 @@ public abstract class MApp : Application
     }
 
     TrayWindowModel? _trayWindowModel;
-    TrayIconBase? _trayIcon;
+    MantaTrayIcon? _trayIcon;
 
     static void OnInitializeInternal()
     {

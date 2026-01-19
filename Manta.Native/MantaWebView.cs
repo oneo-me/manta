@@ -1,41 +1,42 @@
 using Avalonia.Controls;
 using Avalonia.Platform;
+using Manta.Native.Platform;
 using Manta.Native.Platform.macOS;
 
-namespace Manta.Native.Platform;
+namespace Manta.Native;
 
-public sealed class MantaWebViewHost : NativeControlHost, IDisposable
+public sealed class MantaWebView : NativeControlHost, IDisposable
 {
-    readonly MantaWebView _webView = CreateWebView();
+    readonly MantaWebViewImpl _webViewImpl = CreateWebView();
 
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {
         if (OperatingSystem.IsMacOS())
-            return new PlatformHandle(_webView.Handle, "NSView");
+            return new PlatformHandle(_webViewImpl.Handle, "NSView");
 
         return base.CreateNativeControlCore(parent);
     }
 
     public void LoadUrl(string url)
     {
-        _webView.LoadUrl(url);
+        _webViewImpl.LoadUrl(url);
     }
 
     public void LoadHtmlString(string html, string? baseUrl = null)
     {
-        _webView.LoadHtmlString(html, baseUrl);
+        _webViewImpl.LoadHtmlString(html, baseUrl);
     }
 
-    static MantaWebView CreateWebView()
+    static MantaWebViewImpl CreateWebView()
     {
         if (OperatingSystem.IsMacOS())
-            return new MacOSWebView();
+            return new MacOsWebView();
 
         throw new PlatformNotSupportedException("MantaWebView is only supported on macOS.");
     }
 
     public void Dispose()
     {
-        _webView.Dispose();
+        _webViewImpl.Dispose();
     }
 }
