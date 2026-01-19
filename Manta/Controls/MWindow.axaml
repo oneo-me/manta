@@ -31,7 +31,7 @@
             <Setter Property="Opacity" Value="0.8" />
         </Style>
         <!-- TaryWindow -->
-        <Style Selector="^[Variant=TaryWindow]">
+        <Style Selector="^[Variant=TrayWindow]">
             <Style Selector="^ /template/ Border#Background">
                 <Setter Property="IsVisible" Value="False" />
             </Style>

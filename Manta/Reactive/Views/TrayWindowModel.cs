@@ -9,7 +9,7 @@ public abstract class TrayWindowModel : WindowModel
     {
         base.OnWindowInitialized(window);
 
-        window.Variant = MWindowVariant.TaryWindow;
+        window.Variant = MWindowVariant.TrayWindow;
         window.CanResize = false;
         window.CanMinimize = false;
         window.CanMaximize = false;
