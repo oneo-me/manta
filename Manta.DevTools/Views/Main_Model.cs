@@ -1,8 +1,10 @@
+using System.Reactive.Disposables;
 using Avalonia.Collections;
-using Avalonia.Controls;
 using Avalonia.Rendering;
 using Manta.Controls;
 using Manta.DevTools.Models;
+using Manta.Extensions;
+using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Views;
@@ -19,12 +21,6 @@ sealed class Main_Model : ViewModel
         get;
         set => SetValue(ref field, value);
     } = true;
-
-    public double ToolBarHeight
-    {
-        get;
-        set => SetValue(ref field, value);
-    }
 
     public AvaloniaList<ViewContext> Contexts { get; } = [];
     public AvaloniaList<ViewNode> Root { get; } = [];
@@ -96,17 +92,14 @@ sealed class Main_Model : ViewModel
         EnabledTimeGraph = _attacher.Options.EnableTimeGraphByDefault;
     }
 
-    protected override void OnInitialized()
+    protected override void OnViewActivated(CompositeDisposable disposables)
     {
-        base.OnInitialized();
+        base.OnViewActivated(disposables);
 
         var view = this.GetView<Main>();
-        view.ToolBar.SizeChanged += ToolBarOnSizeChanged;
-    }
-
-    void ToolBarOnSizeChanged(object? sender, SizeChangedEventArgs e)
-    {
-        ToolBarHeight = e.NewSize.Height;
+        view.TitleBar
+            .BindTitleBarEvents()
+            .DisposeWith(disposables);
     }
 
     public void HideDevTools()

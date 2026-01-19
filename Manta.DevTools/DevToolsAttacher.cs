@@ -72,44 +72,42 @@ sealed class DevToolsAttacher
             if (isVisible)
             {
                 _mainModel.IsVisible = false;
-                _view.Height = _windowContent.RowDefinitions[1].Height.Value;
-                _windowContent.RowDefinitions[1].Height = new(0, GridUnitType.Pixel);
+                _view.Width = _windowContent.ColumnDefinitions[1].Width.Value;
+                _windowContent.ColumnDefinitions[1].Width = new(0, GridUnitType.Pixel);
             }
             else
             {
                 _mainModel.IsVisible = true;
-                var height = _view.Height > 0 ? _view.Height : Options.DefaultHeight;
-                _windowContent.RowDefinitions[1].Height = new(height, GridUnitType.Pixel);
-                _view.Height = double.NaN;
+                var height = _view.Width > 0 ? _view.Width : 320d;
+                _windowContent.ColumnDefinitions[1].Width = new(height, GridUnitType.Pixel);
+                _view.Width = double.NaN;
             }
 
             return;
         }
 
         _isCreated = true;
-        _windowContent.RowDefinitions =
+        _windowContent.ColumnDefinitions =
         [
             new(GridLength.Star),
-            new(Options.DefaultHeight, GridUnitType.Pixel) { MaxHeight = _window.Bounds.Height * 0.8 }
+            new(320d, GridUnitType.Pixel) { MaxWidth = _window.Bounds.Height * 0.4, MinWidth = 320d }
         ];
 
         _window.SizeChanged += (_, e) =>
         {
-            _windowContent.RowDefinitions[1].MaxHeight = e.NewSize.Height * 0.8;
+            _windowContent.ColumnDefinitions[1].MaxWidth = e.NewSize.Height * 0.8;
         };
+
+        Grid.SetColumn(_view, 1);
+        _windowContent.Children.Add(_view);
 
         var gridSplitter = new GridSplitter
         {
-            Margin = default,
-            HorizontalAlignment = HorizontalAlignment.Stretch,
-            VerticalAlignment = VerticalAlignment.Top,
-            [!Layoutable.HeightProperty] = new Binding(nameof(Main_Model.ToolBarHeight), BindingMode.OneWay) { Source = _mainModel }
+            HorizontalAlignment = HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Stretch
         };
-        Grid.SetRow(gridSplitter, 1);
+        Grid.SetColumn(gridSplitter, 1);
         _windowContent.Children.Add(gridSplitter);
-
-        Grid.SetRow(_view, 1);
-        _windowContent.Children.Add(_view);
 
         _view[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
         gridSplitter[!Visual.IsVisibleProperty] = new Binding(nameof(Main_Model.IsVisible)) { Source = _mainModel };
