@@ -5,8 +5,11 @@
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.11" />
     </ItemGroup>
-    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('osx'))">
-        <None Include="..\Native\libMantaNative.dylib" Link="runtimes\osx\native\libMantaNative.dylib">
+    <ItemGroup>
+        <None Include="..\Native\libMantaNative.dylib"
+              Link="runtimes\osx\native\libMantaNative.dylib"
+              PackagePath="runtimes/osx/native/"
+              Pack="true">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
