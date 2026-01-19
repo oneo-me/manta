@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:Manta.Demo.Views"
     x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}" Design.Height="500">
     <Grid RowDefinitions="Auto *">
-        <MViewHost Grid.Row="1" Background="{MBrush Background}" ViewModel="{Binding RegionManager.SelectedItem}" />
+        <MViewHost Grid.Row="1" Background="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" ViewModel="{Binding RegionManager.SelectedItem}" />
         <MTabTitleBar Grid.Row="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
             <MTabTitleBar.RightContent>
                 <MPanel Mode="Horizontal">

@@ -8,14 +8,14 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        <Setter Property="Background" Value="{MBrush Background}" />
+        <Setter Property="Background" Value="#00000000" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="Root" Background="#00000000" Margin="{ TemplateBinding OffScreenMargin}">
+                <Panel Name="Root" Background="{TemplateBinding Background}" Margin="{ TemplateBinding OffScreenMargin}">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid Name="PART_WindowContent">
-                            <Border Name="Background" Background="{TemplateBinding Background}" />
-                            <Border Name="PrimaryColor" Background="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+                            <Border Name="Background" />
+                            <Border Name="PrimaryColor" />
                             <VisualLayerManager>
                                 <ContentPresenter Name="PART_ContentPresenter"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -27,9 +27,6 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ Border#Background">
-            <Setter Property="Opacity" Value="0.8" />
-        </Style>
         <!-- TaryWindow -->
         <Style Selector="^[Variant=TrayWindow]">
             <Style Selector="^ /template/ Border#Background">
@@ -37,6 +34,20 @@
             </Style>
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+        <!-- macOS -->
+        <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
+            <!-- Taken over by native code -->
+            <!-- <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" /> -->
+            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+            <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
+            <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{MBrush Background, Opacity=0.6}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PrimaryColor">
+                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.04}, Dark={MBrush Primary, Opacity=0.04}}" />
             </Style>
         </Style>
         <!-- Windows -->
@@ -52,13 +63,12 @@
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
             <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
-        </Style>
-        <!-- macOS -->
-        <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
-            <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" />
-            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-            <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
-            <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{MBrush Background, Opacity=0.8}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PrimaryColor">
+                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+            </Style>
         </Style>
         <!-- Linux -->
         <Style Selector="^[(CurrentSystem.IsLinux)=True]">
@@ -73,7 +83,10 @@
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Opacity" Value="1" />
+                <Setter Property="Background" Value="{MBrush Background, Opacity=1}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PrimaryColor">
+                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
             </Style>
             <Style Selector="^ /template/ Panel#PART_Decorations">
                 <Setter Property="IsVisible" Value="False" />
