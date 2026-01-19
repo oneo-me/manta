@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
-using Manta.Native.Platform;
+using Manta.Native;
 
 namespace Manta.WebView.Controls;
 
@@ -27,7 +27,7 @@ public class MWebView : TemplatedControl, IDisposable
         set => SetValue(HtmlContentProperty, value);
     }
 
-    readonly MantaWebViewHost? _nativeHost;
+    readonly MantaWebView? _nativeHost;
 
     public MWebView()
     {

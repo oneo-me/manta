@@ -6,7 +6,7 @@ using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Manta.Extensions;
-using Manta.Native.Platform;
+using Manta.Native;
 
 namespace Manta.Controls;
 

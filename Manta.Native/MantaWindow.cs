@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Manta.Native.Platform.macOS;
 
-namespace Manta.Native.Platform;
+namespace Manta.Native;
 
 public static class MantaWindow
 {

@@ -1,23 +1,25 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 
-namespace Manta.Tray;
+namespace Manta.Native.Platform.Windows;
 
-sealed class WindowsTrayIcon : TrayIconBase
+sealed class WindowsTrayIcon : MantaTrayIconImpl
 {
     readonly TrayIcon _icon;
 
-    public WindowsTrayIcon(MApp app, byte[] taryIcon)
+    public WindowsTrayIcon(Application app, byte[] taryIcon)
     {
         _icon = new();
         using var memoryStream = new MemoryStream(taryIcon);
         using var bitmap = new Bitmap(memoryStream);
         _icon.Icon = new(bitmap);
-        _icon.Clicked += (_, _) => OnClicked(new(0, 0), new(0, 0)); // TODO Not Implemented get cursor position
+        _icon.Clicked += (_, _) => OnClicked(new(0, 0)); // TODO Not Implemented get cursor position
         TrayIcon.SetIcons(app, [_icon]);
     }
 
     public override void Dispose()
     {
+        _icon.Dispose();
     }
 }

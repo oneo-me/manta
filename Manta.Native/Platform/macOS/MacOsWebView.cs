@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Manta.Native.Platform.macOS;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
-sealed partial class MacOSWebView : MantaWebView
+sealed partial class MacOsWebView : MantaWebViewImpl
 {
     const string LibraryName = "libMantaNative";
 
@@ -22,7 +22,7 @@ sealed partial class MacOSWebView : MantaWebView
 
     public override IntPtr Handle { get; }
 
-    public MacOSWebView()
+    public MacOsWebView()
     {
         Handle = CreateWebView();
         if (Handle == IntPtr.Zero)

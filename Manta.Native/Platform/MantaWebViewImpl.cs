@@ -1,10 +1,10 @@
 namespace Manta.Native.Platform;
 
-abstract class MantaWebView : IDisposable
+abstract class MantaWebViewImpl : IDisposable
 {
     public abstract IntPtr Handle { get; }
 
-    ~MantaWebView()
+    ~MantaWebViewImpl()
     {
         Dispose(false);
     }
