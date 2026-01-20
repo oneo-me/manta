@@ -1,8 +1,9 @@
 using System.Windows.Input;
+using Manta.Reactive.Views;
 
 namespace Manta.Reactive.Commands;
 
-public sealed class CommandWarper : ICommand
+public sealed class CommandWarper : Model, ICommand
 {
     readonly Action<object?> _execute;
     readonly Func<object?, bool>? _canExecute;
@@ -19,13 +20,17 @@ public sealed class CommandWarper : ICommand
     {
     }
 
-    bool _isExecuting;
+    public bool IsExecuting
+    {
+        get;
+        private set => SetValue(ref field, value);
+    }
 
     public CommandWarper(Func<object?, Task> execute, Func<object?, bool>? canExecute = null)
     {
         _execute = obj =>
         {
-            _isExecuting = true;
+            IsExecuting = true;
             OnChanged();
             var taskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
 
@@ -34,7 +39,7 @@ public sealed class CommandWarper : ICommand
                 await execute(obj).ConfigureAwait(false);
             }).ContinueWith(_ =>
             {
-                _isExecuting = false;
+                IsExecuting = false;
                 OnChanged();
             }, taskScheduler);
         };
@@ -52,7 +57,7 @@ public sealed class CommandWarper : ICommand
 
     public bool CanExecute(object? parameter)
     {
-        if (_isExecuting)
+        if (IsExecuting)
             return false;
 
         if (_canExecute is null)

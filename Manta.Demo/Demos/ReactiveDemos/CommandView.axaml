@@ -1,0 +1,42 @@
+<MView
+    x:Class="Manta.Demo.Demos.ReactiveDemos.CommandView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.Demo.Demos.ReactiveDemos"
+    x:DataType="local:CommandView_Model" Design.DataContext="{x:Static local:CommandView_Model.Design}">
+    <MPanel Mode="Vertical" Spacing="12" Margin="12">
+        <TextBlock Text="Bind to method" />
+        <MPanel Mode="Horizontal" Spacing="12">
+            <MButton Content="Sync" Command="{Binding Execute}" />
+            <MButton Content="Async" Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}" />
+            <MButton Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}">
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MProgressRing IsVisible="{Binding IsExecuting}"
+                                   IsIndeterminate="{Binding IsExecuting}"
+                                   RingSize="18" RingStrokeSize="2"
+                                   Margin="0 -20" VerticalAlignment="Center"
+                                   RingBackground="{MBrush PrimaryForeground, Opacity=0.2}"
+                                   RingForeground="{MBrush PrimaryForeground}" />
+                    <TextBlock Text="Async (Animation)" />
+                </MPanel>
+            </MButton>
+        </MPanel>
+        <TextBlock Text="Bind to command" />
+        <MCheckBox Header="Can executed" IsChecked="{Binding CanExecuted}" />
+        <MPanel Mode="Horizontal" Spacing="12">
+            <MButton Content="Sync" Command="{Binding ExecuteCommand}" />
+            <MButton Content="Async" Command="{Binding ExecuteAsyncCommand}" />
+            <MButton Command="{Binding ExecuteAsyncCommand}">
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MProgressRing IsVisible="{Binding ExecuteAsyncCommand.IsExecuting}"
+                                   IsIndeterminate="{Binding ExecuteAsyncCommand.IsExecuting}"
+                                   RingSize="18" RingStrokeSize="2"
+                                   Margin="0 -20" VerticalAlignment="Center"
+                                   RingBackground="{MBrush PrimaryForeground, Opacity=0.2}"
+                                   RingForeground="{MBrush PrimaryForeground}" />
+                    <TextBlock Text="Async (Animation)" />
+                </MPanel>
+            </MButton>
+        </MPanel>
+    </MPanel>
+</MView>

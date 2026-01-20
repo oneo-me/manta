@@ -21,6 +21,7 @@ Demo_Style_Spacing: 间距
 Demo_Style_Thickness: 边距
 
 Demo_Reactive_ViewContext: 视图上下文
+Demo_Reactive_Command: 命令
 
 SubGroup_Advanced: 高级
 SubGroup_Window: 窗口
