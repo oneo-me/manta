@@ -9,7 +9,7 @@
         <MTabTitleBar Grid.Row="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
             <MTabTitleBar.RightContent>
                 <MPanel Mode="Horizontal">
-                    <MTitleBarButton Command="{Binding OpenTweakcnTool}">
+                    <MTitleBarButton Command="{Binding OpenTweakcnToolAsync}">
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MIcon IconSize="18" IconSource="{Binding TweakcnToolIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
@@ -19,7 +19,7 @@
                             <MIcon IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
-                    <MTitleBarButton Command="{Binding OpenSettings}">
+                    <MTitleBarButton Command="{Binding OpenSettingsAsync}">
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MIcon IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>

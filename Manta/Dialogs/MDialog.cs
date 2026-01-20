@@ -5,7 +5,7 @@ using Manta.Reactive.Views;
 
 namespace Manta.Dialogs;
 
-public class MDialogOptions(string message)
+public sealed class MDialogOptions(string message)
 {
     public string Title { get; init; } = InnerLangKey.Dialog_Title;
     public string Message { get; init; } = message;

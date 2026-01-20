@@ -6,10 +6,33 @@ namespace Manta.Reactive.Views;
 
 public static class WindowModelExtensions
 {
+    extension<T>(T windowModel) where T : WindowModel
+    {
+        public T Show(Window? owner = null)
+        {
+            var window = windowModel.CreateWindow();
+            if (owner is null)
+                window.Show();
+            else
+                window.Show(owner);
+            return windowModel;
+        }
+
+        public async Task<T> ShowDialog(Window owner)
+        {
+            var window = windowModel.CreateWindow();
+            await window.ShowDialog(owner);
+            return windowModel;
+        }
+    }
+
     extension(WindowModel windowModel)
     {
-        public MWindow CreateWindow()
+        internal MWindow CreateWindow()
         {
+            if (windowModel.InnerWindow is not null)
+                return windowModel.InnerWindow;
+
             var result = new MWindow
             {
                 Content = windowModel.CreateView()

@@ -51,19 +51,15 @@ sealed class Main_Model : WindowModel
         this.SetContext("title", Lang.Get(new(LangKey.Title)));
     }
 
-    public void OpenSettings()
+    public async Task OpenSettingsAsync()
     {
-        var mainModel = new SettingsView_Model();
-        var window = mainModel.CreateWindow();
         var owner = this.GetWindow();
-        window.ShowDialog(owner);
+        await new SettingsView_Model().ShowDialog(owner);
     }
 
-    public void OpenTweakcnTool()
+    public async Task OpenTweakcnToolAsync()
     {
-        var mainModel = new TweakcnTool_Model();
-        var window = mainModel.CreateWindow();
         var owner = this.GetWindow();
-        window.ShowDialog(owner);
+        await new TweakcnTool_Model().ShowDialog(owner);
     }
 }

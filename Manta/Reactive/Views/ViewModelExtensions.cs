@@ -10,7 +10,7 @@ public static class ViewModelExtensions
 {
     extension(ViewModel viewModel)
     {
-        public MView CreateView()
+        internal MView CreateView()
         {
             if (viewModel.InnerView is not null)
                 return viewModel.InnerView;
@@ -46,8 +46,8 @@ public static class ViewModelExtensions
         public Window GetWindow()
         {
             var view = viewModel.GetView();
-            if (view.GetVisualRoot() is Window window1)
-                return window1;
+            if (view.GetVisualRoot() is Window window)
+                return window;
 
             throw new InvalidOperationException($"Window not found for {viewModel}");
         }
