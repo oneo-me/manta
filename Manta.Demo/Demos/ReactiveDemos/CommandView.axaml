@@ -7,34 +7,36 @@
     <MPanel Mode="Vertical" Spacing="12" Margin="12">
         <TextBlock Text="Bind to method" />
         <MPanel Mode="Horizontal" Spacing="12">
-            <MButton Content="Sync" Command="{Binding Execute}" />
-            <MButton Content="Async" Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}" />
-            <MButton Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}">
+            <MButton Variant="Outline" Content="Sync" Command="{Binding Execute}" />
+            <MButton Variant="Outline" Content="Async" Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}" />
+            <MButton Variant="Outline" Command="{Binding ExecuteAsync}" IsEnabled="{Binding !IsExecuting}">
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MProgressRing IsVisible="{Binding IsExecuting}"
                                    IsIndeterminate="{Binding IsExecuting}"
                                    RingSize="18" RingStrokeSize="2"
                                    Margin="0 -20" VerticalAlignment="Center"
-                                   RingBackground="{MBrush PrimaryForeground, Opacity=0.2}"
-                                   RingForeground="{MBrush PrimaryForeground}" />
-                    <TextBlock Text="Async (Animation)" />
+                                   RingBackground="{MBrush Primary, Opacity=0.2}"
+                                   RingForeground="{MBrush Primary}" />
+                    <TextBlock Text="Executing" IsVisible="{Binding IsExecuting}" />
+                    <TextBlock Text="Async (Animation)" IsVisible="{Binding !IsExecuting}" />
                 </MPanel>
             </MButton>
         </MPanel>
         <TextBlock Text="Bind to command" />
         <MCheckBox Header="Can executed" IsChecked="{Binding CanExecuted}" />
         <MPanel Mode="Horizontal" Spacing="12">
-            <MButton Content="Sync" Command="{Binding ExecuteCommand}" />
-            <MButton Content="Async" Command="{Binding ExecuteAsyncCommand}" />
-            <MButton Command="{Binding ExecuteAsyncCommand}">
+            <MButton Variant="Outline" Content="Sync" Command="{Binding ExecuteCommand}" />
+            <MButton Variant="Outline" Content="Async" Command="{Binding ExecuteAsyncCommand}" />
+            <MButton Variant="Outline" Command="{Binding ExecuteAsyncCommand}">
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MProgressRing IsVisible="{Binding ExecuteAsyncCommand.IsExecuting}"
                                    IsIndeterminate="{Binding ExecuteAsyncCommand.IsExecuting}"
                                    RingSize="18" RingStrokeSize="2"
                                    Margin="0 -20" VerticalAlignment="Center"
-                                   RingBackground="{MBrush PrimaryForeground, Opacity=0.2}"
-                                   RingForeground="{MBrush PrimaryForeground}" />
-                    <TextBlock Text="Async (Animation)" />
+                                   RingBackground="{MBrush Primary, Opacity=0.2}"
+                                   RingForeground="{MBrush Primary}" />
+                    <TextBlock Text="Executing" IsVisible="{Binding IsExecuting}" />
+                    <TextBlock Text="Async (Animation)" IsVisible="{Binding !IsExecuting}" />
                 </MPanel>
             </MButton>
         </MPanel>
