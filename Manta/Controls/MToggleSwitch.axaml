@@ -33,16 +33,8 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ColumnDefinitions="Auto *">
-                    <Panel Name="Panel" Grid.Column="0">
-                        <Border Name="Background" />
-                        <Canvas Name="PART_SwitchKnob">
-                            <Panel Name="PART_MovingKnobs">
-                                <Border Name="Knob" />
-                            </Panel>
-                        </Canvas>
-                    </Panel>
-                    <Panel Grid.Column="1">
+                <Grid ColumnDefinitions="* Auto">
+                    <Panel Grid.Column="0">
                         <ContentPresenter
                             Name="PART_OffContentPresenter"
                             Content="{TemplateBinding OffContent}"
@@ -51,6 +43,14 @@
                             Name="PART_OnContentPresenter"
                             Content="{TemplateBinding OnContent}"
                             ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                    </Panel>
+                    <Panel Name="Panel" Grid.Column="1">
+                        <Border Name="Background" />
+                        <Canvas Name="PART_SwitchKnob">
+                            <Panel Name="PART_MovingKnobs">
+                                <Border Name="Knob" />
+                            </Panel>
+                        </Canvas>
                     </Panel>
                 </Grid>
             </ControlTemplate>
@@ -123,7 +123,16 @@
         </Style>
         <!-- Disabled -->
         <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.5" />
+            <Style Selector="^ /template/ Border#Knob">
+                <Setter Property="BoxShadow" Value="{MShadow None}" />
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{MBrush Border, Opacity=0.5}" />
+            </Style>
+            <Style Selector="^:checked /template/ Border#Background">
+                <Setter Property="Background" Value="{MBrush Primary, Type=Light2}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
