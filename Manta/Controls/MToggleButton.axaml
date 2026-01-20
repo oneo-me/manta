@@ -10,16 +10,31 @@
                     <Setter Property="Foreground" Value="{MBrush Primary}" />
                 </Style>
             </MPanel.Styles>
-            <MToggleButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
-            <MToggleButton HorizontalAlignment="Left" IsChecked="True">
-                <MPanel Mode="Horizontal" Spacing="8">
-                    <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
-                    <TextBlock Text="Bookmark" VerticalAlignment="Center" />
-                </MPanel>
-            </MToggleButton>
-            <MToggleButton HorizontalAlignment="Left">
-                <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
-            </MToggleButton>
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
+                <MToggleButton HorizontalAlignment="Left" IsChecked="True">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleButton>
+                <MToggleButton HorizontalAlignment="Left">
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleButton>
+            </MPanel>
+            <TextBlock Text="Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
+                <MToggleButton HorizontalAlignment="Left" IsChecked="True">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleButton>
+                <MToggleButton HorizontalAlignment="Left">
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleButton>
+            </MPanel>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MToggleButton}" TargetType="MToggleButton">
@@ -74,6 +89,13 @@
                 <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
                 <Style Selector="^ /template/ Border#Ring">
                     <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.7}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^:disabled">
+            <Style Selector="^:checked">
+                <Style Selector="^ /template/ Border#Ring">
+                    <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.3}" />
                 </Style>
             </Style>
         </Style>

@@ -4,66 +4,131 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <!-- Button -->
-        <MPanel Mode="Wrap" Spacing="12" Margin="12">
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Content="Button">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Wrap" Spacing="12">
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Content="Button">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Secondary" Content="Secondary">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Destructive" Content="Destructive">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Outline" Content="Outline">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Ghost" Content="Ghost">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Flat" Content="Flat">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
             </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Secondary" Content="Secondary">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Destructive" Content="Destructive">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Outline" Content="Outline">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Ghost" Content="Ghost">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
-            </MPanel>
-            <MPanel Mode="Horizontal" Spacing="8">
-                <MDropDownButton Variant="Flat" Content="Flat">
-                    <MDropDownButton.Flyout>
-                        <MMenuFlyout Placement="BottomEdgeAlignedLeft">
-                            <MMenuItem Header="Option 1" />
-                            <MMenuItem Header="Option 2" />
-                        </MMenuFlyout>
-                    </MDropDownButton.Flyout>
-                </MDropDownButton>
+            <TextBlock Text="Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Content="Button">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Secondary" Content="Secondary">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Destructive" Content="Destructive">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Outline" Content="Outline">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Ghost" Content="Ghost">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MDropDownButton Variant="Flat" Content="Flat">
+                        <MDropDownButton.Flyout>
+                            <MMenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MMenuItem Header="Option 1" />
+                                <MMenuItem Header="Option 2" />
+                            </MMenuFlyout>
+                        </MDropDownButton.Flyout>
+                    </MDropDownButton>
+                </MPanel>
             </MPanel>
         </MPanel>
     </Design.PreviewWith>
@@ -117,6 +182,12 @@
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Primary, BrushOpacity=0}, Dark={MRing XS, BrushKey=Primary, BrushType=Light3, BrushOpacity=0}}" />
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{MBrush Primary, Type=Light1}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                </Style>
+            </Style>
         </Style>
         <Style Selector="^[Variant=Secondary]">
             <Setter Property="Background" Value="{MBrush Secondary}" />
@@ -138,6 +209,12 @@
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{OnTheme {MBrush Secondary, Type=Dark1, Opacity=0.5}, Dark={MBrush Secondary, Opacity=0.5}}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                </Style>
+            </Style>
         </Style>
         <Style Selector="^[Variant=Destructive]">
             <Setter Property="Background" Value="{MBrush Destructive}" />
@@ -158,6 +235,12 @@
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Destructive, BrushOpacity=0}, Dark={MRing XS, BrushKey=Destructive, BrushType=Light3, BrushOpacity=0}}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{MBrush Destructive, Type=Light1}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                </Style>
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
@@ -182,6 +265,13 @@
             </Style>
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=Shadow, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{OnTheme {MBrush Background, Type=Dark1, Opacity=0.5}, Dark={MBrush Accent, Opacity=0.5}}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.5}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                </Style>
             </Style>
         </Style>
         <Style Selector="^[Variant=Ghost]">
@@ -209,6 +299,9 @@
             <Style Selector="^:pressed /template/ Border#Ring">
                 <Setter Property="BoxShadow" Value="{OnTheme {MRing XS, BrushKey=SecondaryForeground, BrushOpacity=0}, Dark={MRing XS, BrushKey=Foreground, BrushOpacity=0}}" />
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Foreground" Value="{MBrush SecondaryForeground, Opacity=0.5}" />
+            </Style>
         </Style>
         <Style Selector="^[Variant=Flat]">
             <Setter Property="Background" Value="{MBrush Secondary, Opacity=0}" />
@@ -220,6 +313,9 @@
             </Setter>
             <Style Selector="^:pointerover">
                 <Setter Property="Background" Value="{MBrush Secondary}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Foreground" Value="{MBrush SecondaryForeground, Opacity=0.5}" />
             </Style>
         </Style>
     </ControlTheme>
