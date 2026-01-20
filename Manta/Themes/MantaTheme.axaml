@@ -101,6 +101,7 @@
                 <MergeResourceInclude Source="../Controls/MClip.axaml" />
                 <MergeResourceInclude Source="../Controls/MComboBox.axaml" />
                 <MergeResourceInclude Source="../Controls/MCommandPanel.axaml" />
+                <MergeResourceInclude Source="../Controls/MDialogTemplate.axaml" />
                 <MergeResourceInclude Source="../Controls/MDropDownButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MExpander.axaml" />
                 <MergeResourceInclude Source="../Controls/MFlyout.axaml" />
