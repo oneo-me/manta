@@ -10,12 +10,15 @@ namespace Manta.Dialogs;
 [View<DialogView>]
 sealed class DialogView_Model(MDialogOptions options) : WindowModel
 {
-    public static DialogView_Model Design => new(new("Message...") { ShowCancel = true, ShowConfirm = true });
+    public static DialogView_Model Design => new(new("Message..."));
 
     public MDialogOptions Options { get; } = options;
     public bool Result { get; private set; }
 
-    public void OnConfirm()
+    public bool IsShowCancelButton { get; internal init; } = true;
+    public bool IsShowContinueButton { get; internal init; } = true;
+
+    public void OnContinue()
     {
         Result = true;
         Close();

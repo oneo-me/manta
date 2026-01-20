@@ -5,12 +5,15 @@
     xmlns:local="clr-namespace:Manta.Dialogs"
     x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}"
     Background="{MBrush Background, Opacity=0.8}">
-    <MPanel Mode="Vertical" Spacing="18" Margin="18">
-        <TextBlock Text="{Lang {Binding Options.Title}}" FontWeight="SemiBold" HorizontalAlignment="Center" />
-        <SelectableTextBlock Text="{Lang {Binding Options.Message}}" TextAlignment="Center" HorizontalAlignment="Center" />
-        <MPanel Mode="Horizontal" Spacing="18" HorizontalAlignment="Center">
-            <MButton MinWidth="80" Variant="{Binding Options.CancelVariant}" IsCancel="True" Content="{Lang {Binding Options.CancelText}}" Command="{Binding OnCancel}" IsVisible="{Binding Options.ShowCancel}" />
-            <MButton MinWidth="80" Variant="{Binding Options.ConfirmVariant}" IsDefault="True" Content="{Lang {Binding Options.ConfirTextBlock}}" Command="{Binding OnConfirm}" IsVisible="{Binding Options.ShowConfirm}" />
-        </MPanel>
-    </MPanel>
+    <MDialogTemplate Header="{Lang {Binding Options.Header}}"
+                     CancelButton="{Lang {Binding Options.CancelButton}}"
+                     CancelButtonVariant="{Lang {Binding Options.CancelButtonVariant}}"
+                     ContinueButton="{Lang {Binding Options.ContinueButton}}"
+                     ContinueButtonVariant="{Lang {Binding Options.ContinueButtonVariant}}"
+                     IsShowCancelButton="{Binding IsShowCancelButton}"
+                     IsShowContinueButton="{Binding IsShowContinueButton}"
+                     CancelButtonCommand="{Binding OnCancel}"
+                     ContinueButtonCommand="{Binding OnContinue}">
+        <SelectableTextBlock Text="{Lang {Binding Options.Content}}" />
+    </MDialogTemplate>
 </MView>
