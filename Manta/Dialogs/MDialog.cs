@@ -11,7 +11,7 @@ public sealed class MDialogOptions(string message)
     public string Message { get; init; } = message;
 
     public string CancelText { get; init; } = InnerLangKey.Dialog_Cancel;
-    public string ConfirTextBlock { get; init; } = InnerLangKey.Dialog_Confirm;
+    public string ConfirTextBlock { get; init; } = InnerLangKey.Dialog_Continue;
 
     public MButtonVariant CancelVariant { get; init; } = MButtonVariant.Secondary;
     public MButtonVariant ConfirmVariant { get; init; } = MButtonVariant.Default;
