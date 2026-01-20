@@ -3,49 +3,96 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MPanel Mode="Wrap" Spacing="12" Margin="12">
-            <MSplitButton Content="Default" HorizontalAlignment="Left">
-                <MSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Copy" />
-                        <MMenuItem Header="Paste" />
-                        <MMenuItem Header="-" />
-                        <MMenuItem Header="Delete" />
-                    </MMenuFlyout>
-                </MSplitButton.Flyout>
-            </MSplitButton>
-            <MSplitButton Variant="Outline" Content="Outline" HorizontalAlignment="Left">
-                <MSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MSplitButton.Flyout>
-            </MSplitButton>
-            <MSplitButton Variant="Secondary" Content="Secondary" HorizontalAlignment="Left">
-                <MSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MSplitButton.Flyout>
-            </MSplitButton>
-            <MSplitButton Variant="Ghost" Content="Ghost" HorizontalAlignment="Left">
-                <MSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MSplitButton.Flyout>
-            </MSplitButton>
-            <MSplitButton Variant="Destructive" Content="Destructive" HorizontalAlignment="Left">
-                <MSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MSplitButton.Flyout>
-            </MSplitButton>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Wrap" Spacing="12">
+                <MSplitButton Content="Default" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Copy" />
+                            <MMenuItem Header="Paste" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="Delete" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Outline" Content="Outline" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Secondary" Content="Secondary" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Ghost" Content="Ghost" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Destructive" Content="Destructive" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+            </MPanel>
+            <TextBlock Text="Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MSplitButton Content="Default" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Copy" />
+                            <MMenuItem Header="Paste" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="Delete" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Outline" Content="Outline" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Secondary" Content="Secondary" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Ghost" Content="Ghost" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+                <MSplitButton Variant="Destructive" Content="Destructive" HorizontalAlignment="Left">
+                    <MSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MSplitButton.Flyout>
+                </MSplitButton>
+            </MPanel>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MSplitButton}" TargetType="MSplitButton">
@@ -100,6 +147,7 @@
         <Style Selector="^ /template/ MDropDownButton">
             <Setter Property="CornerRadius" Value="{MRadius MD, Filter=Right}" />
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S2_5}" />
+            <Setter Property="Margin" Value="-1 0 0 0" />
         </Style>
         <Style Selector="^ /template/ MButton:pointerover">
             <Setter Property="ZIndex" Value="1" />
@@ -151,6 +199,7 @@
             </Style>
             <!-- TODO setting BorderThickness causes inability to render BoxShadow, temporarily resolved this way -->
             <Style Selector="^ /template/ Border#Line">
+                <Setter Property="IsVisible" Value="False" />
                 <Setter Property="Width" Value="2" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="Background" Value="{MBrush Accent}" />

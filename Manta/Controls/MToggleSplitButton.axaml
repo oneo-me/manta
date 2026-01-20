@@ -9,35 +9,69 @@
                     <Setter Property="Foreground" Value="{MBrush Primary}" />
                 </Style>
             </MPanel.Styles>
-            <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
-                <MToggleSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MToggleSplitButton.Flyout>
-            </MToggleSplitButton>
-            <MToggleSplitButton HorizontalAlignment="Left" IsChecked="True">
-                <MToggleSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MToggleSplitButton.Flyout>
-                <MPanel Mode="Horizontal" Spacing="8">
-                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
-                    <TextBlock Text="Bookmark" VerticalAlignment="Center" />
-                </MPanel>
-            </MToggleSplitButton>
-            <MToggleSplitButton HorizontalAlignment="Left">
-                <MToggleSplitButton.Flyout>
-                    <MMenuFlyout Placement="BottomEdgeAlignedRight">
-                        <MMenuItem Header="Option 1" />
-                        <MMenuItem Header="Option 2" />
-                    </MMenuFlyout>
-                </MToggleSplitButton.Flyout>
-                <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
-            </MToggleSplitButton>
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+            <TextBlock Text="Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MToggleSplitButton}" TargetType="MToggleSplitButton">
@@ -111,6 +145,7 @@
         <Style Selector="^ /template/ MDropDownButton">
             <Setter Property="CornerRadius" Value="{MRadius MD, Filter=Right}" />
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S2_5}" />
+            <Setter Property="Margin" Value="-1 0 0 0" />
         </Style>
         <Style Selector="^ /template/ MButton:pointerover">
             <Setter Property="ZIndex" Value="1" />
@@ -129,7 +164,7 @@
             <Style Selector="^ /template/ Border#Line">
                 <Setter Property="Width" Value="2" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="Background" Value="{MBrush Accent}" />
+                <!-- <Setter Property="Background" Value="{MBrush Accent}" /> -->
                 <Setter Property="Margin" Value="0 1 -1 1" />
                 <Style Selector="^ > Border">
                     <Setter Property="Width" Value="{MSize Px}" />
@@ -158,6 +193,13 @@
                 <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
                 <Style Selector="^ /template/ Border#Ring">
                     <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.7}" />
+                </Style>
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^:checked">
+                    <Style Selector="^ /template/ Border#Ring">
+                        <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.3}" />
+                    </Style>
                 </Style>
             </Style>
         </Style>
