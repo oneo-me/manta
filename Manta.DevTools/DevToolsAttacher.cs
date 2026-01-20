@@ -64,22 +64,27 @@ sealed class DevToolsAttacher
 
     bool _isCreated;
 
+    const double DefWidth = 320d;
+
     public void ShowOrHideDevTools()
     {
         if (_isCreated)
         {
             var isVisible = _mainModel.IsVisible;
+            var column = _windowContent.ColumnDefinitions[1];
             if (isVisible)
             {
                 _mainModel.IsVisible = false;
-                _view.Width = _windowContent.ColumnDefinitions[1].Width.Value;
-                _windowContent.ColumnDefinitions[1].Width = new(0, GridUnitType.Pixel);
+                _view.Width = column.ActualWidth;
+                column.MinWidth = 0;
+                column.Width = new(0, GridUnitType.Pixel);
             }
             else
             {
                 _mainModel.IsVisible = true;
-                var height = _view.Width > 0 ? _view.Width : 320d;
-                _windowContent.ColumnDefinitions[1].Width = new(height, GridUnitType.Pixel);
+                var width = _view.Width > 0 ? _view.Width : DefWidth;
+                column.MinWidth = DefWidth;
+                column.Width = new(width, GridUnitType.Pixel);
                 _view.Width = double.NaN;
             }
 
@@ -90,12 +95,12 @@ sealed class DevToolsAttacher
         _windowContent.ColumnDefinitions =
         [
             new(GridLength.Star),
-            new(320d, GridUnitType.Pixel) { MaxWidth = _window.Bounds.Height * 0.4, MinWidth = 320d }
+            new(DefWidth, GridUnitType.Pixel) { MaxWidth = _window.Bounds.Width * 0.4, MinWidth = DefWidth }
         ];
 
         _window.SizeChanged += (_, e) =>
         {
-            _windowContent.ColumnDefinitions[1].MaxWidth = e.NewSize.Height * 0.8;
+            _windowContent.ColumnDefinitions[1].MaxWidth = e.NewSize.Width * 0.4;
         };
 
         Grid.SetColumn(_view, 1);
