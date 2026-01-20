@@ -12,13 +12,22 @@ using Manta.Reactive.Extensions;
 namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_Event), typeof(Border))]
-[TemplatePart(nameof(PART_Content), typeof(Panel))]
+[TemplatePart(nameof(PART_Spacing), typeof(Border))]
 [TemplatePart(nameof(PART_Title), typeof(TextBlock))]
 [TemplatePart(nameof(PART_Buttons), typeof(MTitleBarButtons))]
 public class MTitleBar : ContentControl
 {
+    public static readonly StyledProperty<bool> ShowContentBorderProperty = AvaloniaProperty.Register<MTitleBar, bool>(
+        nameof(ShowContentBorder), true);
+
+    public bool ShowContentBorder
+    {
+        get => GetValue(ShowContentBorderProperty);
+        set => SetValue(ShowContentBorderProperty, value);
+    }
+
     Border? PART_Event;
-    Panel? PART_Content;
+    Border? PART_Spacing;
     TextBlock? PART_Title;
     MTitleBarButtons? PART_Buttons;
 
@@ -27,7 +36,7 @@ public class MTitleBar : ContentControl
         base.OnApplyTemplate(e);
 
         PART_Event = e.NameScope.Get<Border>(nameof(PART_Event));
-        PART_Content = e.NameScope.Get<Panel>(nameof(PART_Content));
+        PART_Spacing = e.NameScope.Get<Border>(nameof(PART_Spacing));
         PART_Title = e.NameScope.Get<TextBlock>(nameof(PART_Title));
         PART_Buttons = e.NameScope.Get<MTitleBarButtons>(nameof(PART_Buttons));
 
@@ -76,7 +85,7 @@ public class MTitleBar : ContentControl
                 {
                     var isFull = x.IsFullScreen || x.Offset.Left <= 0;
 
-                    PART_Content?.Margin = isFull ? default : new Thickness(x.Offset.Left, 0, 0, 0);
+                    PART_Spacing?.Width = isFull ? 0d : x.Offset.Left;
                     PART_Title?.Margin = isFull ? default : new Thickness(-PART_Title?.Padding.Left ?? 0, 0, 0, 0);
                 })
                 .DisposeWith(_disposables);

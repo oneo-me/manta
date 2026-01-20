@@ -80,19 +80,22 @@
     <ControlTheme x:Key="{x:Type MTitleBar}" TargetType="MTitleBar">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="PART_Event" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid ColumnDefinitions="* Auto">
-                        <Border Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+                <Border Name="PART_Event" Background="{TemplateBinding Background}">
+                    <Grid ColumnDefinitions="Auto * Auto">
+                        <Border Grid.Column="0" Name="PART_Spacing" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <Panel Name="Size" />
                         </Border>
-                        <Panel Name="PART_Content" Grid.Column="0">
+                        <Border Grid.Column="1" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                IsVisible="{TemplateBinding ShowContentBorder}" />
+                        <Border Grid.Column="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Panel Grid.Column="1">
                             <TextBlock Name="PART_Title"
                                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}" />
                             <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
                         </Panel>
-                        <MTitleBarButtons Name="PART_Buttons" Grid.Column="1" />
+                        <MTitleBarButtons Name="PART_Buttons" Grid.Column="2" />
                     </Grid>
                 </Border>
             </ControlTemplate>
