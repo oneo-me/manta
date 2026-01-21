@@ -3,16 +3,16 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Dialogs"
-    x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}"
-    Background="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}"
-    MinWidth="{MSize S80}">
-    <MDialogTemplate Header="{Lang {Binding Title}}"
-                     CancelButton="{Lang {Binding CancelButton}}"
-                     CancelButtonVariant="{Binding CancelButtonVariant}"
-                     ContinueButton="{Lang {Binding ContinueButton}}"
-                     ContinueButtonVariant="{Binding ContinueButtonVariant}"
-                     CancelButtonCommand="{Binding OnCancel}"
-                     ContinueButtonCommand="{Binding OnContinue}">
-        <SelectableTextBlock Text="{Lang {Binding Content}}" />
-    </MDialogTemplate>
+    x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}">
+    <MBackgroud MinWidth="{MSize S80}">
+        <MDialogTemplate Header="{Lang {Binding Title}}"
+                         CancelButton="{Lang {Binding CancelButton}}"
+                         CancelButtonVariant="{Binding CancelButtonVariant}"
+                         ContinueButton="{Lang {Binding ContinueButton}}"
+                         ContinueButtonVariant="{Binding ContinueButtonVariant}"
+                         CancelButtonCommand="{Binding OnCancel}"
+                         ContinueButtonCommand="{Binding OnContinue}">
+            <SelectableTextBlock Text="{Lang {Binding Content}}" />
+        </MDialogTemplate>
+    </MBackgroud>
 </MView>

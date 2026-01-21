@@ -40,89 +40,91 @@
                         </MPanel>
                     </Grid>
                 </Border>
-                <Grid Grid.Row="1" RowDefinitions="* 1.5* 2*" Background="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}">
-                    <Border Grid.Row="0" BorderThickness="{MThickness Px, Filter=Bottom}">
-                        <Grid RowDefinitions="Auto *">
-                            <TextBlock Grid.Row="0" Text="Views" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
-                            <MTree Grid.Row="1" ItemsSource="{Binding Root}" SelectedItem="{Binding SelectedItem}">
-                                <MTree.Styles>
-                                    <Style Selector="MTreeItem">
-                                        <Setter Property="IsExpanded" Value="True" />
-                                        <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:ViewNode" />
-                                        <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
-                                        <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:ViewNode" />
-                                    </Style>
-                                </MTree.Styles>
-                                <MTree.ItemTemplate>
-                                    <TreeDataTemplate ItemsSource="{Binding Container.Children}">
-                                        <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
-                                    </TreeDataTemplate>
-                                </MTree.ItemTemplate>
-                            </MTree>
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="1" BorderThickness="{MThickness Px, Filter=Bottom}">
-                        <Grid RowDefinitions="Auto *">
-                            <TextBlock Grid.Row="0" Text="Elements" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
-                            <MTree Grid.Row="1" ItemsSource="{Binding LogicalRoot}">
-                                <MTree.Styles>
-                                    <Style Selector="MTreeItem">
-                                        <Setter Property="IsExpanded" Value="True" />
-                                        <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:LogicalNode" />
-                                        <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
-                                        <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:LogicalNode" />
-                                    </Style>
-                                </MTree.Styles>
-                                <MTree.ItemTemplate>
-                                    <TreeDataTemplate ItemsSource="{Binding Container.Children}">
-                                        <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
-                                    </TreeDataTemplate>
-                                </MTree.ItemTemplate>
-                            </MTree>
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="2">
-                        <Grid RowDefinitions="Auto *">
-                            <TextBlock Grid.Row="0" Text="Contexts" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
-                            <MScrollViewer Grid.Row="1" Padding="{MThickness S1_5, Vertical=S1}">
-                                <MItems ItemsSource="{Binding Contexts}">
-                                    <MItems.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <MPanel Mode="Vertical" Spacing="{MSize S1}" />
-                                        </ItemsPanelTemplate>
-                                    </MItems.ItemsPanel>
-                                    <MItems.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border
-                                                Background="{MBrush Background, Opacity=0.5}"
-                                                BorderThickness="{MThickness Px}"
-                                                CornerRadius="{MRadius SM}"
-                                                Padding="{MThickness S1_5}">
-                                                <MPanel Mode="Vertical">
-                                                    <TextBlock Text="{Binding Name}" Foreground="{MBrush MutedForeground}" />
-                                                    <MItems ItemsSource="{Binding Items}" Grid.IsSharedSizeScope="True">
-                                                        <MItems.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <Grid ColumnSpacing="{MSize S2}">
-                                                                    <Grid.ColumnDefinitions>
-                                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="ContextKey" />
-                                                                        <ColumnDefinition />
-                                                                    </Grid.ColumnDefinitions>
-                                                                    <TextBlock Grid.Column="0" Text="{Binding Key, StringFormat={}{0}:}" />
-                                                                    <SelectableTextBlock Grid.Column="1" Text="{Binding Value}" />
-                                                                </Grid>
-                                                            </DataTemplate>
-                                                        </MItems.ItemTemplate>
-                                                    </MItems>
-                                                </MPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </MItems.ItemTemplate>
-                                </MItems>
-                            </MScrollViewer>
-                        </Grid>
-                    </Border>
-                </Grid>
+                <MBackgroud Grid.Row="1">
+                    <Grid RowDefinitions="* 1.5* 2*">
+                        <Border Grid.Row="0" BorderThickness="{MThickness Px, Filter=Bottom}">
+                            <Grid RowDefinitions="Auto *">
+                                <TextBlock Grid.Row="0" Text="Views" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
+                                <MTree Grid.Row="1" ItemsSource="{Binding Root}" SelectedItem="{Binding SelectedItem}">
+                                    <MTree.Styles>
+                                        <Style Selector="MTreeItem">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                            <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:ViewNode" />
+                                            <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
+                                            <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:ViewNode" />
+                                        </Style>
+                                    </MTree.Styles>
+                                    <MTree.ItemTemplate>
+                                        <TreeDataTemplate ItemsSource="{Binding Container.Children}">
+                                            <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+                                        </TreeDataTemplate>
+                                    </MTree.ItemTemplate>
+                                </MTree>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="1" BorderThickness="{MThickness Px, Filter=Bottom}">
+                            <Grid RowDefinitions="Auto *">
+                                <TextBlock Grid.Row="0" Text="Elements" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
+                                <MTree Grid.Row="1" ItemsSource="{Binding LogicalRoot}">
+                                    <MTree.Styles>
+                                        <Style Selector="MTreeItem">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                            <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:LogicalNode" />
+                                            <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
+                                            <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:LogicalNode" />
+                                        </Style>
+                                    </MTree.Styles>
+                                    <MTree.ItemTemplate>
+                                        <TreeDataTemplate ItemsSource="{Binding Container.Children}">
+                                            <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+                                        </TreeDataTemplate>
+                                    </MTree.ItemTemplate>
+                                </MTree>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2">
+                            <Grid RowDefinitions="Auto *">
+                                <TextBlock Grid.Row="0" Text="Contexts" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" Margin="{MThickness S1_5, Filter=Left|Top|Right}" />
+                                <MScrollViewer Grid.Row="1" Padding="{MThickness S1_5, Vertical=S1}">
+                                    <MItems ItemsSource="{Binding Contexts}">
+                                        <MItems.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <MPanel Mode="Vertical" Spacing="{MSize S1}" />
+                                            </ItemsPanelTemplate>
+                                        </MItems.ItemsPanel>
+                                        <MItems.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border
+                                                    Background="{MBrush Background, Opacity=0.5}"
+                                                    BorderThickness="{MThickness Px}"
+                                                    CornerRadius="{MRadius SM}"
+                                                    Padding="{MThickness S1_5}">
+                                                    <MPanel Mode="Vertical">
+                                                        <TextBlock Text="{Binding Name}" Foreground="{MBrush MutedForeground}" />
+                                                        <MItems ItemsSource="{Binding Items}" Grid.IsSharedSizeScope="True">
+                                                            <MItems.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Grid ColumnSpacing="{MSize S2}">
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="Auto" SharedSizeGroup="ContextKey" />
+                                                                            <ColumnDefinition />
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <TextBlock Grid.Column="0" Text="{Binding Key, StringFormat={}{0}:}" />
+                                                                        <SelectableTextBlock Grid.Column="1" Text="{Binding Value}" />
+                                                                    </Grid>
+                                                                </DataTemplate>
+                                                            </MItems.ItemTemplate>
+                                                        </MItems>
+                                                    </MPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </MItems.ItemTemplate>
+                                    </MItems>
+                                </MScrollViewer>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </MBackgroud>
             </Grid>
         </Border>
     </Panel>

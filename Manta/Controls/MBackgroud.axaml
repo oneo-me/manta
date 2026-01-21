@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MBackgroud BorderThickness="1" Width="100" Height="100" />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type MBackgroud}" TargetType="MBackgroud">
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" />
+    </ControlTheme>
+</ResourceDictionary>
