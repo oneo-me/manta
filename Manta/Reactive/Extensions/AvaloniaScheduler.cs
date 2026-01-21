@@ -21,7 +21,7 @@ public sealed class AvaloniaScheduler : LocalScheduler
         var composite = new CompositeDisposable(2);
         var cancellation = new CancellationDisposable();
 
-        Dispatcher.UIThread.Post(() =>
+        UIThread.Post(() =>
         {
             if (cancellation.Token.IsCancellationRequested is false)
                 composite.Add(action(this, state));
@@ -36,7 +36,7 @@ public sealed class AvaloniaScheduler : LocalScheduler
     {
         if (dueTime == TimeSpan.Zero)
         {
-            if (Dispatcher.UIThread.CheckAccess() is false)
+            if (UIThread.CheckAccess() is false)
                 return PostOnDispatcher(state, action);
 
             if (_reentrancyGuard >= MaxReentrantSchedules)

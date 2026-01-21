@@ -6,23 +6,39 @@ namespace Manta.Reactive.Views;
 
 public static class WindowModelExtensions
 {
+    static T ShowCore<T>(T windowModel, Window? owner = null) where T : WindowModel
+    {
+        var window = windowModel.CreateWindow();
+        if (owner is null)
+            window.Show();
+        else
+            window.Show(owner);
+        return windowModel;
+    }
+
+    static T ShowDialogCore<T>(T windowModel, Window owner) where T : WindowModel
+    {
+        var window = windowModel.CreateWindow();
+        window.ShowDialog(owner);
+        return windowModel;
+    }
+
     extension<T>(T windowModel) where T : WindowModel
     {
-        public T Show(Window? owner = null)
+        public async Task<T> ShowAsync(Window? owner = null)
         {
-            var window = windowModel.CreateWindow();
-            if (owner is null)
-                window.Show();
-            else
-                window.Show(owner);
-            return windowModel;
+            if (UIThread.CheckAccess())
+                return ShowCore(windowModel, owner);
+
+            return await UIThread.InvokeAsync(() => ShowCore(windowModel, owner));
         }
 
-        public async Task<T> ShowDialog(Window owner)
+        public async Task<T> ShowDialogAsync(Window owner)
         {
-            var window = windowModel.CreateWindow();
-            await window.ShowDialog(owner);
-            return windowModel;
+            if (UIThread.CheckAccess())
+                return ShowDialogCore(windowModel, owner);
+
+            return await UIThread.InvokeAsync(() => ShowDialogCore(windowModel, owner));
         }
     }
 

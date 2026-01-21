@@ -54,12 +54,12 @@ sealed class Main_Model : WindowModel
     public async Task OpenSettingsAsync()
     {
         var owner = this.GetWindow();
-        await new SettingsView_Model().ShowDialog(owner);
+        await new SettingsView_Model().ShowDialogAsync(owner);
     }
 
     public async Task OpenTweakcnToolAsync()
     {
         var owner = this.GetWindow();
-        await new TweakcnTool_Model().ShowDialog(owner);
+        await new TweakcnTool_Model().ShowDialogAsync(owner);
     }
 }
