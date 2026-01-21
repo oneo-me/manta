@@ -35,8 +35,8 @@
                                    Margin="0 -20" VerticalAlignment="Center"
                                    RingBackground="{MBrush Primary, Opacity=0.2}"
                                    RingForeground="{MBrush Primary}" />
-                    <TextBlock Text="Executing" IsVisible="{Binding IsExecuting}" />
-                    <TextBlock Text="Async (Animation)" IsVisible="{Binding !IsExecuting}" />
+                    <TextBlock Text="Executing" IsVisible="{Binding ExecuteAsyncCommand.IsExecuting}" />
+                    <TextBlock Text="Async (Animation)" IsVisible="{Binding !ExecuteAsyncCommand.IsExecuting}" />
                 </MPanel>
             </MButton>
         </MPanel>

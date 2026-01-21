@@ -9,4 +9,17 @@ public abstract class WindowModel : ViewModel
     public virtual void OnWindowInitialized(MWindow window)
     {
     }
+
+    public void Close()
+    {
+        this.GetWindowCore().Close();
+    }
+
+    public async Task CloseAsync()
+    {
+        if (UIThread.CheckAccess())
+            Close();
+        else
+            await UIThread.InvokeAsync(Close);
+    }
 }

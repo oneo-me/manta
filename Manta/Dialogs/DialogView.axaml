@@ -10,8 +10,8 @@
                          CancelButtonVariant="{Binding CancelButtonVariant}"
                          ContinueButton="{Lang {Binding ContinueButton}}"
                          ContinueButtonVariant="{Binding ContinueButtonVariant}"
-                         CancelButtonCommand="{Binding OnCancel}"
-                         ContinueButtonCommand="{Binding OnContinue}">
+                         CancelButtonCommand="{Binding OnCancelAsync}"
+                         ContinueButtonCommand="{Binding OnContinueAsync}">
             <SelectableTextBlock Text="{Lang {Binding Content}}" />
         </MDialogTemplate>
     </MBackgroud>

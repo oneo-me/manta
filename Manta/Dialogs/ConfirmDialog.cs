@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Langs;
 using Manta.Reactive.Views;
@@ -23,7 +22,7 @@ public sealed class ConfirmDialogOptions(string title, string content)
 
 public static class ConfirmDialog
 {
-    public static async Task<bool> ShowDialogAsync(Window parent, ConfirmDialogOptions options)
+    public static async Task<bool> ShowDialogAsync(ViewModel parent, ConfirmDialogOptions options)
     {
         var dialogModel = new DialogView_Model
         {

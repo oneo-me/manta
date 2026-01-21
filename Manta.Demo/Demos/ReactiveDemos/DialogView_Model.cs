@@ -27,15 +27,13 @@ sealed class DialogView_Model : DemoViewModel
 
     public async Task AlertAsync()
     {
-        var window = this.GetWindow();
-        await AlertDialog.ShowDialogAsync(window, new("This is an alert dialog."));
+        await AlertDialog.ShowDialogAsync(this, new("This is an alert dialog."));
     }
 
     public async Task ConfirmAsync()
     {
-        var window = this.GetWindow();
-        var result = await ConfirmDialog.ShowDialogAsync(window, new("This is an alert dialog."));
+        var result = await ConfirmDialog.ShowDialogAsync(this, new("This is an alert dialog."));
         if (result)
-            await AlertDialog.ShowDialogAsync(window, new("You clicked OK."));
+            await AlertDialog.ShowDialogAsync(this, new("You clicked OK."));
     }
 }

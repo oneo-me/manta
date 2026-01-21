@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Langs;
 using Manta.Reactive.Views;
@@ -21,7 +20,7 @@ public sealed class AlertDialogOptions(string title, string content)
 
 public static class AlertDialog
 {
-    public static async Task ShowDialogAsync(Window parent, AlertDialogOptions options)
+    public static async Task ShowDialogAsync(ViewModel parent, AlertDialogOptions options)
     {
         var dialogModel = new DialogView_Model
         {

@@ -43,8 +43,8 @@ public class TweakcnTool_Model : WindowModel
 
     public async Task ExportAsync()
     {
-        var window = this.GetWindow();
-        var storageFolders = await window.StorageProvider.OpenFolderPickerAsync(new()
+        var storageProvider = await this.GetStorageProviderAsync();
+        var storageFolders = await storageProvider.OpenFolderPickerAsync(new()
         {
             AllowMultiple = false
         });

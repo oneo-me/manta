@@ -25,20 +25,24 @@ public static class WindowModelExtensions
 
     extension<T>(T windowModel) where T : WindowModel
     {
-        public async Task<T> ShowAsync(Window? owner = null)
+        public async Task<T> ShowAsync(ViewModel? owner = null)
         {
-            if (UIThread.CheckAccess())
-                return ShowCore(windowModel, owner);
+            var ownerWindow = owner is null ? null : await owner.GetWindowAsync();
 
-            return await UIThread.InvokeAsync(() => ShowCore(windowModel, owner));
+            if (UIThread.CheckAccess())
+                return ShowCore(windowModel, ownerWindow);
+
+            return await UIThread.InvokeAsync(() => ShowCore(windowModel, ownerWindow));
         }
 
-        public async Task<T> ShowDialogAsync(Window owner)
+        public async Task<T> ShowDialogAsync(ViewModel owner)
         {
-            if (UIThread.CheckAccess())
-                return ShowDialogCore(windowModel, owner);
+            var ownerWindow = await owner.GetWindowAsync();
 
-            return await UIThread.InvokeAsync(() => ShowDialogCore(windowModel, owner));
+            if (UIThread.CheckAccess())
+                return ShowDialogCore(windowModel, ownerWindow);
+
+            return await UIThread.InvokeAsync(() => ShowDialogCore(windowModel, ownerWindow));
         }
     }
 
@@ -75,7 +79,7 @@ public static class WindowModelExtensions
             return result;
         }
 
-        public MWindow GetWindow()
+        internal MWindow GetWindowCore()
         {
             if (windowModel.InnerWindow is null)
                 throw new InvalidOperationException($"Window not found for {windowModel}");
