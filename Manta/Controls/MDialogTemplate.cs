@@ -71,15 +71,6 @@ public class MDialogTemplate : HeaderedContentControl
         set => SetValue(FooterTemplateProperty, value);
     }
 
-    public static readonly StyledProperty<bool> IsShowCancelButtonProperty = AvaloniaProperty.Register<MDialogTemplate, bool>(
-        nameof(IsShowCancelButton));
-
-    public bool IsShowCancelButton
-    {
-        get => GetValue(IsShowCancelButtonProperty);
-        set => SetValue(IsShowCancelButtonProperty, value);
-    }
-
     public static readonly StyledProperty<MButtonVariant> CancelButtonVariantProperty = AvaloniaProperty.Register<MDialogTemplate, MButtonVariant>(
         nameof(CancelButtonVariant));
 
@@ -114,15 +105,6 @@ public class MDialogTemplate : HeaderedContentControl
     {
         get => GetValue(CancelButtonTemplateProperty);
         set => SetValue(CancelButtonTemplateProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsShowContinueButtonProperty = AvaloniaProperty.Register<MDialogTemplate, bool>(
-        nameof(IsShowContinueButton));
-
-    public bool IsShowContinueButton
-    {
-        get => GetValue(IsShowContinueButtonProperty);
-        set => SetValue(IsShowContinueButtonProperty, value);
     }
 
     public static readonly StyledProperty<MButtonVariant> ContinueButtonVariantProperty = AvaloniaProperty.Register<MDialogTemplate, MButtonVariant>(
