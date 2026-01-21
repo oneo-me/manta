@@ -15,5 +15,12 @@
             <MButton Variant="Outline" Content="Alert" Command="{Binding AlertAsyncCommand}" />
             <MButton Variant="Outline" Content="Confirm" Command="{Binding ConfirmAsyncCommand}" />
         </MPanel>
+        <TextBlock Text="File Dialog" />
+        <MCheckBox IsChecked="{Binding AllowMultiple}" Header="Allow Multiple" />
+        <MPanel Mode="Horizontal" Spacing="12">
+            <MButton Variant="Outline" Content="Open File" Command="{Binding OpenFileAsync}" />
+            <MButton Variant="Outline" Content="Save File" Command="{Binding SaveFileAsync}" />
+            <MButton Variant="Outline" Content="Open Folder" Command="{Binding OpenFolderAsync}" />
+        </MPanel>
     </MPanel>
 </MView>
