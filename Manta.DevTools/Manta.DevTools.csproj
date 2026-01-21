@@ -3,6 +3,6 @@
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Manta.Generators " Version="1.2025.12" PrivateAssets="all" />
+        <PackageReference Include="Manta.Generators " Version="1.2025.16" PrivateAssets="all" />
     </ItemGroup>
 </Project>

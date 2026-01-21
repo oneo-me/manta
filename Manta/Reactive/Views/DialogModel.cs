@@ -8,6 +8,7 @@ namespace Manta.Reactive.Views;
 
 public abstract class DialogModel : WindowModel
 {
+    protected virtual bool RegisterTitleBarEvents => true;
     public bool Result { get; private set; }
 
     public async Task OnCancelAsync()
@@ -41,6 +42,9 @@ public abstract class DialogModel : WindowModel
     protected override void OnViewActivated(CompositeDisposable disposables)
     {
         base.OnViewActivated(disposables);
+
+        if (RegisterTitleBarEvents is false)
+            return;
 
         var view = this.GetView<MView>();
 
