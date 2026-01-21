@@ -1,5 +1,6 @@
 using System.Reflection;
 using Avalonia.Controls;
+using Avalonia.Input.Platform;
 using Avalonia.Platform.Storage;
 using Avalonia.VisualTree;
 using Manta.Controls;
@@ -44,7 +45,7 @@ public static class ViewModelExtensions
             throw new InvalidOperationException($"View is not of type {typeof(T)}");
         }
 
-        internal Window? GetWindowCore()
+        Window? GetWindowCore()
         {
             var view = viewModel.GetView();
             return view.GetVisualRoot() as Window;
@@ -56,6 +57,7 @@ public static class ViewModelExtensions
                 return windowModel.GetWindowCore();
 
             Window? window;
+
             if (UIThread.CheckAccess())
                 window = viewModel.GetWindowCore();
             else
@@ -70,10 +72,28 @@ public static class ViewModelExtensions
         public async Task<IStorageProvider> GetStorageProviderAsync()
         {
             var window = await viewModel.GetWindowAsync();
+
             if (UIThread.CheckAccess())
                 return window.StorageProvider;
 
             return await UIThread.InvokeAsync(() => window.StorageProvider);
+        }
+
+        public async Task<IClipboard> GetClipboardAsync()
+        {
+            var window = await viewModel.GetWindowAsync();
+
+            IClipboard? clipboard;
+
+            if (UIThread.CheckAccess())
+                clipboard = window.Clipboard;
+            else
+                clipboard = await UIThread.InvokeAsync(() => window.Clipboard);
+
+            if (clipboard is null)
+                throw new InvalidOperationException("Clipboard not available");
+
+            return clipboard;
         }
     }
 }
