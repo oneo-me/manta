@@ -10,7 +10,7 @@ using Avalonia.Dialogs;
 using BindingFlags = System.Reflection.BindingFlags;
 using Path = System.IO.Path;
 
-namespace Manta.Prepare;
+namespace MantaPrepare;
 
 sealed class ControlImplInfo(string group, string name)
 {
