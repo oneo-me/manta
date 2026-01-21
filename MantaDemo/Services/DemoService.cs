@@ -4,7 +4,6 @@ using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Manta;
 using Manta.Controls;
-using Manta.Logging;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
 using MantaDemo.Reactive;
@@ -34,24 +33,11 @@ sealed class DemoService
                 yield return file;
     }
 
-    public int CodeLines { get; }
+    readonly string _projectDir;
 
     public DemoService()
     {
-        var projectDir = Path.Combine(Path.GetFullPath(Path.Combine(MApp.Folder, "../../../..")), "Manta");
-
-        // Calculate the number of lines of code
-        var codeFiles = GetCodeFiles(projectDir, ".cs", ".axaml");
-        var codeLines = 0;
-        foreach (var codeFile in codeFiles)
-        {
-            var lines = File.ReadLines(codeFile);
-            codeLines += lines.Count(line => !string.IsNullOrWhiteSpace(line));
-        }
-
-        CodeLines = codeLines;
-
-        Log.Information("Total lines of code: {CodeLines}", CodeLines);
+        _projectDir = Path.GetFullPath(Path.Combine(MApp.Folder, "../../../.."));
 
         // Register demos
         foreach (var type in GetType().Assembly.GetTypes().Where(x => typeof(DemoViewModel).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false } && x != typeof(XamlDemo)))
@@ -60,7 +46,9 @@ sealed class DemoService
             _demos.Add(demoViewModel);
         }
 
-        var controlsDir = Path.Combine(projectDir, "Controls");
+        // Scan XAML files for demos
+        var mantaProjectDir = Path.Combine(_projectDir, "Manta");
+        var controlsDir = Path.Combine(mantaProjectDir, "Controls");
         var baseControlsDir = Path.Combine(controlsDir, "Base");
 
         ScanXamls(controlsDir, null);
@@ -78,6 +66,19 @@ sealed class DemoService
 
             return string.Compare(a.Header, b.Header, StringComparison.Ordinal);
         });
+    }
+
+    public int GetCodeLines()
+    {
+        var codeFiles = GetCodeFiles(_projectDir, ".cs", ".axaml", ".swift");
+        var codeLines = 0;
+        foreach (var codeFile in codeFiles)
+        {
+            var lines = File.ReadLines(codeFile);
+            codeLines += lines.Count(line => !string.IsNullOrWhiteSpace(line));
+        }
+
+        return codeLines;
     }
 
     void ScanXamls(string controlsDir, DemoSubGroup? subGroup)
