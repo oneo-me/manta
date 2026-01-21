@@ -1,6 +1,6 @@
 // using Manta.Tools;
 //
-// namespace Manta.Prepare;
+// namespace MantaPrepare;
 //
 // sealed class ThemeParser(Options options)
 // {

@@ -1,4 +1,4 @@
-namespace Manta.Prepare;
+namespace MantaPrepare;
 
 sealed class Options(string appDir)
 {

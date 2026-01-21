@@ -1,4 +1,4 @@
-namespace Manta.Prepare;
+namespace MantaPrepare;
 
 sealed class ThemeFile(Options options)
 {
