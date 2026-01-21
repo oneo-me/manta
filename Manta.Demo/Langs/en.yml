@@ -22,6 +22,7 @@ Demo_Style_Thickness: Thickness
 
 Demo_Reactive_ViewContext: View Context
 Demo_Reactive_Command: Command
+Demo_Reactive_Dialog: Dialog
 
 SubGroup_Advanced: Advanced
 SubGroup_Window: Window

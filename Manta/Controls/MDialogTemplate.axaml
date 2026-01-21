@@ -30,7 +30,7 @@
                 </MDialogTemplate>
             </MCard>
             <MCard>
-                <MDialogTemplate Header="Are you absolutely sure?" IsShowCancelButton="False" ContinueButton="Delete Account" ContinueButtonVariant="Destructive">
+                <MDialogTemplate Header="Are you absolutely sure?" CancelButton="" ContinueButton="Delete Account" ContinueButtonVariant="Destructive">
                     <SelectableTextBlock Text="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
                                          TextWrapping="Wrap"
                                          Foreground="{MBrush MutedForeground}" />
@@ -62,14 +62,14 @@
                                               HorizontalAlignment="{TemplateBinding HorizontalFooterAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalFooterAlignment}" />
                             <MButton Grid.Column="1" IsCancel="True"
-                                     IsVisible="{TemplateBinding IsShowCancelButton}"
+                                     IsVisible="{TemplateBinding CancelButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      Variant="{TemplateBinding CancelButtonVariant}"
                                      Command="{TemplateBinding CancelButtonCommand}"
                                      ContentTemplate="{TemplateBinding CancelButtonTemplate}"
                                      Content="{TemplateBinding CancelButton}"
                                      VerticalAlignment="{TemplateBinding VerticalFooterAlignment}" />
                             <MButton Grid.Column="2" IsDefault="True"
-                                     IsVisible="{TemplateBinding IsShowContinueButton}"
+                                     IsVisible="{TemplateBinding ContinueButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      Variant="{TemplateBinding ContinueButtonVariant}"
                                      Command="{TemplateBinding ContinueButtonCommand}"
                                      ContentTemplate="{TemplateBinding ContinueButtonTemplate}"
@@ -84,8 +84,6 @@
         <Setter Property="VerticalFooterAlignment" Value="Center" />
         <Setter Property="CancelButton" Value="{Lang {x:Static langs:InnerLangKey.Dialog_Cancel}}" />
         <Setter Property="ContinueButton" Value="{Lang {x:Static langs:InnerLangKey.Dialog_Continue}}" />
-        <Setter Property="IsShowCancelButton" Value="True" />
-        <Setter Property="IsShowContinueButton" Value="True" />
         <Setter Property="CancelButtonVariant" Value="Outline" />
         <Setter Property="ContinueButtonVariant" Value="Default" />
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
