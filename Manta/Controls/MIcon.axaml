@@ -9,14 +9,15 @@
                 <Viewbox Name="PART_ViewBox" ClipToBounds="False" />
             </ControlTemplate>
         </Setter>
+        <Setter Property="Opacity" Value="{OnTheme {Double 1}, Dark={Double 0.8}}" />
         <Style Selector="^[Variant=Default]">
-            <Setter Property="Background" Value="{MBrush Primary, Type=Light2, Opacity=0.3}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Primary, Type=Light2, Opacity=0.3}, Dark={MBrush Primary, Type=Light2, Opacity=0.45}}" />
         </Style>
         <Style Selector="^[Variant=Secondary]">
-            <Setter Property="Background" Value="{MBrush Foreground, Type=Light2, Opacity=0.3}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Foreground, Type=Light2, Opacity=0.3}, Dark={MBrush Foreground, Type=Light2, Opacity=0.45}}" />
         </Style>
         <Style Selector="^[Variant=Destructive]">
-            <Setter Property="Background" Value="{MBrush Destructive, Type=Light2, Opacity=0.3}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Destructive, Type=Light2, Opacity=0.3}, Dark={MBrush Destructive, Type=Light2, Opacity=0.45}}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
