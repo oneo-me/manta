@@ -1,5 +1,6 @@
 using System.Reflection;
 using Avalonia.Controls;
+using Avalonia.Platform.Storage;
 using Avalonia.VisualTree;
 using Manta.Controls;
 using Manta.Reactive.Services;
@@ -43,13 +44,36 @@ public static class ViewModelExtensions
             throw new InvalidOperationException($"View is not of type {typeof(T)}");
         }
 
-        public Window GetWindow()
+        internal Window? GetWindowCore()
         {
             var view = viewModel.GetView();
-            if (view.GetVisualRoot() is Window window)
-                return window;
+            return view.GetVisualRoot() as Window;
+        }
 
-            throw new InvalidOperationException($"Window not found for {viewModel}");
+        public async Task<Window> GetWindowAsync()
+        {
+            if (viewModel is WindowModel windowModel)
+                return windowModel.GetWindowCore();
+
+            Window? window;
+            if (UIThread.CheckAccess())
+                window = viewModel.GetWindowCore();
+            else
+                window = await UIThread.InvokeAsync(viewModel.GetWindowCore);
+
+            if (window is null)
+                throw new InvalidOperationException($"Window not found for {viewModel}");
+
+            return window;
+        }
+
+        public async Task<IStorageProvider> GetStorageProviderAsync()
+        {
+            var window = await viewModel.GetWindowAsync();
+            if (UIThread.CheckAccess())
+                return window.StorageProvider;
+
+            return await UIThread.InvokeAsync(() => window.StorageProvider);
         }
     }
 }

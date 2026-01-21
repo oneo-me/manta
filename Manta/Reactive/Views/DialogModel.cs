@@ -1,10 +1,53 @@
+using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Manta.Controls;
+using Manta.Extensions;
+using Manta.Reactive.Extensions;
 
 namespace Manta.Reactive.Views;
 
 public abstract class DialogModel : WindowModel
 {
+    public bool Result { get; private set; }
+
+    public async Task OnCancelAsync()
+    {
+        if (await CanCancelAsync() is false)
+            return;
+
+        Result = false;
+        await CloseAsync();
+    }
+
+    public async Task OnContinueAsync()
+    {
+        if (await CanContinueAsync() is false)
+            return;
+
+        Result = true;
+        await CloseAsync();
+    }
+
+    protected virtual Task<bool> CanCancelAsync()
+    {
+        return Task.FromResult(true);
+    }
+
+    protected virtual Task<bool> CanContinueAsync()
+    {
+        return Task.FromResult(true);
+    }
+
+    protected override void OnViewActivated(CompositeDisposable disposables)
+    {
+        base.OnViewActivated(disposables);
+
+        var view = this.GetView<MView>();
+
+        view.BindTitleBarEvents()
+            .DisposeWithIfDisposable(disposables);
+    }
+
     public override void OnWindowInitialized(MWindow window)
     {
         base.OnWindowInitialized(window);
