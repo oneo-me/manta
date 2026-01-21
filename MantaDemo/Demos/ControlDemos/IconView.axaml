@@ -1,0 +1,17 @@
+<MView
+    x:Class="MantaDemo.Demos.ControlDemos.IconView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.ControlDemos"
+    x:DataType="local:IconView_Model" Design.DataContext="{x:Static local:IconView_Model.Design}">
+    <MPanel Mode="Vertical" Spacing="12" Margin="12">
+        <MPanel Mode="Horizontal" Spacing="12">
+            <MIcon IconSize="80" IconSource="{Binding TestIcon}" />
+            <MIcon IconSize="80" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" />
+        </MPanel>
+        <MPanel Mode="Horizontal" Spacing="12">
+            <MIcon IconSize="50" IconSource="{Binding TestIcon}" Background="{MBrush Primary, Opacity=0.1}" Foreground="{MBrush Primary}" />
+            <MIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" Foreground="{MBrush Primary}" />
+        </MPanel>
+    </MPanel>
+</MView>

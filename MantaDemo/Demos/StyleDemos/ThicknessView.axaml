@@ -1,0 +1,44 @@
+<MView
+    x:Class="MantaDemo.Demos.StyleDemos.ThicknessView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
+    x:DataType="local:ThicknessView_Model" Design.DataContext="{x:Static local:ThicknessView_Model.Design}"
+    Design.Width="500">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="Border.Thickness">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="Background" Value="{MBrush Accent}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Primary}" />
+                    <Setter Property="CornerRadius" Value="{MRadius MD}" />
+                    <Setter Property="BorderThickness" Value="{MThickness Px}" />
+                    <Style Selector="^ Border">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="Background" Value="{MBrush Background}" />
+                        <Setter Property="CornerRadius" Value="{MRadius SM}" />
+                        <Setter Property="BorderThickness" Value="{MThickness Px}" />
+                    </Style>
+                </Style>
+            </MPanel.Styles>
+            <TextBlock Text="MThickness S5" />
+            <Border Classes="Thickness" Padding="{MThickness S5}">
+                <Border />
+            </Border>
+            <TextBlock Text="MThickness S5, Filter=Left|Right" />
+            <Border Classes="Thickness" Padding="{MThickness S5, Filter=Left|Right}">
+                <Border />
+            </Border>
+            <TextBlock Text="MThickness S5, Filter=Top|Bottom" />
+            <Border Classes="Thickness" Padding="{MThickness S5, Filter=Top|Bottom}">
+                <Border />
+            </Border>
+            <TextBlock Text="MThickness S5, Vertical=S2" />
+            <Border Classes="Thickness" Padding="{MThickness S5, Vertical=S2}">
+                <Border />
+            </Border>
+        </MPanel>
+    </MScrollViewer>
+</MView>

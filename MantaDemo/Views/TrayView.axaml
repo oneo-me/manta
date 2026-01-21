@@ -1,0 +1,23 @@
+<MView
+    x:Class="MantaDemo.Views.TrayView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Views"
+    x:DataType="local:TrayView_Model" Design.DataContext="{x:Static local:TrayView_Model.Design}">
+    <MPanel Mode="Vertical" Spacing="12" Margin="12">
+        <TextBlock Text="Manta" FontWeight="SemiBold" FontSize="14" />
+        <MSeparator Margin="5 0" />
+        <Border Background="{MBrush Foreground, Opacity=0.04}" CornerRadius="6" Padding="12">
+            <MPanel Mode="Vertical" Spacing="6">
+                <TextBlock Text="Tray Icon Example" FontWeight="SemiBold" />
+                <TextBlock Text="This is an example of a tray icon using Manta." />
+            </MPanel>
+        </Border>
+        <MPanel Mode="Vertical" Spacing="6">
+            <MButton Variant="Ghost" Content="Open Manta Demo" HorizontalContentAlignment="Left"
+                     Command="{Binding ActiveApp}" />
+            <MButton Variant="Ghost" Content="Exit" HorizontalContentAlignment="Left"
+                     Command="{Binding Exit}" />
+        </MPanel>
+    </MPanel>
+</MView>

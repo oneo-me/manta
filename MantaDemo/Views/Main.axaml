@@ -1,0 +1,41 @@
+<MView
+    x:Class="MantaDemo.Views.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Views"
+    x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}" Design.Height="500">
+    <Grid RowDefinitions="Auto *">
+        <MBackgroud Grid.Row="1">
+            <MViewHost ViewModel="{Binding RegionManager.SelectedItem}" />
+        </MBackgroud>
+        <MTabTitleBar Grid.Row="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
+            <MTabTitleBar.RightContent>
+                <MPanel Mode="Horizontal">
+                    <MTitleBarButton Command="{Binding OpenTweakcnToolAsync}">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon IconSize="18" IconSource="{Binding TweakcnToolIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                    <MTitleBarButton>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                    <MTitleBarButton Command="{Binding OpenSettingsAsync}">
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MIcon IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MTitleBarButton>
+                </MPanel>
+            </MTabTitleBar.RightContent>
+            <MTabTitleBar.ItemTemplate>
+                <DataTemplate>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MIcon IconSize="18" IconSource="{Binding Icon}" Margin="0 -10" VerticalAlignment="Center" />
+                        <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                    </MPanel>
+                </DataTemplate>
+            </MTabTitleBar.ItemTemplate>
+        </MTabTitleBar>
+    </Grid>
+</MView>

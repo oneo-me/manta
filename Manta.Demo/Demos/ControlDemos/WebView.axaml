@@ -1,8 +1,0 @@
-<MView
-    x:Class="Manta.Demo.Demos.ControlDemos.WebView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Manta.Demo.Demos.ControlDemos"
-    x:DataType="local:WebView_Model" Design.DataContext="{x:Static local:WebView_Model.Design}">
-    <MWebView Url="https://github.com/oneo-me" />
-</MView>

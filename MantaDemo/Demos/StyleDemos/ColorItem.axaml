@@ -1,0 +1,45 @@
+<MView
+    x:Class="MantaDemo.Demos.StyleDemos.ColorItem"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Name="View" Key="Background" Brush="{MBrush Background}" ClipToBounds="False">
+    <MView.Styles>
+        <Style Selector="Border.Root">
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^ Border.Color">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+                <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
+                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Style Selector="^ Border.Color">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.05}" />
+                </Style>
+            </Style>
+        </Style>
+    </MView.Styles>
+    <Border Classes="Root">
+        <Grid ColumnDefinitions="Auto *" ColumnSpacing="12" Margin="4">
+            <Border Classes="Color" Grid.Column="0" Width="52" Height="52" Background="{Binding #View.Brush}" />
+            <MPanel Grid.Column="1" Mode="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="{Binding #View.Key}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock Text="{Binding #View.Brush}" Opacity="0.5" />
+            </MPanel>
+        </Grid>
+    </Border>
+</MView>

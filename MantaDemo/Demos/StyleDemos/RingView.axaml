@@ -1,0 +1,61 @@
+<MView
+    x:Class="MantaDemo.Demos.StyleDemos.RingView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
+    x:DataType="local:RingView_Model" Design.DataContext="{x:Static local:RingView_Model.Design}">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="30" Margin="30">
+            <MPanel.Styles>
+                <Style Selector="Border.Ring">
+                    <Setter Property="Width" Value="60" />
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="CornerRadius" Value="10" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+                    <Setter Property="BorderBrush" Value="{MBrush Foreground, Opacity=0.1}" />
+                    <Setter Property="BoxShadow" Value="{MRing XL2}" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
+                        </Transitions>
+                    </Setter>
+                    <Style Selector="^:pointerover">
+                        <Setter Property="BoxShadow" Value="{MRing None}" />
+                    </Style>
+                </Style>
+            </MPanel.Styles>
+            <TextBlock Text="Transition" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Ring" />
+            </MPanel>
+            <TextBlock Text="Rings" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Ring" BoxShadow="{MRing XS}" />
+                <Border Classes="Ring" BoxShadow="{MRing SM}" />
+                <Border Classes="Ring" BoxShadow="{MRing MD}" />
+                <Border Classes="Ring" BoxShadow="{MRing LG}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL2}" />
+            </MPanel>
+            <TextBlock Text="Rings (Custom Brsuh Key)" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Destructive}" />
+                <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Destructive}" />
+                <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Destructive}" />
+                <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Destructive}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Destructive}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Destructive}" />
+            </MPanel>
+            <TextBlock Text="Rings (Custom BrushKey and Type)" />
+            <MPanel Mode="Horizontal" Spacing="30">
+                <Border Classes="Ring" BoxShadow="{MRing XS, BrushKey=Destructive, BrushType=Dark3}" />
+                <Border Classes="Ring" BoxShadow="{MRing SM, BrushKey=Destructive, BrushType=Dark3}" />
+                <Border Classes="Ring" BoxShadow="{MRing MD, BrushKey=Destructive, BrushType=Dark3}" />
+                <Border Classes="Ring" BoxShadow="{MRing LG, BrushKey=Destructive, BrushType=Dark3}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL, BrushKey=Destructive, BrushType=Dark3}" />
+                <Border Classes="Ring" BoxShadow="{MRing XL2, BrushKey=Destructive, BrushType=Dark3}" />
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>
