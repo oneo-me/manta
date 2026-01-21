@@ -1,0 +1,37 @@
+using Manta;
+using Manta.Controls.Icons;
+using MantaDemo.Langs;
+using Manta.Reactive.Regions;
+using MantaDemo.Reactive;
+using MantaDemo.Views;
+
+namespace MantaDemo.Services;
+
+sealed class ViewService
+{
+    readonly ConfigService _configService;
+
+    public RegionManager<HeaderRegionModel> RegionManager { get; } = new();
+
+    public ViewService(ConfigService configService)
+    {
+        _configService = configService;
+
+        RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, IconSource.FromAsset(Assets.GetUri("Icons/Cat--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, IconSource.FromAsset(Assets.GetUri("Icons/Code-Circle--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, IconSource.FromAsset(Assets.GetUri("Icons/Planet--Streamline-Solar-Ar.svg"))), IsCurrent);
+    }
+
+    bool IsCurrent(HeaderRegionModel headerRegionModel)
+    {
+        return string.Equals(_configService.Config.Current, headerRegionModel.Header);
+    }
+
+    public void Save()
+    {
+        _configService.Config.Current = RegionManager.SelectedItem?.Header ?? string.Empty;
+        RegionManager.Dispose();
+    }
+}

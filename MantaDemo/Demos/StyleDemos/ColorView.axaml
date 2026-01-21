@@ -1,0 +1,65 @@
+<MView
+    x:Class="MantaDemo.Demos.StyleDemos.ColorView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
+    x:DataType="local:ColorView_Model" Design.DataContext="{x:Static local:ColorView_Model.Design}"
+    Design.Width="500">
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Grid.IsSharedSizeScope="True">
+            <TextBlock Text="Primary Theme Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Background" Brush="{MBrush Background}" />
+                <local:ColorItem Key="Foreground" Brush="{MBrush Foreground}" />
+                <local:ColorItem Key="Primary" Brush="{MBrush Primary}" />
+                <local:ColorItem Key="Primary Foreground" Brush="{MBrush PrimaryForeground}" />
+            </MPanel>
+            <TextBlock Text="Secondary &amp; Accent Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Secondary" Brush="{MBrush Secondary}" />
+                <local:ColorItem Key="Secondary Foreground" Brush="{MBrush SecondaryForeground}" />
+                <local:ColorItem Key="Accent" Brush="{MBrush Accent}" />
+                <local:ColorItem Key="Accent Foreground" Brush="{MBrush AccentForeground}" />
+            </MPanel>
+            <TextBlock Text="Ul Component Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Card" Brush="{MBrush Card}" />
+                <local:ColorItem Key="Card Foreground" Brush="{MBrush CardForeground}" />
+                <local:ColorItem Key="Popover" Brush="{MBrush Popover}" />
+                <local:ColorItem Key="Popover Foreground" Brush="{MBrush PopoverForeground}" />
+                <local:ColorItem Key="Muted" Brush="{MBrush Muted}" />
+                <local:ColorItem Key="Muted Foreground" Brush="{MBrush MutedForeground}" />
+            </MPanel>
+            <TextBlock Text="Utility &amp; Form Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Border" Brush="{MBrush Border}" />
+                <local:ColorItem Key="Input" Brush="{MBrush Input}" />
+                <local:ColorItem Key="Ring" Brush="{MBrush Ring}" />
+            </MPanel>
+            <TextBlock Text="Status &amp; Feedback Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Destructive" Brush="{MBrush Destructive}" />
+                <local:ColorItem Key="Destructive Foreground" Brush="{MBrush DestructiveForeground}" />
+            </MPanel>
+            <TextBlock Text="Chart &amp; Visualization Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Chart1" Brush="{MBrush Chart1}" />
+                <local:ColorItem Key="Chart2" Brush="{MBrush Chart2}" />
+                <local:ColorItem Key="Chart3" Brush="{MBrush Chart3}" />
+                <local:ColorItem Key="Chart4" Brush="{MBrush Chart4}" />
+                <local:ColorItem Key="Chart5" Brush="{MBrush Chart5}" />
+            </MPanel>
+            <TextBlock Text="Sidebar &amp; Navigation Colors" FontWeight="SemiBold" Opacity="0.5" />
+            <MPanel Mode="Column" ColumnSize="180" Spacing="12">
+                <local:ColorItem Key="Sidebar Background" Brush="{MBrush SidebarBackground}" />
+                <local:ColorItem Key="Sidebar Foreground" Brush="{MBrush SidebarForeground}" />
+                <local:ColorItem Key="Sidebar Primary" Brush="{MBrush SidebarPrimary}" />
+                <local:ColorItem Key="Sidebar Primary Foreground" Brush="{MBrush SidebarPrimaryForeground}" />
+                <local:ColorItem Key="Sidebar Accent" Brush="{MBrush SidebarAccent}" />
+                <local:ColorItem Key="Sidebar Accent Foreground" Brush="{MBrush SidebarAccentForeground}" />
+                <local:ColorItem Key="Sidebar Border" Brush="{MBrush SidebarBorder}" />
+                <local:ColorItem Key="Sidebar Ring" Brush="{MBrush SidebarRing}" />
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>

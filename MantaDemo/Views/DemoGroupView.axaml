@@ -1,0 +1,39 @@
+<MView
+    x:Class="MantaDemo.Views.DemoGroupView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Views"
+    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}"
+    Design.Width="720" Design.Height="720">
+    <Grid ColumnDefinitions="200 1 *">
+        <MListBox Grid.Column="0" Variant="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
+            <MListBox.Styles>
+                <Style Selector="MListBoxItem">
+                    <Setter Property="IsEnabled" Value="{Binding !IsGroup}" x:DataType="local:IDemoItem" />
+                    <Style Selector="^:disabled">
+                        <Setter Property="Padding" Value="0 6" />
+                        <Setter Property="Opacity" Value="0.5" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                    </Style>
+                </Style>
+            </MListBox.Styles>
+            <MListBox.DataTemplates>
+                <DataTemplate DataType="local:DemoGroupItem">
+                    <MPanel Mode="Horizontal">
+                        <TextBlock Text="{Lang {Binding GroupName}}" />
+                        <TextBlock Text="{Binding Count, StringFormat={} ({0})}" />
+                    </MPanel>
+                </DataTemplate>
+                <DataTemplate DataType="local:DemoItem">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MIcon Opacity="0.8" IconSize="16" IconStyle="OnlyBorder" IconSource="{Binding ViewModel.Icon}" Margin="0 -10" VerticalAlignment="Center"
+                               IsVisible="{Binding ViewModel.Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <TextBlock Text="{Lang {Binding ViewModel.Header}}" VerticalAlignment="Center" />
+                    </MPanel>
+                </DataTemplate>
+            </MListBox.DataTemplates>
+        </MListBox>
+        <Panel Grid.Column="1" Background="{MBrush Border}" Margin="0 12" />
+        <MViewHost Grid.Column="2" ViewModel="{Binding CurrentViewModel}" />
+    </Grid>
+</MView>

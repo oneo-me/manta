@@ -1,0 +1,273 @@
+<MView
+    x:Class="MantaDemo.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Views"
+    x:DataType="local:SettingsView_Model" Design.DataContext="{x:Static local:SettingsView_Model.Design}">
+    <Grid ColumnDefinitions="180 *">
+        <Border Grid.Column="0" BorderThickness="0 0 1 0">
+            <Panel>
+                <Border Name="SidebarBackground" />
+                <MListBox Name="Sidebar" Variant="Sidebar" VerticalAlignment="Top">
+                    <MListBox.Styles>
+                        <Style Selector="MListBox[Variant=Sidebar]">
+                            <Setter Property="Padding" Value="7" />
+                        </Style>
+                        <Style Selector="MListBoxItem[Variant=Sidebar]">
+                            <Setter Property="Padding" Value="12 7" />
+                        </Style>
+                    </MListBox.Styles>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <TextBlock Text="Group Item 1" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <TextBlock Text="Group Item 2" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <TextBlock Text="Group Item 3" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                    <MListBoxItem>
+                        <MPanel Mode="Horizontal" Spacing="4">
+                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <TextBlock Text="Group Item 4" VerticalAlignment="Center" />
+                        </MPanel>
+                    </MListBoxItem>
+                </MListBox>
+            </Panel>
+        </Border>
+        <MBackgroud Grid.Column="1">
+            <Grid RowDefinitions="Auto *">
+                <Border Grid.Row="0" Name="TitleBar" Height="39" BorderThickness="0 0 0 1">
+                    <Grid ColumnDefinitions="* Auto">
+                        <TextBlock Grid.Column="0" Text="Group Item 1" FontWeight="SemiBold" Margin="12 0" VerticalAlignment="Center" />
+                        <MTitleBarButtons Grid.Column="1" Name="TitleBarButtons" />
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1">
+                    <Grid ColumnDefinitions="160 *">
+                        <Border Grid.Column="0" BorderThickness="0 0 1 0">
+                            <Grid RowDefinitions="* Auto">
+                                <MListBox Grid.Row="0" Variant="Sidebar" BorderThickness="0 0 0 1">
+                                    <MListBox.Styles>
+                                        <Style Selector="MListBox[Variant=Sidebar]">
+                                            <Setter Property="Padding" Value="6" />
+                                        </Style>
+                                        <Style Selector="MListBoxItem[Variant=Sidebar]">
+                                            <Setter Property="Padding" Value="12 6" />
+                                        </Style>
+                                    </MListBox.Styles>
+                                    <MListBoxItem Content="Item 1" />
+                                    <MListBoxItem Content="Item 2" />
+                                    <MListBoxItem Content="Item 3" />
+                                    <MListBoxItem Content="Item 4" />
+                                    <MListBoxItem Content="Item 5" />
+                                </MListBox>
+                                <Grid Grid.Row="1" ColumnDefinitions="* Auto">
+                                    <MPanel Grid.Column="0" Mode="Horizontal" Spacing="3" Margin="3">
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                    </MPanel>
+                                    <MPanel Grid.Column="1" Mode="Horizontal" Spacing="3" Margin="3">
+                                        <MButton Variant="Ghost" Padding="4">
+                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                        </MButton>
+                                    </MPanel>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <Grid Grid.Column="1" RowDefinitions="Auto *">
+                            <Border Grid.Row="0" BorderThickness="0 0 0 1" Background="{MBrush Border, Opacity=0.6}">
+                                <TextBlock Text="Item 1" FontWeight="SemiBold" Margin="12 6" />
+                            </Border>
+                            <MScrollViewer Grid.Row="1">
+                                <MPanel Mode="Vertical" Spacing="12" Margin="12">
+                                    <TextBlock Text="About" FontWeight="SemiBold" />
+                                    <MPanel Mode="Vertical" Spacing="12" TextBlock.TextAlignment="Center">
+                                        <MIcon IconSize="62" IconSource="{Binding TestIcon}" />
+                                        <MPanel Mode="Vertical" Spacing="3">
+                                            <TextBlock Text="Manta" FontSize="14" FontWeight="SemiBold" />
+                                            <TextBlock Text="v1.0.0" />
+                                            <TextBlock Text="2025/10/31" Opacity="0.5" />
+                                            <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                                <TextBlock Text="Website" Opacity="0.5" />
+                                                <TextBlock Text="Copy Debug Info" Opacity="0.5" />
+                                            </MPanel>
+                                        </MPanel>
+                                        <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                            <MButton Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <TextBlock Text="Issues" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <TextBlock Text="Discord" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <TextBlock Text="Twitter" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                            <MButton Variant="Ghost">
+                                                <MPanel Mode="Horizontal" Spacing="4">
+                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <TextBlock Text="Github" VerticalAlignment="Center" />
+                                                </MPanel>
+                                            </MButton>
+                                        </MPanel>
+                                        <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                            <MButton Content="Update log" />
+                                            <MButton Content="check for updates" />
+                                        </MPanel>
+                                    </MPanel>
+                                    <TextBlock Text="Group format" FontWeight="SemiBold" />
+                                    <MItems>
+                                        <MItems.Styles>
+                                            <Style Selector="MItems">
+                                                <Setter Property="BorderThickness" Value="1" />
+                                                <Setter Property="CornerRadius" Value="8" />
+                                                <Setter Property="Background" Value="{MBrush Border, Opacity=0.2}" />
+                                            </Style>
+                                            <Style Selector="MItem">
+                                                <Setter Property="BorderBrush" Value="{MBrush Border}" />
+                                                <Setter Property="BorderThickness" Value="0 1 0 0" />
+                                                <Setter Property="Margin" Value="8 0" />
+                                                <Setter Property="Padding" Value="8" />
+                                                <Style Selector="^:nth-child(1)">
+                                                    <Setter Property="BorderThickness" Value="0" />
+                                                </Style>
+                                            </Style>
+                                        </MItems.Styles>
+                                        <MItem>
+                                            <Grid ColumnDefinitions="* Auto">
+                                                <MPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
+                                                    <TextBlock Text="Language" />
+                                                    <TextBlock Text="Change the display language of the interface" Opacity="0.5" />
+                                                </MPanel>
+                                                <Panel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
+                                                    <MButton Content="Button" />
+                                                </Panel>
+                                            </Grid>
+                                        </MItem>
+                                        <MItem>
+                                            <Grid ColumnDefinitions="* Auto">
+                                                <MPanel Grid.Column="0" Mode="Vertical" VerticalAlignment="Center">
+                                                    <TextBlock Text="Network proxy" />
+                                                    <TextBlock Text="Supports HTTP and SOCKS5 proxies" Opacity="0.5" />
+                                                </MPanel>
+                                                <Panel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
+                                                    <MTextBox Width="160" Padding="8 4" Watermark="http://127.0.0.1:7897" />
+                                                </Panel>
+                                            </Grid>
+                                        </MItem>
+                                    </MItems>
+                                    <TextBlock Text="Direct format" FontWeight="SemiBold" />
+                                    <TextBlock Text="OpenAI-compatible provider" Opacity="0.5" />
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <TextBlock Text="Provider name" />
+                                        <Grid ColumnDefinitions="Auto *">
+                                            <MButton Grid.Column="0" Variant="Outline" Padding="6 4">
+                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                            </MButton>
+                                            <MTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
+                                        </Grid>
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <TextBlock Text="API Base URL" />
+                                        <TextBlock Text="Do NOT include /chat/completions in the URL" Opacity="0.5" />
+                                        <MTextBox Padding="8 4" Watermark="https://api.openai.com/v1" />
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <TextBlock Text="API Key" />
+                                        <MTextBox Padding="8 4" Text="https://api.openai.com/v1" IsPasswordBox="True" />
+                                    </MPanel>
+                                    <MPanel Mode="Vertical" Spacing="3">
+                                        <Grid ColumnDefinitions="* Auto">
+                                            <TextBlock Grid.Column="0" Text="Models" VerticalAlignment="Center" />
+                                            <MPanel Grid.Column="1" Mode="Horizontal" Spacing="4" VerticalAlignment="Center">
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <TextBlock Text="Delete all" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <TextBlock Text="New" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                                <MButton Variant="Ghost" Padding="4 2">
+                                                    <MPanel Mode="Horizontal" Spacing="4">
+                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <TextBlock Text="Fetch models" VerticalAlignment="Center" />
+                                                    </MPanel>
+                                                </MButton>
+                                            </MPanel>
+                                        </Grid>
+                                        <Border BorderThickness="1" CornerRadius="8">
+                                            <MPanel Mode="Vertical" Spacing="6" Margin="6" Grid.IsSharedSizeScope="True">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="Setting" />
+                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="Delete" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="Nick name" Margin="6 0" />
+                                                    <TextBlock Grid.Column="1" Text="Model Id" Margin="6 0" />
+                                                </Grid>
+                                                <MItems BorderThickness="0 1 0 0">
+                                                    <MItems.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <MPanel Mode="Vertical" Spacing="6" Margin="0 6 0 0" />
+                                                        </ItemsPanelTemplate>
+                                                    </MItems.ItemsPanel>
+                                                    <MItem>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition />
+                                                                <ColumnDefinition />
+                                                                <ColumnDefinition Width="Auto" SharedSizeGroup="Setting" />
+                                                                <ColumnDefinition Width="Auto" SharedSizeGroup="Delete" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <MTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
+                                                            <MTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
+                                                            <MButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
+                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                            </MButton>
+                                                            <MButton Grid.Column="3" Variant="Ghost" Padding="4">
+                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                            </MButton>
+                                                        </Grid>
+                                                    </MItem>
+                                                </MItems>
+                                            </MPanel>
+                                        </Border>
+                                    </MPanel>
+                                </MPanel>
+                            </MScrollViewer>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </MBackgroud>
+    </Grid>
+</MView>
