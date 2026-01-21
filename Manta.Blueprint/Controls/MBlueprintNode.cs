@@ -212,7 +212,7 @@ public class MBlueprintNode : TemplatedControl
             }).ToList();
 
         // Schedule port position update after layout is complete
-        Dispatcher.UIThread.Post(() =>
+        UIThread.Post(() =>
         {
             UpdatePortPositions();
             Blueprint?.InvalidateConnections();

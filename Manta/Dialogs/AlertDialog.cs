@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Threading;
 using Manta.Controls;
 using Manta.Langs;
 using Manta.Reactive.Views;
@@ -33,6 +32,6 @@ public static class AlertDialog
             ContinueButtonVariant = options.ContinueButtonVariant
         };
 
-        await Dispatcher.UIThread.InvokeAsync(() => dialogModel.ShowDialog(parent));
+        await dialogModel.ShowDialogAsync(parent);
     }
 }
