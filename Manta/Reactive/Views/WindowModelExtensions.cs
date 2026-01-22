@@ -16,10 +16,10 @@ public static class WindowModelExtensions
         return windowModel;
     }
 
-    static T ShowDialogCore<T>(T windowModel, Window owner) where T : WindowModel
+    static async Task<T> ShowDialogCoreAsync<T>(T windowModel, Window owner) where T : WindowModel
     {
         var window = windowModel.CreateWindow();
-        window.ShowDialog(owner);
+        await window.ShowDialog(owner);
         return windowModel;
     }
 
@@ -40,9 +40,9 @@ public static class WindowModelExtensions
             var ownerWindow = await owner.GetWindowAsync();
 
             if (UIThread.CheckAccess())
-                return ShowDialogCore(windowModel, ownerWindow);
+                return await ShowDialogCoreAsync(windowModel, ownerWindow);
 
-            return await UIThread.InvokeAsync(() => ShowDialogCore(windowModel, ownerWindow));
+            return await UIThread.InvokeAsync(() => ShowDialogCoreAsync(windowModel, ownerWindow));
         }
     }
 
