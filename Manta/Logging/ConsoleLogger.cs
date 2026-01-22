@@ -1,6 +1,6 @@
-namespace Manta.Logging.Inner;
+namespace Manta.Logging;
 
-sealed class ConsoleLogger(LogTimeType timeType, LogLevel logLevel) : ILogger
+public sealed class ConsoleLogger(LogTimeType timeType, LogLevel logLevel) : ILogger
 {
     static readonly ConsoleColor _foregroundColor = Console.ForegroundColor;
 
