@@ -37,4 +37,21 @@ public static class MantaWindow
             return IntPtr.Zero;
         }
     }
+
+    public static async Task ShowSheetAsync(Window owner, Window window, Action<Window> processSheet)
+    {
+        if (OperatingSystem.IsMacOS())
+        {
+            var ownerPtr = GetNativeWindowHandle(owner);
+            var windowPtr = GetNativeWindowHandle(window);
+            if (ownerPtr != IntPtr.Zero && windowPtr != IntPtr.Zero)
+            {
+                processSheet(owner);
+                await MacOSWindow.ShowSheetAsync(ownerPtr, windowPtr);
+                return;
+            }
+        }
+
+        await window.ShowDialog(owner);
+    }
 }

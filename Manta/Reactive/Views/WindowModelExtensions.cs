@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Extensions;
+using Manta.Native;
 
 namespace Manta.Reactive.Views;
 
@@ -19,7 +20,10 @@ public static class WindowModelExtensions
     static async Task<T> ShowDialogCoreAsync<T>(T windowModel, Window owner) where T : WindowModel
     {
         var window = windowModel.CreateWindow();
-        await window.ShowDialog(owner);
+        if (window.Variant == MWindowVariant.DialogWindow)
+            await MantaWindow.ShowSheetAsync(owner, window, window.ProcessSheet);
+        else
+            await window.ShowDialog(owner);
         return windowModel;
     }
 
