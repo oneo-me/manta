@@ -14,7 +14,8 @@ public enum MWindowVariant
 {
     Default,
     MainWindow,
-    TrayWindow
+    TrayWindow,
+    DialogWindow
 }
 
 [TemplatePart(nameof(PART_Decorations), typeof(Panel))]
@@ -72,6 +73,7 @@ public sealed partial class MWindow : Window
 
             case MWindowVariant.Default:
             case MWindowVariant.MainWindow:
+            case MWindowVariant.DialogWindow:
             default:
                 MantaWindow.ConfigureWindow(this);
                 break;
