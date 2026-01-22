@@ -68,12 +68,12 @@ public sealed partial class MWindow : Window
         switch (Variant)
         {
             case MWindowVariant.TrayWindow:
+            case MWindowVariant.DialogWindow:
                 MantaWindow.ConfigureTrayWindow(this);
                 break;
 
             case MWindowVariant.Default:
             case MWindowVariant.MainWindow:
-            case MWindowVariant.DialogWindow:
             default:
                 MantaWindow.ConfigureWindow(this);
                 break;

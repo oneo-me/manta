@@ -36,6 +36,15 @@
                 <Setter Property="IsVisible" Value="False" />
             </Style>
         </Style>
+        <!-- DialogWindow -->
+        <Style Selector="^[Variant=DialogWindow][(CurrentSystem.IsMacOS)=True]">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Border#PrimaryColor">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
         <!-- macOS -->
         <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
             <!-- Taken over by native code -->

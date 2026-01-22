@@ -8,8 +8,17 @@ namespace Manta.Reactive.Views;
 
 public abstract class DialogModel : WindowModel
 {
-    protected virtual bool RegisterTitleBarEvents => true;
+    public virtual bool IsSheetDialog { get; }
+    protected virtual bool RegisterTitleBarEvents { get; }
     public bool Result { get; private set; }
+
+    protected DialogModel()
+    {
+        var isMacOs = OperatingSystem.IsMacOS();
+
+        IsSheetDialog = isMacOs;
+        RegisterTitleBarEvents = isMacOs is false;
+    }
 
     public async Task OnCancelAsync()
     {
