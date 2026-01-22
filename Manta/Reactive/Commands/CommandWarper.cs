@@ -3,7 +3,7 @@ using Manta.Reactive.Views;
 
 namespace Manta.Reactive.Commands;
 
-public sealed class CommandWarper : Model, ICommand
+public class CommandWarper : Model, ICommand
 {
     readonly Action<object?> _execute;
     readonly Func<object?, bool>? _canExecute;
