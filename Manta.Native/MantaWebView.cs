@@ -30,7 +30,7 @@ public sealed class MantaWebView : NativeControlHost, IDisposable
     static MantaWebViewImpl CreateWebView()
     {
         if (OperatingSystem.IsMacOS())
-            return new MacOsWebView();
+            return new MacOSWebView();
 
         throw new PlatformNotSupportedException("MantaWebView is only supported on macOS.");
     }

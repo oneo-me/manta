@@ -1,6 +1,6 @@
 using Avalonia.Collections;
-using MantaDemo.Langs;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ReactiveDemos;
@@ -20,8 +20,7 @@ sealed class ContextView_Model : DemoViewModel
     {
         base.OnInitialized();
 
-        var view = this.GetView();
-        var dictionary = this.GetContexts(view);
+        var dictionary = this.GetContexts();
         foreach (var kvp in dictionary)
             Contexts.Add(kvp);
     }

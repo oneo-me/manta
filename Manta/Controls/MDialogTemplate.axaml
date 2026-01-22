@@ -62,7 +62,7 @@
                                               HorizontalAlignment="{TemplateBinding HorizontalFooterAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalFooterAlignment}" />
                             <MButton Grid.Column="1"
-                                     IsCancel="True"
+                                     IsCancel="{TemplateBinding CancelButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      IsDefault="{TemplateBinding ContinueButton, Converter={x:Static StringConverters.IsNullOrEmpty}}"
                                      IsVisible="{TemplateBinding CancelButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      Variant="{TemplateBinding CancelButtonVariant}"
@@ -71,7 +71,7 @@
                                      Content="{TemplateBinding CancelButton}"
                                      VerticalAlignment="{TemplateBinding VerticalFooterAlignment}" />
                             <MButton Grid.Column="2"
-                                     IsDefault="True"
+                                     IsDefault="{TemplateBinding ContinueButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      IsCancel="{TemplateBinding CancelButton, Converter={x:Static StringConverters.IsNullOrEmpty}}"
                                      IsVisible="{TemplateBinding ContinueButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                      Variant="{TemplateBinding ContinueButtonVariant}"
