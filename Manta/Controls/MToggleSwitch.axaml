@@ -55,8 +55,10 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ Grid">
-            <Setter Property="ColumnSpacing" Value="{MSize S2}" />
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Style Selector="^ /template/ ContentPresenter">
+            <Setter Property="Margin" Value="{MThickness S2, Filter=Right}" />
         </Style>
         <Style Selector="^ /template/ Panel#Panel">
             <Setter Property="Width" Value="40" />
