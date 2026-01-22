@@ -25,6 +25,15 @@ public class MViewHost : ContentControl
         set => SetValue(ViewModelProperty, value);
     }
 
+    public static readonly StyledProperty<object?> DataProperty = AvaloniaProperty.Register<MViewHost, object?>(
+        nameof(Data));
+
+    public object? Data
+    {
+        get => GetValue(DataProperty);
+        set => SetValue(DataProperty, value);
+    }
+
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
@@ -36,7 +45,20 @@ public class MViewHost : ContentControl
         }
         else if (change.Property == ViewModelProperty)
         {
-            Content = change.GetNewValue<ViewModel?>()?.CreateView();
+            var viewModel = change.GetNewValue<ViewModel?>();
+            ResetData(viewModel, Data);
+            Content = viewModel?.CreateView();
         }
+        else if (change.Property == DataProperty)
+        {
+            var data = change.GetNewValue<object?>();
+            ResetData(ViewModel, data);
+        }
+    }
+
+    static void ResetData(ViewModel? viewModel, object? data)
+    {
+        if (viewModel is IViewHostTarget viewHostTarget)
+            viewHostTarget.SetData(data);
     }
 }
