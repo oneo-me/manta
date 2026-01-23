@@ -1,6 +1,6 @@
-using MantaDemo.Langs;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ReactiveDemos;
@@ -27,29 +27,9 @@ sealed class CommandView_Model : DemoViewModel
         }
     }
 
-    public CommandWarper ExecuteCommand { get; }
-    public CommandWarper ExecuteAsyncCommand { get; }
-
-    public CommandView_Model()
+    public CommandWarper ExecuteCommand => GetCommand(() =>
     {
-        ExecuteCommand = new(Execute, () => CanExecuted);
-        ExecuteAsyncCommand = new(ExecuteAsync, () => CanExecuted);
-    }
+    });
 
-    public void Execute()
-    {
-    }
-
-    public bool IsExecuting
-    {
-        get;
-        private set => SetValue(ref field, value);
-    }
-
-    public async Task ExecuteAsync()
-    {
-        IsExecuting = true;
-        await Task.Delay(3000);
-        IsExecuting = false;
-    }
+    public CommandWarper ExecuteAsyncCommand => GetCommand(() => Task.Delay(3000));
 }
