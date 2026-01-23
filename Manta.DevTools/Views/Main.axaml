@@ -33,7 +33,7 @@
                         </MPanel>
                         <MPanel Grid.Column="1" Mode="Horizontal" Spacing="{MSize S1}" Margin="{MThickness S2, Vertical=S1}" VerticalAlignment="Center" Background="#00000000">
                             <MButton Content="Hide" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
-                                     Command="{Binding HideDevTools}" />
+                                     Command="{Binding HideDevToolsCommand}" />
                         </MPanel>
                     </Grid>
                 </Border>

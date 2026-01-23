@@ -38,6 +38,7 @@ sealed class DevToolsAttacher
 
             case MWindowVariant.Default:
             case MWindowVariant.TrayWindow:
+            case MWindowVariant.DialogWindow:
             default:
                 if (options.AutoShowForOtherWindows)
                     window.Opened += WindowOnOpened;

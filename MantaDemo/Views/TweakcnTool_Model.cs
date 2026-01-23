@@ -2,11 +2,12 @@ using Avalonia.Controls;
 using Manta;
 using Manta.Controls;
 using Manta.Controls.Icons;
-using MantaDemo.Langs;
 using Manta.Globalization;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
 using Manta.Tools;
+using MantaDemo.Langs;
 using MantaDemo.Services;
 
 namespace MantaDemo.Views;
@@ -42,7 +43,7 @@ public class TweakcnTool_Model : WindowModel
         };
     }
 
-    public async Task ExportAsync()
+    public CommandWarper ExportAsyncCommand => GetCommand(async () =>
     {
         var storageProvider = await this.GetStorageProviderAsync();
         var storageFolders = await storageProvider.OpenFolderPickerAsync(new()
@@ -73,5 +74,5 @@ public class TweakcnTool_Model : WindowModel
         {
             await writer.WriteAsync(darkStr);
         }
-    }
+    });
 }

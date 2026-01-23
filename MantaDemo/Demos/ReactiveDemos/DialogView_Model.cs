@@ -1,8 +1,7 @@
-using System.Windows.Input;
-using MantaDemo.Langs;
 using Manta.Dialogs;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ReactiveDemos;
@@ -16,26 +15,17 @@ sealed class DialogView_Model : DemoViewModel
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_Dialog;
 
-    public ICommand AlertAsyncCommand { get; }
-    public ICommand ConfirmAsyncCommand { get; }
-
-    public DialogView_Model()
-    {
-        AlertAsyncCommand = new CommandWarper(AlertAsync);
-        ConfirmAsyncCommand = new CommandWarper(ConfirmAsync);
-    }
-
-    public async Task AlertAsync()
+    public CommandWarper AlertAsyncCommand => GetCommand(async () =>
     {
         await AlertDialog.ShowDialogAsync(this, new("This is an alert dialog."));
-    }
+    });
 
-    public async Task ConfirmAsync()
+    public CommandWarper ConfirmAsyncCommand => GetCommand(async () =>
     {
         var result = await ConfirmDialog.ShowDialogAsync(this, new("This is an alert dialog."));
         if (result)
             await AlertDialog.ShowDialogAsync(this, new("You clicked OK."));
-    }
+    });
 
     public bool AllowMultiple
     {
@@ -43,7 +33,7 @@ sealed class DialogView_Model : DemoViewModel
         set => SetValue(ref field, value);
     } = true;
 
-    public async Task OpenFileAsync()
+    public CommandWarper OpenFileAsyncCommand => GetCommand(async () =>
     {
         var storageProvider = await this.GetStorageProviderAsync();
         var result = await storageProvider.OpenFilePickerAsync(new()
@@ -69,9 +59,9 @@ sealed class DialogView_Model : DemoViewModel
             return;
 
         await AlertDialog.ShowDialogAsync(this, new($"You selected file:\n{string.Join("\n", result.Select(f => f.Name))}"));
-    }
+    });
 
-    public async Task OpenFolderAsync()
+    public CommandWarper OpenFolderAsyncCommand => GetCommand(async () =>
     {
         var storageProvider = await this.GetStorageProviderAsync();
         var result = await storageProvider.OpenFolderPickerAsync(new()
@@ -84,9 +74,9 @@ sealed class DialogView_Model : DemoViewModel
             return;
 
         await AlertDialog.ShowDialogAsync(this, new($"You selected folder:\n{string.Join("\n", result.Select(f => f.Name))}"));
-    }
+    });
 
-    public async Task SaveFileAsync()
+    public CommandWarper SaveFileAsyncCommand => GetCommand(async () =>
     {
         var storageProvider = await this.GetStorageProviderAsync();
         var result = await storageProvider.SaveFilePickerAsync(new()
@@ -112,5 +102,5 @@ sealed class DialogView_Model : DemoViewModel
             return;
 
         await AlertDialog.ShowDialogAsync(this, new($"You selected file to save:\n{result.Name}"));
-    }
+    });
 }
