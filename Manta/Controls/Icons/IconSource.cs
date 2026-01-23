@@ -28,7 +28,7 @@ public sealed class IconSource
                 var pathLayer = new IconPathLayer();
 
                 if (node.Attributes["d"]?.Value is { } data)
-                    pathLayer.Data = Geometry.Parse(data);
+                    pathLayer.Data = data;
                 if (node.Attributes["fill"]?.Value is { } fill)
                     pathLayer.Fill = fill;
                 if (node.Attributes["stroke"]?.Value is { } stroke)

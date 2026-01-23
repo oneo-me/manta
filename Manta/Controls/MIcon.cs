@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Shapes;
+using Avalonia.Media;
 using Avalonia.Metadata;
 using Manta.Controls.Icons;
 using Manta.Controls.Icons.Inners;
@@ -87,6 +88,7 @@ public sealed class MIcon : TemplatedControl
     }
 
     readonly Panel _panel = new();
+    static readonly Geometry _emptyGeometry = Geometry.Parse(string.Empty);
 
     void OnSourceChanged(IconSource? source)
     {
@@ -103,7 +105,7 @@ public sealed class MIcon : TemplatedControl
             if (layer is IconPathLayer pathLayer)
                 shape = new Path
                 {
-                    Data = pathLayer.Data,
+                    Data = string.IsNullOrWhiteSpace(pathLayer.Data) ? _emptyGeometry : Geometry.Parse(pathLayer.Data),
                     StrokeLineCap = pathLayer.StrokeLineCap,
                     StrokeThickness = pathLayer.StrokeWidth
                 };
