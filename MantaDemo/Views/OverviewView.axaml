@@ -17,7 +17,7 @@
             <MItems.ItemTemplate>
                 <DataTemplate>
                     <MButton Content="{Lang {Binding Header}}"
-                             Command="{Binding ElementName=View, Path=DataContext.OpenRegion}"
+                             Command="{Binding ElementName=View, Path=DataContext.OpenRegionCommand}"
                              CommandParameter="{Binding}" />
                 </DataTemplate>
             </MItems.ItemTemplate>
@@ -31,7 +31,7 @@
             <MItems.ItemTemplate>
                 <DataTemplate>
                     <MButton Variant="Outline"
-                             Command="{Binding ElementName=View, Path=DataContext.ChangeLanguage}"
+                             Command="{Binding ElementName=View, Path=DataContext.ChangeLanguageCommand}"
                              CommandParameter="{Binding}">
                         <MPanel Mode="Horizontal" Spacing="6">
                             <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />

@@ -4,6 +4,7 @@ using Avalonia.Rendering;
 using Manta.Controls;
 using Manta.DevTools.Models;
 using Manta.Extensions;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
@@ -102,10 +103,10 @@ sealed class Main_Model : ViewModel
             .DisposeWith(disposables);
     }
 
-    public void HideDevTools()
+    public CommandWarper HideDevToolsCommand => GetCommand(() =>
     {
         _attacher?.ShowOrHideDevTools();
-    }
+    });
 
     public bool EnabledFps
     {

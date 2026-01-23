@@ -2,6 +2,7 @@ using System.Reactive.Disposables;
 using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Extensions;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Extensions;
 
 namespace Manta.Reactive.Views;
@@ -20,23 +21,23 @@ public abstract class DialogModel : WindowModel
         RegisterTitleBarEvents = isMacOs is false;
     }
 
-    public async Task OnCancelAsync()
+    public CommandWarper CancelAsyncCommand => GetCommand(async () =>
     {
         if (await CanCancelAsync() is false)
             return;
 
         Result = false;
         await CloseAsync();
-    }
+    });
 
-    public async Task OnContinueAsync()
+    public CommandWarper ContinueAsyncCommand => GetCommand(async () =>
     {
         if (await CanContinueAsync() is false)
             return;
 
         Result = true;
         await CloseAsync();
-    }
+    });
 
     protected virtual Task<bool> CanCancelAsync()
     {

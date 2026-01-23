@@ -15,9 +15,9 @@
         </Border>
         <MPanel Mode="Vertical" Spacing="6">
             <MButton Variant="Ghost" Content="Open Manta Demo" HorizontalContentAlignment="Left"
-                     Command="{Binding ActiveApp}" />
+                     Command="{Binding ActiveAppCommand}" />
             <MButton Variant="Ghost" Content="Exit" HorizontalContentAlignment="Left"
-                     Command="{Binding Exit}" />
+                     Command="{Binding ExitCommand}" />
         </MPanel>
     </MPanel>
 </MView>

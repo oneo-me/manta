@@ -2,11 +2,12 @@ using Avalonia.Controls;
 using Manta;
 using Manta.Controls;
 using Manta.Controls.Icons;
-using MantaDemo.Langs;
 using Manta.Globalization;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 using MantaDemo.Services;
 
@@ -52,13 +53,13 @@ sealed class Main_Model : WindowModel
         this.SetContext("title", Lang.Get(new(LangKey.Title)));
     }
 
-    public async Task OpenSettingsAsync()
-    {
-        await new SettingsView_Model().ShowDialogAsync(this);
-    }
-
-    public async Task OpenTweakcnToolAsync()
+    public CommandWarper OpenTweakcnToolAsyncCommand => GetCommand(async () =>
     {
         await new TweakcnTool_Model().ShowDialogAsync(this);
-    }
+    });
+
+    public CommandWarper OpenSettingsAsyncCommand => GetCommand(async () =>
+    {
+        await new SettingsView_Model().ShowDialogAsync(this);
+    });
 }

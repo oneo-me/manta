@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Manta;
 using Manta.Controls;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
 
 namespace MantaDemo.Views;
@@ -18,13 +19,13 @@ sealed class TrayView_Model : TrayWindowModel
         window.SizeToContent = SizeToContent.Height;
     }
 
-    public void ActiveApp()
+    public CommandWarper ActiveAppCommand => GetCommand(() =>
     {
         MApp.Current.Activate();
-    }
+    });
 
-    public void Exit()
+    public CommandWarper ExitCommand => GetCommand(() =>
     {
         MApp.Current.Exit();
-    }
+    });
 }

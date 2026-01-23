@@ -4,13 +4,14 @@ using DynamicData;
 using DynamicData.Binding;
 using Manta;
 using Manta.Controls.Icons;
-using MantaDemo.Langs;
 using Manta.Globalization;
 using Manta.Globalization.Core;
+using Manta.Reactive.Commands;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 using MantaDemo.Services;
 
@@ -44,14 +45,14 @@ sealed class OverviewView_Model : HeaderRegionModel
         Items = items;
     }
 
-    public void OpenRegion(HeaderRegionModel regionModel)
+    public CommandWarper<HeaderRegionModel> OpenRegionCommand => GetCommand<HeaderRegionModel>(regionModel =>
     {
         _regionManager.SelectedItem = regionModel;
-    }
+    });
 
-    public void ChangeLanguage(LangType langType)
+    public CommandWarper<LangType> ChangeLanguageCommand => GetCommand<LangType>(langType =>
     {
         Lang.Current = langType;
         _configService.Config.Language = langType;
-    }
+    });
 }
