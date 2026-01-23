@@ -4,19 +4,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Demos.ReactiveDemos"
     x:DataType="local:ContextView_Model" Design.DataContext="{x:Static local:ContextView_Model.Design}">
-    <MItems ItemsSource="{Binding Contexts}" Grid.IsSharedSizeScope="True"
-            Margin="{MThickness S3}">
-        <MItems.ItemTemplate>
-            <DataTemplate>
+    <MPanel Mode="Vertical" Spacing="{MSize S3}" Margin="{MThickness S3}" HorizontalAlignment="Left">
+        <TextBlock Text="Context" />
+        <Border BorderThickness="{MThickness Px}"
+                CornerRadius="{MRadius MD}"
+                Background="{MBrush Primary, Opacity=0.1}">
+            <MPanel Mode="Vertical" Spacing="{MSize S2}" Margin="{MThickness S3}" HorizontalAlignment="Left">
                 <Grid ColumnSpacing="{MSize S2}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="ContextKey" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Key" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="{Binding Key, StringFormat={}{0}:}" />
-                    <SelectableTextBlock Grid.Column="1" Text="{Binding Value}" />
+                    <TextBlock Grid.Column="0" Text="TestBool" FontWeight="SemiBold" />
+                    <MCheckBox Grid.Column="1" IsChecked="{Binding TestBool.Value}" />
                 </Grid>
-            </DataTemplate>
-        </MItems.ItemTemplate>
-    </MItems>
+                <Grid ColumnSpacing="{MSize S2}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Key" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Data1" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="1" Text="{Binding Data1}" />
+                </Grid>
+                <Grid ColumnSpacing="{MSize S2}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Key" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Data2" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="1" Text="{Binding Data2}" />
+                </Grid>
+            </MPanel>
+        </Border>
+        <MViewHost ViewModelType="local:ContextViewChild_Model"
+                   BorderThickness="{MThickness Px}"
+                   CornerRadius="{MRadius MD}" />
+    </MPanel>
 </MView>

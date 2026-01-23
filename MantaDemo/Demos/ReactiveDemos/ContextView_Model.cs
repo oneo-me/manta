@@ -1,4 +1,3 @@
-using Avalonia.Collections;
 using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
@@ -14,14 +13,14 @@ sealed class ContextView_Model : DemoViewModel
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_ViewContext;
 
-    public AvaloniaList<KeyValuePair<string, object?>> Contexts { get; } = [];
+    public ReactiveValue<bool> TestBool { get; } = new(true);
+    public string Data1 => "Hello, World!";
+    public string Data2 => "Goodbye, World!";
 
-    protected override void OnInitialized()
+    public ContextView_Model()
     {
-        base.OnInitialized();
-
-        var dictionary = this.GetContexts();
-        foreach (var kvp in dictionary)
-            Contexts.Add(kvp);
+        SetContext(nameof(TestBool), TestBool);
+        SetContext(nameof(Data1), Data1);
+        SetContext(nameof(Data2), Data2);
     }
 }
