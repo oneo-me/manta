@@ -4,7 +4,7 @@ using Manta.Controls;
 
 namespace Manta.Reactive.Views;
 
-public abstract class ViewModel : Model
+public abstract class ViewModel : CommandModel
 {
     protected static bool IsDesignMode { get; } = Design.IsDesignMode;
 
