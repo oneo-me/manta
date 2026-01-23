@@ -4,7 +4,7 @@ using Manta.Controls;
 
 namespace Manta.Reactive.Views;
 
-public abstract class ViewModel : CommandModel
+public abstract partial class ViewModel : CommandModel
 {
     protected static bool IsDesignMode { get; } = Design.IsDesignMode;
 
@@ -17,6 +17,7 @@ public abstract class ViewModel : CommandModel
         if (_isInitialized is false)
         {
             _isInitialized = true;
+            OnLoadViewContexts();
             OnInitialized();
         }
 
@@ -26,8 +27,6 @@ public abstract class ViewModel : CommandModel
     protected virtual void OnInitialized()
     {
     }
-
-    internal Dictionary<string, object?>? Context { get; set; }
 
     protected virtual void OnViewActivated(CompositeDisposable disposables)
     {

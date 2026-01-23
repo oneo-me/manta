@@ -46,13 +46,6 @@ sealed class Main_Model : WindowModel
         };
     }
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        this.SetContext("title", Lang.Get(new(LangKey.Title)));
-    }
-
     public CommandWarper OpenTweakcnToolAsyncCommand => GetCommand(async () =>
     {
         await new TweakcnTool_Model().ShowDialogAsync(this);

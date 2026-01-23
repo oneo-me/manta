@@ -67,12 +67,13 @@ sealed class Main_Model : ViewModel
         if (node is null)
             return null;
 
-        if (node.ViewModel.Context is null)
+        var keyValuePairs = node.ViewModel.InnerGetContextItems().ToList();
+        if (keyValuePairs.Count == 0)
             return null;
 
         var context = new ViewContext(node.Header);
 
-        foreach (var (key, value) in node.ViewModel.Context)
+        foreach (var (key, value) in keyValuePairs)
             context.Items.Add(new(key, value));
 
         return context;

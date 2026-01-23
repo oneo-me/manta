@@ -6,11 +6,13 @@ namespace Manta.Reactive.Views;
 
 public abstract class CommandModel : Model
 {
-    readonly Dictionary<string, ICommand> _commands = [];
+    Dictionary<string, ICommand>? _commands;
 
-    T GetOrCreateCommand<T>(Func<T> commandFactory, string? name) where T : ICommand
+    T GetCommandCore<T>(Func<T> commandFactory, string? name) where T : ICommand
     {
         ArgumentNullException.ThrowIfNull(name);
+
+        _commands ??= new();
 
         if (_commands.TryGetValue(name, out var command))
             return (T)command;
@@ -23,21 +25,21 @@ public abstract class CommandModel : Model
 
     protected CommandWarper GetCommand(Action action, Func<bool>? canAction = null, [CallerMemberName] string? name = null)
     {
-        return GetOrCreateCommand(() => new CommandWarper(action, canAction), name);
+        return GetCommandCore(() => new CommandWarper(action, canAction), name);
     }
 
     protected CommandWarper<T> GetCommand<T>(Action<T> action, Func<T, bool>? canAction = null, [CallerMemberName] string? name = null)
     {
-        return GetOrCreateCommand(() => new CommandWarper<T>(action, canAction), name);
+        return GetCommandCore(() => new CommandWarper<T>(action, canAction), name);
     }
 
     protected CommandWarper GetCommand(Func<Task> action, Func<bool>? canAction = null, [CallerMemberName] string? name = null)
     {
-        return GetOrCreateCommand(() => new CommandWarper(action, canAction), name);
+        return GetCommandCore(() => new CommandWarper(action, canAction), name);
     }
 
     protected CommandWarper<T> GetCommand<T>(Func<T, Task> action, Func<T, bool>? canAction = null, [CallerMemberName] string? name = null)
     {
-        return GetOrCreateCommand(() => new CommandWarper<T>(action, canAction), name);
+        return GetCommandCore(() => new CommandWarper<T>(action, canAction), name);
     }
 }
