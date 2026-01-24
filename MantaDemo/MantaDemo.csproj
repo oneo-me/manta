@@ -10,7 +10,6 @@
         <ProjectReference Include="..\Manta.DevTools\Manta.DevTools.csproj" />
         <ProjectReference Include="..\Manta.Markdown\Manta.Markdown.csproj" />
         <ProjectReference Include="..\MantaTools\MantaTools.csproj" />
-        <ProjectReference Include="..\Manta.WebView\Manta.WebView.csproj" />
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
     <ItemGroup>

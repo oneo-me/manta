@@ -5,7 +5,6 @@
     <MApp.Styles>
         <MantaTheme />
         <MantaChartsTheme />
-        <MantaWebViewTheme />
         <MantaMarkdownTheme />
         <MantaChatTheme />
         <MantaBlueprintTheme />
