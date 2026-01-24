@@ -24,9 +24,6 @@
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MButton Variant="Flat" Content="Flat" />
                 </MPanel>
-                <MPanel Mode="Horizontal" Spacing="8">
-                    <MButton Variant="Link" Content="Link" />
-                </MPanel>
             </MPanel>
             <TextBlock Text="Disabled" />
             <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
@@ -47,9 +44,6 @@
                 </MPanel>
                 <MPanel Mode="Horizontal" Spacing="8">
                     <MButton Variant="Flat" Content="Flat" />
-                </MPanel>
-                <MPanel Mode="Horizontal" Spacing="8">
-                    <MButton Variant="Link" Content="Link" />
                 </MPanel>
             </MPanel>
         </MPanel>
@@ -235,16 +229,6 @@
             </Setter>
             <Style Selector="^:pointerover">
                 <Setter Property="Background" Value="{MBrush Secondary}" />
-            </Style>
-            <Style Selector="^:disabled">
-                <Setter Property="Foreground" Value="{MBrush SecondaryForeground, Opacity=0.5}" />
-            </Style>
-        </Style>
-        <Style Selector="^[Variant=Link]">
-            <Setter Property="Padding" Value="{MThickness S0}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="TextBlock.TextDecorations" Value="Underline" />
             </Style>
             <Style Selector="^:disabled">
                 <Setter Property="Foreground" Value="{MBrush SecondaryForeground, Opacity=0.5}" />
