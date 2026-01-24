@@ -10,7 +10,6 @@ public enum MButtonVariant
     Secondary,
     Ghost,
     Destructive,
-    Link,
     Flat
 }
 

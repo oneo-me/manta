@@ -37,7 +37,7 @@ A comprehensive UI toolkit and MVVM framework built on Avalonia for cross-platfo
 
 | Control | Description |
 |---------|-------------|
-| MButton | Button with multiple variants (Primary, Secondary, Outline, Ghost, Link, Destructive) |
+| MButton | Button with multiple variants (Primary, Secondary, Outline, Ghost, Destructive) |
 | MToggleButton | Toggle button with Outline and WithText variants |
 | MCheckBox | Checkbox with Default and Bordered variants, custom header support |
 | MTextBox | Text input with animated cursor and IME support |
