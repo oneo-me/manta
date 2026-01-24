@@ -28,6 +28,8 @@ sealed class App : MApp
 
     protected override void OnInitialize(out MAppOptions options)
     {
+        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
+
         var appFolder = Folder;
         var dataFolder = Path.Combine(appFolder, "Data");
         var cacheFolder = Path.Combine(dataFolder, "Cache");
@@ -36,8 +38,6 @@ sealed class App : MApp
 
         var imageLoadService = Service.GetService<ImageLoadService>();
         imageLoadService.CacheDirectory = cacheFolder;
-
-        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
         Service.Register(new DemoService());
