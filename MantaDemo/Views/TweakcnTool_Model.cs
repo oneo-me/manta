@@ -6,7 +6,7 @@ using Manta.Globalization;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using Manta.Tools;
+using MantaTools;
 using MantaDemo.Langs;
 using MantaDemo.Services;
 

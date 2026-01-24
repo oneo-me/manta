@@ -1,7 +1,7 @@
 using Manta.Themes.Values;
-using Manta.Tools.Values;
+using MantaTools.Values;
 
-namespace Manta.Tools.Extensions;
+namespace MantaTools.Extensions;
 
 static class ValueExtensions
 {
