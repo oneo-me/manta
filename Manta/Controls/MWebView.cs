@@ -4,7 +4,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Manta.Native;
 
-namespace Manta.WebView.Controls;
+namespace Manta.Controls;
 
 [TemplatePart(nameof(PART_NativeHost), typeof(Border))]
 public class MWebView : TemplatedControl, IDisposable

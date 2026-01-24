@@ -1,6 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <ProjectReference Include="..\Manta.Native\Manta.Native.csproj" />
-        <ProjectReference Include="..\Manta\Manta.csproj" />
-    </ItemGroup>
-</Project>
