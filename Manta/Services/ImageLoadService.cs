@@ -13,18 +13,21 @@ public sealed class ImageLoadService
 
     public string? CacheDirectory { get; set; }
 
-    internal Task<Bitmap?> LoadAsync(IImageSource source, CancellationToken cancellationToken)
+    internal async Task<Bitmap?> LoadAsync(IImageSource source, CancellationToken cancellationToken)
     {
         if (source is AvaloniaImageSource avaloniaImageSource)
-            return LoadAvaloniaImageAsync(avaloniaImageSource);
+            return await LoadAvaloniaImageAsync(avaloniaImageSource);
 
         if (source is LocalImageSource localImageSource)
-            return LoadLocalImageAsync(localImageSource, cancellationToken);
+            return await LoadLocalImageAsync(localImageSource, cancellationToken);
 
         if (source is WebImageSource webImageSource)
-            return LoadWebImageAsync(webImageSource, cancellationToken);
+            return await LoadWebImageAsync(webImageSource, cancellationToken);
 
-        return Task.FromResult<Bitmap?>(null);
+        if (source is BitmapImageSource bitmapImageSource)
+            return bitmapImageSource.Bitmap;
+
+        return null;
     }
 
     string GetCacheFilePath(string source)
