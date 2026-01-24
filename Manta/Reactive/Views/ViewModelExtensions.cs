@@ -69,14 +69,34 @@ public static class ViewModelExtensions
             return window;
         }
 
-        public async Task<IStorageProvider> GetStorageProviderAsync()
+        public async Task<IReadOnlyList<IStorageFile>> OpenFilePickerAsync(FilePickerOpenOptions options)
         {
             var window = await viewModel.GetWindowAsync();
 
             if (UIThread.CheckAccess())
-                return window.StorageProvider;
+                return await window.StorageProvider.OpenFilePickerAsync(options);
 
-            return await UIThread.InvokeAsync(() => window.StorageProvider);
+            return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFilePickerAsync(options));
+        }
+
+        public async Task<IReadOnlyList<IStorageFolder>> OpenFolderPickerAsync(FolderPickerOpenOptions options)
+        {
+            var window = await viewModel.GetWindowAsync();
+
+            if (UIThread.CheckAccess())
+                return await window.StorageProvider.OpenFolderPickerAsync(options);
+
+            return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFolderPickerAsync(options));
+        }
+
+        public async Task<IStorageFile?> SaveFilePickerAsync(FilePickerSaveOptions options)
+        {
+            var window = await viewModel.GetWindowAsync();
+
+            if (UIThread.CheckAccess())
+                return await window.StorageProvider.SaveFilePickerAsync(options);
+
+            return await UIThread.InvokeAsync(() => window.StorageProvider.SaveFilePickerAsync(options));
         }
 
         public async Task<IClipboard> GetClipboardAsync()

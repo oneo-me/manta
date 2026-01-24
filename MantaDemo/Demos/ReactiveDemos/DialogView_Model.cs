@@ -35,8 +35,7 @@ sealed class DialogView_Model : DemoViewModel
 
     public CommandWarper OpenFileAsyncCommand => GetCommand(async () =>
     {
-        var storageProvider = await this.GetStorageProviderAsync();
-        var result = await storageProvider.OpenFilePickerAsync(new()
+        var result = await this.OpenFilePickerAsync(new()
         {
             Title = "Open a file",
             AllowMultiple = AllowMultiple,
@@ -63,8 +62,7 @@ sealed class DialogView_Model : DemoViewModel
 
     public CommandWarper OpenFolderAsyncCommand => GetCommand(async () =>
     {
-        var storageProvider = await this.GetStorageProviderAsync();
-        var result = await storageProvider.OpenFolderPickerAsync(new()
+        var result = await this.OpenFolderPickerAsync(new()
         {
             Title = "Open a folder",
             AllowMultiple = AllowMultiple
@@ -78,8 +76,7 @@ sealed class DialogView_Model : DemoViewModel
 
     public CommandWarper SaveFileAsyncCommand => GetCommand(async () =>
     {
-        var storageProvider = await this.GetStorageProviderAsync();
-        var result = await storageProvider.SaveFilePickerAsync(new()
+        var result = await this.SaveFilePickerAsync(new()
         {
             Title = "Save a file",
             SuggestedFileName = "NewFile.txt",

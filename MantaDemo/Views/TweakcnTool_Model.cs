@@ -45,8 +45,7 @@ public class TweakcnTool_Model : WindowModel
 
     public CommandWarper ExportAsyncCommand => GetCommand(async () =>
     {
-        var storageProvider = await this.GetStorageProviderAsync();
-        var storageFolders = await storageProvider.OpenFolderPickerAsync(new()
+        var storageFolders = await this.OpenFolderPickerAsync(new()
         {
             AllowMultiple = false
         });
