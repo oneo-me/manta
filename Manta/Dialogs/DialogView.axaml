@@ -4,8 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.Dialogs"
     x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}">
-    <Panel MinWidth="{MSize S80}">
-        <MBackgroud IsVisible="{Binding !IsSheetDialog}" />
+    <MBackgroud MinWidth="{MSize S80}">
         <MDialogTemplate Header="{Lang {Binding Title}}"
                          CancelButton="{Lang {Binding CancelButton}}"
                          CancelButtonVariant="{Binding CancelButtonVariant}"
@@ -15,5 +14,5 @@
                          ContinueButtonCommand="{Binding ContinueAsyncCommand}">
             <SelectableTextBlock Text="{Lang {Binding Content}}" />
         </MDialogTemplate>
-    </Panel>
+    </MBackgroud>
 </MView>
