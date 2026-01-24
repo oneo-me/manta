@@ -1,6 +1,6 @@
-using Manta.Tools.Themes;
+using MantaTools.Themes;
 
-namespace Manta.Tools;
+namespace MantaTools;
 
 public sealed class TweakcnParserResult
 {

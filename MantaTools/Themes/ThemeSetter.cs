@@ -1,4 +1,4 @@
-namespace Manta.Tools.Themes;
+namespace MantaTools.Themes;
 
 sealed class ThemeSetter
 {

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using Manta.Tools.Values;
+using MantaTools.Values;
 
-namespace Manta.Tools.Themes;
+namespace MantaTools.Themes;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public sealed class ThemeVariable(bool isDark) : IEnumerable<string?>

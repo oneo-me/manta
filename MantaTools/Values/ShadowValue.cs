@@ -1,4 +1,4 @@
-namespace Manta.Tools.Values;
+namespace MantaTools.Values;
 
 public sealed class ShadowValue
 {

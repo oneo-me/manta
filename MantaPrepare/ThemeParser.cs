@@ -1,4 +1,4 @@
-// using Manta.Tools;
+// using MantaTools;
 //
 // namespace MantaPrepare;
 //

@@ -1,7 +1,7 @@
-using Manta.Tools.Extensions;
-using Manta.Tools.Themes;
+using MantaTools.Extensions;
+using MantaTools.Themes;
 
-namespace Manta.Tools;
+namespace MantaTools;
 
 public static class TweakcnParser
 {

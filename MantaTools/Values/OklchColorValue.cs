@@ -1,6 +1,6 @@
 using Manta.Themes.Values;
 
-namespace Manta.Tools.Values;
+namespace MantaTools.Values;
 
 public sealed class OklchColorValue(OklchColor? oklchColor = null)
 {
