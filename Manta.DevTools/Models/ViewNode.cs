@@ -25,7 +25,7 @@ sealed class ViewNode : NodeBase
 
     public void UpdateAdorner(IResourceHost resourceHost)
     {
-        UpdateAdornerCore(View, resourceHost, false);
+        UpdateAdornerCore(View, resourceHost, true);
     }
 
     protected override void DisposeOverride()
