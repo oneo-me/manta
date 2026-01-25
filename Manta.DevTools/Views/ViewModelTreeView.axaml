@@ -1,0 +1,25 @@
+<MView
+    x:Class="Manta.DevTools.Views.ViewModelTreeView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views"
+    xmlns:commands="clr-namespace:Manta.DevTools.Commands"
+    xmlns:models="clr-namespace:Manta.DevTools.Models"
+    x:DataType="local:ViewModelTreeView_Model" Design.DataContext="{x:Static local:ViewModelTreeView_Model.Design}"
+    Name="View">
+    <MTree ItemsSource="{Binding Root.Value}" SelectedItem="{Binding SelectedNode.Value.Value}">
+        <MTree.Styles>
+            <Style Selector="MTreeItem">
+                <Setter Property="IsExpanded" Value="True" />
+                <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:ViewNode" />
+                <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
+                <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:ViewNode" />
+            </Style>
+        </MTree.Styles>
+        <MTree.ItemTemplate>
+            <TreeDataTemplate ItemsSource="{Binding Container.Children}">
+                <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+            </TreeDataTemplate>
+        </MTree.ItemTemplate>
+    </MTree>
+</MView>

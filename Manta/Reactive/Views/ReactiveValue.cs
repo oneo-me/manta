@@ -1,6 +1,6 @@
 namespace Manta.Reactive.Views;
 
-public class ReactiveValue<T>(T value) : Model
+public sealed class ReactiveValue<T>(T value) : Model
 {
     public T Value
     {
