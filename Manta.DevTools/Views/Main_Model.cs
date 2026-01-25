@@ -23,61 +23,8 @@ sealed class Main_Model : ViewModel
         set => SetValue(ref field, value);
     } = true;
 
-    public AvaloniaList<ViewContext> Contexts { get; } = [];
     public AvaloniaList<ViewNode> Root { get; } = [];
-
-    public ViewNode? SelectedItem
-    {
-        get;
-        set
-        {
-            if (SetValue(ref field, value))
-            {
-                for (var i = LogicalRoot.Count - 1; i >= 0; i--)
-                {
-                    var item = LogicalRoot[i];
-                    LogicalRoot.RemoveAt(i);
-                    item.Dispose();
-                }
-
-                if (value is not null)
-                    LogicalRoot.Add(new(null, value.View));
-
-                // Update Contexts
-                Contexts.Clear();
-
-                var current = value;
-
-                while (current is not null)
-                {
-                    var currentContext = GetViewContext(current);
-                    if (currentContext is not null)
-                        Contexts.Add(currentContext);
-
-                    current = current.Parent;
-                }
-            }
-        }
-    }
-
-    public AvaloniaList<LogicalNode> LogicalRoot { get; } = [];
-
-    static ViewContext? GetViewContext(ViewNode? node)
-    {
-        if (node is null)
-            return null;
-
-        var keyValuePairs = node.ViewModel.InnerGetContextItems().ToList();
-        if (keyValuePairs.Count == 0)
-            return null;
-
-        var context = new ViewContext(node.Header);
-
-        foreach (var (key, value) in keyValuePairs)
-            context.Items.Add(new(key, value));
-
-        return context;
-    }
+    public ReactiveValue<ViewNode?> SelectedNode { get; } = new(null);
 
     public Main_Model(DevToolsAttacher? attacher)
     {
@@ -92,6 +39,9 @@ sealed class Main_Model : ViewModel
         EnabledFps = _attacher.Options.EnableFpsByDefault;
         EnabledDirtyRects = _attacher.Options.EnableDirtyRectsByDefault;
         EnabledTimeGraph = _attacher.Options.EnableTimeGraphByDefault;
+
+        SetContext(nameof(Root), Root);
+        SetContext(nameof(SelectedNode), SelectedNode);
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
