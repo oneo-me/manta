@@ -19,25 +19,25 @@
                     </MListBox.Styles>
                     <MListBoxItem>
                         <MPanel Mode="Horizontal" Spacing="4">
-                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                             <TextBlock Text="Group Item 1" VerticalAlignment="Center" />
                         </MPanel>
                     </MListBoxItem>
                     <MListBoxItem>
                         <MPanel Mode="Horizontal" Spacing="4">
-                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                             <TextBlock Text="Group Item 2" VerticalAlignment="Center" />
                         </MPanel>
                     </MListBoxItem>
                     <MListBoxItem>
                         <MPanel Mode="Horizontal" Spacing="4">
-                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                             <TextBlock Text="Group Item 3" VerticalAlignment="Center" />
                         </MPanel>
                     </MListBoxItem>
                     <MListBoxItem>
                         <MPanel Mode="Horizontal" Spacing="4">
-                            <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                             <TextBlock Text="Group Item 4" VerticalAlignment="Center" />
                         </MPanel>
                     </MListBoxItem>
@@ -74,15 +74,15 @@
                                 <Grid Grid.Row="1" ColumnDefinitions="* Auto">
                                     <MPanel Grid.Column="0" Mode="Horizontal" Spacing="3" Margin="3">
                                         <MButton Variant="Ghost" Padding="4">
-                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                            <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                         </MButton>
                                         <MButton Variant="Ghost" Padding="4">
-                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                            <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                         </MButton>
                                     </MPanel>
                                     <MPanel Grid.Column="1" Mode="Horizontal" Spacing="3" Margin="3">
                                         <MButton Variant="Ghost" Padding="4">
-                                            <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                            <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                         </MButton>
                                     </MPanel>
                                 </Grid>
@@ -96,7 +96,7 @@
                                 <MPanel Mode="Vertical" Spacing="12" Margin="12">
                                     <TextBlock Text="About" FontWeight="SemiBold" />
                                     <MPanel Mode="Vertical" Spacing="12" TextBlock.TextAlignment="Center">
-                                        <MIcon IconSize="62" IconSource="{Binding TestIcon}" />
+                                        <MIcon IconSize="62" IconSource="{x:Static Icons.Reactive}" />
                                         <MPanel Mode="Vertical" Spacing="3">
                                             <TextBlock Text="Manta" FontSize="14" FontWeight="SemiBold" />
                                             <TextBlock Text="v1.0.0" />
@@ -109,25 +109,25 @@
                                         <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Center">
                                             <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
-                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Issues" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
                                             <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
-                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Discord" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
                                             <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
-                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Twitter" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
                                             <MButton Variant="Ghost">
                                                 <MPanel Mode="Horizontal" Spacing="4">
-                                                    <MIcon IconSize="18" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                    <MIcon IconSize="18" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                     <TextBlock Text="Github" VerticalAlignment="Center" />
                                                 </MPanel>
                                             </MButton>
@@ -184,7 +184,7 @@
                                         <TextBlock Text="Provider name" />
                                         <Grid ColumnDefinitions="Auto *">
                                             <MButton Grid.Column="0" Variant="Outline" Padding="6 4">
-                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                             </MButton>
                                             <MTextBox Grid.Column="1" Margin="5 0 0 0" Padding="8 4" Watermark="OpenAI" />
                                         </Grid>
@@ -204,19 +204,19 @@
                                             <MPanel Grid.Column="1" Mode="Horizontal" Spacing="4" VerticalAlignment="Center">
                                                 <MButton Variant="Ghost" Padding="4 2">
                                                     <MPanel Mode="Horizontal" Spacing="4">
-                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <TextBlock Text="Delete all" VerticalAlignment="Center" />
                                                     </MPanel>
                                                 </MButton>
                                                 <MButton Variant="Ghost" Padding="4 2">
                                                     <MPanel Mode="Horizontal" Spacing="4">
-                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <TextBlock Text="New" VerticalAlignment="Center" />
                                                     </MPanel>
                                                 </MButton>
                                                 <MButton Variant="Ghost" Padding="4 2">
                                                     <MPanel Mode="Horizontal" Spacing="4">
-                                                        <MIcon IconSize="14" IconSource="{Binding TestIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                                                        <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" Margin="0 -10" VerticalAlignment="Center" />
                                                         <TextBlock Text="Fetch models" VerticalAlignment="Center" />
                                                     </MPanel>
                                                 </MButton>
@@ -251,10 +251,10 @@
                                                             <MTextBox Grid.Column="0" Watermark="optional" Width="180" Padding="8 4" Margin="0 0 8 0" />
                                                             <MTextBox Grid.Column="1" Text="gpt-5-nano" Padding="8 4" />
                                                             <MButton Grid.Column="2" Variant="Ghost" Padding="4" Margin="8 0">
-                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                                <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                                             </MButton>
                                                             <MButton Grid.Column="3" Variant="Ghost" Padding="4">
-                                                                <MIcon IconSize="14" IconSource="{Binding TestIcon}" />
+                                                                <MIcon IconSize="14" IconSource="{x:Static Icons.Reactive}" />
                                                             </MButton>
                                                         </Grid>
                                                     </MItem>

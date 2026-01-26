@@ -6,12 +6,12 @@
     x:DataType="local:IconView_Model" Design.DataContext="{x:Static local:IconView_Model.Design}">
     <MPanel Mode="Vertical" Spacing="12" Margin="12">
         <MPanel Mode="Horizontal" Spacing="12">
-            <MIcon IconSize="80" IconSource="{Binding TestIcon}" />
-            <MIcon IconSize="80" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" />
+            <MIcon IconSize="80" IconSource="{x:Static Icons.Home}" />
+            <MIcon IconSize="80" IconStyle="OnlyBorder" IconSource="{x:Static Icons.Home}" />
         </MPanel>
         <MPanel Mode="Horizontal" Spacing="12">
-            <MIcon IconSize="50" IconSource="{Binding TestIcon}" Background="{MBrush Primary, Opacity=0.1}" Foreground="{MBrush Primary}" />
-            <MIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{Binding TestIcon}" Foreground="{MBrush Primary}" />
+            <MIcon IconSize="50" IconSource="{x:Static Icons.Home}" Background="{MBrush Primary, Opacity=0.1}" Foreground="{MBrush Primary}" />
+            <MIcon IconSize="50" IconStyle="OnlyBorder" IconSource="{x:Static Icons.Home}" Foreground="{MBrush Primary}" />
         </MPanel>
     </MPanel>
 </MView>

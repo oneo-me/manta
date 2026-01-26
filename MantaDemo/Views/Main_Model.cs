@@ -1,7 +1,5 @@
 using Avalonia.Controls;
-using Manta;
 using Manta.Controls;
-using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Regions;
@@ -22,10 +20,6 @@ sealed class Main_Model : WindowModel
     readonly ViewService _viewService = Service.GetService<ViewService>();
 
     public RegionManager<HeaderRegionModel> RegionManager => _viewService.RegionManager;
-
-    public IconSource ThemeSystemIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Sun-Fog--Streamline-Solar-Ar.svg"));
-    public IconSource SettingsIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Settings--Streamline-Solar-Ar.svg"));
-    public IconSource TweakcnToolIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Ruler-Pen--Streamline-Solar-Ar.svg"));
 
     public override void OnWindowInitialized(MWindow window)
     {
