@@ -3,7 +3,6 @@ using System.Reactive.Linq;
 using Avalonia.Collections;
 using DynamicData.Binding;
 using Manta.DevTools.Models;
-using Manta.Logging;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
@@ -17,13 +16,9 @@ sealed class ViewModelTreeView_Model : ViewModel
     public ViewContext<AvaloniaList<TreeNode>> Root => GetContext<AvaloniaList<TreeNode>>(nameof(Root));
     public ViewContext<ReactiveValue<TreeNode?>> SelectedNode => GetContext<ReactiveValue<TreeNode?>>(nameof(SelectedNode));
 
-    int _count;
-
     protected override void OnViewActivated(CompositeDisposable disposables)
     {
         base.OnViewActivated(disposables);
-
-        _count = 0;
 
         if (SelectedNode.Value is null || Root.Value is null)
             return;
@@ -35,10 +30,6 @@ sealed class ViewModelTreeView_Model : ViewModel
             .ObserveOnDispatcher()
             .Subscribe(_ =>
             {
-                _count++;
-
-                Log.Debug("{0}", _count);
-
                 var current = Root.Value.LastOrDefault();
                 while (current is not null && current.Count > 0)
                     current = current.LastOrDefault();

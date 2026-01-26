@@ -1,5 +1,7 @@
 using Avalonia.Collections;
 using Manta.Controls;
+using Manta.Controls.Icons;
+using Manta.Reactive.Regions;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Models;
@@ -12,6 +14,7 @@ sealed partial class TreeNode : AvaloniaList<TreeNode>, IDisposable
     public MView View { get; }
     public ViewModel ViewModel { get; }
 
+    public IconSource Icon { get; }
     public string Name { get; }
 
     public TreeNode(TreeNode? parent, MView view, ViewModel viewModel)
@@ -23,6 +26,13 @@ sealed partial class TreeNode : AvaloniaList<TreeNode>, IDisposable
         var viewModelType = viewModel.GetType();
 
         Name = viewModelType.Name;
+        Icon = viewModel switch
+        {
+            DialogModel => Icons.DialogModelIcon,
+            WindowModel => Icons.WindowModelIcon,
+            RegionModel => Icons.RegionModelIcon,
+            _           => Icons.ViewModelIcon
+        };
 
         _treeNodeObserver = new(this, view, OnChildAdded, OnChildRemoved);
     }
