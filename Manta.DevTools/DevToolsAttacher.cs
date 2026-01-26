@@ -29,13 +29,11 @@ sealed class DevToolsAttacher
 
         window.KeyUp += WindowOnKeyUp;
 
+        if (options.AutoShowForMainWindow && window.IsMainWindow)
+            window.Opened += WindowOnOpened;
+
         switch (window.Variant)
         {
-            case MWindowVariant.MainWindow:
-                if (options.AutoShowForMainWindow)
-                    window.Opened += WindowOnOpened;
-                break;
-
             case MWindowVariant.Default:
             case MWindowVariant.TrayWindow:
             case MWindowVariant.DialogWindow:

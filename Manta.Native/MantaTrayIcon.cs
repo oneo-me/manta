@@ -17,6 +17,8 @@ public sealed class MantaTrayIcon : IDisposable
             _impl = new MacOSTrayIcon(taryIcon);
         else if (OperatingSystem.IsWindows())
             _impl = new WindowsTrayIcon(app, taryIcon);
+        else if (OperatingSystem.IsLinux())
+            return; // Not supported yet
 
         if (_impl is null)
             throw new PlatformNotSupportedException("Tray icon is not supported on this platform.");

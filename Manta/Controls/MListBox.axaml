@@ -64,6 +64,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <MScrollViewer Name="PART_ScrollViewer"
@@ -78,7 +79,8 @@
                                IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
-                               HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
+                               HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
+                               ClipToBounds="{TemplateBinding ClipToBounds}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     Margin="{TemplateBinding Padding}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -97,6 +99,7 @@
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MListBoxItem}" TargetType="MListBoxItem">
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"

@@ -13,7 +13,6 @@ namespace Manta.Controls;
 public enum MWindowVariant
 {
     Default,
-    MainWindow,
     TrayWindow,
     DialogWindow
 }
@@ -31,6 +30,15 @@ public sealed partial class MWindow : Window
     {
         get => GetValue(VariantProperty);
         internal set => SetValue(VariantProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsMainWindowProperty = AvaloniaProperty.Register<MWindow, bool>(
+        nameof(IsMainWindow));
+
+    public bool IsMainWindow
+    {
+        get => GetValue(IsMainWindowProperty);
+        internal set => SetValue(IsMainWindowProperty, value);
     }
 
     public static readonly StyledProperty<bool> AllowFullScreenProperty = AvaloniaProperty.Register<MWindow, bool>(
@@ -72,7 +80,6 @@ public sealed partial class MWindow : Window
                 break;
 
             case MWindowVariant.Default:
-            case MWindowVariant.MainWindow:
             case MWindowVariant.DialogWindow:
             default:
                 MantaWindow.ConfigureWindow(this);

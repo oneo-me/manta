@@ -8,100 +8,104 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        <Setter Property="Background" Value="#00000000" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="Root" Background="{TemplateBinding Background}" Margin="{ TemplateBinding OffScreenMargin}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid Name="PART_WindowContent">
-                            <Border Name="Background" />
-                            <Border Name="PrimaryColor" />
-                            <VisualLayerManager>
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  Content="{TemplateBinding Content}" />
-                            </VisualLayerManager>
-                        </Grid>
+                <Panel Margin="{ TemplateBinding OffScreenMargin}">
+                    <Border Name="Background"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Name="Clip">
+                            <Panel>
+                                <VisualLayerManager>
+                                    <Grid Name="PART_WindowContent">
+                                        <Border Name="PrimaryColor" />
+                                        <ContentPresenter Name="PART_ContentPresenter"
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          Content="{TemplateBinding Content}" />
+                                    </Grid>
+                                </VisualLayerManager>
+                                <Panel Name="PART_Decorations" />
+                            </Panel>
+                        </Border>
                     </Border>
-                    <Panel Name="PART_Decorations" />
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <!-- TaryWindow -->
-        <Style Selector="^[Variant=TrayWindow]">
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
-            <Style Selector="^ /template/ Border#PrimaryColor">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
-        </Style>
-        <!-- DialogWindow -->
-        <Style Selector="^[Variant=DialogWindow][(CurrentSystem.IsMacOS)=True]">
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
-            <Style Selector="^ /template/ Border#PrimaryColor">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
-        </Style>
-        <!-- macOS -->
         <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
             <!-- Taken over by native code -->
             <!-- <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" /> -->
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
             <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" />
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Background" Value="{MBrush Background, Opacity=0.6}" />
-            </Style>
+            <Setter Property="Background" Value="{MBrush Background, Opacity=0.6}" />
             <Style Selector="^ /template/ Border#PrimaryColor">
-                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.04}, Dark={MBrush Primary, Opacity=0.04}}" />
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+            </Style>
+            <Style Selector="^[Variant=TrayWindow]">
+                <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+                <Style Selector="^ /template/ Border#PrimaryColor">
+                    <Setter Property="IsVisible" Value="False" />
+                </Style>
+            </Style>
+            <Style Selector="^[Variant=DialogWindow]">
+                <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+                <Style Selector="^ /template/ Border#PrimaryColor">
+                    <Setter Property="IsVisible" Value="False" />
+                </Style>
             </Style>
         </Style>
-        <!-- Windows -->
         <Style Selector="^[(CurrentSystem.IsWindows)=True]">
             <Setter Property="BorderThickness" Value="1" />
-            <Style Selector="^[WindowState=Maximized]">
-                <Setter Property="BorderThickness" Value="0" />
-            </Style>
-            <Style Selector="^[WindowState=FullScreen]">
-                <Setter Property="BorderThickness" Value="0" />
-            </Style>
             <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" />
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
             <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Background" Value="{MBrush Background, Opacity=0.8}" />
-            </Style>
+            <Setter Property="Background" Value="{MBrush Background, Opacity=0.6}" />
             <Style Selector="^ /template/ Border#PrimaryColor">
-                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
             </Style>
-        </Style>
-        <!-- Linux -->
-        <Style Selector="^[(CurrentSystem.IsLinux)=True]">
-            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-            <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
-            <Setter Property="SystemDecorations" Value="None" />
-            <Setter Property="BorderThickness" Value="1" />
             <Style Selector="^[WindowState=Maximized]">
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
             <Style Selector="^[WindowState=FullScreen]">
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
+        </Style>
+        <Style Selector="^[(CurrentSystem.IsLinux)=True]">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="TransparencyLevelHint" Value="None" />
+            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+            <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
+            <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+            <Setter Property="SystemDecorations" Value="None" />
+            <Setter Property="Background" Value="{MBrush Background}" />
             <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Background" Value="{MBrush Background, Opacity=1}" />
+                <Setter Property="BoxShadow" Value="{MShadow XL, BrushOpacity=0.1}" />
+                <Setter Property="Margin" Value="{MShadow XL, ValueType=Margin}" />
+                <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            </Style>
+            <Style Selector="^ /template/ Border#Clip">
+                <Setter Property="CornerRadius" Value="{MRadius MD, OffsetNegative=Px}" />
+                <Setter Property="ClipToBounds" Value="True" />
             </Style>
             <Style Selector="^ /template/ Border#PrimaryColor">
-                <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
             </Style>
-            <Style Selector="^ /template/ Panel#PART_Decorations">
-                <Setter Property="IsVisible" Value="False" />
+            <Style Selector="^[WindowState=Maximized]">
+                <Setter Property="BorderThickness" Value="0" />
+                <Style Selector="^ /template/ Border#Background">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                    <Setter Property="Margin" Value="{MThickness S0}" />
+                </Style>
             </Style>
-            <Style Selector="^[CanResize=True][WindowState=Normal] /template/ Panel#PART_Decorations">
-                <Setter Property="IsVisible" Value="True" />
+            <Style Selector="^[WindowState=FullScreen]">
+                <Setter Property="BorderThickness" Value="0" />
+                <Style Selector="^ /template/ Border#Background">
+                    <Setter Property="BoxShadow" Value="{MShadow None}" />
+                    <Setter Property="Margin" Value="{MThickness S0}" />
+                </Style>
             </Style>
         </Style>
     </ControlTheme>

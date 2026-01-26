@@ -7,7 +7,6 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
-using Manta.Controls;
 using Manta.Extensions;
 using Manta.Globalization;
 using Manta.Langs;
@@ -51,7 +50,10 @@ public abstract class MApp : Application
             .UsePlatformDetect()
             .With(new FontManagerOptions
             {
-                DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC" : OperatingSystem.IsWindows() ? "Microsoft YaHei UI" : throw new PlatformNotSupportedException()
+                DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC" :
+                    OperatingSystem.IsWindows() ? "Microsoft YaHei UI" :
+                    OperatingSystem.IsLinux() ? string.Empty :
+                    throw new PlatformNotSupportedException()
             })
             .LogToAxe();
     }
@@ -183,7 +185,7 @@ public abstract class MApp : Application
         if (initData.MainModel is not null)
         {
             var mainWindow = initData.MainModel().CreateWindow();
-            mainWindow.Variant = MWindowVariant.MainWindow;
+            mainWindow.IsMainWindow = true;
             desktop.MainWindow = mainWindow;
 
             if (isActivatableLifetime)
