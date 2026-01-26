@@ -9,6 +9,6 @@ sealed class ViewModelTreeView_Model : ViewModel
 {
     public static ViewModelTreeView_Model Design => new();
 
-    public ViewContext<AvaloniaList<ViewNode>> Root => GetContext<AvaloniaList<ViewNode>>(nameof(Root));
-    public ViewContext<ReactiveValue<ViewNode?>> SelectedNode => GetContext<ReactiveValue<ViewNode?>>(nameof(SelectedNode));
+    public ViewContext<AvaloniaList<TreeNode>> Root => GetContext<AvaloniaList<TreeNode>>(nameof(Root));
+    public ViewContext<ReactiveValue<TreeNode?>> SelectedNode => GetContext<ReactiveValue<TreeNode?>>(nameof(SelectedNode));
 }

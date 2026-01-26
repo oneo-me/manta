@@ -23,8 +23,8 @@ sealed class Main_Model : ViewModel
         set => SetValue(ref field, value);
     } = true;
 
-    public AvaloniaList<ViewNode> Root { get; } = [];
-    public ReactiveValue<ViewNode?> SelectedNode { get; } = new(null);
+    public AvaloniaList<TreeNode> Root { get; } = [];
+    public ReactiveValue<TreeNode?> SelectedNode { get; } = new(null);
 
     public Main_Model(DevToolsAttacher? attacher)
     {
