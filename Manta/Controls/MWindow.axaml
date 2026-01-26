@@ -8,7 +8,7 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="BorderBrush" Value="#33000000" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Margin="{ TemplateBinding OffScreenMargin}">
@@ -98,6 +98,11 @@
                 <Style Selector="^ /template/ Border#Background">
                     <Setter Property="BoxShadow" Value="{MShadow None}" />
                     <Setter Property="Margin" Value="{MThickness S0}" />
+                    <Setter Property="CornerRadius" Value="{MRadius None}" />
+                </Style>
+                <Style Selector="^ /template/ Border#Clip">
+                    <Setter Property="CornerRadius" Value="{MRadius None}" />
+                    <Setter Property="ClipToBounds" Value="False" />
                 </Style>
             </Style>
             <Style Selector="^[WindowState=FullScreen]">
@@ -105,6 +110,11 @@
                 <Style Selector="^ /template/ Border#Background">
                     <Setter Property="BoxShadow" Value="{MShadow None}" />
                     <Setter Property="Margin" Value="{MThickness S0}" />
+                    <Setter Property="CornerRadius" Value="{MRadius None}" />
+                </Style>
+                <Style Selector="^ /template/ Border#Clip">
+                    <Setter Property="CornerRadius" Value="{MRadius None}" />
+                    <Setter Property="ClipToBounds" Value="False" />
                 </Style>
             </Style>
         </Style>
