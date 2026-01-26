@@ -1,14 +1,12 @@
 using Avalonia.Controls;
-using Manta;
 using Manta.Controls;
-using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
-using MantaTools;
 using MantaDemo.Langs;
 using MantaDemo.Services;
+using MantaTools;
 
 namespace MantaDemo.Views;
 
@@ -24,8 +22,6 @@ public class TweakcnTool_Model : WindowModel
         get;
         set => SetValue(ref field, value);
     } = string.Empty;
-
-    public IconSource ExportIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Upload--Streamline-Solar-Ar.svg"));
 
     public override void OnWindowInitialized(MWindow window)
     {

@@ -1,5 +1,6 @@
 using System.Reflection;
 using Avalonia.Media.Imaging;
+using Manta.Controls.Icons;
 
 namespace Manta;
 
@@ -57,5 +58,13 @@ public static partial class Assets
         var uri = GetUri(path, assembly);
 
         return GetBytes(uri);
+    }
+
+    public static IconSource GetIcon(string path, Assembly? assembly = null)
+    {
+        assembly ??= Assembly.GetCallingAssembly();
+        var uri = GetUri(path, assembly);
+
+        return GetIcon(uri);
     }
 }

@@ -1,4 +1,3 @@
-using Manta;
 using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Services;
@@ -38,7 +37,7 @@ sealed class DemoGroupItem(DemoSubGroup subGroup) : Model, IDemoItem
 [View<DemoGroupView>]
 sealed class DemoGroupView_Model : HeaderRegionModel
 {
-    public static DemoGroupView_Model Design => new(DemoGroup.Controls, LangKey.Controls, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg")));
+    public static DemoGroupView_Model Design => new(DemoGroup.Controls, LangKey.Controls, Icons.Controls);
 
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly DemoService _demoService = Service.GetService<DemoService>();

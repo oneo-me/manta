@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using Avalonia.Media;
-using Manta;
 using Manta.Controls.Icons;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
@@ -16,7 +15,7 @@ sealed class FontView_Model : DemoViewModel
 
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
-    public override IconSource? Icon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Text-Circle--Streamline-Solar-Ar.svg"));
+    public override IconSource Icon => Icons.Text;
     public override string Header => LangKey.Demo_Style_Font;
 
     public ObservableCollection<FontFamily> Fonts { get; } = [];

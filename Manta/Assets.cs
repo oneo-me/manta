@@ -1,5 +1,6 @@
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Manta.Controls.Icons;
 
 namespace Manta;
 
@@ -41,5 +42,13 @@ public static partial class Assets
         using var memoryStream = new MemoryStream();
         stream.CopyTo(memoryStream);
         return memoryStream.ToArray();
+    }
+
+    public static IconSource GetIcon(Uri uri)
+    {
+        using var stream = GetStream(uri);
+        using var streamReader = new StreamReader(stream);
+        var xml = streamReader.ReadToEnd();
+        return new(xml);
     }
 }

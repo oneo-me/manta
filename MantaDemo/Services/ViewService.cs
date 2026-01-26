@@ -1,7 +1,5 @@
-using Manta;
-using Manta.Controls.Icons;
-using MantaDemo.Langs;
 using Manta.Reactive.Regions;
+using MantaDemo.Langs;
 using MantaDemo.Reactive;
 using MantaDemo.Views;
 
@@ -18,10 +16,10 @@ sealed class ViewService
         _configService = configService;
 
         RegionManager.Open(() => new OverviewView_Model(RegionManager), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, IconSource.FromAsset(Assets.GetUri("Icons/Cat--Streamline-Solar-Ar.svg"))), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg"))), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, IconSource.FromAsset(Assets.GetUri("Icons/Code-Circle--Streamline-Solar-Ar.svg"))), IsCurrent);
-        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, IconSource.FromAsset(Assets.GetUri("Icons/Planet--Streamline-Solar-Ar.svg"))), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, Icons.Styles), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Reactive, LangKey.Reactive, Icons.Reactive), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.Controls, LangKey.Controls, Icons.Controls), IsCurrent);
+        RegionManager.Open(() => new DemoGroupView_Model(DemoGroup.MultiLanguage, LangKey.MultiLanguage, Icons.MultiLanguage), IsCurrent);
     }
 
     bool IsCurrent(HeaderRegionModel headerRegionModel)

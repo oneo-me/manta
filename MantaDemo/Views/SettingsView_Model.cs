@@ -1,13 +1,11 @@
 using System.Reactive.Disposables;
 using Avalonia.Controls;
-using Manta;
 using Manta.Controls;
-using Manta.Controls.Icons;
-using MantaDemo.Langs;
 using Manta.Extensions;
 using Manta.Globalization;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
+using MantaDemo.Langs;
 
 namespace MantaDemo.Views;
 
@@ -15,8 +13,6 @@ namespace MantaDemo.Views;
 sealed class SettingsView_Model : WindowModel
 {
     public static SettingsView_Model Design => new();
-
-    public IconSource TestIcon { get; } = IconSource.FromAsset(Assets.GetUri("Icons/Fire--Streamline-Solar-Ar.svg"));
 
     public override void OnWindowInitialized(MWindow window)
     {

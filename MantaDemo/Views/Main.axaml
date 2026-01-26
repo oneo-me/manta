@@ -13,17 +13,17 @@
                 <MPanel Mode="Horizontal">
                     <MTitleBarButton Command="{Binding OpenTweakcnToolAsyncCommand}">
                         <MPanel Mode="Horizontal" Spacing="8">
-                            <MIcon IconSize="18" IconSource="{Binding TweakcnToolIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.TweakcnTool}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
                     <MTitleBarButton>
                         <MPanel Mode="Horizontal" Spacing="8">
-                            <MIcon IconSize="18" IconSource="{Binding ThemeSystemIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Theme}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
                     <MTitleBarButton Command="{Binding OpenSettingsAsyncCommand}">
                         <MPanel Mode="Horizontal" Spacing="8">
-                            <MIcon IconSize="18" IconSource="{Binding SettingsIcon}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{x:Static Icons.Settings}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
                 </MPanel>

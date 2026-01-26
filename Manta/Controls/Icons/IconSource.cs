@@ -1,7 +1,6 @@
 using System.Text;
 using System.Xml;
 using Avalonia.Media;
-using Avalonia.Platform;
 using Manta.Controls.Icons.Inners;
 
 namespace Manta.Controls.Icons;
@@ -13,7 +12,7 @@ public sealed class IconSource
 
     internal List<IIconLayer> Layers { get; } = [];
 
-    IconSource(string xml)
+    internal IconSource(string xml)
     {
         var xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(xml);
@@ -45,14 +44,6 @@ public sealed class IconSource
 
                 Layers.Add(pathLayer);
             }
-    }
-
-    public static IconSource FromAsset(Uri uri, Uri? baseUri = null)
-    {
-        var stream = AssetLoader.Open(uri, baseUri);
-        using var streamReader = new StreamReader(stream);
-        var xml = streamReader.ReadToEnd();
-        return new(xml);
     }
 
     public static IconSource FromFile(string path, Encoding? encoding = null)
