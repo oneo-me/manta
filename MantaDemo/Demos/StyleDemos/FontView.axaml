@@ -1,0 +1,39 @@
+<MView
+    x:Class="MantaDemo.Demos.StyleDemos.FontView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
+    x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}"
+    Name="View" Design.Width="300" Design.Height="400">
+    <MView.Styles>
+        <Style Selector="MListBox[Variant=NoStyle]">
+            <Setter Property="Padding" Value="{MThickness S3}" />
+        </Style>
+        <Style Selector="MListBoxItem[Variant=NoStyle]">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S2}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Top}" />
+            <Style Selector="^:nth-child(1)">
+                <Setter Property="BorderThickness" Value="{MThickness S0}" />
+            </Style>
+        </Style>
+    </MView.Styles>
+    <MListBox Variant="NoStyle" ItemsSource="{CompiledBinding Fonts}">
+        <MListBox.ItemTemplate>
+            <DataTemplate>
+                <Grid ColumnDefinitions="* Auto">
+                    <MPanel Grid.Column="0" Mode="Vertical" Spacing="4">
+                        <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Foreground="{MBrush MutedForeground}" FontSize="12" />
+                        <TextBlock Text="{Lang {x:Static LangKey.Demo_Style_Font_TestText}}" FontFamily="{Binding}" FontSize="18" TextWrapping="Wrap" />
+                    </MPanel>
+                    <MButton Grid.Column="1" Variant="Outline" Padding="{MThickness S2_5, Vertical=S2}"
+                             VerticalAlignment="Center"
+                             Command="{Binding ElementName=View, Path=DataContext.CopyAsyncCommand}"
+                             CommandParameter="{Binding}">
+                        <MIcon IconSize="18" IconSource="{x:Static Icons.Copy}" />
+                    </MButton>
+                </Grid>
+            </DataTemplate>
+        </MListBox.ItemTemplate>
+    </MListBox>
+</MView>
