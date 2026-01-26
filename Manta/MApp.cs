@@ -52,7 +52,7 @@ public abstract class MApp : Application
             {
                 DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif" :
                     OperatingSystem.IsWindows() ? "Microsoft YaHei UI, Segoe UI, Arial, sans-serif" :
-                    OperatingSystem.IsLinux() ? "Noto Sans CJK SC, Arial, sans-serif" :
+                    OperatingSystem.IsLinux() ? "Noto Sans CJK SC" :
                     throw new PlatformNotSupportedException()
             })
             .LogToAxe();
