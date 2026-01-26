@@ -11,14 +11,14 @@
         <MTree.Styles>
             <Style Selector="MTreeItem">
                 <Setter Property="IsExpanded" Value="True" />
-                <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:ViewNode" />
+                <Setter Property="commands:PointerCommands.EnterCommand" Value="{Binding UpdateAdorner}" x:DataType="models:TreeNode" />
                 <Setter Property="commands:PointerCommands.EnterCommandParameter" Value="{Binding ElementName=View}" />
-                <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:ViewNode" />
+                <Setter Property="commands:PointerCommands.ExitCommand" Value="{Binding ClearAdorner}" x:DataType="models:TreeNode" />
             </Style>
         </MTree.Styles>
         <MTree.ItemTemplate>
-            <TreeDataTemplate ItemsSource="{Binding Container.Children}">
-                <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+            <TreeDataTemplate ItemsSource="{Binding}">
+                <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
             </TreeDataTemplate>
         </MTree.ItemTemplate>
     </MTree>
