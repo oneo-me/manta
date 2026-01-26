@@ -50,9 +50,9 @@ public abstract class MApp : Application
             .UsePlatformDetect()
             .With(new FontManagerOptions
             {
-                DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC" :
-                    OperatingSystem.IsWindows() ? "Microsoft YaHei UI" :
-                    OperatingSystem.IsLinux() ? string.Empty :
+                DefaultFamilyName = OperatingSystem.IsMacOS() ? "PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif" :
+                    OperatingSystem.IsWindows() ? "Microsoft YaHei UI, Segoe UI, Arial, sans-serif" :
+                    OperatingSystem.IsLinux() ? "Noto Sans CJK SC, Arial, sans-serif" :
                     throw new PlatformNotSupportedException()
             })
             .LogToAxe();
