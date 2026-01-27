@@ -9,7 +9,7 @@ namespace Manta.Reactive.Views;
 
 public abstract class DialogModel : WindowModel
 {
-    protected virtual bool RegisterTitleBarEvents { get; } = OperatingSystem.IsMacOS();
+    protected virtual bool RegisterTitleBarEvents { get; } = OperatingSystem.IsMacOS() is false;
     public bool Result { get; private set; }
 
     public CommandWarper CancelAsyncCommand => GetCommand(async () =>
