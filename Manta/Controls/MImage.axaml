@@ -40,11 +40,22 @@
                                    StretchDirection="{TemplateBinding StretchDirection}" />
                             <MPathIcon Name="Icon" Size="{TemplateBinding LoadingSize}">
                                 <MPathIcon.Foreground>
-                                    <ConicGradientBrush>
-                                        <GradientStop Color="#000000" Offset="0" />
-                                        <GradientStop Color="#00000000" Offset="0.05" />
-                                        <GradientStop Color="#000000" Offset="1" />
-                                    </ConicGradientBrush>
+                                    <OnTheme>
+                                        <x:Arguments>
+                                            <ConicGradientBrush>
+                                                <GradientStop Color="#000000" Offset="0" />
+                                                <GradientStop Color="#00000000" Offset="0.05" />
+                                                <GradientStop Color="#000000" Offset="1" />
+                                            </ConicGradientBrush>
+                                        </x:Arguments>
+                                        <OnTheme.Dark>
+                                            <ConicGradientBrush>
+                                                <GradientStop Color="#FFFFFF" Offset="0" />
+                                                <GradientStop Color="#00FFFFFF" Offset="0.05" />
+                                                <GradientStop Color="#FFFFFF" Offset="1" />
+                                            </ConicGradientBrush>
+                                        </OnTheme.Dark>
+                                    </OnTheme>
                                 </MPathIcon.Foreground>
                             </MPathIcon>
                         </Panel>
