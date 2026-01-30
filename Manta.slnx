@@ -6,6 +6,7 @@
   <Folder Name="/_/">
     <File Path="Directory.Build.props" />
     <File Path=".gitignore" />
+    <File Path="Generators.props" />
     <File Path="README.md" />
     <File Path=".globalconfig" />
     <File Path=".gitattributes" />
