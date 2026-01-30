@@ -17,14 +17,14 @@ sealed class DialogView_Model : DemoViewModel
 
     public CommandWarper AlertAsyncCommand => GetCommand(async () =>
     {
-        await AlertDialog.ShowDialogAsync(this, new("This is an alert dialog."));
+        await MAlert.ShowDialogAsync(this, new("This is an alert dialog."));
     });
 
     public CommandWarper ConfirmAsyncCommand => GetCommand(async () =>
     {
-        var result = await ConfirmDialog.ShowDialogAsync(this, new("This is an alert dialog."));
+        var result = await MConfirm.ShowDialogAsync(this, new("This is an alert dialog."));
         if (result)
-            await AlertDialog.ShowDialogAsync(this, new("You clicked OK."));
+            await MAlert.ShowDialogAsync(this, new("You clicked OK."));
     });
 
     public bool AllowMultiple
@@ -57,7 +57,7 @@ sealed class DialogView_Model : DemoViewModel
         if (result.Count == 0)
             return;
 
-        await AlertDialog.ShowDialogAsync(this, new($"You selected file:\n{string.Join("\n", result.Select(f => f.Name))}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected file:\n{string.Join("\n", result.Select(f => f.Name))}"));
     });
 
     public CommandWarper OpenFolderAsyncCommand => GetCommand(async () =>
@@ -71,7 +71,7 @@ sealed class DialogView_Model : DemoViewModel
         if (result.Count == 0)
             return;
 
-        await AlertDialog.ShowDialogAsync(this, new($"You selected folder:\n{string.Join("\n", result.Select(f => f.Name))}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected folder:\n{string.Join("\n", result.Select(f => f.Name))}"));
     });
 
     public CommandWarper SaveFileAsyncCommand => GetCommand(async () =>
@@ -98,6 +98,6 @@ sealed class DialogView_Model : DemoViewModel
         if (result is null)
             return;
 
-        await AlertDialog.ShowDialogAsync(this, new($"You selected file to save:\n{result.Name}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected file to save:\n{result.Name}"));
     });
 }
