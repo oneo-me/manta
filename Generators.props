@@ -1,0 +1,6 @@
+<Project>
+    <Import Project=".\Manta.Generators\build\Manta.Generators.props" />
+    <ItemGroup>
+        <ProjectReference Include="..\Manta.Generators\Manta.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+</Project>

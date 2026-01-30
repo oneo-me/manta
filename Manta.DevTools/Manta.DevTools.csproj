@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\Generators.props" />
     <ItemGroup>
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>

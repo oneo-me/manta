@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\Generators.props" />
     <PropertyGroup>
         <IsPackable>false</IsPackable>
         <OutputType>WinExe</OutputType>
@@ -14,6 +15,5 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.11" />
-        <PackageReference Include="Manta.Generators " Version="1.2025.16" PrivateAssets="all" />
     </ItemGroup>
 </Project>
