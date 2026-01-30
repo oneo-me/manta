@@ -20,6 +20,7 @@ Demo_Style_Ring: Ring
 Demo_Style_Spacing: Spacing
 Demo_Style_Thickness: Thickness
 
+Demo_Reactive_ViewTarget: View Target
 Demo_Reactive_ViewContext: View Context
 Demo_Reactive_Command: Command
 Demo_Reactive_Dialog: Dialog
