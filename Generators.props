@@ -1,6 +1,5 @@
 <Project>
-    <Import Project=".\Manta.Generators\build\Manta.Generators.props" />
     <ItemGroup>
-        <ProjectReference Include="..\Manta.Generators\Manta.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <PackageReference Include="Manta.Generators " Version="1.2025.20" PrivateAssets="all" />
     </ItemGroup>
 </Project>
