@@ -1,0 +1,28 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Manta.NodeEditor.Controls"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <controls:MNodeEditor Width="800" Height="600" />
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type controls:MNodeEditor}" TargetType="controls:MNodeEditor">
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <!-- Grid background with zoom/pan support -->
+                    <controls:MNodeEditorGridBackground Name="PART_GridBackground" />
+                    <!-- Transform container for both connections and nodes -->
+                    <Panel Name="PART_TransformContainer">
+                        <!-- Connection layer (rendered behind nodes) -->
+                        <controls:MNodeEditorConnectionLayer Name="PART_ConnectionLayer" />
+                        <!-- Node canvas -->
+                        <Canvas Name="PART_Canvas" />
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
