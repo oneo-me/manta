@@ -7,7 +7,7 @@
         <MantaChartsTheme />
         <MantaMarkdownTheme />
         <MantaChatTheme />
-        <MantaBlueprintTheme />
+        <MantaNodeEditorTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>
