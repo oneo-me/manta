@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive.Concurrency;
+using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -155,6 +156,20 @@ public abstract class MApp : Application
         }
 
         return app.RequestedThemeVariant;
+    }
+
+    /// <summary>
+    /// Subscribes to theme variant changes.
+    /// </summary>
+    /// <param name="onThemeChanged">Callback invoked when theme changes</param>
+    /// <returns>Disposable to unsubscribe</returns>
+    public static IDisposable SubscribeThemeChanged(Action<ThemeVariant?> onThemeChanged)
+    {
+        if (Application.Current is not { } app)
+            return Disposable.Empty;
+
+        return app.GetObservable(Application.RequestedThemeVariantProperty)
+            .Subscribe(onThemeChanged);
     }
 
     public override void OnFrameworkInitializationCompleted()

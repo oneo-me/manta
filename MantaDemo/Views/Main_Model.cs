@@ -1,3 +1,4 @@
+using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
@@ -6,6 +7,7 @@ using Manta.Controls;
 using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Commands;
+using Manta.Reactive.Extensions;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;
@@ -42,6 +44,14 @@ sealed class Main_Model : WindowModel
             _configService.Config.Width = window.Width;
             _configService.Config.Height = window.Height;
         };
+    }
+
+    protected override void OnViewActivated(CompositeDisposable disposables)
+    {
+        base.OnViewActivated(disposables);
+
+        MApp.SubscribeThemeChanged(variant => ThemeIcon = GetThemeIcon(variant))
+            .DisposeWith(disposables);
     }
 
     public CommandWarper OpenTweakcnToolAsyncCommand => GetCommand(async () =>
