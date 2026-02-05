@@ -1,4 +1,5 @@
 using System.Reactive.Disposables;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
@@ -47,8 +48,12 @@ public static class VisualExtensions
             var disposables = new CompositeDisposable();
 
             if (stateControl)
-                ObservableEvent.FromHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(_ =>
+                ObservableEvent.FromHandler<TappedEventArgs>(x => inputElement.DoubleTapped += x, x => inputElement.DoubleTapped -= x).Subscribe(x =>
                     {
+                        // Ignore if the event source is an interactive control
+                        if (x.args.Source is Visual source && source.GetSelfAndVisualAncestors().Any(v => v is Button or MTabTitleBarItem))
+                            return;
+
                         var currentWindow = GetWindow();
                         if (currentWindow is null)
                             return;
