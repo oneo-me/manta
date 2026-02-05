@@ -1,0 +1,15 @@
+<MView
+    x:Class="Manta.DevTools.Views.ObjectPropertyDialog"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views"
+    x:DataType="local:ObjectPropertyDialog_Model">
+    <MBackgroud>
+        <MDialogTemplate Header="{Binding Header}"
+                         CancelButton="Close"
+                         ContinueButton=""
+                         CancelButtonCommand="{Binding CancelAsyncCommand}">
+            <MViewHost ViewModelType="local:PropertyListView_Model" Data="{Binding PropertyValue}" />
+        </MDialogTemplate>
+    </MBackgroud>
+</MView>

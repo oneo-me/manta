@@ -1,0 +1,105 @@
+<MView
+    x:Class="Manta.DevTools.Views.PropertyListView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views"
+    xmlns:items="clr-namespace:Manta.DevTools.Models.Items"
+    xmlns:devtools="clr-namespace:Manta.DevTools"
+    x:DataType="local:PropertyListView_Model" Design.DataContext="{x:Static local:PropertyListView_Model.Design}"
+    Design.Width="300">
+    <MView.Styles>
+        <!-- Group header style -->
+        <Style Selector="Border.GroupHeader">
+            <Setter Property="Background" Value="{MBrush Accent}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="0,1,0,1" />
+            <Setter Property="Padding" Value="{MThickness S2}" />
+        </Style>
+        <Style Selector="Border.GroupHeader:nth-child(1)">
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+        <Style Selector="Border.GroupHeader TextBlock">
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+        </Style>
+        <!-- Row style -->
+        <Style Selector="Border.ItemRow">
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+        <Style Selector="Border.ItemRow:nth-last-child(1)">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <!-- Lock icon style -->
+        <Style Selector="MIcon.LockIcon">
+            <Setter Property="IconSize" Value="12" />
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+        <!-- Info icon style -->
+        <Style Selector="MIcon.InfoIcon">
+            <Setter Property="IconSize" Value="12" />
+            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="Margin" Value="4,0,4,0" />
+            <Setter Property="Cursor" Value="Help" />
+        </Style>
+    </MView.Styles>
+    <MScrollViewer>
+        <StackPanel>
+            <!-- Contexts Section -->
+            <Border Classes="GroupHeader" IsVisible="{Binding HasContexts}">
+                <TextBlock Text="Contexts" />
+            </Border>
+            <MItems ItemsSource="{Binding Contexts}" IsVisible="{Binding HasContexts}">
+                <MItems.ItemTemplate>
+                    <DataTemplate DataType="items:ContextItem">
+                        <Border Classes="ItemRow">
+                            <Grid ColumnDefinitions="0.4*,0.6*">
+                                <!-- Key + Lock -->
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Key}" Padding="{MThickness S2}"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
+                                           IsVisible="{Binding IsReadOnly}" />
+                                </StackPanel>
+                                <!-- Value + Info -->
+                                <Grid Grid.Column="1" ColumnDefinitions="*,Auto">
+                                    <TextBlock Grid.Column="0" Text="{Binding DisplayValue}" Padding="{MThickness S2}"
+                                               VerticalAlignment="Center" Foreground="{MBrush MutedForeground}"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <MIcon Grid.Column="1" Classes="InfoIcon" IconSource="{x:Static devtools:Icons.Info}"
+                                           ToolTip.Tip="{Binding SourceName}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </MItems.ItemTemplate>
+            </MItems>
+
+            <!-- Properties Section -->
+            <Border Classes="GroupHeader">
+                <TextBlock Text="Properties" />
+            </Border>
+            <MItems ItemsSource="{Binding Properties}">
+                <MItems.ItemTemplate>
+                    <DataTemplate DataType="items:PropertyItemBase">
+                        <Border Classes="ItemRow">
+                            <Grid ColumnDefinitions="0.4*,0.6*">
+                                <!-- Name + Lock -->
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" Padding="{MThickness S2}"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
+                                           IsVisible="{Binding IsReadOnly}" />
+                                </StackPanel>
+                                <!-- Editor (selected by ViewTemplate in code-behind) -->
+                                <ContentControl Grid.Column="1" Content="{Binding}" ClipToBounds="False" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </MItems.ItemTemplate>
+            </MItems>
+        </StackPanel>
+    </MScrollViewer>
+</MView>

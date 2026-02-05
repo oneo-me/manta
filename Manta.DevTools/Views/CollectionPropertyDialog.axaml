@@ -1,0 +1,46 @@
+<MView
+    x:Class="Manta.DevTools.Views.CollectionPropertyDialog"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views"
+    x:DataType="local:CollectionPropertyDialog_Model">
+    <MBackgroud>
+        <MDialogTemplate Header="{Binding Header}"
+                         CancelButton="Close"
+                         ContinueButton=""
+                         CancelButtonCommand="{Binding CancelAsyncCommand}">
+            <Grid ColumnDefinitions="0.35*,Auto,0.65*">
+                <!-- Left: Collection Items List -->
+                <Border Grid.Column="0" BorderThickness="{MThickness Px, Filter=Right}">
+                    <Grid RowDefinitions="Auto *">
+                        <Border Grid.Row="0" Background="{MBrush Accent}" Padding="{MThickness S2}" BorderThickness="{MThickness Px, Filter=Bottom}">
+                            <TextBlock Text="Items" FontWeight="SemiBold" FontSize="11" Foreground="{MBrush MutedForeground}" />
+                        </Border>
+                        <MListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Variant="NoStyle">
+                            <MListBox.ItemTemplate>
+                                <DataTemplate DataType="local:CollectionItemWrapper">
+                                    <Grid ColumnDefinitions="Auto *" Margin="{MThickness S2}">
+                                        <TextBlock Grid.Column="0" Text="{Binding IndexText}" Foreground="{MBrush MutedForeground}"
+                                                   Width="32" Margin="{MThickness S2, Filter=Right}" />
+                                        <TextBlock Grid.Column="1" Text="{Binding DisplayText}" TextTrimming="CharacterEllipsis" />
+                                    </Grid>
+                                </DataTemplate>
+                            </MListBox.ItemTemplate>
+                        </MListBox>
+                    </Grid>
+                </Border>
+
+                <!-- Splitter -->
+                <GridSplitter Grid.Column="1" Width="1" Background="{MBrush Border}" ResizeDirection="Columns" />
+
+                <!-- Right: Selected Item Properties -->
+                <Grid Grid.Column="2" RowDefinitions="Auto *">
+                    <Border Grid.Row="0" Background="{MBrush Accent}" Padding="{MThickness S2}" BorderThickness="{MThickness Px, Filter=Bottom}">
+                        <TextBlock Text="Properties" FontWeight="SemiBold" FontSize="11" Foreground="{MBrush MutedForeground}" />
+                    </Border>
+                    <MViewHost Grid.Row="1" ViewModelType="local:PropertyListView_Model" Data="{Binding SelectedValue}" />
+                </Grid>
+            </Grid>
+        </MDialogTemplate>
+    </MBackgroud>
+</MView>
