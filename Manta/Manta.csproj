@@ -6,9 +6,6 @@
         <PackageReference Include="YamlDotNet" Version="16.3.0" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Manta.Generators " Version="1.2025.19" PrivateAssets="all" />
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\Manta.Native\Manta.Native.csproj" />
     </ItemGroup>
 </Project>
