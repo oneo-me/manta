@@ -13,6 +13,19 @@ public sealed class ImageLoadService
 
     public string? CacheDirectory { get; set; }
 
+    const int LockCount = 32;
+    readonly SemaphoreSlim[] _locks = CreateLocks(LockCount);
+
+    static SemaphoreSlim[] CreateLocks(int count)
+    {
+        var locks = new SemaphoreSlim[count];
+        for (var i = 0; i < count; i++)
+            locks[i] = new SemaphoreSlim(1, 1);
+        return locks;
+    }
+
+    SemaphoreSlim GetLock(string key) => _locks[(uint)key.GetHashCode() % LockCount];
+
     internal async Task<Bitmap?> LoadAsync(IImageSource source, CancellationToken cancellationToken)
     {
         if (source is AvaloniaImageSource avaloniaImageSource)
@@ -44,55 +57,70 @@ public sealed class ImageLoadService
         if (File.Exists(source.LocalPath) is false)
             return null;
 
-        // TODO A lock should be created to prevent multiple threads from processing the same raw file simultaneously.
-
-        // load from cache first
-        var cachedFile = GetCacheFilePath(source.LocalPath);
-        if (string.IsNullOrWhiteSpace(cachedFile) is false && File.Exists(cachedFile))
+        var semaphore = GetLock(source.LocalPath);
+        await semaphore.WaitAsync(cancellationToken);
+        try
         {
-            var cachedBitmap = LoadImageFromCache(cachedFile);
-            if (cachedBitmap != null)
-                return cachedBitmap;
+            // load from cache first
+            var cachedFile = GetCacheFilePath(source.LocalPath);
+            if (string.IsNullOrWhiteSpace(cachedFile) is false && File.Exists(cachedFile))
+            {
+                var cachedBitmap = LoadImageFromCache(cachedFile);
+                if (cachedBitmap != null)
+                    return cachedBitmap;
+            }
+
+            // load from local file
+            await using var fileStream = File.OpenRead(source.LocalPath);
+
+            // cache the file
+            if (string.IsNullOrWhiteSpace(cachedFile) is false)
+            {
+                await using var cacheStream = File.Create(cachedFile);
+                await fileStream.CopyToAsync(cacheStream, cancellationToken);
+                fileStream.Position = 0;
+            }
+
+            return new(fileStream);
         }
-
-        // load from local file
-        await using var fileStream = File.OpenRead(source.LocalPath);
-
-        // cache the file
-        if (string.IsNullOrWhiteSpace(cachedFile) is false)
+        finally
         {
-            await using var cacheStream = File.Create(cachedFile);
-            await fileStream.CopyToAsync(cacheStream, cancellationToken);
-            fileStream.Position = 0;
+            semaphore.Release();
         }
-
-        return new(fileStream);
     }
 
     async Task<Bitmap?> LoadWebImageAsync(WebImageSource source, CancellationToken cancellationToken)
     {
-        // TODO A lock should be created to prevent multiple threads from processing the same raw file simultaneously.
-
-        // load from cache first
-        var cachedFile = GetCacheFilePath(source.Uri.ToString());
-        if (string.IsNullOrWhiteSpace(cachedFile) is false && File.Exists(cachedFile))
+        var uri = source.Uri.ToString();
+        var semaphore = GetLock(uri);
+        await semaphore.WaitAsync(cancellationToken);
+        try
         {
-            var cachedBitmap = LoadImageFromCache(cachedFile);
-            if (cachedBitmap != null)
-                return cachedBitmap;
+            // load from cache first
+            var cachedFile = GetCacheFilePath(uri);
+            if (string.IsNullOrWhiteSpace(cachedFile) is false && File.Exists(cachedFile))
+            {
+                var cachedBitmap = LoadImageFromCache(cachedFile);
+                if (cachedBitmap != null)
+                    return cachedBitmap;
+            }
+
+            // download from web
+            var data = await HttpClient.GetByteArrayAsync(source.Uri, cancellationToken);
+            if (data.Length == 0)
+                return null;
+
+            // cache the file
+            if (string.IsNullOrWhiteSpace(cachedFile) is false)
+                await File.WriteAllBytesAsync(cachedFile, data, cancellationToken);
+
+            await using var memoryStream = new MemoryStream(data);
+            return new(memoryStream);
         }
-
-        // download from web
-        var data = await HttpClient.GetByteArrayAsync(source.Uri, cancellationToken);
-        if (data.Length == 0)
-            return null;
-
-        // cache the file
-        if (string.IsNullOrWhiteSpace(cachedFile) is false)
-            await File.WriteAllBytesAsync(cachedFile, data, cancellationToken);
-
-        await using var memoryStream = new MemoryStream(data);
-        return new(memoryStream);
+        finally
+        {
+            semaphore.Release();
+        }
     }
 
     static Task<Bitmap?> LoadAvaloniaImageAsync(AvaloniaImageSource source)
