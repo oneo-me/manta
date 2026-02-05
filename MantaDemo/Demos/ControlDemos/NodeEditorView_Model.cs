@@ -126,7 +126,14 @@ sealed class NodeEditorView_Model : DemoViewModel
     async void Execute()
     {
         if (_blueprint == null) return;
-        await _blueprint.ExecuteAsync();
+        try
+        {
+            await _blueprint.ExecuteAsync();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Execute failed: {ex}");
+        }
     }
 
     void ResetView()
