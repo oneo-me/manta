@@ -1,4 +1,4 @@
-using Avalonia;
+using System.Diagnostics;
 using Manta.NodeEditor;
 using Manta.NodeEditor.Controls;
 using Manta.NodeEditor.Models;
@@ -38,16 +38,16 @@ sealed class NodeEditorView_Model : DemoViewModel
 
     public NodeEditorView_Model()
     {
-        Registry = new NodeRegistry();
+        Registry = new();
         Registry.ScanAssembly(typeof(AddNode).Assembly);
 
-        Graph = new Graph();
+        Graph = new();
 
-        AddNumberNodeCommand = new CommandWarper(AddNumberNode);
-        AddAddNodeCommand = new CommandWarper(AddAddNode);
-        AddMultiplyNodeCommand = new CommandWarper(AddMultiplyNode);
-        ExecuteCommand = new CommandWarper(Execute);
-        ResetViewCommand = new CommandWarper(ResetView);
+        AddNumberNodeCommand = new(AddNumberNode);
+        AddAddNodeCommand = new(AddAddNode);
+        AddMultiplyNodeCommand = new(AddMultiplyNode);
+        ExecuteCommand = new(Execute);
+        ResetViewCommand = new(ResetView);
 
         InitializeDemoGraph();
     }
@@ -59,22 +59,18 @@ sealed class NodeEditorView_Model : DemoViewModel
 
         if (numberTypeInfo == null || addTypeInfo == null) return;
 
-        var num1 = Graph.AddNode(numberTypeInfo, new Point(50, 50));
-        var num2 = Graph.AddNode(numberTypeInfo, new Point(50, 200));
-        var addNode = Graph.AddNode(addTypeInfo, new Point(300, 125));
+        var num1 = Graph.AddNode(numberTypeInfo, new(50, 50));
+        var num2 = Graph.AddNode(numberTypeInfo, new(50, 200));
+        var addNode = Graph.AddNode(addTypeInfo, new(300, 125));
 
         if (num1.Instance is NumberNode n1) n1.Value = 10;
         if (num2.Instance is NumberNode n2) n2.Value = 20;
 
         if (num1.OutputPorts.Count > 0 && addNode.InputPorts.Count > 0)
-        {
             Graph.AddConnection(num1.OutputPorts[0], addNode.InputPorts[0]);
-        }
 
         if (num2.OutputPorts.Count > 0 && addNode.InputPorts.Count > 1)
-        {
             Graph.AddConnection(num2.OutputPorts[0], addNode.InputPorts[1]);
-        }
 
         _nextNodeX = 500;
         _nextNodeY = 50;
@@ -85,7 +81,7 @@ sealed class NodeEditorView_Model : DemoViewModel
         var typeInfo = Registry.GetNodeTypeInfo(typeof(NumberNode));
         if (typeInfo != null)
         {
-            Graph.AddNode(typeInfo, new Point(_nextNodeX, _nextNodeY));
+            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
             _blueprint?.Refresh();
             AdvanceNodePosition();
         }
@@ -96,7 +92,7 @@ sealed class NodeEditorView_Model : DemoViewModel
         var typeInfo = Registry.GetNodeTypeInfo(typeof(AddNode));
         if (typeInfo != null)
         {
-            Graph.AddNode(typeInfo, new Point(_nextNodeX, _nextNodeY));
+            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
             _blueprint?.Refresh();
             AdvanceNodePosition();
         }
@@ -107,7 +103,7 @@ sealed class NodeEditorView_Model : DemoViewModel
         var typeInfo = Registry.GetNodeTypeInfo(typeof(MultiplyNode));
         if (typeInfo != null)
         {
-            Graph.AddNode(typeInfo, new Point(_nextNodeX, _nextNodeY));
+            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
             _blueprint?.Refresh();
             AdvanceNodePosition();
         }
@@ -132,7 +128,7 @@ sealed class NodeEditorView_Model : DemoViewModel
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"Execute failed: {ex}");
+            Debug.WriteLine($"Execute failed: {ex}");
         }
     }
 

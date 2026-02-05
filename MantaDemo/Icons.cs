@@ -14,7 +14,9 @@ static class Icons
     public static IconSource Copy { get; } = Assets.GetIcon("Icons/Copy--Streamline-Solar-Ar.svg");
     public static IconSource Export { get; } = Assets.GetIcon("Icons/Upload--Streamline-Solar-Ar.svg");
 
-    public static IconSource Theme { get; } = Assets.GetIcon("Icons/Sun-Fog--Streamline-Solar-Ar.svg");
+    public static IconSource ThemeSystem { get; } = Assets.GetIcon("Icons/Sun-Fog--Streamline-Solar-Ar.svg");
+    public static IconSource ThemeLight { get; } = Assets.GetIcon("Icons/Sun--Streamline-Solar-Ar.svg");
+    public static IconSource ThemeDark { get; } = Assets.GetIcon("Icons/Moon-Stars--Streamline-Solar-Ar.svg");
     public static IconSource Settings { get; } = Assets.GetIcon("Icons/Settings--Streamline-Solar-Ar.svg");
     public static IconSource TweakcnTool { get; } = Assets.GetIcon("Icons/Ruler-Pen--Streamline-Solar-Ar.svg");
 

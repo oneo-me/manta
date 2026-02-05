@@ -1,5 +1,9 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Styling;
+using Manta;
 using Manta.Controls;
+using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Regions;
@@ -49,4 +53,21 @@ sealed class Main_Model : WindowModel
     {
         await new SettingsView_Model().ShowDialogAsync(this);
     });
+
+    public IconSource ThemeIcon
+    {
+        get;
+        set => SetValue(ref field, value);
+    } = GetThemeIcon(Application.Current?.RequestedThemeVariant);
+
+    public CommandWarper SwitchThemeCommand => GetCommand(() =>
+    {
+        ThemeIcon = GetThemeIcon(MApp.SwitchTheme());
+    });
+
+    static IconSource GetThemeIcon(ThemeVariant? variant)
+    {
+        return variant == ThemeVariant.Default ? Icons.ThemeSystem :
+            variant == ThemeVariant.Dark ? Icons.ThemeDark : Icons.ThemeLight;
+    }
 }
