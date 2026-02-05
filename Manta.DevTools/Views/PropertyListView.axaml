@@ -35,7 +35,7 @@
         <Style Selector="MIcon.LockIcon">
             <Setter Property="IconSize" Value="12" />
             <Setter Property="Opacity" Value="0.5" />
-            <Setter Property="Margin" Value="4,0,0,0" />
+            <Setter Property="Margin" Value="0,0,4,0" />
         </Style>
         <!-- Info icon style -->
         <Style Selector="MIcon.InfoIcon">
@@ -55,16 +55,16 @@
                 <MItems.ItemTemplate>
                     <DataTemplate DataType="items:ContextItem">
                         <Border Classes="ItemRow">
-                            <Grid ColumnDefinitions="0.4*,0.6*">
-                                <!-- Key + Lock -->
-                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Key}" Padding="{MThickness S2}"
+                            <Grid ColumnDefinitions="0.45*,0.45*">
+                                <!-- Key + Lock (lock on right) -->
+                                <Grid Grid.Column="0" ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+                                    <TextBlock Grid.Column="0" Text="{Binding Key}" Padding="{MThickness S2}"
                                                TextTrimming="CharacterEllipsis" />
-                                    <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
-                                           IsVisible="{Binding IsReadOnly}" />
-                                </StackPanel>
+                                    <MIcon Grid.Column="1" Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
+                                           IsVisible="{Binding IsReadOnly}" VerticalAlignment="Center" />
+                                </Grid>
                                 <!-- Value editor + Info -->
-                                <Grid Grid.Column="1" ColumnDefinitions="*,Auto">
+                                <Grid Grid.Column="1" ColumnDefinitions="*,Auto" Margin="4,0,0,0">
                                     <ContentControl Grid.Column="0" Content="{Binding PropertyItem}" ClipToBounds="False"
                                                     ContentTemplate="{x:Static local:PropertyListView.PropertyItemTemplate}" />
                                     <MIcon Grid.Column="1" Classes="InfoIcon" IconSource="{x:Static devtools:Icons.Info}"
@@ -84,16 +84,16 @@
                 <MItems.ItemTemplate>
                     <DataTemplate DataType="items:PropertyItemBase">
                         <Border Classes="ItemRow">
-                            <Grid ColumnDefinitions="0.4*,0.6*">
-                                <!-- Name + Lock -->
-                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Name}" Padding="{MThickness S2}"
+                            <Grid ColumnDefinitions="0.45*,0.55*">
+                                <!-- Name + Lock (lock on right) -->
+                                <Grid Grid.Column="0" ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+                                    <TextBlock Grid.Column="0" Text="{Binding Name}" Padding="{MThickness S2}"
                                                TextTrimming="CharacterEllipsis" />
-                                    <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
-                                           IsVisible="{Binding IsReadOnly}" />
-                                </StackPanel>
+                                    <MIcon Grid.Column="1" Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
+                                           IsVisible="{Binding IsReadOnly}" VerticalAlignment="Center" />
+                                </Grid>
                                 <!-- Editor (selected by template selector) -->
-                                <ContentControl Grid.Column="1" Content="{Binding}" ClipToBounds="False"
+                                <ContentControl Grid.Column="1" Content="{Binding}" ClipToBounds="False" Margin="4,0,0,0"
                                                 ContentTemplate="{x:Static local:PropertyListView.PropertyItemTemplate}" />
                             </Grid>
                         </Border>
