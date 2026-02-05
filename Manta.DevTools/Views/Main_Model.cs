@@ -1,6 +1,8 @@
 using System.Reactive.Disposables;
+using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Rendering;
+using Avalonia.Styling;
 using Manta.Controls;
 using Manta.DevTools.Models;
 using Manta.Extensions;
@@ -99,5 +101,41 @@ sealed class Main_Model : ViewModel
                     else
                         _attacher.SourceWindow.RendererDiagnostics.DebugOverlays &= ~(RendererDebugOverlays.LayoutTimeGraph | RendererDebugOverlays.RenderTimeGraph);
         }
+    }
+
+    public string ThemeButtonText
+    {
+        get;
+        set => SetValue(ref field, value);
+    } = GetCurrentThemeText();
+
+    public CommandWarper ToggleThemeCommand => GetCommand(() =>
+    {
+        if (Application.Current is not { } app)
+            return;
+
+        if (app.RequestedThemeVariant == ThemeVariant.Default)
+        {
+            // Currently following system, switch to opposite of actual theme
+            app.RequestedThemeVariant = app.ActualThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+        }
+        else
+        {
+            // Currently explicit Light or Dark, switch back to system
+            app.RequestedThemeVariant = ThemeVariant.Default;
+        }
+
+        ThemeButtonText = GetCurrentThemeText();
+    });
+
+    static string GetCurrentThemeText()
+    {
+        if (Application.Current is not { } app)
+            return "Theme";
+
+        if (app.RequestedThemeVariant == ThemeVariant.Default)
+            return "System";
+
+        return app.RequestedThemeVariant == ThemeVariant.Dark ? "Dark" : "Light";
     }
 }
