@@ -63,11 +63,10 @@
                                     <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
                                            IsVisible="{Binding IsReadOnly}" />
                                 </StackPanel>
-                                <!-- Value + Info -->
+                                <!-- Value editor + Info -->
                                 <Grid Grid.Column="1" ColumnDefinitions="*,Auto">
-                                    <TextBlock Grid.Column="0" Text="{Binding DisplayValue}" Padding="{MThickness S2}"
-                                               VerticalAlignment="Center" Foreground="{MBrush MutedForeground}"
-                                               TextTrimming="CharacterEllipsis" />
+                                    <ContentControl Grid.Column="0" Content="{Binding PropertyItem}" ClipToBounds="False"
+                                                    ContentTemplate="{x:Static local:PropertyListView.PropertyItemTemplate}" />
                                     <MIcon Grid.Column="1" Classes="InfoIcon" IconSource="{x:Static devtools:Icons.Info}"
                                            ToolTip.Tip="{Binding SourceName}" />
                                 </Grid>
@@ -93,8 +92,9 @@
                                     <MIcon Classes="LockIcon" IconSource="{x:Static devtools:Icons.Lock}"
                                            IsVisible="{Binding IsReadOnly}" />
                                 </StackPanel>
-                                <!-- Editor (selected by ViewTemplate in code-behind) -->
-                                <ContentControl Grid.Column="1" Content="{Binding}" ClipToBounds="False" />
+                                <!-- Editor (selected by template selector) -->
+                                <ContentControl Grid.Column="1" Content="{Binding}" ClipToBounds="False"
+                                                ContentTemplate="{x:Static local:PropertyListView.PropertyItemTemplate}" />
                             </Grid>
                         </Border>
                     </DataTemplate>
