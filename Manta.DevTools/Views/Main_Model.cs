@@ -54,6 +54,9 @@ sealed class Main_Model : ViewModel
         view.TitleBar
             .BindTitleBarEvents()
             .DisposeWith(disposables);
+
+        MApp.SubscribeThemeChanged(variant => ThemeButtonText = GetThemeText(variant))
+            .DisposeWith(disposables);
     }
 
     public CommandWarper HideDevToolsCommand => GetCommand(() =>
