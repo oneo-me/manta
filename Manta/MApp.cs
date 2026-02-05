@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Styling;
 using Avalonia.Threading;
 using Manta.Extensions;
 using Manta.Globalization;
@@ -129,6 +130,31 @@ public abstract class MApp : Application
             return;
 
         desktop.Shutdown();
+    }
+
+    /// <summary>
+    /// Switches the application theme between System, Light, and Dark modes.
+    /// When in System mode, switches to the opposite of the current actual theme.
+    /// When in Light or Dark mode, switches back to System mode.
+    /// </summary>
+    /// <returns>The new requested theme variant</returns>
+    public static ThemeVariant SwitchTheme()
+    {
+        if (Application.Current is not { } app)
+            return ThemeVariant.Default;
+
+        if (app.RequestedThemeVariant == ThemeVariant.Default)
+        {
+            // Currently following system, switch to opposite of actual theme
+            app.RequestedThemeVariant = app.ActualThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+        }
+        else
+        {
+            // Currently explicit Light or Dark, switch back to system
+            app.RequestedThemeVariant = ThemeVariant.Default;
+        }
+
+        return app.RequestedThemeVariant;
     }
 
     public override void OnFrameworkInitializationCompleted()

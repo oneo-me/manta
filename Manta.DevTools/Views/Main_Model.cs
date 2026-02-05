@@ -107,35 +107,12 @@ sealed class Main_Model : ViewModel
     {
         get;
         set => SetValue(ref field, value);
-    } = GetCurrentThemeText();
+    } = GetThemeText(Application.Current?.RequestedThemeVariant);
 
     public CommandWarper ToggleThemeCommand => GetCommand(() =>
     {
-        if (Application.Current is not { } app)
-            return;
-
-        if (app.RequestedThemeVariant == ThemeVariant.Default)
-        {
-            // Currently following system, switch to opposite of actual theme
-            app.RequestedThemeVariant = app.ActualThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-        }
-        else
-        {
-            // Currently explicit Light or Dark, switch back to system
-            app.RequestedThemeVariant = ThemeVariant.Default;
-        }
-
-        ThemeButtonText = GetCurrentThemeText();
+        ThemeButtonText = GetThemeText(MApp.SwitchTheme());
     });
 
-    static string GetCurrentThemeText()
-    {
-        if (Application.Current is not { } app)
-            return "Theme";
-
-        if (app.RequestedThemeVariant == ThemeVariant.Default)
-            return "System";
-
-        return app.RequestedThemeVariant == ThemeVariant.Dark ? "Dark" : "Light";
-    }
+    static string GetThemeText(ThemeVariant? variant) => variant == ThemeVariant.Default ? "System" : variant == ThemeVariant.Dark ? "Dark" : "Light";
 }

@@ -92,6 +92,8 @@ public sealed class MIcon : TemplatedControl
 
     void OnSourceChanged(IconSource? source)
     {
+        _panel.Children.Clear();
+
         if (source is null)
             return;
 

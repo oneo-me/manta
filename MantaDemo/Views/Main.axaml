@@ -16,9 +16,9 @@
                             <MIcon IconSize="18" IconSource="{x:Static Icons.TweakcnTool}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
-                    <MTitleBarButton>
+                    <MTitleBarButton Command="{Binding SwitchThemeCommand}">
                         <MPanel Mode="Horizontal" Spacing="8">
-                            <MIcon IconSize="18" IconSource="{x:Static Icons.Theme}" Margin="0 -10" VerticalAlignment="Center" />
+                            <MIcon IconSize="18" IconSource="{Binding ThemeIcon}" Margin="0 -10" VerticalAlignment="Center" />
                         </MPanel>
                     </MTitleBarButton>
                     <MTitleBarButton Command="{Binding OpenSettingsAsyncCommand}">
