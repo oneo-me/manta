@@ -53,7 +53,7 @@ sealed class PropertyListView_Model : ViewModel, IViewHostTarget<object?>
                 if (contextDict.ContainsKey(key))
                     continue;
 
-                contextDict[key] = new ContextItem(key, value, current.ViewModel.GetType());
+                contextDict[key] = new ContextItem(key, value, current.ViewModel.GetType(), current.ViewModel);
             }
 
             current = current.Parent;

@@ -1,6 +1,7 @@
 using System.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
 using Avalonia.Data;
 using Avalonia.Layout;
 using Avalonia.VisualTree;
@@ -13,20 +14,37 @@ namespace Manta.DevTools.Views;
 
 sealed partial class PropertyListView : MView
 {
+    /// <summary>
+    /// Static template selector instance for XAML reference.
+    /// </summary>
+    public static PropertyItemTemplateSelector PropertyItemTemplate { get; } = new();
+
     public PropertyListView()
     {
         InitializeComponent();
-
-        // Register ViewTemplates for different property types
-        DataTemplates.Add(new ViewTemplate<BooleanPropertyItem>(CreateBooleanEditor));
-        DataTemplates.Add(new ViewTemplate<StringPropertyItem>(CreateStringEditor));
-        DataTemplates.Add(new ViewTemplate<NumericPropertyItem>(CreateNumericEditor));
-        DataTemplates.Add(new ViewTemplate<EnumPropertyItem>(CreateEnumEditor));
-        DataTemplates.Add(new ViewTemplate<CommandPropertyItem>(CreateCommandEditor));
-        DataTemplates.Add(new ViewTemplate<CollectionPropertyItem>(CreateCollectionButton));
-        DataTemplates.Add(new ViewTemplate<ObjectPropertyItem>(CreateObjectButton));
-        DataTemplates.Add(new ViewTemplate<ReadOnlyPropertyItem>(CreateReadOnlyDisplay));
     }
+}
+
+/// <summary>
+/// Custom template selector for PropertyItemBase types.
+/// </summary>
+sealed class PropertyItemTemplateSelector : IDataTemplate
+{
+    public bool Match(object? data) => data is PropertyItemBase;
+
+    public Control Build(object? param) => param switch
+    {
+        BooleanPropertyItem item => CreateBooleanEditor(item),
+        StringPropertyItem item => CreateStringEditor(item),
+        NumericPropertyItem item => CreateNumericEditor(item),
+        EnumPropertyItem item => CreateEnumEditor(item),
+        CommandPropertyItem item => CreateCommandEditor(item),
+        CollectionPropertyItem item => CreateCollectionButton(item),
+        ObjectPropertyItem item => CreateObjectButton(item),
+        ReadOnlyPropertyItem item => CreateReadOnlyDisplay(item),
+        PropertyItemBase item => CreateFallbackDisplay(item),
+        _ => new TextBlock { Text = "Unknown" }
+    };
 
     static Control CreateBooleanEditor(BooleanPropertyItem item)
     {
@@ -242,6 +260,17 @@ sealed partial class PropertyListView : MView
             VerticalAlignment = VerticalAlignment.Center,
             Padding = new(8, 0, 0, 0),
             Foreground = Avalonia.Media.Brushes.Gray
+        };
+    }
+
+    static Control CreateFallbackDisplay(PropertyItemBase item)
+    {
+        return new TextBlock
+        {
+            Text = $"[{item.GetType().Name}]",
+            VerticalAlignment = VerticalAlignment.Center,
+            Padding = new(8, 0, 0, 0),
+            Foreground = Avalonia.Media.Brushes.Orange
         };
     }
 }

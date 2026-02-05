@@ -112,7 +112,11 @@ public abstract class PropertyItemBase
     {
         if (!type.IsGenericType)
             return false;
-        return type.GetGenericTypeDefinition().FullName == "Manta.Reactive.Views.ReactiveValue`1";
+
+        var genericDef = type.GetGenericTypeDefinition();
+        // Check by name pattern since we can't reference ReactiveValue<> directly (circular dependency)
+        return genericDef.FullName?.StartsWith("Manta.Reactive.Views.ReactiveValue`") == true ||
+               genericDef.Name == "ReactiveValue`1";
     }
 
     public static Type? GetReactiveInnerType(Type type)
