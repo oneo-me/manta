@@ -2,4 +2,4 @@ using Avalonia.Controls;
 
 namespace Manta.Controls;
 
-public class MBackgroud : Border;
+public class MBackground : Border;

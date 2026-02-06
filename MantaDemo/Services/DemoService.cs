@@ -128,10 +128,10 @@ sealed class DemoService
 
             if (subGroup is null)
             {
-                foreach (var chekcGroup in Enum.GetValues<DemoSubGroup>())
-                    if (xaml.Contains($"<!-- {chekcGroup} -->"))
+                foreach (var checkGroup in Enum.GetValues<DemoSubGroup>())
+                    if (xaml.Contains($"<!-- {checkGroup} -->"))
                     {
-                        SubGroup = chekcGroup;
+                        SubGroup = checkGroup;
                         break;
                     }
             }

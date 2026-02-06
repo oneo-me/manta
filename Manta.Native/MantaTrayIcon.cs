@@ -11,12 +11,12 @@ public sealed class MantaTrayIcon : IDisposable
 
     public event EventHandler<Point>? Clicked;
 
-    public MantaTrayIcon(Application app, byte[] taryIcon)
+    public MantaTrayIcon(Application app, byte[] trayIcon)
     {
         if (OperatingSystem.IsMacOS())
-            _impl = new MacOSTrayIcon(taryIcon);
+            _impl = new MacOSTrayIcon(trayIcon);
         else if (OperatingSystem.IsWindows())
-            _impl = new WindowsTrayIcon(app, taryIcon);
+            _impl = new WindowsTrayIcon(app, trayIcon);
         else if (OperatingSystem.IsLinux())
             return; // Not supported yet
 
