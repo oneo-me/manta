@@ -119,7 +119,7 @@ sealed class NodeEditorView_Model : DemoViewModel
         }
     }
 
-    async void Execute()
+    async Task Execute()
     {
         if (_blueprint == null) return;
         try

@@ -5,14 +5,15 @@ namespace Manta.Reactive.Commands;
 
 public class CommandWarper : Model, ICommand
 {
-    readonly Action<object?> _execute;
+    readonly Action<object?>? _syncExecute;
+    readonly Func<object?, Task>? _asyncExecute;
     readonly Func<object?, bool>? _canExecute;
 
     public event EventHandler? CanExecuteChanged;
 
     public CommandWarper(Action<object?> execute, Func<object?, bool>? canExecute = null)
     {
-        _execute = execute;
+        _syncExecute = execute;
         _canExecute = canExecute;
     }
 
@@ -28,21 +29,7 @@ public class CommandWarper : Model, ICommand
 
     public CommandWarper(Func<object?, Task> execute, Func<object?, bool>? canExecute = null)
     {
-        _execute = obj =>
-        {
-            IsExecuting = true;
-            OnChanged();
-            var taskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
-
-            Task.Run(async () =>
-            {
-                await execute(obj).ConfigureAwait(false);
-            }).ContinueWith(_ =>
-            {
-                IsExecuting = false;
-                OnChanged();
-            }, taskScheduler);
-        };
+        _asyncExecute = execute;
         _canExecute = canExecute;
     }
 
@@ -66,8 +53,25 @@ public class CommandWarper : Model, ICommand
         return _canExecute(parameter);
     }
 
-    public void Execute(object? parameter)
+    public async void Execute(object? parameter)
     {
-        _execute(parameter);
+        if (_asyncExecute is not null)
+        {
+            IsExecuting = true;
+            OnChanged();
+            try
+            {
+                await _asyncExecute(parameter);
+            }
+            finally
+            {
+                IsExecuting = false;
+                OnChanged();
+            }
+        }
+        else
+        {
+            _syncExecute?.Invoke(parameter);
+        }
     }
 }

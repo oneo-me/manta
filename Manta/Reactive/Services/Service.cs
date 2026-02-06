@@ -1,8 +1,11 @@
+using System.Collections.Concurrent;
+
 namespace Manta.Reactive.Services;
 
 public static class Service
 {
-    static readonly Dictionary<Type, object> _dic = new();
+    static readonly ConcurrentDictionary<Type, object> _dic = new();
+    static readonly Lock _registerLock = new();
 
     static object GetInstance(Type type)
     {
@@ -17,11 +20,14 @@ public static class Service
         if (serviceType.IsAssignableFrom(serviceImplType) is false)
             throw new ServiceException($"Service registration error, {serviceImplType} is not a subclass of {serviceType}");
 
-        if (_dic.ContainsKey(serviceType) || _dic.ContainsKey(serviceImplType))
-            throw new ServiceException($"Service registration error, {serviceType} has already been registered as {_dic[serviceType].GetType()}");
+        lock (_registerLock)
+        {
+            if (_dic.ContainsKey(serviceType) || _dic.ContainsKey(serviceImplType))
+                throw new ServiceException($"Service registration error, {serviceType} has already been registered as {_dic[serviceType].GetType()}");
 
-        _dic[serviceType] = serviceImpl;
-        _dic[serviceImplType] = serviceImpl;
+            _dic[serviceType] = serviceImpl;
+            _dic[serviceImplType] = serviceImpl;
+        }
     }
 
     public static T Register<T>(T serviceImpl) where T : class
@@ -62,20 +68,44 @@ public static class Service
             throw new ServiceException($"Error creating object, {type} has no available constructor");
 
         var parameterInfos = constructorInfo.GetParameters();
-        var args = new List<object?>();
 
-        foreach (var parameterInfo in parameterInfos)
-        {
-            var parameterType = parameterInfo.ParameterType;
-            var instance = GetInstance(parameterType);
-            args.Add(instance);
-        }
+        var missingDeps = parameterInfos
+            .Where(p => !_dic.ContainsKey(p.ParameterType))
+            .Select(p => $"'{p.Name}' ({p.ParameterType})")
+            .ToList();
 
-        var obj = Activator.CreateInstance(type, args.ToArray());
+        if (missingDeps.Count > 0)
+            throw new ServiceException(
+                $"Error creating {type}: missing required service(s): {string.Join(", ", missingDeps)}");
+
+        var args = parameterInfos.Select(p => GetInstance(p.ParameterType)).ToArray();
+
+        var obj = Activator.CreateInstance(type, args);
         if (obj is not T result)
             throw new ServiceException($"An error occurred while creating the object, {type} is not a subclass of {typeof(T)}");
 
         return result;
+    }
+
+    public static void ValidateDependencies(Type type)
+    {
+        var constructorInfo = type.GetConstructors().MinBy(x => x.GetParameters().Length);
+        if (constructorInfo is null)
+            throw new ServiceException($"Error validating dependencies, {type} has no available constructor");
+
+        var missingDeps = constructorInfo.GetParameters()
+            .Where(p => !_dic.ContainsKey(p.ParameterType))
+            .Select(p => $"'{p.Name}' ({p.ParameterType})")
+            .ToList();
+
+        if (missingDeps.Count > 0)
+            throw new ServiceException(
+                $"Dependency validation failed for {type}: missing service(s): {string.Join(", ", missingDeps)}");
+    }
+
+    public static void ValidateDependencies<T>() where T : class
+    {
+        ValidateDependencies(typeof(T));
     }
 
     public static T CreateInstance<T>() where T : class, new()
