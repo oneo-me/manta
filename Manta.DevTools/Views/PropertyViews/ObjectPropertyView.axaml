@@ -1,0 +1,12 @@
+<MView
+    x:Class="Manta.DevTools.Views.PropertyViews.ObjectPropertyView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views.PropertyViews"
+    x:DataType="local:ObjectPropertyView_Model" Design.DataContext="{x:Static local:ObjectPropertyView_Model.Design}">
+    <MButton Variant="Ghost" Padding="6" Margin="4"
+             HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+             Command="{Binding OpenCommand}">
+        <TextBlock Text="{Binding TypeName}" Foreground="Gray" />
+    </MButton>
+</MView>

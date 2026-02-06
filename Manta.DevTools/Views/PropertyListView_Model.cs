@@ -2,6 +2,7 @@ using System.Reflection;
 using Avalonia.Collections;
 using Manta.DevTools.Models;
 using Manta.DevTools.Models.Items;
+using Manta.DevTools.Views.PropertyViews;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Views;
@@ -14,7 +15,18 @@ sealed class PropertyListView_Model : ViewModel, IViewHostTarget<object?>
     public AvaloniaList<ContextItem> Contexts { get; } = [];
     public AvaloniaList<PropertyItemBase> Properties { get; } = [];
 
-    public bool HasContexts => Contexts.Count > 0;
+    public ViewTemplate<PropertyItemBase> PropertyItemTemplate { get; } = new ViewTemplate<PropertyItemBase>(item => item switch
+    {
+        BooleanPropertyItem booleanItem => new BooleanPropertyView_Model(booleanItem),
+        StringPropertyItem stringItem => new StringPropertyView_Model(stringItem),
+        NumericPropertyItem numericItem => new NumericPropertyView_Model(numericItem),
+        EnumPropertyItem enumItem => new EnumPropertyView_Model(enumItem),
+        CommandPropertyItem commandItem => new CommandPropertyView_Model(commandItem),
+        CollectionPropertyItem collectionItem => new CollectionPropertyView_Model(collectionItem),
+        ObjectPropertyItem objectItem => new ObjectPropertyView_Model(objectItem),
+        ReadOnlyPropertyItem readOnlyItem => new ReadOnlyPropertyView_Model(readOnlyItem),
+        _ => new UnknownPropertyView_Model(item)
+    });
 
     object? _lastData;
 
@@ -35,8 +47,6 @@ sealed class PropertyListView_Model : ViewModel, IViewHostTarget<object?>
             LoadFromTreeNode(treeNode);
         else
             LoadFromObject(_lastData);
-
-        OnPropertyChanged(nameof(HasContexts));
     }
 
     void LoadFromTreeNode(TreeNode node)
@@ -53,7 +63,7 @@ sealed class PropertyListView_Model : ViewModel, IViewHostTarget<object?>
                 if (contextDict.ContainsKey(key))
                     continue;
 
-                contextDict[key] = new ContextItem(key, value, current.ViewModel.GetType(), current.ViewModel);
+                contextDict[key] = new(key, value, current.ViewModel.GetType(), current.ViewModel);
             }
 
             current = current.Parent;
