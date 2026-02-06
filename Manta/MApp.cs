@@ -240,12 +240,12 @@ public abstract class MApp : Application
                 };
         }
 
-        if (initData.Tary is not null)
+        if (initData.Tray is not null)
         {
-            if (initData.Tary.Model is null || initData.Tary.Icon is null)
-                throw new("TrayModel and Icon must be set when Tary is set.");
+            if (initData.Tray.Model is null || initData.Tray.Icon is null)
+                throw new("TrayModel and Icon must be set when Tray is set.");
 
-            _trayIcon = new(this, initData.Tary.Icon);
+            _trayIcon = new(this, initData.Tray.Icon);
             _trayIcon.Clicked += (_, e) =>
             {
                 if (_trayWindowModel is not null)
@@ -259,7 +259,7 @@ public abstract class MApp : Application
                         return;
                 }
 
-                _trayWindowModel = initData.Tary.Model();
+                _trayWindowModel = initData.Tray.Model();
                 var trayWindow = _trayWindowModel.CreateWindow();
                 trayWindow.Closed += delegate
                 {

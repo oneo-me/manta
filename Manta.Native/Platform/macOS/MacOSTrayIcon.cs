@@ -20,16 +20,16 @@ sealed partial class MacOSTrayIcon : MantaTrayIconImpl
     TrayClickCallback? _callback;
     readonly long _handle;
 
-    public unsafe MacOSTrayIcon(byte[] taryIcon)
+    public unsafe MacOSTrayIcon(byte[] trayIcon)
     {
-        if (taryIcon == null || taryIcon.Length == 0)
-            throw new ArgumentException("Icon data cannot be null or empty.", nameof(taryIcon));
+        if (trayIcon == null || trayIcon.Length == 0)
+            throw new ArgumentException("Icon data cannot be null or empty.", nameof(trayIcon));
 
         _callback = OnTrayClicked;
 
-        fixed (byte* iconPtr = taryIcon)
+        fixed (byte* iconPtr = trayIcon)
         {
-            _handle = CreateTray(iconPtr, taryIcon.Length, _callback);
+            _handle = CreateTray(iconPtr, trayIcon.Length, _callback);
         }
 
         if (_handle <= 0)
