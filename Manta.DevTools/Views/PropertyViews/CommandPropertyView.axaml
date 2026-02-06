@@ -1,0 +1,12 @@
+<MView
+    x:Class="Manta.DevTools.Views.PropertyViews.CommandPropertyView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Manta.DevTools.Views.PropertyViews"
+    xmlns:devtools="clr-namespace:Manta.DevTools"
+    x:DataType="local:CommandPropertyView_Model" Design.DataContext="{x:Static local:CommandPropertyView_Model.Design}">
+    <MButton Name="ExecuteButton" Padding="6" HorizontalAlignment="Right" Variant="Outline"
+             Command="{Binding Item.Command}" IsEnabled="{Binding CanExecute}">
+        <MIcon IconSize="14" IconSource="{x:Static devtools:Icons.Play}" VerticalAlignment="Center" />
+    </MButton>
+</MView>

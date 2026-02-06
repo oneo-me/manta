@@ -7,20 +7,12 @@ namespace Manta.DevTools.Models.Items;
 /// <summary>
 /// Base class for property items displayed in the property list view.
 /// </summary>
-public abstract class PropertyItemBase
+public abstract class PropertyItemBase(string name, bool isReadOnly, object source, Type propertyType)
 {
-    public string Name { get; }
-    public bool IsReadOnly { get; }
-    public object Source { get; }
-    public Type PropertyType { get; }
-
-    protected PropertyItemBase(string name, bool isReadOnly, object source, Type propertyType)
-    {
-        Name = name;
-        IsReadOnly = isReadOnly;
-        Source = source;
-        PropertyType = propertyType;
-    }
+    public string Name { get; } = name;
+    public bool IsReadOnly { get; } = isReadOnly;
+    public object Source { get; } = source;
+    public Type PropertyType { get; } = propertyType;
 
     /// <summary>
     /// Creates a PropertyItem from a PropertyInfo.
@@ -141,78 +133,51 @@ public abstract class PropertyItemBase
 /// <summary>
 /// Boolean property - displays as checkbox.
 /// </summary>
-public sealed class BooleanPropertyItem : PropertyItemBase
+public sealed class BooleanPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
+    : PropertyItemBase(name, isReadOnly, source, propertyType)
 {
-    public bool IsReactive { get; }
-
-    public BooleanPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
-        : base(name, isReadOnly, source, propertyType)
-    {
-        IsReactive = isReactive;
-    }
+    public bool IsReactive { get; } = isReactive;
 }
 
 /// <summary>
 /// String property - displays as text box.
 /// </summary>
-public sealed class StringPropertyItem : PropertyItemBase
+public sealed class StringPropertyItem(string name, bool isReadOnly, object source, bool isReactive)
+    : PropertyItemBase(name, isReadOnly, source, typeof(string))
 {
-    public bool IsReactive { get; }
-
-    public StringPropertyItem(string name, bool isReadOnly, object source, bool isReactive)
-        : base(name, isReadOnly, source, typeof(string))
-    {
-        IsReactive = isReactive;
-    }
+    public bool IsReactive { get; } = isReactive;
 }
 
 /// <summary>
 /// Numeric property - displays as text box with number validation.
 /// </summary>
-public sealed class NumericPropertyItem : PropertyItemBase
+public sealed class NumericPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
+    : PropertyItemBase(name, isReadOnly, source, propertyType)
 {
-    public bool IsReactive { get; }
-
-    public NumericPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
-        : base(name, isReadOnly, source, propertyType)
-    {
-        IsReactive = isReactive;
-    }
+    public bool IsReactive { get; } = isReactive;
 }
 
 /// <summary>
 /// Enum property - displays as combo box.
 /// </summary>
-public sealed class EnumPropertyItem : PropertyItemBase
+public sealed class EnumPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
+    : PropertyItemBase(name, isReadOnly, source, propertyType)
 {
-    public bool IsReactive { get; }
-    public Array EnumValues { get; }
-
-    public EnumPropertyItem(string name, bool isReadOnly, object source, Type propertyType, bool isReactive)
-        : base(name, isReadOnly, source, propertyType)
-    {
-        IsReactive = isReactive;
-        EnumValues = Enum.GetValues(propertyType);
-    }
+    public bool IsReactive { get; } = isReactive;
+    public Array EnumValues { get; } = Enum.GetValues(propertyType);
 }
 
 /// <summary>
 /// Command property - displays as execute button.
 /// </summary>
-public sealed class CommandPropertyItem : PropertyItemBase
+public sealed class CommandPropertyItem(string name, object source, ICommand command) : PropertyItemBase(name, isReadOnly: true, source, command.GetType())
 {
-    public ICommand Command { get; }
-    public bool HasParameter { get; }
+    public ICommand Command { get; } = command;
+    public bool HasParameter { get; } = command.GetType().IsGenericType &&
+                                        command.GetType().GetGenericArguments().Length > 0 &&
+                                        command.GetType().GetGenericArguments()[0] != typeof(object);
 
-    public CommandPropertyItem(string name, object source, ICommand command)
-        : base(name, isReadOnly: true, source, command.GetType())
-    {
-        Command = command;
-        // Check if command type has generic parameter (e.g., AsyncCommand<T>)
-        HasParameter = command.GetType().IsGenericType &&
-                       command.GetType().GetGenericArguments().Length > 0 &&
-                       command.GetType().GetGenericArguments()[0] != typeof(object);
-    }
+    // Check if command type has generic parameter (e.g., AsyncCommand<T>)
 }
 
 /// <summary>
@@ -239,27 +204,17 @@ public sealed class CollectionPropertyItem : PropertyItemBase
 /// <summary>
 /// Complex object property - displays as button that opens object dialog.
 /// </summary>
-public sealed class ObjectPropertyItem : PropertyItemBase
+public sealed class ObjectPropertyItem(string name, object source, Type propertyType, object value)
+    : PropertyItemBase(name, isReadOnly: true, source, propertyType)
 {
-    public object Value { get; }
-
-    public ObjectPropertyItem(string name, object source, Type propertyType, object value)
-        : base(name, isReadOnly: true, source, propertyType)
-    {
-        Value = value;
-    }
+    public object Value { get; } = value;
 }
 
 /// <summary>
 /// Read-only property - displays value as text.
 /// </summary>
-public sealed class ReadOnlyPropertyItem : PropertyItemBase
+public sealed class ReadOnlyPropertyItem(string name, object source, Type propertyType, object? value)
+    : PropertyItemBase(name, isReadOnly: true, source, propertyType)
 {
-    public string DisplayValue { get; }
-
-    public ReadOnlyPropertyItem(string name, object source, Type propertyType, object? value)
-        : base(name, isReadOnly: true, source, propertyType)
-    {
-        DisplayValue = value?.ToString() ?? "null";
-    }
+    public string DisplayValue { get; } = value?.ToString() ?? "null";
 }
