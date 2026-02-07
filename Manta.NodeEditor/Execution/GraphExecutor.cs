@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Reflection;
 using Manta.NodeEditor.Models;
 using Manta.NodeEditor.TypeSystem;
 
@@ -6,53 +7,24 @@ namespace Manta.NodeEditor.Execution;
 
 public sealed class GraphExecutor(TypeCompatibility typeCompatibility)
 {
-    readonly GraphValidator _validator = new(typeCompatibility);
-
-    public event Action<Node>? NodeExecuting;
-    public event Action<Node>? NodeExecuted;
-
-    public GraphValidationResult Validate(Graph graph)
+    public async Task<GraphExecutionResult> ExecuteAsync(
+        NodeGraph graph, CancellationToken cancellationToken = default)
     {
-        return _validator.Validate(graph);
-    }
-
-    public async Task<GraphExecutionResult> ExecuteAsync(Graph graph, CancellationToken cancellationToken = default)
-    {
-        // Validate first
-        var validationResult = Validate(graph);
-        if (!validationResult.IsValid)
-            return new()
-            {
-                IsSuccess = false,
-                ErrorMessage = string.Join("; ", validationResult.Errors)
-            };
-
-        var stopwatch = Stopwatch.StartNew();
+        var sw = Stopwatch.StartNew();
 
         try
         {
-            // Get execution order
-            var executionOrder = TopologicalSorter.Sort(graph);
+            var order = TopologicalSorter.Sort(graph);
 
-            // Execute nodes in order
-            foreach (var node in executionOrder)
+            foreach (var node in order)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
                 try
                 {
-                    NodeExecuting?.Invoke(node);
-
-                    // Transfer input values from connected output ports
-                    TransferInputValues(graph, node);
-
-                    // Execute the node
-                    await node.Instance.ExecuteAsync(cancellationToken);
-
-                    // Read output values from node properties to ports
-                    TransferOutputValues(node);
-
-                    NodeExecuted?.Invoke(node);
+                    TransferInputs(graph, node);
+                    await node.ExecuteAsync(cancellationToken);
+                    TransferOutputs(node);
                 }
                 catch (Exception ex) when (ex is not OperationCanceledException)
                 {
@@ -60,8 +32,8 @@ public sealed class GraphExecutor(TypeCompatibility typeCompatibility)
                 }
             }
 
-            stopwatch.Stop();
-            return GraphExecutionResult.Success(stopwatch.Elapsed);
+            sw.Stop();
+            return GraphExecutionResult.Success(sw.Elapsed);
         }
         catch (OperationCanceledException)
         {
@@ -69,7 +41,7 @@ public sealed class GraphExecutor(TypeCompatibility typeCompatibility)
         }
         catch (Exception ex)
         {
-            return new()
+            return new GraphExecutionResult
             {
                 IsSuccess = false,
                 ErrorMessage = ex.Message,
@@ -78,34 +50,32 @@ public sealed class GraphExecutor(TypeCompatibility typeCompatibility)
         }
     }
 
-    void TransferInputValues(Graph graph, Node node)
+    void TransferInputs(NodeGraph graph, NodeBase node)
     {
-        foreach (var inputPort in node.InputPorts)
+        foreach (var inputPort in node.Inputs)
         {
-            var connection = graph.Connections.FirstOrDefault(c => c.TargetPort == inputPort);
-            if (connection != null)
-            {
-                var sourceValue = connection.SourcePort.Value;
-                var sourceType = connection.SourcePort.DataType;
-                var targetType = inputPort.DataType;
+            var conn = graph.Connections.FirstOrDefault(c => c.Target == inputPort);
+            if (conn is null) continue;
 
-                var convertedValue = typeCompatibility.ConvertValue(sourceValue, sourceType, targetType);
-                inputPort.Value = convertedValue;
+            var value = conn.Source.Value;
+            var converted = typeCompatibility.ConvertValue(value, conn.Source.DataType, inputPort.DataType);
+            inputPort.Value = converted;
 
-                // Also set the property on the node instance
-                var prop = node.Instance.GetType().GetProperty(inputPort.Name);
-                prop?.SetValue(node.Instance, convertedValue);
-            }
+            var prop = node.GetType().GetProperty(inputPort.Name,
+                BindingFlags.Public | BindingFlags.Instance);
+            if (prop?.CanWrite == true)
+                prop.SetValue(node, converted);
         }
     }
 
-    void TransferOutputValues(Node node)
+    static void TransferOutputs(NodeBase node)
     {
-        foreach (var outputPort in node.OutputPorts)
-        {
-            var prop = node.Instance.GetType().GetProperty(outputPort.Name);
-            if (prop != null)
-                outputPort.Value = prop.GetValue(node.Instance);
-        }
+        if (node.Output is null) return;
+
+        var prop = node.GetType().GetProperty(node.Output.Name,
+            BindingFlags.Public | BindingFlags.Instance);
+
+        if (prop is not null)
+            node.Output.Value = prop.GetValue(node);
     }
 }

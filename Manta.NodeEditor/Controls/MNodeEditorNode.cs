@@ -1,32 +1,38 @@
+using System.Reflection;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using Avalonia.Interactivity;
-using Avalonia.Threading;
+using Avalonia.VisualTree;
+using Manta.NodeEditor.Attributes;
 using Manta.NodeEditor.Models;
 
 namespace Manta.NodeEditor.Controls;
 
 public class MNodeEditorNode : TemplatedControl
 {
-    public static readonly StyledProperty<Node?> NodeProperty =
-        AvaloniaProperty.Register<MNodeEditorNode, Node?>(nameof(Node));
+    public static readonly StyledProperty<NodeBase?> NodeDataProperty =
+        AvaloniaProperty.Register<MNodeEditorNode, NodeBase?>(nameof(NodeData));
 
     public static readonly StyledProperty<bool> IsSelectedProperty =
         AvaloniaProperty.Register<MNodeEditorNode, bool>(nameof(IsSelected));
 
+    public static readonly StyledProperty<Control?> ContentViewProperty =
+        AvaloniaProperty.Register<MNodeEditorNode, Control?>(nameof(ContentView));
+
     ItemsControl? _inputPortsContainer;
-    ItemsControl? _outputPortsContainer;
+    ContentPresenter? _outputPortPresenter;
     Button? _deleteButton;
     bool _isDragging;
     Point _dragStartPosition;
-    Point _nodeStartPosition;
+    double _nodeStartX;
+    double _nodeStartY;
 
-    public Node? Node
+    public NodeBase? NodeData
     {
-        get => GetValue(NodeProperty);
-        set => SetValue(NodeProperty, value);
+        get => GetValue(NodeDataProperty);
+        set => SetValue(NodeDataProperty, value);
     }
 
     public bool IsSelected
@@ -35,43 +41,95 @@ public class MNodeEditorNode : TemplatedControl
         set => SetValue(IsSelectedProperty, value);
     }
 
-    public MNodeEditor? NodeEditor { get; set; }
+    public Control? ContentView
+    {
+        get => GetValue(ContentViewProperty);
+        set => SetValue(ContentViewProperty, value);
+    }
 
-    public string DisplayName => Node?.DisplayName ?? "Node";
-
-    public IEnumerable<Port> InputPorts => Node?.InputPorts ?? [];
-    public IEnumerable<Port> OutputPorts => Node?.OutputPorts ?? [];
+    internal MNodeEditor? NodeEditor { get; set; }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-
         _inputPortsContainer = e.NameScope.Find<ItemsControl>("PART_InputPorts");
-        _outputPortsContainer = e.NameScope.Find<ItemsControl>("PART_OutputPorts");
+        _outputPortPresenter = e.NameScope.Find<ContentPresenter>("PART_OutputPort");
         _deleteButton = e.NameScope.Find<Button>("PART_DeleteButton");
 
-        if (_deleteButton != null)
-            _deleteButton.Click += OnDeleteButtonClick;
+        if (_deleteButton is not null)
+            _deleteButton.Click += OnDeleteClick;
 
-        UpdatePorts();
-    }
-
-    void OnDeleteButtonClick(object? sender, RoutedEventArgs e)
-    {
-        if (NodeEditor != null && Node != null)
-            NodeEditor.DeleteNode(Node);
-        e.Handled = true;
+        UpdateContent();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
-        if (change.Property == NodeProperty)
+        if (change.Property == NodeDataProperty)
         {
-            UpdatePorts();
-            if (Node != null)
-                IsSelected = Node.IsSelected;
+            var oldNode = change.GetOldValue<NodeBase?>();
+            var newNode = change.GetNewValue<NodeBase?>();
+
+            if (oldNode is not null)
+                oldNode.PropertyChanged -= OnNodePropertyChanged;
+            if (newNode is not null)
+                newNode.PropertyChanged += OnNodePropertyChanged;
+
+            UpdateContent();
+        }
+    }
+
+    void OnNodePropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(NodeBase.IsSelected))
+            IsSelected = NodeData?.IsSelected ?? false;
+    }
+
+    void UpdateContent()
+    {
+        if (NodeData is null) return;
+
+        IsSelected = NodeData.IsSelected;
+
+        // Setup input ports
+        if (_inputPortsContainer is not null)
+        {
+            var portControls = new List<MNodeEditorPort>();
+            foreach (var port in NodeData.Inputs)
+            {
+                portControls.Add(new MNodeEditorPort
+                {
+                    Port = port,
+                    NodeEditor = NodeEditor
+                });
+            }
+
+            _inputPortsContainer.ItemsSource = portControls;
+        }
+
+        // Setup output port
+        if (_outputPortPresenter is not null && NodeData.Output is not null)
+        {
+            _outputPortPresenter.Content = new MNodeEditorPort
+            {
+                Port = NodeData.Output,
+                NodeEditor = NodeEditor
+            };
+        }
+
+        // Setup content view
+        var nodeType = NodeData.GetType();
+        var viewAttr = nodeType.GetCustomAttribute<NodeViewAttribute>();
+        if (viewAttr is not null)
+        {
+            var view = viewAttr.CreateView();
+            view.DataContext = NodeData;
+            ContentView = view;
+        }
+        else
+        {
+            ContentView = NodeData.CreateContentView();
         }
     }
 
@@ -79,52 +137,59 @@ public class MNodeEditorNode : TemplatedControl
     {
         base.OnPointerPressed(e);
 
+        if (NodeEditor is null || NodeData is null) return;
+
         var props = e.GetCurrentPoint(this).Properties;
+        if (!props.IsLeftButtonPressed) return;
 
-        if (props.IsLeftButtonPressed)
+        // Check if click is on a port connector - don't start drag
+        if (e.Source is Control source && IsPortConnector(source))
+            return;
+
+        NodeEditor.SelectNode(NodeData);
+        IsSelected = true;
+
+        _isDragging = true;
+        _dragStartPosition = e.GetPosition(NodeEditor);
+        _nodeStartX = NodeData.X;
+        _nodeStartY = NodeData.Y;
+        e.Pointer.Capture(this);
+        e.Handled = true;
+    }
+
+    static bool IsPortConnector(Control source)
+    {
+        var current = source;
+        while (current is not null)
         {
-            // Select this node
-            if (NodeEditor != null && Node != null)
-            {
-                NodeEditor.SelectNode(Node);
-                IsSelected = true;
-            }
-
-            // Start dragging
-            _isDragging = true;
-            _dragStartPosition = e.GetPosition(NodeEditor);
-            _nodeStartPosition = Node?.Position ?? default;
-            e.Pointer.Capture(this);
-            e.Handled = true;
+            if (current is MNodeEditorPort)
+                return true;
+            current = current.Parent as Control;
         }
+
+        return false;
     }
 
     protected override void OnPointerMoved(PointerEventArgs e)
     {
         base.OnPointerMoved(e);
 
-        if (_isDragging && Node != null && NodeEditor != null)
-        {
-            var currentPosition = e.GetPosition(NodeEditor);
-            var delta = currentPosition - _dragStartPosition;
+        if (!_isDragging || NodeData is null || NodeEditor is null) return;
 
-            // Convert delta to graph coordinates
-            var scaledDelta = new Point(delta.X / NodeEditor.Zoom, delta.Y / NodeEditor.Zoom);
-            var newPosition = new Point(
-                _nodeStartPosition.X + scaledDelta.X,
-                _nodeStartPosition.Y + scaledDelta.Y
-            );
+        var pos = e.GetPosition(NodeEditor);
+        var delta = pos - _dragStartPosition;
+        var scaledDelta = new Point(delta.X / NodeEditor.Zoom, delta.Y / NodeEditor.Zoom);
 
-            Node.Position = newPosition;
-            Canvas.SetLeft(this, newPosition.X);
-            Canvas.SetTop(this, newPosition.Y);
+        NodeData.X = _nodeStartX + scaledDelta.X;
+        NodeData.Y = _nodeStartY + scaledDelta.Y;
 
-            // Update port positions and redraw connections
-            UpdatePortPositions();
-            NodeEditor.InvalidateConnections();
+        Canvas.SetLeft(this, NodeData.X);
+        Canvas.SetTop(this, NodeData.Y);
 
-            e.Handled = true;
-        }
+        UpdateAllPortPositions();
+        NodeEditor.InvalidateConnections();
+
+        e.Handled = true;
     }
 
     protected override void OnPointerReleased(PointerReleasedEventArgs e)
@@ -139,83 +204,25 @@ public class MNodeEditorNode : TemplatedControl
         }
     }
 
-    internal Port? GetPortAtPosition(Point position)
+    void OnDeleteClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        // Check input ports
-        if (_inputPortsContainer != null)
-            foreach (var item in _inputPortsContainer.GetRealizedContainers())
-                if (item is MNodeEditorPort { Port: not null } portControl)
-                {
-                    var bounds = portControl.Bounds;
-                    var portPos = portControl.TranslatePoint(new(0, 0), this);
-                    if (portPos.HasValue)
-                    {
-                        var rect = new Rect(portPos.Value, bounds.Size);
-                        if (rect.Contains(position))
-                            return portControl.Port;
-                    }
-                }
-
-        // Check output ports
-        if (_outputPortsContainer != null)
-            foreach (var item in _outputPortsContainer.GetRealizedContainers())
-                if (item is MNodeEditorPort { Port: not null } portControl)
-                {
-                    var bounds = portControl.Bounds;
-                    var portPos = portControl.TranslatePoint(new(0, 0), this);
-                    if (portPos.HasValue)
-                    {
-                        var rect = new Rect(portPos.Value, bounds.Size);
-                        if (rect.Contains(position))
-                            return portControl.Port;
-                    }
-                }
-
-        return null;
+        if (NodeEditor is not null && NodeData is not null)
+            NodeEditor.Graph?.RemoveNode(NodeData);
+        e.Handled = true;
     }
 
-    internal void UpdatePortPositions()
+    internal void UpdateAllPortPositions()
     {
-        if (NodeEditor == null) return;
-
-        UpdatePortPositionsForContainer(_inputPortsContainer);
-        UpdatePortPositionsForContainer(_outputPortsContainer);
-    }
-
-    void UpdatePortPositionsForContainer(ItemsControl? container)
-    {
-        if (container == null) return;
-
-        foreach (var item in container.GetRealizedContainers())
-            if (item is MNodeEditorPort portControl)
-                portControl.UpdatePosition();
-    }
-
-    void UpdatePorts()
-    {
-        if (Node == null) return;
-
-        // Create port controls and set them as ItemsSource
-        // We need to create the controls ourselves to set the NodeEditor reference
-        if (_inputPortsContainer != null)
-            _inputPortsContainer.ItemsSource = Node.InputPorts.Select(p => new MNodeEditorPort
-            {
-                Port = p,
-                NodeEditor = NodeEditor
-            }).ToList();
-
-        if (_outputPortsContainer != null)
-            _outputPortsContainer.ItemsSource = Node.OutputPorts.Select(p => new MNodeEditorPort
-            {
-                Port = p,
-                NodeEditor = NodeEditor
-            }).ToList();
-
-        // Schedule port position update after layout is complete
-        UIThread.Post(() =>
+        if (_inputPortsContainer is not null)
         {
-            UpdatePortPositions();
-            NodeEditor?.InvalidateConnections();
-        }, DispatcherPriority.Loaded);
+            foreach (var child in _inputPortsContainer.GetVisualDescendants())
+            {
+                if (child is MNodeEditorPort portControl)
+                    portControl.UpdatePortPosition();
+            }
+        }
+
+        if (_outputPortPresenter?.Content is MNodeEditorPort outputPort)
+            outputPort.UpdatePortPosition();
     }
 }

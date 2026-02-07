@@ -1,8 +1,7 @@
 using System.Diagnostics;
-using Manta.NodeEditor;
-using Manta.NodeEditor.Controls;
-using Manta.NodeEditor.Models;
+using Manta.NodeEditor.Core;
 using Manta.NodeEditor.Nodes;
+using Manta.NodeEditor.Rendering;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
 using MantaDemo.Reactive;
@@ -16,124 +15,109 @@ sealed class NodeEditorView_Model : DemoViewModel
 
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
-    public override string Header => nameof(MNodeEditor);
+    public override string Header => nameof(NodeCanvas);
 
-    public Graph Graph { get; }
-    public NodeRegistry Registry { get; }
+    public NodeGraph Graph { get; } = new();
 
     public CommandWarper AddNumberNodeCommand { get; }
     public CommandWarper AddAddNodeCommand { get; }
     public CommandWarper AddMultiplyNodeCommand { get; }
+    public CommandWarper AddTextNodeCommand { get; }
+    public CommandWarper AddConcatNodeCommand { get; }
     public CommandWarper ExecuteCommand { get; }
-    public CommandWarper ResetViewCommand { get; }
 
-    MNodeEditor? _blueprint;
-    double _nextNodeX = 50;
-    double _nextNodeY = 50;
-
-    public void SetNodeEditor(MNodeEditor? blueprint)
-    {
-        _blueprint = blueprint;
-    }
+    double _nextX = 50;
+    double _nextY = 50;
 
     public NodeEditorView_Model()
     {
-        Registry = new();
-        Registry.ScanAssembly(typeof(AddNode).Assembly);
+        AddNumberNodeCommand = new(() => AddNode<NumberNode>());
+        AddAddNodeCommand = new(() => AddNode<AddNode>());
+        AddMultiplyNodeCommand = new(() => AddNode<MultiplyNode>());
+        AddTextNodeCommand = new(() => AddNode<TextNode>());
+        AddConcatNodeCommand = new(() => AddNode<ConcatNode>());
+        ExecuteCommand = new(ExecuteGraph);
 
-        Graph = new();
-
-        AddNumberNodeCommand = new(AddNumberNode);
-        AddAddNodeCommand = new(AddAddNode);
-        AddMultiplyNodeCommand = new(AddMultiplyNode);
-        ExecuteCommand = new(Execute);
-        ResetViewCommand = new(ResetView);
-
-        InitializeDemoGraph();
+        InitDemo();
     }
 
-    void InitializeDemoGraph()
+    void AddNode<T>() where T : NodeBase, new()
     {
-        var numberTypeInfo = Registry.GetNodeTypeInfo(typeof(NumberNode));
-        var addTypeInfo = Registry.GetNodeTypeInfo(typeof(AddNode));
-
-        if (numberTypeInfo == null || addTypeInfo == null) return;
-
-        var num1 = Graph.AddNode(numberTypeInfo, new(50, 50));
-        var num2 = Graph.AddNode(numberTypeInfo, new(50, 200));
-        var addNode = Graph.AddNode(addTypeInfo, new(300, 125));
-
-        if (num1.Instance is NumberNode n1) n1.Value = 10;
-        if (num2.Instance is NumberNode n2) n2.Value = 20;
-
-        if (num1.OutputPorts.Count > 0 && addNode.InputPorts.Count > 0)
-            Graph.AddConnection(num1.OutputPorts[0], addNode.InputPorts[0]);
-
-        if (num2.OutputPorts.Count > 0 && addNode.InputPorts.Count > 1)
-            Graph.AddConnection(num2.OutputPorts[0], addNode.InputPorts[1]);
-
-        _nextNodeX = 500;
-        _nextNodeY = 50;
+        Graph.Add<T>(_nextX, _nextY);
+        AdvancePosition();
     }
 
-    void AddNumberNode()
+    void AdvancePosition()
     {
-        var typeInfo = Registry.GetNodeTypeInfo(typeof(NumberNode));
-        if (typeInfo != null)
+        _nextY += 120;
+        if (_nextY > 500)
         {
-            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
-            _blueprint?.Refresh();
-            AdvanceNodePosition();
+            _nextY = 50;
+            _nextX += 250;
         }
     }
 
-    void AddAddNode()
+    void InitDemo()
     {
-        var typeInfo = Registry.GetNodeTypeInfo(typeof(AddNode));
-        if (typeInfo != null)
-        {
-            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
-            _blueprint?.Refresh();
-            AdvanceNodePosition();
-        }
+        var num1 = Graph.Add<NumberNode>(50, 50);
+        var num2 = Graph.Add<NumberNode>(50, 220);
+        var add = Graph.Add<AddNode>(350, 130);
+
+        num1.Result.Value = 10;
+        num2.Result.Value = 20;
+
+        Graph.Connect(num1.Result, add.A);
+        Graph.Connect(num2.Result, add.B);
+
+        _nextX = 600;
+        _nextY = 50;
     }
 
-    void AddMultiplyNode()
+    async Task ExecuteGraph()
     {
-        var typeInfo = Registry.GetNodeTypeInfo(typeof(MultiplyNode));
-        if (typeInfo != null)
-        {
-            Graph.AddNode(typeInfo, new(_nextNodeX, _nextNodeY));
-            _blueprint?.Refresh();
-            AdvanceNodePosition();
-        }
-    }
-
-    void AdvanceNodePosition()
-    {
-        _nextNodeY += 100;
-        if (_nextNodeY > 400)
-        {
-            _nextNodeY = 50;
-            _nextNodeX += 200;
-        }
-    }
-
-    async Task Execute()
-    {
-        if (_blueprint == null) return;
         try
         {
-            await _blueprint.ExecuteAsync();
+            // Simple topological execution: execute nodes in order
+            var executed = new HashSet<Guid>();
+            var sw = Stopwatch.StartNew();
+
+            bool progress;
+            do
+            {
+                progress = false;
+                foreach (var node in Graph.Nodes)
+                {
+                    if (executed.Contains(node.Id)) continue;
+
+                    // Check all inputs are satisfied
+                    var ready = node.Inputs.All(input =>
+                    {
+                        var conn = Graph.Connections.FirstOrDefault(c => c.Target == input);
+                        return conn is null || executed.Contains(conn.Source.Node!.Id);
+                    });
+
+                    if (!ready) continue;
+
+                    // Propagate values from connections
+                    foreach (var input in node.Inputs)
+                    {
+                        var conn = Graph.Connections.FirstOrDefault(c => c.Target == input);
+                        if (conn is not null)
+                            input.BoxedValue = conn.Source.BoxedValue;
+                    }
+
+                    await node.ExecuteAsync();
+                    executed.Add(node.Id);
+                    progress = true;
+                }
+            } while (progress && executed.Count < Graph.Nodes.Count);
+
+            sw.Stop();
+            Debug.WriteLine($"Graph executed in {sw.ElapsedMilliseconds}ms ({executed.Count}/{Graph.Nodes.Count} nodes)");
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Execute failed: {ex}");
+            Debug.WriteLine($"Execution failed: {ex}");
         }
-    }
-
-    void ResetView()
-    {
-        _blueprint?.ResetView();
     }
 }

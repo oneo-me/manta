@@ -1,97 +1,89 @@
-using Manta.NodeEditor.Attributes;
-using Manta.NodeEditor.Models;
+using Avalonia.Controls;
+using Manta.Controls;
+using Manta.NodeEditor.Core;
 
 namespace Manta.NodeEditor.Nodes;
 
-[Node(DisplayName = "Add", Category = "Math")]
-public class AddNode : NodeBase
-{
-    [Input(DisplayName = "A", Order = 0)]
-    public double A { get; set; }
-
-    [Input(DisplayName = "B", Order = 1)]
-    public double B { get; set; }
-
-    [Output(DisplayName = "Result", Order = 0)]
-    public double Result { get; set; }
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Result = A + B;
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Subtract", Category = "Math")]
-public class SubtractNode : NodeBase
-{
-    [Input(DisplayName = "A", Order = 0)]
-    public double A { get; set; }
-
-    [Input(DisplayName = "B", Order = 1)]
-    public double B { get; set; }
-
-    [Output(DisplayName = "Result", Order = 0)]
-    public double Result { get; set; }
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Result = A - B;
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Multiply", Category = "Math")]
-public class MultiplyNode : NodeBase
-{
-    [Input(DisplayName = "A", Order = 0)]
-    public double A { get; set; }
-
-    [Input(DisplayName = "B", Order = 1)]
-    public double B { get; set; }
-
-    [Output(DisplayName = "Result", Order = 0)]
-    public double Result { get; set; }
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Result = A * B;
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Divide", Category = "Math")]
-public class DivideNode : NodeBase
-{
-    [Input(DisplayName = "A", Order = 0)]
-    public double A { get; set; }
-
-    [Input(DisplayName = "B", Order = 1)]
-    public double B { get; set; }
-
-    [Output(DisplayName = "Result", Order = 0)]
-    public double Result { get; set; }
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Result = B != 0 ? A / B : 0;
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Number", Category = "Math")]
+/// <summary>
+/// Outputs a constant number value. The user can edit the value via the inline editor.
+/// </summary>
 public class NumberNode : NodeBase
 {
-    public double Value { get; set; }
+    public override string Title => "Number";
+    public override string Category => "Math";
 
-    [Output(DisplayName = "Value", Order = 0)]
-    public double OutputValue { get; set; }
+    public OutputPort<double> Result { get; } = new("Result");
 
-    public override string DisplayName => $"Number: {Value}";
+    public override Control? BuildContent()
+    {
+        var nud = new MNumericUpDown
+        {
+            Value = (decimal)Result.Value,
+            Width = 100,
+            FontSize = 11,
+            FormatString = "F2",
+            Minimum = decimal.MinValue,
+            Maximum = decimal.MaxValue
+        };
+
+        nud.ValueChanged += (_, e) => Result.Value = (double)(e.NewValue ?? 0m);
+        return nud;
+    }
+}
+
+/// <summary>
+/// Adds two numbers.
+/// </summary>
+public class AddNode : NodeBase
+{
+    public override string Title => "Add";
+    public override string Category => "Math";
+
+    public InputPort<double> A { get; } = new("A");
+    public InputPort<double> B { get; } = new("B");
+    public OutputPort<double> Result { get; } = new("Result");
 
     public override Task ExecuteAsync(CancellationToken cancellationToken = default)
     {
-        OutputValue = Value;
+        Result.Value = A.Value + B.Value;
+        return Task.CompletedTask;
+    }
+}
+
+/// <summary>
+/// Subtracts B from A.
+/// </summary>
+public class SubtractNode : NodeBase
+{
+    public override string Title => "Subtract";
+    public override string Category => "Math";
+
+    public InputPort<double> A { get; } = new("A");
+    public InputPort<double> B { get; } = new("B");
+    public OutputPort<double> Result { get; } = new("Result");
+
+    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
+    {
+        Result.Value = A.Value - B.Value;
+        return Task.CompletedTask;
+    }
+}
+
+/// <summary>
+/// Multiplies two numbers.
+/// </summary>
+public class MultiplyNode : NodeBase
+{
+    public override string Title => "Multiply";
+    public override string Category => "Math";
+
+    public InputPort<double> A { get; } = new("A");
+    public InputPort<double> B { get; } = new("B");
+    public OutputPort<double> Result { get; } = new("Result");
+
+    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
+    {
+        Result.Value = A.Value * B.Value;
         return Task.CompletedTask;
     }
 }

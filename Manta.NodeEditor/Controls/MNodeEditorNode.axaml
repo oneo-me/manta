@@ -8,103 +8,77 @@
             <controls:MNodeEditorNode Width="200" />
         </Border>
     </Design.PreviewWith>
+
     <ControlTheme x:Key="{x:Type controls:MNodeEditorNode}" TargetType="controls:MNodeEditorNode">
-        <Setter Property="MinWidth" Value="150" />
+        <Setter Property="MinWidth" Value="160" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_Border"
-                        Background="#2d2d2d"
-                        BorderBrush="#404040"
-                        BorderThickness="1"
-                        CornerRadius="4"
+                        Background="#2d2d2d" BorderBrush="#404040"
+                        BorderThickness="1" CornerRadius="6"
                         Padding="0">
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="8" OffsetX="0" OffsetY="2" Opacity="0.3" Color="Black" />
-                    </Border.Effect>
                     <DockPanel>
                         <!-- Title bar -->
-                        <Border Name="PART_TitleBar"
-                                DockPanel.Dock="Top"
-                                Background="#383838"
-                                CornerRadius="4,4,0,0"
+                        <Border Name="PART_TitleBar" DockPanel.Dock="Top"
+                                Background="#383838" CornerRadius="6,6,0,0"
                                 Padding="10,6,6,6">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                            <Grid ColumnDefinitions="*,Auto">
                                 <TextBlock Grid.Column="0"
-                                           Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
-                                           FontWeight="SemiBold"
-                                           Foreground="#e0e0e0"
-                                           FontSize="12"
+                                           Text="{Binding NodeData.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
+                                           FontWeight="SemiBold" Foreground="#e0e0e0" FontSize="12"
                                            VerticalAlignment="Center" />
-                                <!-- Delete button - hidden by default, shown on hover -->
-                                <Button Name="PART_DeleteButton"
-                                        Grid.Column="1"
-                                        Width="18"
-                                        Height="18"
-                                        Padding="0"
-                                        Margin="4,0,0,0"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        CornerRadius="2"
-                                        Cursor="Hand"
-                                        IsVisible="False"
-                                        VerticalAlignment="Center">
-                                    <PathIcon Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-                                              Width="10"
-                                              Height="10"
-                                              Foreground="#808080" />
+                                <Button Name="PART_DeleteButton" Grid.Column="1"
+                                        Width="18" Height="18" Padding="0" Margin="4,0,0,0"
+                                        Background="Transparent" BorderThickness="0"
+                                        CornerRadius="2" Cursor="Hand"
+                                        IsVisible="False">
+                                    <TextBlock Text="x" FontSize="12" Foreground="#808080"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Button>
                             </Grid>
                         </Border>
-                        <!-- Content area with ports -->
-                        <Grid Margin="0,8,0,8">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <!-- Input ports - ItemsSource set from code -->
-                            <MItems Name="PART_InputPorts"
-                                    Grid.Column="0"
-                                    Margin="-6,0,0,0">
-                                <MItems.ItemsPanel>
+
+                        <!-- Content area -->
+                        <StackPanel Margin="0,4,0,4" Spacing="1">
+                            <!-- Input ports with inline editors -->
+                            <ItemsControl Name="PART_InputPorts">
+                                <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <StackPanel Spacing="4" />
+                                        <StackPanel Spacing="1" />
                                     </ItemsPanelTemplate>
-                                </MItems.ItemsPanel>
-                            </MItems>
-                            <!-- Output ports - ItemsSource set from code -->
-                            <MItems Name="PART_OutputPorts"
-                                    Grid.Column="2"
-                                    Margin="0,0,-6,0">
-                                <MItems.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Spacing="4" />
-                                    </ItemsPanelTemplate>
-                                </MItems.ItemsPanel>
-                            </MItems>
-                        </Grid>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+
+                            <!-- Custom content view (optional) -->
+                            <ContentPresenter Name="PART_ContentView"
+                                              Content="{Binding ContentView, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="8,2,8,2" />
+
+                            <!-- Output port -->
+                            <ContentPresenter Name="PART_OutputPort"
+                                              HorizontalAlignment="Right" />
+                        </StackPanel>
                     </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
-        <!-- Selected state -->
+
+        <!-- Selected state: blue border -->
         <Style Selector="^[IsSelected=True] /template/ Border#PART_Border">
             <Setter Property="BorderBrush" Value="#3b82f6" />
             <Setter Property="BorderThickness" Value="2" />
         </Style>
-        <!-- Show delete button on hover -->
+
+        <!-- Hover: show delete button -->
         <Style Selector="^:pointerover /template/ Button#PART_DeleteButton">
             <Setter Property="IsVisible" Value="True" />
         </Style>
-        <!-- Delete button hover state -->
-        <Style Selector="^:pointerover /template/ Button#PART_DeleteButton:pointerover">
+
+        <!-- Delete button hover -->
+        <Style Selector="^ /template/ Button#PART_DeleteButton:pointerover">
             <Setter Property="Background" Value="#4a4a4a" />
         </Style>
-        <Style Selector="^:pointerover /template/ Button#PART_DeleteButton:pointerover PathIcon">
+        <Style Selector="^ /template/ Button#PART_DeleteButton:pointerover TextBlock">
             <Setter Property="Foreground" Value="#ef4444" />
         </Style>
     </ControlTheme>
