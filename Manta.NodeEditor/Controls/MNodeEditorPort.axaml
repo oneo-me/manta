@@ -10,92 +10,72 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
+
     <ControlTheme x:Key="{x:Type controls:MNodeEditorPort}" TargetType="controls:MNodeEditorPort">
-        <Setter Property="Height" Value="20" />
+        <Setter Property="Height" Value="26" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <!-- Input port layout: connector on left -->
-                    <StackPanel Name="PART_InputLayout" Orientation="Horizontal" IsVisible="{Binding IsInput, RelativeSource={RelativeSource TemplatedParent}}">
-                        <Border Name="PART_Connector"
-                                Width="12"
-                                Height="12"
-                                Background="#606060"
-                                BorderBrush="#808080"
-                                BorderThickness="1"
-                                CornerRadius="6"
+                    <!-- Input port layout: connector | name | inline editor -->
+                    <StackPanel Name="PART_InputLayout" Orientation="Horizontal" Spacing="4"
+                                IsVisible="{Binding Port.IsInput, RelativeSource={RelativeSource TemplatedParent}}"
+                                Margin="0,0,8,0">
+                        <Border Name="PART_InputConnector"
+                                Width="12" Height="12"
+                                Background="#505050" BorderBrush="#707070"
+                                BorderThickness="1.5" CornerRadius="6"
                                 VerticalAlignment="Center"
-                                RenderTransformOrigin="0.5,0.5">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" />
-                                </Transitions>
-                            </Border.Transitions>
-                        </Border>
-                        <TextBlock Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
-                                   Foreground="#b0b0b0"
-                                   FontSize="11"
-                                   VerticalAlignment="Center"
-                                   Margin="6,0,6,0" />
+                                Cursor="Hand" />
+                        <TextBlock Text="{Binding Port.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
+                                   Foreground="#a0a0a0" FontSize="11"
+                                   VerticalAlignment="Center" />
+                        <ContentPresenter Name="PART_InlineEditor"
+                                          Content="{Binding InlineEditor, RelativeSource={RelativeSource TemplatedParent}}"
+                                          IsVisible="{Binding ShowInlineEditor, RelativeSource={RelativeSource TemplatedParent}}"
+                                          VerticalAlignment="Center" />
                     </StackPanel>
-                    <!-- Output port layout: connector on right -->
-                    <StackPanel Name="PART_OutputLayout" Orientation="Horizontal" IsVisible="{Binding IsOutput, RelativeSource={RelativeSource TemplatedParent}}">
-                        <TextBlock Text="{Binding DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
-                                   Foreground="#b0b0b0"
-                                   FontSize="11"
-                                   VerticalAlignment="Center"
-                                   Margin="6,0,6,0" />
+
+                    <!-- Output port layout: name | connector -->
+                    <StackPanel Name="PART_OutputLayout" Orientation="Horizontal" Spacing="4"
+                                HorizontalAlignment="Right"
+                                IsVisible="{Binding Port.IsOutput, RelativeSource={RelativeSource TemplatedParent}}"
+                                Margin="8,0,0,0">
+                        <TextBlock Text="{Binding Port.DisplayName, RelativeSource={RelativeSource TemplatedParent}}"
+                                   Foreground="#a0a0a0" FontSize="11"
+                                   VerticalAlignment="Center" />
                         <Border Name="PART_OutputConnector"
-                                Width="12"
-                                Height="12"
-                                Background="#606060"
-                                BorderBrush="#808080"
-                                BorderThickness="1"
-                                CornerRadius="6"
+                                Width="12" Height="12"
+                                Background="#505050" BorderBrush="#707070"
+                                BorderThickness="1.5" CornerRadius="6"
                                 VerticalAlignment="Center"
-                                RenderTransformOrigin="0.5,0.5">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" />
-                                </Transitions>
-                            </Border.Transitions>
-                        </Border>
+                                Cursor="Hand" />
                     </StackPanel>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <!-- Hover state for input connector -->
-        <Style Selector="^[IsHovered=True] /template/ Border#PART_Connector">
-            <Setter Property="RenderTransform" Value="scale(1.2)" />
-            <Setter Property="Background" Value="#808080" />
+
+        <!-- Connected input: filled connector -->
+        <Style Selector="^[ShowInlineEditor=False] /template/ Border#PART_InputConnector">
+            <Setter Property="Background" Value="#707070" />
         </Style>
-        <!-- Hover state for output connector -->
-        <Style Selector="^[IsHovered=True] /template/ Border#PART_OutputConnector">
-            <Setter Property="RenderTransform" Value="scale(1.2)" />
-            <Setter Property="Background" Value="#808080" />
+
+        <!-- Hover: scale connector -->
+        <Style Selector="^:pointerover /template/ Border#PART_InputConnector">
+            <Setter Property="RenderTransform" Value="scale(1.3)" />
         </Style>
-        <!-- Compatible state for input connector (during drag) -->
-        <Style Selector="^[IsCompatible=True] /template/ Border#PART_Connector">
+        <Style Selector="^:pointerover /template/ Border#PART_OutputConnector">
+            <Setter Property="RenderTransform" Value="scale(1.3)" />
+        </Style>
+
+        <!-- Compatible state: green -->
+        <Style Selector="^:compatible /template/ Border#PART_InputConnector">
             <Setter Property="BorderBrush" Value="#22c55e" />
-            <Setter Property="BorderThickness" Value="2" />
             <Setter Property="Background" Value="#166534" />
         </Style>
-        <!-- Compatible state for output connector (during drag) -->
-        <Style Selector="^[IsCompatible=True] /template/ Border#PART_OutputConnector">
-            <Setter Property="BorderBrush" Value="#22c55e" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Background" Value="#166534" />
-        </Style>
-        <!-- Incompatible state for input connector (during drag) -->
-        <Style Selector="^[IsIncompatible=True] /template/ Border#PART_Connector">
+
+        <!-- Incompatible state: red -->
+        <Style Selector="^:incompatible /template/ Border#PART_InputConnector">
             <Setter Property="BorderBrush" Value="#ef4444" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Background" Value="#7f1d1d" />
-        </Style>
-        <!-- Incompatible state for output connector (during drag) -->
-        <Style Selector="^[IsIncompatible=True] /template/ Border#PART_OutputConnector">
-            <Setter Property="BorderBrush" Value="#ef4444" />
-            <Setter Property="BorderThickness" Value="2" />
             <Setter Property="Background" Value="#7f1d1d" />
         </Style>
     </ControlTheme>

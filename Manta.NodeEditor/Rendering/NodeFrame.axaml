@@ -1,0 +1,82 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:r="clr-namespace:Manta.NodeEditor.Rendering"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{MBrush Background}">
+            <r:NodeFrame Width="200" />
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type r:NodeFrame}" TargetType="r:NodeFrame">
+        <Setter Property="MinWidth" Value="160" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_Root"
+                        Background="{MBrush Card}"
+                        BorderBrush="{MBrush Border}"
+                        BorderThickness="{MThickness Px}"
+                        CornerRadius="{MRadius MD}">
+                    <DockPanel>
+                        <!-- Title -->
+                        <Border DockPanel.Dock="Top"
+                                Background="{MBrush Muted}"
+                                CornerRadius="6,6,0,0"
+                                Padding="10,6,6,6">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Grid.Column="0"
+                                           Text="{Binding Node.Title, RelativeSource={RelativeSource TemplatedParent}}"
+                                           FontWeight="SemiBold"
+                                           Foreground="{MBrush Foreground}"
+                                           FontSize="12"
+                                           VerticalAlignment="Center" />
+                                <MButton Name="PART_Delete" Grid.Column="1"
+                                        Width="18" Height="18" Padding="0"
+                                        Margin="4,0,0,0"
+                                        Background="Transparent" BorderThickness="0"
+                                        Cursor="Hand" IsVisible="False">
+                                    <TextBlock Text="x" FontSize="12"
+                                               Foreground="{MBrush MutedForeground}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" />
+                                </MButton>
+                            </Grid>
+                        </Border>
+                        <!-- Body -->
+                        <StackPanel Margin="0,4,0,4" Spacing="1">
+                            <MItems Name="PART_Inputs">
+                                <MItems.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Spacing="1" />
+                                    </ItemsPanelTemplate>
+                                </MItems.ItemsPanel>
+                            </MItems>
+                            <ContentPresenter Name="PART_Content"
+                                              Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="8,2,8,2" />
+                            <ContentPresenter Name="PART_Output"
+                                              HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Selected -->
+        <Style Selector="^[IsSelected=True] /template/ Border#PART_Root">
+            <Setter Property="BorderBrush" Value="{MBrush Ring}" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+        <!-- Hover: show delete -->
+        <Style Selector="^:pointerover /template/ Button#PART_Delete">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_Delete:pointerover">
+            <Setter Property="Background" Value="{MBrush Muted, Type=Light1}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_Delete:pointerover TextBlock">
+            <Setter Property="Foreground" Value="{MBrush Destructive}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,38 +1,56 @@
-using Avalonia;
+using System.Collections.ObjectModel;
+using Avalonia.Controls;
+using Manta.Reactive.Views;
 
 namespace Manta.NodeEditor.Models;
 
-public abstract class NodeBase
+public abstract class NodeBase : Model
 {
     public Guid Id { get; internal set; } = Guid.NewGuid();
-    public Point Position { get; set; }
-    public bool IsSelected { get; set; }
 
-    internal List<Port> InputPorts { get; } = [];
-    internal List<Port> OutputPorts { get; } = [];
+    double _x;
+    public double X
+    {
+        get => _x;
+        set => SetValue(ref _x, value);
+    }
 
-    public IReadOnlyList<Port> Inputs => InputPorts;
-    public IReadOnlyList<Port> Outputs => OutputPorts;
+    double _y;
+    public double Y
+    {
+        get => _y;
+        set => SetValue(ref _y, value);
+    }
+
+    bool _isSelected;
+    public bool IsSelected
+    {
+        get => _isSelected;
+        set => SetValue(ref _isSelected, value);
+    }
 
     public virtual string DisplayName => GetType().Name;
 
+    public string Category { get; internal set; } = "Default";
+
+    public ObservableCollection<NodePort> Inputs { get; } = [];
+
+    public NodePort? Output { get; internal set; }
+
     public virtual Task ExecuteAsync(CancellationToken cancellationToken = default)
+        => Task.CompletedTask;
+
+    protected T? GetInputValue<T>(string portName)
     {
-        return Task.CompletedTask;
+        var port = Inputs.FirstOrDefault(p => p.Name == portName);
+        return port?.Value is T value ? value : default;
     }
 
-    protected T? GetInput<T>(string portName)
+    protected void SetOutputValue(object? value)
     {
-        var port = InputPorts.Find(p => p.Name == portName);
-        if (port?.Value is T value)
-            return value;
-        return default;
+        if (Output is not null)
+            Output.Value = value;
     }
 
-    protected void SetOutput<T>(string portName, T value)
-    {
-        var port = OutputPorts.Find(p => p.Name == portName);
-        if (port != null)
-            port.Value = value;
-    }
+    public virtual Control? CreateContentView() => null;
 }

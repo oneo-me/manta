@@ -1,9 +1,10 @@
+using System.Collections.Specialized;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
-using Manta.NodeEditor.Execution;
+using Avalonia.VisualTree;
 using Manta.NodeEditor.Models;
 using Manta.NodeEditor.TypeSystem;
 
@@ -11,47 +12,54 @@ namespace Manta.NodeEditor.Controls;
 
 public class MNodeEditor : TemplatedControl
 {
-    public static readonly StyledProperty<Graph?> GraphProperty =
-        AvaloniaProperty.Register<MNodeEditor, Graph?>(nameof(Graph));
-
-    public static readonly StyledProperty<NodeRegistry?> RegistryProperty =
-        AvaloniaProperty.Register<MNodeEditor, NodeRegistry?>(nameof(Registry));
+    public static readonly StyledProperty<NodeGraph?> GraphProperty =
+        AvaloniaProperty.Register<MNodeEditor, NodeGraph?>(nameof(Graph));
 
     public static readonly StyledProperty<double> ZoomProperty =
         AvaloniaProperty.Register<MNodeEditor, double>(nameof(Zoom), 1.0,
-            coerce: (_, v) => Math.Clamp(v, MinZoom, MaxZoom));
+            coerce: (_, v) => Math.Clamp(v, 0.1, 5.0));
 
     public static readonly StyledProperty<Point> OffsetProperty =
         AvaloniaProperty.Register<MNodeEditor, Point>(nameof(Offset));
 
-    public static readonly StyledProperty<bool> IsExecutingProperty =
-        AvaloniaProperty.Register<MNodeEditor, bool>(nameof(IsExecuting));
-
-    public const double MinZoom = 0.1;
-    public const double MaxZoom = 10.0;
-    public const double ZoomFactor = 1.05; // 5% zoom per scroll step for smoother zooming
-
     Canvas? _canvas;
     Panel? _transformContainer;
     MNodeEditorConnectionLayer? _connectionLayer;
-    MNodeEditorGridBackground? _gridBackground;
+    MNodeEditorGrid? _grid;
+
     bool _isPanning;
     Point _lastPanPosition;
-    GraphExecutor? _executor;
     bool _isSpaceHeld;
 
-    // Connection dragging state
+    // Connection drag state
+    public bool IsDraggingConnection { get; private set; }
+    public NodePort? DragSourcePort { get; private set; }
+    public Point DragEndPoint { get; private set; }
 
-    public Graph? Graph
+    TypeCompatibility? _typeCompatibility;
+
+    public TypeCompatibility TypeCompatibility
     {
-        get => GetValue(GraphProperty);
-        set => SetValue(GraphProperty, value);
+        get => _typeCompatibility ??= TypeCompatibility.CreateDefault();
+        set => _typeCompatibility = value;
     }
+
+    // Clipboard for copy/paste
+    readonly List<NodeBase> _clipboard = [];
+
+    public static readonly StyledProperty<NodeRegistry?> RegistryProperty =
+        AvaloniaProperty.Register<MNodeEditor, NodeRegistry?>(nameof(Registry));
 
     public NodeRegistry? Registry
     {
         get => GetValue(RegistryProperty);
         set => SetValue(RegistryProperty, value);
+    }
+
+    public NodeGraph? Graph
+    {
+        get => GetValue(GraphProperty);
+        set => SetValue(GraphProperty, value);
     }
 
     public double Zoom
@@ -66,29 +74,6 @@ public class MNodeEditor : TemplatedControl
         set => SetValue(OffsetProperty, value);
     }
 
-    public bool IsExecuting
-    {
-        get => GetValue(IsExecutingProperty);
-        private set => SetValue(IsExecutingProperty, value);
-    }
-
-    public TypeCompatibility TypeCompatibility
-    {
-        get => field ??= TypeCompatibility.CreateDefault();
-        set;
-    }
-
-    public bool IsDraggingConnection { get; private set; }
-
-    public Port? DragStartPort { get; private set; }
-
-    public Point DragEndPoint { get; private set; }
-
-    public event EventHandler<Node>? NodeSelected;
-    public event EventHandler<Connection>? ConnectionSelected;
-    public event EventHandler? SelectionCleared;
-    public event EventHandler<GraphExecutionResult>? ExecutionCompleted;
-
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
@@ -96,12 +81,14 @@ public class MNodeEditor : TemplatedControl
         _canvas = e.NameScope.Find<Canvas>("PART_Canvas");
         _transformContainer = e.NameScope.Find<Panel>("PART_TransformContainer");
         _connectionLayer = e.NameScope.Find<MNodeEditorConnectionLayer>("PART_ConnectionLayer");
-        _gridBackground = e.NameScope.Find<MNodeEditorGridBackground>("PART_GridBackground");
+        _grid = e.NameScope.Find<MNodeEditorGrid>("PART_Grid");
 
-        if (_connectionLayer != null)
+        if (_connectionLayer is not null)
             _connectionLayer.NodeEditor = this;
 
-        RefreshNodes();
+        SubscribeToGraph();
+        SyncAllNodes();
+        UpdateTransform();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -109,30 +96,151 @@ public class MNodeEditor : TemplatedControl
         base.OnPropertyChanged(change);
 
         if (change.Property == GraphProperty)
-            RefreshNodes();
+        {
+            UnsubscribeFromGraph(change.GetOldValue<NodeGraph?>());
+            SubscribeToGraph();
+            SyncAllNodes();
+        }
+        else if (change.Property == ZoomProperty || change.Property == OffsetProperty)
+        {
+            UpdateTransform();
+        }
     }
+
+    void SubscribeToGraph()
+    {
+        if (Graph is null) return;
+        Graph.Nodes.CollectionChanged += OnNodesCollectionChanged;
+        Graph.Connections.CollectionChanged += OnConnectionsCollectionChanged;
+    }
+
+    void UnsubscribeFromGraph(NodeGraph? oldGraph)
+    {
+        if (oldGraph is null) return;
+        oldGraph.Nodes.CollectionChanged -= OnNodesCollectionChanged;
+        oldGraph.Connections.CollectionChanged -= OnConnectionsCollectionChanged;
+    }
+
+    void OnNodesCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        switch (e.Action)
+        {
+            case NotifyCollectionChangedAction.Add:
+                if (e.NewItems is not null)
+                    foreach (NodeBase node in e.NewItems)
+                        AddNodeControl(node);
+                break;
+            case NotifyCollectionChangedAction.Remove:
+                if (e.OldItems is not null)
+                    foreach (NodeBase node in e.OldItems)
+                        RemoveNodeControl(node);
+                break;
+            case NotifyCollectionChangedAction.Reset:
+                SyncAllNodes();
+                break;
+        }
+    }
+
+    void OnConnectionsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        _connectionLayer?.InvalidateVisual();
+    }
+
+    void SyncAllNodes()
+    {
+        if (_canvas is null) return;
+
+        _canvas.Children.Clear();
+        if (Graph is null) return;
+
+        foreach (var node in Graph.Nodes)
+            AddNodeControl(node);
+
+        UpdateTransform();
+    }
+
+    void AddNodeControl(NodeBase node)
+    {
+        if (_canvas is null) return;
+
+        var control = new MNodeEditorNode
+        {
+            NodeData = node,
+            NodeEditor = this
+        };
+        Canvas.SetLeft(control, node.X);
+        Canvas.SetTop(control, node.Y);
+
+        // Sync position when model changes
+        node.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(NodeBase.X))
+                Canvas.SetLeft(control, node.X);
+            else if (e.PropertyName == nameof(NodeBase.Y))
+                Canvas.SetTop(control, node.Y);
+        };
+
+        _canvas.Children.Add(control);
+
+        // Update port positions after layout
+        control.Loaded += (_, _) =>
+        {
+            control.UpdateAllPortPositions();
+            _connectionLayer?.InvalidateVisual();
+        };
+    }
+
+    void RemoveNodeControl(NodeBase node)
+    {
+        if (_canvas is null) return;
+
+        var control = _canvas.Children.OfType<MNodeEditorNode>()
+            .FirstOrDefault(c => c.NodeData == node);
+
+        if (control is not null)
+            _canvas.Children.Remove(control);
+
+        _connectionLayer?.InvalidateVisual();
+    }
+
+    void UpdateTransform()
+    {
+        if (_transformContainer is not null)
+        {
+            _transformContainer.RenderTransform = new TransformGroup
+            {
+                Children =
+                {
+                    new ScaleTransform(Zoom, Zoom),
+                    new TranslateTransform(Offset.X, Offset.Y)
+                }
+            };
+        }
+
+        if (_grid is not null)
+        {
+            _grid.Zoom = Zoom;
+            _grid.Offset = Offset;
+        }
+    }
+
+    // --- Zoom / Pan ---
 
     protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
     {
         base.OnPointerWheelChanged(e);
 
         var position = e.GetPosition(this);
-        var factor = e.Delta.Y > 0 ? ZoomFactor : 1.0 / ZoomFactor;
-        var newZoom = Math.Clamp(Zoom * factor, MinZoom, MaxZoom);
+        var delta = e.Delta.Y > 0 ? 1.1 : 1 / 1.1;
+        var newZoom = Math.Clamp(Zoom * delta, 0.1, 5.0);
 
-        if (Math.Abs(newZoom - Zoom) > 0.001)
-        {
-            // Zoom towards mouse position
-            var actualFactor = newZoom / Zoom;
-            var newOffset = new Point(
-                position.X - (position.X - Offset.X) * actualFactor,
-                position.Y - (position.Y - Offset.Y) * actualFactor
-            );
+        // Zoom towards mouse position
+        var factor = newZoom / Zoom;
+        var newOffsetX = position.X - (position.X - Offset.X) * factor;
+        var newOffsetY = position.Y - (position.Y - Offset.Y) * factor;
 
-            Zoom = newZoom;
-            Offset = newOffset;
-            UpdateTransform();
-        }
+        Zoom = newZoom;
+        Offset = new Point(newOffsetX, newOffsetY);
 
         e.Handled = true;
     }
@@ -141,61 +249,53 @@ public class MNodeEditor : TemplatedControl
     {
         base.OnPointerPressed(e);
 
-        // Take focus so we can receive keyboard events
         Focus();
 
         var props = e.GetCurrentPoint(this).Properties;
-        var isClickOnCanvas = !IsClickOnNode(e.Source);
 
+        // Middle mouse button: pan
+        if (props.IsMiddleButtonPressed)
+        {
+            _isPanning = true;
+            _lastPanPosition = e.GetPosition(this);
+            e.Pointer.Capture(this);
+            Cursor = new Cursor(StandardCursorType.Hand);
+            e.Handled = true;
+            return;
+        }
+
+        // Left button
         if (props.IsLeftButtonPressed)
         {
-            // Space held = pan mode regardless of where clicked
+            // Space held: pan mode
             if (_isSpaceHeld)
             {
                 _isPanning = true;
                 _lastPanPosition = e.GetPosition(this);
                 e.Pointer.Capture(this);
                 e.Handled = true;
+                return;
             }
-            else if (isClickOnCanvas)
+
+            // Click on empty area
+            if (!IsClickOnNodeOrPort(e.Source as Control))
             {
-                // Left click on empty canvas - clear selection and start panning
-                ClearSelection();
-                _isPanning = true;
-                _lastPanPosition = e.GetPosition(this);
-                e.Pointer.Capture(this);
+                // Check connection hit
+                var graphPoint = CanvasToGraph(e.GetPosition(this));
+                var hitConnection = _connectionLayer?.HitTestConnection(graphPoint);
+                if (hitConnection is not null)
+                {
+                    Graph?.ClearSelection();
+                    hitConnection.IsSelected = true;
+                    e.Handled = true;
+                    return;
+                }
+
+                // Clear selection
+                Graph?.ClearSelection();
                 e.Handled = true;
             }
         }
-    }
-
-    static bool IsClickOnNode(object? source)
-    {
-        var current = source as Control;
-        while (current != null)
-        {
-            if (current is MNodeEditorNode or MNodeEditorPort)
-                return true;
-            current = current.Parent as Control;
-        }
-
-        return false;
-    }
-
-    void ClearSelection()
-    {
-        Graph?.ClearSelection();
-        UpdateNodeSelectionStates();
-        SelectionCleared?.Invoke(this, EventArgs.Empty);
-    }
-
-    void UpdateNodeSelectionStates()
-    {
-        if (_canvas == null) return;
-
-        foreach (var child in _canvas.Children)
-            if (child is MNodeEditorNode { Node: not null } nodeControl)
-                nodeControl.IsSelected = nodeControl.Node.IsSelected;
     }
 
     protected override void OnPointerMoved(PointerEventArgs e)
@@ -204,16 +304,17 @@ public class MNodeEditor : TemplatedControl
 
         if (_isPanning)
         {
-            var position = e.GetPosition(this);
-            var delta = position - _lastPanPosition;
-            Offset = new(Offset.X + delta.X, Offset.Y + delta.Y);
-            _lastPanPosition = position;
-            UpdateTransform();
+            var pos = e.GetPosition(this);
+            var delta = pos - _lastPanPosition;
+            Offset = new Point(Offset.X + delta.X, Offset.Y + delta.Y);
+            _lastPanPosition = pos;
             e.Handled = true;
+            return;
         }
-        else if (IsDraggingConnection)
+
+        if (IsDraggingConnection)
         {
-            DragEndPoint = e.GetPosition(this);
+            DragEndPoint = CanvasToGraph(e.GetPosition(this));
             _connectionLayer?.InvalidateVisual();
             e.Handled = true;
         }
@@ -227,44 +328,21 @@ public class MNodeEditor : TemplatedControl
         {
             _isPanning = false;
             e.Pointer.Capture(null);
+            Cursor = Cursor.Default;
             e.Handled = true;
         }
-        else if (IsDraggingConnection)
-        {
-            // Try to find a port at the release position
-            var releasePosition = e.GetPosition(this);
-            var targetPort = FindPortAtPosition(releasePosition);
 
-            if (targetPort is { IsInput: true })
-                CompleteConnectionDrag(targetPort);
+        if (IsDraggingConnection)
+        {
+            // Check if released on an input port
+            var hitPort = FindPortAtPosition(e.GetPosition(this));
+            if (hitPort is { IsInput: true } && DragSourcePort is not null)
+                CompleteConnectionDrag(hitPort);
             else
                 CancelConnectionDrag();
+
             e.Handled = true;
         }
-    }
-
-    Port? FindPortAtPosition(Point canvasPosition)
-    {
-        if (_canvas == null) return null;
-
-        foreach (var child in _canvas.Children)
-        {
-            if (child is not MNodeEditorNode nodeControl) continue;
-
-            // Convert position to node's local coordinates
-            var nodePos = nodeControl.TranslatePoint(new(0, 0), this);
-            if (!nodePos.HasValue) continue;
-
-            var localPos = new Point(
-                (canvasPosition.X - nodePos.Value.X) / Zoom,
-                (canvasPosition.Y - nodePos.Value.Y) / Zoom
-            );
-
-            var port = nodeControl.GetPortAtPosition(localPos);
-            if (port != null) return port;
-        }
-
-        return null;
     }
 
     protected override void OnKeyDown(KeyEventArgs e)
@@ -274,22 +352,32 @@ public class MNodeEditor : TemplatedControl
         switch (e.Key)
         {
             case Key.Space:
-                if (!_isSpaceHeld)
-                {
-                    _isSpaceHeld = true;
-                    Cursor = new(StandardCursorType.Hand);
-                }
-
+                _isSpaceHeld = true;
+                Cursor = new Cursor(StandardCursorType.Hand);
                 e.Handled = true;
                 break;
 
             case Key.Delete:
-                DeleteSelected();
+            case Key.Back:
+                Graph?.DeleteSelected();
                 e.Handled = true;
                 break;
 
             case Key.Escape:
-                ClearSelection();
+                if (IsDraggingConnection)
+                    CancelConnectionDrag();
+                else
+                    Graph?.ClearSelection();
+                e.Handled = true;
+                break;
+
+            case Key.C when e.KeyModifiers.HasFlag(KeyModifiers.Control):
+                CopySelectedNodes();
+                e.Handled = true;
+                break;
+
+            case Key.V when e.KeyModifiers.HasFlag(KeyModifiers.Control):
+                PasteNodes();
                 e.Handled = true;
                 break;
         }
@@ -307,248 +395,158 @@ public class MNodeEditor : TemplatedControl
         }
     }
 
-    public void ResetView()
+    // --- Connection Drag API ---
+
+    internal void StartConnectionDrag(NodePort sourcePort)
     {
-        Zoom = 1.0;
-        Offset = default;
-        UpdateTransform();
-    }
-
-    public void ZoomIn()
-    {
-        var center = new Point(Bounds.Width / 2, Bounds.Height / 2);
-        var newZoom = Math.Min(Zoom * ZoomFactor, MaxZoom);
-        var factor = newZoom / Zoom;
-        var newOffset = new Point(
-            center.X - (center.X - Offset.X) * factor,
-            center.Y - (center.Y - Offset.Y) * factor
-        );
-
-        Zoom = newZoom;
-        Offset = newOffset;
-        UpdateTransform();
-    }
-
-    public void ZoomOut()
-    {
-        var center = new Point(Bounds.Width / 2, Bounds.Height / 2);
-        var newZoom = Math.Max(Zoom / ZoomFactor, MinZoom);
-        var factor = newZoom / Zoom;
-        var newOffset = new Point(
-            center.X - (center.X - Offset.X) * factor,
-            center.Y - (center.Y - Offset.Y) * factor
-        );
-
-        Zoom = newZoom;
-        Offset = newOffset;
-        UpdateTransform();
-    }
-
-    public void DeleteSelected()
-    {
-        if (Graph == null) return;
-
-        var selectedNode = Graph.SelectedNode;
-        if (selectedNode != null)
-        {
-            Graph.RemoveNode(selectedNode);
-            RefreshNodes();
-            return;
-        }
-
-        var selectedConnection = Graph.SelectedConnection;
-        if (selectedConnection != null)
-        {
-            Graph.RemoveConnection(selectedConnection);
-            _connectionLayer?.InvalidateVisual();
-        }
-    }
-
-    public void DeleteNode(Node node)
-    {
-        if (Graph == null) return;
-
-        Graph.RemoveNode(node);
-        RefreshNodes();
-    }
-
-    public Node? AddNode(NodeTypeInfo typeInfo, Point canvasPosition)
-    {
-        if (Graph == null) return null;
-
-        var graphPosition = CanvasToGraph(canvasPosition);
-        var node = Graph.AddNode(typeInfo, graphPosition);
-        RefreshNodes();
-        return node;
-    }
-
-    public async Task<GraphExecutionResult> ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        if (Graph == null)
-            return new()
-            {
-                IsSuccess = false,
-                ErrorMessage = "No graph to execute"
-            };
-
-        IsExecuting = true;
-
-        try
-        {
-            _executor ??= new(TypeCompatibility);
-            var result = await _executor.ExecuteAsync(Graph, cancellationToken);
-            ExecutionCompleted?.Invoke(this, result);
-            return result;
-        }
-        finally
-        {
-            IsExecuting = false;
-        }
-    }
-
-    public Point CanvasToGraph(Point canvasPoint)
-    {
-        return new(
-            (canvasPoint.X - Offset.X) / Zoom,
-            (canvasPoint.Y - Offset.Y) / Zoom
-        );
-    }
-
-    public Point GraphToCanvas(Point graphPoint)
-    {
-        return new(
-            graphPoint.X * Zoom + Offset.X,
-            graphPoint.Y * Zoom + Offset.Y
-        );
-    }
-
-    internal void SelectNode(Node node)
-    {
-        Graph?.SelectNode(node);
-        UpdateNodeSelectionStates();
-        NodeSelected?.Invoke(this, node);
-    }
-
-    internal void SelectConnection(Connection connection)
-    {
-        Graph?.SelectConnection(connection);
-        ConnectionSelected?.Invoke(this, connection);
-    }
-
-    internal void InvalidateConnections()
-    {
-        _connectionLayer?.InvalidateVisual();
-    }
-
-    internal void StartConnectionDrag(Port sourcePort)
-    {
-        if (sourcePort.IsInput) return;
-
-        DragStartPort = sourcePort;
-        DragEndPoint = GraphToCanvas(sourcePort.Position);
         IsDraggingConnection = true;
+        DragSourcePort = sourcePort;
+        DragEndPoint = new Point(sourcePort.PortCenterX, sourcePort.PortCenterY);
     }
 
-    internal void CompleteConnectionDrag(Port targetPort)
+    internal void CompleteConnectionDrag(NodePort targetPort)
     {
-        if (!IsDraggingConnection || DragStartPort == null || Graph == null)
+        if (DragSourcePort is not null && targetPort.IsInput)
         {
-            CancelConnectionDrag();
-            return;
+            if (IsConnectionCompatible(DragSourcePort, targetPort))
+                Graph?.Connect(DragSourcePort, targetPort);
         }
 
-        if (!targetPort.IsInput || targetPort.Owner == DragStartPort.Owner)
-        {
-            CancelConnectionDrag();
-            return;
-        }
-
-        // Check type compatibility
-        if (!TypeCompatibility.AreTypesCompatible(DragStartPort.DataType, targetPort.DataType))
-        {
-            CancelConnectionDrag();
-            return;
-        }
-
-        // Create the connection
-        Graph.AddConnection(DragStartPort, targetPort);
         CancelConnectionDrag();
     }
 
     internal void CancelConnectionDrag()
     {
         IsDraggingConnection = false;
-        DragStartPort = null;
+        DragSourcePort = null;
         _connectionLayer?.InvalidateVisual();
     }
 
-    internal bool IsPortCompatibleWithDrag(Port port)
+    internal bool IsConnectionCompatible(NodePort source, NodePort target)
     {
-        if (!IsDraggingConnection || DragStartPort == null)
-            return false;
-
-        if (!port.IsInput)
-            return false;
-
-        if (port.Owner == DragStartPort.Owner)
-            return false;
-
-        return TypeCompatibility.AreTypesCompatible(DragStartPort.DataType, port.DataType);
+        if (source.Owner == target.Owner) return false;
+        return TypeCompatibility.AreTypesCompatible(source.DataType, target.DataType);
     }
 
-    /// <summary>
-    ///     Refreshes all node controls. Call this after modifying the Graph.Nodes collection.
-    /// </summary>
-    public void Refresh()
+    // --- Selection ---
+
+    internal void SelectNode(NodeBase node)
     {
-        RefreshNodes();
+        Graph?.ClearSelection();
+        node.IsSelected = true;
     }
 
-    void RefreshNodes()
+    // --- Coordinate Conversion ---
+
+    public Point CanvasToGraph(Point canvasPoint) => new(
+        (canvasPoint.X - Offset.X) / Zoom,
+        (canvasPoint.Y - Offset.Y) / Zoom);
+
+    public Point GraphToCanvas(Point graphPoint) => new(
+        graphPoint.X * Zoom + Offset.X,
+        graphPoint.Y * Zoom + Offset.Y);
+
+    // --- Invalidation ---
+
+    internal void InvalidateConnections()
     {
-        if (_canvas == null || Graph == null) return;
+        _connectionLayer?.InvalidateVisual();
+    }
 
-        _canvas.Children.Clear();
+    // --- Utilities ---
 
-        foreach (var node in Graph.Nodes)
+    static bool IsClickOnNodeOrPort(Control? source)
+    {
+        var current = source;
+        while (current is not null)
         {
-            var nodeControl = new MNodeEditorNode
-            {
-                Node = node,
-                NodeEditor = this
-            };
-
-            Canvas.SetLeft(nodeControl, node.Position.X);
-            Canvas.SetTop(nodeControl, node.Position.Y);
-
-            _canvas.Children.Add(nodeControl);
+            if (current is MNodeEditorNode or MNodeEditorPort)
+                return true;
+            current = current.Parent as Control;
         }
 
-        UpdateTransform();
+        return false;
     }
 
-    void UpdateTransform()
+    NodePort? FindPortAtPosition(Point position)
     {
-        if (_transformContainer == null) return;
+        if (_canvas is null) return null;
 
-        // Scale first, then translate
-        // This matches how Offset is calculated: canvas position = graph position * zoom + offset
-        _transformContainer.RenderTransform = new TransformGroup
+        foreach (var child in _canvas.Children.OfType<MNodeEditorNode>())
         {
-            Children =
+            var ports = child.GetVisualDescendants().OfType<MNodeEditorPort>();
+            foreach (var portControl in ports)
             {
-                new ScaleTransform(Zoom, Zoom),
-                new TranslateTransform(Offset.X, Offset.Y)
+                if (portControl.Port is null) continue;
+
+                var topLeft = portControl.TranslatePoint(new Point(0, 0), this);
+                var bottomRight = portControl.TranslatePoint(
+                    new Point(portControl.Bounds.Width, portControl.Bounds.Height), this);
+
+                if (topLeft.HasValue && bottomRight.HasValue)
+                {
+                    var rect = new Rect(topLeft.Value, bottomRight.Value);
+                    if (rect.Contains(position))
+                        return portControl.Port;
+                }
             }
-        };
-
-        // Update grid background to match zoom and offset
-        if (_gridBackground != null)
-        {
-            _gridBackground.Zoom = Zoom;
-            _gridBackground.Offset = Offset;
         }
 
-        _connectionLayer?.InvalidateVisual();
+        return null;
+    }
+
+    // --- Copy / Paste ---
+
+    void CopySelectedNodes()
+    {
+        if (Graph is null) return;
+        _clipboard.Clear();
+        _clipboard.AddRange(Graph.Nodes.Where(n => n.IsSelected));
+    }
+
+    void PasteNodes()
+    {
+        if (Graph is null || Registry is null || _clipboard.Count == 0) return;
+
+        Graph.ClearSelection();
+
+        foreach (var original in _clipboard)
+        {
+            var nodeType = original.GetType();
+            if (!Registry.IsRegistered(nodeType)) continue;
+
+            var copy = Registry.CreateNode(nodeType, original.X + 30, original.Y + 30);
+
+            // Copy property values
+            var properties = nodeType.GetProperties(
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+
+            foreach (var prop in properties)
+            {
+                if (!prop.CanRead || !prop.CanWrite) continue;
+                if (prop.DeclaringType == typeof(NodeBase) || prop.DeclaringType == typeof(Reactive.Views.Model))
+                    continue;
+
+                try
+                {
+                    prop.SetValue(copy, prop.GetValue(original));
+                }
+                catch
+                {
+                    // Ignore properties that can't be copied
+                }
+            }
+
+            Graph.AddNode(copy);
+            copy.IsSelected = true;
+        }
+    }
+
+    // --- Public API ---
+
+    public void ResetView()
+    {
+        Zoom = 1.0;
+        Offset = default;
     }
 }

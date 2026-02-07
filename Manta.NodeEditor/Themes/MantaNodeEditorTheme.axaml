@@ -5,9 +5,9 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="../Controls/MNodeEditor.axaml" />
-                <MergeResourceInclude Source="../Controls/MNodeEditorNode.axaml" />
-                <MergeResourceInclude Source="../Controls/MNodeEditorPort.axaml" />
+                <MergeResourceInclude Source="../Rendering/NodeCanvas.axaml" />
+                <MergeResourceInclude Source="../Rendering/NodeFrame.axaml" />
+                <MergeResourceInclude Source="../Rendering/PortView.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

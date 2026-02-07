@@ -9,28 +9,22 @@ namespace Manta.NodeEditor.Controls;
 
 public class MNodeEditorPort : TemplatedControl
 {
-    public static readonly StyledProperty<Port?> PortProperty =
-        AvaloniaProperty.Register<MNodeEditorPort, Port?>(nameof(Port));
+    public static readonly StyledProperty<NodePort?> PortProperty =
+        AvaloniaProperty.Register<MNodeEditorPort, NodePort?>(nameof(Port));
 
     public static readonly StyledProperty<bool> IsHoveredProperty =
         AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(IsHovered));
 
-    public static readonly StyledProperty<bool> IsCompatibleProperty =
-        AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(IsCompatible));
+    public static readonly StyledProperty<bool> ShowInlineEditorProperty =
+        AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(ShowInlineEditor));
 
-    public static readonly StyledProperty<bool> IsIncompatibleProperty =
-        AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(IsIncompatible));
-
-    public static readonly StyledProperty<bool> IsInputProperty =
-        AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(IsInput));
-
-    public static readonly StyledProperty<bool> IsOutputProperty =
-        AvaloniaProperty.Register<MNodeEditorPort, bool>(nameof(IsOutput));
+    public static readonly StyledProperty<Control?> InlineEditorProperty =
+        AvaloniaProperty.Register<MNodeEditorPort, Control?>(nameof(InlineEditor));
 
     Control? _inputConnector;
     Control? _outputConnector;
 
-    public Port? Port
+    public NodePort? Port
     {
         get => GetValue(PortProperty);
         set => SetValue(PortProperty, value);
@@ -42,33 +36,19 @@ public class MNodeEditorPort : TemplatedControl
         set => SetValue(IsHoveredProperty, value);
     }
 
-    public bool IsCompatible
+    public bool ShowInlineEditor
     {
-        get => GetValue(IsCompatibleProperty);
-        set => SetValue(IsCompatibleProperty, value);
+        get => GetValue(ShowInlineEditorProperty);
+        set => SetValue(ShowInlineEditorProperty, value);
     }
 
-    public bool IsIncompatible
+    public Control? InlineEditor
     {
-        get => GetValue(IsIncompatibleProperty);
-        set => SetValue(IsIncompatibleProperty, value);
+        get => GetValue(InlineEditorProperty);
+        set => SetValue(InlineEditorProperty, value);
     }
 
-    public MNodeEditor? NodeEditor { get; set; }
-
-    public string DisplayName => Port?.DisplayName ?? "";
-
-    public bool IsInput
-    {
-        get => GetValue(IsInputProperty);
-        private set => SetValue(IsInputProperty, value);
-    }
-
-    public bool IsOutput
-    {
-        get => GetValue(IsOutputProperty);
-        private set => SetValue(IsOutputProperty, value);
-    }
+    internal MNodeEditor? NodeEditor { get; set; }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
@@ -76,65 +56,199 @@ public class MNodeEditorPort : TemplatedControl
 
         if (change.Property == PortProperty)
         {
-            IsInput = Port?.IsInput ?? false;
-            IsOutput = Port?.IsOutput ?? false;
+            var oldPort = change.GetOldValue<NodePort?>();
+            var newPort = change.GetNewValue<NodePort?>();
+
+            if (oldPort is not null)
+                oldPort.PropertyChanged -= OnPortPropertyChanged;
+
+            if (newPort is not null)
+                newPort.PropertyChanged += OnPortPropertyChanged;
+
+            CreateInlineEditor();
+            UpdateShowInlineEditor();
         }
+    }
+
+    void OnPortPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(NodePort.IsConnected))
+            UpdateShowInlineEditor();
+    }
+
+    void UpdateShowInlineEditor()
+    {
+        ShowInlineEditor = Port is { IsInput: true, IsConnected: false } && InlineEditor is not null;
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-
-        _inputConnector = e.NameScope.Find<Control>("PART_Connector");
+        _inputConnector = e.NameScope.Find<Control>("PART_InputConnector");
         _outputConnector = e.NameScope.Find<Control>("PART_OutputConnector");
+    }
 
-        // Update position after layout is complete
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnAttachedToVisualTree(e);
         LayoutUpdated += OnLayoutUpdated;
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnDetachedFromVisualTree(e);
+        LayoutUpdated -= OnLayoutUpdated;
     }
 
     void OnLayoutUpdated(object? sender, EventArgs e)
     {
-        UpdatePosition();
+        UpdatePortPosition();
     }
 
-    protected override void OnPointerEntered(PointerEventArgs e)
+    internal void UpdatePortPosition()
     {
-        base.OnPointerEntered(e);
-        IsHovered = true;
+        if (Port is null) return;
 
-        // Update compatibility state during drag
-        if (NodeEditor?.IsDraggingConnection == true && Port != null)
+        var connector = Port.IsInput ? _inputConnector : _outputConnector;
+        if (connector is null) return;
+
+        var editor = this.FindAncestorOfType<MNodeEditor>();
+        if (editor is null) return;
+
+        var center = new Point(connector.Bounds.Width / 2, connector.Bounds.Height / 2);
+        var translated = connector.TranslatePoint(center, editor);
+
+        if (!translated.HasValue) return;
+
+        // Convert from canvas coordinates to graph coordinates
+        var graphPoint = editor.CanvasToGraph(translated.Value);
+        Port.PortCenterX = graphPoint.X;
+        Port.PortCenterY = graphPoint.Y;
+    }
+
+    void CreateInlineEditor()
+    {
+        if (Port is null || Port.IsOutput)
         {
-            if (NodeEditor.IsPortCompatibleWithDrag(Port))
-                IsCompatible = true;
-            else if (Port.IsInput)
-                IsIncompatible = true;
+            InlineEditor = null;
+            UpdateShowInlineEditor();
+            return;
         }
+
+        InlineEditor = Port.DataType switch
+        {
+            var t when t == typeof(double) => CreateDoubleEditor(),
+            var t when t == typeof(float) => CreateFloatEditor(),
+            var t when t == typeof(int) => CreateIntEditor(),
+            var t when t == typeof(string) => CreateTextEditor(),
+            var t when t == typeof(bool) => CreateBoolEditor(),
+            _ => null
+        };
+
+        UpdateShowInlineEditor();
     }
 
-    protected override void OnPointerExited(PointerEventArgs e)
+    Control CreateDoubleEditor()
     {
-        base.OnPointerExited(e);
-        IsHovered = false;
-        IsCompatible = false;
-        IsIncompatible = false;
+        var editor = new NumericUpDown
+        {
+            Minimum = decimal.MinValue,
+            Maximum = decimal.MaxValue,
+            Value = Port?.Value is double d ? (decimal)d : 0m,
+            Width = 80,
+            FontSize = 11,
+            FormatString = "F2"
+        };
+        editor.ValueChanged += (_, e) =>
+        {
+            if (Port is not null)
+                Port.Value = (double)(e.NewValue ?? 0m);
+        };
+        return editor;
+    }
+
+    Control CreateFloatEditor()
+    {
+        var editor = new NumericUpDown
+        {
+            Minimum = decimal.MinValue,
+            Maximum = decimal.MaxValue,
+            Value = Port?.Value is float f ? (decimal)f : 0m,
+            Width = 80,
+            FontSize = 11,
+            FormatString = "F2"
+        };
+        editor.ValueChanged += (_, e) =>
+        {
+            if (Port is not null)
+                Port.Value = (float)(e.NewValue ?? 0m);
+        };
+        return editor;
+    }
+
+    Control CreateIntEditor()
+    {
+        var editor = new NumericUpDown
+        {
+            Minimum = int.MinValue,
+            Maximum = int.MaxValue,
+            Value = Port?.Value is int i ? i : 0,
+            Increment = 1,
+            Width = 80,
+            FontSize = 11,
+            FormatString = "F0"
+        };
+        editor.ValueChanged += (_, e) =>
+        {
+            if (Port is not null)
+                Port.Value = (int)(e.NewValue ?? 0m);
+        };
+        return editor;
+    }
+
+    Control CreateTextEditor()
+    {
+        var editor = new TextBox
+        {
+            Text = Port?.Value as string ?? "",
+            Width = 100,
+            FontSize = 11
+        };
+        editor.TextChanged += (_, _) =>
+        {
+            if (Port is not null)
+                Port.Value = editor.Text ?? "";
+        };
+        return editor;
+    }
+
+    Control CreateBoolEditor()
+    {
+        var editor = new CheckBox
+        {
+            IsChecked = Port?.Value is true,
+            VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
+        };
+        editor.IsCheckedChanged += (_, _) =>
+        {
+            if (Port is not null)
+                Port.Value = editor.IsChecked ?? false;
+        };
+        return editor;
     }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
 
-        if (Port != null && NodeEditor != null)
+        if (Port is null || NodeEditor is null) return;
+
+        var props = e.GetCurrentPoint(this).Properties;
+
+        if (props.IsLeftButtonPressed && Port.IsOutput)
         {
-            var props = e.GetCurrentPoint(this).Properties;
-            if (props.IsLeftButtonPressed && Port.IsOutput)
-            {
-                // Start connection drag from output port
-                // Capture pointer on the NodeEditor so it receives move/release events
-                NodeEditor.StartConnectionDrag(Port);
-                e.Pointer.Capture(NodeEditor);
-                e.Handled = true;
-            }
+            NodeEditor.StartConnectionDrag(Port);
+            e.Handled = true;
         }
     }
 
@@ -142,37 +256,32 @@ public class MNodeEditorPort : TemplatedControl
     {
         base.OnPointerReleased(e);
 
-        if (Port != null && NodeEditor != null)
-            if (Port.IsInput && NodeEditor.IsDraggingConnection)
-            {
-                // Complete connection to input port
-                NodeEditor.CompleteConnectionDrag(Port);
-                e.Handled = true;
-            }
+        if (Port is { IsInput: true } && NodeEditor is { IsDraggingConnection: true })
+        {
+            NodeEditor.CompleteConnectionDrag(Port);
+            e.Handled = true;
+        }
     }
 
-    Control? ActiveConnector => IsInput ? _inputConnector : _outputConnector;
-
-    internal void UpdatePosition()
+    protected override void OnPointerEntered(PointerEventArgs e)
     {
-        if (Port == null) return;
+        base.OnPointerEntered(e);
+        IsHovered = true;
 
-        var connector = ActiveConnector;
-        if (connector == null) return;
+        if (NodeEditor is { IsDraggingConnection: true, DragSourcePort: not null } && Port is not null)
+        {
+            if (Port.IsInput && NodeEditor.IsConnectionCompatible(NodeEditor.DragSourcePort, Port))
+                PseudoClasses.Set(":compatible", true);
+            else if (Port.IsInput)
+                PseudoClasses.Set(":incompatible", true);
+        }
+    }
 
-        // Find the parent MNodeEditorNode
-        var nodeControl = this.FindAncestorOfType<MNodeEditorNode>();
-        if (nodeControl?.Node == null) return;
-
-        // Get connector center relative to the node control
-        var center = new Point(connector.Bounds.Width / 2, connector.Bounds.Height / 2);
-        var relativeToNode = connector.TranslatePoint(center, nodeControl);
-        if (!relativeToNode.HasValue) return;
-
-        // Port position in graph space = node position + offset within node
-        Port.Position = new(
-            nodeControl.Node.Position.X + relativeToNode.Value.X,
-            nodeControl.Node.Position.Y + relativeToNode.Value.Y
-        );
+    protected override void OnPointerExited(PointerEventArgs e)
+    {
+        base.OnPointerExited(e);
+        IsHovered = false;
+        PseudoClasses.Set(":compatible", false);
+        PseudoClasses.Set(":incompatible", false);
     }
 }

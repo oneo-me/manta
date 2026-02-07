@@ -1,69 +1,47 @@
-using Manta.NodeEditor.Attributes;
-using Manta.NodeEditor.Models;
+using Avalonia.Controls;
+using Manta.NodeEditor.Core;
 
 namespace Manta.NodeEditor.Nodes;
 
-[Node(DisplayName = "Concat", Category = "String")]
-public class ConcatNode : NodeBase
-{
-    [Input(DisplayName = "A", Order = 0)]
-    public string A { get; set; } = "";
-
-    [Input(DisplayName = "B", Order = 1)]
-    public string B { get; set; } = "";
-
-    [Output(DisplayName = "Result", Order = 0)]
-    public string Result { get; set; } = "";
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Result = A + B;
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Text", Category = "String")]
+/// <summary>
+/// Outputs a constant text value. The user can edit the value via the inline editor.
+/// </summary>
 public class TextNode : NodeBase
 {
-    public string Value { get; set; } = "";
+    public override string Title => "Text";
+    public override string Category => "String";
 
-    [Output(DisplayName = "Text", Order = 0)]
-    public string OutputValue { get; set; } = "";
+    public OutputPort<string> Result { get; } = new("Text");
 
-    public override string DisplayName => $"Text: \"{(Value.Length > 10 ? Value[..10] + "..." : Value)}\"";
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
+    public override Control? BuildContent()
     {
-        OutputValue = Value;
-        return Task.CompletedTask;
+        var tb = new TextBox
+        {
+            Text = Result.Value ?? "",
+            Width = 120,
+            FontSize = 11
+        };
+
+        tb.TextChanged += (_, _) => Result.Value = tb.Text ?? "";
+        return tb;
     }
 }
 
-[Node(DisplayName = "To String", Category = "String")]
-public class ToStringNode : NodeBase
+/// <summary>
+/// Concatenates two strings.
+/// </summary>
+public class ConcatNode : NodeBase
 {
-    [Input(DisplayName = "Value", Order = 0)]
-    public object? Value { get; set; }
+    public override string Title => "Concat";
+    public override string Category => "String";
 
-    [Output(DisplayName = "Text", Order = 0)]
-    public string Result { get; set; } = "";
+    public InputPort<string> A { get; } = new("A");
+    public InputPort<string> B { get; } = new("B");
+    public OutputPort<string> Result { get; } = new("Result");
 
     public override Task ExecuteAsync(CancellationToken cancellationToken = default)
     {
-        Result = Value?.ToString() ?? "";
-        return Task.CompletedTask;
-    }
-}
-
-[Node(DisplayName = "Print", Category = "Debug")]
-public class PrintNode : NodeBase
-{
-    [Input(DisplayName = "Message", Order = 0)]
-    public string Message { get; set; } = "";
-
-    public override Task ExecuteAsync(CancellationToken cancellationToken = default)
-    {
-        Console.WriteLine($"[NodeEditor] {Message}");
+        Result.Value = (A.Value ?? "") + (B.Value ?? "");
         return Task.CompletedTask;
     }
 }

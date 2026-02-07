@@ -4,36 +4,41 @@ namespace Manta.NodeEditor.Execution;
 
 public static class TopologicalSorter
 {
-    public static List<Node> Sort(Graph graph)
+    public static List<NodeBase> Sort(NodeGraph graph)
     {
-        var result = new List<Node>();
-        var visited = new HashSet<Node>();
-        var tempVisited = new HashSet<Node>();
+        var result = new List<NodeBase>();
+        var visited = new HashSet<NodeBase>();
+        var temp = new HashSet<NodeBase>();
 
         foreach (var node in graph.Nodes)
+        {
             if (!visited.Contains(node))
-                Visit(graph, node, visited, tempVisited, result);
+                Visit(graph, node, visited, temp, result);
+        }
 
         result.Reverse();
         return result;
     }
 
-    static void Visit(Graph graph, Node node, HashSet<Node> visited, HashSet<Node> tempVisited, List<Node> result)
+    static void Visit(NodeGraph graph, NodeBase node, HashSet<NodeBase> visited,
+        HashSet<NodeBase> temp, List<NodeBase> result)
     {
-        if (tempVisited.Contains(node))
+        if (temp.Contains(node))
             throw new InvalidOperationException("Graph contains a cycle");
 
         if (visited.Contains(node))
             return;
 
-        tempVisited.Add(node);
+        temp.Add(node);
 
-        // Visit all nodes that provide input to this node
-        var incomingConnections = graph.Connections.Where(c => c.TargetNode == node);
-        foreach (var connection in incomingConnections)
-            Visit(graph, connection.SourceNode, visited, tempVisited, result);
+        var incoming = graph.Connections.Where(c => c.TargetNode == node);
+        foreach (var conn in incoming)
+        {
+            if (conn.SourceNode is not null)
+                Visit(graph, conn.SourceNode, visited, temp, result);
+        }
 
-        tempVisited.Remove(node);
+        temp.Remove(node);
         visited.Add(node);
         result.Add(node);
     }

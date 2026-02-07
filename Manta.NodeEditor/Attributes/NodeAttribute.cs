@@ -4,5 +4,6 @@ namespace Manta.NodeEditor.Attributes;
 public sealed class NodeAttribute : Attribute
 {
     public string? DisplayName { get; set; }
+
     public string Category { get; set; } = "Default";
 }
