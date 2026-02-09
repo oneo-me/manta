@@ -11,6 +11,7 @@
             <MPanel Mode="Horizontal" Spacing="8">
                 <MButton Content="Number" Command="{Binding AddNumberNodeCommand}" Variant="Secondary" />
                 <MButton Content="Add" Command="{Binding AddAddNodeCommand}" Variant="Secondary" />
+                <MButton Content="Subtract" Command="{Binding AddSubtractNodeCommand}" Variant="Secondary" />
                 <MButton Content="Multiply" Command="{Binding AddMultiplyNodeCommand}" Variant="Secondary" />
                 <MButton Content="Text" Command="{Binding AddTextNodeCommand}" Variant="Secondary" />
                 <MButton Content="Concat" Command="{Binding AddConcatNodeCommand}" Variant="Secondary" />
@@ -19,18 +20,6 @@
         </MCard>
         <MCard Height="500">
             <r:NodeCanvas Graph="{Binding Graph}" />
-        </MCard>
-        <MCard>
-            <MPanel Mode="Vertical" Spacing="4">
-                <TextBlock Text="Instructions:" FontWeight="Bold" />
-                <TextBlock Text="- Mouse wheel to zoom in/out" />
-                <TextBlock Text="- Middle mouse button or Space+Left click to pan" />
-                <TextBlock Text="- Drag from output port (right) to input port (left) to connect" />
-                <TextBlock Text="- Press Delete to remove selected node or connection" />
-                <TextBlock Text="- Click on a connection line to select it" />
-                <TextBlock Text="- Ctrl+C / Ctrl+V to copy/paste nodes" />
-                <TextBlock Text="- Press Escape to cancel connection or clear selection" />
-            </MPanel>
         </MCard>
     </MPanel>
 </MView>

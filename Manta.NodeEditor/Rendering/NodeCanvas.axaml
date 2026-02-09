@@ -18,17 +18,17 @@
                                     BackgroundBrush="{MBrush Background, Type=Dark1}"
                                     MinorGridBrush="{MBrush Border, Opacity=0.3}"
                                     MajorGridBrush="{MBrush Border, Opacity=0.6}" />
-                    <!-- Transform container for nodes only -->
-                    <Panel Name="PART_Transform">
-                        <Canvas Name="PART_NodeLayer" />
-                    </Panel>
-                    <!-- Connection overlay renders in screen space (outside transform) -->
+                    <!-- Connection overlay renders in screen space, behind nodes -->
                     <r:ConnectionRenderer Name="PART_Connections"
                                           IsHitTestVisible="False"
                                           ConnectionBrush="{MBrush MutedForeground}"
                                           SelectedBrush="{MBrush Ring}"
                                           DragBrush="{MBrush Primary}"
                                           IncompatibleBrush="{MBrush Destructive}" />
+                    <!-- Transform container for nodes (above connections) -->
+                    <Panel Name="PART_Transform">
+                        <Canvas Name="PART_NodeLayer" />
+                    </Panel>
                 </Panel>
             </ControlTemplate>
         </Setter>
