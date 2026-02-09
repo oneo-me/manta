@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Manta.NodeEditor.Core;
 using Manta.NodeEditor.Nodes;
 using Manta.NodeEditor.Rendering;
+using Manta.NodeEditor.TypeSystem;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
 using MantaDemo.Reactive;
@@ -21,6 +22,7 @@ sealed class NodeEditorView_Model : DemoViewModel
 
     public CommandWarper AddNumberNodeCommand { get; }
     public CommandWarper AddAddNodeCommand { get; }
+    public CommandWarper AddSubtractNodeCommand { get; }
     public CommandWarper AddMultiplyNodeCommand { get; }
     public CommandWarper AddTextNodeCommand { get; }
     public CommandWarper AddConcatNodeCommand { get; }
@@ -33,10 +35,13 @@ sealed class NodeEditorView_Model : DemoViewModel
     {
         AddNumberNodeCommand = new(() => AddNode<NumberNode>());
         AddAddNodeCommand = new(() => AddNode<AddNode>());
+        AddSubtractNodeCommand = new(() => AddNode<SubtractNode>());
         AddMultiplyNodeCommand = new(() => AddNode<MultiplyNode>());
         AddTextNodeCommand = new(() => AddNode<TextNode>());
         AddConcatNodeCommand = new(() => AddNode<ConcatNode>());
         ExecuteCommand = new(ExecuteGraph);
+
+        Graph.TypeCompatibility = TypeCompatibility.CreateDefault();
 
         InitDemo();
     }

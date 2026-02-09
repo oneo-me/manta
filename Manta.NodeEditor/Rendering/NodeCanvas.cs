@@ -141,6 +141,7 @@ public class NodeCanvas : TemplatedControl
         {
             ApplyTransform();
             _grid?.SetValue(GridRenderer.ZoomProperty, Zoom);
+            _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
             _grid?.InvalidateVisual();
         }
     }
@@ -352,16 +353,13 @@ public class NodeCanvas : TemplatedControl
             var graphBefore = ScreenToGraph(cursorPos);
 
             var delta = e.Delta.Y > 0 ? 1.1 : 1 / 1.1;
-            Zoom *= delta;
+            var newZoom = Math.Clamp(Zoom * delta, 0.1, 5.0);
 
-            // Adjust offset so the point under cursor stays fixed
+            // Set offset BEFORE Zoom so ApplyTransform uses consistent values
             _offset = new Point(
-                cursorPos.X - graphBefore.X * Zoom,
-                cursorPos.Y - graphBefore.Y * Zoom);
-
-            ApplyTransform();
-            _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
-            _grid?.InvalidateVisual();
+                cursorPos.X - graphBefore.X * newZoom,
+                cursorPos.Y - graphBefore.Y * newZoom);
+            Zoom = newZoom;
         }
         else
         {
@@ -494,15 +492,13 @@ public class NodeCanvas : TemplatedControl
         var zoomCenter = _lastPointerPosition;
         var graphBefore = ScreenToGraph(zoomCenter);
 
-        Zoom *= 1 + e.Delta.X;
+        var newZoom = Math.Clamp(Zoom * (1 + e.Delta.X), 0.1, 5.0);
 
+        // Set offset BEFORE Zoom so ApplyTransform uses consistent values
         _offset = new Point(
-            zoomCenter.X - graphBefore.X * Zoom,
-            zoomCenter.Y - graphBefore.Y * Zoom);
-
-        ApplyTransform();
-        _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
-        _grid?.InvalidateVisual();
+            zoomCenter.X - graphBefore.X * newZoom,
+            zoomCenter.Y - graphBefore.Y * newZoom);
+        Zoom = newZoom;
 
         SyncAllPortPositions();
         RefreshConnections();
