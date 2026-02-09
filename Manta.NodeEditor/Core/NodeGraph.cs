@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using Manta.NodeEditor.TypeSystem;
 using Manta.Reactive.Views;
 
 namespace Manta.NodeEditor.Core;
@@ -12,6 +13,11 @@ public sealed class NodeGraph : Model
     public ObservableCollection<NodeBase> Nodes { get; } = [];
 
     public ObservableCollection<Connection> Connections { get; } = [];
+
+    /// <summary>
+    /// Optional type compatibility rules. When set, Connect() will reject incompatible types.
+    /// </summary>
+    public TypeCompatibility? TypeCompatibility { get; set; }
 
     /// <summary>
     /// Add a node to the graph at the specified position.
@@ -59,6 +65,11 @@ public sealed class NodeGraph : Model
             return null;
 
         if (source.Node == target.Node)
+            return null;
+
+        // Check type compatibility if rules are configured
+        if (TypeCompatibility is not null &&
+            !TypeCompatibility.AreTypesCompatible(source.ValueType, target.ValueType))
             return null;
 
         // Remove existing connection to this input

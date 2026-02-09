@@ -20,6 +20,9 @@ public class ConnectionRenderer : Control
     public static readonly StyledProperty<IBrush?> DragBrushProperty =
         AvaloniaProperty.Register<ConnectionRenderer, IBrush?>(nameof(DragBrush));
 
+    public static readonly StyledProperty<IBrush?> IncompatibleBrushProperty =
+        AvaloniaProperty.Register<ConnectionRenderer, IBrush?>(nameof(IncompatibleBrush));
+
     internal NodeCanvas? Canvas { get; set; }
 
     public IBrush? ConnectionBrush
@@ -40,9 +43,15 @@ public class ConnectionRenderer : Control
         set => SetValue(DragBrushProperty, value);
     }
 
+    public IBrush? IncompatibleBrush
+    {
+        get => GetValue(IncompatibleBrushProperty);
+        set => SetValue(IncompatibleBrushProperty, value);
+    }
+
     static ConnectionRenderer()
     {
-        AffectsRender<ConnectionRenderer>(ConnectionBrushProperty, SelectedBrushProperty, DragBrushProperty);
+        AffectsRender<ConnectionRenderer>(ConnectionBrushProperty, SelectedBrushProperty, DragBrushProperty, IncompatibleBrushProperty);
     }
 
     public override void Render(DrawingContext context)
@@ -67,7 +76,12 @@ public class ConnectionRenderer : Control
         // Drag preview — DragEnd is already in screen coordinates
         if (Canvas is { IsDragging: true, DragSource: not null })
         {
-            var dBrush = DragBrush ?? Brushes.Yellow;
+            var hoverPort = Canvas.DragHoverPort;
+            var isIncompatible = hoverPort is not null &&
+                                 !Canvas.IsConnectionCompatible(Canvas.DragSource, hoverPort);
+            var dBrush = isIncompatible
+                ? (IncompatibleBrush ?? Brushes.Red)
+                : (DragBrush ?? Brushes.Yellow);
             var dragPen = new Pen(dBrush, 2);
             var start = PortToScreen(Canvas.DragSource, zoom, offset);
             DrawBezier(context, start, Canvas.DragEnd, dragPen);

@@ -7,6 +7,7 @@ using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.VisualTree;
 using Manta.NodeEditor.Core;
+using Manta.NodeEditor.TypeSystem;
 
 namespace Manta.NodeEditor.Rendering;
 
@@ -22,6 +23,9 @@ public class NodeCanvas : TemplatedControl
     public static readonly StyledProperty<double> ZoomProperty =
         AvaloniaProperty.Register<NodeCanvas, double>(nameof(Zoom), 1.0);
 
+    public static readonly StyledProperty<TypeCompatibility?> TypeCompatibilityProperty =
+        AvaloniaProperty.Register<NodeCanvas, TypeCompatibility?>(nameof(TypeCompatibility));
+
     Panel? _transformContainer;
     Canvas? _nodeLayer;
     GridRenderer? _grid;
@@ -35,6 +39,7 @@ public class NodeCanvas : TemplatedControl
     // Connection drag state
     bool _isDragging;
     Port? _dragSource;
+    Port? _dragHoverPort;
     Point _dragEnd; // in screen (canvas-local) coordinates
 
     // Copy buffer
@@ -52,6 +57,12 @@ public class NodeCanvas : TemplatedControl
         set => SetValue(ZoomProperty, Math.Clamp(value, 0.1, 5.0));
     }
 
+    public TypeCompatibility? TypeCompatibility
+    {
+        get => GetValue(TypeCompatibilityProperty);
+        set => SetValue(TypeCompatibilityProperty, value);
+    }
+
     public Point Offset
     {
         get => _offset;
@@ -66,7 +77,18 @@ public class NodeCanvas : TemplatedControl
 
     internal bool IsDragging => _isDragging;
     internal Port? DragSource => _dragSource;
+    internal Port? DragHoverPort => _dragHoverPort;
     internal Point DragEnd => _dragEnd;
+
+    /// <summary>
+    /// Check if two ports are type-compatible. Returns true if no TypeCompatibility is set.
+    /// </summary>
+    internal bool IsConnectionCompatible(Port source, Port target)
+    {
+        var tc = TypeCompatibility;
+        if (tc is null) return true;
+        return tc.AreTypesCompatible(source.ValueType, target.ValueType);
+    }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
@@ -105,9 +127,15 @@ public class NodeCanvas : TemplatedControl
             {
                 newGraph.Nodes.CollectionChanged += OnNodesChanged;
                 newGraph.Connections.CollectionChanged += OnConnectionsChanged;
+                newGraph.TypeCompatibility = TypeCompatibility;
             }
 
             RebuildNodes();
+        }
+        else if (change.Property == TypeCompatibilityProperty)
+        {
+            if (Graph is not null)
+                Graph.TypeCompatibility = TypeCompatibility;
         }
         else if (change.Property == ZoomProperty)
         {
@@ -168,6 +196,17 @@ public class NodeCanvas : TemplatedControl
     {
         _isDragging = false;
         _dragSource = null;
+        _dragHoverPort = null;
+        RefreshConnections();
+    }
+
+    /// <summary>
+    /// Set the port currently being hovered during a connection drag.
+    /// </summary>
+    internal void SetDragHoverPort(Port? port)
+    {
+        if (_dragHoverPort == port) return;
+        _dragHoverPort = port;
         RefreshConnections();
     }
 

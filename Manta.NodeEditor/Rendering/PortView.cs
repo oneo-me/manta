@@ -203,11 +203,24 @@ public class PortView : TemplatedControl
     {
         base.OnPointerEntered(e);
         PseudoClasses.Set(":hovered", true);
+
+        // Show compatibility feedback during connection drag
+        if (Port is { IsInput: true } && Canvas is { IsDragging: true, DragSource: not null })
+        {
+            var compatible = Canvas.IsConnectionCompatible(Canvas.DragSource, Port);
+            PseudoClasses.Set(":compatible", compatible);
+            PseudoClasses.Set(":incompatible", !compatible);
+            Canvas.SetDragHoverPort(Port);
+        }
     }
 
     protected override void OnPointerExited(PointerEventArgs e)
     {
         base.OnPointerExited(e);
         PseudoClasses.Set(":hovered", false);
+        PseudoClasses.Set(":compatible", false);
+        PseudoClasses.Set(":incompatible", false);
+
+        Canvas?.SetDragHoverPort(null);
     }
 }
