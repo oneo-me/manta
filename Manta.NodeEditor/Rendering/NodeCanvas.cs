@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.VisualTree;
 using Manta.NodeEditor.Core;
@@ -29,7 +30,7 @@ public class NodeCanvas : TemplatedControl
     bool _panning;
     Point _panStart;
     Point _panOffsetStart;
-    bool _spaceHeld;
+    Point _lastPointerPosition;
 
     // Connection drag state
     bool _isDragging;
@@ -81,6 +82,8 @@ public class NodeCanvas : TemplatedControl
 
         Focusable = true;
         ClipToBounds = true;
+
+        AddHandler(Gestures.PointerTouchPadGestureMagnifyEvent, OnMagnify, RoutingStrategies.Bubble);
 
         ApplyTransform();
         RebuildNodes();
@@ -300,20 +303,35 @@ public class NodeCanvas : TemplatedControl
     {
         base.OnPointerWheelChanged(e);
 
-        var cursorPos = e.GetPosition(this);
-        var graphBefore = ScreenToGraph(cursorPos);
+        var hasZoomModifier = e.KeyModifiers.HasFlag(KeyModifiers.Control) ||
+                              e.KeyModifiers.HasFlag(KeyModifiers.Meta);
 
-        var delta = e.Delta.Y > 0 ? 1.1 : 1 / 1.1;
-        Zoom *= delta;
+        if (hasZoomModifier)
+        {
+            // Ctrl/Cmd + Scroll → Zoom
+            var cursorPos = e.GetPosition(this);
+            var graphBefore = ScreenToGraph(cursorPos);
 
-        // Adjust offset so the point under cursor stays fixed
-        _offset = new Point(
-            cursorPos.X - graphBefore.X * Zoom,
-            cursorPos.Y - graphBefore.Y * Zoom);
+            var delta = e.Delta.Y > 0 ? 1.1 : 1 / 1.1;
+            Zoom *= delta;
 
-        ApplyTransform();
-        _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
-        _grid?.InvalidateVisual();
+            // Adjust offset so the point under cursor stays fixed
+            _offset = new Point(
+                cursorPos.X - graphBefore.X * Zoom,
+                cursorPos.Y - graphBefore.Y * Zoom);
+
+            ApplyTransform();
+            _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
+            _grid?.InvalidateVisual();
+        }
+        else
+        {
+            // Scroll → Pan
+            const double panSpeed = 50;
+            Offset = new Point(
+                _offset.X + e.Delta.X * panSpeed,
+                _offset.Y + e.Delta.Y * panSpeed);
+        }
 
         SyncAllPortPositions();
         RefreshConnections();
@@ -329,8 +347,8 @@ public class NodeCanvas : TemplatedControl
 
         var props = e.GetCurrentPoint(this).Properties;
 
-        // Middle button or Space+Left for panning
-        if (props.IsMiddleButtonPressed || (_spaceHeld && props.IsLeftButtonPressed))
+        // Middle button for panning
+        if (props.IsMiddleButtonPressed)
         {
             _panning = true;
             _panStart = e.GetPosition(this);
@@ -340,7 +358,7 @@ public class NodeCanvas : TemplatedControl
             return;
         }
 
-        // Left click on empty space
+        // Left click
         if (props.IsLeftButtonPressed)
         {
             // Check if clicked on a connection line (screen-space hit test)
@@ -358,11 +376,18 @@ public class NodeCanvas : TemplatedControl
                 }
             }
 
-            // Click on empty area: clear selection
+            // Click on empty area: clear selection and start panning
             if (e.Source == this || e.Source is GridRenderer || e.Source is Panel)
             {
                 Graph?.ClearSelection();
                 RefreshConnections();
+
+                _panning = true;
+                _panStart = e.GetPosition(this);
+                _panOffsetStart = _offset;
+                e.Pointer.Capture(this);
+                e.Handled = true;
+                return;
             }
 
             Focus();
@@ -372,6 +397,8 @@ public class NodeCanvas : TemplatedControl
     protected override void OnPointerMoved(PointerEventArgs e)
     {
         base.OnPointerMoved(e);
+
+        _lastPointerPosition = e.GetPosition(this);
 
         if (_panning)
         {
@@ -420,6 +447,30 @@ public class NodeCanvas : TemplatedControl
         }
     }
 
+    // --- Trackpad pinch-to-zoom ---
+
+    void OnMagnify(object? sender, PointerDeltaEventArgs e)
+    {
+        // Delta.X contains the magnification factor delta (e.g., 0.02 = slight zoom in)
+        var zoomCenter = _lastPointerPosition;
+        var graphBefore = ScreenToGraph(zoomCenter);
+
+        Zoom *= 1 + e.Delta.X;
+
+        _offset = new Point(
+            zoomCenter.X - graphBefore.X * Zoom,
+            zoomCenter.Y - graphBefore.Y * Zoom);
+
+        ApplyTransform();
+        _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
+        _grid?.InvalidateVisual();
+
+        SyncAllPortPositions();
+        RefreshConnections();
+
+        e.Handled = true;
+    }
+
     // --- Keyboard ---
 
     protected override void OnKeyDown(KeyEventArgs e)
@@ -443,11 +494,6 @@ public class NodeCanvas : TemplatedControl
                 e.Handled = true;
                 break;
 
-            case Key.Space:
-                _spaceHeld = true;
-                e.Handled = true;
-                break;
-
             case Key.C when e.KeyModifiers.HasFlag(KeyModifiers.Control):
                 CopySelected();
                 e.Handled = true;
@@ -457,17 +503,6 @@ public class NodeCanvas : TemplatedControl
                 PasteNode();
                 e.Handled = true;
                 break;
-        }
-    }
-
-    protected override void OnKeyUp(KeyEventArgs e)
-    {
-        base.OnKeyUp(e);
-
-        if (e.Key == Key.Space)
-        {
-            _spaceHeld = false;
-            e.Handled = true;
         }
     }
 
