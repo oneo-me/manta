@@ -27,7 +27,8 @@
                                           IsHitTestVisible="False"
                                           ConnectionBrush="{MBrush MutedForeground}"
                                           SelectedBrush="{MBrush Ring}"
-                                          DragBrush="{MBrush Primary}" />
+                                          DragBrush="{MBrush Primary}"
+                                          IncompatibleBrush="{MBrush Destructive}" />
                 </Panel>
             </ControlTemplate>
         </Setter>
