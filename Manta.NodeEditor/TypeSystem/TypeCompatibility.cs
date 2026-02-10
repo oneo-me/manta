@@ -6,24 +6,7 @@ public sealed class TypeCompatibility
 
     public static TypeCompatibility CreateDefault()
     {
-        var tc = new TypeCompatibility();
-
-        // Numeric conversions
-        tc.RegisterConverter(typeof(int), typeof(double), v => (double)(int)v!);
-        tc.RegisterConverter(typeof(int), typeof(float), v => (float)(int)v!);
-        tc.RegisterConverter(typeof(int), typeof(long), v => (long)(int)v!);
-        tc.RegisterConverter(typeof(int), typeof(decimal), v => (decimal)(int)v!);
-        tc.RegisterConverter(typeof(float), typeof(double), v => (double)(float)v!);
-        tc.RegisterConverter(typeof(double), typeof(float), v => (float)(double)v!);
-        tc.RegisterConverter(typeof(double), typeof(decimal), v => (decimal)(double)v!);
-
-        // To string
-        tc.RegisterConverter(typeof(int), typeof(string), v => v!.ToString()!);
-        tc.RegisterConverter(typeof(double), typeof(string), v => v!.ToString()!);
-        tc.RegisterConverter(typeof(float), typeof(string), v => v!.ToString()!);
-        tc.RegisterConverter(typeof(bool), typeof(string), v => v!.ToString()!);
-
-        return tc;
+        return new TypeCompatibility();
     }
 
     public void RegisterConverter(Type source, Type target, TypeConvertFunc convert)
@@ -38,10 +21,7 @@ public sealed class TypeCompatibility
 
     public bool AreTypesCompatible(Type source, Type target)
     {
-        if (source == target) return true;
-        if (target == typeof(object)) return true;
-        if (target.IsAssignableFrom(source)) return true;
-        return _converters.Any(c => c.SourceType == source && c.TargetType == target);
+        return source == target;
     }
 
     public object? ConvertValue(object? value, Type sourceType, Type targetType)

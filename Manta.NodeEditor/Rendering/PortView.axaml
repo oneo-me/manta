@@ -53,18 +53,18 @@
         <!-- Hover -->
         <Style Selector="^:hovered /template/ Border#PART_Connector">
             <Setter Property="RenderTransform" Value="scale(1.3)" />
-            <Setter Property="Background" Value="{MBrush Primary}" />
+            <Setter Property="BorderBrush" Value="{MBrush PrimaryForeground}" />
         </Style>
         <Style Selector="^:hovered /template/ Border#PART_OutputConnector">
             <Setter Property="RenderTransform" Value="scale(1.3)" />
-            <Setter Property="Background" Value="{MBrush Primary}" />
+            <Setter Property="BorderBrush" Value="{MBrush PrimaryForeground}" />
         </Style>
 
         <!-- Compatible (during connection drag) -->
         <Style Selector="^:compatible /template/ Border#PART_Connector">
             <Setter Property="RenderTransform" Value="scale(1.5)" />
-            <Setter Property="Background" Value="{MBrush Accent}" />
-            <Setter Property="BorderBrush" Value="{MBrush Accent}" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="2" />
         </Style>
 
         <!-- Incompatible (during connection drag) -->

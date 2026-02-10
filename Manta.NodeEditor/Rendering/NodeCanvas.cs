@@ -85,7 +85,7 @@ public class NodeCanvas : TemplatedControl
     /// </summary>
     internal bool IsConnectionCompatible(Port source, Port target)
     {
-        var tc = TypeCompatibility;
+        var tc = TypeCompatibility ?? Graph?.TypeCompatibility;
         if (tc is null) return true;
         return tc.AreTypesCompatible(source.ValueType, target.ValueType);
     }
@@ -127,7 +127,8 @@ public class NodeCanvas : TemplatedControl
             {
                 newGraph.Nodes.CollectionChanged += OnNodesChanged;
                 newGraph.Connections.CollectionChanged += OnConnectionsChanged;
-                newGraph.TypeCompatibility = TypeCompatibility;
+                if (TypeCompatibility is not null)
+                    newGraph.TypeCompatibility = TypeCompatibility;
             }
 
             RebuildNodes();
