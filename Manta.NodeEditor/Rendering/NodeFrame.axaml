@@ -20,10 +20,10 @@
                         CornerRadius="{MRadius MD}">
                     <DockPanel>
                         <!-- Title -->
-                        <Border DockPanel.Dock="Top"
+                        <Border Name="PART_TitleBar" DockPanel.Dock="Top"
                                 Background="{MBrush Muted}"
                                 CornerRadius="6,6,0,0"
-                                Padding="10,6,6,6">
+                                Padding="10,6,4,6">
                             <Grid ColumnDefinitions="*,Auto">
                                 <TextBlock Grid.Column="0"
                                            Text="{Binding Node.Title, RelativeSource={RelativeSource TemplatedParent}}"
@@ -31,16 +31,8 @@
                                            Foreground="{MBrush Foreground}"
                                            FontSize="12"
                                            VerticalAlignment="Center" />
-                                <MButton Name="PART_Delete" Grid.Column="1"
-                                        Width="18" Height="18" Padding="0"
-                                        Margin="4,0,0,0"
-                                        Background="Transparent" BorderThickness="0"
-                                        Cursor="Hand" IsVisible="False">
-                                    <TextBlock Text="x" FontSize="12"
-                                               Foreground="{MBrush MutedForeground}"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center" />
-                                </MButton>
+                                <ContentPresenter Name="PART_Output" Grid.Column="1"
+                                                  VerticalAlignment="Center" />
                             </Grid>
                         </Border>
                         <!-- Body -->
@@ -55,8 +47,6 @@
                             <ContentPresenter Name="PART_Content"
                                               Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
                                               Margin="8,2,8,2" />
-                            <ContentPresenter Name="PART_Output"
-                                              HorizontalAlignment="Right" />
                         </StackPanel>
                     </DockPanel>
                 </Border>
@@ -68,15 +58,11 @@
             <Setter Property="BorderBrush" Value="{MBrush Ring}" />
             <Setter Property="BorderThickness" Value="2" />
         </Style>
-        <!-- Hover: show delete -->
-        <Style Selector="^:pointerover /template/ Button#PART_Delete">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^[IsSelected=True] /template/ Border#PART_TitleBar">
+            <Setter Property="Background" Value="{MBrush Primary}" />
         </Style>
-        <Style Selector="^ /template/ Button#PART_Delete:pointerover">
-            <Setter Property="Background" Value="{MBrush Muted, Type=Light1}" />
-        </Style>
-        <Style Selector="^ /template/ Button#PART_Delete:pointerover TextBlock">
-            <Setter Property="Foreground" Value="{MBrush Destructive}" />
+        <Style Selector="^[IsSelected=True] /template/ Border#PART_TitleBar TextBlock">
+            <Setter Property="Foreground" Value="{MBrush PrimaryForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
