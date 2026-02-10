@@ -25,7 +25,6 @@ public class NodeFrame : TemplatedControl
 
     MItems? _inputPorts;
     ContentPresenter? _outputPort;
-    Button? _deleteBtn;
     bool _dragging;
     Point _dragStart;
     double _startX, _startY;
@@ -55,15 +54,6 @@ public class NodeFrame : TemplatedControl
         base.OnApplyTemplate(e);
         _inputPorts = e.NameScope.Find<MItems>("PART_Inputs");
         _outputPort = e.NameScope.Find<ContentPresenter>("PART_Output");
-        _deleteBtn = e.NameScope.Find<Button>("PART_Delete");
-
-        if (_deleteBtn is not null)
-            _deleteBtn.Click += (_, ev) =>
-            {
-                if (Node is not null)
-                    Canvas?.Graph?.Remove(Node);
-                ev.Handled = true;
-            };
 
         Rebuild();
     }
