@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Manta.NodeEditor.Core;
+using Manta.NodeEditor.TypeSystem;
 
 namespace Manta.NodeEditor.Rendering;
 
@@ -60,17 +61,14 @@ public class ConnectionRenderer : Control
 
         var zoom = Canvas.Zoom;
         var offset = Canvas.Offset;
-        var connBrush = ConnectionBrush ?? Brushes.Gray;
-        var selBrush = SelectedBrush ?? Brushes.DodgerBlue;
-
-        var pen = new Pen(connBrush, 2);
-        var selectedPen = new Pen(selBrush, 3);
 
         foreach (var conn in graph.Connections)
         {
+            var brush = PortColors.GetBrush(conn.Source.ValueType);
+            var pen = conn.IsSelected ? new Pen(brush, 3) : new Pen(brush, 2);
             var start = PortToScreen(conn.Source, zoom, offset);
             var end = PortToScreen(conn.Target, zoom, offset);
-            DrawBezier(context, start, end, conn.IsSelected ? selectedPen : pen);
+            DrawBezier(context, start, end, pen);
         }
 
         // Drag preview — DragEnd is already in screen coordinates
@@ -81,7 +79,7 @@ public class ConnectionRenderer : Control
                                  !Canvas.IsConnectionCompatible(Canvas.DragSource, hoverPort);
             var dBrush = isIncompatible
                 ? (IncompatibleBrush ?? Brushes.Red)
-                : (DragBrush ?? Brushes.Yellow);
+                : PortColors.GetBrush(Canvas.DragSource.ValueType);
             var dragPen = new Pen(dBrush, 2);
             var start = PortToScreen(Canvas.DragSource, zoom, offset);
             DrawBezier(context, start, Canvas.DragEnd, dragPen);

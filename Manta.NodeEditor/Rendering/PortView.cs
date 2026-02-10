@@ -4,6 +4,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.VisualTree;
 using Manta.NodeEditor.Core;
+using Manta.NodeEditor.TypeSystem;
 
 namespace Manta.NodeEditor.Rendering;
 
@@ -56,7 +57,17 @@ public class PortView : TemplatedControl
                 p.PropertyChanged += OnPortChanged;
 
             RebuildEditor();
+            ApplyTypeColor();
         }
+    }
+
+    void ApplyTypeColor()
+    {
+        if (Port is null) return;
+        var brush = PortColors.GetBrush(Port.ValueType);
+        var active = Port.IsOutput ? _outputConnector : _connector;
+        if (active is Avalonia.Controls.Border border)
+            border.Background = brush;
     }
 
     void OnPortChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -70,6 +81,7 @@ public class PortView : TemplatedControl
         base.OnApplyTemplate(e);
         _connector = e.NameScope.Find<Control>("PART_Connector");
         _outputConnector = e.NameScope.Find<Control>("PART_OutputConnector");
+        ApplyTypeColor();
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
