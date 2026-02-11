@@ -90,6 +90,7 @@
         <Setter Property="Padding" Value="{MThickness S1_5, Vertical=S1}" />
         <Style Selector="^ /template/ Border#PART_Header">
             <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="Background" Duration="0:0:0.1" />
@@ -97,10 +98,10 @@
             </Setter>
         </Style>
         <Style Selector="^ /template/ Border#PART_Header:pointerover">
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <Style Selector="^:selected /template/ Border#PART_Header">
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
         </Style>
         <Style Selector="^ /template/ Border#PART_ExpandCollapseIcon">
             <Setter Property="Opacity" Value="0.5" />

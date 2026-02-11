@@ -5,6 +5,9 @@
     <Design.PreviewWith>
         <!-- Switch -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Border BorderThickness="1">
+                <MCheckBox Header="Accept terms and conditions" />
+            </Border>
             <MCheckBox Header="Accept terms and conditions" />
             <MCheckBox IsChecked="True" Header="Accept terms and conditions" Content="By clicking this checkbox, you agree to the terms and conditions." />
             <MCheckBox Header="Enable notifications" IsEnabled="False" />
@@ -15,7 +18,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-                    <Grid ColumnDefinitions="Auto *" RowDefinitions="Auto *" ColumnSpacing="12" RowSpacing="6">
+                    <Grid ColumnDefinitions="Auto *" RowDefinitions="Auto *">
                         <Border Name="Icon" Grid.Column="0" Grid.Row="0">
                             <MPathIcon />
                         </Border>
@@ -70,10 +73,15 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="{MThickness S2_5, Filter=Left}" />
         </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Margin" Value="{MThickness S2_5, Vertical=S1_5, Filter=Left|Top}" />
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter:empty">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.5" />
