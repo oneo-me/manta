@@ -19,7 +19,7 @@
         <Panel Background="{MBrush Primary, Opacity=0.04}" />
         <Border BorderThickness="{MThickness Px, Filter=Left}">
             <Grid RowDefinitions="Auto *">
-                <Border Grid.Row="0" Name="TitleBar" Height="39" BorderThickness="{MThickness Px, Filter=Bottom}">
+                <Border Grid.Row="0" Name="TitleBar" Height="38">
                     <Grid ColumnDefinitions="* Auto" Margin="{MThickness Px, Filter=Top|Bottom}">
                         <MPanel Grid.Column="0" Mode="Horizontal" Spacing="{MSize S1}" Margin="{MThickness S2, Vertical=S1}" VerticalAlignment="Center" Background="#00000000">
                             <MToggleButton Content="FPS" FontSize="10" Padding="{MThickness S1_5, Vertical=S0_5}" CornerRadius="{MRadius Full}"
@@ -39,8 +39,10 @@
                 </Border>
                 <MBackground Grid.Row="1">
                     <Grid RowDefinitions="Auto *">
-                        <MViewHost Grid.Row="0" ViewModelType="local:ViewModelTreeView_Model" BorderThickness="{MThickness Px, Filter=Bottom}" />
-                        <MViewHost Grid.Row="1" ViewModelType="local:PropertyListView_Model" Data="{Binding SelectedNode.Value}" />
+                        <MViewHost Grid.Row="0" ViewModelType="local:ViewModelTreeView_Model"
+                                   BorderThickness="{MThickness Px, Filter=Top}" />
+                        <MViewHost Grid.Row="1" ViewModelType="local:PropertyListView_Model" Data="{Binding SelectedNode.Value}"
+                                   BorderThickness="{MThickness Px, Filter=Top}" />
                     </Grid>
                 </MBackground>
             </Grid>

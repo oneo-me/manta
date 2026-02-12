@@ -14,6 +14,12 @@ sealed class CommandView_Model : DemoViewModel
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_Command;
 
+    public int ClickCount
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
+
     public bool CanExecuted
     {
         get;
@@ -29,7 +35,12 @@ sealed class CommandView_Model : DemoViewModel
 
     public CommandWarper ExecuteCommand => GetCommand(() =>
     {
-    });
+        ClickCount++;
+    }, () => CanExecuted);
 
-    public CommandWarper ExecuteAsyncCommand => GetCommand(() => Task.Delay(3000));
+    public CommandWarper ExecuteAsyncCommand => GetCommand(async () =>
+    {
+        await Task.Delay(3000);
+        ClickCount++;
+    }, () => CanExecuted);
 }

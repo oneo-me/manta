@@ -1,21 +1,11 @@
-using Manta.Controls;
+using Manta.DevTools.Models.PropertyItems;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Views;
 
 [View<ObjectPropertyDialog>]
-sealed class ObjectPropertyDialog_Model : DialogModel
+sealed class ObjectPropertyDialog_Model(ObjectPropertyItem item) : DialogModel
 {
-    public string PropertyName { get; set; } = string.Empty;
-    public object? PropertyValue { get; set; }
-
-    public string Header => $"{PropertyName}: {PropertyValue?.GetType().Name ?? "null"}";
-
-    public override void OnWindowInitialized(MWindow window)
-    {
-        base.OnWindowInitialized(window);
-
-        window.Width = 400;
-        window.Height = 500;
-    }
+    public string Header { get; } = item.Name;
+    public object? Value { get; } = item.GetValue();
 }

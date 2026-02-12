@@ -4,43 +4,55 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manta.DevTools.Views"
     x:DataType="local:CollectionPropertyDialog_Model">
+    <MView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceInclude x:Key="Default" Source="../Themes/@Light.axaml" />
+                <ResourceInclude x:Key="Light" Source="../Themes/@Light.axaml" />
+                <ResourceInclude x:Key="Dark" Source="../Themes/@Dark.axaml" />
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </MView.Resources>
     <MBackground>
-        <MDialogTemplate Header="{Binding Header}"
-                         CancelButton="Close"
-                         ContinueButton=""
-                         CancelButtonCommand="{Binding CancelAsyncCommand}">
-            <Grid ColumnDefinitions="0.35*,Auto,0.65*">
-                <!-- Left: Collection Items List -->
-                <Border Grid.Column="0" BorderThickness="{MThickness Px, Filter=Right}">
-                    <Grid RowDefinitions="Auto *">
-                        <Border Grid.Row="0" Background="{MBrush Accent}" Padding="{MThickness S2}" BorderThickness="{MThickness Px, Filter=Bottom}">
-                            <TextBlock Text="Items" FontWeight="SemiBold" FontSize="11" Foreground="{MBrush MutedForeground}" />
-                        </Border>
-                        <MListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Variant="NoStyle">
+        <MDialogTemplate Header="{Binding Header}" CancelButton="" ContinueButton="Close" ContinueButtonCommand="{Binding CancelAsyncCommand}">
+            <Border BorderThickness="{MThickness Px}" CornerRadius="{MRadius MD}">
+                <Border CornerRadius="{MRadius MD, OffsetNegative=Px}" ClipToBounds="True">
+                    <Grid Width="720" MinHeight="360" MaxHeight="620">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MinWidth="320" />
+                            <ColumnDefinition MinWidth="320" Width="320" />
+                        </Grid.ColumnDefinitions>
+                        <MListBox Grid.Column="0" Variant="NoStyle"
+                                  ItemsSource="{Binding Items}"
+                                  SelectedItem="{Binding SelectedItem}"
+                                  Background="{MBrush Background, Opacity=0.5}">
+                            <MListBox.Styles>
+                                <Style Selector="MListBox[Variant=NoStyle]">
+                                    <Setter Property="Padding" Value="{MThickness S1}" />
+                                    <Style Selector="^ MListBoxItem[Variant=NoStyle]">
+                                        <Setter Property="Padding" Value="{MThickness S2, Vertical=S1}" />
+                                        <Setter Property="CornerRadius" Value="{MRadius SM}" />
+                                        <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+                                        <Style Selector="^:selected">
+                                            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.08}" />
+                                        </Style>
+                                    </Style>
+                                </Style>
+                            </MListBox.Styles>
                             <MListBox.ItemTemplate>
-                                <DataTemplate DataType="local:CollectionItemWrapper">
-                                    <Grid ColumnDefinitions="Auto *" Margin="{MThickness S2}">
-                                        <TextBlock Grid.Column="0" Text="{Binding IndexText}" Foreground="{MBrush MutedForeground}"
-                                                   Width="32" Margin="{MThickness S2, Filter=Right}" />
-                                        <TextBlock Grid.Column="1" Text="{Binding DisplayText}" TextTrimming="CharacterEllipsis" />
-                                    </Grid>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" />
                                 </DataTemplate>
                             </MListBox.ItemTemplate>
                         </MListBox>
+                        <MViewHost Grid.Column="1"
+                                   ViewModelType="local:PropertyListView_Model"
+                                   Data="{Binding SelectedItem}"
+                                   Background="{MBrush Background}" BorderThickness="{MThickness Px, Filter=Left}" />
+                        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" />
                     </Grid>
                 </Border>
-
-                <!-- Splitter -->
-                <GridSplitter Grid.Column="1" Width="1" Background="{MBrush Border}" ResizeDirection="Columns" />
-
-                <!-- Right: Selected Item Properties -->
-                <Grid Grid.Column="2" RowDefinitions="Auto *">
-                    <Border Grid.Row="0" Background="{MBrush Accent}" Padding="{MThickness S2}" BorderThickness="{MThickness Px, Filter=Bottom}">
-                        <TextBlock Text="Properties" FontWeight="SemiBold" FontSize="11" Foreground="{MBrush MutedForeground}" />
-                    </Border>
-                    <MViewHost Grid.Row="1" ViewModelType="local:PropertyListView_Model" Data="{Binding SelectedValue}" />
-                </Grid>
-            </Grid>
+            </Border>
         </MDialogTemplate>
     </MBackground>
 </MView>

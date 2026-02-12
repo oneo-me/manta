@@ -37,9 +37,9 @@ public abstract partial class ViewModel
         return (ViewContext<T>)context;
     }
 
-    Dictionary<string, object?>? _context;
+    Dictionary<string, object>? _context;
 
-    protected void SetContext<T>(string key, T value)
+    protected void SetContext<T>(string key, T value) where T : notnull
     {
         ArgumentNullException.ThrowIfNull(key);
 
@@ -47,7 +47,7 @@ public abstract partial class ViewModel
         _context[key] = value;
     }
 
-    (Type source, object? value) GetContextCore(string key)
+    (Type source, object value) GetContextCore(string key)
     {
         ArgumentNullException.ThrowIfNull(key);
 
@@ -78,7 +78,7 @@ public abstract partial class ViewModel
     ///     Using DevTools
     /// </summary>
     /// <returns></returns>
-    internal IEnumerable<KeyValuePair<string, object?>> InnerGetContextItems()
+    internal IEnumerable<KeyValuePair<string, object>> InnerGetContextItems()
     {
         if (_context is null)
             yield break;

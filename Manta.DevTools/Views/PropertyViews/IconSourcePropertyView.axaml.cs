@@ -2,9 +2,9 @@ using Manta.Controls;
 
 namespace Manta.DevTools.Views.PropertyViews;
 
-sealed partial class UnknownPropertyView : MView
+sealed partial class IconSourcePropertyView : MView
 {
-    public UnknownPropertyView()
+    public IconSourcePropertyView()
     {
         InitializeComponent();
     }
