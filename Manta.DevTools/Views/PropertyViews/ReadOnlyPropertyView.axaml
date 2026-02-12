@@ -1,8 +1,0 @@
-<MView
-    x:Class="Manta.DevTools.Views.PropertyViews.ReadOnlyPropertyView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Manta.DevTools.Views.PropertyViews"
-    x:DataType="local:ReadOnlyPropertyView_Model" Design.DataContext="{x:Static local:ReadOnlyPropertyView_Model.Design}">
-    <TextBlock Text="{Binding DisplayValue}" VerticalAlignment="Center" Padding="8,0,0,0" Foreground="{MBrush MutedForeground}" />
-</MView>

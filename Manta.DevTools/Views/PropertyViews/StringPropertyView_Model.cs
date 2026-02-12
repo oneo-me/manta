@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Data;
-using Manta.DevTools.Models.Items;
-using Manta.Globalization.Markups;
+using Manta.DevTools.Models.PropertyItems;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Views.PropertyViews;
@@ -10,23 +9,19 @@ namespace Manta.DevTools.Views.PropertyViews;
 sealed class StringPropertyView_Model(StringPropertyItem item) : ViewModel
 {
     public static StringPropertyView_Model Design => new(null!);
-    public StringPropertyItem Item { get; } = item;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        var view = this.GetView<StringPropertyView>();
-        var bindingPath = Item.IsReactive ? $"{Item.Name}.Value" : Item.Name;
 
-        if (Item.IsReadOnly)
+        var view = this.GetView<StringPropertyView>();
+        var textBox = view.TextBox;
+
+        textBox.IsReadOnly = item.IsReadOnly;
+        textBox[!TextBox.TextProperty] = new Binding(item.Path)
         {
-            view.EditBox.IsVisible = false;
-            view.ReadOnlyText[!TextBlock.TextProperty] = new LangExtension(new Binding(bindingPath) { Source = Item.Source }).ToBinding();
-        }
-        else
-        {
-            view.ReadOnlyText.IsVisible = false;
-            view.EditBox[!TextBox.TextProperty] = new LangExtension(new Binding(bindingPath, BindingMode.TwoWay) { Source = Item.Source }).ToBinding();
-        }
+            Source = item.Source,
+            Mode = item.IsReadOnly ? BindingMode.OneWay : BindingMode.TwoWay
+        };
     }
 }

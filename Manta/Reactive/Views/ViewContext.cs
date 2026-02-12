@@ -3,13 +3,13 @@ namespace Manta.Reactive.Views;
 interface IViewContext
 {
     string Key { get; }
-    object? Value { get; set; }
+    object Value { get; set; }
     Type? Source { get; set; }
 }
 
 public sealed class ViewContext<T> : Model, IViewContext
 {
-    object? IViewContext.Value
+    object IViewContext.Value
     {
         get => Value!;
         set

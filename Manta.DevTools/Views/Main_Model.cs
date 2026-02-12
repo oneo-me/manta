@@ -117,5 +117,8 @@ sealed class Main_Model : ViewModel
         ThemeButtonText = GetThemeText(MApp.SwitchTheme());
     });
 
-    static string GetThemeText(ThemeVariant? variant) => variant == ThemeVariant.Default ? "System" : variant == ThemeVariant.Dark ? "Dark" : "Light";
+    static string GetThemeText(ThemeVariant? variant)
+    {
+        return variant == ThemeVariant.Default ? "System" : variant == ThemeVariant.Dark ? "Dark" : "Light";
+    }
 }

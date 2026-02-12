@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
-using Manta.DevTools.Models.Items;
+using Manta.DevTools.Models.PropertyItems;
 using Manta.Reactive.Views;
 
 namespace Manta.DevTools.Views.PropertyViews;
@@ -10,24 +10,33 @@ namespace Manta.DevTools.Views.PropertyViews;
 sealed class EnumPropertyView_Model(EnumPropertyItem item) : ViewModel
 {
     public static EnumPropertyView_Model Design => new(null!);
-    public EnumPropertyItem Item { get; } = item;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        var view = this.GetView<EnumPropertyView>();
-        var bindingPath = Item.IsReactive ? $"{Item.Name}.Value" : Item.Name;
 
-        if (Item.IsReadOnly)
+        var view = this.GetView<EnumPropertyView>();
+        var textBox = view.TextBox;
+        var comboBox = view.ComboBox;
+
+        if (item.IsReadOnly)
         {
-            view.EditBox.IsVisible = false;
-            view.ReadOnlyText[!TextBlock.TextProperty] = new Binding(bindingPath) { Source = Item.Source };
+            comboBox.IsVisible = false;
+            textBox[!TextBox.TextProperty] = new Binding(item.Path)
+            {
+                Source = item.Source,
+                Mode = BindingMode.OneWay
+            };
         }
         else
         {
-            view.ReadOnlyText.IsVisible = false;
-            view.EditBox.ItemsSource = Item.EnumValues;
-            view.EditBox[!SelectingItemsControl.SelectedItemProperty] = new Binding(bindingPath, BindingMode.TwoWay) { Source = Item.Source };
+            textBox.IsVisible = false;
+            comboBox.ItemsSource = item.PropertyType.GetEnumValues();
+            comboBox[!SelectingItemsControl.SelectedItemProperty] = new Binding(item.Path)
+            {
+                Source = item.Source,
+                Mode = BindingMode.TwoWay
+            };
         }
     }
 }

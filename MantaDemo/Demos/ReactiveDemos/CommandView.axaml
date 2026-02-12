@@ -7,6 +7,7 @@
     <MPanel Mode="Vertical" Spacing="12" Margin="12">
         <TextBlock Text="Bind to command" />
         <MCheckBox Header="Can executed" IsChecked="{Binding CanExecuted}" />
+        <TextBlock Text="{Binding ClickCount, StringFormat=Click Count: {0}}" Foreground="{MBrush MutedForeground}" />
         <MPanel Mode="Horizontal" Spacing="12">
             <MButton Variant="Outline" Content="Sync" Command="{Binding ExecuteCommand}" />
             <MButton Variant="Outline" Content="Async" Command="{Binding ExecuteAsyncCommand}" />
