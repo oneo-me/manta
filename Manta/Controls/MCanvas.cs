@@ -173,15 +173,8 @@ public class MCanvas : ContentControl
 
         var props = e.GetCurrentPoint(this).Properties;
 
-        // Middle button always pans
-        if (props.IsMiddleButtonPressed)
-        {
-            StartPan(e);
-            return;
-        }
-
-        if (props.IsLeftButtonPressed)
-            if (_isSpaceHeld || IsClickOnBackground(e.Source))
+        if (_isSpaceHeld || props.IsRightButtonPressed)
+            if (IsClickOnBackground(e.Source))
                 StartPan(e);
     }
 
