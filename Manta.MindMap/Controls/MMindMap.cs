@@ -491,7 +491,7 @@ public class MMindMap : TemplatedControl
             if (node.IsSelected && MindMap != null && MindMap.Nodes.Count(n => n.IsSelected) > 1)
             {
                 // Multi-selection: drag all selected nodes (exclude root)
-                foreach (var n in MindMap.Nodes.Where(n => n.IsSelected && !n.IsRoot))
+                foreach (var n in MindMap.Nodes.Where(n => n is { IsSelected: true, IsRoot: false }))
                 {
                     _draggingNodes.Add(n);
                     _draggingStartPositions.Add(new(n.X, n.Y));
@@ -681,7 +681,7 @@ public class MMindMap : TemplatedControl
     {
         if (MindMap == null) return;
 
-        var selectedNodes = MindMap.Nodes.Where(n => n.IsSelected && !n.IsRoot).ToList();
+        var selectedNodes = MindMap.Nodes.Where(n => n is { IsSelected: true, IsRoot: false }).ToList();
         if (selectedNodes.Count > 0)
         {
             foreach (var node in selectedNodes)
