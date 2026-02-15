@@ -96,6 +96,7 @@
                 <MergeResourceInclude Source="../Controls/MBreadcrumb.axaml" />
                 <MergeResourceInclude Source="../Controls/MButton.axaml" />
                 <MergeResourceInclude Source="../Controls/MButtonSpinner.axaml" />
+                <MergeResourceInclude Source="../Controls/MCanvas.axaml" />
                 <MergeResourceInclude Source="../Controls/MCard.axaml" />
                 <MergeResourceInclude Source="../Controls/MCarousel.axaml" />
                 <MergeResourceInclude Source="../Controls/MCheckBox.axaml" />
