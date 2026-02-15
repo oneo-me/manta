@@ -194,6 +194,7 @@ Main branch: `main` (use for PRs)
 
 ### Commit Convention
 - **Claude commits MUST start with `[CLAUDE] `** - e.g., `[CLAUDE] Add MRadioButton control`
+- English commit message
 - No prefix - Changes made by user
 
 When asked to update documentation, use `git log` to identify recent changes and their authors.
