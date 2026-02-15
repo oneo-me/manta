@@ -1,0 +1,110 @@
+<MView
+    x:Class="MantaDemo.Demos.ReactiveDemos.CourierView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.ReactiveDemos"
+    x:DataType="local:CourierView_Model" Design.DataContext="{x:Static local:CourierView_Model.Design}">
+    <Grid ColumnDefinitions="* 1 *">
+        <!-- Server Side -->
+        <MPanel Grid.Column="0" Mode="Vertical" Spacing="10" Margin="12">
+            <TextBlock Text="Server" FontWeight="SemiBold" FontSize="16" />
+            <MSeparator />
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MButton Content="Start"
+                         Command="{Binding StartServerCommand}"
+                         IsEnabled="{Binding !IsServerRunning}" />
+                <MButton Variant="Destructive" Content="Stop"
+                         Command="{Binding StopServerCommand}"
+                         IsEnabled="{Binding IsServerRunning}" />
+                <MButton Variant="Ghost" Content="Clear"
+                         Command="{Binding ClearServerLogsCommand}" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="6">
+                <TextBlock Text="Status:" VerticalAlignment="Center" />
+                <TextBlock VerticalAlignment="Center"
+                           Foreground="{MBrush Primary}"
+                           IsVisible="{Binding IsServerRunning}"
+                           Text="Running" />
+                <TextBlock VerticalAlignment="Center"
+                           Foreground="{MBrush MutedForeground}"
+                           IsVisible="{Binding !IsServerRunning}"
+                           Text="Stopped" />
+            </MPanel>
+            <TextBlock Text="Handlers: Echo (Request-Response), Countdown (Streaming)"
+                       Foreground="{MBrush MutedForeground}" FontSize="12" TextWrapping="Wrap" />
+            <TextBlock Text="Logs" FontWeight="SemiBold" Margin="0 4 0 0" />
+            <Border Background="{MBrush Foreground, Opacity=0.04}" CornerRadius="6" Padding="8"
+                    MinHeight="200" MaxHeight="400">
+                <MScrollViewer>
+                    <MItems ItemsSource="{Binding ServerLogs}">
+                        <MItems.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontSize="12" FontFamily="Cascadia Code,Consolas,Menlo,monospace"
+                                           Foreground="{MBrush MutedForeground}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </MItems.ItemTemplate>
+                    </MItems>
+                </MScrollViewer>
+            </Border>
+        </MPanel>
+        <!-- Divider -->
+        <Border Grid.Column="1" Background="{MBrush Border}" />
+        <!-- Client Side -->
+        <MPanel Grid.Column="2" Mode="Vertical" Spacing="10" Margin="12">
+            <TextBlock Text="Client" FontWeight="SemiBold" FontSize="16" />
+            <MSeparator />
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MButton Content="Connect"
+                         Command="{Binding ConnectCommand}"
+                         IsEnabled="{Binding !IsClientConnected}" />
+                <MButton Variant="Destructive" Content="Disconnect"
+                         Command="{Binding DisconnectCommand}"
+                         IsEnabled="{Binding IsClientConnected}" />
+                <MButton Variant="Ghost" Content="Clear"
+                         Command="{Binding ClearClientLogsCommand}" />
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="6">
+                <TextBlock Text="Status:" VerticalAlignment="Center" />
+                <TextBlock VerticalAlignment="Center"
+                           Foreground="{MBrush Primary}"
+                           IsVisible="{Binding IsClientConnected}"
+                           Text="Connected" />
+                <TextBlock VerticalAlignment="Center"
+                           Foreground="{MBrush MutedForeground}"
+                           IsVisible="{Binding !IsClientConnected}"
+                           Text="Disconnected" />
+            </MPanel>
+            <!-- Echo Test -->
+            <TextBlock Text="Request-Response (Echo)" FontWeight="SemiBold" Margin="0 4 0 0" />
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MTextBox Text="{Binding EchoInput}" Watermark="Message..." MinWidth="180" />
+                <MButton Variant="Outline" Content="Send"
+                         Command="{Binding SendEchoCommand}"
+                         IsEnabled="{Binding IsClientConnected}" />
+            </MPanel>
+            <!-- Countdown Test -->
+            <TextBlock Text="Server Streaming (Countdown)" FontWeight="SemiBold" Margin="0 4 0 0" />
+            <MPanel Mode="Horizontal" Spacing="8">
+                <MNumericUpDown Value="{Binding CountdownFrom}" Minimum="1" Maximum="20"
+                               FormatString="0" MinWidth="100" />
+                <MButton Variant="Outline" Content="Start Countdown"
+                         Command="{Binding StartCountdownCommand}"
+                         IsEnabled="{Binding IsClientConnected}" />
+            </MPanel>
+            <TextBlock Text="Logs" FontWeight="SemiBold" Margin="0 4 0 0" />
+            <Border Background="{MBrush Foreground, Opacity=0.04}" CornerRadius="6" Padding="8"
+                    MinHeight="200" MaxHeight="400">
+                <MScrollViewer>
+                    <MItems ItemsSource="{Binding ClientLogs}">
+                        <MItems.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontSize="12" FontFamily="Cascadia Code,Consolas,Menlo,monospace"
+                                           Foreground="{MBrush MutedForeground}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </MItems.ItemTemplate>
+                    </MItems>
+                </MScrollViewer>
+            </Border>
+        </MPanel>
+    </Grid>
+</MView>
