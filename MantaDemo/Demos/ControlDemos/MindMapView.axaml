@@ -1,0 +1,19 @@
+<MView
+    x:Class="MantaDemo.Demos.ControlDemos.MindMapView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.ControlDemos"
+    xmlns:mindmap="clr-namespace:Manta.MindMap.Controls;assembly=Manta.MindMap"
+    x:DataType="local:MindMapView_Model" Design.DataContext="{x:Static local:MindMapView_Model.Design}">
+    <MPanel Mode="Vertical" Spacing="12" Margin="12">
+        <TextBlock Text="Mind Map Demo" FontSize="24" FontWeight="Bold" />
+        <MPanel Mode="Horizontal" Spacing="8">
+            <MButton Content="Add Child Node" Command="{Binding AddChildCommand}" />
+            <MButton Content="Delete Selected" Command="{Binding DeleteCommand}" />
+            <MButton Content="Reset View" Command="{Binding ResetViewCommand}" />
+        </MPanel>
+        <Border BorderBrush="{MBrush Border}" BorderThickness="1" CornerRadius="8" MinHeight="400">
+            <mindmap:MMindMap x:Name="MindMap" MindMap="{Binding MindMap}" />
+        </Border>
+    </MPanel>
+</MView>
