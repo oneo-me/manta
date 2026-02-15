@@ -11,121 +11,113 @@ public class MindMapGraph : INotifyPropertyChanged
     public ObservableCollection<MindMapNode> Nodes { get; } = new();
     public ObservableCollection<MindMapEdge> Edges { get; } = new();
 
-    private MindMapNode? _rootNode;
     public MindMapNode? RootNode
     {
-        get => _rootNode;
+        get;
         private set
         {
-            if (_rootNode != value)
+            if (field != value)
             {
-                _rootNode = value;
+                field = value;
                 OnPropertyChanged(nameof(RootNode));
             }
         }
     }
 
-    private IBrush? _defaultNodeBackground;
     public IBrush? DefaultNodeBackground
     {
-        get => _defaultNodeBackground;
+        get;
         set
         {
-            if (_defaultNodeBackground != value)
+            if (!Equals(field, value))
             {
-                _defaultNodeBackground = value;
+                field = value;
                 OnPropertyChanged(nameof(DefaultNodeBackground));
             }
         }
     }
 
-    private IBrush? _defaultNodeForeground;
     public IBrush? DefaultNodeForeground
     {
-        get => _defaultNodeForeground;
+        get;
         set
         {
-            if (_defaultNodeForeground != value)
+            if (!Equals(field, value))
             {
-                _defaultNodeForeground = value;
+                field = value;
                 OnPropertyChanged(nameof(DefaultNodeForeground));
             }
         }
     }
 
-    private IBrush? _defaultEdgeStroke;
     public IBrush? DefaultEdgeStroke
     {
-        get => _defaultEdgeStroke;
+        get;
         set
         {
-            if (_defaultEdgeStroke != value)
+            if (!Equals(field, value))
             {
-                _defaultEdgeStroke = value;
+                field = value;
                 OnPropertyChanged(nameof(DefaultEdgeStroke));
             }
         }
     }
 
-    private double _defaultNodeWidth = 120;
     public double DefaultNodeWidth
     {
-        get => _defaultNodeWidth;
+        get;
         set
         {
-            if (Math.Abs(_defaultNodeWidth - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _defaultNodeWidth = value;
+                field = value;
                 OnPropertyChanged(nameof(DefaultNodeWidth));
             }
         }
-    }
+    } = 120;
 
-    private double _defaultNodeHeight = 40;
     public double DefaultNodeHeight
     {
-        get => _defaultNodeHeight;
+        get;
         set
         {
-            if (Math.Abs(_defaultNodeHeight - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _defaultNodeHeight = value;
+                field = value;
                 OnPropertyChanged(nameof(DefaultNodeHeight));
             }
         }
-    }
+    } = 40;
 
-    private double _horizontalSpacing = 80;
     public double HorizontalSpacing
     {
-        get => _horizontalSpacing;
+        get;
         set
         {
-            if (Math.Abs(_horizontalSpacing - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _horizontalSpacing = value;
+                field = value;
                 OnPropertyChanged(nameof(HorizontalSpacing));
             }
         }
-    }
+    } = 80;
 
-    private double _verticalSpacing = 20;
     public double VerticalSpacing
     {
-        get => _verticalSpacing;
+        get;
         set
         {
-            if (Math.Abs(_verticalSpacing - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _verticalSpacing = value;
+                field = value;
                 OnPropertyChanged(nameof(VerticalSpacing));
             }
         }
-    }
+    } = 20;
 
     protected virtual void OnPropertyChanged(string propertyName)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChanged?.Invoke(this, new(propertyName));
     }
 
     public void SetRoot(MindMapNode root)
@@ -199,10 +191,10 @@ public class MindMapGraph : INotifyPropertyChanged
     {
         if (RootNode == null) return;
 
-        LayoutNode(RootNode, 0, 0, 0);
+        LayoutNode(RootNode, 0, 0);
     }
 
-    double LayoutNode(MindMapNode node, double x, double y, int depth)
+    double LayoutNode(MindMapNode node, double x, double y)
     {
         node.X = x;
         node.Y = y;
@@ -216,14 +208,13 @@ public class MindMapGraph : INotifyPropertyChanged
 
         foreach (var child in node.Children)
         {
-            var childHeight = LayoutNode(child, childX, currentY, depth + 1);
+            var childHeight = LayoutNode(child, childX, currentY);
             currentY += childHeight + VerticalSpacing;
             totalHeight += childHeight + VerticalSpacing;
         }
 
         totalHeight -= VerticalSpacing;
 
-        var nodeCenterY = y + node.Height / 2;
         var childrenCenterY = y + totalHeight / 2;
         node.Y = childrenCenterY - node.Height / 2;
 

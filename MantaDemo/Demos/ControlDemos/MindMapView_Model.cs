@@ -1,5 +1,4 @@
 using Avalonia.Media;
-using Manta.MindMap;
 using Manta.MindMap.Controls;
 using Manta.MindMap.Models;
 using Manta.Reactive.Commands;
@@ -9,13 +8,13 @@ using MantaDemo.Reactive;
 namespace MantaDemo.Demos.ControlDemos;
 
 [View<MindMapView>]
-sealed partial class MindMapView_Model : DemoViewModel
+sealed class MindMapView_Model : DemoViewModel
 {
     public static MindMapView_Model Design { get; } = new();
 
     public override DemoGroup Group => DemoGroup.Controls;
-    public override DemoSubGroup SubGroup => DemoSubGroup.Custom;
-    public override string Header => "MMindMap";
+    public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
+    public override string Header => nameof(MMindMap);
 
     public MindMapGraph MindMap { get; } = new();
 
@@ -76,7 +75,7 @@ sealed partial class MindMapView_Model : DemoViewModel
     void DeleteSelected()
     {
         var selectedNode = MindMap.Nodes.FirstOrDefault(n => n.IsSelected);
-        if (selectedNode != null && !selectedNode.IsRoot)
+        if (selectedNode is { IsRoot: false })
         {
             MindMap.RemoveNode(selectedNode);
             MindMap.RefreshLayout();
