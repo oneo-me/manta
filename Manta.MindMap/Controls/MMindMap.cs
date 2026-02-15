@@ -407,7 +407,7 @@ public class MMindMap : TemplatedControl
         var controlPointOffset = (endX - startX) / 2;
 
         var pathGeometry = new PathGeometry();
-        var figure = new PathFigure { StartPoint = new(startX, startY) };
+        var figure = new PathFigure { StartPoint = new(startX, startY), IsClosed = false, IsFilled = false };
 
         var bezier = new BezierSegment
         {
@@ -472,6 +472,15 @@ public class MMindMap : TemplatedControl
 
         if (props.IsLeftButtonPressed)
         {
+            SelectNode(node);
+
+            // Root node is not draggable
+            if (node.IsRoot)
+            {
+                e.Handled = true;
+                return;
+            }
+
             _dragStartPoint = e.GetPosition(this);
             _dragHasMovedEnough = false;
 
@@ -481,8 +490,8 @@ public class MMindMap : TemplatedControl
 
             if (node.IsSelected && MindMap != null && MindMap.Nodes.Count(n => n.IsSelected) > 1)
             {
-                // Multi-selection: drag all selected nodes
-                foreach (var n in MindMap.Nodes.Where(n => n.IsSelected))
+                // Multi-selection: drag all selected nodes (exclude root)
+                foreach (var n in MindMap.Nodes.Where(n => n.IsSelected && !n.IsRoot))
                 {
                     _draggingNodes.Add(n);
                     _draggingStartPositions.Add(new(n.X, n.Y));
@@ -490,8 +499,6 @@ public class MMindMap : TemplatedControl
             }
             else
             {
-                // Single node
-                SelectNode(node);
                 _draggingNodes.Add(node);
                 _draggingStartPositions.Add(new(node.X, node.Y));
             }
@@ -647,7 +654,18 @@ public class MMindMap : TemplatedControl
 
         switch (e.Key)
         {
+            case Key.Tab:
+                AddChildToSelected();
+                e.Handled = true;
+                break;
+
+            case Key.Enter:
+                AddSiblingToSelected();
+                e.Handled = true;
+                break;
+
             case Key.Delete:
+            case Key.Back:
                 DeleteSelected();
                 e.Handled = true;
                 break;
@@ -663,10 +681,11 @@ public class MMindMap : TemplatedControl
     {
         if (MindMap == null) return;
 
-        var selectedNode = MindMap.Nodes.FirstOrDefault(n => n.IsSelected);
-        if (selectedNode != null)
+        var selectedNodes = MindMap.Nodes.Where(n => n.IsSelected && !n.IsRoot).ToList();
+        if (selectedNodes.Count > 0)
         {
-            MindMap.RemoveNode(selectedNode);
+            foreach (var node in selectedNodes)
+                MindMap.RemoveNode(node);
             return;
         }
 
@@ -677,6 +696,26 @@ public class MMindMap : TemplatedControl
             selectedEdge.Target.Parent?.RemoveChild(selectedEdge.Target);
             MindMap.Nodes.Remove(selectedEdge.Target);
         }
+    }
+
+    void AddChildToSelected()
+    {
+        if (MindMap == null) return;
+
+        var selectedNode = MindMap.Nodes.FirstOrDefault(n => n.IsSelected);
+        if (selectedNode == null) return;
+
+        AddNode("New Node", selectedNode);
+    }
+
+    void AddSiblingToSelected()
+    {
+        if (MindMap == null) return;
+
+        var selectedNode = MindMap.Nodes.FirstOrDefault(n => n.IsSelected);
+        if (selectedNode?.Parent == null || selectedNode.IsRoot) return;
+
+        AddNode("New Node", selectedNode.Parent);
     }
 
     public void AddNode(string text, MindMapNode? parent = null)
@@ -695,13 +734,18 @@ public class MMindMap : TemplatedControl
                 Height = 50
             };
             MindMap.SetRoot(root);
+            ClearSelection();
+            root.IsSelected = true;
+            RefreshNode(root);
         }
         else
         {
             var lastChild = parent.Children.LastOrDefault();
             var y = lastChild != null ? lastChild.Y + lastChild.Height + 20 : parent.Y;
 
-            MindMap.AddNode(text, parent, parent.X + parent.Width + 80, y);
+            var newNode = MindMap.AddNode(text, parent, parent.X + parent.Width + 80, y);
+            ClearSelection();
+            newNode.IsSelected = true;
         }
 
         MindMap.RefreshLayout();
