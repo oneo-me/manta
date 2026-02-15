@@ -1,4 +1,4 @@
-﻿<Solution>
+<Solution>
   <Folder Name="/.github/" />
   <Folder Name="/.github/workflows/">
     <File Path=".github\workflows\dotnet.yml" />
@@ -16,6 +16,7 @@
   <Project Path="Manta.DevTools/Manta.DevTools.csproj" />
   <Project Path="Manta.Generators\Manta.Generators.csproj" />
   <Project Path="Manta.Markdown/Manta.Markdown.csproj" />
+  <Project Path="Manta.MindMap/Manta.MindMap.csproj" />
   <Project Path="Manta.Native/Manta.Native.csproj" />
   <Project Path="Manta.NodeEditor\Manta.NodeEditor.csproj" />
   <Project Path="MantaDemo\MantaDemo.csproj" />
