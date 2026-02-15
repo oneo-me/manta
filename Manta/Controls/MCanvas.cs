@@ -32,11 +32,8 @@ public class MCanvas : ContentControl
     public static readonly StyledProperty<IBrush?> GridBrushProperty =
         AvaloniaProperty.Register<MCanvas, IBrush?>(nameof(GridBrush));
 
-    public static readonly StyledProperty<IBrush?> BackgroundBrushProperty =
-        AvaloniaProperty.Register<MCanvas, IBrush?>(nameof(BackgroundBrush));
-
     /// <summary>
-    /// Base zoom factor per unit scroll delta. Actual factor = Math.Pow(ZoomBase, delta).
+    ///     Base zoom factor per unit scroll delta. Actual factor = Math.Pow(ZoomBase, delta).
     /// </summary>
     const double ZoomBase = 1.1;
 
@@ -47,7 +44,6 @@ public class MCanvas : ContentControl
     bool _isPanning;
     Point _lastPanPosition;
     bool _isSpaceHeld;
-    Point _lastPointerPosition;
 
     public double Zoom
     {
@@ -91,10 +87,15 @@ public class MCanvas : ContentControl
         set => SetValue(GridBrushProperty, value);
     }
 
-    public IBrush? BackgroundBrush
+    protected override Size MeasureOverride(Size availableSize)
     {
-        get => GetValue(BackgroundBrushProperty);
-        set => SetValue(BackgroundBrushProperty, value);
+        // Measure children so they layout properly, but don't use content size
+        // for this control's own size. An infinite canvas should fill available space,
+        // not shrink to its content (e.g. Canvas reports 0x0).
+        base.MeasureOverride(availableSize);
+        return new Size(
+            double.IsInfinity(availableSize.Width) ? 0 : availableSize.Width,
+            double.IsInfinity(availableSize.Height) ? 0 : availableSize.Height);
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -131,7 +132,7 @@ public class MCanvas : ContentControl
         }
         else
         {
-            Offset = new Point(
+            Offset = new(
                 Offset.X + e.Delta.X * PanSpeed,
                 Offset.Y + e.Delta.Y * PanSpeed);
             UpdateTransform();
@@ -167,19 +168,15 @@ public class MCanvas : ContentControl
         }
 
         if (props.IsLeftButtonPressed)
-        {
             if (_isSpaceHeld || IsClickOnBackground(e.Source))
-            {
                 StartPan(e);
-            }
-        }
     }
 
     protected override void OnPointerMoved(PointerEventArgs e)
     {
         base.OnPointerMoved(e);
 
-        _lastPointerPosition = e.GetPosition(this);
+        e.GetPosition(this);
 
         if (_isPanning)
         {
@@ -218,6 +215,7 @@ public class MCanvas : ContentControl
                     _isSpaceHeld = true;
                     Cursor = new(StandardCursorType.Hand);
                 }
+
                 e.Handled = true;
                 break;
 
@@ -251,7 +249,7 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    /// Resets zoom to 1x and offset to origin.
+    ///     Resets zoom to 1x and offset to origin.
     /// </summary>
     public void ResetView()
     {
@@ -261,7 +259,7 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    /// Adjusts zoom and offset to fit all content within the viewport.
+    ///     Adjusts zoom and offset to fit all content within the viewport.
     /// </summary>
     public void FitAll()
     {
@@ -294,7 +292,7 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    /// Adjusts zoom and offset to fit the current selection. Override in subclasses to provide selection-aware behavior.
+    ///     Adjusts zoom and offset to fit the current selection. Override in subclasses to provide selection-aware behavior.
     /// </summary>
     public virtual void FitSelection()
     {
@@ -302,20 +300,26 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    /// Converts a point from canvas (screen) coordinates to world (content) coordinates.
+    ///     Converts a point from canvas (screen) coordinates to world (content) coordinates.
     /// </summary>
-    public Point CanvasToWorld(Point canvasPoint) => new(
-        (canvasPoint.X - Offset.X) / Zoom,
-        (canvasPoint.Y - Offset.Y) / Zoom
-    );
+    public Point CanvasToWorld(Point canvasPoint)
+    {
+        return new(
+            (canvasPoint.X - Offset.X) / Zoom,
+            (canvasPoint.Y - Offset.Y) / Zoom
+        );
+    }
 
     /// <summary>
-    /// Converts a point from world (content) coordinates to canvas (screen) coordinates.
+    ///     Converts a point from world (content) coordinates to canvas (screen) coordinates.
     /// </summary>
-    public Point WorldToCanvas(Point worldPoint) => new(
-        worldPoint.X * Zoom + Offset.X,
-        worldPoint.Y * Zoom + Offset.Y
-    );
+    public Point WorldToCanvas(Point worldPoint)
+    {
+        return new(
+            worldPoint.X * Zoom + Offset.X,
+            worldPoint.Y * Zoom + Offset.Y
+        );
+    }
 
     void StartPan(PointerPressedEventArgs e)
     {
@@ -326,7 +330,7 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    /// Zoom toward/away from a specific screen point, keeping that point fixed.
+    ///     Zoom toward/away from a specific screen point, keeping that point fixed.
     /// </summary>
     void ZoomAtPoint(Point screenPoint, double factor)
     {
@@ -336,7 +340,7 @@ public class MCanvas : ContentControl
         if (Math.Abs(newZoom - Zoom) < 0.0001) return;
 
         Zoom = newZoom;
-        Offset = new Point(
+        Offset = new(
             screenPoint.X - worldBefore.X * Zoom,
             screenPoint.Y - worldBefore.Y * Zoom);
         UpdateTransform();
@@ -364,6 +368,7 @@ public class MCanvas : ContentControl
     {
         if (_transformContainer == null) return;
 
+        _transformContainer.RenderTransformOrigin = new(0, 0, RelativeUnit.Absolute);
         _transformContainer.RenderTransform = new TransformGroup
         {
             Children =

@@ -3,62 +3,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <!-- Default canvas with grid -->
-            <TextBlock Text="Infinite Canvas — scroll to zoom, drag to pan, Space+drag anywhere" />
-            <MCanvas Width="600" Height="360">
-                <Canvas>
-                    <MCard Canvas.Left="40" Canvas.Top="30" Width="140" Padding="12">
-                        <MPanel Mode="Vertical" Spacing="4">
-                            <TextBlock Text="Component A" FontWeight="SemiBold" />
-                            <TextBlock Text="Drag the background to pan" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
-                        </MPanel>
-                    </MCard>
-                    <MCard Canvas.Left="240" Canvas.Top="120" Width="140" Padding="12">
-                        <MPanel Mode="Vertical" Spacing="4">
-                            <TextBlock Text="Component B" FontWeight="SemiBold" />
-                            <TextBlock Text="Scroll wheel to zoom" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
-                        </MPanel>
-                    </MCard>
-                    <MCard Canvas.Left="120" Canvas.Top="240" Width="140" Padding="12">
-                        <MPanel Mode="Vertical" Spacing="4">
-                            <TextBlock Text="Component C" FontWeight="SemiBold" />
-                            <TextBlock Text="Cmd+1 to reset view" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
-                        </MPanel>
-                    </MCard>
-                    <Border Canvas.Left="430" Canvas.Top="60"
-                            Width="100" Height="100"
-                            Background="#304488CC" BorderBrush="#FF4488CC"
-                            BorderThickness="1" CornerRadius="50" />
-                    <Border Canvas.Left="400" Canvas.Top="200"
-                            Width="160" Height="80"
-                            Background="#3044CC88" BorderBrush="#FF44CC88"
-                            BorderThickness="1" CornerRadius="8" />
-                </Canvas>
-            </MCanvas>
-
-            <!-- Canvas without grid -->
-            <TextBlock Text="ShowGrid=False" />
-            <MCanvas Width="600" Height="160" ShowGrid="False">
-                <Canvas>
-                    <MCard Canvas.Left="60" Canvas.Top="40" Width="120" Padding="8">
-                        <TextBlock Text="No grid" HorizontalAlignment="Center" />
-                    </MCard>
-                    <MCard Canvas.Left="240" Canvas.Top="30" Width="120" Padding="8">
-                        <TextBlock Text="Clean look" HorizontalAlignment="Center" />
-                    </MCard>
-                    <MCard Canvas.Left="420" Canvas.Top="50" Width="120" Padding="8">
-                        <TextBlock Text="Minimal" HorizontalAlignment="Center" />
-                    </MCard>
-                </Canvas>
-            </MCanvas>
-        </MPanel>
+        <MCanvas Design.Width="600" Design.Height="360">
+            <Canvas>
+                <MCard Canvas.Left="40" Canvas.Top="30" Width="140" Padding="12">
+                    <MPanel Mode="Vertical" Spacing="4">
+                        <TextBlock Text="Component A" FontWeight="SemiBold" />
+                        <TextBlock Text="Drag the background to pan" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
+                    </MPanel>
+                </MCard>
+                <MCard Canvas.Left="240" Canvas.Top="120" Width="140" Padding="12">
+                    <MPanel Mode="Vertical" Spacing="4">
+                        <TextBlock Text="Component B" FontWeight="SemiBold" />
+                        <TextBlock Text="Scroll wheel to zoom" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
+                    </MPanel>
+                </MCard>
+                <MCard Canvas.Left="120" Canvas.Top="240" Width="140" Padding="12">
+                    <MPanel Mode="Vertical" Spacing="4">
+                        <TextBlock Text="Component C" FontWeight="SemiBold" />
+                        <TextBlock Text="Cmd+1 to reset view" FontSize="11" Opacity="0.6" TextWrapping="Wrap" />
+                    </MPanel>
+                </MCard>
+                <Border Canvas.Left="430" Canvas.Top="60"
+                        Width="100" Height="100"
+                        Background="#304488CC" BorderBrush="#FF4488CC"
+                        BorderThickness="1" CornerRadius="50" />
+                <Border Canvas.Left="400" Canvas.Top="200"
+                        Width="160" Height="80"
+                        Background="#3044CC88" BorderBrush="#FF44CC88"
+                        BorderThickness="1" CornerRadius="8" />
+            </Canvas>
+        </MCanvas>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MCanvas}" TargetType="MCanvas">
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="GridBrush" Value="#33888888" />
-        <Setter Property="BackgroundBrush" Value="{MBrush Background}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -66,8 +45,7 @@
                     <MCanvasGrid Name="PART_Grid"
                                  GridSize="{TemplateBinding GridSize}"
                                  ShowGrid="{TemplateBinding ShowGrid}"
-                                 GridBrush="{TemplateBinding GridBrush}"
-                                 BackgroundBrush="{TemplateBinding BackgroundBrush}" />
+                                 GridBrush="{TemplateBinding GridBrush}" />
                     <!-- Content is transformed (scale + translate) -->
                     <Panel Name="PART_TransformContainer">
                         <ContentPresenter Name="PART_Content"
