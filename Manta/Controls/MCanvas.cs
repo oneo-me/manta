@@ -93,7 +93,7 @@ public class MCanvas : ContentControl
         // for this control's own size. An infinite canvas should fill available space,
         // not shrink to its content (e.g. Canvas reports 0x0).
         base.MeasureOverride(availableSize);
-        return new Size(
+        return new(
             double.IsInfinity(availableSize.Width) ? 0 : availableSize.Width,
             double.IsInfinity(availableSize.Height) ? 0 : availableSize.Height);
     }
@@ -114,7 +114,20 @@ public class MCanvas : ContentControl
     protected override void OnSizeChanged(SizeChangedEventArgs e)
     {
         base.OnSizeChanged(e);
-        UpdateGrid();
+
+        if (e.PreviousSize is { Width: > 0, Height: > 0 })
+        {
+            // Keep the content's center at the same relative position in the viewport.
+            var dx = (e.NewSize.Width - e.PreviousSize.Width) / 2;
+            var dy = (e.NewSize.Height - e.PreviousSize.Height) / 2;
+            Offset = new(Offset.X + dx, Offset.Y + dy);
+            UpdateTransform();
+        }
+        else
+        {
+            // First layout — center content.
+            ResetView();
+        }
     }
 
     // --- Scroll: pan / Ctrl+Scroll: zoom ---
@@ -228,11 +241,6 @@ public class MCanvas : ContentControl
                 FitAll();
                 e.Handled = true;
                 break;
-
-            case Key.D3 when e.KeyModifiers.HasFlag(KeyModifiers.Meta):
-                FitSelection();
-                e.Handled = true;
-                break;
         }
     }
 
@@ -249,12 +257,20 @@ public class MCanvas : ContentControl
     }
 
     /// <summary>
-    ///     Resets zoom to 1x and offset to origin.
+    ///     Resets zoom to 1x and centers content in the viewport.
     /// </summary>
     public void ResetView()
     {
         Zoom = 1.0;
-        Offset = default;
+
+        var extent = GetContentExtent();
+        if (extent is { Width: > 0, Height: > 0 } rect && Bounds is { Width: > 0, Height: > 0 })
+            Offset = new(
+                (Bounds.Width - rect.Width) / 2 - rect.X,
+                (Bounds.Height - rect.Height) / 2 - rect.Y);
+        else
+            Offset = default;
+
         UpdateTransform();
     }
 
@@ -263,13 +279,8 @@ public class MCanvas : ContentControl
     /// </summary>
     public void FitAll()
     {
-        if (_transformContainer == null || Content is not Control contentControl)
-            return;
-
-        contentControl.Measure(Size.Infinity);
-        var contentBounds = contentControl.DesiredSize;
-
-        if (contentBounds.Width <= 0 || contentBounds.Height <= 0)
+        var extent = GetContentExtent();
+        if (extent is not { Width: > 0, Height: > 0 } rect)
             return;
 
         var viewWidth = Bounds.Width;
@@ -280,23 +291,15 @@ public class MCanvas : ContentControl
         var availableWidth = viewWidth - padding * 2;
         var availableHeight = viewHeight - padding * 2;
 
-        var zoom = Math.Min(availableWidth / contentBounds.Width, availableHeight / contentBounds.Height);
+        var zoom = Math.Min(availableWidth / rect.Width, availableHeight / rect.Height);
         zoom = Math.Clamp(zoom, MinZoom, MaxZoom);
 
-        var offsetX = (viewWidth - contentBounds.Width * zoom) / 2;
-        var offsetY = (viewHeight - contentBounds.Height * zoom) / 2;
+        var offsetX = (viewWidth - rect.Width * zoom) / 2 - rect.X * zoom;
+        var offsetY = (viewHeight - rect.Height * zoom) / 2 - rect.Y * zoom;
 
         Zoom = zoom;
         Offset = new(offsetX, offsetY);
         UpdateTransform();
-    }
-
-    /// <summary>
-    ///     Adjusts zoom and offset to fit the current selection. Override in subclasses to provide selection-aware behavior.
-    /// </summary>
-    public virtual void FitSelection()
-    {
-        FitAll();
     }
 
     /// <summary>
@@ -362,6 +365,49 @@ public class MCanvas : ContentControl
         }
 
         return true;
+    }
+
+    /// <summary>
+    ///     Computes the bounding rectangle of all content in world coordinates.
+    ///     For Canvas, this iterates children to account for Canvas.Left/Top positioning.
+    ///     For other content, falls back to DesiredSize.
+    /// </summary>
+    Rect GetContentExtent()
+    {
+        if (Content is not Control contentControl)
+            return default;
+
+        contentControl.Measure(Size.Infinity);
+
+        if (contentControl is Canvas { Children.Count: > 0 } canvas)
+        {
+            var left = double.MaxValue;
+            var top = double.MaxValue;
+            var right = double.MinValue;
+            var bottom = double.MinValue;
+
+            foreach (var child in canvas.Children)
+            {
+                child.Measure(Size.Infinity);
+                var x = Canvas.GetLeft(child);
+                var y = Canvas.GetTop(child);
+                if (double.IsNaN(x)) x = 0;
+                if (double.IsNaN(y)) y = 0;
+
+                var w = child.DesiredSize.Width;
+                var h = child.DesiredSize.Height;
+
+                left = Math.Min(left, x);
+                top = Math.Min(top, y);
+                right = Math.Max(right, x + w);
+                bottom = Math.Max(bottom, y + h);
+            }
+
+            return new(left, top, right - left, bottom - top);
+        }
+
+        var size = contentControl.DesiredSize;
+        return new(0, 0, size.Width, size.Height);
     }
 
     void UpdateTransform()

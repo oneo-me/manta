@@ -37,7 +37,7 @@
     <ControlTheme x:Key="{x:Type MCanvas}" TargetType="MCanvas">
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Focusable" Value="True" />
-        <Setter Property="GridBrush" Value="#33888888" />
+        <Setter Property="GridBrush" Value="{MBrush Border, Opacity=0.3}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
