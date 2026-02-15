@@ -5,9 +5,9 @@ using Avalonia.Media;
 namespace Manta.Controls;
 
 /// <summary>
-/// Renders an infinite dot-grid background in screen coordinates.
-/// Sits outside the transform container as a background layer.
-/// Call <see cref="UpdateViewport"/> when zoom/offset changes.
+///     Renders an infinite dot-grid background in screen coordinates.
+///     Sits outside the transform container as a background layer.
+///     Call <see cref="UpdateViewport" /> when zoom/offset changes.
 /// </summary>
 public class MCanvasGrid : Control
 {
@@ -16,9 +16,6 @@ public class MCanvasGrid : Control
 
     public static readonly StyledProperty<IBrush?> GridBrushProperty =
         AvaloniaProperty.Register<MCanvasGrid, IBrush?>(nameof(GridBrush));
-
-    public static readonly StyledProperty<IBrush?> BackgroundBrushProperty =
-        AvaloniaProperty.Register<MCanvasGrid, IBrush?>(nameof(BackgroundBrush));
 
     public static readonly StyledProperty<bool> ShowGridProperty =
         AvaloniaProperty.Register<MCanvasGrid, bool>(nameof(ShowGrid), true);
@@ -38,12 +35,6 @@ public class MCanvasGrid : Control
         set => SetValue(GridBrushProperty, value);
     }
 
-    public IBrush? BackgroundBrush
-    {
-        get => GetValue(BackgroundBrushProperty);
-        set => SetValue(BackgroundBrushProperty, value);
-    }
-
     public bool ShowGrid
     {
         get => GetValue(ShowGridProperty);
@@ -55,12 +46,11 @@ public class MCanvasGrid : Control
         AffectsRender<MCanvasGrid>(
             GridSizeProperty,
             GridBrushProperty,
-            BackgroundBrushProperty,
             ShowGridProperty);
     }
 
     /// <summary>
-    /// Updates the current offset and zoom. Called by MCanvas on every transform change.
+    ///     Updates the current offset and zoom. Called by MCanvas on every transform change.
     /// </summary>
     public void UpdateViewport(Point offset, double zoom)
     {
@@ -69,6 +59,8 @@ public class MCanvasGrid : Control
         InvalidateVisual();
     }
 
+    static readonly SolidColorBrush _backgroundBrush = new(Color.FromArgb(0, 0, 0, 0));
+
     public override void Render(DrawingContext context)
     {
         var w = Bounds.Width;
@@ -76,10 +68,7 @@ public class MCanvasGrid : Control
         if (w <= 0 || h <= 0) return;
 
         var screenRect = new Rect(0, 0, w, h);
-
-        // Background fills the entire control
-        if (BackgroundBrush != null)
-            context.FillRectangle(BackgroundBrush, screenRect);
+        context.FillRectangle(_backgroundBrush, screenRect);
 
         if (!ShowGrid || GridBrush == null) return;
 
@@ -90,7 +79,7 @@ public class MCanvasGrid : Control
         if (screenGridSize < 5) return;
 
         var minorPen = new Pen(GridBrush, 0.5);
-        var majorPen = new Pen(GridBrush, 1.0);
+        var majorPen = new Pen(GridBrush);
         var majorGridSize = gridSize * 5;
 
         // Calculate world-space bounds of visible area
