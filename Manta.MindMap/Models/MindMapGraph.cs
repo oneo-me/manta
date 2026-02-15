@@ -164,11 +164,21 @@ public class MindMapGraph : INotifyPropertyChanged
             return;
         }
 
-        var edgesToRemove = Edges.Where(e => e.Source == node || e.Target == node).ToList();
+        var descendants = new List<MindMapNode>();
+        CollectDescendants(node, descendants);
+
+        var edgesToRemove = Edges.Where(e => descendants.Contains(e.Source) || descendants.Contains(e.Target)).ToList();
         foreach (var edge in edgesToRemove)
             Edges.Remove(edge);
 
         RemoveNodeRecursive(node);
+    }
+
+    static void CollectDescendants(MindMapNode node, List<MindMapNode> result)
+    {
+        result.Add(node);
+        foreach (var child in node.Children)
+            CollectDescendants(child, result);
     }
 
     void RemoveNodeRecursive(MindMapNode node)
@@ -178,6 +188,45 @@ public class MindMapGraph : INotifyPropertyChanged
 
         node.Parent?.RemoveChild(node);
         Nodes.Remove(node);
+    }
+
+    public bool ReparentNode(MindMapNode node, MindMapNode newParent)
+    {
+        if (node.IsRoot || node == newParent || IsDescendantOf(newParent, node))
+            return false;
+
+        // Remove old edge
+        var oldEdge = Edges.FirstOrDefault(e => e.Target == node);
+        if (oldEdge != null)
+            Edges.Remove(oldEdge);
+
+        // Remove from old parent
+        node.Parent?.RemoveChild(node);
+
+        // Add to new parent
+        newParent.AddChild(node);
+
+        // Create new edge
+        var newEdge = new MindMapEdge(newParent, node)
+        {
+            Stroke = DefaultEdgeStroke
+        };
+        Edges.Add(newEdge);
+
+        RefreshLayout();
+        return true;
+    }
+
+    public static bool IsDescendantOf(MindMapNode node, MindMapNode potentialAncestor)
+    {
+        var current = node.Parent;
+        while (current != null)
+        {
+            if (current == potentialAncestor)
+                return true;
+            current = current.Parent;
+        }
+        return false;
     }
 
     public void Clear()
