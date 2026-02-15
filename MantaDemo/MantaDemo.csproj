@@ -14,6 +14,6 @@
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.3.12" />
     </ItemGroup>
 </Project>
