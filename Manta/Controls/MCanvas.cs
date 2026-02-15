@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Shapes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
@@ -363,7 +364,9 @@ public class MCanvas : ContentControl
     /// <summary>
     ///     Computes the bounding rectangle of all content in world coordinates.
     ///     For Canvas, this iterates children to account for Canvas.Left/Top positioning.
-    ///     For other content, falls back to DesiredSize.
+    ///     Children without explicit Canvas.Left/Top (e.g. Path elements that draw with
+    ///     world coordinates in their geometry) use their geometry bounds directly,
+    ///     avoiding empty space inflation from the origin.
     /// </summary>
     Rect GetContentExtent()
     {
@@ -378,25 +381,49 @@ public class MCanvas : ContentControl
             var top = double.MaxValue;
             var right = double.MinValue;
             var bottom = double.MinValue;
+            var hasContent = false;
 
             foreach (var child in canvas.Children)
             {
+                if (!child.IsVisible) continue;
+
                 child.Measure(Size.Infinity);
-                var x = Canvas.GetLeft(child);
-                var y = Canvas.GetTop(child);
-                if (double.IsNaN(x)) x = 0;
-                if (double.IsNaN(y)) y = 0;
 
-                var w = child.DesiredSize.Width;
-                var h = child.DesiredSize.Height;
+                var canvasLeft = Canvas.GetLeft(child);
+                var canvasTop = Canvas.GetTop(child);
+                var hasExplicitPosition = !double.IsNaN(canvasLeft) || !double.IsNaN(canvasTop);
 
+                double x, y, w, h;
+
+                if (!hasExplicitPosition && child is Shape { RenderedGeometry: { } geo })
+                {
+                    // Shape without explicit Canvas position: use geometry bounds
+                    // to get the actual occupied area (e.g. Path edges that draw at
+                    // world coordinates, avoiding empty space from origin).
+                    var geoBounds = geo.Bounds;
+                    x = geoBounds.X;
+                    y = geoBounds.Y;
+                    w = geoBounds.Width;
+                    h = geoBounds.Height;
+                }
+                else
+                {
+                    x = double.IsNaN(canvasLeft) ? 0 : canvasLeft;
+                    y = double.IsNaN(canvasTop) ? 0 : canvasTop;
+                    w = child.DesiredSize.Width;
+                    h = child.DesiredSize.Height;
+                }
+
+                if (w <= 0 && h <= 0) continue;
+
+                hasContent = true;
                 left = Math.Min(left, x);
                 top = Math.Min(top, y);
                 right = Math.Max(right, x + w);
                 bottom = Math.Max(bottom, y + h);
             }
 
-            return new(left, top, right - left, bottom - top);
+            return hasContent ? new(left, top, right - left, bottom - top) : default;
         }
 
         var size = contentControl.DesiredSize;
