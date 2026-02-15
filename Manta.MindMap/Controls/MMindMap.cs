@@ -1,13 +1,14 @@
 using System.Collections.Specialized;
+using System.ComponentModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Shapes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Layout;
 using Avalonia.Media;
+using Manta.Controls;
 using Manta.MindMap.Models;
-using AvaloniaObject = Avalonia.AvaloniaObject;
 using Path = Avalonia.Controls.Shapes.Path;
 
 namespace Manta.MindMap.Controls;
@@ -17,23 +18,8 @@ public class MMindMap : TemplatedControl
     public static readonly StyledProperty<MindMapGraph?> MindMapProperty =
         AvaloniaProperty.Register<MMindMap, MindMapGraph?>(nameof(MindMap));
 
-    public const double DefaultMinZoom = 0.1;
-    public const double DefaultMaxZoom = 5.0;
-
-    public static readonly StyledProperty<double> ZoomProperty =
-        AvaloniaProperty.Register<MMindMap, double>(nameof(Zoom), 1.0,
-            coerce: (_, v) => Math.Clamp(v, DefaultMinZoom, DefaultMaxZoom));
-
-    public static readonly StyledProperty<Point> OffsetProperty =
-        AvaloniaProperty.Register<MMindMap, Point>(nameof(Offset));
-
-    public static readonly StyledProperty<double> MinZoomProperty =
-        AvaloniaProperty.Register<MMindMap, double>(nameof(MinZoom), DefaultMinZoom);
-
-    public static readonly StyledProperty<double> MaxZoomProperty =
-        AvaloniaProperty.Register<MMindMap, double>(nameof(MaxZoom), DefaultMaxZoom);
-
-    public const double ZoomFactor = 1.1;
+    public static readonly StyledProperty<bool> ShowGridProperty =
+        AvaloniaProperty.Register<MMindMap, bool>(nameof(ShowGrid), true);
 
     public static readonly StyledProperty<IBrush?> NodeBackgroundProperty =
         AvaloniaProperty.Register<MMindMap, IBrush?>(nameof(NodeBackground));
@@ -80,16 +66,13 @@ public class MMindMap : TemplatedControl
         remove => RemoveHandler(EdgeSelectedEvent, value);
     }
 
-    private Canvas? _canvas;
-    private Panel? _transformContainer;
-    private MindMapNode? _draggingNode;
-    private Point _dragStartPoint;
-    private Point _nodeStartPosition;
-    private bool _isPanning;
-    private Point _lastPanPosition;
-    private bool _isSpaceHeld;
-    private readonly Dictionary<MindMapNode, Border> _nodeElements = new();
-    private readonly Dictionary<MindMapEdge, Path> _edgeElements = new();
+    Canvas? _canvas;
+    MCanvas? _mCanvas;
+    MindMapNode? _draggingNode;
+    Point _dragStartPoint;
+    Point _nodeStartPosition;
+    readonly Dictionary<MindMapNode, Border> _nodeElements = new();
+    readonly Dictionary<MindMapEdge, Path> _edgeElements = new();
 
     public MindMapGraph? MindMap
     {
@@ -97,28 +80,10 @@ public class MMindMap : TemplatedControl
         set => SetValue(MindMapProperty, value);
     }
 
-    public double Zoom
+    public bool ShowGrid
     {
-        get => GetValue(ZoomProperty);
-        set => SetValue(ZoomProperty, value);
-    }
-
-    public Point Offset
-    {
-        get => GetValue(OffsetProperty);
-        set => SetValue(OffsetProperty, value);
-    }
-
-    public double MinZoom
-    {
-        get => GetValue(MinZoomProperty);
-        set => SetValue(MinZoomProperty, value);
-    }
-
-    public double MaxZoom
-    {
-        get => GetValue(MaxZoomProperty);
-        set => SetValue(MaxZoomProperty, value);
+        get => GetValue(ShowGridProperty);
+        set => SetValue(ShowGridProperty, value);
     }
 
     public IBrush? NodeBackground
@@ -162,7 +127,7 @@ public class MMindMap : TemplatedControl
         base.OnApplyTemplate(e);
 
         _canvas = e.NameScope.Find<Canvas>("PART_Canvas");
-        _transformContainer = e.NameScope.Find<Panel>("PART_TransformContainer");
+        _mCanvas = e.NameScope.Find<MCanvas>("PART_MCanvas");
 
         SubscribeToGraph();
         Refresh();
@@ -178,13 +143,9 @@ public class MMindMap : TemplatedControl
             SubscribeToGraph();
             Refresh();
         }
-        else if (change.Property == ZoomProperty || change.Property == OffsetProperty)
-        {
-            UpdateTransform();
-        }
     }
 
-    private void SubscribeToGraph()
+    void SubscribeToGraph()
     {
         if (MindMap == null) return;
 
@@ -198,7 +159,7 @@ public class MMindMap : TemplatedControl
             SubscribeToEdge(edge);
     }
 
-    private void UnsubscribeFromGraph()
+    void UnsubscribeFromGraph()
     {
         if (MindMap == null) return;
 
@@ -212,36 +173,33 @@ public class MMindMap : TemplatedControl
             UnsubscribeFromEdge(edge);
     }
 
-    private void SubscribeToNode(MindMapNode node)
+    void SubscribeToNode(MindMapNode node)
     {
         node.PropertyChanged += OnNodePropertyChanged;
     }
 
-    private void UnsubscribeFromNode(MindMapNode node)
+    void UnsubscribeFromNode(MindMapNode node)
     {
         node.PropertyChanged -= OnNodePropertyChanged;
     }
 
-    private void SubscribeToEdge(MindMapEdge edge)
+    void SubscribeToEdge(MindMapEdge edge)
     {
         edge.PropertyChanged += OnEdgePropertyChanged;
     }
 
-    private void UnsubscribeFromEdge(MindMapEdge edge)
+    void UnsubscribeFromEdge(MindMapEdge edge)
     {
         edge.PropertyChanged -= OnEdgePropertyChanged;
     }
 
-    private void OnNodesChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    void OnNodesChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         if (e.NewItems != null)
-        {
             foreach (MindMapNode node in e.NewItems)
                 SubscribeToNode(node);
-        }
 
         if (e.OldItems != null)
-        {
             foreach (MindMapNode node in e.OldItems)
             {
                 UnsubscribeFromNode(node);
@@ -251,21 +209,17 @@ public class MMindMap : TemplatedControl
                     _nodeElements.Remove(node);
                 }
             }
-        }
 
         Refresh();
     }
 
-    private void OnEdgesChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    void OnEdgesChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         if (e.NewItems != null)
-        {
             foreach (MindMapEdge edge in e.NewItems)
                 SubscribeToEdge(edge);
-        }
 
         if (e.OldItems != null)
-        {
             foreach (MindMapEdge edge in e.OldItems)
             {
                 UnsubscribeFromEdge(edge);
@@ -275,35 +229,25 @@ public class MMindMap : TemplatedControl
                     _edgeElements.Remove(edge);
                 }
             }
-        }
 
         Refresh();
     }
 
-    private void OnNodePropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    void OnNodePropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (sender is MindMapNode node)
         {
-            if (e.PropertyName == nameof(MindMapNode.X) || 
-                e.PropertyName == nameof(MindMapNode.Y) ||
-                e.PropertyName == nameof(MindMapNode.Width) ||
-                e.PropertyName == nameof(MindMapNode.Height))
-            {
+            if (e.PropertyName is nameof(MindMapNode.X) or nameof(MindMapNode.Y) or nameof(MindMapNode.Width) or nameof(MindMapNode.Height))
                 UpdateNodePosition(node);
-            }
             else
-            {
                 RefreshNode(node);
-            }
         }
     }
 
-    private void OnEdgePropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    void OnEdgePropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (sender is MindMapEdge edge)
-        {
             RefreshEdge(edge);
-        }
     }
 
     public void Refresh()
@@ -319,26 +263,24 @@ public class MMindMap : TemplatedControl
 
         foreach (var node in MindMap.Nodes)
             DrawNode(node);
-
-        UpdateTransform();
     }
 
-    private void DrawNode(MindMapNode node)
+    void DrawNode(MindMapNode node)
     {
         var border = new Border
         {
             Width = node.Width,
             Height = node.Height,
-            Background = node.IsRoot ? (node.Background ?? RootNodeBackground) : (node.Background ?? NodeBackground),
+            Background = node.IsRoot ? node.Background ?? RootNodeBackground : node.Background ?? NodeBackground,
             BorderBrush = node.BorderBrush,
-            BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(8),
+            BorderThickness = new(1),
+            CornerRadius = new(8),
             Child = new TextBlock
             {
                 Text = node.Text,
-                Foreground = node.IsRoot ? (node.Foreground ?? RootNodeForeground) : (node.Foreground ?? NodeForeground),
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+                Foreground = node.IsRoot ? node.Foreground ?? RootNodeForeground : node.Foreground ?? NodeForeground,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
                 TextAlignment = TextAlignment.Center,
                 TextTrimming = TextTrimming.CharacterEllipsis,
                 FontSize = node.FontSize ?? (node.IsRoot ? 16 : 14),
@@ -350,7 +292,7 @@ public class MMindMap : TemplatedControl
         if (node.IsSelected && SelectedBrush != null)
         {
             border.BorderBrush = SelectedBrush;
-            border.BorderThickness = new Thickness(2);
+            border.BorderThickness = new(2);
         }
 
         border.PointerPressed += NodeOnPointerPressed;
@@ -362,7 +304,7 @@ public class MMindMap : TemplatedControl
         _nodeElements[node] = border;
     }
 
-    private void UpdateNodePosition(MindMapNode node)
+    void UpdateNodePosition(MindMapNode node)
     {
         if (_nodeElements.TryGetValue(node, out var border))
         {
@@ -371,27 +313,23 @@ public class MMindMap : TemplatedControl
         }
 
         if (MindMap != null)
-        {
             foreach (var edge in MindMap.Edges.Where(e => e.Source == node || e.Target == node))
-            {
                 RefreshEdge(edge);
-            }
-        }
     }
 
-    private void RefreshNode(MindMapNode node)
+    void RefreshNode(MindMapNode node)
     {
         if (!_nodeElements.TryGetValue(node, out var border)) return;
 
         border.Width = node.Width;
         border.Height = node.Height;
-        border.Background = node.IsRoot ? (node.Background ?? RootNodeBackground) : (node.Background ?? NodeBackground);
+        border.Background = node.IsRoot ? node.Background ?? RootNodeBackground : node.Background ?? NodeBackground;
         border.BorderBrush = node.BorderBrush;
 
         if (border.Child is TextBlock textBlock)
         {
             textBlock.Text = node.Text;
-            textBlock.Foreground = node.IsRoot ? (node.Foreground ?? RootNodeForeground) : (node.Foreground ?? NodeForeground);
+            textBlock.Foreground = node.IsRoot ? node.Foreground ?? RootNodeForeground : node.Foreground ?? NodeForeground;
             textBlock.FontSize = node.FontSize ?? (node.IsRoot ? 16 : 14);
             textBlock.FontWeight = node.FontWeight ?? (node.IsRoot ? FontWeight.Bold : FontWeight.Normal);
         }
@@ -399,16 +337,16 @@ public class MMindMap : TemplatedControl
         if (node.IsSelected && SelectedBrush != null)
         {
             border.BorderBrush = SelectedBrush;
-            border.BorderThickness = new Thickness(2);
+            border.BorderThickness = new(2);
         }
         else
         {
             border.BorderBrush = node.BorderBrush;
-            border.BorderThickness = new Thickness(1);
+            border.BorderThickness = new(1);
         }
     }
 
-    private void DrawEdge(MindMapEdge edge)
+    void DrawEdge(MindMapEdge edge)
     {
         var path = CreateEdgePath(edge);
 
@@ -418,7 +356,7 @@ public class MMindMap : TemplatedControl
         _edgeElements[edge] = path;
     }
 
-    private void RefreshEdge(MindMapEdge edge)
+    void RefreshEdge(MindMapEdge edge)
     {
         if (!_edgeElements.TryGetValue(edge, out var path)) return;
 
@@ -434,7 +372,7 @@ public class MMindMap : TemplatedControl
         newPath.PointerPressed += EdgeOnPointerPressed;
     }
 
-    private Path CreateEdgePath(MindMapEdge edge)
+    Path CreateEdgePath(MindMapEdge edge)
     {
         var source = edge.Source;
         var target = edge.Target;
@@ -447,17 +385,17 @@ public class MMindMap : TemplatedControl
         var controlPointOffset = (endX - startX) / 2;
 
         var pathGeometry = new PathGeometry();
-        var figure = new PathFigure { StartPoint = new Point(startX, startY) };
+        var figure = new PathFigure { StartPoint = new(startX, startY) };
 
         var bezier = new BezierSegment
         {
-            Point1 = new Point(startX + controlPointOffset, startY),
-            Point2 = new Point(endX - controlPointOffset, endY),
-            Point3 = new Point(endX, endY)
+            Point1 = new(startX + controlPointOffset, startY),
+            Point2 = new(endX - controlPointOffset, endY),
+            Point3 = new(endX, endY)
         };
 
-        figure.Segments.Add(bezier);
-        pathGeometry.Figures.Add(figure);
+        figure.Segments?.Add(bezier);
+        pathGeometry.Figures?.Add(figure);
 
         var path = new Path
         {
@@ -476,7 +414,7 @@ public class MMindMap : TemplatedControl
         return path;
     }
 
-    private void NodeOnPointerPressed(object? sender, PointerPressedEventArgs e)
+    void NodeOnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
         if (sender is not Border border || border.Tag is not MindMapNode node) return;
 
@@ -488,13 +426,13 @@ public class MMindMap : TemplatedControl
 
             _draggingNode = node;
             _dragStartPoint = e.GetPosition(this);
-            _nodeStartPosition = new Point(node.X, node.Y);
+            _nodeStartPosition = new(node.X, node.Y);
             e.Pointer.Capture(border);
             e.Handled = true;
         }
     }
 
-    private void NodeOnDoubleTapped(object? sender, TappedEventArgs e)
+    void NodeOnDoubleTapped(object? sender, TappedEventArgs e)
     {
         if (sender is not Border border || border.Tag is not MindMapNode node) return;
 
@@ -510,7 +448,7 @@ public class MMindMap : TemplatedControl
         e.Handled = true;
     }
 
-    private void EdgeOnPointerPressed(object? sender, PointerPressedEventArgs e)
+    void EdgeOnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
         if (sender is not Path path || path.Tag is not MindMapEdge edge) return;
 
@@ -565,23 +503,14 @@ public class MMindMap : TemplatedControl
     {
         base.OnPointerMoved(e);
 
-        if (_draggingNode != null)
+        if (_draggingNode != null && _mCanvas != null)
         {
             var position = e.GetPosition(this);
             var delta = position - _dragStartPoint;
 
-            _draggingNode.X = _nodeStartPosition.X + delta.X / Zoom;
-            _draggingNode.Y = _nodeStartPosition.Y + delta.Y / Zoom;
+            _draggingNode.X = _nodeStartPosition.X + delta.X / _mCanvas.Zoom;
+            _draggingNode.Y = _nodeStartPosition.Y + delta.Y / _mCanvas.Zoom;
 
-            e.Handled = true;
-        }
-        else if (_isPanning)
-        {
-            var position = e.GetPosition(this);
-            var delta = position - _lastPanPosition;
-            Offset = new Point(Offset.X + delta.X, Offset.Y + delta.Y);
-            _lastPanPosition = position;
-            UpdateTransform();
             e.Handled = true;
         }
     }
@@ -602,19 +531,11 @@ public class MMindMap : TemplatedControl
             e.Pointer.Capture(null);
             e.Handled = true;
         }
-        else if (_isPanning)
-        {
-            _isPanning = false;
-            e.Pointer.Capture(null);
-            e.Handled = true;
-        }
     }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
-
-        Focus();
 
         var source = e.Source as Control;
         var isClickOnNode = false;
@@ -626,53 +547,14 @@ public class MMindMap : TemplatedControl
                 isClickOnNode = true;
                 break;
             }
+
             source = source.Parent as Control;
         }
 
         var props = e.GetCurrentPoint(this).Properties;
 
-        if (props.IsLeftButtonPressed)
-        {
-            if (_isSpaceHeld)
-            {
-                _isPanning = true;
-                _lastPanPosition = e.GetPosition(this);
-                e.Pointer.Capture(this);
-                e.Handled = true;
-            }
-            else if (!isClickOnNode)
-            {
-                ClearSelection();
-                _isPanning = true;
-                _lastPanPosition = e.GetPosition(this);
-                e.Pointer.Capture(this);
-                e.Handled = true;
-            }
-        }
-    }
-
-    protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
-    {
-        base.OnPointerWheelChanged(e);
-
-        var position = e.GetPosition(this);
-        var factor = e.Delta.Y > 0 ? ZoomFactor : 1.0 / ZoomFactor;
-        var newZoom = Math.Clamp(Zoom * factor, MinZoom, MaxZoom);
-
-        if (Math.Abs(newZoom - Zoom) > 0.001)
-        {
-            var actualFactor = newZoom / Zoom;
-            var newOffset = new Point(
-                position.X - (position.X - Offset.X) * actualFactor,
-                position.Y - (position.Y - Offset.Y) * actualFactor
-            );
-
-            Zoom = newZoom;
-            Offset = newOffset;
-            UpdateTransform();
-        }
-
-        e.Handled = true;
+        if (props.IsLeftButtonPressed && !isClickOnNode)
+            ClearSelection();
     }
 
     protected override void OnKeyDown(KeyEventArgs e)
@@ -681,15 +563,6 @@ public class MMindMap : TemplatedControl
 
         switch (e.Key)
         {
-            case Key.Space:
-                if (!_isSpaceHeld)
-                {
-                    _isSpaceHeld = true;
-                    Cursor = new Cursor(StandardCursorType.Hand);
-                }
-                e.Handled = true;
-                break;
-
             case Key.Delete:
                 DeleteSelected();
                 e.Handled = true;
@@ -699,18 +572,6 @@ public class MMindMap : TemplatedControl
                 ClearSelection();
                 e.Handled = true;
                 break;
-        }
-    }
-
-    protected override void OnKeyUp(KeyEventArgs e)
-    {
-        base.OnKeyUp(e);
-
-        if (e.Key == Key.Space)
-        {
-            _isSpaceHeld = false;
-            Cursor = Cursor.Default;
-            e.Handled = true;
         }
     }
 
@@ -765,52 +626,11 @@ public class MMindMap : TemplatedControl
 
     public void ResetView()
     {
-        Zoom = 1.0;
-        Offset = new Point(50, 50);
-        UpdateTransform();
+        _mCanvas?.ResetView();
     }
 
-    private void UpdateTransform()
+    public void FitAll()
     {
-        if (_transformContainer == null) return;
-
-        _transformContainer.RenderTransform = new TransformGroup
-        {
-            Children =
-            {
-                new ScaleTransform(Zoom, Zoom),
-                new TranslateTransform(Offset.X, Offset.Y)
-            }
-        };
-    }
-}
-
-public class NodeSelectedEventArgs : RoutedEventArgs
-{
-    public MindMapNode Node { get; }
-
-    public NodeSelectedEventArgs(RoutedEvent routedEvent, MindMapNode node) : base(routedEvent)
-    {
-        Node = node;
-    }
-}
-
-public class NodeDoubleClickedEventArgs : RoutedEventArgs
-{
-    public MindMapNode Node { get; }
-
-    public NodeDoubleClickedEventArgs(RoutedEvent routedEvent, MindMapNode node) : base(routedEvent)
-    {
-        Node = node;
-    }
-}
-
-public class EdgeSelectedEventArgs : RoutedEventArgs
-{
-    public MindMapEdge Edge { get; }
-
-    public EdgeSelectedEventArgs(RoutedEvent routedEvent, MindMapEdge edge) : base(routedEvent)
-    {
-        Edge = edge;
+        _mCanvas?.FitAll();
     }
 }

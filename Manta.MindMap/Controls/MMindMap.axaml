@@ -16,11 +16,12 @@
         <Setter Property="SelectedBrush" Value="{MBrush Accent}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" ClipToBounds="True">
-                    <Panel Name="PART_TransformContainer">
-                        <Canvas Name="PART_Canvas" />
-                    </Panel>
-                </Border>
+                <MCanvas Name="PART_MCanvas"
+                         Background="{TemplateBinding Background}"
+                         ShowGrid="{TemplateBinding ShowGrid}"
+                         MaxZoom="5">
+                    <Canvas Name="PART_Canvas" />
+                </MCanvas>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

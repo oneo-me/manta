@@ -10,183 +10,170 @@ public class MindMapNode : INotifyPropertyChanged
 
     public string Id { get; } = Guid.NewGuid().ToString();
 
-    private string _text = string.Empty;
     public string Text
     {
-        get => _text;
+        get;
         set
         {
-            if (_text != value)
+            if (field != value)
             {
-                _text = value;
+                field = value;
                 OnPropertyChanged(nameof(Text));
             }
         }
-    }
+    } = string.Empty;
 
-    private double _x;
     public double X
     {
-        get => _x;
+        get;
         set
         {
-            if (Math.Abs(_x - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _x = value;
+                field = value;
                 OnPropertyChanged(nameof(X));
             }
         }
     }
 
-    private double _y;
     public double Y
     {
-        get => _y;
+        get;
         set
         {
-            if (Math.Abs(_y - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _y = value;
+                field = value;
                 OnPropertyChanged(nameof(Y));
             }
         }
     }
 
-    private double _width = 120;
     public double Width
     {
-        get => _width;
+        get;
         set
         {
-            if (Math.Abs(_width - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _width = value;
+                field = value;
                 OnPropertyChanged(nameof(Width));
             }
         }
-    }
+    } = 120;
 
-    private double _height = 40;
     public double Height
     {
-        get => _height;
+        get;
         set
         {
-            if (Math.Abs(_height - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _height = value;
+                field = value;
                 OnPropertyChanged(nameof(Height));
             }
         }
-    }
+    } = 40;
 
-    private bool _isExpanded = true;
     public bool IsExpanded
     {
-        get => _isExpanded;
+        get;
         set
         {
-            if (_isExpanded != value)
+            if (field != value)
             {
-                _isExpanded = value;
+                field = value;
                 OnPropertyChanged(nameof(IsExpanded));
             }
         }
-    }
+    } = true;
 
-    private bool _isSelected;
     public bool IsSelected
     {
-        get => _isSelected;
+        get;
         set
         {
-            if (_isSelected != value)
+            if (field != value)
             {
-                _isSelected = value;
+                field = value;
                 OnPropertyChanged(nameof(IsSelected));
             }
         }
     }
 
-    private bool _isRoot;
     public bool IsRoot
     {
-        get => _isRoot;
+        get;
         set
         {
-            if (_isRoot != value)
+            if (field != value)
             {
-                _isRoot = value;
+                field = value;
                 OnPropertyChanged(nameof(IsRoot));
             }
         }
     }
 
-    private IBrush? _background;
     public IBrush? Background
     {
-        get => _background;
+        get;
         set
         {
-            if (_background != value)
+            if (!Equals(field, value))
             {
-                _background = value;
+                field = value;
                 OnPropertyChanged(nameof(Background));
             }
         }
     }
 
-    private IBrush? _foreground;
     public IBrush? Foreground
     {
-        get => _foreground;
+        get;
         set
         {
-            if (_foreground != value)
+            if (!Equals(field, value))
             {
-                _foreground = value;
+                field = value;
                 OnPropertyChanged(nameof(Foreground));
             }
         }
     }
 
-    private IBrush? _borderBrush;
     public IBrush? BorderBrush
     {
-        get => _borderBrush;
+        get;
         set
         {
-            if (_borderBrush != value)
+            if (!Equals(field, value))
             {
-                _borderBrush = value;
+                field = value;
                 OnPropertyChanged(nameof(BorderBrush));
             }
         }
     }
 
-    private double? _fontSize;
     public double? FontSize
     {
-        get => _fontSize;
+        get;
         set
         {
-            if (_fontSize != value)
+            if (Math.Abs((field ?? 0) - (value ?? 0)) > 0.001)
             {
-                _fontSize = value;
+                field = value;
                 OnPropertyChanged(nameof(FontSize));
             }
         }
     }
 
-    private FontWeight? _fontWeight;
     public FontWeight? FontWeight
     {
-        get => _fontWeight;
+        get;
         set
         {
-            if (_fontWeight != value)
+            if (field != value)
             {
-                _fontWeight = value;
+                field = value;
                 OnPropertyChanged(nameof(FontWeight));
             }
         }
@@ -194,15 +181,14 @@ public class MindMapNode : INotifyPropertyChanged
 
     public ObservableCollection<MindMapNode> Children { get; } = new();
 
-    private MindMapNode? _parent;
     public MindMapNode? Parent
     {
-        get => _parent;
+        get;
         set
         {
-            if (_parent != value)
+            if (field != value)
             {
-                _parent = value;
+                field = value;
                 OnPropertyChanged(nameof(Parent));
             }
         }
@@ -210,7 +196,7 @@ public class MindMapNode : INotifyPropertyChanged
 
     protected virtual void OnPropertyChanged(string propertyName)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChanged?.Invoke(this, new(propertyName));
     }
 
     public MindMapNode()

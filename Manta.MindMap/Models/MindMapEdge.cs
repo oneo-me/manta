@@ -3,66 +3,57 @@ using Avalonia.Media;
 
 namespace Manta.MindMap.Models;
 
-public class MindMapEdge : INotifyPropertyChanged
+public sealed class MindMapEdge(MindMapNode source, MindMapNode target) : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public string Id { get; } = Guid.NewGuid().ToString();
 
-    public MindMapNode Source { get; }
+    public MindMapNode Source { get; } = source;
 
-    public MindMapNode Target { get; }
+    public MindMapNode Target { get; } = target;
 
-    private IBrush? _stroke;
     public IBrush? Stroke
     {
-        get => _stroke;
+        get;
         set
         {
-            if (_stroke != value)
+            if (!Equals(field, value))
             {
-                _stroke = value;
+                field = value;
                 OnPropertyChanged(nameof(Stroke));
             }
         }
     }
 
-    private double _strokeThickness = 2;
     public double StrokeThickness
     {
-        get => _strokeThickness;
+        get;
         set
         {
-            if (Math.Abs(_strokeThickness - value) > 0.001)
+            if (Math.Abs(field - value) > 0.001)
             {
-                _strokeThickness = value;
+                field = value;
                 OnPropertyChanged(nameof(StrokeThickness));
             }
         }
-    }
+    } = 2;
 
-    private bool _isSelected;
     public bool IsSelected
     {
-        get => _isSelected;
+        get;
         set
         {
-            if (_isSelected != value)
+            if (field != value)
             {
-                _isSelected = value;
+                field = value;
                 OnPropertyChanged(nameof(IsSelected));
             }
         }
     }
 
-    protected virtual void OnPropertyChanged(string propertyName)
+    void OnPropertyChanged(string propertyName)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    public MindMapEdge(MindMapNode source, MindMapNode target)
-    {
-        Source = source;
-        Target = target;
+        PropertyChanged?.Invoke(this, new(propertyName));
     }
 }
