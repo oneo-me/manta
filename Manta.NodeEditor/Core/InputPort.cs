@@ -4,14 +4,9 @@ namespace Manta.NodeEditor.Core;
 /// A typed input port. Use as a property on <see cref="NodeBase"/> subclasses.
 /// Example: <c>public InputPort&lt;double&gt; A { get; } = new("A");</c>
 /// </summary>
-public sealed class InputPort<T> : Port
+public sealed class InputPort<T>(string name, string? label = null) : Port(name, label, typeof(T), PortDirection.Input)
 {
     T? _value;
-
-    public InputPort(string name, string? label = null)
-        : base(name, label, typeof(T), PortDirection.Input)
-    {
-    }
 
     public T? Value
     {

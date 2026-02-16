@@ -14,7 +14,7 @@ public class NumberNode : NodeBase
 
     public OutputPort<double> Result { get; } = new("Result");
 
-    public override Control? BuildContent()
+    public override Control BuildContent()
     {
         var nud = new MNumericUpDown
         {

@@ -4,14 +4,9 @@ namespace Manta.NodeEditor.Core;
 /// A typed output port. Use as a property on <see cref="NodeBase"/> subclasses.
 /// Example: <c>public OutputPort&lt;double&gt; Result { get; } = new("Result");</c>
 /// </summary>
-public sealed class OutputPort<T> : Port
+public sealed class OutputPort<T>(string name, string? label = null) : Port(name, label, typeof(T), PortDirection.Output)
 {
     T? _value;
-
-    public OutputPort(string name, string? label = null)
-        : base(name, label, typeof(T), PortDirection.Output)
-    {
-    }
 
     public T? Value
     {

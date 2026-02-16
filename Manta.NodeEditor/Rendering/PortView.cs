@@ -66,7 +66,7 @@ public class PortView : TemplatedControl
         if (Port is null) return;
         var brush = PortColors.GetBrush(Port.ValueType);
         var active = Port.IsOutput ? _outputConnector : _connector;
-        if (active is Avalonia.Controls.Border border)
+        if (active is Border border)
             border.Background = brush;
     }
 
@@ -128,18 +128,18 @@ public class PortView : TemplatedControl
 
         Editor = Port.ValueType switch
         {
-            var t when t == typeof(double) => MakeNumeric(0m, "F2", v => Port.BoxedValue = (double)v, () => Port.BoxedValue is double d ? (decimal)d : 0m),
-            var t when t == typeof(float) => MakeNumeric(0m, "F2", v => Port.BoxedValue = (float)v, () => Port.BoxedValue is float f ? (decimal)f : 0m),
-            var t when t == typeof(int) => MakeNumeric(0m, "F0", v => Port.BoxedValue = (int)v, () => Port.BoxedValue is int i ? i : 0m),
+            var t when t == typeof(double) => MakeNumeric("F2", v => Port.BoxedValue = (double)v, () => Port.BoxedValue is double d ? (decimal)d : 0m),
+            var t when t == typeof(float)  => MakeNumeric("F2", v => Port.BoxedValue = (float)v, () => Port.BoxedValue is float f ? (decimal)f : 0m),
+            var t when t == typeof(int)    => MakeNumeric("F0", v => Port.BoxedValue = (int)v, () => Port.BoxedValue is int i ? i : 0m),
             var t when t == typeof(string) => MakeText(),
-            var t when t == typeof(bool) => MakeBool(),
-            _ => null
+            var t when t == typeof(bool)   => MakeBool(),
+            _                              => null
         };
 
         ShowEditor = Port is { IsConnected: false } && Editor is not null;
     }
 
-    Control MakeNumeric(decimal initial, string fmt, Action<decimal> onChanged, Func<decimal> getCurrent)
+    Control MakeNumeric(string fmt, Action<decimal> onChanged, Func<decimal> getCurrent)
     {
         var n = new NumericUpDown
         {

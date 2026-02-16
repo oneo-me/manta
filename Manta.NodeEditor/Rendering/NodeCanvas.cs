@@ -3,38 +3,27 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using Avalonia.Interactivity;
-using Avalonia.Media;
-using Avalonia.VisualTree;
+using Manta.Controls;
 using Manta.NodeEditor.Core;
 using Manta.NodeEditor.TypeSystem;
 
 namespace Manta.NodeEditor.Rendering;
 
 /// <summary>
-/// Main node editor surface. Provides zoom, pan, node management,
-/// connection drag, and keyboard shortcuts.
+/// Main node editor surface. Delegates zoom, pan, and grid rendering to an embedded
+/// <see cref="MCanvas"/>. Manages node layout, connection drag, and keyboard shortcuts.
 /// </summary>
 public class NodeCanvas : TemplatedControl
 {
     public static readonly StyledProperty<NodeGraph?> GraphProperty =
         AvaloniaProperty.Register<NodeCanvas, NodeGraph?>(nameof(Graph));
 
-    public static readonly StyledProperty<double> ZoomProperty =
-        AvaloniaProperty.Register<NodeCanvas, double>(nameof(Zoom), 1.0);
-
     public static readonly StyledProperty<TypeCompatibility?> TypeCompatibilityProperty =
         AvaloniaProperty.Register<NodeCanvas, TypeCompatibility?>(nameof(TypeCompatibility));
 
-    Panel? _transformContainer;
+    MCanvas? _canvas;
     Canvas? _nodeLayer;
-    GridRenderer? _grid;
     ConnectionRenderer? _connections;
-    Point _offset;
-    bool _panning;
-    Point _panStart;
-    Point _panOffsetStart;
-    Point _lastPointerPosition;
 
     // Connection drag state
     bool _isDragging;
@@ -51,29 +40,21 @@ public class NodeCanvas : TemplatedControl
         set => SetValue(GraphProperty, value);
     }
 
-    public double Zoom
-    {
-        get => GetValue(ZoomProperty);
-        set => SetValue(ZoomProperty, Math.Clamp(value, 0.1, 5.0));
-    }
-
     public TypeCompatibility? TypeCompatibility
     {
         get => GetValue(TypeCompatibilityProperty);
         set => SetValue(TypeCompatibilityProperty, value);
     }
 
-    public Point Offset
-    {
-        get => _offset;
-        private set
-        {
-            _offset = value;
-            ApplyTransform();
-            _grid?.SetValue(GridRenderer.OffsetProperty, value);
-            _grid?.InvalidateVisual();
-        }
-    }
+    /// <summary>
+    /// Current zoom level, read from the embedded MCanvas.
+    /// </summary>
+    public double Zoom => _canvas?.Zoom ?? 1.0;
+
+    /// <summary>
+    /// Current pan offset, read from the embedded MCanvas.
+    /// </summary>
+    public Point Offset => _canvas?.Offset ?? default;
 
     internal bool IsDragging => _isDragging;
     internal Port? DragSource => _dragSource;
@@ -94,21 +75,27 @@ public class NodeCanvas : TemplatedControl
     {
         base.OnApplyTemplate(e);
 
-        _transformContainer = e.NameScope.Find<Panel>("PART_Transform");
+        _canvas = e.NameScope.Find<MCanvas>("PART_Canvas");
         _nodeLayer = e.NameScope.Find<Canvas>("PART_NodeLayer");
-        _grid = e.NameScope.Find<GridRenderer>("PART_Grid");
         _connections = e.NameScope.Find<ConnectionRenderer>("PART_Connections");
 
         if (_connections is not null)
             _connections.Canvas = this;
 
-        Focusable = true;
-        ClipToBounds = true;
+        // Subscribe to MCanvas zoom/offset changes to keep connections and ports in sync
+        if (_canvas is not null)
+        {
+            _canvas.GetObservable(MCanvas.ZoomProperty).Subscribe(_ => OnViewChanged());
+            _canvas.GetObservable(MCanvas.OffsetProperty).Subscribe(_ => OnViewChanged());
+        }
 
-        AddHandler(Gestures.PointerTouchPadGestureMagnifyEvent, OnMagnify, RoutingStrategies.Bubble);
-
-        ApplyTransform();
         RebuildNodes();
+    }
+
+    void OnViewChanged()
+    {
+        SyncAllPortPositions();
+        RefreshConnections();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -138,32 +125,25 @@ public class NodeCanvas : TemplatedControl
             if (Graph is not null)
                 Graph.TypeCompatibility = TypeCompatibility;
         }
-        else if (change.Property == ZoomProperty)
-        {
-            ApplyTransform();
-            _grid?.SetValue(GridRenderer.ZoomProperty, Zoom);
-            _grid?.SetValue(GridRenderer.OffsetProperty, _offset);
-            _grid?.InvalidateVisual();
-        }
     }
 
-    // --- Coordinate conversion ---
+    // --- Coordinate conversion (delegated to MCanvas) ---
 
     /// <summary>
     /// Convert a point in canvas-local (screen) coordinates to graph coordinates.
     /// </summary>
     internal Point ScreenToGraph(Point canvasLocal)
     {
-        return new Point(
-            (canvasLocal.X - _offset.X) / Zoom,
-            (canvasLocal.Y - _offset.Y) / Zoom);
+        return _canvas?.CanvasToWorld(canvasLocal) ?? canvasLocal;
     }
 
     /// <summary>
     /// Convert graph coordinates to canvas-local (screen) coordinates.
     /// </summary>
     internal Point GraphToScreen(double gx, double gy)
-        => new(gx * Zoom + _offset.X, gy * Zoom + _offset.Y);
+    {
+        return _canvas?.WorldToCanvas(new Point(gx, gy)) ?? new Point(gx, gy);
+    }
 
     // --- Connection drag ---
 
@@ -241,22 +221,6 @@ public class NodeCanvas : TemplatedControl
         }
 
         return null;
-    }
-
-    // --- Transform ---
-
-    void ApplyTransform()
-    {
-        if (_transformContainer is null) return;
-
-        _transformContainer.RenderTransform = new TransformGroup
-        {
-            Children =
-            {
-                new ScaleTransform(Zoom, Zoom),
-                new TranslateTransform(_offset.X, _offset.Y)
-            }
-        };
     }
 
     // --- Node management ---
@@ -338,46 +302,7 @@ public class NodeCanvas : TemplatedControl
         RefreshConnections();
     }
 
-    // --- Zoom ---
-
-    protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
-    {
-        base.OnPointerWheelChanged(e);
-
-        var hasZoomModifier = e.KeyModifiers.HasFlag(KeyModifiers.Control) ||
-                              e.KeyModifiers.HasFlag(KeyModifiers.Meta);
-
-        if (hasZoomModifier)
-        {
-            // Ctrl/Cmd + Scroll → Zoom
-            var cursorPos = e.GetPosition(this);
-            var graphBefore = ScreenToGraph(cursorPos);
-
-            var delta = e.Delta.Y > 0 ? 1.1 : 1 / 1.1;
-            var newZoom = Math.Clamp(Zoom * delta, 0.1, 5.0);
-
-            // Set offset BEFORE Zoom so ApplyTransform uses consistent values
-            _offset = new Point(
-                cursorPos.X - graphBefore.X * newZoom,
-                cursorPos.Y - graphBefore.Y * newZoom);
-            Zoom = newZoom;
-        }
-        else
-        {
-            // Scroll → Pan
-            const double panSpeed = 50;
-            Offset = new Point(
-                _offset.X + e.Delta.X * panSpeed,
-                _offset.Y + e.Delta.Y * panSpeed);
-        }
-
-        SyncAllPortPositions();
-        RefreshConnections();
-
-        e.Handled = true;
-    }
-
-    // --- Pan ---
+    // --- Pointer events (connection drag + selection only; pan/zoom handled by MCanvas) ---
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
@@ -385,18 +310,6 @@ public class NodeCanvas : TemplatedControl
 
         var props = e.GetCurrentPoint(this).Properties;
 
-        // Middle button for panning
-        if (props.IsMiddleButtonPressed)
-        {
-            _panning = true;
-            _panStart = e.GetPosition(this);
-            _panOffsetStart = _offset;
-            e.Pointer.Capture(this);
-            e.Handled = true;
-            return;
-        }
-
-        // Left click
         if (props.IsLeftButtonPressed)
         {
             // Check if clicked on a connection line (screen-space hit test)
@@ -414,21 +327,12 @@ public class NodeCanvas : TemplatedControl
                 }
             }
 
-            // Click on empty area: clear selection and start panning
-            if (e.Source == this || e.Source is GridRenderer || e.Source is Panel)
+            // Click on empty area: clear selection
+            if (IsBackgroundClick(e.Source))
             {
                 Graph?.ClearSelection();
                 RefreshConnections();
-
-                _panning = true;
-                _panStart = e.GetPosition(this);
-                _panOffsetStart = _offset;
-                e.Pointer.Capture(this);
-                e.Handled = true;
-                return;
             }
-
-            Focus();
         }
     }
 
@@ -436,20 +340,7 @@ public class NodeCanvas : TemplatedControl
     {
         base.OnPointerMoved(e);
 
-        _lastPointerPosition = e.GetPosition(this);
-
-        if (_panning)
-        {
-            var pos = e.GetPosition(this);
-            Offset = new Point(
-                _panOffsetStart.X + (pos.X - _panStart.X),
-                _panOffsetStart.Y + (pos.Y - _panStart.Y));
-
-            SyncAllPortPositions();
-            RefreshConnections();
-            e.Handled = true;
-            return;
-        }
+        e.GetPosition(this);
 
         if (_isDragging)
         {
@@ -463,14 +354,6 @@ public class NodeCanvas : TemplatedControl
     {
         base.OnPointerReleased(e);
 
-        if (_panning)
-        {
-            _panning = false;
-            e.Pointer.Capture(null);
-            e.Handled = true;
-            return;
-        }
-
         if (_isDragging)
         {
             // Try to find an input port under the cursor
@@ -483,28 +366,6 @@ public class NodeCanvas : TemplatedControl
             e.Pointer.Capture(null);
             e.Handled = true;
         }
-    }
-
-    // --- Trackpad pinch-to-zoom ---
-
-    void OnMagnify(object? sender, PointerDeltaEventArgs e)
-    {
-        // Delta.X contains the magnification factor delta (e.g., 0.02 = slight zoom in)
-        var zoomCenter = _lastPointerPosition;
-        var graphBefore = ScreenToGraph(zoomCenter);
-
-        var newZoom = Math.Clamp(Zoom * (1 + e.Delta.X), 0.1, 5.0);
-
-        // Set offset BEFORE Zoom so ApplyTransform uses consistent values
-        _offset = new Point(
-            zoomCenter.X - graphBefore.X * newZoom,
-            zoomCenter.Y - graphBefore.Y * newZoom);
-        Zoom = newZoom;
-
-        SyncAllPortPositions();
-        RefreshConnections();
-
-        e.Handled = true;
     }
 
     // --- Keyboard ---
@@ -574,5 +435,22 @@ public class NodeCanvas : TemplatedControl
 
         foreach (var frame in _nodeLayer.Children.OfType<NodeFrame>())
             frame.SyncAllPorts();
+    }
+
+    /// <summary>
+    /// Determines if a pointer event originated from the canvas background
+    /// (not from interactive node content).
+    /// </summary>
+    static bool IsBackgroundClick(object? source)
+    {
+        var current = source as Control;
+        while (current is not null)
+        {
+            if (current is NodeFrame or PortView)
+                return false;
+            current = current.Parent as Control;
+        }
+
+        return true;
     }
 }
