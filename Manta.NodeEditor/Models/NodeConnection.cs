@@ -10,11 +10,10 @@ public sealed class NodeConnection : Model
 
     public required NodePort Target { get; init; }
 
-    bool _isSelected;
     public bool IsSelected
     {
-        get => _isSelected;
-        set => SetValue(ref _isSelected, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public NodeBase? SourceNode => Source.Owner;

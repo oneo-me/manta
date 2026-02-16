@@ -8,25 +8,22 @@ public abstract class NodeBase : Model
 {
     public Guid Id { get; internal set; } = Guid.NewGuid();
 
-    double _x;
     public double X
     {
-        get => _x;
-        set => SetValue(ref _x, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
-    double _y;
     public double Y
     {
-        get => _y;
-        set => SetValue(ref _y, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
-    bool _isSelected;
     public bool IsSelected
     {
-        get => _isSelected;
-        set => SetValue(ref _isSelected, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public virtual string DisplayName => GetType().Name;

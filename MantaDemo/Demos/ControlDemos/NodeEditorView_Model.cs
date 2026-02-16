@@ -33,12 +33,12 @@ sealed class NodeEditorView_Model : DemoViewModel
 
     public NodeEditorView_Model()
     {
-        AddNumberNodeCommand = new(() => AddNode<NumberNode>());
-        AddAddNodeCommand = new(() => AddNode<AddNode>());
-        AddSubtractNodeCommand = new(() => AddNode<SubtractNode>());
-        AddMultiplyNodeCommand = new(() => AddNode<MultiplyNode>());
-        AddTextNodeCommand = new(() => AddNode<TextNode>());
-        AddConcatNodeCommand = new(() => AddNode<ConcatNode>());
+        AddNumberNodeCommand = new(AddNode<NumberNode>);
+        AddAddNodeCommand = new(AddNode<AddNode>);
+        AddSubtractNodeCommand = new(AddNode<SubtractNode>);
+        AddMultiplyNodeCommand = new(AddNode<MultiplyNode>);
+        AddTextNodeCommand = new(AddNode<TextNode>);
+        AddConcatNodeCommand = new(AddNode<ConcatNode>);
         ExecuteCommand = new(ExecuteGraph);
 
         Graph.TypeCompatibility = TypeCompatibility.CreateDefault();

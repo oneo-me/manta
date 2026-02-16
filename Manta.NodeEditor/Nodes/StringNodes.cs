@@ -13,7 +13,7 @@ public class TextNode : NodeBase
 
     public OutputPort<string> Result { get; } = new("Text");
 
-    public override Control? BuildContent()
+    public override Control BuildContent()
     {
         var tb = new TextBox
         {

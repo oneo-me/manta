@@ -93,7 +93,7 @@ public class GridRenderer : Control
         if (major < 20) return;
 
         var majorBrush = MajorGridBrush ?? Brushes.Transparent;
-        var majorPen = new Pen(majorBrush, 1.0);
+        var majorPen = new Pen(majorBrush);
         var mox = Offset.X % major;
         var moy = Offset.Y % major;
 

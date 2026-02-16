@@ -36,12 +36,10 @@ public class MNodeEditor : TemplatedControl
     public NodePort? DragSourcePort { get; private set; }
     public Point DragEndPoint { get; private set; }
 
-    TypeCompatibility? _typeCompatibility;
-
     public TypeCompatibility TypeCompatibility
     {
-        get => _typeCompatibility ??= TypeCompatibility.CreateDefault();
-        set => _typeCompatibility = value;
+        get => field ??= TypeCompatibility.CreateDefault();
+        set;
     }
 
     // Clipboard for copy/paste

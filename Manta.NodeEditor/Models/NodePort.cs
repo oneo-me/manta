@@ -18,32 +18,28 @@ public sealed class NodePort : Model
 
     public NodeBase? Owner { get; internal set; }
 
-    object? _value;
     public object? Value
     {
-        get => _value;
-        set => SetValue(ref _value, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
-    bool _isConnected;
     public bool IsConnected
     {
-        get => _isConnected;
-        set => SetValue(ref _isConnected, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
-    double _portCenterX;
     public double PortCenterX
     {
-        get => _portCenterX;
-        set => SetValue(ref _portCenterX, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
-    double _portCenterY;
     public double PortCenterY
     {
-        get => _portCenterY;
-        set => SetValue(ref _portCenterY, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public bool IsInput => Direction == PortDirection.Input;

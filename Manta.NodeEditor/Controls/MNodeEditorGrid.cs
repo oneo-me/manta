@@ -70,7 +70,7 @@ public class MNodeEditorGrid : Control
         if (GridBrush is null) return;
 
         var scaledGridSize = GridSize * Zoom;
-        if (scaledGridSize < 4 || scaledGridSize > 500) return;
+        if (scaledGridSize is < 4 or > 500) return;
 
         var pen = new Pen(GridBrush, 0.5);
         var offsetX = Offset.X % scaledGridSize;
@@ -86,7 +86,7 @@ public class MNodeEditorGrid : Control
         var majorGridSize = scaledGridSize * 5;
         if (majorGridSize >= 20)
         {
-            var majorPen = new Pen(GridBrush, 1.0);
+            var majorPen = new Pen(GridBrush);
             var majorOffsetX = Offset.X % majorGridSize;
             var majorOffsetY = Offset.Y % majorGridSize;
 

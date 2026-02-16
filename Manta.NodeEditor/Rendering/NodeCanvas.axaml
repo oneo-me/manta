@@ -12,23 +12,21 @@
     <ControlTheme x:Key="{x:Type r:NodeCanvas}" TargetType="r:NodeCanvas">
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel ClipToBounds="True" Background="Transparent">
-                    <r:GridRenderer Name="PART_Grid"
-                                    Zoom="{Binding Zoom, RelativeSource={RelativeSource TemplatedParent}}"
-                                    BackgroundBrush="{MBrush Background, Type=Dark1}"
-                                    MinorGridBrush="{MBrush Border, Opacity=0.3}"
-                                    MajorGridBrush="{MBrush Border, Opacity=0.6}" />
-                    <!-- Connection overlay renders in screen space, behind nodes -->
+                <Panel ClipToBounds="True">
+                    <MCanvas Name="PART_Canvas"
+                             MinZoom="0.1"
+                             MaxZoom="5.0"
+                             Background="{MBrush Background, Type=Dark1}"
+                             GridBrush="{MBrush Border, Opacity=0.3}">
+                        <Canvas Name="PART_NodeLayer" />
+                    </MCanvas>
+                    <!-- Connection overlay renders in screen space, on top of nodes -->
                     <r:ConnectionRenderer Name="PART_Connections"
                                           IsHitTestVisible="False"
                                           ConnectionBrush="{MBrush MutedForeground}"
                                           SelectedBrush="{MBrush Ring}"
                                           DragBrush="{MBrush Primary}"
                                           IncompatibleBrush="{MBrush Destructive}" />
-                    <!-- Transform container for nodes (above connections) -->
-                    <Panel Name="PART_Transform">
-                        <Canvas Name="PART_NodeLayer" />
-                    </Panel>
                 </Panel>
             </ControlTemplate>
         </Setter>
