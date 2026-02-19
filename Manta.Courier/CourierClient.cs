@@ -24,11 +24,12 @@ public sealed class CourierClient(string pipeName) : IAsyncDisposable
         _readLoop = Task.Run(() => ReadLoopAsync(_cts.Token), _cts.Token);
     }
 
-    public async Task<TResponse> RequestAsync<TRequest, TResponse>
-    (
-        string method, TRequest request,
-        CancellationToken ct = default
-    )
+    public async Task RequestAsync<TRequest>(string method, TRequest request, CancellationToken ct = default)
+    {
+        await RequestAsync<TRequest, object?>(method, request, ct).ConfigureAwait(false);
+    }
+
+    public async Task<TResponse> RequestAsync<TRequest, TResponse>(string method, TRequest request, CancellationToken ct = default)
     {
         var id = Guid.NewGuid().ToString("N");
         var tcs = new TaskCompletionSource<Envelope>(TaskCreationOptions.RunContinuationsAsynchronously);

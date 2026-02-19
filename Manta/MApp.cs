@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using System.Reactive.Concurrency;
+using System.Security.Cryptography;
+using System.Text;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -65,7 +67,8 @@ public abstract partial class MApp : Application
         protected init => base.Name = value;
     }
 
-    protected internal bool SupportActivatableLifetime { get; init; } = false;
+    protected internal bool SupportActivatableLifetime { get; init; }
+    protected internal bool SupportMultipleInstances { get; init; }
 
     public void Activate()
     {
@@ -91,12 +94,23 @@ public abstract partial class MApp : Application
 
     MAppTray? _tray;
     MAppLifetime? _lifetime;
+    MAppSingleInstance? _singleInstance;
 
     public override void OnFrameworkInitializationCompleted()
     {
         base.OnFrameworkInitializationCompleted();
 
-        Lang.Register(LangData.LoadFromAssembly(typeof(MApp).Assembly));
+        if (Design.IsDesignMode is false && SupportMultipleInstances is false)
+        {
+            var instanceName = GetType().FullName!;
+            var hash = MD5.HashData(Encoding.UTF8.GetBytes(instanceName));
+            instanceName = Convert.ToHexString(hash);
+
+            _singleInstance = new($"{nameof(Manta)}_{instanceName}");
+            _singleInstance.ReOpen += (_, args) => OnReOpen(args);
+            if (!_singleInstance.IsNew)
+                return;
+        }
 
         MAppMenus.RegisterDefaultMenus(this);
 
@@ -114,8 +128,14 @@ public abstract partial class MApp : Application
         _lifetime.Exit += delegate
         {
             _tray?.Dispose();
+            _singleInstance?.Dispose();
             initData.Exit?.Invoke();
         };
+    }
+
+    protected virtual void OnReOpen(string[] args)
+    {
+        _lifetime?.Activate();
     }
 
     static void OnInitializeInternal()

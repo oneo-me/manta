@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Manta.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta;
@@ -9,6 +10,7 @@ sealed class MAppLifetime
     readonly MApp _app;
     readonly IClassicDesktopStyleApplicationLifetime _desktop;
     readonly bool _isActivatableLifetime;
+
     public event EventHandler? Exit;
 
     public MAppLifetime(MApp app, Func<WindowModel>? func)
@@ -38,6 +40,15 @@ sealed class MAppLifetime
         }
 
         _desktop.Exit += DesktopOnExit;
+    }
+
+    public void Activate()
+    {
+        if (_desktop.MainWindow is null)
+            return;
+
+        _desktop.MainWindow.Show();
+        _desktop.MainWindow.FocusActivate();
     }
 
     void MainWindowOnClosing(object? sender, WindowClosingEventArgs e)

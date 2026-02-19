@@ -5,11 +5,20 @@ using Manta.Courier.Protocol;
 
 namespace Manta.Courier;
 
-public sealed class CourierServer(string pipeName) : IAsyncDisposable
+public sealed class CourierServer(string pipeName) : IDisposable, IAsyncDisposable
 {
     readonly Dictionary<string, Func<string?, CancellationToken, Task<object?>>> _unaryHandlers = new();
     readonly Dictionary<string, Func<string?, CancellationToken, IAsyncEnumerable<object?>>> _streamHandlers = new();
     CancellationTokenSource? _cts;
+
+    public void On<TRequest>(string method, Func<TRequest, CancellationToken, Task> handler)
+    {
+        On<TRequest, object?>(method, async (request, ct) =>
+        {
+            await handler(request, ct).ConfigureAwait(false);
+            return null;
+        });
+    }
 
     public void On<TRequest, TResponse>(string method, Func<TRequest, CancellationToken, Task<TResponse>> handler)
     {
@@ -195,6 +204,16 @@ public sealed class CourierServer(string pipeName) : IAsyncDisposable
         if (_cts is not null)
         {
             await _cts.CancelAsync().ConfigureAwait(false);
+            _cts.Dispose();
+            _cts = null;
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_cts is not null)
+        {
+            _cts.Cancel();
             _cts.Dispose();
             _cts = null;
         }
