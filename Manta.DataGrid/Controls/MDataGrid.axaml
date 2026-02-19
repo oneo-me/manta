@@ -1,0 +1,64 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:md="clr-namespace:Manta.DataGrid.Controls"
+    xmlns:mdc="clr-namespace:Manta.DataGrid.Columns"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <Border Padding="12" Background="{MBrush Background}" Width="600" Height="400">
+            <md:MDataGrid>
+                <md:MDataGrid.Columns>
+                    <mdc:MDataGridTextColumn Header="Name" Width="*" />
+                    <mdc:MDataGridTextColumn Header="Email" Width="2*" />
+                    <mdc:MDataGridTextColumn Header="Age" Width="80" />
+                    <mdc:MDataGridTemplateColumn Header="Action" Width="100">
+                        <mdc:MDataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" Padding="8,2" />
+                            </DataTemplate>
+                        </mdc:MDataGridTemplateColumn.CellTemplate>
+                    </mdc:MDataGridTemplateColumn>
+                </md:MDataGrid.Columns>
+            </md:MDataGrid>
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type md:MDataGrid}" TargetType="md:MDataGrid">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="Background" Value="{MBrush Background}" />
+        <Setter Property="BorderBrush" Value="{MBrush Border}" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="True">
+                    <Grid RowDefinitions="Auto,*">
+                        <!-- Sticky header -->
+                        <MScrollViewer Name="PART_HeaderScrollViewer"
+                                       Grid.Row="0"
+                                       HorizontalScrollBarVisibility="Hidden"
+                                       VerticalScrollBarVisibility="Disabled">
+                            <md:MDataGridHeader Name="PART_Header" />
+                        </MScrollViewer>
+                        <!-- Content with virtualized rows -->
+                        <MScrollViewer Name="PART_ContentScrollViewer"
+                                       Grid.Row="1"
+                                       HorizontalScrollBarVisibility="Auto"
+                                       VerticalScrollBarVisibility="Auto">
+                            <ItemsPresenter Name="PART_ItemsPresenter">
+                                <ItemsPresenter.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsPresenter.ItemsPanel>
+                            </ItemsPresenter>
+                        </MScrollViewer>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

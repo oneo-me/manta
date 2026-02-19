@@ -1,0 +1,15 @@
+<Styles
+    x:Class="Manta.DataGrid.Themes.MantaDataGridTheme"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="../Controls/MDataGridColumnHeader.axaml" />
+                <MergeResourceInclude Source="../Controls/MDataGridHeader.axaml" />
+                <MergeResourceInclude Source="../Controls/MDataGridRow.axaml" />
+                <MergeResourceInclude Source="../Controls/MDataGrid.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

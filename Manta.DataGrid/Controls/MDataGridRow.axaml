@@ -1,0 +1,37 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:md="clr-namespace:Manta.DataGrid.Controls"
+    x:ClassModifier="internal">
+
+    <ControlTheme x:Key="{x:Type md:MDataGridRow}" TargetType="md:MDataGridRow">
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_Root"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{MBrush Border}"
+                        BorderThickness="0,0,0,1">
+                    <Grid Name="PART_CellsGrid" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+
+        <!-- Hover -->
+        <Style Selector="^:pointerover /template/ Border#PART_Root">
+            <Setter Property="Background" Value="{MBrush Muted}" />
+        </Style>
+
+        <!-- Selected -->
+        <Style Selector="^[IsSelected=True] /template/ Border#PART_Root">
+            <Setter Property="Background" Value="{MBrush Primary, Opacity=0.12}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
