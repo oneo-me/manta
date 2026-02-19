@@ -25,11 +25,7 @@
             </DataTemplate>
             <DataTemplate DataType="propertyItems:ItemBase">
                 <Border Height="{Binding Height}">
-                    <Grid Margin="{MThickness S1_5, Vertical=S0_5}" ColumnSpacing="{MSize S2}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+                    <Grid Margin="{MThickness S1_5, Vertical=S0_5}" ColumnSpacing="{MSize S2}" ColumnDefinitions="*,Auto">
                         <TextBlock Grid.Column="0" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"
                                    Text="{Binding Name}"
                                    ToolTip.Tip="{Binding PropertyType}" />
