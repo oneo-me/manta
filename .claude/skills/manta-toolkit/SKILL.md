@@ -23,6 +23,9 @@ description: >
   - Adding multilingual/localization support (Lang, LangKey, LangType, YAML files)
   - Using {Lang}, {LangEmoji}, {LangName} markup extensions in AXAML
   - Switching languages at runtime or building a language selector
+  - Designing UI layouts, choosing spacing/typography, or asking how to build a clean modern interface
+  - Asking how to implement sidebar navigation, settings pages, forms, dashboards, empty states
+  - Asking about shadow depth, color semantics, icon patterns, or button hierarchy
 ---
 
 # Manta Toolkit
@@ -128,3 +131,9 @@ Load these when you need detailed information:
   source generator output (LangKey), `Lang.Register()`, `Lang.Current`, `{Lang}` / `{LangEmoji}`
   / `{LangName}` markup extensions, ViewModel usage, language selector UI pattern, LangType enum.
   Load when adding multilingual support or switching languages at runtime.
+
+- **[ui-design.md](references/ui-design.md)** — UI design guide for modern minimal layouts:
+  typography scale, spacing rhythm, shadow depth, semantic color usage, icon patterns, button
+  hierarchy, and complete AXAML examples for sidebar nav, dashboard cards, settings pages, forms
+  with labeled fields, grouped-list rows, and empty states. Load when designing layouts or asking
+  how to make interfaces look clean and professional.
