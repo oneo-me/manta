@@ -188,7 +188,10 @@ public sealed class ConfirmView_Model : DialogModel
 }
 ```
 
-AXAML for a dialog — bind the built-in commands:
+AXAML for a dialog — two **mandatory** rules:
+
+1. **Wrap content in `MBackground`** — provides the correct environment background for the dialog window.
+2. **Use `MDialogTemplate` as the content container** — provides unified header, cancel, and continue button layout.
 
 ```xml
 <MView x:Class="MyApp.Views.ConfirmView"
@@ -197,17 +200,35 @@ AXAML for a dialog — bind the built-in commands:
        xmlns:local="clr-namespace:MyApp.Views"
        x:DataType="local:ConfirmView_Model"
        Design.DataContext="{x:Static local:ConfirmView_Model.Design}">
-  <MPanel Mode="Vertical" Spacing="16" Margin="24">
-    <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
-    <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
-      <MButton Variant="Ghost" Content="Cancel"
-               Command="{Binding CancelAsyncCommand}" />
-      <MButton Content="OK"
-               Command="{Binding ContinueAsyncCommand}" />
-    </MPanel>
-  </MPanel>
+  <MBackground MinWidth="{MSize S80}">
+    <MDialogTemplate Header="Confirm"
+                     CancelButton="Cancel"
+                     ContinueButton="OK"
+                     CancelButtonCommand="{Binding CancelAsyncCommand}"
+                     ContinueButtonCommand="{Binding ContinueAsyncCommand}">
+      <!-- Dialog body goes here as child content -->
+      <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+    </MDialogTemplate>
+  </MBackground>
 </MView>
 ```
+
+`MDialogTemplate` properties:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Header` | `string` | Dialog title shown at the top |
+| `CancelButton` | `string` | Label for the cancel button |
+| `CancelButtonVariant` | `MButtonVariant` | Visual variant for cancel button |
+| `CancelButtonCommand` | `ICommand` | Bind to `CancelAsyncCommand` |
+| `ContinueButton` | `string` | Label for the confirm/OK button |
+| `ContinueButtonVariant` | `MButtonVariant` | Visual variant for continue button |
+| `ContinueButtonCommand` | `ICommand` | Bind to `ContinueAsyncCommand` |
+| Content | child element | Dialog body content |
+
+> **Do not** place bare `MPanel` or custom button rows directly inside a dialog `MView`. Always use
+> `MBackground > MDialogTemplate` — this ensures consistent sizing, background, and button placement
+> across all dialogs in the app.
 
 **Showing a dialog and reading the result:**
 
