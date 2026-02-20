@@ -26,11 +26,10 @@ sealed class DataGridView_Model : DemoViewModel
 
     public ObservableCollection<UserItem> Users { get; }
 
-    UserItem? _selectedUser;
     public UserItem? SelectedUser
     {
-        get => _selectedUser;
-        set => SetValue(ref _selectedUser, value);
+        get;
+        set => SetValue(ref field, value);
     }
 
     public CommandWarper AddRowCommand { get; }
