@@ -4,7 +4,8 @@ description: >
   Expert guide for building Avalonia desktop applications using the Manta UI toolkit.
   Covers MVVM patterns (ViewModel/WindowModel/DialogModel/@ViewAttribute/commands/services),
   region navigation (RegionManager/RegionModel), theme & color system
-  (MBrush/MThickness/MRadius/SmoothBrushTransition), and 60+ built-in controls
+  (MBrush/MThickness/MRadius/SmoothBrushTransition), globalization/i18n (Lang/LangKey/LangType),
+  and 60+ built-in controls
   (MPanel/MButton/MCard/MTextBox/MIcon/MListBox/MSlider/MTree/MMenu/MCanvas/MRadioButton etc.).
 
   Use when the user is:
@@ -18,6 +19,10 @@ description: >
   - Asking which Avalonia native controls are allowed vs must use Manta equivalents
   - Asking "how do I use MBrush / MThickness / MRadius"
   - Asking how to create commands, bind views, or wire up the app entry point
+  - Opening file/folder pickers or save dialogs from a ViewModel
+  - Adding multilingual/localization support (Lang, LangKey, LangType, YAML files)
+  - Using {Lang}, {LangEmoji}, {LangName} markup extensions in AXAML
+  - Switching languages at runtime or building a language selector
 ---
 
 # Manta Toolkit
@@ -113,3 +118,13 @@ Load these when you need detailed information:
 - **[project-setup.md](references/project-setup.md)** — Complete project skeleton: .csproj,
   App.axaml, App.axaml.cs, MainWindow files, MAppOptions config, multi-window, theme switching.
   Load when starting a new project or wiring up the application entry point.
+
+- **[platform.md](references/platform.md)** — Platform dialog APIs: `OpenFilePickerAsync`,
+  `OpenFolderPickerAsync`, `SaveFilePickerAsync` — ViewModel extension methods that wrap
+  Avalonia's StorageProvider with automatic thread safety. Load when the user needs file/folder
+  pickers or save dialogs.
+
+- **[i18n.md](references/i18n.md)** — Full globalization/localization guide: YAML file structure,
+  source generator output (LangKey), `Lang.Register()`, `Lang.Current`, `{Lang}` / `{LangEmoji}`
+  / `{LangName}` markup extensions, ViewModel usage, language selector UI pattern, LangType enum.
+  Load when adding multilingual support or switching languages at runtime.

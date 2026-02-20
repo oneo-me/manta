@@ -58,6 +58,31 @@ public CommandWarper SaveCommand => GetCommand(
 );
 ```
 
+**`CommandWarper` extra API:**
+
+- `IsExecuting` — `bool`, reactive property; `true` while an async command is running. Bind to a
+  loading indicator, or use as CanExecute guard.
+- `OnChanged()` — call manually when external state that affects `canAction` has changed; triggers
+  `CanExecuteChanged` so the button re-queries `CanExecute`.
+
+```csharp
+// Show a spinner while loading
+public CommandWarper LoadCommand => GetCommand(async () => await LoadDataAsync());
+// In AXAML: IsVisible="{Binding LoadCommand.IsExecuting}"
+
+// Invalidate CanExecute when an external property changes
+public string Filter
+{
+    get;
+    set
+    {
+        SetValue(ref field, value);
+        SearchCommand.OnChanged();   // button enabled/disabled re-evaluated
+    }
+} = string.Empty;
+public CommandWarper SearchCommand => GetCommand(() => { }, () => !string.IsNullOrEmpty(Filter));
+```
+
 ## ViewModel — View Lifecycle
 
 Use for views that are embedded inside a window (regions, panels, sub-views).
@@ -197,6 +222,26 @@ public CommandWarper DeleteCommand => GetCommand(async () =>
 });
 ```
 
+## TrayWindowModel — System Tray Popup
+
+`TrayWindowModel` is a `WindowModel` subclass pre-configured as a borderless popup that
+**auto-closes when the window loses focus** (`CloseWhenDeactivated = true`).
+
+```csharp
+[View<TrayPopupView>]
+public sealed class TrayPopupView_Model : TrayWindowModel
+{
+    public static TrayPopupView_Model Design => new();
+    // No window customization needed — defaults already set by framework
+}
+```
+
+Show it from a tray icon handler:
+
+```csharp
+await new TrayPopupView_Model().ShowAsync();
+```
+
 **Decision: WindowModel vs DialogModel**
 
 | Scenario | Use |
@@ -237,6 +282,116 @@ public sealed partial class MyView : MView
     public MyView() => InitializeComponent();
 }
 ```
+
+## ViewContext — Parent-to-Child Data Sharing
+
+`GetContext<T>(key)` and `SetContext<T>(key, value)` let a parent ViewModel pass data down to
+child ViewModels through the visual tree — without manual property threading.
+
+**Parent provides context:**
+
+```csharp
+[View<ParentView>]
+public sealed class ParentView_Model : ViewModel
+{
+    public User CurrentUser { get; } = new User("Alice");
+
+    protected override void OnViewActivated(CompositeDisposable disposables)
+    {
+        base.OnViewActivated(disposables);
+        SetContext("current-user", CurrentUser);   // key is arbitrary string
+    }
+}
+```
+
+**Child consumes context:**
+
+```csharp
+[View<ChildView>]
+public sealed class ChildView_Model : ViewModel
+{
+    // GetContext walks up the visual tree and returns a reactive holder
+    ViewContext<User> _userCtx => GetContext<User>("current-user");
+
+    public string UserName => _userCtx.Value?.Name ?? string.Empty;
+}
+```
+
+`ViewContext<T>` is a `Model` subclass — bind to `.Value` in AXAML:
+
+```xml
+<!-- In ChildView.axaml, if exposing the context as a property -->
+<TextBlock Text="{Binding UserName}" />
+```
+
+- Context lookup traverses parent `MView` controls upward.
+- Resolution happens at view activation time (lazy).
+- The `Source` property on the context records which ViewModel provided it.
+
+---
+
+## ViewManager — Single-Slot View Switcher
+
+`ViewManager` manages **one active ViewModel at a time** — simpler than `RegionManager` when you
+just need to swap a content area between different views without tabs.
+
+```csharp
+public sealed class ShellView_Model : WindowModel
+{
+    public ViewManager Content { get; } = new();
+
+    public CommandWarper ShowHomeCommand => GetCommand(() =>
+        Content.OpenView(() => new HomeView_Model())
+    );
+
+    public CommandWarper ShowSettingsCommand => GetCommand(() =>
+        Content.OpenView<SettingsView_Model>()   // created via Service.CreateInstance
+    );
+}
+```
+
+AXAML — bind `MViewHost.ViewModel` to `ViewManager.Current`:
+
+```xml
+<MViewHost ViewModel="{Binding Content.Current}" />
+```
+
+**ViewManager API:**
+
+| Method | Description |
+|--------|-------------|
+| `OpenView<T>(Func<T> create)` | Open with factory — control creation yourself |
+| `OpenView<T>(Action<T>? configure)` | Open via service locator, optional post-config |
+| `OpenView<T>(Type type, Action<T>? configure)` | Open subclass typed as T |
+| `ClearView()` | Clear and dispose current view |
+| `Current` | Currently active ViewModel (bindable) |
+
+---
+
+## ViewTemplate — IDataTemplate for Dynamic Views
+
+Use `ViewTemplate<T>` when you need an `IDataTemplate` that creates views from data objects
+(e.g., in `ItemsControl`, `ContentControl`, or `TransitioningContentControl`).
+
+```csharp
+// In ViewModel:
+public IDataTemplate ItemTemplate { get; } =
+    new ViewTemplate<Document>(doc => new DocumentView_Model { Document = doc });
+```
+
+```xml
+<!-- In AXAML: -->
+<ItemsControl ItemsSource="{Binding Documents}"
+              ItemTemplate="{Binding ItemTemplate}" />
+```
+
+Non-generic form (matches any data):
+
+```csharp
+new ViewTemplate(() => new MyView_Model())   // always same ViewModel type
+```
+
+---
 
 ## RegionModel — Tab / Region ViewModel
 
@@ -330,6 +485,29 @@ AXAML wiring:
 | `Items` | Observable collection of open regions |
 | `Dispose()` | Close all regions |
 
+**Deduplication with `IRegionTarget<T>`:**
+
+Implement `IRegionTarget<TContext>` on your `RegionModel` to prevent duplicate tabs for the same
+data. `Open(..., context, ...)` calls `IsTarget(context)` on existing items before creating a new
+one.
+
+```csharp
+[View<FileEditorView>]
+public sealed class FileEditorView_Model : MyRegionModel, IRegionTarget<string>
+{
+    public string FilePath { get; init; } = string.Empty;
+
+    // Return true = reuse this tab; false = create a new one
+    public bool IsTarget(string context) => FilePath == context;
+}
+
+// Usage — won't open a second tab for the same path:
+RegionManager.Open<FileEditorView_Model, string>(
+    path,
+    p => new FileEditorView_Model { FilePath = p }
+);
+```
+
 ## Service — Service Locator
 
 ```csharp
@@ -340,6 +518,48 @@ Service.Register<IMyInterface>(new MyImplementation());
 // Consumption (field initializer in ViewModel)
 readonly MyService _myService = Service.GetService<MyService>();
 ```
+
+## Reactive Extensions Utilities
+
+### `ObservableEvent` — Event to Observable
+
+Converts any .NET event to an `IObservable` for Rx composition:
+
+```csharp
+var clicks = ObservableEvent.FromHandler<RoutedEventArgs>(
+    h => button.Click += h,
+    h => button.Click -= h
+);
+
+clicks
+    .Select(e => e.args)
+    .Throttle(TimeSpan.FromMilliseconds(300))
+    .ObserveOnDispatcher()          // marshal to UI thread
+    .Subscribe(args => DoSearch())
+    .DisposeWith(disposables);
+```
+
+### `ObserveOnDispatcher()` — Marshal to UI Thread
+
+Extension on `IObservable<T>` that routes emissions through the Avalonia dispatcher:
+
+```csharp
+someBackgroundObservable
+    .ObserveOnDispatcher()
+    .Subscribe(value => Items.Add(value));   // safe to mutate UI collections
+```
+
+### `ReactiveValue<T>` — Standalone Reactive Property
+
+A lightweight `Model` wrapper for a single value with `INotifyPropertyChanged`:
+
+```csharp
+var counter = new ReactiveValue<int>(0);
+counter.Value++;                     // fires PropertyChanged
+// Bind in AXAML: {Binding MyCounter.Value}
+```
+
+---
 
 ## App.axaml.cs — Wiring Everything Together
 
