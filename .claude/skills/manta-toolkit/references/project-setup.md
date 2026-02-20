@@ -169,6 +169,57 @@ options = new MAppOptions
 };
 ```
 
+## XmlnsDefinition — Namespace Mapping
+
+Manta maps its C# namespaces to the Avalonia global XML namespace (`https://github.com/avaloniaui`)
+via `[assembly: XmlnsDefinition]` in `AssemblyInfo.cs`. This is why AXAML files never need extra
+`xmlns:` prefixes for any Manta type.
+
+### How it works
+
+```csharp
+// Manta/Properties/AssemblyInfo.cs
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Controls")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Langs")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "Manta.Themes")]
+// ...more namespaces
+```
+
+After this mapping, any type from those C# namespaces can be used in AXAML directly with no
+extra `xmlns` declaration:
+
+```xml
+<!-- No xmlns:manta or xmlns:controls needed — everything is already in the default namespace -->
+<MApp xmlns="https://github.com/avaloniaui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      x:Class="MyApp.App">
+  <MApp.Styles>
+    <MantaTheme />     <!-- Manta.Themes namespace, no prefix needed -->
+  </MApp.Styles>
+</MApp>
+```
+
+### Do the same for extension libraries
+
+When creating a new extension library (e.g., `Manta.Charts`, `Manta.NodeEditor`), add an
+`AssemblyInfo.cs` to map its namespaces the same way:
+
+```csharp
+// MyLib/Properties/AssemblyInfo.cs
+using Avalonia.Metadata;
+
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "MyLib.Controls")]
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "MyLib.Themes")]
+// Add any other namespaces whose types should be usable without xmlns prefix
+```
+
+After adding the mapping, types from `MyLib.Controls` and `MyLib.Themes` are available in AXAML
+with the default `xmlns="https://github.com/avaloniaui"` — no `xmlns:mylib="..."` required.
+
+> Without `XmlnsDefinition`, you must write the full prefix on every usage:
+> `xmlns:mylib="clr-namespace:MyLib.Controls;assembly=MyLib"` — verbose and error-prone.
+
 ## Theme Switching at Runtime
 
 ```csharp
