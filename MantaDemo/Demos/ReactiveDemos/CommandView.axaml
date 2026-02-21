@@ -24,5 +24,25 @@
                 </MPanel>
             </MButton>
         </MPanel>
+        <TextBlock Text="DragDropCommand" />
+        <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8" Width="320" HorizontalAlignment="Left"
+                DragDropCommand.Command="{Binding DragDropCommand}">
+            <MPanel Mode="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="Drop something here" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding DropFile}" TextTrimming="PathSegmentEllipsis"
+                           Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center"
+                           IsVisible="{Binding DropFile, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+            </MPanel>
+        </Border>
+        <TextBlock Text="DoubleTappedCommand" />
+        <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8" Width="320" HorizontalAlignment="Left"
+                DoubleTappedCommand.Command="{Binding DoubleTappedCommand}">
+            <MPanel Mode="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="Double click here" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding DoubleClickCount}"
+                           Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center"
+                           IsVisible="{Binding DoubleClickCount}" />
+            </MPanel>
+        </Border>
     </MPanel>
 </MView>

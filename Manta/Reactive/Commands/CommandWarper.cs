@@ -71,10 +71,13 @@ public class CommandWarper : Model, ICommand
         await Task.Run(async () =>
         {
             await _asyncExecute(parameter).ConfigureAwait(false);
-        }).ContinueWith(_ =>
+        }).ContinueWith(x =>
         {
             IsExecuting = false;
             OnChanged();
+
+            if (x.Exception is not null)
+                MApp.Current.OnExceptionAction(x.Exception);
         }, taskScheduler);
     }
 }
