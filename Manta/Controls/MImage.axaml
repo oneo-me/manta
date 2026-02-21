@@ -63,7 +63,6 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Setter Property="Background" Value="{MBrush Background}" />
         <Setter Property="LoadingSize" Value="22" />
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="IsVisible" Value="False" />
