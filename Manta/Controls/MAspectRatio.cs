@@ -4,14 +4,14 @@ using Avalonia.Controls;
 
 namespace Manta.Controls;
 
-public class MPanelAspectRatio : MPanelBase
+public class MAspectRatio : MPanelBase
 {
-    static MPanelAspectRatio()
+    static MAspectRatio()
     {
-        AffectsMeasure<MPanelAspectRatio>(RatioProperty);
+        AffectsMeasure<MAspectRatio>(RatioProperty);
     }
 
-    public static readonly StyledProperty<string?> RatioProperty = AvaloniaProperty.Register<MPanelAspectRatio, string?>(
+    public static readonly StyledProperty<string?> RatioProperty = AvaloniaProperty.Register<MAspectRatio, string?>(
         nameof(Ratio));
 
     public string? Ratio
@@ -38,47 +38,53 @@ public class MPanelAspectRatio : MPanelBase
 
     protected override Size MeasureOverride(ReadOnlyCollection<Control> children, Size availableSize)
     {
-        var result = new Size();
+        var innerSize = new Size();
 
         foreach (var child in children)
         {
             child.Measure(availableSize);
 
-            result = result.WithWidth(Math.Max(result.Width, child.DesiredSize.Width));
-            result = result.WithHeight(Math.Max(result.Height, child.DesiredSize.Height));
+            innerSize = innerSize.WithWidth(Math.Max(innerSize.Width, child.DesiredSize.Width));
+            innerSize = innerSize.WithHeight(Math.Max(innerSize.Height, child.DesiredSize.Height));
         }
 
-        if (double.IsInfinity(availableSize.Width) && double.IsInfinity(availableSize.Height))
+        var widthFinite = !double.IsInfinity(availableSize.Width);
+        var heightFinite = !double.IsInfinity(availableSize.Height);
+
+        double width, height;
+        if (widthFinite && heightFinite)
         {
-            result = result.WithHeight(result.Width / _ratio);
-        }
-        else if (double.IsInfinity(availableSize.Width))
-        {
-            result = result.WithHeight(Math.Min(result.Height, availableSize.Height));
-            result = result.WithWidth(result.Height * _ratio);
-        }
-        else if (double.IsInfinity(availableSize.Height))
-        {
-            result = result.WithWidth(Math.Min(result.Width, availableSize.Width));
-            result = result.WithHeight(result.Width / _ratio);
-        }
-        else
-        {
-            var heightBasedWidth = availableSize.Height * _ratio;
-            if (heightBasedWidth <= availableSize.Width)
+            // Both dimensions are limited: choose the maximum size that can fit a rectangular proportion (letterbox/pillarbox).
+            var widthBasedHeight = availableSize.Width / _ratio;
+            if (widthBasedHeight <= availableSize.Height)
             {
-                result = result.WithHeight(availableSize.Height);
-                result = result.WithWidth(heightBasedWidth);
+                width = availableSize.Width;
+                height = widthBasedHeight;
             }
             else
             {
-                var widthBasedHeight = availableSize.Width / _ratio;
-                result = result.WithWidth(availableSize.Width);
-                result = result.WithHeight(widthBasedHeight);
+                height = availableSize.Height;
+                width = height * _ratio;
             }
         }
+        else if (widthFinite)
+        {
+            width = availableSize.Width;
+            height = width / _ratio;
+        }
+        else if (heightFinite)
+        {
+            height = availableSize.Height;
+            width = height * _ratio;
+        }
+        else
+        {
+            // 两维均无限：以内容宽度为基准
+            width = innerSize.Width;
+            height = width / _ratio;
+        }
 
-        return result;
+        return new(width, height);
     }
 
     protected override void ArrangeOverride(ReadOnlyCollection<Control> children, Size finalSize)

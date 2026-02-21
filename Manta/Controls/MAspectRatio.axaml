@@ -3,17 +3,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:ClassModifier="internal">
     <Design.PreviewWith>
-        <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanelAspectRatio Ratio="16 / 9">
-                <Border Background="{MBrush Border}" Width="320" CornerRadius="8">
+        <MPanel Mode="Column" ColumnSize="220" Spacing="12" Margin="12" Design.Width="400">
+            <MAspectRatio Ratio="16 / 9">
+                <Border Background="{MBrush Border}" CornerRadius="8">
                     <TextBlock Text="16 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
-            </MPanelAspectRatio>
-            <MPanelAspectRatio Ratio="21 / 9">
-                <Border Background="{MBrush Border}" Width="320" CornerRadius="8">
+            </MAspectRatio>
+            <MAspectRatio Ratio="21 / 9">
+                <Border Background="{MBrush Border}" CornerRadius="8">
                     <TextBlock Text="21 /9" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Border>
-            </MPanelAspectRatio>
+            </MAspectRatio>
         </MPanel>
     </Design.PreviewWith>
 </ResourceDictionary>

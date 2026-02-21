@@ -4,7 +4,9 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MRadioButton GroupName="Group1" Header="Option A" />
+            <Border BorderThickness="1">
+                <MRadioButton GroupName="Group1" Header="Option A" />
+            </Border>
             <MRadioButton GroupName="Group1" IsChecked="True" Header="Option B" Content="This option is selected by default." />
             <MRadioButton GroupName="Group1" Header="Option C" IsEnabled="False" />
             <MRadioButton GroupName="Group2" Variant="Bordered" IsChecked="True" Header="Bordered Option" Content="You can select this bordered radio button." />
@@ -15,7 +17,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-                    <Grid ColumnDefinitions="Auto *" RowDefinitions="Auto *" ColumnSpacing="12" RowSpacing="6">
+                    <Grid ColumnDefinitions="Auto *" RowDefinitions="Auto *">
                         <Border Name="Icon" Grid.Column="0" Grid.Row="0">
                             <Ellipse Name="Dot" />
                         </Border>
@@ -69,10 +71,15 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="{MThickness S2_5, Filter=Left}" />
         </Style>
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Margin" Value="{MThickness S2_5, Vertical=S1_5, Filter=Left|Top}" />
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter:empty">
+            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.5" />
