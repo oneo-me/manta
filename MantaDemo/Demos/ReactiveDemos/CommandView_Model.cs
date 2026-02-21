@@ -1,3 +1,4 @@
+using Avalonia.Input;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
 using MantaDemo.Langs;
@@ -43,4 +44,29 @@ sealed class CommandView_Model : DemoViewModel
         await Task.Delay(3000);
         ClickCount++;
     }, () => CanExecuted);
+
+    public string DropFile
+    {
+        get;
+        set => SetValue(ref field, value);
+    } = string.Empty;
+
+    public CommandWarper<DragEventArgs> DragDropCommand => GetCommand<DragEventArgs>(e =>
+    {
+        // Asynchronous calls are not supported
+        var tryGetFile = e.DataTransfer.TryGetFile();
+        if (tryGetFile is not null)
+            DropFile = tryGetFile.Path.LocalPath;
+    });
+
+    public int DoubleClickCount
+    {
+        get;
+        set => SetValue(ref field, value);
+    }
+
+    public CommandWarper DoubleTappedCommand => GetCommand(() =>
+    {
+        DoubleClickCount++;
+    });
 }
