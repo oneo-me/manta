@@ -4,7 +4,7 @@
         <OutputType>Exe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Desktop" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MantaTools\MantaTools.csproj" />

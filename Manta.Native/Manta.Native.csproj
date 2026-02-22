@@ -3,7 +3,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Desktop" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Native\libMantaNative.dylib"
