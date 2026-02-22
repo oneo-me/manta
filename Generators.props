@@ -1,5 +1,5 @@
 <Project>
     <ItemGroup>
-        <PackageReference Include="Manta.Generators" Version="1.2026.2" PrivateAssets="all" />
+        <PackageReference Include="Manta.Generators" PrivateAssets="all" />
     </ItemGroup>
 </Project>
