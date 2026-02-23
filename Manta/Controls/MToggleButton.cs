@@ -5,7 +5,8 @@ namespace Manta.Controls;
 
 public enum MToggleButtonVariant
 {
-    Outline
+    Outline,
+    Ghost
 }
 
 public class MToggleButton : ToggleButton
