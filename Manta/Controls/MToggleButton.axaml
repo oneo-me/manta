@@ -22,6 +22,19 @@
                     <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
                 </MToggleButton>
             </MPanel>
+            <TextBlock Text="Ghost" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
+                <MToggleButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleButton>
+                <MToggleButton Variant="Ghost" HorizontalAlignment="Left">
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleButton>
+            </MPanel>
             <TextBlock Text="Disabled" />
             <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
                 <MToggleButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
@@ -32,6 +45,19 @@
                     </MPanel>
                 </MToggleButton>
                 <MToggleButton HorizontalAlignment="Left">
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleButton>
+            </MPanel>
+            <TextBlock Text="Ghost Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True" />
+                <MToggleButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleButton>
+                <MToggleButton Variant="Ghost" HorizontalAlignment="Left">
                     <MPathIcon Classes.Checked="{Binding $parent[MToggleButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
                 </MToggleButton>
             </MPanel>
@@ -91,11 +117,40 @@
                     <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.7}" />
                 </Style>
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.5}, Dark={MBrush Accent, Opacity=0.5}}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+                <Style Selector="^:checked">
+                    <Style Selector="^ /template/ Border#Ring">
+                        <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.3}" />
+                    </Style>
+                </Style>
+            </Style>
         </Style>
-        <Style Selector="^:disabled">
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S2}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                    <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+            </Style>
             <Style Selector="^:checked">
-                <Style Selector="^ /template/ Border#Ring">
-                    <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.3}" />
+                <Setter Property="Background" Value="{MBrush Primary, Opacity=0.1}" />
+                <Setter Property="Foreground" Value="{MBrush Primary}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+                <Style Selector="^:checked">
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+                    <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.5}" />
                 </Style>
             </Style>
         </Style>

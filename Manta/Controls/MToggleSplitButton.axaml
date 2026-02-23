@@ -40,6 +40,38 @@
                     <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
                 </MToggleSplitButton>
             </MPanel>
+            <TextBlock Text="Ghost" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleSplitButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
             <TextBlock Text="Disabled" />
             <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
                 <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
@@ -63,6 +95,38 @@
                     </MPanel>
                 </MToggleSplitButton>
                 <MToggleSplitButton HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+            <TextBlock Text="Ghost Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleSplitButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left">
                     <MToggleSplitButton.Flyout>
                         <MMenuFlyout Placement="BottomEdgeAlignedRight">
                             <MMenuItem Header="Option 1" />
@@ -153,26 +217,26 @@
         <Style Selector="^ /template/ MDropDownButton:pointerover">
             <Setter Property="ZIndex" Value="1" />
         </Style>
+        <!-- Button -->
+        <Style Selector="^ /template/ MButton">
+            <Setter Property="Variant" Value="Flat" />
+        </Style>
+        <Style Selector="^ /template/ MDropDownButton">
+            <Setter Property="Variant" Value="Flat" />
+        </Style>
+        <Style Selector="^ /template/ Border#Line">
+            <Setter Property="Width" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <!-- <Setter Property="Background" Value="{MBrush Accent}" /> -->
+            <Setter Property="Margin" Value="0 1 -1 1" />
+            <Style Selector="^ > Border">
+                <Setter Property="Width" Value="{MSize Px}" />
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                <Setter Property="Margin" Value="{MThickness S2, Filter=Top|Bottom}" />
+            </Style>
+        </Style>
+        <!-- Self -->
         <Style Selector="^[Variant=Outline]">
-            <!-- Button -->
-            <Style Selector="^ /template/ MButton">
-                <Setter Property="Variant" Value="Flat" />
-            </Style>
-            <Style Selector="^ /template/ MDropDownButton">
-                <Setter Property="Variant" Value="Flat" />
-            </Style>
-            <Style Selector="^ /template/ Border#Line">
-                <Setter Property="Width" Value="2" />
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <!-- <Setter Property="Background" Value="{MBrush Accent}" /> -->
-                <Setter Property="Margin" Value="0 1 -1 1" />
-                <Style Selector="^ > Border">
-                    <Setter Property="Width" Value="{MSize Px}" />
-                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
-                    <Setter Property="Margin" Value="{MThickness S2, Filter=Top|Bottom}" />
-                </Style>
-            </Style>
-            <!-- Button -->
             <Setter Property="Padding" Value="{MThickness S4, Vertical=S2, OffsetNegative=Px}" />
             <Setter Property="BorderThickness" Value="{MThickness Px}" />
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
@@ -199,6 +263,62 @@
                 <Style Selector="^:checked">
                     <Style Selector="^ /template/ Border#Ring">
                         <Setter Property="BoxShadow" Value="{MRing MD, BrushOpacity=0.3}" />
+                    </Style>
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[Variant=Ghost]">
+            <Setter Property="Padding" Value="{MThickness S3, Vertical=S2}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+            <Setter Property="Foreground" Value="{MBrush Foreground}" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
+                    <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+            <Style Selector="^ /template/ MButton">
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                </Style>
+            </Style>
+            <Style Selector="^ /template/ MDropDownButton">
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.1}" />
+                </Style>
+            </Style>
+            <Style Selector="^:checked">
+                <Style Selector="^ /template/ MButton">
+                    <Setter Property="Foreground" Value="{MBrush Primary}" />
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.1}" />
+                </Style>
+                <Style Selector="^ /template/ MDropDownButton">
+                    <Setter Property="Foreground" Value="{MBrush Primary}" />
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.1}" />
+                </Style>
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ MButton">
+                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+                    <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+                </Style>
+                <Style Selector="^ /template/ MDropDownButton">
+                    <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+                    <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+                </Style>
+                <Setter Property="Background" Value="{MBrush Foreground, Opacity=0}" />
+                <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
+                <Style Selector="^:checked">
+                    <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+                    <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.5}" />
+                    <Style Selector="^ /template/ MButton">
+                        <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+                        <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.5}" />
+                    </Style>
+                    <Style Selector="^ /template/ MDropDownButton">
+                        <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
+                        <Setter Property="Foreground" Value="{MBrush Primary, Opacity=0.5}" />
                     </Style>
                 </Style>
             </Style>
