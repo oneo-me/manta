@@ -19,6 +19,7 @@ public abstract class DialogModel : WindowModel
 
         Result = false;
         await CloseAsync();
+        await OnCancelAsync();
     });
 
     public CommandWarper ContinueAsyncCommand => GetCommand(async () =>
@@ -28,6 +29,7 @@ public abstract class DialogModel : WindowModel
 
         Result = true;
         await CloseAsync();
+        await OnContinueAsync();
     });
 
     protected virtual Task<bool> CanCancelAsync()
@@ -38,6 +40,16 @@ public abstract class DialogModel : WindowModel
     protected virtual Task<bool> CanContinueAsync()
     {
         return Task.FromResult(true);
+    }
+
+    protected virtual Task OnCancelAsync()
+    {
+        return Task.CompletedTask;
+    }
+
+    protected virtual Task OnContinueAsync()
+    {
+        return Task.CompletedTask;
     }
 
     protected override void OnViewActivated(CompositeDisposable disposables)
