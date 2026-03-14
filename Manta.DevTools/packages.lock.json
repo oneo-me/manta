@@ -4,9 +4,9 @@
     "net10.0": {
       "Manta.Generators": {
         "type": "Direct",
-        "requested": "[1.2026.6, )",
-        "resolved": "1.2026.6",
-        "contentHash": "jy5Bt20xaWOiSOFa/oZwdsOp9VEv7WU4L7seXbhv+fWWaLn9HAE3yPuuhX5tEV5IsqpRBGYMAV+fNQNQPZUF9w==",
+        "requested": "[1.2026.8, )",
+        "resolved": "1.2026.8",
+        "contentHash": "3nV8HKu1JWwNTnWqA2VRtaJseYgfbXxBRqPD/SUj2DNROEWE0ldLr9ctDbDB4txhdU1ysulILV0BVSEl952zcA==",
         "dependencies": {
           "YamlDotNet": "16.3.0"
         }
