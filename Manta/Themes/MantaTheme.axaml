@@ -136,7 +136,6 @@
                 <MergeResourceInclude Source="../Controls/MToggleSwitch.axaml" />
                 <MergeResourceInclude Source="../Controls/MTree.axaml" />
                 <MergeResourceInclude Source="../Controls/MViewHost.axaml" />
-                <MergeResourceInclude Source="../Controls/MWebView.axaml" />
                 <MergeResourceInclude Source="../Controls/MWindow.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

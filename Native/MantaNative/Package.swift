@@ -25,13 +25,6 @@ let package = Package(
                 .linkedFramework("AppKit"),
                 .linkedFramework("Foundation"),
             ]
-        ),
-        .testTarget(
-            name: "MantaNativeTests",
-            dependencies: ["MantaNative"],
-            swiftSettings: [
-                .swiftLanguageMode(.v5)
-            ]
-        ),
+        )
     ]
 )
