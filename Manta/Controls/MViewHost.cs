@@ -1,6 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
-using Manta.Reactive.Services;
+using Manta.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.Controls;
@@ -41,7 +41,7 @@ public class MViewHost : ContentControl
         if (change.Property == ViewModelTypeProperty)
         {
             var viewModelType = change.GetNewValue<Type?>();
-            ViewModel = viewModelType is null ? null : Service.CreateInstance<ViewModel>(viewModelType);
+            ViewModel = viewModelType?.CreateInstance<ViewModel>();
         }
         else if (change.Property == ViewModelProperty)
         {

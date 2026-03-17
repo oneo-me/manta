@@ -4,7 +4,7 @@ using Manta.Controls;
 
 namespace Manta.Reactive.Views;
 
-public abstract partial class ViewModel
+public partial class ViewModel
 {
     Dictionary<string, IViewContext>? _contextCache;
 

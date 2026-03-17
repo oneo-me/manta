@@ -1,5 +1,5 @@
+using Manta.Extensions;
 using Manta.Reactive.Extensions;
-using Manta.Reactive.Services;
 
 namespace Manta.Reactive.Views;
 
@@ -32,21 +32,21 @@ public sealed class ViewManager : Model, IDisposable
 
     public void OpenView<T>(Action<T>? func = null) where T : ViewModel
     {
-        var viewModel = Service.CreateInstance<T>(typeof(T));
+        var viewModel = typeof(T).CreateInstance<T>();
         func?.Invoke(viewModel);
         OpenViewCore(viewModel);
     }
 
     public void OpenView<T>(Type type, Action<T>? func = null) where T : ViewModel
     {
-        var viewModel = Service.CreateInstance<T>(type);
+        var viewModel = type.CreateInstance<T>();
         func?.Invoke(viewModel);
         OpenViewCore(viewModel);
     }
 
     public void OpenView(Type type)
     {
-        var viewModel = Service.CreateInstance<ViewModel>(type);
+        var viewModel = type.CreateInstance<ViewModel>();
         OpenViewCore(viewModel);
     }
 
