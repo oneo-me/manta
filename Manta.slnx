@@ -16,7 +16,6 @@
   </Folder>
   <Project Path="Manta.Charts/Manta.Charts.csproj" />
   <Project Path="Manta.Chat/Manta.Chat.csproj" />
-  <Project Path="Manta.Courier/Manta.Courier.csproj" />
   <Project Path="Manta.DevTools/Manta.DevTools.csproj" />
   <Project Path="Manta.Generators\Manta.Generators.csproj" />
   <Project Path="Manta.Markdown/Manta.Markdown.csproj" />
