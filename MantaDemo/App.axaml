@@ -8,7 +8,6 @@
         <MantaMarkdownTheme />
         <MantaChatTheme />
         <MantaNodeEditorTheme />
-        <MantaDataGridTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>
