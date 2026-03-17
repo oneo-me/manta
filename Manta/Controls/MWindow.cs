@@ -13,7 +13,6 @@ namespace Manta.Controls;
 public enum MWindowVariant
 {
     Default,
-    TrayWindow,
     DialogWindow
 }
 
@@ -75,10 +74,6 @@ public sealed partial class MWindow : Window
 
         switch (Variant)
         {
-            case MWindowVariant.TrayWindow:
-                MantaWindow.ConfigureTrayWindow(this);
-                break;
-
             case MWindowVariant.Default:
             case MWindowVariant.DialogWindow:
             default:
