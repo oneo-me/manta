@@ -9,8 +9,11 @@ public static class Service
 
     static object GetInstance(Type type)
     {
-        if (_dic.TryGetValue(type, out var instance))
-            return instance;
+        lock (_registerLock)
+        {
+            if (_dic.TryGetValue(type, out var instance))
+                return instance;
+        }
 
         throw new ServiceException($"Service {type} not registered");
     }
@@ -59,57 +62,5 @@ public static class Service
             throw new ServiceException($"An error occurred while obtaining the service {serviceType}, which depends on an unregistered service {serviceType}");
 
         return impl;
-    }
-
-    public static T CreateInstance<T>(Type type) where T : class
-    {
-        var constructorInfo = type.GetConstructors().MinBy(x => x.GetParameters().Length);
-        if (constructorInfo is null)
-            throw new ServiceException($"Error creating object, {type} has no available constructor");
-
-        var parameterInfos = constructorInfo.GetParameters();
-
-        var missingDeps = parameterInfos
-            .Where(p => !_dic.ContainsKey(p.ParameterType))
-            .Select(p => $"'{p.Name}' ({p.ParameterType})")
-            .ToList();
-
-        if (missingDeps.Count > 0)
-            throw new ServiceException(
-                $"Error creating {type}: missing required service(s): {string.Join(", ", missingDeps)}");
-
-        var args = parameterInfos.Select(p => GetInstance(p.ParameterType)).ToArray();
-
-        var obj = Activator.CreateInstance(type, args);
-        if (obj is not T result)
-            throw new ServiceException($"An error occurred while creating the object, {type} is not a subclass of {typeof(T)}");
-
-        return result;
-    }
-
-    public static void ValidateDependencies(Type type)
-    {
-        var constructorInfo = type.GetConstructors().MinBy(x => x.GetParameters().Length);
-        if (constructorInfo is null)
-            throw new ServiceException($"Error validating dependencies, {type} has no available constructor");
-
-        var missingDeps = constructorInfo.GetParameters()
-            .Where(p => !_dic.ContainsKey(p.ParameterType))
-            .Select(p => $"'{p.Name}' ({p.ParameterType})")
-            .ToList();
-
-        if (missingDeps.Count > 0)
-            throw new ServiceException(
-                $"Dependency validation failed for {type}: missing service(s): {string.Join(", ", missingDeps)}");
-    }
-
-    public static void ValidateDependencies<T>() where T : class
-    {
-        ValidateDependencies(typeof(T));
-    }
-
-    public static T CreateInstance<T>() where T : class, new()
-    {
-        return CreateInstance<T>(typeof(T));
     }
 }

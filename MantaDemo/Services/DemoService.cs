@@ -4,7 +4,7 @@ using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Manta;
 using Manta.Controls;
-using Manta.Reactive.Services;
+using Manta.Extensions;
 using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
@@ -42,7 +42,7 @@ sealed class DemoService
         // Register demos
         foreach (var type in GetType().Assembly.GetTypes().Where(x => typeof(DemoViewModel).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false } && x != typeof(XamlDemo)))
         {
-            var demoViewModel = Service.CreateInstance<DemoViewModel>(type);
+            var demoViewModel = type.CreateInstance<DemoViewModel>();
             _demos.Add(demoViewModel);
         }
 

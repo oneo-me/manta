@@ -4,7 +4,7 @@ using Avalonia.Input.Platform;
 using Avalonia.Platform.Storage;
 using Avalonia.VisualTree;
 using Manta.Controls;
-using Manta.Reactive.Services;
+using Manta.Extensions;
 
 namespace Manta.Reactive.Views;
 
@@ -23,7 +23,7 @@ public static class ViewModelExtensions
                 throw new InvalidOperationException($"ViewAttribute not found for {viewModelType}");
 
             var viewType = viewAttribute.GetViewType();
-            var view = Service.CreateInstance<MView>(viewType);
+            var view = viewType.CreateInstance<MView>();
             viewModel.InnerView = view;
             view.DataContext = viewModel;
             return view;
