@@ -92,7 +92,6 @@ public abstract partial class MApp : Application
         desktop.Shutdown();
     }
 
-    MAppTray? _tray;
     MAppLifetime? _lifetime;
     MAppSingleInstance? _singleInstance;
 
@@ -122,12 +121,8 @@ public abstract partial class MApp : Application
 
         _lifetime = new(this, initData.MainModel);
 
-        if (initData.Tray is not null)
-            _tray = new(this, initData.Tray);
-
         _lifetime.Exit += delegate
         {
-            _tray?.Dispose();
             _singleInstance?.Dispose();
             initData.Exit?.Invoke();
         };

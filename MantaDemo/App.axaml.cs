@@ -50,11 +50,6 @@ sealed class App : MApp
         options = new()
         {
             MainModel = () => new Main_Model(),
-            Tray = new()
-            {
-                Model = () => new TrayView_Model(),
-                Icon = Assets.GetBytes("TrayIcon.png")
-            },
             Exit = () =>
             {
                 viewService.Save();

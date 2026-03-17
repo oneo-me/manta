@@ -15,16 +15,6 @@ public static class MantaWindow
             MacOSWindow.ConfigureWindow(windowPtr);
     }
 
-    public static void ConfigureTrayWindow(Window window)
-    {
-        if (OperatingSystem.IsMacOS() is false)
-            return;
-
-        var windowPtr = GetNativeWindowHandle(window);
-        if (windowPtr != IntPtr.Zero)
-            MacOSWindow.ConfigureTrayWindow(windowPtr);
-    }
-
     static IntPtr GetNativeWindowHandle(Window window)
     {
         try

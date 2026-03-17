@@ -35,7 +35,6 @@ sealed class DevToolsAttacher
         switch (window.Variant)
         {
             case MWindowVariant.Default:
-            case MWindowVariant.TrayWindow:
             case MWindowVariant.DialogWindow:
             default:
                 if (options.AutoShowForOtherWindows)

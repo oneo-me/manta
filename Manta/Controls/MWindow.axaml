@@ -43,12 +43,6 @@
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
             </Style>
-            <Style Selector="^[Variant=TrayWindow]">
-                <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
-                <Style Selector="^ /template/ Border#PrimaryColor">
-                    <Setter Property="IsVisible" Value="False" />
-                </Style>
-            </Style>
             <Style Selector="^[Variant=DialogWindow]">
                 <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
                 <Style Selector="^ /template/ Border#PrimaryColor">

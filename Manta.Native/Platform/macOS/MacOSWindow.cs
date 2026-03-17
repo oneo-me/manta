@@ -12,9 +12,6 @@ static partial class MacOSWindow
     [LibraryImport(LibraryName, EntryPoint = "manta_window_configure_window")]
     internal static partial void ConfigureWindow(IntPtr windowPtr);
 
-    [LibraryImport(LibraryName, EntryPoint = "manta_window_configure_tray_window")]
-    internal static partial void ConfigureTrayWindow(IntPtr windowPtr);
-
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
     static void OnSheetCompleted(nint state)
     {
