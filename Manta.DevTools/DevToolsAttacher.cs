@@ -28,30 +28,6 @@ sealed class DevToolsAttacher
         _view = _mainModel.CreateView();
 
         window.KeyUp += WindowOnKeyUp;
-
-        if (options.AutoShowForMainWindow && window.IsMainWindow)
-            window.Opened += WindowOnOpened;
-
-        switch (window.Variant)
-        {
-            case MWindowVariant.Default:
-            case MWindowVariant.DialogWindow:
-            default:
-                if (options.AutoShowForOtherWindows)
-                    window.Opened += WindowOnOpened;
-                break;
-        }
-    }
-
-    bool _isAutoOpened;
-
-    void WindowOnOpened(object? sender, EventArgs e)
-    {
-        if (_isAutoOpened)
-            return;
-
-        _isAutoOpened = true;
-        ShowOrHideDevTools();
     }
 
     void WindowOnKeyUp(object? sender, KeyEventArgs e)

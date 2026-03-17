@@ -10,26 +10,11 @@ using Manta.Native;
 
 namespace Manta.Controls;
 
-public enum MWindowVariant
-{
-    Default,
-    DialogWindow
-}
-
 [TemplatePart(nameof(PART_Decorations), typeof(Panel))]
 [TemplatePart(nameof(PART_WindowContent), typeof(Grid))]
 public sealed partial class MWindow : Window
 {
     protected override Type StyleKeyOverride { get; } = typeof(MWindow);
-
-    public static readonly StyledProperty<MWindowVariant> VariantProperty = AvaloniaProperty.Register<MWindow, MWindowVariant>(
-        nameof(Variant));
-
-    public MWindowVariant Variant
-    {
-        get => GetValue(VariantProperty);
-        internal set => SetValue(VariantProperty, value);
-    }
 
     public static readonly StyledProperty<bool> IsMainWindowProperty = AvaloniaProperty.Register<MWindow, bool>(
         nameof(IsMainWindow));
@@ -71,15 +56,7 @@ public sealed partial class MWindow : Window
     protected override void OnInitialized()
     {
         base.OnInitialized();
-
-        switch (Variant)
-        {
-            case MWindowVariant.Default:
-            case MWindowVariant.DialogWindow:
-            default:
-                MantaWindow.ConfigureWindow(this);
-                break;
-        }
+        MantaWindow.ConfigureWindow(this);
     }
 
     protected override void OnOpened(EventArgs e)

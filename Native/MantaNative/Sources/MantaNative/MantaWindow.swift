@@ -30,39 +30,3 @@ private func removeVisualEffectViews(from view: NSView?) {
     let subviews = view.subviews.filter { $0 is NSVisualEffectView }
     subviews.forEach { $0.removeFromSuperview() }
 }
-
-private class ObserverHolder: @unchecked Sendable {
-    var observer: NSObjectProtocol?
-}
-
-@_cdecl("manta_window_begin_sheet")
-public func manta_window_begin_sheet(
-    _ ownerHandle: UnsafeMutableRawPointer,
-    _ sheetHandle: UnsafeMutableRawPointer,
-    _ callback: @escaping @convention(c) (UnsafeMutableRawPointer) -> Void,
-    _ state: UnsafeMutableRawPointer
-) {
-    runOnMainAsync {
-        let owner = Unmanaged<NSWindow>.fromOpaque(ownerHandle).takeUnretainedValue()
-        let sheet = Unmanaged<NSWindow>.fromOpaque(sheetHandle).takeUnretainedValue()
-
-        // 监听 sheet 窗口关闭事件
-        let holder = ObserverHolder()
-        holder.observer = NotificationCenter.default.addObserver(
-            forName: NSWindow.willCloseNotification,
-            object: sheet,
-            queue: .main
-        ) { _ in
-            if let obs = holder.observer {
-                NotificationCenter.default.removeObserver(obs)
-                holder.observer = nil
-            }
-            // 确保调用 endSheet 来触发 completionHandler
-            owner.endSheet(sheet)
-        }
-
-        owner.beginSheet(sheet) { _ in
-            callback(state)
-        }
-    }
-}
