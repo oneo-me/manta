@@ -213,12 +213,6 @@
           "Manta": "[1.2025.0-development, )"
         }
       },
-      "manta.mindmap": {
-        "type": "Project",
-        "dependencies": {
-          "Manta": "[1.2025.0-development, )"
-        }
-      },
       "manta.native": {
         "type": "Project",
         "dependencies": {
@@ -252,7 +246,7 @@
       },
       "DynamicData": {
         "type": "CentralTransitive",
-        "requested": "[9.4.1, )",
+        "requested": "[9.4.31, )",
         "resolved": "9.4.31",
         "contentHash": "w2bT92Z5ADtnmtKiC9mzk21h7MtXtZEQKWFyytuHqhPBo7rKPWnvFk/xy1M/VA6XQTbCjRWMNV795w+RizFn4g==",
         "dependencies": {
