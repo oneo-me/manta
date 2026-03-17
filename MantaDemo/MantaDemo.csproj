@@ -12,7 +12,6 @@
         <ProjectReference Include="..\Manta.Chat\Manta.Chat.csproj" />
         <ProjectReference Include="..\Manta.DevTools\Manta.DevTools.csproj" />
         <ProjectReference Include="..\Manta.Markdown\Manta.Markdown.csproj" />
-        <ProjectReference Include="..\Manta.MindMap\Manta.MindMap.csproj" />
         <ProjectReference Include="..\MantaTools\MantaTools.csproj" />
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
