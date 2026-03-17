@@ -55,29 +55,30 @@ public class CommandWarper : Model, ICommand
 
     public async void Execute(object? parameter)
     {
-        IsExecuting = true;
-        OnChanged();
-
-        if (_asyncExecute is null)
+        try
         {
-            _syncExecute?.Invoke(parameter);
-            IsExecuting = false;
-            OnChanged();
-            return;
+            if (_asyncExecute is not null)
+            {
+                IsExecuting = true;
+                OnChanged();
+                try
+                {
+                    await _asyncExecute(parameter);
+                }
+                finally
+                {
+                    IsExecuting = false;
+                    OnChanged();
+                }
+            }
+            else
+            {
+                _syncExecute?.Invoke(parameter);
+            }
         }
-
-        var taskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
-
-        await Task.Run(async () =>
+        catch (Exception e)
         {
-            await _asyncExecute(parameter).ConfigureAwait(false);
-        }).ContinueWith(x =>
-        {
-            IsExecuting = false;
-            OnChanged();
-
-            if (x.Exception is not null)
-                MApp.Current.OnExceptionAction(x.Exception);
-        }, taskScheduler);
+            MApp.Current.OnExceptionAction(e);
+        }
     }
 }
