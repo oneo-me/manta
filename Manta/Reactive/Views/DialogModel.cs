@@ -69,7 +69,6 @@ public abstract class DialogModel : WindowModel
     {
         base.OnWindowInitialized(window);
 
-        window.Variant = MWindowVariant.DialogWindow;
         window.CanResize = false;
         window.CanMinimize = false;
         window.CanMaximize = false;
