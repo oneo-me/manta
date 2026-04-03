@@ -4,7 +4,6 @@
     x:Class="MantaDemo.App" RequestedThemeVariant="Default">
     <MApp.Styles>
         <MantaTheme />
-        <MantaChartsTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>
