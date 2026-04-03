@@ -36,12 +36,13 @@
                                 <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
                                 <Ellipse Width="12" Height="12" Fill="#61C554" />
                             </MPanel>
-                            <MTabTitleBar>
+                            <MTabTitleBar Name="TitleBar">
                                 <MTabTitleBarItem Content="TabItem 1" IsSelected="True" />
                                 <MTabTitleBarItem Content="TabItem 2" />
                                 <MTabTitleBarItem Content="TabItem 3" />
                             </MTabTitleBar>
                         </Panel>
+                        <TextBlock Grid.Row="1" Margin="12" Text="{Binding ElementName=TitleBar, Path=Bounds.Height}" />
                     </Grid>
                 </Border>
             </Border>
@@ -85,34 +86,53 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <MTitleBar Background="{TemplateBinding Background}"
-                           BorderBrush="{TemplateBinding BorderBrush}"
-                           BorderThickness="{TemplateBinding BorderThickness}"
-                           CornerRadius="{TemplateBinding CornerRadius}"
-                           ShowContentBorder="False">
-                    <Grid ColumnDefinitions="* Auto">
-                        <DockPanel Grid.Column="0">
-                            <Panel Margin="-1 0 -1 -1" ClipToBounds="True">
-                                <MScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
-                                               ClipToBounds="True" Padding="-1 0">
-                                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                <Panel>
+                    <MTitleBar Name="TitleBar" Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               CornerRadius="{TemplateBinding CornerRadius}"
+                               ShowContentBorder="False">
+                        <Grid ColumnDefinitions="* Auto">
+                            <DockPanel Grid.Column="0">
+                                <MScrollViewer Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" ClipToBounds="True">
+                                    <Panel Name="PART_BorderHost" Margin="-1 0">
+                                        <Border Name="PART_Border" />
+                                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                    </Panel>
                                 </MScrollViewer>
-                                <Border BorderThickness="1 0" Margin="0 0 0 2" />
-                            </Panel>
-                            <Border BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}" />
-                        </DockPanel>
-                        <Border Grid.Column="1" Padding="4 0 0 0"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter Name="PART_RightContentPresenter"
-                                              Content="{TemplateBinding RightContent}"
-                                              ContentTemplate="{TemplateBinding RightContentTemplate}" />
-                        </Border>
-                    </Grid>
-                </MTitleBar>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}" />
+                            </DockPanel>
+                            <Border Grid.Column="1" Padding="4 0 0 0"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter Name="PART_RightContentPresenter"
+                                                  Content="{TemplateBinding RightContent}"
+                                                  ContentTemplate="{TemplateBinding RightContentTemplate}" />
+                            </Border>
+                        </Grid>
+                    </MTitleBar>
+                </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ MScrollViewer#ScrollViewer">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left|Right}" />
+        </Style>
+        <Style Selector="^ /template/ Border#PART_Border">
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left|Right}" />
+            <Setter Property="Width" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Width" Duration="0:0:0.1" />
+                    <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MTabTitleBarItem}" TargetType="MTabTitleBarItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -133,29 +153,18 @@
         </Setter>
         <Setter Property="Transitions">
             <Transitions>
-                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
-                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
                 <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
+                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
+        <Setter Property="Background" Value="#00000000" />
         <Setter Property="Padding" Value="14 0" />
-        <Setter Property="Margin" Value="0 0 0 1" />
-        <Setter Property="BorderThickness" Value="1 0 0 1" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <Setter Property="Background" Value="{MBrush Background, Opacity=0}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Bottom}" />
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
-        <Style Selector="^:pointerover:not(:selected)">
-            <Setter Property="Background" Value="{MBrush Foreground, Opacity=0.05}" />
-            <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        </Style>
         <Style Selector="^:selected">
-            <Setter Property="Padding" Value="14 0 14 1" />
-            <Setter Property="Margin" Value="0" />
-            <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
-        </Style>
-        <Style Selector="^:nth-last-child(1)">
-            <Setter Property="BorderThickness" Value="1 0 1 1" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

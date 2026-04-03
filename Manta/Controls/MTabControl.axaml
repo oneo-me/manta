@@ -67,7 +67,10 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Padding="{TemplateBinding Padding}">
-                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <Panel Name="PART_BorderHost">
+                            <Border Name="PART_Border" />
+                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </Panel>
                     </Border>
                     <ContentPresenter Name="PART_SelectedContentHost"
                                       Margin="{TemplateBinding Padding}"
@@ -82,6 +85,15 @@
             <Setter Property="HorizontalSpacing" Value="{MSize S1}" />
             <Setter Property="VerticalSpacing" Value="{MSize S1}" />
         </Style>
+        <Style Selector="^ /template/ Border#PART_Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Width" Duration="0:0:0.1" />
+                    <DoubleTransition Property="Height" Duration="0:0:0.1" />
+                    <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
+                </Transitions>
+            </Setter>
+        </Style>
         <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter > MPanel">
             <Setter Property="Mode" Value="Vertical" />
         </Style>
@@ -92,9 +104,59 @@
             <Setter Property="Background" Value="{MBrush Muted}" />
             <Setter Property="Padding" Value="{MThickness S1}" />
             <Setter Property="CornerRadius" Value="{MRadius MD}" />
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Primary}}" />
+                <Setter Property="CornerRadius" Value="{MRadius SM}" />
+                <Setter Property="BoxShadow" Value="{MShadow MD}" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_Border">
+                <Setter Property="Width" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_Border">
+                <Setter Property="Width" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_Border">
+                <Setter Property="Height" Value="0" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_Border">
+                <Setter Property="Height" Value="0" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="Padding" Value="{MThickness S1}" />
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Background" Value="{MBrush Primary}" />
+                <Setter Property="CornerRadius" Value="{MRadius Full}" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_Border">
+                <Setter Property="MinHeight" Value="{MSize S0_5}" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Width" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_Border">
+                <Setter Property="MinHeight" Value="{MSize S0_5}" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="Width" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_Border">
+                <Setter Property="MinWidth" Value="{MSize S0_5}" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Height" Value="0" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_Border">
+                <Setter Property="MinWidth" Value="{MSize S0_5}" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Height" Value="0" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type MTabItem}" TargetType="MTabItem">
@@ -103,83 +165,36 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Background="#00000000">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      Content="{TemplateBinding Header}"
-                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                      CornerRadius="{TemplateBinding CornerRadius}" />
-                    <Border Name="Bar" />
-                </Panel>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Header}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
             </ControlTemplate>
         </Setter>
         <Setter Property="Transitions">
             <Transitions>
-                <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
-                <SmoothBrushTransition Property="BorderBrush" Duration="0:0:0.1" />
                 <SmoothBrushTransition Property="Foreground" Duration="0:0:0.1" />
             </Transitions>
         </Setter>
+        <Setter Property="Background" Value="#00000000" />
         <Style Selector="^[Variant=Default]">
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
-            <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0}, Dark={MBrush Primary, Opacity=0}}" />
             <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
-            <Setter Property="CornerRadius" Value="{MRadius SM}" />
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="BoxShadow" Value="{MShadow MD, BrushOpacity=0}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.1" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^:selected">
-                <Setter Property="Background" Value="{OnTheme {MBrush Background}, Dark={MBrush Primary}}" />
                 <Setter Property="Foreground" Value="{OnTheme {MBrush Foreground}, Dark={MBrush PrimaryForeground}}" />
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="BoxShadow" Value="{MShadow MD}" />
-                </Style>
             </Style>
         </Style>
         <Style Selector="^[Variant=Outline]">
             <Setter Property="Padding" Value="{MThickness S3, Vertical=S1}" />
             <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
-            <Style Selector="^ /template/ Border#Bar">
-                <Setter Property="IsVisible" Value="True" />
-                <Setter Property="CornerRadius" Value="{MRadius Full}" />
-                <Setter Property="Background" Value="{MBrush Primary, Opacity=0}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <SmoothBrushTransition Property="Background" Duration="0:0:0.1" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            <Style Selector="^[TabStripPlacement=Left] /template/ Border#Bar">
-                <Setter Property="Width" Value="{MSize S0_5}" />
-                <Setter Property="HorizontalAlignment" Value="Right" />
-            </Style>
-            <Style Selector="^[TabStripPlacement=Right] /template/ Border#Bar">
-                <Setter Property="Width" Value="{MSize S0_5}" />
-                <Setter Property="HorizontalAlignment" Value="Left" />
-            </Style>
-            <Style Selector="^[TabStripPlacement=Top] /template/ Border#Bar">
-                <Setter Property="Height" Value="{MSize S0_5}" />
-                <Setter Property="VerticalAlignment" Value="Bottom" />
-            </Style>
-            <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#Bar">
-                <Setter Property="Height" Value="{MSize S0_5}" />
-                <Setter Property="VerticalAlignment" Value="Top" />
-            </Style>
             <Style Selector="^:selected">
                 <Setter Property="Foreground" Value="{MBrush Foreground}" />
-                <Style Selector="^ /template/ Border#Bar">
-                    <Setter Property="Background" Value="{MBrush Primary}" />
-                </Style>
             </Style>
         </Style>
     </ControlTheme>

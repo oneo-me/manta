@@ -39,9 +39,20 @@
                                 <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
                                 <Ellipse Width="12" Height="12" Fill="#61C554" />
                             </MPanel>
-                            <MTitleBar BorderThickness="0 0 0 1" />
+                            <MTitleBar Name="TitleBar" BorderThickness="0 0 0 1" />
                         </Panel>
+                        <TextBlock Grid.Row="1" Margin="12" Text="{Binding ElementName=TitleBar, Path=Bounds.Height}" />
                     </Grid>
+                </Border>
+            </Border>
+            <Border Classes="Box">
+                <Border Height="100">
+                    <MTitleBar BorderThickness="0 0 0 1" VerticalAlignment="Top">
+                        <Border Name="TitleBarContent">
+                            <TextBlock Margin="12 0" Text="{Binding ElementName=TitleBarContent, Path=Bounds.Height}"
+                                       VerticalAlignment="Center" />
+                        </Border>
+                    </MTitleBar>
                 </Border>
             </Border>
             <Border Classes="Box">
