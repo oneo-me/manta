@@ -14,7 +14,6 @@
     <File Path=".globalconfig" />
     <File Path=".gitattributes" />
   </Folder>
-  <Project Path="Manta.Charts/Manta.Charts.csproj" />
   <Project Path="Manta.DevTools/Manta.DevTools.csproj" />
   <Project Path="Manta.Generators\Manta.Generators.csproj" />
   <Project Path="Manta.Native/Manta.Native.csproj" />
