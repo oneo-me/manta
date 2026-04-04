@@ -1,12 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <IsAotCompatible>false</IsAotCompatible>
         <IsPackable>false</IsPackable>
         <OutputType>Exe</OutputType>
-    </PropertyGroup>
-    <PropertyGroup>
-        <IsAotCompatible>false</IsAotCompatible>
-        <PublishAot>false</PublishAot>
-        <PublishTrimmed>false</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" />

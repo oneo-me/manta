@@ -1,15 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <IsAotCompatible>false</IsAotCompatible>
         <TargetFramework>netstandard2.0</TargetFramework>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <DevelopmentDependency>true</DevelopmentDependency>
         <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    </PropertyGroup>
-    <PropertyGroup>
-        <IsAotCompatible>false</IsAotCompatible>
-        <PublishAot>false</PublishAot>
-        <PublishTrimmed>false</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" GeneratePathProperty="true" />

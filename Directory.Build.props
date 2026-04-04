@@ -6,12 +6,8 @@
         <Nullable>enable</Nullable>
         <Deterministic>true</Deterministic>
         <InvariantGlobalization>true</InvariantGlobalization>
-        <Version>1.2026-dev</Version>
-    </PropertyGroup>
-    <PropertyGroup>
         <IsAotCompatible>true</IsAotCompatible>
-        <PublishAot>true</PublishAot>
-        <PublishTrimmed>true</PublishTrimmed>
+        <Version>1.2026-dev</Version>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
