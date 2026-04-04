@@ -1,6 +1,5 @@
 ﻿using Avalonia;
 using Manta;
-using Manta.DevTools;
 
 namespace MantaDemo;
 
@@ -15,12 +14,6 @@ static class Program
 
     public static AppBuilder BuildAvaloniaApp()
     {
-        var appBuilder = MApp.Build<App>();
-
-#if DEBUG
-        appBuilder.UseDevTools();
-#endif
-
-        return appBuilder;
+        return MApp.Build<App>();
     }
 }

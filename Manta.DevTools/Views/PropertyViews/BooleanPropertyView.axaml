@@ -1,9 +1,0 @@
-<MView
-    x:Class="Manta.DevTools.Views.PropertyViews.BooleanPropertyView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Manta.DevTools.Views.PropertyViews"
-    x:DataType="local:BooleanPropertyView_Model" Design.DataContext="{x:Static local:BooleanPropertyView_Model.Design}"
-    ClipToBounds="False">
-    <MCheckBox Name="CheckBox" Header="{Binding ElementName=CheckBox, Path=IsChecked}" VerticalAlignment="Center" />
-</MView>

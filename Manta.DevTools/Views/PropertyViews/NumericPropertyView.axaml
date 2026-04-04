@@ -1,9 +1,0 @@
-<MView
-    x:Class="Manta.DevTools.Views.PropertyViews.NumericPropertyView"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Manta.DevTools.Views.PropertyViews"
-    x:DataType="local:NumericPropertyView_Model" Design.DataContext="{x:Static local:NumericPropertyView_Model.Design}"
-    ClipToBounds="False">
-    <MNumericUpDown Name="NumericUpDown" Padding="{MThickness S1_5, Vertical=S1}" VerticalAlignment="Center" />
-</MView>
