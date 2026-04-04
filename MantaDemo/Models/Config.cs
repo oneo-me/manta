@@ -1,8 +1,10 @@
 using Manta.Globalization.Core;
 using MantaDemo.Reactive;
+using YamlDotNet.Serialization;
 
 namespace MantaDemo.Models;
 
+[YamlSerializable]
 sealed class Config
 {
     public LangType Language { get; set; } = LangType.en;
@@ -10,5 +12,4 @@ sealed class Config
     public Dictionary<DemoGroup, string> LastDemos { get; set; } = new();
     public double Width { get; set; } = 800;
     public double Height { get; set; } = 600;
-    public ToolConfig Tools { get; set; } = new();
 }
