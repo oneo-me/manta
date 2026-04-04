@@ -123,7 +123,7 @@
         <Style Selector="^ /template/ Border#PART_Border">
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" />
-            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left|Right}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left}" />
             <Setter Property="Width" Value="0" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Transitions">
@@ -160,7 +160,7 @@
         <Setter Property="Background" Value="#00000000" />
         <Setter Property="Padding" Value="14 0" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Bottom}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left|Bottom}" />
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
         <Style Selector="^:selected">
             <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
