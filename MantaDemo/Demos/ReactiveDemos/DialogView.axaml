@@ -3,7 +3,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Demos.ReactiveDemos"
-    x:DataType="local:DialogView_Model" Design.DataContext="{x:Static local:DialogView_Model.Design}">
+    x:DataType="local:DialogView_Model">
+    <Design.DataContext>
+        <local:DialogView_Model />
+    </Design.DataContext>
     <MPanel Mode="Vertical" Spacing="12" Margin="12">
         <TextBlock Text="Normal" />
         <MPanel Mode="Horizontal" Spacing="12">

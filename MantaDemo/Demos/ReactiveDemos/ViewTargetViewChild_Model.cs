@@ -5,8 +5,6 @@ namespace MantaDemo.Demos.ReactiveDemos;
 [View<ViewTargetViewChild>]
 sealed class ViewTargetViewChild_Model : ViewModel, IViewHostTarget<string>
 {
-    public static ViewTargetViewChild_Model Design => new();
-
     public string Data
     {
         get;

@@ -7,8 +7,6 @@ namespace Manta.Dialogs;
 [View<DialogView>]
 sealed class DialogView_Model : DialogModel
 {
-    public static DialogView_Model Design => new();
-
     public string Title { get; init; } = InnerLangKey.Dialog_Title;
     public string Content { get; init; } = InnerLangKey.Dialog_Title;
 

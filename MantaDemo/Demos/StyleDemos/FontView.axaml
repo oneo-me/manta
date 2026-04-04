@@ -3,8 +3,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
-    x:DataType="local:FontView_Model" Design.DataContext="{x:Static local:FontView_Model.Design}"
+    x:DataType="local:FontView_Model"
     Name="View" Design.Width="300" Design.Height="400">
+    <Design.DataContext>
+        <local:FontView_Model />
+    </Design.DataContext>
     <MView.Styles>
         <Style Selector="MListBox[Variant=NoStyle]">
             <Setter Property="Padding" Value="{MThickness S3}" />

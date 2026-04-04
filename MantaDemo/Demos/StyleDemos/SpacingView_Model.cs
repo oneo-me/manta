@@ -8,8 +8,6 @@ namespace MantaDemo.Demos.StyleDemos;
 [View<SpacingView>]
 sealed class SpacingView_Model : DemoViewModel
 {
-    public static ThicknessView_Model Design => new();
-
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override IconSource Icon => Icons.Spacing;

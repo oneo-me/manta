@@ -20,8 +20,6 @@ namespace MantaDemo.Views;
 [View<Main>]
 sealed class Main_Model : WindowModel
 {
-    public static Main_Model Design => new();
-
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly ViewService _viewService = Service.GetService<ViewService>();
 

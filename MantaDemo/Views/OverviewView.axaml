@@ -3,8 +3,15 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Views"
-    x:DataType="local:OverviewView_Model" Design.DataContext="{x:Static local:OverviewView_Model.Design}"
+    x:DataType="local:OverviewView_Model"
     Name="View">
+    <Design.DataContext>
+        <local:OverviewView_Model>
+            <x:Arguments>
+                <x:Null />
+            </x:Arguments>
+        </local:OverviewView_Model>
+    </Design.DataContext>
     <MPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" FontSize="72" HorizontalAlignment="Center" />
         <TextBlock Text="{Lang {x:Static LangKey.Description}}" />

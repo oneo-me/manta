@@ -7,8 +7,6 @@ namespace MantaDemo.Demos.ReactiveDemos;
 [View<ViewTargetView>]
 sealed class ViewTargetView_Model : DemoViewModel
 {
-    public static ViewTargetView_Model Design => new();
-
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_ViewTarget;

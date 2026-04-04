@@ -18,6 +18,5 @@
   <Project Path="Manta.Native/Manta.Native.csproj" />
   <Project Path="MantaDemo\MantaDemo.csproj" />
   <Project Path="MantaPrepare\MantaPrepare.csproj" />
-  <Project Path="MantaTools\MantaTools.csproj" />
   <Project Path="Manta\Manta.csproj" />
 </Solution>

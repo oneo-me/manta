@@ -3,7 +3,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Demos.ReactiveDemos"
-    x:DataType="local:ContextView_Model" Design.DataContext="{x:Static local:ContextView_Model.Design}">
+    x:DataType="local:ContextView_Model">
+    <Design.DataContext>
+        <local:ContextView_Model />
+    </Design.DataContext>
     <MPanel Mode="Vertical" Spacing="{MSize S3}" Margin="{MThickness S3}" HorizontalAlignment="Left">
         <TextBlock Text="Context" />
         <Border BorderThickness="{MThickness Px}"

@@ -10,7 +10,7 @@
                 </MCommandPanel>
             </MCard>
             <MCard Width="320" Padding="0" CornerRadius="{MRadius LG}">
-                <MCommandPanel Watermark="Type a command or search...">
+                <MCommandPanel PlaceholderText="Type a command or search...">
                     <MCommandPanelItem Variant="Group" Content="Suggestions" />
                     <MCommandPanelItem>
                         <MPanel Mode="Horizontal" Spacing="8">
