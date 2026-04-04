@@ -11,11 +11,6 @@
         <MTabTitleBar Grid.Row="0" ItemsSource="{Binding RegionManager.Items}" SelectedItem="{Binding RegionManager.SelectedItem}">
             <MTabTitleBar.RightContent>
                 <MPanel Mode="Horizontal">
-                    <MTitleBarButton Command="{Binding OpenTweakcnToolAsyncCommand}">
-                        <MPanel Mode="Horizontal" Spacing="8">
-                            <MIcon IconSize="18" IconSource="{x:Static Icons.TweakcnTool}" Margin="0 -10" VerticalAlignment="Center" />
-                        </MPanel>
-                    </MTitleBarButton>
                     <MTitleBarButton Command="{Binding SwitchThemeCommand}">
                         <MPanel Mode="Horizontal" Spacing="8">
                             <MIcon IconSize="18" IconSource="{Binding ThemeIcon}" Margin="0 -10" VerticalAlignment="Center" />

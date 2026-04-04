@@ -54,11 +54,6 @@ sealed class Main_Model : WindowModel
             .DisposeWith(disposables);
     }
 
-    public CommandWarper OpenTweakcnToolAsyncCommand => GetCommand(async () =>
-    {
-        await new TweakcnTool_Model().ShowDialogAsync(this);
-    });
-
     public CommandWarper OpenSettingsAsyncCommand => GetCommand(async () =>
     {
         await new SettingsView_Model().ShowDialogAsync(this);
