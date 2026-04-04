@@ -38,7 +38,6 @@
             <!-- <Setter Property="TransparencyLevelHint" Value="AcrylicBlur,Blur,Mica,None" /> -->
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
-            <!-- <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome,OSXThickTitleBar" /> -->
             <Setter Property="Background" Value="{MBrush Background, Opacity=0.6}" />
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
@@ -49,7 +48,6 @@
             <Setter Property="TransparencyLevelHint" Value="Mica,AcrylicBlur,Blur,None" />
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="3" />
-            <!-- <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" /> -->
             <Setter Property="Background" Value="{MBrush Background, Opacity=0.7}" />
             <Style Selector="^ /template/ Border#PrimaryColor">
                 <Setter Property="Background" Value="{MBrush Primary, Opacity=0.05}" />
@@ -66,7 +64,6 @@
             <Setter Property="TransparencyLevelHint" Value="None" />
             <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
             <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
-            <!-- <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" /> -->
             <Setter Property="WindowDecorations" Value="None" />
             <Setter Property="Background" Value="{MBrush Background}" />
             <Style Selector="^ /template/ Border#Background">
