@@ -1,5 +1,8 @@
+using System.Reactive.Disposables;
 using Manta.Controls;
+using Manta.Extensions;
 using Manta.Langs;
+using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.Dialogs;
@@ -19,4 +22,14 @@ sealed class DialogView_Model : DialogModel
 
     public MButtonVariant CancelButtonVariant { get; init; } = MButtonVariant.Outline;
     public MButtonVariant ContinueButtonVariant { get; init; } = MButtonVariant.Default;
+
+    protected override void OnViewActivated(CompositeDisposable disposables)
+    {
+        base.OnViewActivated(disposables);
+
+        var dialogView = this.GetView<DialogView>();
+
+        dialogView.BindTitleBarEvents()
+            .DisposeWith(disposables);
+    }
 }

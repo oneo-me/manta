@@ -4,6 +4,10 @@
         <IsPackable>false</IsPackable>
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <PublishAot>true</PublishAot>
+        <PublishTrimmed>true</PublishTrimmed>
+    </PropertyGroup>
     <ItemGroup>
         <None Include="..\Native\libMantaNative.dylib" Link="libMantaNative.dylib">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
