@@ -6,15 +6,12 @@
         <Nullable>enable</Nullable>
         <Deterministic>true</Deterministic>
         <InvariantGlobalization>true</InvariantGlobalization>
-        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <Version>1.2025-development</Version>
+        <Version>1.2026-dev</Version>
     </PropertyGroup>
     <PropertyGroup>
-        <IsTrimmable>true</IsTrimmable>
         <IsAotCompatible>true</IsAotCompatible>
-        <TrimmerDefaultAction>link</TrimmerDefaultAction>
-        <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
+        <PublishAot>true</PublishAot>
+        <PublishTrimmed>true</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />

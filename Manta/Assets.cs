@@ -1,52 +1,64 @@
+using System.Reflection;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Manta.Controls.Icons;
 
 namespace Manta;
 
-public static partial class Assets
+public sealed class Assets(Assembly assembly)
 {
-    public static IEnumerable<Uri> GetAssets(Uri uri)
+    readonly string _assemblyName = assembly.GetName().Name ?? throw new InvalidOperationException("Assembly name cannot be null.");
+
+    Uri GetUri(string path)
     {
-        foreach (var asset in AssetLoader.GetAssets(uri, null))
-            yield return asset;
+        return new($"avares://{_assemblyName}/Assets/{path}");
     }
 
-    public static bool Exists(Uri uri)
+    public IEnumerable<string> GetAssets(string path)
     {
+        var uri = GetUri(path);
+
+        foreach (var asset in AssetLoader.GetAssets(uri, null))
+            yield return asset.ToString();
+    }
+
+    public bool Exists(string path)
+    {
+        var uri = GetUri(path);
         return AssetLoader.Exists(uri);
     }
 
-    public static Stream GetStream(Uri uri)
+    public Stream GetStream(string path)
     {
+        var uri = GetUri(path);
         var stream = AssetLoader.Open(uri);
         return stream ?? throw new InvalidOperationException($"Asset '{uri}' not found.");
     }
 
-    public static string GetString(Uri uri)
+    public string GetString(string path)
     {
-        using var stream = GetStream(uri);
+        using var stream = GetStream(path);
         using var streamReader = new StreamReader(stream);
         return streamReader.ReadToEnd();
     }
 
-    public static Bitmap GetBitmap(Uri uri)
+    public Bitmap GetBitmap(string path)
     {
-        using var stream = GetStream(uri);
+        using var stream = GetStream(path);
         return new(stream);
     }
 
-    public static byte[] GetBytes(Uri uri)
+    public byte[] GetBytes(string path)
     {
-        using var stream = GetStream(uri);
+        using var stream = GetStream(path);
         using var memoryStream = new MemoryStream();
         stream.CopyTo(memoryStream);
         return memoryStream.ToArray();
     }
 
-    public static IconSource GetIcon(Uri uri)
+    public IconSource GetIcon(string path)
     {
-        using var stream = GetStream(uri);
+        using var stream = GetStream(path);
         using var streamReader = new StreamReader(stream);
         var xml = streamReader.ReadToEnd();
         return new(xml);

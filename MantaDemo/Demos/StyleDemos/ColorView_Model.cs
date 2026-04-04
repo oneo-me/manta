@@ -1,13 +1,17 @@
+using Manta.Controls;
 using Manta.Controls.Icons;
-using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.StyleDemos;
 
-[View<ColorView>]
 sealed class ColorView_Model : DemoViewModel
 {
+    protected override MView CreateView()
+    {
+        return new ColorView();
+    }
+
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override IconSource Icon => Icons.Color;

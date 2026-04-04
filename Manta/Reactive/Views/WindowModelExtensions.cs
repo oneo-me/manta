@@ -55,7 +55,7 @@ public static class WindowModelExtensions
 
             var result = new MWindow
             {
-                Content = windowModel.CreateView()
+                Content = windowModel.BuildView()
             };
             windowModel.InnerWindow = result;
 

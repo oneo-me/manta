@@ -11,7 +11,6 @@ public enum LangType
     ///     ChineseName: 阿拉伯语
     ///     NativeName: العربية
     /// </summary>
-    [LangMetadata("🌐", "Arabic", "العربية", "ar")]
     ar,
 
     /// <summary>
@@ -20,7 +19,6 @@ public enum LangType
     ///     ChineseName: 加泰罗尼亚语
     ///     NativeName: català
     /// </summary>
-    [LangMetadata("🇪🇸", "Catalan", "català", "ca")]
     ca,
 
     /// <summary>
@@ -29,7 +27,6 @@ public enum LangType
     ///     ChineseName: 繁体中文（香港）
     ///     NativeName: 繁體中文（香港）
     /// </summary>
-    [LangMetadata("🇭🇰", "Chinese, Traditional (Hong Kong)", "繁體中文（香港）", "zh_HK")]
     zh_HK,
 
     /// <summary>
@@ -38,7 +35,6 @@ public enum LangType
     ///     ChineseName: 简体中文
     ///     NativeName: 简体中文
     /// </summary>
-    [LangMetadata("🇨🇳", "Chinese, Simplified (China mainland)", "简体中文", "zh_Hans")]
     zh_Hans,
 
     /// <summary>
@@ -47,7 +43,6 @@ public enum LangType
     ///     ChineseName: 繁体中文（台湾）
     ///     NativeName: 繁體中文（台灣）
     /// </summary>
-    [LangMetadata("🇹🇼", "Chinese, Traditional (Taiwan)", "繁體中文（台灣）", "zh_Hant")]
     zh_Hant,
 
     /// <summary>
@@ -56,7 +51,6 @@ public enum LangType
     ///     ChineseName: 克罗地亚语
     ///     NativeName: hrvatski
     /// </summary>
-    [LangMetadata("🇭🇷", "Croatian", "hrvatski", "hr")]
     hr,
 
     /// <summary>
@@ -65,7 +59,6 @@ public enum LangType
     ///     ChineseName: 捷克语
     ///     NativeName: čeština
     /// </summary>
-    [LangMetadata("🇨🇿", "Czech", "čeština", "cs")]
     cs,
 
     /// <summary>
@@ -74,7 +67,6 @@ public enum LangType
     ///     ChineseName: 丹麦语
     ///     NativeName: dansk
     /// </summary>
-    [LangMetadata("🇩🇰", "Danish", "dansk", "da")]
     da,
 
     /// <summary>
@@ -83,7 +75,6 @@ public enum LangType
     ///     ChineseName: 荷兰语
     ///     NativeName: Nederlands
     /// </summary>
-    [LangMetadata("🇳🇱", "Dutch", "Nederlands", "nl")]
     nl,
 
     /// <summary>
@@ -92,7 +83,6 @@ public enum LangType
     ///     ChineseName: 英语
     ///     NativeName: English
     /// </summary>
-    [LangMetadata("🇺🇸", "English", "English", "en")]
     en,
 
     /// <summary>
@@ -101,7 +91,6 @@ public enum LangType
     ///     ChineseName: 英语（澳大利亚）
     ///     NativeName: English (Australia)
     /// </summary>
-    [LangMetadata("🇦🇺", "English (Australia)", "English (Australia)", "en_AU")]
     en_AU,
 
     /// <summary>
@@ -110,7 +99,6 @@ public enum LangType
     ///     ChineseName: 英语（印度）
     ///     NativeName: English (India)
     /// </summary>
-    [LangMetadata("🇮🇳", "English (India)", "English (India)", "en_IN")]
     en_IN,
 
     /// <summary>
@@ -119,7 +107,6 @@ public enum LangType
     ///     ChineseName: 英语（英国）
     ///     NativeName: English (United Kingdom)
     /// </summary>
-    [LangMetadata("🇬🇧", "English (United Kingdom)", "English (United Kingdom)", "en_GB")]
     en_GB,
 
     /// <summary>
@@ -128,7 +115,6 @@ public enum LangType
     ///     ChineseName: 芬兰语
     ///     NativeName: suomi
     /// </summary>
-    [LangMetadata("🇫🇮", "Finnish", "suomi", "fi")]
     fi,
 
     /// <summary>
@@ -137,7 +123,6 @@ public enum LangType
     ///     ChineseName: 法语
     ///     NativeName: français
     /// </summary>
-    [LangMetadata("🇫🇷", "French", "français", "fr")]
     fr,
 
     /// <summary>
@@ -146,7 +131,6 @@ public enum LangType
     ///     ChineseName: 法语（加拿大）
     ///     NativeName: français (Canada)
     /// </summary>
-    [LangMetadata("🇨🇦", "French (Canada)", "français (Canada)", "fr_CA")]
     fr_CA,
 
     /// <summary>
@@ -155,7 +139,6 @@ public enum LangType
     ///     ChineseName: 德语
     ///     NativeName: Deutsch
     /// </summary>
-    [LangMetadata("🇩🇪", "German", "Deutsch", "de")]
     de,
 
     /// <summary>
@@ -164,7 +147,6 @@ public enum LangType
     ///     ChineseName: 希腊语
     ///     NativeName: Ελληνικά
     /// </summary>
-    [LangMetadata("🇬🇷", "Greek", "Ελληνικά", "el")]
     el,
 
     /// <summary>
@@ -173,7 +155,6 @@ public enum LangType
     ///     ChineseName: 希伯来语
     ///     NativeName: עברית
     /// </summary>
-    [LangMetadata("🇮🇱", "Hebrew", "עברית", "he")]
     he,
 
     /// <summary>
@@ -182,7 +163,6 @@ public enum LangType
     ///     ChineseName: 印地语
     ///     NativeName: हिन्दी
     /// </summary>
-    [LangMetadata("🇮🇳", "Hindi", "हिन्दी", "hi")]
     hi,
 
     /// <summary>
@@ -191,7 +171,6 @@ public enum LangType
     ///     ChineseName: 匈牙利语
     ///     NativeName: magyar
     /// </summary>
-    [LangMetadata("🇭🇺", "Hungarian", "magyar", "hu")]
     hu,
 
     /// <summary>
@@ -200,7 +179,6 @@ public enum LangType
     ///     ChineseName: 印度尼西亚语
     ///     NativeName: Indonesia
     /// </summary>
-    [LangMetadata("🇮🇩", "Indonesian", "Indonesia", "id")]
     id,
 
     /// <summary>
@@ -209,7 +187,6 @@ public enum LangType
     ///     ChineseName: 意大利语
     ///     NativeName: italiano
     /// </summary>
-    [LangMetadata("🇮🇹", "Italian", "italiano", "it")]
     it,
 
     /// <summary>
@@ -218,7 +195,6 @@ public enum LangType
     ///     ChineseName: 日语
     ///     NativeName: 日本語
     /// </summary>
-    [LangMetadata("🇯🇵", "Japanese", "日本語", "ja")]
     ja,
 
     /// <summary>
@@ -227,7 +203,6 @@ public enum LangType
     ///     ChineseName: 韩语
     ///     NativeName: 한국어
     /// </summary>
-    [LangMetadata("🇰🇷", "Korean", "한국어", "ko")]
     ko,
 
     /// <summary>
@@ -236,7 +211,6 @@ public enum LangType
     ///     ChineseName: 马来语
     ///     NativeName: Bahasa Melayu
     /// </summary>
-    [LangMetadata("🇲🇾", "Malay", "Bahasa Melayu", "ms")]
     ms,
 
     /// <summary>
@@ -245,7 +219,6 @@ public enum LangType
     ///     ChineseName: 书面挪威语
     ///     NativeName: norsk bokmål
     /// </summary>
-    [LangMetadata("🇳🇴", "Norwegian Bokmål", "norsk bokmål", "nb")]
     nb,
 
     /// <summary>
@@ -254,7 +227,6 @@ public enum LangType
     ///     ChineseName: 波兰语
     ///     NativeName: polski
     /// </summary>
-    [LangMetadata("🇵🇱", "Polish", "polski", "pl")]
     pl,
 
     /// <summary>
@@ -263,7 +235,6 @@ public enum LangType
     ///     ChineseName: 葡萄牙语（巴西）
     ///     NativeName: português (Brasil)
     /// </summary>
-    [LangMetadata("🇧🇷", "Portuguese (Brazil)", "português (Brasil)", "pt_BR")]
     pt_BR,
 
     /// <summary>
@@ -272,7 +243,6 @@ public enum LangType
     ///     ChineseName: 葡萄牙语（葡萄牙）
     ///     NativeName: português (Portugal)
     /// </summary>
-    [LangMetadata("🇵🇹", "Portuguese (Portugal)", "português (Portugal)", "pt_PT")]
     pt_PT,
 
     /// <summary>
@@ -281,7 +251,6 @@ public enum LangType
     ///     ChineseName: 罗马尼亚语
     ///     NativeName: română
     /// </summary>
-    [LangMetadata("🇷🇴", "Romanian", "română", "ro")]
     ro,
 
     /// <summary>
@@ -290,7 +259,6 @@ public enum LangType
     ///     ChineseName: 俄语
     ///     NativeName: русский
     /// </summary>
-    [LangMetadata("🇷🇺", "Russian", "русский", "ru")]
     ru,
 
     /// <summary>
@@ -299,7 +267,6 @@ public enum LangType
     ///     ChineseName: 斯洛伐克语
     ///     NativeName: slovenčina
     /// </summary>
-    [LangMetadata("🇸🇰", "Slovak", "slovenčina", "sk")]
     sk,
 
     /// <summary>
@@ -308,7 +275,6 @@ public enum LangType
     ///     ChineseName: 斯洛文尼亚语
     ///     NativeName: slovenščina
     /// </summary>
-    [LangMetadata("🇸🇮", "Slovenian", "slovenščina", "sl")]
     sl,
 
     /// <summary>
@@ -317,7 +283,6 @@ public enum LangType
     ///     ChineseName: 西班牙语
     ///     NativeName: español
     /// </summary>
-    [LangMetadata("🇪🇸", "Spanish", "español", "es")]
     es,
 
     /// <summary>
@@ -326,7 +291,6 @@ public enum LangType
     ///     ChineseName: 西班牙语（拉丁美洲）
     ///     NativeName: español (Latinoamérica)
     /// </summary>
-    [LangMetadata("🌎", "Spanish (Latin America)", "español (Latinoamérica)", "es_419")]
     es_419,
 
     /// <summary>
@@ -335,7 +299,6 @@ public enum LangType
     ///     ChineseName: 西班牙语（美国）
     ///     NativeName: español (Estados Unidos)
     /// </summary>
-    [LangMetadata("🇺🇸", "Spanish (United States)", "español (Estados Unidos)", "es_US")]
     es_US,
 
     /// <summary>
@@ -344,7 +307,6 @@ public enum LangType
     ///     ChineseName: 瑞典语
     ///     NativeName: svenska
     /// </summary>
-    [LangMetadata("🇸🇪", "Swedish", "svenska", "sv")]
     sv,
 
     /// <summary>
@@ -353,7 +315,6 @@ public enum LangType
     ///     ChineseName: 泰语
     ///     NativeName: ไทย
     /// </summary>
-    [LangMetadata("🇹🇭", "Thai", "ไทย", "th")]
     th,
 
     /// <summary>
@@ -362,7 +323,6 @@ public enum LangType
     ///     ChineseName: 土耳其语
     ///     NativeName: Türkçe
     /// </summary>
-    [LangMetadata("🇹🇷", "Turkish", "Türkçe", "tr")]
     tr,
 
     /// <summary>
@@ -371,7 +331,6 @@ public enum LangType
     ///     ChineseName: 乌克兰语
     ///     NativeName: українська
     /// </summary>
-    [LangMetadata("🇺🇦", "Ukrainian", "українська", "uk")]
     uk,
 
     /// <summary>
@@ -380,6 +339,5 @@ public enum LangType
     ///     ChineseName: 越南语
     ///     NativeName: Tiếng Việt
     /// </summary>
-    [LangMetadata("🇻🇳", "Vietnamese", "Tiếng Việt", "vi")]
     vi
 }

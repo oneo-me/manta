@@ -4,7 +4,7 @@ namespace Manta.Reactive.Views;
 
 public class ViewTemplate<T>(Func<T, Control> build) : ViewTemplate
 {
-    public ViewTemplate(Func<T, ViewModel> build) : this(data => build(data).CreateView())
+    public ViewTemplate(Func<T, ViewModel> build) : this(data => build(data).BuildView())
     {
     }
 

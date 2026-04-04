@@ -1,21 +1,11 @@
 using Avalonia;
 using Avalonia.Controls;
-using Manta.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.Controls;
 
 public class MViewHost : ContentControl
 {
-    public static readonly StyledProperty<Type?> ViewModelTypeProperty = AvaloniaProperty.Register<MViewHost, Type?>(
-        nameof(ViewModelType));
-
-    public Type? ViewModelType
-    {
-        get => GetValue(ViewModelTypeProperty);
-        set => SetValue(ViewModelTypeProperty, value);
-    }
-
     public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<MViewHost, ViewModel?>(
         nameof(ViewModel));
 
@@ -38,16 +28,11 @@ public class MViewHost : ContentControl
     {
         base.OnPropertyChanged(change);
 
-        if (change.Property == ViewModelTypeProperty)
-        {
-            var viewModelType = change.GetNewValue<Type?>();
-            ViewModel = viewModelType?.CreateInstance<ViewModel>();
-        }
-        else if (change.Property == ViewModelProperty)
+        if (change.Property == ViewModelProperty)
         {
             var viewModel = change.GetNewValue<ViewModel?>();
             ResetData(viewModel, Data);
-            Content = viewModel?.CreateView();
+            Content = viewModel?.BuildView();
         }
         else if (change.Property == DataProperty)
         {

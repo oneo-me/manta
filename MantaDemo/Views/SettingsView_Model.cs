@@ -9,9 +9,13 @@ using MantaDemo.Langs;
 
 namespace MantaDemo.Views;
 
-[View<SettingsView>]
 sealed class SettingsView_Model : WindowModel
 {
+    protected override MView CreateView()
+    {
+        return new SettingsView();
+    }
+
     public override void OnWindowInitialized(MWindow window)
     {
         base.OnWindowInitialized(window);

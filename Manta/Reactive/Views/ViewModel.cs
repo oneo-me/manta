@@ -1,12 +1,11 @@
 using System.Reactive.Disposables;
-using Avalonia.Controls;
 using Manta.Controls;
 
 namespace Manta.Reactive.Views;
 
 public abstract partial class ViewModel : CommandModel
 {
-    protected static bool IsDesignMode { get; } = Design.IsDesignMode;
+    protected internal abstract MView CreateView();
 
     internal MView? InnerView { get; set; }
 

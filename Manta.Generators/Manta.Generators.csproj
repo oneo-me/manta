@@ -6,6 +6,11 @@
         <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
+    <PropertyGroup>
+        <IsAotCompatible>false</IsAotCompatible>
+        <PublishAot>false</PublishAot>
+        <PublishTrimmed>false</PublishTrimmed>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" GeneratePathProperty="true" />
         <Analyzer Include="$(PkgYamlDotNet)/lib/netstandard2.0/YamlDotNet.dll" />

@@ -178,12 +178,6 @@
         "type": "Transitive",
         "resolved": "0.90.3",
         "contentHash": "T5BqXZb3Lqg+5yKInnW+hPtv/lzW8S8tZbLKFCbzgFF6iy4w5O3MDNzppgQfudR1nqMSpSDjX7w9OmDljV4GyA=="
-      },
-      "mantatools": {
-        "type": "Project",
-        "dependencies": {
-          "Avalonia.Desktop": "[12.0.0-rc2, )"
-        }
       }
     }
   }
