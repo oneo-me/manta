@@ -9,6 +9,6 @@ sealed class LangConfig
 
     public static LangConfig Load(string yaml)
     {
-        return yaml.DeserializeYaml<LangConfig>();
+        return yaml.LoadConfig();
     }
 }

@@ -11,7 +11,7 @@ public class ViewTemplate : IDataTemplate
     {
     }
 
-    public ViewTemplate(Func<ViewModel> build) : this(() => build().CreateView())
+    public ViewTemplate(Func<ViewModel> build) : this(() => build().BuildView())
     {
     }
 

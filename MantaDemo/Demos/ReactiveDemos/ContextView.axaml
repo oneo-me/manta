@@ -39,8 +39,11 @@
                 </Grid>
             </MPanel>
         </Border>
-        <MViewHost ViewModelType="local:ContextViewChild_Model"
-                   BorderThickness="{MThickness Px}"
-                   CornerRadius="{MRadius MD}" />
+        <MViewHost BorderThickness="{MThickness Px}"
+                   CornerRadius="{MRadius MD}">
+            <MViewHost.ViewModel>
+                <local:ContextViewChild_Model />
+            </MViewHost.ViewModel>
+        </MViewHost>
     </MPanel>
 </MView>

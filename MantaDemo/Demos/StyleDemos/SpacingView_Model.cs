@@ -1,13 +1,17 @@
+using Manta.Controls;
 using Manta.Controls.Icons;
-using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.StyleDemos;
 
-[View<SpacingView>]
 sealed class SpacingView_Model : DemoViewModel
 {
+    protected override MView CreateView()
+    {
+        return new SpacingView();
+    }
+
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override IconSource Icon => Icons.Spacing;

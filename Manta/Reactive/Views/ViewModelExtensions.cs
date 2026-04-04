@@ -1,10 +1,8 @@
-using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Input.Platform;
 using Avalonia.Platform.Storage;
 using Manta.Ava;
 using Manta.Controls;
-using Manta.Extensions;
 
 namespace Manta.Reactive.Views;
 
@@ -12,18 +10,12 @@ public static class ViewModelExtensions
 {
     extension(ViewModel viewModel)
     {
-        internal MView CreateView()
+        internal MView BuildView()
         {
             if (viewModel.InnerView is not null)
                 return viewModel.InnerView;
 
-            var viewModelType = viewModel.GetType();
-            var viewAttribute = viewModelType.GetCustomAttribute<ViewAttribute>();
-            if (viewAttribute is null)
-                throw new InvalidOperationException($"ViewAttribute not found for {viewModelType}");
-
-            var viewType = viewAttribute.GetViewType();
-            var view = viewType.CreateInstance<MView>();
+            var view = viewModel.CreateView();
             viewModel.InnerView = view;
             view.DataContext = viewModel;
             return view;

@@ -5,10 +5,6 @@
         <OutputType>WinExe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\MantaTools\MantaTools.csproj" />
         <ProjectReference Include="..\Manta\Manta.csproj" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Avalonia.Markup.Xaml.Loader" />
     </ItemGroup>
 </Project>

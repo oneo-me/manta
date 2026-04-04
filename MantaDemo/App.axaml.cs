@@ -11,6 +11,8 @@ namespace MantaDemo;
 
 sealed class App : MApp
 {
+    public static Assets Assets { get; } = new(typeof(App).Assembly);
+
     public App()
     {
         Name = nameof(Manta);

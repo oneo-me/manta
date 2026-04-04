@@ -1,14 +1,20 @@
+using Manta.Controls;
 using Manta.Dialogs;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
+using MAlert = Manta.Dialogs.MAlert;
 
 namespace MantaDemo.Demos.ReactiveDemos;
 
-[View<DialogView>]
 sealed class DialogView_Model : DemoViewModel
 {
+    protected override MView CreateView()
+    {
+        return new DialogView();
+    }
+
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_Dialog;

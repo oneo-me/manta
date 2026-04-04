@@ -49,7 +49,7 @@ public sealed class LangData : LangDataBase
             using var stream = AssetLoader.Open(uri);
             using var reader = new StreamReader(stream);
             var yaml = reader.ReadToEnd();
-            var deserializeYaml = yaml.DeserializeYaml<Dictionary<string, string>>();
+            var deserializeYaml = yaml.LoadData();
             result._items[culture] = new();
             foreach (var keyValuePair in deserializeYaml)
                 result._items[culture][Lang.CreateKey(assemblyName, keyValuePair.Key)] = keyValuePair.Value;

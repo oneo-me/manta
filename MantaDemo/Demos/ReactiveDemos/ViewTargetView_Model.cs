@@ -1,12 +1,16 @@
-using Manta.Reactive.Views;
+using Manta.Controls;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ReactiveDemos;
 
-[View<ViewTargetView>]
 sealed class ViewTargetView_Model : DemoViewModel
 {
+    protected override MView CreateView()
+    {
+        return new ViewTargetView();
+    }
+
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_ViewTarget;

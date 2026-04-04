@@ -1,10 +1,19 @@
 namespace Manta.Globalization.Core;
 
-public sealed class LangMetadata(LangType type, string emoji, string englishName, string nativeName, string sourceType)
+public sealed class LangMetadata
 {
-    public LangType Type { get; } = type;
-    public string Emoji { get; } = emoji;
-    public string SourceType { get; } = sourceType;
-    public string EnglishName { get; } = englishName;
-    public string NativeName { get; } = nativeName;
+    public LangType Type { get; }
+    public string Emoji { get; }
+    public string SourceType { get; }
+    public string EnglishName { get; }
+    public string NativeName { get; }
+
+    internal LangMetadata(LangType type, string emoji, string englishName, string nativeName, string sourceType)
+    {
+        Type = type;
+        Emoji = emoji;
+        SourceType = sourceType;
+        EnglishName = englishName;
+        NativeName = nativeName;
+    }
 }
