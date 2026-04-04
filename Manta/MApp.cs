@@ -114,7 +114,7 @@ public abstract partial class MApp : Application
         MAppMenus.RegisterDefaultMenus(this);
 
         OnInitializeInternal();
-        OnInitializeCore(out var initData);
+        OnInitialize(out var initData);
 
         if (Design.IsDesignMode)
             return;
@@ -135,11 +135,6 @@ public abstract partial class MApp : Application
 
     static void OnInitializeInternal()
     {
-        Service.Register(new ImageLoadService());
-    }
-
-    void OnInitializeCore(out MAppOptions options)
-    {
         if (Design.IsDesignMode)
             Log.AddLogger(new ConsoleLogger(LogTimeType.None, LogLevel.All));
         else if (Debugger.IsAttached)
@@ -148,8 +143,9 @@ public abstract partial class MApp : Application
             Log.AddLogger(new ConsoleLogger(LogTimeType.DateTime, LogLevel.All));
 
         Lang.Register(LangData.LoadFromAssembly(typeof(MApp).Assembly));
+        Lang.Source.Refresh();
 
-        OnInitialize(out options);
+        Service.Register(new ImageLoadService());
     }
 
     protected abstract void OnInitialize(out MAppOptions options);

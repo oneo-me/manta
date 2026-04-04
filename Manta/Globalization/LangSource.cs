@@ -22,4 +22,9 @@ sealed class LangSource : Model
             CultureInfo.CurrentUICulture = cultureInfo;
         }
     }
+
+    internal void Refresh()
+    {
+        OnPropertyChanged(nameof(Current));
+    }
 }
