@@ -9,8 +9,6 @@ namespace MantaDemo.Demos.ReactiveDemos;
 [View<CommandView>]
 sealed class CommandView_Model : DemoViewModel
 {
-    public static CommandView_Model Design => new();
-
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_Command;

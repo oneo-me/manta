@@ -12,8 +12,6 @@ namespace MantaDemo.Views;
 [View<SettingsView>]
 sealed class SettingsView_Model : WindowModel
 {
-    public static SettingsView_Model Design => new();
-
     public override void OnWindowInitialized(MWindow window)
     {
         base.OnWindowInitialized(window);

@@ -3,8 +3,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Demos.StyleDemos"
-    x:DataType="local:RadiusView_Model" Design.DataContext="{x:Static local:RadiusView_Model.Design}"
+    x:DataType="local:RadiusView_Model"
     Design.Width="500">
+    <Design.DataContext>
+        <local:RadiusView_Model />
+    </Design.DataContext>
     <MScrollViewer>
         <MPanel Mode="Vertical" Spacing="30" Margin="30">
             <MPanel.Styles>

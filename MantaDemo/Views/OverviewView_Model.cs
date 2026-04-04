@@ -17,10 +17,8 @@ using MantaDemo.Services;
 namespace MantaDemo.Views;
 
 [View<OverviewView>]
-sealed class OverviewView_Model : HeaderRegionModel
+class OverviewView_Model : HeaderRegionModel
 {
-    public static OverviewView_Model Design => new(new(new DemoGroupView_Model(DemoGroup.Styles, LangKey.Styles, Icons.Home)));
-
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly RegionManager<HeaderRegionModel> _regionManager;
 

@@ -12,8 +12,6 @@ namespace MantaDemo.Demos.StyleDemos;
 [View<FontView>]
 sealed class FontView_Model : DemoViewModel
 {
-    public static FontView_Model Design => new();
-
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override IconSource Icon => Icons.Text;

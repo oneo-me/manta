@@ -4,13 +4,11 @@
         <OutputType>Exe</OutputType>
     </PropertyGroup>
     <PropertyGroup>
-        <IsTrimmable>false</IsTrimmable>
         <IsAotCompatible>false</IsAotCompatible>
+        <PublishAot>false</PublishAot>
+        <PublishTrimmed>false</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\MantaTools\MantaTools.csproj" />
     </ItemGroup>
 </Project>

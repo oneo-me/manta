@@ -7,8 +7,6 @@ namespace MantaDemo.Demos.ReactiveDemos;
 [View<ContextView>]
 sealed class ContextView_Model : DemoViewModel
 {
-    public static ContextView_Model Design => new();
-
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_ViewContext;

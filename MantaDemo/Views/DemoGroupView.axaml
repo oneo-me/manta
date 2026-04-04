@@ -3,8 +3,18 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Views"
-    x:DataType="local:DemoGroupView_Model" Design.DataContext="{x:Static local:DemoGroupView_Model.Design}"
+    xmlns:reactive="clr-namespace:MantaDemo.Reactive"
+    x:DataType="local:DemoGroupView_Model"
     Design.Width="720" Design.Height="720">
+    <Design.DataContext>
+        <local:DemoGroupView_Model>
+            <x:Arguments>
+                <x:Static Member="reactive:DemoGroup.Controls" />
+                <x:Static Member="LangKey.Controls" />
+                <x:Static Member="Icons.Controls" />
+            </x:Arguments>
+        </local:DemoGroupView_Model>
+    </Design.DataContext>
     <Grid ColumnDefinitions="200 1 *">
         <MListBox Grid.Column="0" Variant="Sidebar" ItemsSource="{Binding Demos}" SelectedItem="{Binding CurrentDemo}">
             <MListBox.Styles>

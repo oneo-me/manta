@@ -3,7 +3,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MantaDemo.Views"
-    x:DataType="local:Main_Model" Design.DataContext="{x:Static local:Main_Model.Design}" Design.Height="500">
+    x:DataType="local:Main_Model" Design.Height="500">
+    <Design.DataContext>
+        <local:Main_Model />
+    </Design.DataContext>
     <Grid RowDefinitions="Auto *">
         <MBackground Grid.Row="1">
             <MViewHost ViewModel="{Binding RegionManager.SelectedItem}" />
