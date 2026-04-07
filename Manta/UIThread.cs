@@ -8,106 +8,106 @@ public static class UIThread
 {
     public static bool CheckAccess()
     {
-        return Dispatcher.UIThread.CheckAccess();
+        return Dispatcher.CurrentDispatcher.CheckAccess();
     }
 
     public static void Post(Action action)
     {
-        Dispatcher.UIThread.Post(action);
+        Dispatcher.CurrentDispatcher.Post(action);
     }
 
     public static void Post(Action action, DispatcherPriority priority)
     {
-        Dispatcher.UIThread.Post(action, priority);
+        Dispatcher.CurrentDispatcher.Post(action, priority);
     }
 
     public static void Invoke(Action action)
     {
-        Dispatcher.UIThread.Invoke(action);
+        Dispatcher.CurrentDispatcher.Invoke(action);
     }
 
     public static void Invoke(Action action, DispatcherPriority priority)
     {
-        Dispatcher.UIThread.Invoke(action, priority);
+        Dispatcher.CurrentDispatcher.Invoke(action, priority);
     }
 
     public static void Invoke(Action action, DispatcherPriority priority, CancellationToken cancellationToken)
     {
-        Dispatcher.UIThread.Invoke(action, priority, cancellationToken);
+        Dispatcher.CurrentDispatcher.Invoke(action, priority, cancellationToken);
     }
 
     public static void Invoke(Action action, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
     {
-        Dispatcher.UIThread.Invoke(action, priority, cancellationToken, timeout);
+        Dispatcher.CurrentDispatcher.Invoke(action, priority, cancellationToken, timeout);
     }
 
     public static T Invoke<T>(Func<T> func)
     {
-        return Dispatcher.UIThread.Invoke(func);
+        return Dispatcher.CurrentDispatcher.Invoke(func);
     }
 
     public static T Invoke<T>(Func<T> func, DispatcherPriority priority)
     {
-        return Dispatcher.UIThread.Invoke(func, priority);
+        return Dispatcher.CurrentDispatcher.Invoke(func, priority);
     }
 
     public static T Invoke<T>(Func<T> func, DispatcherPriority priority, CancellationToken cancellationToken)
     {
-        return Dispatcher.UIThread.Invoke(func, priority, cancellationToken);
+        return Dispatcher.CurrentDispatcher.Invoke(func, priority, cancellationToken);
     }
 
     public static T Invoke<T>(Func<T> func, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
     {
-        return Dispatcher.UIThread.Invoke(func, priority, cancellationToken, timeout);
+        return Dispatcher.CurrentDispatcher.Invoke(func, priority, cancellationToken, timeout);
     }
 
     public static DispatcherOperation InvokeAsync(Action action)
     {
-        return Dispatcher.UIThread.InvokeAsync(action);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(action);
     }
 
     public static DispatcherOperation InvokeAsync(Action action, DispatcherPriority priority)
     {
-        return Dispatcher.UIThread.InvokeAsync(action, priority);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(action, priority);
     }
 
     public static DispatcherOperation InvokeAsync(Action action, DispatcherPriority priority, CancellationToken cancellationToken)
     {
-        return Dispatcher.UIThread.InvokeAsync(action, priority, cancellationToken);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(action, priority, cancellationToken);
     }
 
     public static DispatcherOperation<T> InvokeAsync<T>(Func<T> func)
     {
-        return Dispatcher.UIThread.InvokeAsync(func);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func);
     }
 
     public static DispatcherOperation<T> InvokeAsync<T>(Func<T> func, DispatcherPriority priority)
     {
-        return Dispatcher.UIThread.InvokeAsync(func, priority);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func, priority);
     }
 
     public static DispatcherOperation<T> InvokeAsync<T>(Func<T> func, DispatcherPriority priority, CancellationToken cancellationToken)
     {
-        return Dispatcher.UIThread.InvokeAsync(func, priority, cancellationToken);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func, priority, cancellationToken);
     }
 
     public static Task InvokeAsync(Func<Task> func)
     {
-        return Dispatcher.UIThread.InvokeAsync(func);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func);
     }
 
     public static Task InvokeAsync(Func<Task> func, DispatcherPriority priority)
     {
-        return Dispatcher.UIThread.InvokeAsync(func, priority);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func, priority);
     }
 
     public static Task<T> InvokeAsync<T>(Func<Task<T>> func)
     {
-        return Dispatcher.UIThread.InvokeAsync(func);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func);
     }
 
     public static Task<T> InvokeAsync<T>(Func<Task<T>> func, DispatcherPriority priority)
     {
-        return Dispatcher.UIThread.InvokeAsync(func, priority);
+        return Dispatcher.CurrentDispatcher.InvokeAsync(func, priority);
     }
 }

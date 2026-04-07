@@ -66,7 +66,7 @@ public static class WindowExtensions
                     {
                         IsFullScreen = x is WindowState.FullScreen,
                         IsShowButtons = isShowButtons && isMacos is false,
-                        Offset = new(isMacos ? isShowButtons ? 78 : 0 : 0, isMacos ? isShowButtons ? 38 : 0 : 0, 0, 0)
+                        Offset = new(isMacos ? isShowButtons ? 83 : 0 : 0, isMacos ? isShowButtons ? 38 : 0 : 0, 0, 0)
                     };
                 });
         }

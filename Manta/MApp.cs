@@ -32,7 +32,7 @@ public abstract partial class MApp : Application
 
         OnExceptionAction = OnException;
 
-        Dispatcher.UIThread.UnhandledException += (_, e) =>
+        Dispatcher.CurrentDispatcher.UnhandledException += (_, e) =>
         {
             e.Handled = true;
             OnException(e.Exception);
