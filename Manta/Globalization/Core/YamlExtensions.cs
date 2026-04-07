@@ -63,7 +63,7 @@ static class YamlExtensions
             if (loadData.TryGetValue("modifier", out var modifierStr))
                 result.Modifier = modifierStr;
             if (loadData.TryGetValue("className", out var classNameStr))
-                result.Modifier = classNameStr;
+                result.ClassName = classNameStr;
 
             return result;
         }
