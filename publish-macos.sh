@@ -1,148 +1,122 @@
 #!/bin/bash
 
-# Manta Demo - macOS ARM64 Publish Script
-# Creates a NativeAOT compiled app bundle and DMG
+set -euo pipefail
 
-set -e
-
-# Configuration
 APP_NAME="Manta Demo"
-BUNDLE_NAME="MantaDemo"
-BUNDLE_ID="com.mantademo"
-VERSION="1.0.0"
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DEMO_PROJECT="$PROJECT_DIR/MantaDemo/MantaDemo.csproj"
+PLIST_TEMPLATE="$PROJECT_DIR/MantaDemo/Info.plist"
+ENTITLEMENTS="$PROJECT_DIR/MantaDemo/Entitlements.plist"
 OUTPUT_DIR="$PROJECT_DIR/publish"
+PUBLISH_DIR="$OUTPUT_DIR/native"
 APP_BUNDLE="$OUTPUT_DIR/$APP_NAME.app"
-DMG_NAME="MantaDemo-$VERSION-macOS-arm64"
 
-# Colors for output
-RED='\033[0;31m'
+BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+RED='\033[0;31m'
+NC='\033[0m'
+
+require_file() {
+    local path="$1"
+    local label="$2"
+
+    if [ ! -f "$path" ]; then
+        echo -e "${RED}Error: Missing ${label}: ${path}${NC}"
+        exit 1
+    fi
+}
+
+find_executable() {
+    local directory="$1"
+    local candidate
+
+    candidate="$(find "$directory" -maxdepth 1 -type f -perm -111 ! -name '*.dylib' ! -name '*.dbg' ! -name '*.pdb' | head -n 1)"
+
+    if [ -z "$candidate" ]; then
+        echo -e "${RED}Error: Publish output does not contain a runnable executable.${NC}"
+        exit 1
+    fi
+
+    printf '%s\n' "$candidate"
+}
+
+prune_publish_output() {
+    local directory="$1"
+
+    find "$directory" -maxdepth 1 \( -name '*.pdb' -o -name '*.dbg' \) -exec rm -f {} +
+    find "$directory" -maxdepth 1 -name '*.dSYM' -exec rm -rf {} +
+    rm -rf "$directory/runtimes"
+}
 
 echo -e "${BLUE}======================================${NC}"
-echo -e "${BLUE}  Manta Demo - macOS ARM64 Publisher${NC}"
+echo -e "${BLUE}  Manta Demo - macOS Publisher${NC}"
 echo -e "${BLUE}======================================${NC}"
 echo ""
 
-# Clean previous builds
-echo -e "${YELLOW}[1/5] Cleaning previous builds...${NC}"
+require_file "$DEMO_PROJECT" "project file"
+require_file "$PLIST_TEMPLATE" "Info.plist"
+
+echo -e "${YELLOW}[1/4] Cleaning previous publish output...${NC}"
 rm -rf "$OUTPUT_DIR"
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$PUBLISH_DIR"
 
-# Build with NativeAOT
-echo -e "${YELLOW}[2/5] Building with NativeAOT for macOS ARM64...${NC}"
-echo -e "      This may take a few minutes..."
-
+echo -e "${YELLOW}[2/4] Publishing app...${NC}"
 dotnet publish "$DEMO_PROJECT" \
     -c Release \
     -r osx-arm64 \
     --self-contained true \
-    -p:PublishAot=true \
-    -p:PublishTrimmed=true \
-    -p:TrimMode=full \
-    -p:StripSymbols=true \
-    -p:OptimizationPreference=Size \
-    -p:IlcOptimizationPreference=Size \
-    -p:IlcGenerateStackTraceData=false \
-    -p:IlcFoldIdenticalMethodBodies=true \
-    -p:IlcDisableReflection=false \
-    -p:IlcTrimMetadata=true \
-    -p:IlcGenerateMstatFile=false \
-    -p:IlcGenerateDgmlFile=false \
-    -p:DebuggerSupport=false \
-    -p:EnableUnsafeBinaryFormatterSerialization=false \
-    -p:EnableUnsafeUTF7Encoding=false \
-    -p:EventSourceSupport=false \
-    -p:HttpActivityPropagationSupport=false \
-    -p:MetadataUpdaterSupport=false \
-    -p:UseSystemResourceKeys=true \
-    -p:JsonSerializerIsReflectionEnabledByDefault=false \
-    -p:UseNativeHttpHandler=true \
-    -p:StackTraceSupport=false \
-    -o "$OUTPUT_DIR/native"
+    -o "$PUBLISH_DIR"
 
-if [ ! -f "$OUTPUT_DIR/native/$BUNDLE_NAME" ]; then
-    echo -e "${RED}Error: Build failed - executable not found${NC}"
-    exit 1
-fi
+prune_publish_output "$PUBLISH_DIR"
 
-echo -e "${GREEN}      Build successful!${NC}"
+EXECUTABLE_PATH="$(find_executable "$PUBLISH_DIR")"
+EXECUTABLE_NAME="$(basename "$EXECUTABLE_PATH")"
+VERSION="$(defaults read "$PLIST_TEMPLATE" CFBundleShortVersionString 2>/dev/null || echo "1.0.0")"
+DMG_PATH="$OUTPUT_DIR/MantaDemo-$VERSION-macOS-arm64.dmg"
 
-# Create App Bundle structure
-echo -e "${YELLOW}[3/5] Creating macOS App Bundle...${NC}"
+echo -e "${GREEN}      Publish successful: ${EXECUTABLE_NAME}${NC}"
 
+echo -e "${YELLOW}[3/4] Building app bundle...${NC}"
 mkdir -p "$APP_BUNDLE/Contents/MacOS"
-mkdir -p "$APP_BUNDLE/Contents/Resources"
-
-# Copy executable and libraries
-cp "$OUTPUT_DIR/native/$BUNDLE_NAME" "$APP_BUNDLE/Contents/MacOS/"
-chmod +x "$APP_BUNDLE/Contents/MacOS/$BUNDLE_NAME"
-
-# Copy any native libraries (.dylib files)
-if ls "$OUTPUT_DIR/native"/*.dylib 1> /dev/null 2>&1; then
-    cp "$OUTPUT_DIR/native"/*.dylib "$APP_BUNDLE/Contents/MacOS/"
-fi
-
-# Copy Info.plist
-cp "$PROJECT_DIR/MantaDemo/Info.plist" "$APP_BUNDLE/Contents/"
-
-# Copy icon if exists
-if [ -f "$PROJECT_DIR/MantaDemo/AppIcon.icns" ]; then
-    cp "$PROJECT_DIR/MantaDemo/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/"
-    echo -e "      App icon copied"
-else
-    echo -e "${YELLOW}      Warning: No AppIcon.icns found, app will use default icon${NC}"
-fi
-
-# Create PkgInfo
+cp -R "$PUBLISH_DIR"/. "$APP_BUNDLE/Contents/MacOS/"
+cp "$PLIST_TEMPLATE" "$APP_BUNDLE/Contents/Info.plist"
 echo -n "APPL????" > "$APP_BUNDLE/Contents/PkgInfo"
 
-# Sign the app (ad-hoc signing for local use)
-echo -e "${YELLOW}[4/5] Signing application (ad-hoc)...${NC}"
-codesign --force --deep --sign - \
-    --entitlements "$PROJECT_DIR/MantaDemo/Entitlements.plist" \
-    "$APP_BUNDLE"
+/usr/libexec/PlistBuddy -c "Set :CFBundleExecutable $EXECUTABLE_NAME" "$APP_BUNDLE/Contents/Info.plist"
 
-echo -e "${GREEN}      App bundle created: $APP_BUNDLE${NC}"
+if [ ! -f "$APP_BUNDLE/Contents/Resources/AppIcon.icns" ]; then
+    /usr/libexec/PlistBuddy -c "Delete :CFBundleIconFile" "$APP_BUNDLE/Contents/Info.plist" >/dev/null 2>&1 || true
+fi
 
-# Create DMG
-echo -e "${YELLOW}[5/5] Creating DMG installer...${NC}"
+if [ -n "${MACOS_CODESIGN_IDENTITY:-}" ]; then
+    require_file "$ENTITLEMENTS" "Entitlements.plist"
+    echo -e "      Signing with identity: ${MACOS_CODESIGN_IDENTITY}"
+    codesign --force --deep --sign "$MACOS_CODESIGN_IDENTITY" \
+        --entitlements "$ENTITLEMENTS" \
+        "$APP_BUNDLE"
+else
+    echo -e "      Skipping codesign. Set ${BLUE}MACOS_CODESIGN_IDENTITY${NC} to enable signing."
+fi
 
-DMG_TEMP="$OUTPUT_DIR/dmg_temp"
-DMG_PATH="$OUTPUT_DIR/$DMG_NAME.dmg"
-
+echo -e "${YELLOW}[4/4] Creating DMG...${NC}"
+DMG_TEMP="$OUTPUT_DIR/dmg-temp"
 mkdir -p "$DMG_TEMP"
 cp -R "$APP_BUNDLE" "$DMG_TEMP/"
-
-# Create symbolic link to Applications folder
 ln -s /Applications "$DMG_TEMP/Applications"
 
-# Create DMG
 hdiutil create -volname "$APP_NAME" \
     -srcfolder "$DMG_TEMP" \
     -ov -format UDZO \
     "$DMG_PATH"
 
-# Cleanup
 rm -rf "$DMG_TEMP"
-rm -rf "$OUTPUT_DIR/native"
+rm -rf "$PUBLISH_DIR"
 
 echo ""
 echo -e "${GREEN}======================================${NC}"
-echo -e "${GREEN}  Build Complete!${NC}"
+echo -e "${GREEN}  Build Complete${NC}"
 echo -e "${GREEN}======================================${NC}"
 echo ""
 echo -e "App Bundle: ${BLUE}$APP_BUNDLE${NC}"
 echo -e "DMG File:   ${BLUE}$DMG_PATH${NC}"
-echo ""
-
-# Show file sizes
-APP_SIZE=$(du -sh "$APP_BUNDLE" | cut -f1)
-DMG_SIZE=$(du -sh "$DMG_PATH" | cut -f1)
-echo -e "App Size: $APP_SIZE"
-echo -e "DMG Size: $DMG_SIZE"
-echo ""
