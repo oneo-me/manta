@@ -10,6 +10,8 @@ ENTITLEMENTS="$PROJECT_DIR/MantaDemo/Entitlements.plist"
 OUTPUT_DIR="$PROJECT_DIR/publish"
 PUBLISH_DIR="$OUTPUT_DIR/native"
 APP_BUNDLE="$OUTPUT_DIR/$APP_NAME.app"
+APPKIT_COMPAT_SDK="${MACOS_APPKIT_COMPAT_SDK:-15.5}"
+APPKIT_COMPAT_TOOL_VERSION="${MACOS_APPKIT_COMPAT_TOOL_VERSION:-1167.5}"
 
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -39,6 +41,41 @@ find_executable() {
     fi
 
     printf '%s\n' "$candidate"
+}
+
+patch_build_version_for_appkit_compat() {
+    local executable="$1"
+    local minos
+    local temp_output
+
+    if [ -z "$APPKIT_COMPAT_SDK" ]; then
+        return
+    fi
+
+    if ! command -v xcrun >/dev/null 2>&1; then
+        echo -e "      ${YELLOW}Skipping AppKit compatibility patch: xcrun not found.${NC}"
+        return
+    fi
+
+    minos="$(xcrun vtool -show-build "$executable" 2>/dev/null | awk '/minos / { print $2; exit }')"
+    if [ -z "$minos" ]; then
+        echo -e "      ${YELLOW}Skipping AppKit compatibility patch: unable to read build version from executable.${NC}"
+        return
+    fi
+
+    temp_output="$(mktemp "$OUTPUT_DIR/apphost.XXXXXX")"
+    xcrun vtool \
+        -set-build-version macos "$minos" "$APPKIT_COMPAT_SDK" \
+        -tool ld "$APPKIT_COMPAT_TOOL_VERSION" \
+        -replace \
+        -output "$temp_output" \
+        "$executable"
+
+    mv "$temp_output" "$executable"
+    chmod +x "$executable"
+    codesign -s - -f "$executable" >/dev/null
+
+    echo -e "      Patched Mach-O build SDK to ${BLUE}$APPKIT_COMPAT_SDK${NC} for AppKit compatibility."
 }
 
 prune_publish_output() {
@@ -74,6 +111,8 @@ EXECUTABLE_PATH="$(find_executable "$PUBLISH_DIR")"
 EXECUTABLE_NAME="$(basename "$EXECUTABLE_PATH")"
 VERSION="$(defaults read "$PLIST_TEMPLATE" CFBundleShortVersionString 2>/dev/null || echo "1.0.0")"
 DMG_PATH="$OUTPUT_DIR/MantaDemo-$VERSION-macOS-arm64.dmg"
+
+patch_build_version_for_appkit_compat "$EXECUTABLE_PATH"
 
 echo -e "${GREEN}      Publish successful: ${EXECUTABLE_NAME}${NC}"
 
