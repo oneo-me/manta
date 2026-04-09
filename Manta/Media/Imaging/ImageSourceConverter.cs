@@ -5,7 +5,7 @@ using Manta.Controls;
 
 namespace Manta.Media.Imaging;
 
-sealed class ImageSourceConverter : TypeConverter
+public sealed class ImageSourceConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
     {

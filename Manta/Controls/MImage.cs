@@ -170,7 +170,7 @@ public class MImage : ContentControl
                 {
                     cancellationTokenSource.Dispose();
                 }
-            }, CancellationToken.None).ConfigureAwait(false);
+            }, CancellationToken.None).ConfigureAwait(true);
 
             PART_Image.Source = image;
 
