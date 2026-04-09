@@ -10,11 +10,13 @@
     <File Path="Generators.props" />
     <File Path="global.json" />
     <File Path="NuGet.config" />
+    <File Path="publish-macos.sh" />
     <File Path="README.md" />
     <File Path=".globalconfig" />
     <File Path=".gitattributes" />
   </Folder>
   <Folder Name="/_/Native/">
+    <File Path="Native\MantaNative\Sources\MantaNative\Helper.swift" />
     <File Path="Native\MantaNative\Sources\MantaNative\MantaWindow.swift" />
   </Folder>
   <Project Path="Manta.Generators\Manta.Generators.csproj" />
