@@ -120,4 +120,16 @@ public class MProgressRing : ProgressBar
 
         LogicalChildren.Add(newValue);
     }
+
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnAttachedToVisualTree(e);
+        PseudoClasses.Set(":indeterminate", IsIndeterminate);
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnDetachedFromVisualTree(e);
+        PseudoClasses.Set(":indeterminate", false);
+    }
 }
