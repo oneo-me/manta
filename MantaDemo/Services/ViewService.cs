@@ -5,7 +5,7 @@ using MantaDemo.Views;
 
 namespace MantaDemo.Services;
 
-sealed class ViewService
+sealed class ViewService : IDisposable
 {
     readonly ConfigService _configService;
 
@@ -27,7 +27,7 @@ sealed class ViewService
         return string.Equals(_configService.Config.Current, headerRegionModel.Header);
     }
 
-    public void Save()
+    public void Dispose()
     {
         _configService.Config.Current = RegionManager.SelectedItem?.Header ?? string.Empty;
         RegionManager.Dispose();
