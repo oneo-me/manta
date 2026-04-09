@@ -1,0 +1,21 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MRadioButtonView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MRadioButtonView_Model">
+    <Design.DataContext>
+        <local:MRadioButtonView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Border BorderThickness="1">
+                <MRadioButton GroupName="Group1" Header="Option A" />
+            </Border>
+            <MRadioButton GroupName="Group1" IsChecked="True" Header="Option B" Content="This option is selected by default." />
+            <MRadioButton GroupName="Group1" Header="Option C" IsEnabled="False" />
+            <MRadioButton GroupName="Group2" Variant="Bordered" IsChecked="True" Header="Bordered Option" Content="You can select this bordered radio button." />
+            <MRadioButton GroupName="Group2" Variant="Bordered" Header="Bordered Option" Content="You can select this bordered radio button." />
+        </MPanel>
+    </Panel>
+</MView>

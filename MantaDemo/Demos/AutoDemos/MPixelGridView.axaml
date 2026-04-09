@@ -1,0 +1,25 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MPixelGridView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MPixelGridView_Model">
+    <Design.DataContext>
+        <local:MPixelGridView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Panel Background="{MBrush Background}">
+            <MPanel Mode="Horizontal" Spacing="12" Margin="12">
+                <Border BorderThickness="1">
+                    <MPixelGrid Width="100" Height="100" />
+                </Border>
+                <Border BorderThickness="1">
+                    <MPixelGrid Width="100" Height="100" Foreground="Red" />
+                </Border>
+                <Border BorderThickness="1">
+                    <MPixelGrid Width="100" Height="100" Foreground="Blue" Opacity="0.5" />
+                </Border>
+            </MPanel>
+        </Panel>
+    </Panel>
+</MView>

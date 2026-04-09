@@ -1,3 +1,4 @@
+using MantaDemo.Demos.AutoDemos;
 using MantaDemo.Demos.ControlDemos;
 using MantaDemo.Demos.ReactiveDemos;
 using MantaDemo.Demos.StyleDemos;
@@ -27,6 +28,8 @@ sealed class DemoService
 
     public DemoService()
     {
+        _demos.AddRange(AutoDemos.CreateDemos());
+
         _demos.Sort((a, b) =>
         {
             var subGroupComparison = a.SubGroup.CompareTo(b.SubGroup);

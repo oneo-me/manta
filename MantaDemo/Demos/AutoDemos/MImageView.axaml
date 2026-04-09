@@ -1,0 +1,22 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MImageView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MImageView_Model">
+    <Design.DataContext>
+        <local:MImageView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="MImage">
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="Height" Value="100" />
+                </Style>
+            </MPanel.Styles>
+            <MImage Content="Fallback" FontWeight="Bold" Foreground="{MBrush MutedForeground}" CornerRadius="100" ClipToBounds="True" />
+            <MImage Source="https://avatars.githubusercontent.com/u/7909582?v=4" CornerRadius="100" ClipToBounds="True" />
+        </MPanel>
+    </Panel>
+</MView>

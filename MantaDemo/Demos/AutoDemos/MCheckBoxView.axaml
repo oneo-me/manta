@@ -1,0 +1,21 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MCheckBoxView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MCheckBoxView_Model">
+    <Design.DataContext>
+        <local:MCheckBoxView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <Border BorderThickness="1">
+                <MCheckBox Header="Accept terms and conditions" />
+            </Border>
+            <MCheckBox Header="Accept terms and conditions" />
+            <MCheckBox IsChecked="True" Header="Accept terms and conditions" Content="By clicking this checkbox, you agree to the terms and conditions." />
+            <MCheckBox Header="Enable notifications" IsEnabled="False" />
+            <MCheckBox Variant="Bordered" IsChecked="True" Header="Enable notifications" Content="You can enable or disable notifications at any time." />
+        </MPanel>
+    </Panel>
+</MView>

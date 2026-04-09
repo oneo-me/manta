@@ -1,0 +1,15 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MViewHostView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MViewHostView_Model">
+    <Design.DataContext>
+        <local:MViewHostView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MViewHost Width="300" Height="300" BorderThickness="1" />
+        </MPanel>
+    </Panel>
+</MView>
