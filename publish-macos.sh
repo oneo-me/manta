@@ -83,6 +83,7 @@ prune_publish_output() {
 
     find "$directory" -maxdepth 1 \( -name '*.pdb' -o -name '*.dbg' \) -exec rm -f {} +
     find "$directory" -maxdepth 1 -name '*.dSYM' -exec rm -rf {} +
+    rm -f "$directory/MantaDemo.dll.config"
     rm -rf "$directory/runtimes"
 }
 
