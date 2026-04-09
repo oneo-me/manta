@@ -26,7 +26,7 @@ public sealed class MThickness(MSizeVariant variant) : MSizeBase
 
     public string Filter
     {
-        set => value.TryParseEnum(out _filter, '|');
+        set => _ = value.TryParseEnum(out _filter, '|');
     }
 
     public MSizeVariant? Vertical { get; init; }

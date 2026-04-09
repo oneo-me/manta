@@ -5,7 +5,9 @@ using Manta.Reactive.Views;
 
 namespace Manta.Controls;
 
+#pragma warning disable CA1001
 public class MView : ContentControl
+#pragma warning restore CA1001
 {
     CompositeDisposable? _disposables;
 

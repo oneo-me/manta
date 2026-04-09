@@ -3,7 +3,9 @@ using System.Text;
 
 namespace Manta;
 
-sealed class MAppSingleInstance : IDisposable
+#pragma warning disable CA1001
+sealed class MAppSingleInstance
+#pragma warning restore CA1001
 {
     readonly Mutex? _mutex;
     readonly CancellationTokenSource? _cts;

@@ -9,19 +9,4 @@ public static class DisposableExtensions
         compositeDisposable.Add(disposable);
         return disposable;
     }
-
-    extension(object obj)
-    {
-        public void DisposeIfDisposable()
-        {
-            if (obj is IDisposable disposable)
-                disposable.Dispose();
-        }
-
-        public void DisposeWithIfDisposable(CompositeDisposable compositeDisposable)
-        {
-            if (obj is IDisposable disposable)
-                disposable.DisposeWith(compositeDisposable);
-        }
-    }
 }

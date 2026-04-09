@@ -4,41 +4,35 @@ namespace Manta.Extensions;
 
 public static class EnumExtensions
 {
-    extension(string value)
+    public static T ParseEnum<T>(this string value, char space) where T : struct, Enum
     {
-        public T ParseEnum<T>(char space) where T : struct, Enum
-        {
-            var enumerable = value.Split(space).Select(Enum.Parse<T>);
-            return (T)Enum.ToObject(typeof(T), enumerable.Select(e => Convert.ToInt32(e, CultureInfo.InvariantCulture)).Aggregate((a, b) => a | b));
-        }
+        var enumerable = value.Split(space).Select(Enum.Parse<T>);
+        return (T)Enum.ToObject(typeof(T), enumerable.Select(e => Convert.ToInt32(e, CultureInfo.InvariantCulture)).Aggregate((a, b) => a | b));
+    }
 
-        public bool TryParseEnum<T>(out T result, char space) where T : struct, Enum
+    public static bool TryParseEnum<T>(this string value, out T result, char space) where T : struct, Enum
+    {
+        try
         {
-            try
-            {
-                result = value.ParseEnum<T>(space);
-                return true;
-            }
-            catch
-            {
-                result = default;
-                return false;
-            }
+            result = value.ParseEnum<T>(space);
+            return true;
+        }
+        catch
+        {
+            result = default;
+            return false;
         }
     }
 
-    extension<T>(T @enum) where T : Enum
+    public static bool HasFlag<T>(this T @enum, T flag) where T : Enum
     {
-        public bool HasFlag(T flag)
-        {
-            var valueInt = Convert.ToInt32(@enum, CultureInfo.InvariantCulture);
-            var flagInt = Convert.ToInt32(flag, CultureInfo.InvariantCulture);
-            return (valueInt & flagInt) == flagInt;
-        }
+        var valueInt = Convert.ToInt32(@enum, CultureInfo.InvariantCulture);
+        var flagInt = Convert.ToInt32(flag, CultureInfo.InvariantCulture);
+        return (valueInt & flagInt) == flagInt;
+    }
 
-        public TValue HasFlag<TValue>(T flag, TValue value, TValue defaultValue = default) where TValue : struct
-        {
-            return @enum.HasFlag<T>(flag) ? value : defaultValue;
-        }
+    public static TValue HasFlag<T, TValue>(this T @enum, T flag, TValue value, TValue defaultValue = default) where T : Enum where TValue : struct
+    {
+        return @enum.HasFlag<T>(flag) ? value : defaultValue;
     }
 }

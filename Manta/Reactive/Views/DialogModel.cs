@@ -14,22 +14,22 @@ public abstract class DialogModel : WindowModel
 
     public CommandWarper CancelAsyncCommand => GetCommand(async () =>
     {
-        if (await CanCancelAsync() is false)
+        if (await CanCancelAsync().ConfigureAwait(false) is false)
             return;
 
         Result = false;
-        await CloseAsync();
-        await OnCancelAsync();
+        await CloseAsync().ConfigureAwait(false);
+        await OnCancelAsync().ConfigureAwait(false);
     });
 
     public CommandWarper ContinueAsyncCommand => GetCommand(async () =>
     {
-        if (await CanContinueAsync() is false)
+        if (await CanContinueAsync().ConfigureAwait(false) is false)
             return;
 
         Result = true;
-        await CloseAsync();
-        await OnContinueAsync();
+        await CloseAsync().ConfigureAwait(false);
+        await OnContinueAsync().ConfigureAwait(false);
     });
 
     protected virtual Task<bool> CanCancelAsync()
@@ -62,7 +62,7 @@ public abstract class DialogModel : WindowModel
         var view = this.GetView<MView>();
 
         view.BindTitleBarEvents()
-            .DisposeWithIfDisposable(disposables);
+            .DisposeWith(disposables);
     }
 
     public override void OnWindowInitialized(MWindow window)

@@ -16,7 +16,7 @@ using MantaDemo.Services;
 
 namespace MantaDemo.Views;
 
-class OverviewView_Model : HeaderRegionModel
+sealed class OverviewView_Model : HeaderRegionModel
 {
     protected override MView CreateView()
     {

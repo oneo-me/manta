@@ -181,6 +181,11 @@
         "resolved": "3.119.3-preview.1.1",
         "contentHash": "PkMb1pGPBSW3ZL0IVKP9DZs+w065HVs4jGQELsbkmKzKSL5P8KHLkrrmnv2XpFpXtx2njOllB8243N1dBMK+CQ=="
       },
+      "System.IO.Hashing": {
+        "type": "Transitive",
+        "resolved": "10.0.5",
+        "contentHash": "8IBJWcCT9+e4Bmevm4T7+fQEiAh133KGiz4oiVTgJckd3Q76OFdR1falgn9lpz7+C4HJvogCDJeAa2QmvbeVtg=="
+      },
       "System.Reactive": {
         "type": "Transitive",
         "resolved": "6.1.0",
@@ -192,6 +197,7 @@
           "Avalonia.Desktop": "[12.0.0, )",
           "DynamicData": "[9.4.31, )",
           "Manta.Native": "[1.2026.0-dev, )",
+          "System.IO.Hashing": "[10.0.5, )",
           "YamlDotNet": "[16.3.0, )"
         }
       },

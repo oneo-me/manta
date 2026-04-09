@@ -21,14 +21,14 @@ sealed class DialogView_Model : DemoViewModel
 
     public CommandWarper AlertAsyncCommand => GetCommand(async () =>
     {
-        await MAlert.ShowDialogAsync(this, new("This is an alert dialog."));
+        await MAlert.ShowDialogAsync(this, new("This is an alert dialog.")).ConfigureAwait(true);
     });
 
     public CommandWarper ConfirmAsyncCommand => GetCommand(async () =>
     {
-        var result = await MConfirm.ShowDialogAsync(this, new("This is an alert dialog."));
+        var result = await MConfirm.ShowDialogAsync(this, new("This is an alert dialog.")).ConfigureAwait(true);
         if (result)
-            await MAlert.ShowDialogAsync(this, new("You clicked OK."));
+            await MAlert.ShowDialogAsync(this, new("You clicked OK.")).ConfigureAwait(true);
     });
 
     public bool AllowMultiple
@@ -56,12 +56,12 @@ sealed class DialogView_Model : DemoViewModel
                     MimeTypes = ["*/*"]
                 }
             ]
-        });
+        }).ConfigureAwait(true);
 
         if (result.Count == 0)
             return;
 
-        await MAlert.ShowDialogAsync(this, new($"You selected file:\n{string.Join("\n", result.Select(f => f.Name))}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected file:\n{string.Join("\n", result.Select(f => f.Name))}")).ConfigureAwait(true);
     });
 
     public CommandWarper OpenFolderAsyncCommand => GetCommand(async () =>
@@ -70,12 +70,12 @@ sealed class DialogView_Model : DemoViewModel
         {
             Title = "Open a folder",
             AllowMultiple = AllowMultiple
-        });
+        }).ConfigureAwait(true);
 
         if (result.Count == 0)
             return;
 
-        await MAlert.ShowDialogAsync(this, new($"You selected folder:\n{string.Join("\n", result.Select(f => f.Name))}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected folder:\n{string.Join("\n", result.Select(f => f.Name))}")).ConfigureAwait(true);
     });
 
     public CommandWarper SaveFileAsyncCommand => GetCommand(async () =>
@@ -97,11 +97,11 @@ sealed class DialogView_Model : DemoViewModel
                     MimeTypes = ["*/*"]
                 }
             ]
-        });
+        }).ConfigureAwait(true);
 
         if (result is null)
             return;
 
-        await MAlert.ShowDialogAsync(this, new($"You selected file to save:\n{result.Name}"));
+        await MAlert.ShowDialogAsync(this, new($"You selected file to save:\n{result.Name}")).ConfigureAwait(true);
     });
 }

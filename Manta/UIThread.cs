@@ -36,7 +36,7 @@ public static class UIThread
         Dispatcher.CurrentDispatcher.Invoke(action, priority, cancellationToken);
     }
 
-    public static void Invoke(Action action, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
+    public static void Invoke(Action action, DispatcherPriority priority, TimeSpan timeout, CancellationToken cancellationToken)
     {
         Dispatcher.CurrentDispatcher.Invoke(action, priority, cancellationToken, timeout);
     }
@@ -56,7 +56,7 @@ public static class UIThread
         return Dispatcher.CurrentDispatcher.Invoke(func, priority, cancellationToken);
     }
 
-    public static T Invoke<T>(Func<T> func, DispatcherPriority priority, CancellationToken cancellationToken, TimeSpan timeout)
+    public static T Invoke<T>(Func<T> func, DispatcherPriority priority, TimeSpan timeout, CancellationToken cancellationToken)
     {
         return Dispatcher.CurrentDispatcher.Invoke(func, priority, cancellationToken, timeout);
     }

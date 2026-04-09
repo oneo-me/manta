@@ -86,7 +86,7 @@ public sealed class MRadius(MRadiusVariant variant) : MValueBase
 
     public string Filter
     {
-        set => value.TryParseEnum(out _filter, '|');
+        set => _ = value.TryParseEnum(out _filter, '|');
     }
 
     protected override IEnumerable<object> GetKeys()

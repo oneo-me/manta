@@ -16,7 +16,7 @@ sealed class MAppLifetime
     public MAppLifetime(MApp app, Func<WindowModel>? func)
     {
         if (app.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
-            throw new("The application lifetime is not supported.");
+            throw new InvalidOperationException("The application lifetime is not supported.");
 
         _app = app;
         _desktop = desktop;

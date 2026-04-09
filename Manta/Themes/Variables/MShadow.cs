@@ -59,7 +59,7 @@ public sealed class MShadow(MShadowKey key) : MValueBase
                     return default(Thickness);
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new InvalidOperationException($"Unsupported shadow value type: {ValueType}");
             }
 
         switch (ValueType)
@@ -121,7 +121,7 @@ public sealed class MShadow(MShadowKey key) : MValueBase
                 return new Thickness(left, top, right, bottom);
 
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new InvalidOperationException($"Unsupported shadow value type: {ValueType}");
         }
     }
 }

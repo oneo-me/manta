@@ -3,7 +3,7 @@ using Manta.Globalization.Core;
 
 namespace Manta.Globalization;
 
-public static class Extensions
+public static class CultureInfoExtensions
 {
     public static CultureInfo? ToCultureInfo(this LangType langType)
     {

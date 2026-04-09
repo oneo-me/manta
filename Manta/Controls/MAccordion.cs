@@ -9,7 +9,7 @@ namespace Manta.Controls;
 
 public enum MAccordionType
 {
-    Single,
+    Normal,
     Multiple
 }
 
@@ -45,7 +45,7 @@ public class MAccordion : ItemsControl
 
             _ignored = true;
 
-            if (Type != MAccordionType.Single)
+            if (Type != MAccordionType.Normal)
                 return;
 
             foreach (var item in Items)

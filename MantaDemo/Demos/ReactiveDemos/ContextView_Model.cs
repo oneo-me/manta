@@ -17,8 +17,8 @@ sealed class ContextView_Model : DemoViewModel
     public override string Header => LangKey.Demo_Reactive_ViewContext;
 
     public ReactiveValue<bool> TestBool { get; } = new(true);
-    public string Data1 => "Hello, World!";
-    public string Data2 => "Goodbye, World!";
+    public static string Data1 => "Hello, World!";
+    public static string Data2 => "Goodbye, World!";
 
     public ContextView_Model()
     {
