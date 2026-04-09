@@ -6,6 +6,14 @@ namespace Manta.Reactive.Views;
 
 public static class WindowModelExtensions
 {
+    internal static MWindow GetWindowCore(this WindowModel windowModel)
+    {
+        if (windowModel.InnerWindow is null)
+            throw new InvalidOperationException($"Window not found for {windowModel}");
+
+        return windowModel.InnerWindow;
+    }
+
     static T ShowCore<T>(T windowModel, Window? owner = null) where T : WindowModel
     {
         var window = windowModel.CreateWindow();
@@ -72,13 +80,5 @@ public static class WindowModelExtensions
         windowModel.OnWindowInitialized(result);
 
         return result;
-    }
-
-    internal static MWindow GetWindowCore(this WindowModel windowModel)
-    {
-        if (windowModel.InnerWindow is null)
-            throw new InvalidOperationException($"Window not found for {windowModel}");
-
-        return windowModel.InnerWindow;
     }
 }
