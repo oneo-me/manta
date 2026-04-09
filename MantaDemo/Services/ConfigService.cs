@@ -4,7 +4,7 @@ using MantaDemo.Models;
 
 namespace MantaDemo.Services;
 
-sealed class ConfigService
+sealed class ConfigService : IDisposable
 {
     readonly string _configFile;
 
@@ -30,7 +30,7 @@ sealed class ConfigService
         Config ??= new();
     }
 
-    public void Save()
+    public void Dispose()
     {
         try
         {
