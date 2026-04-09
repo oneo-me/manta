@@ -1,0 +1,34 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.ToolTipView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:ToolTipView_Model">
+    <Design.DataContext>
+        <local:ToolTipView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="Border.Test">
+                    <Setter Property="Background" Value="{MBrush Muted}" />
+                    <Setter Property="CornerRadius" Value="{MRadius MD}" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Padding" Value="12" />
+                    <Style Selector="^ > TextBlock">
+                        <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+                    </Style>
+                </Style>
+            </MPanel.Styles>
+            <Border Classes="Test" ToolTip.Tip="ToolTip">
+                <TextBlock Text="ToolTip" />
+            </Border>
+            <Border Classes="Test" ToolTip.Tip="ToolTip">
+                <TextBlock Text="ToolTip" />
+            </Border>
+            <Border Classes="Test" ToolTip.Tip="ToolTip">
+                <TextBlock Text="ToolTip" />
+            </Border>
+        </MPanel>
+    </Panel>
+</MView>

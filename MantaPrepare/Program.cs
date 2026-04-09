@@ -17,17 +17,16 @@ static class Program
             options.ControlsDir = Path.Combine(options.ProjectDir, "Controls");
             options.DesignControlsDir = Path.Combine(options.ControlsDir, "Design");
             options.BaseControlsDir = Path.Combine(options.ControlsDir, "Base");
+            options.AutoDemosDir = Path.Combine(options.SolutionDir, "MantaDemo", "Demos", "AutoDemos");
             options.SupportedControlsDir = Path.Combine(options.BaseControlsDir, "Supported");
             options.UnSupportedControlsDir = Path.Combine(options.BaseControlsDir, "Unsupported");
             options.MantaThemeFile = Path.Combine(options.ProjectDir, "Themes", "MantaTheme.axaml");
-            // options.ThemeSourceFile = Path.Combine(options.SolutionDir, "MantaPrepare", "theme.css");
             options.LightThemeFile = Path.Combine(options.ProjectDir, "Themes", "@Light.axaml");
             options.DarkThemeFile = Path.Combine(options.ProjectDir, "Themes", "@Dark.axaml");
 
-            // Console.WriteLine("Parsing theme CSS...");
-            //
-            // var themeParser = new ThemeParser(options);
-            // themeParser.Parse();
+            Console.WriteLine("Scanning demos...");
+            var demoScanner = new DemosScanner(options);
+            demoScanner.Prepare();
 
             Console.WriteLine("Scanning controls...");
 

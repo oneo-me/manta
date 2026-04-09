@@ -4,7 +4,7 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <!-- Window -->
-        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12" HorizontalAlignment="Left">
             <MPanel.Styles>
                 <Style Selector="Border.Box">
                     <Setter Property="BorderThickness" Value="1" />

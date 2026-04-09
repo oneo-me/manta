@@ -1,0 +1,21 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MButtonSpinnerView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MButtonSpinnerView_Model">
+    <Design.DataContext>
+        <local:MButtonSpinnerView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Text="ButtonSpinner does not require styles" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" AllowSpin="True" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" AllowSpin="False" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" ShowButtonSpinner="False" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" ButtonSpinnerLocation="Left" />
+            <MButtonSpinner CornerRadius="10" Height="30" Content="ButtonSpinner" ButtonSpinnerLocation="Right" />
+        </MPanel>
+    </Panel>
+</MView>

@@ -13,11 +13,11 @@ enum DemoGroup
 
 enum DemoSubGroup
 {
-    None,
-    Advanced,
     Window,
     Custom,
-    Base
+    Advanced,
+    Base,
+    None
 }
 
 abstract class DemoViewModel : ViewModel

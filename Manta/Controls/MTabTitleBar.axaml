@@ -4,11 +4,14 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <!-- Window -->
-        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12">
+        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12" HorizontalAlignment="Left">
             <MPanel.Styles>
                 <Style Selector="Border.Box">
                     <Setter Property="BorderThickness" Value="1" />
                     <Setter Property="CornerRadius" Value="12" />
+                    <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
+                        <Setter Property="CornerRadius" Value="16" />
+                    </Style>
                     <Setter Property="Background" Value="{MBrush Background}" />
                     <Style Selector="^ > Border">
                         <Setter Property="CornerRadius" Value="12" />

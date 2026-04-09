@@ -1,0 +1,17 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MMaskedTextBoxView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MMaskedTextBoxView_Model">
+    <Design.DataContext>
+        <local:MMaskedTextBoxView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="(LLL) 999-0000" />
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="000.000.000.000" />
+            <MMaskedTextBox Width="200" ResetOnSpace="False" Mask="000.000.000.000" IsReadOnly="True" />
+        </MPanel>
+    </Panel>
+</MView>

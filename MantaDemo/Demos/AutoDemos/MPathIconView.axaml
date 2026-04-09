@@ -1,0 +1,16 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MPathIconView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MPathIconView_Model">
+    <Design.DataContext>
+        <local:MPathIconView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPathIcon Data="m6 9 6 6 6-6" />
+            <MPathIcon Data="m6 9 6 6 6-6" UseStroke="True" />
+        </MPanel>
+    </Panel>
+</MView>

@@ -1,0 +1,23 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MNumericUpDownView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MNumericUpDownView_Model">
+    <Design.DataContext>
+        <local:MNumericUpDownView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Width="200">
+            <MNumericUpDown />
+            <MNumericUpDown Value="50" />
+            <MNumericUpDown Value="100" Minimum="0" Maximum="100" />
+            <MNumericUpDown Value="25" Increment="5" />
+            <MNumericUpDown Value="3.14" FormatString="F2" />
+            <MNumericUpDown Value="50" IsReadOnly="True" />
+            <MNumericUpDown PlaceholderText="Enter value..." />
+            <MNumericUpDown PlaceholderText="Enter value..." AllowSpin="False" />
+            <MNumericUpDown PlaceholderText="Enter value..." ButtonSpinnerLocation="Left" />
+        </MPanel>
+    </Panel>
+</MView>
