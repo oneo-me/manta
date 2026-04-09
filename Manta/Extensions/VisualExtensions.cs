@@ -5,7 +5,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.VisualTree;
-using Manta.Ava;
 using Manta.Controls;
 using Manta.Reactive.Extensions;
 using Observable = System.Reactive.Linq.Observable;
@@ -87,7 +86,7 @@ public static class VisualExtensions
             if (window is not null)
                 return window;
 
-            if (inputElement.GetVisualRoot() is Window newWindow)
+            if (TopLevel.GetTopLevel(inputElement) is Window newWindow)
                 return window = newWindow;
 
             return window;
@@ -96,7 +95,7 @@ public static class VisualExtensions
 
     public static IObservable<WindowStatus> GetWindowStatusObservable(this MView view)
     {
-        if (view.GetVisualRoot() is not Window window)
+        if (TopLevel.GetTopLevel(view) is not Window window)
             return Observable.Empty<WindowStatus>();
 
         return window.GetWindowStatusObservable();

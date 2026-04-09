@@ -57,19 +57,15 @@ public class CommandWarper : Model, ICommand
     {
         try
         {
+            if (IsExecuting)
+                return;
+
             if (_asyncExecute is not null)
             {
                 IsExecuting = true;
                 OnChanged();
-                try
-                {
-                    await _asyncExecute(parameter).ConfigureAwait(false);
-                }
-                finally
-                {
-                    IsExecuting = false;
-                    OnChanged();
-                }
+
+                await _asyncExecute(parameter).ConfigureAwait(true);
             }
             else
             {
@@ -79,6 +75,14 @@ public class CommandWarper : Model, ICommand
         catch (Exception e)
         {
             MApp.Current.OnExceptionAction(e);
+        }
+        finally
+        {
+            if (_asyncExecute is not null)
+            {
+                IsExecuting = false;
+                OnChanged();
+            }
         }
     }
 }
