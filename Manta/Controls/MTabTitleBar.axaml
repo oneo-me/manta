@@ -58,6 +58,25 @@
                                 <Ellipse Width="12" Height="12" Fill="#61C554" />
                             </MPanel>
                             <MTabTitleBar>
+                                <MTabTitleBarItem Content="TabItem 1" />
+                                <MTabTitleBarItem Content="TabItem 2" IsSelected="True" />
+                            </MTabTitleBar>
+                        </Panel>
+                    </Grid>
+                </Border>
+            </Border>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar>
                                 <MTabTitleBar.RightContent>
                                     <MPanel Mode="Horizontal">
                                         <MTitleBarButton Content="Button" />
@@ -94,8 +113,9 @@
                                ShowContentBorder="False">
                         <Grid ColumnDefinitions="* Auto">
                             <DockPanel Grid.Column="0">
-                                <MScrollViewer Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" ClipToBounds="True">
-                                    <Panel Name="PART_BorderHost" Margin="-1 0">
+                                <MScrollViewer Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" ClipToBounds="True"
+                                               Margin="-1 0" Padding="0 0 -1 0">
+                                    <Panel Name="PART_BorderHost">
                                         <Border Name="PART_Border" />
                                         <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                                     </Panel>
@@ -123,7 +143,7 @@
         <Style Selector="^ /template/ Border#PART_Border">
             <Setter Property="BorderBrush" Value="{MBrush Border}" />
             <Setter Property="Background" Value="{OnTheme {MBrush Background, Opacity=0.8}, Dark={MBrush Background, Opacity=0.3}}" />
-            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Right}" />
             <Setter Property="Width" Value="0" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Transitions">
@@ -160,11 +180,14 @@
         <Setter Property="Background" Value="#00000000" />
         <Setter Property="Padding" Value="14 0" />
         <Setter Property="BorderBrush" Value="{MBrush Border}" />
-        <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Left|Bottom}" />
+        <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Right|Bottom}" />
         <Setter Property="Foreground" Value="{MBrush Foreground, Opacity=0.5}" />
         <Style Selector="^:selected">
             <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0}" />
             <Setter Property="Foreground" Value="{MBrush Foreground}" />
+        </Style>
+        <Style Selector="^:nth-last-child(1)">
+            <Setter Property="BorderThickness" Value="{MThickness Px, Filter=Bottom}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
