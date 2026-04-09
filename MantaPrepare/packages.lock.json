@@ -16,6 +16,12 @@
           "Avalonia.X11": "12.0.0"
         }
       },
+      "Tmds.DBus.Protocol": {
+        "type": "Direct",
+        "requested": "[0.92.0, )",
+        "resolved": "0.92.0",
+        "contentHash": "h7IMakm0PF2jxiagoysoAjrzzLQ0UBdnSXQL5kb17YW0Fvyo12Tg96A99QkzwktWRrd7H+Uw9EzjasNLUfGYlA=="
+      },
       "Avalonia": {
         "type": "Transitive",
         "resolved": "12.0.0",
@@ -173,11 +179,6 @@
         "type": "Transitive",
         "resolved": "3.119.3-preview.1.1",
         "contentHash": "PkMb1pGPBSW3ZL0IVKP9DZs+w065HVs4jGQELsbkmKzKSL5P8KHLkrrmnv2XpFpXtx2njOllB8243N1dBMK+CQ=="
-      },
-      "Tmds.DBus.Protocol": {
-        "type": "Transitive",
-        "resolved": "0.90.3",
-        "contentHash": "T5BqXZb3Lqg+5yKInnW+hPtv/lzW8S8tZbLKFCbzgFF6iy4w5O3MDNzppgQfudR1nqMSpSDjX7w9OmDljV4GyA=="
       }
     }
   }

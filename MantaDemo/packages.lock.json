@@ -186,11 +186,6 @@
         "resolved": "6.1.0",
         "contentHash": "M5cCC1ZMkZr9jbSQGTHnVkb5TDN67qWCV7AP8TAHdGkvDlu0puT5NzemESNn9+HkYIDpWpocP68/i+/ame2/2w=="
       },
-      "Tmds.DBus.Protocol": {
-        "type": "Transitive",
-        "resolved": "0.90.3",
-        "contentHash": "T5BqXZb3Lqg+5yKInnW+hPtv/lzW8S8tZbLKFCbzgFF6iy4w5O3MDNzppgQfudR1nqMSpSDjX7w9OmDljV4GyA=="
-      },
       "manta": {
         "type": "Project",
         "dependencies": {
@@ -203,7 +198,8 @@
       "manta.native": {
         "type": "Project",
         "dependencies": {
-          "Avalonia.Desktop": "[12.0.0, )"
+          "Avalonia.Desktop": "[12.0.0, )",
+          "Tmds.DBus.Protocol": "[0.92.0, )"
         }
       },
       "Avalonia.Desktop": {
@@ -228,6 +224,12 @@
         "dependencies": {
           "System.Reactive": "6.1.0"
         }
+      },
+      "Tmds.DBus.Protocol": {
+        "type": "CentralTransitive",
+        "requested": "[0.92.0, )",
+        "resolved": "0.92.0",
+        "contentHash": "h7IMakm0PF2jxiagoysoAjrzzLQ0UBdnSXQL5kb17YW0Fvyo12Tg96A99QkzwktWRrd7H+Uw9EzjasNLUfGYlA=="
       },
       "YamlDotNet": {
         "type": "CentralTransitive",
