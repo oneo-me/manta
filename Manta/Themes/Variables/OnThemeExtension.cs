@@ -58,7 +58,7 @@ public sealed class OnThemeExtension(object def) : MarkupExtension, IMultiValueC
         return multiBinding;
     }
 
-    void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
+    static void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
     {
         if (value is BindingBase keyBinding)
             multiBinding.Bindings.Add(keyBinding);

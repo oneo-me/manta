@@ -14,7 +14,7 @@ sealed class ContextViewChild_Model : ViewModel
     public ViewContext<string> Data1 => GetContext<string>("Data1");
     public ViewContext<string> Data2 => GetContext<string>("Data2");
 
-    public string Data3 => "ContextViewChild Data3";
+    public static string Data3 => "ContextViewChild Data3";
 
     public ContextViewChild_Model()
     {

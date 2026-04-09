@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using System.Reactive.Concurrency;
-using System.Security.Cryptography;
-using System.Text;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -20,7 +18,7 @@ public abstract partial class MApp : Application
 {
     static MApp? _current;
 
-    public new static MApp Current => _current ?? throw new("The application is not initialized.");
+    public new static MApp Current => _current ?? throw new InvalidOperationException("The application is not initialized.");
 
     internal Action<Exception> OnExceptionAction { get; private set; }
 
@@ -56,7 +54,7 @@ public abstract partial class MApp : Application
         if (Design.IsDesignMode)
             return;
 
-        AvaloniaScheduler.Instance.Schedule(() => throw new("An unhandled exception has occurred.", exception));
+        AvaloniaScheduler.Instance.Schedule(() => throw new AggregateException("An unhandled exception occurred.", exception));
     }
 
     public Bitmap? Icon { get; protected init; }
@@ -102,8 +100,7 @@ public abstract partial class MApp : Application
         if (Design.IsDesignMode is false && SupportMultipleInstances is false)
         {
             var instanceName = GetType().FullName!;
-            var hash = MD5.HashData(Encoding.UTF8.GetBytes(instanceName));
-            instanceName = Convert.ToHexString(hash);
+            instanceName = instanceName.GetHashHex();
 
             _singleInstance = new($"{nameof(Manta)}_{instanceName}");
             _singleInstance.ReOpen += (_, args) => OnReOpen(args);

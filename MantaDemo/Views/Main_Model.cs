@@ -58,7 +58,7 @@ sealed class Main_Model : WindowModel
 
     public CommandWarper OpenSettingsAsyncCommand => GetCommand(async () =>
     {
-        await new SettingsView_Model().ShowDialogAsync(this);
+        await new SettingsView_Model().ShowDialogAsync(this).ConfigureAwait(true);
     });
 
     public IconSource ThemeIcon

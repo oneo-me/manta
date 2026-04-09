@@ -8,104 +8,101 @@ namespace Manta.Reactive.Views;
 
 public static class ViewModelExtensions
 {
-    extension(ViewModel viewModel)
+    internal static MView BuildView(this ViewModel viewModel)
     {
-        internal MView BuildView()
-        {
-            if (viewModel.InnerView is not null)
-                return viewModel.InnerView;
-
-            var view = viewModel.CreateView();
-            viewModel.InnerView = view;
-            view.DataContext = viewModel;
-            return view;
-        }
-
-        public MView GetView()
-        {
-            if (viewModel.InnerView is null)
-                throw new InvalidOperationException($"View not found for {viewModel}");
-
+        if (viewModel.InnerView is not null)
             return viewModel.InnerView;
-        }
 
-        public T GetView<T>() where T : MView
-        {
-            if (viewModel.GetView() is T view)
-                return view;
+        var view = viewModel.CreateView();
+        viewModel.InnerView = view;
+        view.DataContext = viewModel;
+        return view;
+    }
 
-            throw new InvalidOperationException($"View is not of type {typeof(T)}");
-        }
+    public static MView GetView(this ViewModel viewModel)
+    {
+        if (viewModel.InnerView is null)
+            throw new InvalidOperationException($"View not found for {viewModel}");
 
-        Window? GetWindowCore()
-        {
-            var view = viewModel.GetView();
-            return view.GetVisualRoot() as Window;
-        }
+        return viewModel.InnerView;
+    }
 
-        public async Task<Window> GetWindowAsync()
-        {
-            if (viewModel is WindowModel windowModel)
-                return windowModel.GetWindowCore();
+    public static T GetView<T>(this ViewModel viewModel) where T : MView
+    {
+        if (viewModel.GetView() is T view)
+            return view;
 
-            Window? window;
+        throw new InvalidOperationException($"View is not of type {typeof(T)}");
+    }
 
-            if (UIThread.CheckAccess())
-                window = viewModel.GetWindowCore();
-            else
-                window = await UIThread.InvokeAsync(viewModel.GetWindowCore);
+    static Window? GetWindowCore(this ViewModel viewModel)
+    {
+        var view = viewModel.GetView();
+        return view.GetVisualRoot() as Window;
+    }
 
-            if (window is null)
-                throw new InvalidOperationException($"Window not found for {viewModel}");
+    public static async Task<Window> GetWindowAsync(this ViewModel viewModel)
+    {
+        if (viewModel is WindowModel windowModel)
+            return windowModel.GetWindowCore();
 
-            return window;
-        }
+        Window? window;
 
-        public async Task<IReadOnlyList<IStorageFile>> OpenFilePickerAsync(FilePickerOpenOptions options)
-        {
-            var window = await viewModel.GetWindowAsync();
+        if (UIThread.CheckAccess())
+            window = viewModel.GetWindowCore();
+        else
+            window = await UIThread.InvokeAsync(viewModel.GetWindowCore);
 
-            if (UIThread.CheckAccess())
-                return await window.StorageProvider.OpenFilePickerAsync(options);
+        if (window is null)
+            throw new InvalidOperationException($"Window not found for {viewModel}");
 
-            return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFilePickerAsync(options));
-        }
+        return window;
+    }
 
-        public async Task<IReadOnlyList<IStorageFolder>> OpenFolderPickerAsync(FolderPickerOpenOptions options)
-        {
-            var window = await viewModel.GetWindowAsync();
+    public static async Task<IReadOnlyList<IStorageFile>> OpenFilePickerAsync(this ViewModel viewModel, FilePickerOpenOptions options)
+    {
+        var window = await viewModel.GetWindowAsync().ConfigureAwait(false);
 
-            if (UIThread.CheckAccess())
-                return await window.StorageProvider.OpenFolderPickerAsync(options);
+        if (UIThread.CheckAccess())
+            return await window.StorageProvider.OpenFilePickerAsync(options).ConfigureAwait(false);
 
-            return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFolderPickerAsync(options));
-        }
+        return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFilePickerAsync(options)).ConfigureAwait(false);
+    }
 
-        public async Task<IStorageFile?> SaveFilePickerAsync(FilePickerSaveOptions options)
-        {
-            var window = await viewModel.GetWindowAsync();
+    public static async Task<IReadOnlyList<IStorageFolder>> OpenFolderPickerAsync(this ViewModel viewModel, FolderPickerOpenOptions options)
+    {
+        var window = await viewModel.GetWindowAsync().ConfigureAwait(false);
 
-            if (UIThread.CheckAccess())
-                return await window.StorageProvider.SaveFilePickerAsync(options);
+        if (UIThread.CheckAccess())
+            return await window.StorageProvider.OpenFolderPickerAsync(options).ConfigureAwait(false);
 
-            return await UIThread.InvokeAsync(() => window.StorageProvider.SaveFilePickerAsync(options));
-        }
+        return await UIThread.InvokeAsync(() => window.StorageProvider.OpenFolderPickerAsync(options)).ConfigureAwait(false);
+    }
 
-        public async Task<IClipboard> GetClipboardAsync()
-        {
-            var window = await viewModel.GetWindowAsync();
+    public static async Task<IStorageFile?> SaveFilePickerAsync(this ViewModel viewModel, FilePickerSaveOptions options)
+    {
+        var window = await viewModel.GetWindowAsync().ConfigureAwait(false);
 
-            IClipboard? clipboard;
+        if (UIThread.CheckAccess())
+            return await window.StorageProvider.SaveFilePickerAsync(options).ConfigureAwait(false);
 
-            if (UIThread.CheckAccess())
-                clipboard = window.Clipboard;
-            else
-                clipboard = await UIThread.InvokeAsync(() => window.Clipboard);
+        return await UIThread.InvokeAsync(() => window.StorageProvider.SaveFilePickerAsync(options)).ConfigureAwait(false);
+    }
 
-            if (clipboard is null)
-                throw new InvalidOperationException("Clipboard not available");
+    public static async Task<IClipboard> GetClipboardAsync(this ViewModel viewModel)
+    {
+        var window = await viewModel.GetWindowAsync().ConfigureAwait(false);
 
-            return clipboard;
-        }
+        IClipboard? clipboard;
+
+        if (UIThread.CheckAccess())
+            clipboard = window.Clipboard;
+        else
+            clipboard = await UIThread.InvokeAsync(() => window.Clipboard);
+
+        if (clipboard is null)
+            throw new InvalidOperationException("Clipboard not available");
+
+        return clipboard;
     }
 }

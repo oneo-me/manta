@@ -15,7 +15,9 @@ namespace Manta.Controls;
 [TemplatePart(nameof(PART_Spacing), typeof(Border))]
 [TemplatePart(nameof(PART_Title), typeof(TextBlock))]
 [TemplatePart(nameof(PART_Buttons), typeof(MTitleBarButtons))]
+#pragma warning disable CA1001
 public class MTitleBar : ContentControl
+#pragma warning restore CA1001
 {
     public static readonly StyledProperty<bool> ShowContentBorderProperty = AvaloniaProperty.Register<MTitleBar, bool>(
         nameof(ShowContentBorder), true);
@@ -101,7 +103,9 @@ public class MTitleBar : ContentControl
 [TemplatePart(nameof(PART_MinimizeButton), typeof(MTitleBarButton))]
 [TemplatePart(nameof(PART_MaximizeRestoreButton), typeof(MTitleBarButton))]
 [TemplatePart(nameof(PART_CloseButton), typeof(MTitleBarButton))]
+#pragma warning disable CA1001
 public class MTitleBarButtons : ContentControl
+#pragma warning restore CA1001
 {
     MTitleBarButton? PART_FullScreenButton;
     MTitleBarButton? PART_MinimizeButton;

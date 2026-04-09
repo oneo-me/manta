@@ -63,7 +63,7 @@ public class CommandWarper : Model, ICommand
                 OnChanged();
                 try
                 {
-                    await _asyncExecute(parameter);
+                    await _asyncExecute(parameter).ConfigureAwait(false);
                 }
                 finally
                 {

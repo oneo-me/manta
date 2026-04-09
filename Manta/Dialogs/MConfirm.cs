@@ -34,7 +34,7 @@ public static class MConfirm
             ContinueButtonVariant = options.ContinueButtonVariant
         };
 
-        await dialogModel.ShowDialogAsync(parent);
+        await dialogModel.ShowDialogAsync(parent).ConfigureAwait(false);
 
         return dialogModel.Result;
     }

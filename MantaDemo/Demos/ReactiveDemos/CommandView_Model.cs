@@ -43,7 +43,7 @@ sealed class CommandView_Model : DemoViewModel
 
     public CommandWarper ExecuteAsyncCommand => GetCommand(async () =>
     {
-        await Task.Delay(3000);
+        await Task.Delay(3000).ConfigureAwait(true);
         ClickCount++;
     }, () => CanExecuted);
 

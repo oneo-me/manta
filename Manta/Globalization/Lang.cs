@@ -51,10 +51,11 @@ public static class Lang
     {
         var langType = options.LangType ?? Current;
         var langStr = GetString(langType, options.LangKey, options.DefValue ?? options.LangKey);
-        if (options.Args is null)
+        var langArgs = options.GetArgs();
+        if (langArgs is null)
             return langStr;
 
-        return string.Format(Current.ToCultureInfo(), langStr, options.Args);
+        return string.Format(Current.ToCultureInfo(), langStr, langArgs);
     }
 
     public static BindingBase GetBinding(LangGetOptions options)
@@ -65,18 +66,20 @@ public static class Lang
             DefValue = options.DefValue ?? options.LangKey
         };
 
-        if (options.Args is not null)
+        var langArgs = options.GetArgs();
+
+        if (langArgs is not null)
         {
-            if (options.Args.Length > 0)
-                langExtension.Data1 = options.Args[0];
-            if (options.Args.Length > 1)
-                langExtension.Data2 = options.Args[1];
-            if (options.Args.Length > 2)
-                langExtension.Data3 = options.Args[2];
-            if (options.Args.Length > 3)
-                langExtension.Data4 = options.Args[3];
-            if (options.Args.Length > 4)
-                langExtension.Data5 = options.Args[4];
+            if (langArgs.Length > 0)
+                langExtension.Data1 = langArgs[0];
+            if (langArgs.Length > 1)
+                langExtension.Data2 = langArgs[1];
+            if (langArgs.Length > 2)
+                langExtension.Data3 = langArgs[2];
+            if (langArgs.Length > 3)
+                langExtension.Data4 = langArgs[3];
+            if (langArgs.Length > 4)
+                langExtension.Data5 = langArgs[4];
         }
 
         return langExtension.ToBinding();

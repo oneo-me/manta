@@ -35,7 +35,7 @@ public abstract class LangExtensionBase : MarkupExtension, IMultiValueConverter
         return ProcessValues(values);
     }
 
-    protected void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
+    protected static void BindingValue<TIn, TOut>(MultiBinding multiBinding, object? value, TIn source, Expression<Func<TIn, TOut>> expression)
     {
         if (value is BindingBase keyBinding)
             multiBinding.Bindings.Add(keyBinding);

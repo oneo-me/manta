@@ -1,7 +1,6 @@
-using System.Security.Cryptography;
-using System.Text;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Manta.Extensions;
 using Manta.Logging;
 using Manta.Media.Imaging;
 
@@ -20,22 +19,25 @@ public sealed class ImageLoadService
     {
         var locks = new SemaphoreSlim[count];
         for (var i = 0; i < count; i++)
-            locks[i] = new SemaphoreSlim(1, 1);
+            locks[i] = new(1, 1);
         return locks;
     }
 
-    SemaphoreSlim GetLock(string key) => _locks[(uint)key.GetHashCode() % LockCount];
+    SemaphoreSlim GetLock(string key)
+    {
+        return _locks[(uint)key.GetHashCode() % LockCount];
+    }
 
     internal async Task<Bitmap?> LoadAsync(IImageSource source, CancellationToken cancellationToken)
     {
         if (source is AvaloniaImageSource avaloniaImageSource)
-            return await LoadAvaloniaImageAsync(avaloniaImageSource);
+            return await LoadAvaloniaImageAsync(avaloniaImageSource).ConfigureAwait(false);
 
         if (source is LocalImageSource localImageSource)
-            return await LoadLocalImageAsync(localImageSource, cancellationToken);
+            return await LoadLocalImageAsync(localImageSource, cancellationToken).ConfigureAwait(false);
 
         if (source is WebImageSource webImageSource)
-            return await LoadWebImageAsync(webImageSource, cancellationToken);
+            return await LoadWebImageAsync(webImageSource, cancellationToken).ConfigureAwait(false);
 
         if (source is BitmapImageSource bitmapImageSource)
             return bitmapImageSource.Bitmap;
@@ -48,7 +50,7 @@ public sealed class ImageLoadService
         if (string.IsNullOrWhiteSpace(CacheDirectory) || Directory.Exists(CacheDirectory) is false)
             return string.Empty;
 
-        var md5 = GetMd5Hash(source);
+        var md5 = source.GetHashHex();
         return Path.Combine(CacheDirectory!, $"{md5}.png");
     }
 
@@ -58,7 +60,7 @@ public sealed class ImageLoadService
             return null;
 
         var semaphore = GetLock(source.LocalPath);
-        await semaphore.WaitAsync(cancellationToken);
+        await semaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
             // load from cache first
@@ -71,17 +73,24 @@ public sealed class ImageLoadService
             }
 
             // load from local file
-            await using var fileStream = File.OpenRead(source.LocalPath);
-
-            // cache the file
-            if (string.IsNullOrWhiteSpace(cachedFile) is false)
+            var fileStream = File.OpenRead(source.LocalPath);
+            try
             {
-                await using var cacheStream = File.Create(cachedFile);
-                await fileStream.CopyToAsync(cacheStream, cancellationToken);
-                fileStream.Position = 0;
-            }
+                // cache the file
+                if (string.IsNullOrWhiteSpace(cachedFile) is false)
+                {
+                    var cacheStream = File.Create(cachedFile);
+                    await fileStream.CopyToAsync(cacheStream, cancellationToken).ConfigureAwait(false);
+                    await cacheStream.DisposeAsync().ConfigureAwait(false);
+                    fileStream.Position = 0;
+                }
 
-            return new(fileStream);
+                return new(fileStream);
+            }
+            finally
+            {
+                await fileStream.DisposeAsync().ConfigureAwait(false);
+            }
         }
         finally
         {
@@ -93,7 +102,7 @@ public sealed class ImageLoadService
     {
         var uri = source.Uri.ToString();
         var semaphore = GetLock(uri);
-        await semaphore.WaitAsync(cancellationToken);
+        await semaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
             // load from cache first
@@ -106,16 +115,23 @@ public sealed class ImageLoadService
             }
 
             // download from web
-            var data = await HttpClient.GetByteArrayAsync(source.Uri, cancellationToken);
+            var data = await HttpClient.GetByteArrayAsync(source.Uri, cancellationToken).ConfigureAwait(false);
             if (data.Length == 0)
                 return null;
 
             // cache the file
             if (string.IsNullOrWhiteSpace(cachedFile) is false)
-                await File.WriteAllBytesAsync(cachedFile, data, cancellationToken);
+                await File.WriteAllBytesAsync(cachedFile, data, cancellationToken).ConfigureAwait(false);
 
-            await using var memoryStream = new MemoryStream(data);
-            return new(memoryStream);
+            var memoryStream = new MemoryStream(data);
+            try
+            {
+                return new(memoryStream);
+            }
+            finally
+            {
+                await memoryStream.DisposeAsync().ConfigureAwait(false);
+            }
         }
         finally
         {
@@ -145,12 +161,5 @@ public sealed class ImageLoadService
 
             return null;
         }
-    }
-
-    static string GetMd5Hash(string input)
-    {
-        var inputBytes = Encoding.UTF8.GetBytes(input);
-        var hashBytes = MD5.HashData(inputBytes);
-        return Convert.ToHexString(hashBytes).Replace("-", "");
     }
 }

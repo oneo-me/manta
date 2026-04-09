@@ -138,7 +138,7 @@ public sealed class MIcon : TemplatedControl
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new InvalidOperationException($"Unsupported IconStyle: {IconStyle}");
             }
 
             _panel.Children.Add(shape);

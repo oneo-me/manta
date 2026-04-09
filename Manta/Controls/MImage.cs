@@ -130,7 +130,7 @@ public class MImage : ContentControl
             try
             {
                 if (oldCancellationToken is not null)
-                    await oldCancellationToken.CancelAsync();
+                    await oldCancellationToken.CancelAsync().ConfigureAwait(false);
             }
             catch
             {
@@ -156,10 +156,10 @@ public class MImage : ContentControl
             {
                 try
                 {
-                    await Task.Delay(10, cancellationTokenSource.Token);
+                    await Task.Delay(10, cancellationTokenSource.Token).ConfigureAwait(false);
 
                     var imageLoadService = Service.GetService<ImageLoadService>();
-                    return await imageLoadService.LoadAsync(source, cancellationTokenSource.Token);
+                    return await imageLoadService.LoadAsync(source, cancellationTokenSource.Token).ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
@@ -170,7 +170,7 @@ public class MImage : ContentControl
                 {
                     cancellationTokenSource.Dispose();
                 }
-            }, CancellationToken.None);
+            }, CancellationToken.None).ConfigureAwait(false);
 
             PART_Image.Source = image;
 

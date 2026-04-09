@@ -1,6 +1,6 @@
 namespace Manta.Globalization.Core;
 
-public static class Extensions
+public static class LangExtensions
 {
     public static LangMetadata GetMetadata(this LangType langType)
     {

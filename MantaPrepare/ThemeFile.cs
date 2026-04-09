@@ -2,7 +2,7 @@ namespace MantaPrepare;
 
 sealed class ThemeFile(Options options)
 {
-    static IReadOnlyCollection<string> GetXamlFiles(string directory)
+    static List<string> GetXamlFiles(string directory)
     {
         var files = new List<string>();
         foreach (var file in Directory.GetFiles(directory, "*.axaml", SearchOption.TopDirectoryOnly))

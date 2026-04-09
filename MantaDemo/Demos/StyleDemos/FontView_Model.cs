@@ -32,7 +32,7 @@ sealed class FontView_Model : DemoViewModel
 
     public CommandWarper<FontFamily> CopyAsyncCommand => GetCommand<FontFamily>(async font =>
     {
-        var clipboard = await this.GetClipboardAsync();
-        await clipboard.SetTextAsync(font.Name);
+        var clipboard = await this.GetClipboardAsync().ConfigureAwait(true);
+        await clipboard.SetTextAsync(font.Name).ConfigureAwait(true);
     });
 }
