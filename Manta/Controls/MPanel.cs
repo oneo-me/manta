@@ -70,7 +70,7 @@ public class MPanel : MPanelBase
             MPanelMode.WaterfallBest     => WaterfallLayout.Measure(this, children, availableSize, true),
             MPanelMode.VerticalUniform   => VerticalUniformLayout.Measure(this, children, availableSize),
             MPanelMode.HorizontalUniform => HorizontalUniformLayout.Measure(this, children, availableSize),
-            _                             => throw new ArgumentOutOfRangeException(nameof(Mode))
+            _                            => throw new ArgumentOutOfRangeException(nameof(Mode))
         };
     }
 

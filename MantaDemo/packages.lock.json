@@ -2,20 +2,17 @@
   "version": 2,
   "dependencies": {
     "net10.0": {
-      "Manta.Generators": {
-        "type": "Direct",
-        "requested": "[1.2026.12, )",
-        "resolved": "1.2026.12",
-        "contentHash": "sEh1uVVGWxlJyxqB2E4pfOqwYLz0GCeTXE6zadKP2dF5ES3jS0vvK4q5EhoojYK7T1g93Bc3vu+odosKOTs6fQ==",
-        "dependencies": {
-          "YamlDotNet": "16.3.0"
-        }
-      },
       "Microsoft.NET.ILLink.Tasks": {
         "type": "Direct",
         "requested": "[10.0.5, )",
         "resolved": "10.0.5",
         "contentHash": "A+5ZuQ0f449tM+MQrhf6R9ZX7lYpjk/ODEwLYKrnF6111rtARx8fVsm4YznUnQiKnnXfaXNBqgxmil6RW3L3SA=="
+      },
+      "YamlDotNet": {
+        "type": "Direct",
+        "requested": "[17.0.0, )",
+        "resolved": "17.0.0",
+        "contentHash": "mqRrb+XA8PMI53nP3JqgElUuRB79r6ySYulfPG/O/NvavZZZdv6IjwlhjeeGyOv6rLSSygyzDnSL4qpKaHWfKQ=="
       },
       "Avalonia": {
         "type": "Transitive",
@@ -175,11 +172,6 @@
         "resolved": "3.119.3-preview.1.1",
         "contentHash": "PkMb1pGPBSW3ZL0IVKP9DZs+w065HVs4jGQELsbkmKzKSL5P8KHLkrrmnv2XpFpXtx2njOllB8243N1dBMK+CQ=="
       },
-      "System.IO.Hashing": {
-        "type": "Transitive",
-        "resolved": "10.0.5",
-        "contentHash": "8IBJWcCT9+e4Bmevm4T7+fQEiAh133KGiz4oiVTgJckd3Q76OFdR1falgn9lpz7+C4HJvogCDJeAa2QmvbeVtg=="
-      },
       "System.Reactive": {
         "type": "Transitive",
         "resolved": "6.1.0",
@@ -191,8 +183,7 @@
           "Avalonia.Desktop": "[12.0.0, )",
           "DynamicData": "[9.4.31, )",
           "Manta.Native": "[1.2026.0-dev, )",
-          "System.IO.Hashing": "[10.0.5, )",
-          "YamlDotNet": "[17.0.0, )"
+          "System.IO.Hashing": "[10.0.5, )"
         }
       },
       "manta.native": {
@@ -225,17 +216,17 @@
           "System.Reactive": "6.1.0"
         }
       },
+      "System.IO.Hashing": {
+        "type": "CentralTransitive",
+        "requested": "[10.0.5, )",
+        "resolved": "10.0.5",
+        "contentHash": "8IBJWcCT9+e4Bmevm4T7+fQEiAh133KGiz4oiVTgJckd3Q76OFdR1falgn9lpz7+C4HJvogCDJeAa2QmvbeVtg=="
+      },
       "Tmds.DBus.Protocol": {
         "type": "CentralTransitive",
         "requested": "[0.92.0, )",
         "resolved": "0.92.0",
         "contentHash": "h7IMakm0PF2jxiagoysoAjrzzLQ0UBdnSXQL5kb17YW0Fvyo12Tg96A99QkzwktWRrd7H+Uw9EzjasNLUfGYlA=="
-      },
-      "YamlDotNet": {
-        "type": "CentralTransitive",
-        "requested": "[17.0.0, )",
-        "resolved": "17.0.0",
-        "contentHash": "mqRrb+XA8PMI53nP3JqgElUuRB79r6ySYulfPG/O/NvavZZZdv6IjwlhjeeGyOv6rLSSygyzDnSL4qpKaHWfKQ=="
       }
     }
   }

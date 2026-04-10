@@ -11,6 +11,7 @@ using Manta.Logging;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Services;
 using Manta.Services;
+using LangData = Manta.Langs.InnerLangData;
 
 namespace Manta;
 
@@ -139,7 +140,7 @@ public abstract partial class MApp : Application
         else
             Log.AddLogger(new ConsoleLogger(LogTimeType.DateTime, LogLevel.All));
 
-        Lang.Register(LangData.LoadFromAssembly(typeof(MApp).Assembly));
+        Lang.Register(LangData.Load());
         Lang.Source.Refresh();
 
         Service.Register(new ImageLoadService());

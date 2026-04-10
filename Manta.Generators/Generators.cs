@@ -1,4 +1,4 @@
-﻿using Manta.Generators.LangKey;
+using Manta.Generators.Lang;
 using Microsoft.CodeAnalysis;
 
 namespace Manta.Generators;
@@ -10,7 +10,7 @@ public class Generators : IIncrementalGenerator
 
     public Generators()
     {
-        _generators.Add(new LangKeyGenerator());
+        _generators.Add(new LangGenerator());
     }
 
     public void Initialize(IncrementalGeneratorInitializationContext context)

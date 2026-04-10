@@ -4,7 +4,6 @@
         <PackageReference Include="Avalonia.Desktop" />
         <PackageReference Include="DynamicData" />
         <PackageReference Include="System.IO.Hashing" />
-        <PackageReference Include="YamlDotNet" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Manta.Native\Manta.Native.csproj" />

@@ -1,27 +1,27 @@
 <Solution>
-  <Folder Name="/.github/" />
-  <Folder Name="/.github/workflows/">
-    <File Path=".github\workflows\dotnet.yml" />
-  </Folder>
-  <Folder Name="/_/">
-    <File Path="Directory.Build.props" />
-    <File Path=".gitignore" />
-    <File Path="Directory.Packages.props" />
-    <File Path="Generators.props" />
-    <File Path="global.json" />
-    <File Path="NuGet.config" />
-    <File Path="publish-macos.sh" />
-    <File Path="README.md" />
-    <File Path=".globalconfig" />
-    <File Path=".gitattributes" />
-  </Folder>
-  <Folder Name="/_/Native/">
-    <File Path="Native\MantaNative\Sources\MantaNative\Helper.swift" />
-    <File Path="Native\MantaNative\Sources\MantaNative\MantaWindow.swift" />
-  </Folder>
-  <Project Path="Manta.Generators\Manta.Generators.csproj" />
-  <Project Path="Manta.Native/Manta.Native.csproj" />
-  <Project Path="MantaDemo\MantaDemo.csproj" />
-  <Project Path="MantaPrepare\MantaPrepare.csproj" />
-  <Project Path="Manta\Manta.csproj" />
+    <Folder Name="/.github/" />
+    <Folder Name="/.github/workflows/">
+        <File Path=".github\workflows\dotnet.yml" />
+    </Folder>
+    <Folder Name="/_/">
+        <File Path="Directory.Build.props" />
+        <File Path=".gitignore" />
+        <File Path="Directory.Packages.props" />
+        <File Path="Generators.props" />
+        <File Path="global.json" />
+        <File Path="NuGet.config" />
+        <File Path="publish-macos.sh" />
+        <File Path="README.md" />
+        <File Path=".globalconfig" />
+        <File Path=".gitattributes" />
+    </Folder>
+    <Folder Name="/_/Native/">
+        <File Path="Native\MantaNative\Sources\MantaNative\Helper.swift" />
+        <File Path="Native\MantaNative\Sources\MantaNative\MantaWindow.swift" />
+    </Folder>
+    <Project Path="Manta.Generators\Manta.Generators.csproj" />
+    <Project Path="Manta.Native/Manta.Native.csproj" />
+    <Project Path="MantaDemo\MantaDemo.csproj" />
+    <Project Path="MantaPrepare\MantaPrepare.csproj" />
+    <Project Path="Manta\Manta.csproj" />
 </Solution>

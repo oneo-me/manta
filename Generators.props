@@ -1,5 +1,14 @@
 <Project>
     <ItemGroup>
-        <PackageReference Include="Manta.Generators" PrivateAssets="all" />
+        <AdditionalFiles Include="Langs\*.yml" />
+        <AdditionalFiles Include="Langs\*.yaml" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="YamlDotNet" PrivateAssets="all" GeneratePathProperty="true" />
+        <ProjectReference Include="$(MSBuildThisFileDirectory)Manta.Generators/Manta.Generators.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"
+                          PrivateAssets="all" />
+        <Analyzer Include="$(PkgYamlDotNet)/lib/netstandard2.0/YamlDotNet.dll" />
     </ItemGroup>
 </Project>

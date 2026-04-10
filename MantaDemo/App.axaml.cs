@@ -8,6 +8,7 @@ using Manta.Reactive.Services;
 using Manta.Services;
 using MantaDemo.Services;
 using MantaDemo.Views;
+using LangData = MantaDemo.Langs.LangData;
 
 namespace MantaDemo;
 
@@ -33,7 +34,7 @@ sealed class App : MApp
     [SuppressMessage("Reliability", "CA2000:丢失范围之前释放对象")]
     protected override void OnInitialize(out MAppOptions options)
     {
-        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
+        Lang.Register(LangData.Load());
 
         var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         var dataFolder = Path.Combine(folderPath, ".oneo", "MantaDemo");
