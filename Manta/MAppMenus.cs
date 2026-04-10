@@ -14,12 +14,14 @@ static class MAppMenus
             if (menu is null)
                 return;
 
+            // Remove default menu items (About, Services)
+            menu.Items.RemoveAt(0);
+            menu.Items.RemoveAt(0);
+            menu.Items.RemoveAt(0);
             menu.Items.RemoveAt(0);
 
             foreach (var item in menu.Items.OfType<NativeMenuItem>())
-                if (item.Header?.StartsWith("Services") is true)
-                    item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Services));
-                else if (item.Header?.StartsWith("Hide") is true)
+                if (item.Header?.StartsWith("Hide") is true)
                     item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Hide_App, app.Name));
                 else if (item.Header?.StartsWith("Hide Other") is true)
                     item[!NativeMenuItem.HeaderProperty] = Lang.GetBinding(new(InnerLangKey.AppMenu_Hide_Others));
