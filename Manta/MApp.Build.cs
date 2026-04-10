@@ -4,9 +4,7 @@ using Manta.Logging.Inner;
 
 namespace Manta;
 
-#pragma warning disable CA1001
 public partial class MApp
-#pragma warning restore CA1001
 {
     public static AppBuilder Build<T>() where T : MApp, new()
     {
