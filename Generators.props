@@ -1,7 +1,6 @@
 <Project>
     <ItemGroup>
         <AdditionalFiles Include="Langs\*.yml" />
-        <AdditionalFiles Include="Langs\*.yaml" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" PrivateAssets="all" ExcludeAssets="runtime" GeneratePathProperty="true" />
