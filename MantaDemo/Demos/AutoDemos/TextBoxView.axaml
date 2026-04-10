@@ -1,0 +1,38 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.TextBoxView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:TextBoxView_Model">
+    <Design.DataContext>
+        <local:TextBoxView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Text="NoStyle" />
+            <Border BorderThickness="1">
+                <MTextBox Variant="NoStyle" />
+            </Border>
+            <Border BorderThickness="1">
+                <MTextBox Variant="NoStyle" PlaceholderText="Watermark..." />
+            </Border>
+            <Border BorderThickness="1">
+                <MTextBox Variant="NoStyle" Text="Input Text" />
+            </Border>
+            <TextBlock Text="Default" />
+            <MTextBox />
+            <MTextBox PlaceholderText="Watermark..." />
+            <MTextBox Text="Input Text" />
+            <MTextBox Text="ReadOnly" IsReadOnly="True" />
+            <MTextBox Text="ReadOnly" IsPasswordBox="True" />
+            <MTextBox Text="Custom left and right" Padding="0 8">
+                <MTextBox.InnerLeftContent>
+                    <MButton Variant="Ghost" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Left" />
+                </MTextBox.InnerLeftContent>
+                <MTextBox.InnerRightContent>
+                    <MButton Variant="Ghost" Margin="3 0" Padding="8 5" VerticalAlignment="Center" Content="Right" />
+                </MTextBox.InnerRightContent>
+            </MTextBox>
+        </MPanel>
+    </Panel>
+</MView>

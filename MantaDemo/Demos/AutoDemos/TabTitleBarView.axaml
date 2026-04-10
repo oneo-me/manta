@@ -1,0 +1,105 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.TabTitleBarView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:TabTitleBarView_Model">
+    <Design.DataContext>
+        <local:TabTitleBarView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Width="360" Spacing="12" Margin="12" HorizontalAlignment="Left">
+            <MPanel.Styles>
+                <Style Selector="Border.Box">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Style Selector="^[(CurrentSystem.IsMacOS)=True]">
+                        <Setter Property="CornerRadius" Value="16" />
+                    </Style>
+                    <Setter Property="Background" Value="{MBrush Background}" />
+                    <Style Selector="^ > Border">
+                        <Setter Property="CornerRadius" Value="12" />
+                        <Setter Property="ClipToBounds" Value="True" />
+                    </Style>
+                </Style>
+                <Style Selector="MPanel.MacOS">
+                    <Setter Property="IsVisible" Value="False" />
+                    <Style Selector="^[Tag=False][(CurrentSystem.IsMacOS)=True]">
+                        <Setter Property="IsVisible" Value="True" />
+                    </Style>
+                </Style>
+                <Style Selector="MTabTitleBar">
+                    <Setter Property="Background" Value="{OnTheme {MBrush Primary, Opacity=0.05}, Dark={MBrush Primary, Opacity=0.08}}" />
+                </Style>
+            </MPanel.Styles>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar Name="TitleBar">
+                                <MTabTitleBarItem Content="TabItem 1" IsSelected="True" />
+                                <MTabTitleBarItem Content="TabItem 2" />
+                                <MTabTitleBarItem Content="TabItem 3" />
+                            </MTabTitleBar>
+                        </Panel>
+                        <TextBlock Grid.Row="1" Margin="12" Text="{Binding ElementName=TitleBar, Path=Bounds.Height}" />
+                    </Grid>
+                </Border>
+            </Border>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar>
+                                <MTabTitleBarItem Content="TabItem 1" />
+                                <MTabTitleBarItem Content="TabItem 2" IsSelected="True" />
+                            </MTabTitleBar>
+                        </Panel>
+                    </Grid>
+                </Border>
+            </Border>
+            <Border Classes="Box">
+                <Border>
+                    <Grid RowDefinitions="Auto *" Height="100">
+                        <Panel Grid.Row="0">
+                            <MPanel Classes="MacOS" Mode="Horizontal" VerticalAlignment="Center"
+                                    Spacing="8" Margin="12 0"
+                                    Tag="{x:Static Design.IsDesignMode}">
+                                <Ellipse Width="12" Height="12" Fill="#ED6A5E" />
+                                <Ellipse Width="12" Height="12" Fill="#F4BF4F" />
+                                <Ellipse Width="12" Height="12" Fill="#61C554" />
+                            </MPanel>
+                            <MTabTitleBar>
+                                <MTabTitleBar.RightContent>
+                                    <MPanel Mode="Horizontal">
+                                        <MTitleBarButton Content="Button" />
+                                    </MPanel>
+                                </MTabTitleBar.RightContent>
+                                <MTabTitleBarItem Content="TabItem 1" IsSelected="True" />
+                                <MTabTitleBarItem Content="TabItem 2" />
+                                <MTabTitleBarItem Content="TabItem 3" />
+                                <MTabTitleBarItem Content="TabItem 4" />
+                                <MTabTitleBarItem Content="TabItem 5" />
+                                <MTabTitleBarItem Content="TabItem 6" />
+                            </MTabTitleBar>
+                        </Panel>
+                    </Grid>
+                </Border>
+            </Border>
+        </MPanel>
+    </Panel>
+</MView>

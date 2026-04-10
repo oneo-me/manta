@@ -1,0 +1,146 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.ToggleSplitButtonView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:ToggleSplitButtonView_Model">
+    <Design.DataContext>
+        <local:ToggleSplitButtonView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="MPathIcon.Checked">
+                    <Setter Property="Foreground" Value="{MBrush Primary}" />
+                </Style>
+            </MPanel.Styles>
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+            <TextBlock Text="Ghost" />
+            <MPanel Mode="Wrap" Spacing="12">
+                <MToggleSplitButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+            <TextBlock Text="Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleSplitButton Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+            <TextBlock Text="Ghost Disabled" />
+            <MPanel Mode="Wrap" Spacing="12" IsEnabled="False">
+                <MToggleSplitButton Variant="Ghost" Content="Bookmark" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left" IsChecked="True">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPanel Mode="Horizontal" Spacing="8">
+                        <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" VerticalAlignment="Center" />
+                        <TextBlock Text="Bookmark" VerticalAlignment="Center" />
+                    </MPanel>
+                </MToggleSplitButton>
+                <MToggleSplitButton Variant="Ghost" HorizontalAlignment="Left">
+                    <MToggleSplitButton.Flyout>
+                        <MMenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MMenuItem Header="Option 1" />
+                            <MMenuItem Header="Option 2" />
+                        </MMenuFlyout>
+                    </MToggleSplitButton.Flyout>
+                    <MPathIcon Classes.Checked="{Binding $parent[MToggleSplitButton].IsChecked}" Data="M7 7h10v10 M7 17 17 7" UseStroke="True" Size="8" />
+                </MToggleSplitButton>
+            </MPanel>
+        </MPanel>
+    </Panel>
+</MView>

@@ -16,7 +16,8 @@ sealed class DemosScanner(Options options)
 
         foreach (var (controlName, xamlLines, group) in ScanXamls())
         {
-            var viewName = $"{controlName}View";
+            var substring = controlName.StartsWith('M') ? controlName.Substring(1) : controlName;
+            var viewName = $"{substring}View";
 
             items.Add($"{viewName}_Model");
 
