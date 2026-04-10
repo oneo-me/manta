@@ -20,8 +20,8 @@
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="..\Manta\Globalization\Core\*.cs">
-            <Link>LangKey\Globalization\Core\%(Filename)%(Extension)</Link>
+        <Compile Include="..\Manta\Globalization\Core\LangType.cs">
+            <Link>Lang\Globalization\Core\LangType.cs</Link>
         </Compile>
     </ItemGroup>
 </Project>

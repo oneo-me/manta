@@ -53,13 +53,13 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <MScrollViewer Name="PART_ScrollViewer"
-                                   Background="{TemplateBinding Background}"
-                                   BorderBrush="{TemplateBinding BorderBrush}"
-                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                   BringIntoViewOnFocusChange="False"
-                                   HorizontalScrollBarVisibility="Hidden"
-                                   VerticalScrollBarVisibility="Hidden"
-                                   ClipToBounds="{TemplateBinding ClipToBounds}">
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               BringIntoViewOnFocusChange="False"
+                               HorizontalScrollBarVisibility="Hidden"
+                               VerticalScrollBarVisibility="Hidden"
+                               ClipToBounds="{TemplateBinding ClipToBounds}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
                                     Margin="{TemplateBinding Padding}" />

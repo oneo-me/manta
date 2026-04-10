@@ -3,7 +3,6 @@ using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ControlDemos;
 
-
 sealed class IconView_Model : DemoViewModel
 {
     protected override MView CreateView()
