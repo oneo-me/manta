@@ -1,5 +1,5 @@
+using System.Text.Json;
 using Manta.Logging;
-using MantaDemo.Helpers;
 using MantaDemo.Models;
 
 namespace MantaDemo.Services;
@@ -18,8 +18,8 @@ sealed class ConfigService : IDisposable
         {
             if (File.Exists(_configFile))
             {
-                using var reader = new StreamReader(_configFile);
-                Config = ConfigYamlStaticContext.Deserializer.Deserialize<Config>(reader);
+                var json = File.ReadAllText(_configFile);
+                Config = JsonSerializer.Deserialize(json, ConfigJsonSerializerContext.Default.Config) ?? throw new InvalidOperationException("Deserialized config is null");
             }
         }
         catch (Exception e)
@@ -34,8 +34,8 @@ sealed class ConfigService : IDisposable
     {
         try
         {
-            using var writer = new StreamWriter(_configFile);
-            ConfigYamlStaticContext.Serializer.Serialize(writer, Config);
+            var json = JsonSerializer.Serialize(Config, ConfigJsonSerializerContext.Default.Config);
+            File.WriteAllText(_configFile, json);
         }
         catch (Exception e)
         {

@@ -1,10 +1,8 @@
 using Manta.Globalization.Core;
 using MantaDemo.Reactive;
-using YamlDotNet.Serialization;
 
 namespace MantaDemo.Models;
 
-[YamlSerializable]
 sealed class Config
 {
     public LangType Language { get; set; } = LangType.en;

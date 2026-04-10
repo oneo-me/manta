@@ -58,7 +58,7 @@ sealed class App : MApp
         var imageLoadService = Service.GetService<ImageLoadService>();
         imageLoadService.CacheDirectory = cacheFolder;
 
-        var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.yml")));
+        var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
         configService.DisposeWith(disposables);
 
         Service.Register(new DemoService());
