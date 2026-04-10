@@ -4,7 +4,7 @@
         <AdditionalFiles Include="Langs\*.yaml" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="YamlDotNet" PrivateAssets="all" GeneratePathProperty="true" />
+        <PackageReference Include="YamlDotNet" PrivateAssets="all" ExcludeAssets="runtime" GeneratePathProperty="true" />
         <ProjectReference Include="$(MSBuildThisFileDirectory)Manta.Generators/Manta.Generators.csproj"
                           OutputItemType="Analyzer"
                           ReferenceOutputAssembly="false"
