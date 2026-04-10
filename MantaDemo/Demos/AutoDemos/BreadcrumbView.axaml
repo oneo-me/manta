@@ -1,0 +1,32 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.BreadcrumbView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:BreadcrumbView_Model">
+    <Design.DataContext>
+        <local:BreadcrumbView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MBreadcrumb>
+                <MBreadcrumbItem Content="Home" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="•••" FontSize="8" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="Components" />
+                <MBreadcrumbItem Type="Arrow" />
+                <MBreadcrumbItem Content="Breadcrumb" />
+            </MBreadcrumb>
+            <MBreadcrumb>
+                <MBreadcrumbItem Content="Home" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="•••" FontSize="8" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="Components" />
+                <MBreadcrumbItem Type="Slash" />
+                <MBreadcrumbItem Content="Breadcrumb" />
+            </MBreadcrumb>
+        </MPanel>
+    </Panel>
+</MView>

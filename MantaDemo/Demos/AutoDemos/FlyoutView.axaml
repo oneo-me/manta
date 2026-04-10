@@ -1,0 +1,232 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.FlyoutView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:FlyoutView_Model">
+    <Design.DataContext>
+        <local:FlyoutView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel.Styles>
+                <Style Selector="MButton">
+                    <Setter Property="Variant" Value="Outline" />
+                </Style>
+            </MPanel.Styles>
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="ContextFlyout" Opacity="0.6" />
+                <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8">
+                    <Border.ContextFlyout>
+                        <MMenuFlyout>
+                            <MMenuItem Header="MenuItem 1" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="MenuItem 2">
+                                <MMenuItem Header="MenuItem 1" />
+                                <MMenuItem Header="-" />
+                                <MMenuItem Header="MenuItem 2" />
+                                <MMenuItem Header="MenuItem 3" />
+                            </MMenuItem>
+                            <MMenuItem Header="MenuItem 3" />
+                        </MMenuFlyout>
+                    </Border.ContextFlyout>
+                    <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+                </Border>
+                <TextBlock Text="Custom" Opacity="0.6" />
+                <MButton Content="Click the button to close the Flyout" HorizontalAlignment="Left">
+                    <MButton.Flyout>
+                        <MFlyout Placement="Bottom">
+                            <MPanel Mode="Vertical" Spacing="8">
+                                <TextBlock Text="Are you sure you want to continue?" Margin="0 0 20 20" />
+                                <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                                    <MButton Name="Button" Content="Cancel" Padding="8 3" Variant="Secondary" Command="{Binding $parent[MButton].Flyout.Hide}" />
+                                    <MButton Content="Confirm" Padding="8 3" Variant="Destructive" />
+                                </MPanel>
+                            </MPanel>
+                        </MFlyout>
+                    </MButton.Flyout>
+                </MButton>
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Custom display mode" Opacity="0.6" />
+                <MPanel Mode="Wrap" Spacing="6">
+                    <MButton Content="Standard">
+                        <MButton.Flyout>
+                            <MFlyout>
+                                <MPanel Mode="Vertical" Spacing="12" Width="260">
+                                    <MTextBox />
+                                    <TextBlock Text="Standard attempts to focus the Flyout when opened" TextWrapping="Wrap" />
+                                </MPanel>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Transient">
+                        <MButton.Flyout>
+                            <MFlyout ShowMode="Transient">
+                                <MPanel Mode="Vertical" Spacing="12" Width="260">
+                                    <MTextBox />
+                                    <TextBlock Text="Transient does not focus the Flyout when opened." TextWrapping="Wrap" />
+                                </MPanel>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="TransientWithDismissOnPointerMoveAway">
+                        <MButton.Flyout>
+                            <MFlyout ShowMode="TransientWithDismissOnPointerMoveAway">
+                                <MPanel Mode="Vertical" Spacing="12" Width="260">
+                                    <MTextBox />
+                                    <TextBlock Text="Use Transient and close the Flyout when the pointer moves away" TextWrapping="Wrap" />
+                                </MPanel>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                </MPanel>
+            </MPanel>
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="Custom direction" Opacity="0.6" />
+                <UniformGrid Columns="3" Margin="-6" Width="460" HorizontalAlignment="Left">
+                    <UniformGrid.Styles>
+                        <Style Selector="MButton">
+                            <Setter Property="Margin" Value="6" />
+                        </Style>
+                    </UniformGrid.Styles>
+                    <MButton Content="Pointer">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Pointer">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="AnchorAndGravity">
+                        <MButton.Flyout>
+                            <MFlyout Placement="AnchorAndGravity">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Center">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Center">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Top">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Top">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Bottom">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Bottom">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Left">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Left">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="Right">
+                        <MButton.Flyout>
+                            <MFlyout Placement="Right">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="TopEdgeAlignedLeft">
+                        <MButton.Flyout>
+                            <MFlyout Placement="TopEdgeAlignedLeft">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="TopEdgeAlignedRight">
+                        <MButton.Flyout>
+                            <MFlyout Placement="TopEdgeAlignedRight">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="BottomEdgeAlignedLeft">
+                        <MButton.Flyout>
+                            <MFlyout Placement="BottomEdgeAlignedLeft">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="BottomEdgeAlignedRight">
+                        <MButton.Flyout>
+                            <MFlyout Placement="BottomEdgeAlignedRight">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="LeftEdgeAlignedTop">
+                        <MButton.Flyout>
+                            <MFlyout Placement="LeftEdgeAlignedTop">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="LeftEdgeAlignedBottom">
+                        <MButton.Flyout>
+                            <MFlyout Placement="LeftEdgeAlignedBottom">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="RightEdgeAlignedTop">
+                        <MButton.Flyout>
+                            <MFlyout Placement="RightEdgeAlignedTop">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                    <MButton Content="RightEdgeAlignedBottom">
+                        <MButton.Flyout>
+                            <MFlyout Placement="RightEdgeAlignedBottom">
+                                <Border Width="80" Height="80">
+                                    <TextBlock Text="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </MFlyout>
+                        </MButton.Flyout>
+                    </MButton>
+                </UniformGrid>
+            </MPanel>
+        </MPanel>
+    </Panel>
+</MView>

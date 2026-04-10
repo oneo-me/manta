@@ -1,0 +1,76 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.MenuView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:MenuView_Model">
+    <Design.DataContext>
+        <local:MenuView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TextBlock Text="ContextMenu" />
+            <Border Background="{MBrush Muted}" BorderThickness="1" CornerRadius="6" Padding="8">
+                <Border.ContextMenu>
+                    <MContextMenu>
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2">
+                            <MMenuItem Header="MenuItem 1" />
+                            <MMenuItem Header="-" />
+                            <MMenuItem Header="MenuItem 2" />
+                            <MMenuItem Header="MenuItem 3" />
+                        </MMenuItem>
+                        <MMenuItem Header="MenuItem 3" />
+                    </MContextMenu>
+                </Border.ContextMenu>
+                <TextBlock Text="Right-click" Foreground="{MBrush MutedForeground}" HorizontalAlignment="Center" />
+            </Border>
+            <TextBlock Text="Menu" />
+            <MMenu>
+                <MMenuItem Header="MenuItem 1">
+                    <MMenuItem Header="MenuItem 1">
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2" />
+                        <MMenuItem Header="MenuItem 3" />
+                    </MMenuItem>
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 2" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="CheckBox" IsChecked="True" />
+                </MMenuItem>
+                <MMenuItem Header="-" />
+                <MMenuItem Header="MenuItem 2" />
+                <MMenuItem Header="MenuItem 3" />
+                <MMenuItem Header="MenuItem 4" IsEnabled="False" />
+            </MMenu>
+            <TextBlock Text="Submenu" />
+            <Border
+                Background="{MBrush Popover}"
+                BorderBrush="{MBrush Border}"
+                TextElement.Foreground="{MBrush PopoverForeground}"
+                BorderThickness="{MThickness Px}"
+                BoxShadow="{MShadow MD}"
+                CornerRadius="{MRadius MD}"
+                Padding="{MThickness S1_5}"
+                HorizontalAlignment="Left">
+                <MPanel Mode="Vertical" Spacing="1" Grid.IsSharedSizeScope="True">
+                    <MMenuItem Header="MenuItem 1" InputGesture="Ctrl+C">
+                        <MMenuItem Header="MenuItem 1" />
+                        <MMenuItem Header="-" />
+                        <MMenuItem Header="MenuItem 2" />
+                        <MMenuItem Header="MenuItem 3" />
+                    </MMenuItem>
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" IsChecked="True" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="Radio" />
+                    <MMenuItem Header="-" />
+                    <MMenuItem Header="MenuItem 2" InputGesture="Ctrl+C" />
+                    <MMenuItem Header="MenuItem 3" ToggleType="CheckBox" IsChecked="True" />
+                    <MMenuItem Header="MenuItem 4" IsEnabled="False" />
+                </MPanel>
+            </Border>
+        </MPanel>
+    </Panel>
+</MView>

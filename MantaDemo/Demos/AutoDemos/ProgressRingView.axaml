@@ -1,0 +1,36 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.ProgressRingView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:ProgressRingView_Model">
+    <Design.DataContext>
+        <local:ProgressRingView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing />
+                <MProgressRing Value="50" />
+                <MProgressRing Value="100" />
+                <MProgressRing IsIndeterminate="True" />
+                <MProgressRing ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+            <MPanel Mode="Horizontal" Spacing="12">
+                <MProgressRing Variant="Destructive" />
+                <MProgressRing Variant="Destructive" Value="50" />
+                <MProgressRing Variant="Destructive" Value="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" />
+                <MProgressRing Variant="Destructive" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" ShowProgressText="True" Value="50" Maximum="100" />
+                <MProgressRing Variant="Destructive" IsIndeterminate="True" Value="50" Maximum="100">
+                    <TextBlock Text="TEST" />
+                </MProgressRing>
+            </MPanel>
+        </MPanel>
+    </Panel>
+</MView>

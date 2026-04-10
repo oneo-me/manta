@@ -1,0 +1,54 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.ComboBoxView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:ComboBoxView_Model">
+    <Design.DataContext>
+        <local:ComboBoxView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <MComboBox SelectedIndex="0" Width="220">
+                <MComboBox.ItemsSource>
+                    <generic:List x:TypeArguments="system:String">
+                        <system:String>0: Test 0</system:String>
+                        <system:String>1: Test 1</system:String>
+                        <system:String>2: Test 2</system:String>
+                    </generic:List>
+                </MComboBox.ItemsSource>
+                <MComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </MComboBox.ItemTemplate>
+                <MComboBox.SelectionBoxItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="{MBrush Primary}" />
+                    </DataTemplate>
+                </MComboBox.SelectionBoxItemTemplate>
+            </MComboBox>
+            <MComboBox SelectedIndex="0" IsEditable="True" Width="220">
+                <MComboBox.ItemsSource>
+                    <generic:List x:TypeArguments="system:String">
+                        <system:String>0: Test 0</system:String>
+                        <system:String>1: Test 1</system:String>
+                        <system:String>2: Test 2</system:String>
+                    </generic:List>
+                </MComboBox.ItemsSource>
+                <MComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </MComboBox.ItemTemplate>
+                <MComboBox.SelectionBoxItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="{MBrush Primary}" />
+                    </DataTemplate>
+                </MComboBox.SelectionBoxItemTemplate>
+            </MComboBox>
+        </MPanel>
+    </Panel>
+</MView>

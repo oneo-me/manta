@@ -1,0 +1,45 @@
+<MView
+    x:Class="MantaDemo.Demos.AutoDemos.SliderView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MantaDemo.Demos.AutoDemos"
+    x:DataType="local:SliderView_Model">
+    <Design.DataContext>
+        <local:SliderView_Model />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <MPanel Mode="Vertical" Spacing="12" Margin="12" Width="320">
+            <TextBlock Text="Horizontal" />
+            <MSlider Value="50" />
+            <MSlider IsDirectionReversed="True" Value="50" />
+            <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="TopLeft" TickFrequency="10" />
+            <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="BottomRight" TickFrequency="10" />
+            <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="Outside" TickFrequency="10" />
+            <MSlider IsEnabled="False" Value="50" />
+            <TextBlock Text="Vertical" />
+            <MPanel Mode="Horizontal" Spacing="12" Height="120" HorizontalAlignment="Left">
+                <MSlider Value="50" Orientation="Vertical" />
+                <MSlider IsDirectionReversed="True" Value="50" Orientation="Vertical" />
+                <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="TopLeft" TickFrequency="10" Orientation="Vertical" />
+                <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="BottomRight" TickFrequency="10" Orientation="Vertical" />
+                <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="Outside" TickFrequency="10" Orientation="Vertical" />
+                <MSlider IsEnabled="False" Orientation="Vertical" Value="50" />
+            </MPanel>
+            <TextBlock Text="Tests" />
+            <Border BorderThickness="1">
+                <MSlider Value="50" />
+            </Border>
+            <Border BorderThickness="1">
+                <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="Outside" TickFrequency="10" />
+            </Border>
+            <MPanel Mode="Horizontal" Spacing="12" Height="120" HorizontalAlignment="Left">
+                <Border BorderThickness="1">
+                    <MSlider Value="50" Orientation="Vertical" />
+                </Border>
+                <Border BorderThickness="1">
+                    <MSlider IsSnapToTickEnabled="True" Value="50" TickPlacement="Outside" TickFrequency="10" Orientation="Vertical" />
+                </Border>
+            </MPanel>
+        </MPanel>
+    </Panel>
+</MView>
