@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Reactive.Concurrency;
-using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -11,7 +10,6 @@ using Manta.Globalization;
 using Manta.Logging;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Services;
-using Manta.Reactive.Views;
 using Manta.Services;
 
 namespace Manta;
@@ -99,17 +97,12 @@ public abstract partial class MApp : Application
     {
         base.OnFrameworkInitializationCompleted();
 
-#pragma warning disable CA2000
-        var disposables = new CompositeDisposable();
-#pragma warning restore CA2000
-
         if (Design.IsDesignMode is false && SupportMultipleInstances is false)
         {
             var instanceName = GetType().FullName!;
             instanceName = instanceName.GetHashHex();
 
             _singleInstance = new($"{nameof(Manta)}_{instanceName}");
-            _singleInstance.DisposeWith(disposables);
             _singleInstance.ReOpen += (_, args) => OnReOpen(args);
             if (!_singleInstance.IsNew)
                 return;
@@ -118,16 +111,17 @@ public abstract partial class MApp : Application
         MAppMenus.RegisterDefaultMenus(this);
 
         OnInitializeInternal();
-        OnInitialize(disposables, out var mainModel);
+        OnInitialize(out var initData);
 
         if (Design.IsDesignMode)
             return;
 
-        _lifetime = new(this, mainModel);
+        _lifetime = new(this, initData.MainModel);
 
         _lifetime.Exit += delegate
         {
-            disposables.Dispose();
+            _singleInstance?.Dispose();
+            initData.Exit?.Invoke();
         };
     }
 
@@ -151,5 +145,5 @@ public abstract partial class MApp : Application
         Service.Register(new ImageLoadService());
     }
 
-    protected abstract void OnInitialize(CompositeDisposable disposables, out Func<WindowModel>? mainModel);
+    protected abstract void OnInitialize(out MAppOptions options);
 }

@@ -1,13 +1,10 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Reactive.Disposables;
 using Avalonia.Markup.Xaml;
 using Manta;
 using Manta.Globalization;
 using Manta.Logging;
-using Manta.Reactive.Extensions;
 using Manta.Reactive.Services;
-using Manta.Reactive.Views;
 using Manta.Services;
 using MantaDemo.Services;
 using MantaDemo.Views;
@@ -33,17 +30,13 @@ sealed class App : MApp
         AvaloniaXamlLoader.Load(this);
     }
 
-    protected override void OnException(Exception exception)
-    {
-        Log.Error("An unhandled exception occurred: {Exception}", exception);
-        base.OnException(exception);
-    }
-
     [SuppressMessage("Reliability", "CA2000:丢失范围之前释放对象")]
-    protected override void OnInitialize(CompositeDisposable disposables, out Func<WindowModel>? mainModel)
+    protected override void OnInitialize(out MAppOptions options)
     {
-        var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        var dataFolder = Path.Combine(userFolder, ".oneo", "MantaDemo");
+        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
+
+        var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        var dataFolder = Path.Combine(folderPath, ".oneo", "MantaDemo");
         var cacheFolder = Path.Combine(dataFolder, "Cache");
         Directory.CreateDirectory(dataFolder);
         Directory.CreateDirectory(cacheFolder);
@@ -53,25 +46,27 @@ sealed class App : MApp
 
         Log.Information("MantaDemo started.");
 
-        Lang.Register(LangData.LoadFromAssembly(typeof(App).Assembly));
-
         var imageLoadService = Service.GetService<ImageLoadService>();
         imageLoadService.CacheDirectory = cacheFolder;
 
         var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
-        configService.DisposeWith(disposables);
-
         Service.Register(new DemoService());
 
-        // Register ViewService at last, because it depends on ConfigService and DemoService.
         var viewService = Service.Register(new ViewService(configService));
-        viewService.DisposeWith(disposables);
 
         Lang.Current = configService.Config.Language;
 
-        Disposable.Create(() => Log.Information("MantaDemo stopped.")).DisposeWith(disposables);
-        fileLogger.DisposeWith(disposables);
+        options = new()
+        {
+            MainModel = () => new Main_Model(),
+            Exit = () =>
+            {
+                Log.Information("MantaDemo stopped.");
 
-        mainModel = () => new Main_Model();
+                viewService.Dispose();
+                configService.Dispose();
+                fileLogger.Dispose();
+            }
+        };
     }
 }
