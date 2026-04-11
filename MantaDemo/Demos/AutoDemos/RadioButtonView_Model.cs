@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class RadioButtonView_Model : DemoViewModel
+[View<RadioButtonView>]
+sealed partial class RadioButtonView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new RadioButtonView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MRadioButton);

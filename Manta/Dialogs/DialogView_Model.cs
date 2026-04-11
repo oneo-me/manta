@@ -7,13 +7,9 @@ using Manta.Reactive.Views;
 
 namespace Manta.Dialogs;
 
-sealed class DialogView_Model : DialogModel
+[View<DialogView>]
+sealed partial class DialogView_Model : DialogModel
 {
-    protected internal override MView CreateView()
-    {
-        return new DialogView();
-    }
-
     public string Title { get; init; } = InnerLangKey.Dialog_Title;
     public string Content { get; init; } = InnerLangKey.Dialog_Title;
 

@@ -10,19 +10,16 @@ using Manta.Reactive.Commands;
 using Manta.Reactive.Extensions;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
+using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
 using MantaDemo.Services;
 
 namespace MantaDemo.Views;
 
-sealed class OverviewView_Model : HeaderRegionModel
+[View<OverviewView>]
+sealed partial class OverviewView_Model : HeaderRegionModel
 {
-    protected override MView CreateView()
-    {
-        return new OverviewView();
-    }
-
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly RegionManager<HeaderRegionModel> _regionManager;
 

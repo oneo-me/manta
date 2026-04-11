@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class AccordionView_Model : DemoViewModel
+[View<AccordionView>]
+sealed partial class AccordionView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new AccordionView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MAccordion);

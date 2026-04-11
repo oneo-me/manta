@@ -34,13 +34,9 @@ sealed class DemoGroupItem(DemoSubGroup subGroup) : Model, IDemoItem
     }
 }
 
-sealed class DemoGroupView_Model : HeaderRegionModel
+[View<DemoGroupView>]
+sealed partial class DemoGroupView_Model : HeaderRegionModel
 {
-    protected override MView CreateView()
-    {
-        return new DemoGroupView();
-    }
-
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly DemoService _demoService = Service.GetService<DemoService>();
 

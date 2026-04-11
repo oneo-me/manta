@@ -8,13 +8,9 @@ using MAlert = Manta.Dialogs.MAlert;
 
 namespace MantaDemo.Demos.ReactiveDemos;
 
-sealed class DialogView_Model : DemoViewModel
+[View<DialogView>]
+sealed partial class DialogView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new DialogView();
-    }
-
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_Dialog;

@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class BreadcrumbView_Model : DemoViewModel
+[View<BreadcrumbView>]
+sealed partial class BreadcrumbView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new BreadcrumbView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MBreadcrumb);

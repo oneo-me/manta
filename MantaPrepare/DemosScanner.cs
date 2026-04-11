@@ -95,17 +95,14 @@ sealed class DemosScanner(Options options)
             writer.WriteLine("using Avalonia.Controls;");
 
         writer.WriteLine("using Manta.Controls;");
+        writer.WriteLine("using Manta.Reactive.Views;");
         writer.WriteLine("using MantaDemo.Reactive;");
         writer.WriteLine();
         writer.WriteLine("namespace MantaDemo.Demos.AutoDemos;");
         writer.WriteLine();
-        writer.WriteLine($"sealed class {viewName}_Model : DemoViewModel");
+        writer.WriteLine($"[View<{viewName}>]");
+        writer.WriteLine($"sealed partial class {viewName}_Model : DemoViewModel");
         writer.WriteLine("{");
-        writer.WriteLine("    protected override MView CreateView()");
-        writer.WriteLine("    {");
-        writer.WriteLine($"        return new {viewName}();");
-        writer.WriteLine("    }");
-        writer.WriteLine();
         writer.WriteLine("    public override DemoGroup Group => DemoGroup.Controls;");
         writer.WriteLine($"    public override DemoSubGroup SubGroup => DemoSubGroup.{group};");
         writer.WriteLine($"    public override string Header => nameof({controlName});");
