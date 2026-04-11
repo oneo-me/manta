@@ -361,24 +361,116 @@ Generic items container that wraps each item in a styled `MItem` (ContentControl
 </MItems>
 ```
 
-## MCanvas — Infinite Pan/Zoom Canvas
+## MAccordion
+
+```xml
+<MAccordion>
+    <MAccordionItem Header="Section 1">
+        <TextBlock Text="Content for section 1" />
+    </MAccordionItem>
+    <MAccordionItem Header="Section 2">
+        <TextBlock Text="Content for section 2" />
+    </MAccordionItem>
+</MAccordion>
+```
+
+## MToggleSwitch
+
+```xml
+<MToggleSwitch IsChecked="{Binding IsEnabled}" />
+<MToggleSwitch IsChecked="{Binding DarkMode}" OnContent="On" OffContent="Off" />
+```
+
+## MNumericUpDown
+
+```xml
+<MNumericUpDown Value="{Binding Count}" Minimum="0" Maximum="100" Increment="1" />
+```
+
+## MAutoCompleteBox
+
+```xml
+<MAutoCompleteBox ItemsSource="{Binding Suggestions}"
+                  Text="{Binding SearchText}"
+                  Watermark="Type to search..." />
+```
+
+## MTree
+
+```xml
+<MTree ItemsSource="{Binding RootNodes}" Command="{Binding SelectNodeCommand}">
+    <MTree.ItemTemplate>
+        <TreeDataTemplate ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding Name}" />
+        </TreeDataTemplate>
+    </MTree.ItemTemplate>
+</MTree>
+```
+
+## MMenu / MContextMenu
+
+```xml
+<MMenu>
+    <MMenuItem Header="File">
+        <MMenuItem Header="New" Command="{Binding NewCommand}" />
+        <MMenuItem Header="Open" Command="{Binding OpenCommand}" />
+        <Separator />
+        <MMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+    </MMenuItem>
+    <MMenuItem Header="Edit">
+        <MMenuItem Header="Copy" />
+        <MMenuItem Header="Paste" />
+    </MMenuItem>
+</MMenu>
+
+<!-- Context menu -->
+<Border.ContextMenu>
+    <MContextMenu>
+        <MMenuItem Header="Copy" Command="{Binding CopyCommand}" />
+        <MMenuItem Header="Delete" Command="{Binding DeleteCommand}" />
+    </MContextMenu>
+</Border.ContextMenu>
+```
+
+## MBackground + MDialogTemplate — Dialog Wrapper
+
+Use these together for all dialog views:
+
+```xml
+<MView x:Class="MyApp.Views.ConfirmView"
+       xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:local="clr-namespace:MyApp.Views"
+       x:DataType="local:ConfirmView_Model"
+       Design.DataContext="{x:Static local:ConfirmView_Model.Design}">
+  <MBackground MinWidth="{MSize S80}">
+    <MDialogTemplate Header="Confirm Action"
+                     CancelButton="Cancel"
+                     ContinueButton="OK"
+                     CancelButtonCommand="{Binding CancelAsyncCommand}"
+                     ContinueButtonCommand="{Binding ContinueAsyncCommand}">
+      <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+    </MDialogTemplate>
+  </MBackground>
+</MView>
+```
+
+## MCanvasGrid — Infinite Pan/Zoom Canvas
 
 Interactive infinite canvas (zoom/pan via scroll wheel, pinch, right-click drag, Space+drag):
 
 ```xml
-<MCanvas Zoom="{Binding Zoom}"
-         Offset="{Binding Offset}"
-         ShowGrid="True"
-         GridSize="20"
-         MinZoom="0.1"
-         MaxZoom="10">
+<MCanvasGrid Zoom="{Binding Zoom}"
+             Offset="{Binding Offset}"
+             ShowGrid="True"
+             GridSize="20"
+             MinZoom="0.1"
+             MaxZoom="10">
     <!-- Content positioned absolutely -->
     <Canvas>
         <Border Canvas.Left="100" Canvas.Top="100" Width="120" Height="80" />
     </Canvas>
-</MCanvas>
+</MCanvasGrid>
 ```
 
 Key bindings: `Ctrl+Scroll` = zoom · `Scroll` = pan · `Cmd+1` = reset · `Cmd+2` = fit all
-
-Code-behind helper methods (via part reference): `ResetView()`, `FitAll()`, `CanvasToWorld(Point)`, `WorldToCanvas(Point)`.
