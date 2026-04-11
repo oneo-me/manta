@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class TextBoxView_Model : DemoViewModel
+[View<TextBoxView>]
+sealed partial class TextBoxView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new TextBoxView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MTextBox);

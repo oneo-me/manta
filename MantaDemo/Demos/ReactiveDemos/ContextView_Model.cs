@@ -1,17 +1,12 @@
-using Manta.Controls;
 using Manta.Reactive.Views;
 using MantaDemo.Langs;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.ReactiveDemos;
 
-sealed class ContextView_Model : DemoViewModel
+[View<ContextView>]
+sealed partial class ContextView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new ContextView();
-    }
-
     public override DemoGroup Group => DemoGroup.Reactive;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override string Header => LangKey.Demo_Reactive_ViewContext;

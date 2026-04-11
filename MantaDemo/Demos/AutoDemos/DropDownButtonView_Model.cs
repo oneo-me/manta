@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class DropDownButtonView_Model : DemoViewModel
+[View<DropDownButtonView>]
+sealed partial class DropDownButtonView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new DropDownButtonView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MDropDownButton);

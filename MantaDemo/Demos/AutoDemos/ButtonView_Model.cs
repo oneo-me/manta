@@ -1,15 +1,12 @@
 using Manta.Controls;
+using Manta.Reactive.Views;
 using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.AutoDemos;
 
-sealed class ButtonView_Model : DemoViewModel
+[View<ButtonView>]
+sealed partial class ButtonView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new ButtonView();
-    }
-
     public override DemoGroup Group => DemoGroup.Controls;
     public override DemoSubGroup SubGroup => DemoSubGroup.Advanced;
     public override string Header => nameof(MButton);

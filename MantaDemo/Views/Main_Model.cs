@@ -17,13 +17,9 @@ using MantaDemo.Services;
 
 namespace MantaDemo.Views;
 
-sealed class Main_Model : WindowModel
+[View<Main>]
+sealed partial class Main_Model : WindowModel
 {
-    protected override MView CreateView()
-    {
-        return new Main();
-    }
-
     readonly ConfigService _configService = Service.GetService<ConfigService>();
     readonly ViewService _viewService = Service.GetService<ViewService>();
 

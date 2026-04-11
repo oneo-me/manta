@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using Avalonia.Input.Platform;
 using Avalonia.Media;
-using Manta.Controls;
 using Manta.Controls.Icons;
 using Manta.Reactive.Commands;
 using Manta.Reactive.Views;
@@ -10,13 +9,9 @@ using MantaDemo.Reactive;
 
 namespace MantaDemo.Demos.StyleDemos;
 
-sealed class FontView_Model : DemoViewModel
+[View<FontView>]
+sealed partial class FontView_Model : DemoViewModel
 {
-    protected override MView CreateView()
-    {
-        return new FontView();
-    }
-
     public override DemoGroup Group => DemoGroup.Styles;
     public override DemoSubGroup SubGroup => DemoSubGroup.None;
     public override IconSource Icon => Icons.Text;
