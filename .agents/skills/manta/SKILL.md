@@ -1,23 +1,25 @@
 ---
-name: manta-toolkit
+name: manta
 description: >
   Expert guide for building Avalonia desktop applications using the Manta UI toolkit.
-  Covers MVVM patterns (ViewModel/WindowModel/DialogModel/@ViewAttribute/commands/services),
-  region navigation (RegionManager/RegionModel), theme & color system
-  (MBrush/MThickness/MRadius/SmoothBrushTransition), globalization/i18n (Lang/LangKey/LangType),
+  Covers MVVM patterns (ViewModel/WindowModel/DialogModel/TrayWindowModel/@ViewAttribute/commands/services),
+  region navigation (RegionManager/RegionModel), single-slot navigation (ViewManager),
+  theme & color system (MBrush/MThickness/MRadius/MShadow/MSize/SmoothBrushTransition/OnTheme),
+  globalization/i18n (Lang/LangKey/LangType), platform APIs (file/folder pickers, clipboard),
   and 60+ built-in controls
-  (MPanel/MButton/MCard/MTextBox/MIcon/MListBox/MSlider/MTree/MMenu/MCanvas/MRadioButton etc.).
+  (MPanel/MButton/MCard/MTextBox/MIcon/MListBox/MSlider/MTree/MMenu/MCanvas/MRadioButton/MToggleSwitch
+  /MAutoCompleteBox/MNumericUpDown/MAccordion/MCommandPanel etc.).
 
   Use when the user is:
   - Setting up a new Manta-based Avalonia project
   - Implementing ViewModels, commands, or service registration
-  - Choosing between WindowModel, DialogModel, ViewModel, or RegionModel
-  - Setting up tab/region navigation with RegionManager
+  - Choosing between WindowModel, DialogModel, TrayWindowModel, ViewModel, or RegionModel
+  - Setting up tab/region navigation with RegionManager or single-slot switching with ViewManager
   - Opening modal dialogs and reading results
-  - Styling controls with theme colors, spacing, or border radius
+  - Styling controls with theme colors (MBrush), spacing (MThickness), or corner radius (MRadius)
   - Using or composing Manta controls in AXAML
   - Asking which Avalonia native controls are allowed vs must use Manta equivalents
-  - Asking "how do I use MBrush / MThickness / MRadius"
+  - Asking "how do I use MBrush / MThickness / MRadius / MShadow / MSize"
   - Asking how to create commands, bind views, or wire up the app entry point
   - Opening file/folder pickers or save dialogs from a ViewModel
   - Adding multilingual/localization support (Lang, LangKey, LangType, YAML files)
@@ -30,8 +32,8 @@ description: >
 
 # Manta Toolkit
 
-Manta is a Avalonia 11 UI toolkit (.NET 10) providing a themed control library, a reactive MVVM
-framework, and a color system based on the OKLch color space.
+Manta is an Avalonia 11 UI toolkit (.NET 10) providing a themed control library (60+ controls),
+a reactive MVVM framework, and a design system built on the OKLch color space.
 
 ## Key Conventions
 
@@ -104,18 +106,20 @@ public sealed class MyView_Model : ViewModel
 
 Load these when you need detailed information:
 
-- **[mvvm.md](references/mvvm.md)** — Full MVVM class hierarchy, command patterns, service
-  registration, OnViewActivated lifecycle, App wiring. Load when implementing ViewModels,
-  commands, services, or window/view setup.
+- **[mvvm.md](references/mvvm.md)** — Full MVVM class hierarchy (ViewModel/WindowModel/DialogModel/
+  TrayWindowModel/RegionModel), command patterns, service registration, OnViewActivated lifecycle,
+  ViewContext, ViewManager, ViewTemplate, RegionManager, App wiring. Load when implementing
+  ViewModels, commands, services, navigation, or dialogs.
 
-- **[theme-colors.md](references/theme-colors.md)** — All MBrushKey tokens, MThickness/MRadius
-  scales with values, SmoothBrushTransition usage, OnTheme conditional values, custom color
-  definitions. Load when styling controls or working with the theme system.
+- **[theme-colors.md](references/theme-colors.md)** — All MBrushKey tokens, MThickness/MRadius/
+  MShadow/MSize scales with values, SmoothBrushTransition usage, OnTheme conditional values.
+  Load when styling controls or working with the theme system.
 
 - **[controls.md](references/controls.md)** — AXAML usage examples for all major controls:
-  MPanel, MButton, MCard, MExpander, MTextBox, MCheckBox, MListBox, MIcon, MComboBox, MAlert,
-  MBadge, MAvatar, MProgressRing, MTabStrip, MViewHost, MSlider, MRadioButton, MAutoCompleteBox,
-  MProgressBar, MHyperlinkButton, MSeparator, MMenu, MContextMenu, MTree, MItems, MCanvas.
+  MPanel, MButton, MCard, MExpander, MAccordion, MTextBox, MCheckBox, MRadioButton, MToggleSwitch,
+  MListBox, MIcon, MComboBox, MAlert, MBadge, MAvatar, MProgressRing, MProgressBar, MTabStrip,
+  MTabControl, MViewHost, MSlider, MAutoCompleteBox, MNumericUpDown, MHyperlinkButton, MSeparator,
+  MMenu, MContextMenu, MTree, MItems, MCanvasGrid, MDialogTemplate, MBackground.
   Load when composing UIs.
 
 - **[project-setup.md](references/project-setup.md)** — Complete project skeleton: .csproj,
@@ -123,9 +127,8 @@ Load these when you need detailed information:
   Load when starting a new project or wiring up the application entry point.
 
 - **[platform.md](references/platform.md)** — Platform dialog APIs: `OpenFilePickerAsync`,
-  `OpenFolderPickerAsync`, `SaveFilePickerAsync` — ViewModel extension methods that wrap
-  Avalonia's StorageProvider with automatic thread safety. Load when the user needs file/folder
-  pickers or save dialogs.
+  `OpenFolderPickerAsync`, `SaveFilePickerAsync`, `GetClipboardAsync` — ViewModel extension
+  methods that wrap Avalonia's StorageProvider with automatic thread safety.
 
 - **[i18n.md](references/i18n.md)** — Full globalization/localization guide: YAML file structure,
   source generator output (LangKey), `Lang.Register()`, `Lang.Current`, `{Lang}` / `{LangEmoji}`

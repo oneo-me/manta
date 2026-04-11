@@ -88,6 +88,35 @@ Scale: `None`(0) · `XS`(3) · `SM`(6) · `MD`(9) · `LG`(12) · `XL`(18) · `XL
 <Setter Property="CornerRadius" Value="{MRadius XL, Filter=LeftTop|RightTop}" />
 ```
 
+## MShadow — Shadow Depth Scale
+
+Use on `BoxShadow` property. Apply sparingly — only on floating surfaces.
+
+| Level | Use case |
+|-------|----------|
+| `None` | Flat / no elevation |
+| `XS` | Subtle card lift |
+| `SM` | Card default |
+| `MD` | Dropdown, popover |
+| `LG` | Modal, dialog |
+| `XL` / `XL2` | Elevated overlays |
+
+```xml
+<Setter Property="BoxShadow" Value="{MShadow MD}" />
+
+<!-- Colored shadow -->
+<Setter Property="BoxShadow" Value="{MShadow MD, BrushKey=Primary, BrushType=Dark3}" />
+```
+
+`MCard` applies `MShadow MD` by default.
+
+## MSize — Sizing Scale
+
+```xml
+<Border Width="{MSize S80}" />   <!-- fixed width from scale -->
+<MBackground MinWidth="{MSize S80}" />
+```
+
 ## SmoothBrushTransition — Animated Color Changes
 
 ```xml
