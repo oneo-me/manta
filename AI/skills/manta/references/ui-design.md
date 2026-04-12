@@ -1,6 +1,6 @@
 # UI Design Guide — Modern Minimal Layouts
 
-Manta's design system maps directly to shadcn/ui & Tailwind conventions.
+Manta's design system maps to shadcn/ui & Tailwind conventions.
 Use existing tokens; don't invent custom colors or magic numbers.
 
 ---
@@ -20,14 +20,11 @@ No dedicated type-scale control — compose directly with `TextBlock`:
 | Label (above input) | 14 | `Regular` | `Foreground` |
 
 ```xml
-<!-- Page hero -->
 <TextBlock Text="Dashboard" FontSize="28" FontWeight="SemiBold" />
 
-<!-- Section label -->
 <TextBlock Text="Recent activity" FontSize="12" FontWeight="SemiBold"
            Foreground="{MBrush MutedForeground}" />
 
-<!-- Body + helper pair -->
 <MPanel Mode="Vertical" Spacing="1">
     <TextBlock Text="Language" />
     <TextBlock Text="Change the display language" FontSize="12"
@@ -37,9 +34,9 @@ No dedicated type-scale control — compose directly with `TextBlock`:
 
 ---
 
-## Spacing System (4 px base — identical to Tailwind)
+## Spacing Rhythm (4px base — Tailwind scale)
 
-Prefer `{MThickness Sn}` tokens everywhere. Avoid raw numbers unless unavoidable.
+Prefer `{MThickness Sn}` tokens everywhere. Avoid raw numbers.
 
 | Common use | Token | px |
 |---|---|---|
@@ -49,9 +46,9 @@ Prefer `{MThickness Sn}` tokens everywhere. Avoid raw numbers unless unavoidable
 | Standard gap | `S3` | 12 |
 | Section gap | `S4` | 16 |
 | Large section gap | `S6` | 24 |
-| Control padding (compact) | `S2, Vertical=S1` | 8/4 |
-| Control padding (normal) | `S3, Vertical=S2` | 12/8 |
-| Page inset | `S4`–`S6` | 16–24 |
+| Control padding (compact) | `S2, Vertical=S1` | 8 / 4 |
+| Control padding (normal) | `S3, Vertical=S2` | 12 / 8 |
+| Page inset | `S4` – `S6` | 16–24 |
 
 ---
 
@@ -68,14 +65,14 @@ Prefer `{MThickness Sn}` tokens everywhere. Avoid raw numbers unless unavoidable
 | `LG` | Modal, dialog |
 | `XL` / `XL2` | Elevated overlays |
 
-MCard applies `MShadow MD` by default.
+`MCard` applies `MShadow MD` by default.
 For colored shadows: `{MShadow MD, BrushKey=Primary, BrushType=Dark3}`
 
 ---
 
 ## Semantic Color Usage
 
-Map intent → token, exactly like shadcn/ui:
+Map intent → token, matching shadcn/ui:
 
 | Intent | Background | Text |
 |--------|-----------|------|
@@ -88,7 +85,8 @@ Map intent → token, exactly like shadcn/ui:
 | Sidebar | `SidebarBackground` | `SidebarForeground` |
 | Sidebar selected | `SidebarPrimary` | `SidebarPrimaryForeground` |
 
-**Opacity compositing** — use to create tinted surfaces without new tokens:
+**Opacity compositing** — tinted surfaces without new tokens:
+
 ```xml
 <!-- Subtle primary tint (hover state, highlight) -->
 <Border Background="{MBrush Primary, Opacity=0.08}" />
@@ -98,16 +96,13 @@ Map intent → token, exactly like shadcn/ui:
     <TextBlock Foreground="{MBrush MutedForeground}" FontWeight="SemiBold"
                Margin="{MThickness S2, Vertical=S1_5}" />
 </Border>
-
-<!-- Grouped-list border -->
-<Border Background="{MBrush Border, Opacity=0.2}" />
 ```
 
 ---
 
 ## Layout Patterns
 
-### 1. Two-column sidebar layout (settings / nav)
+### 1. Two-Column Sidebar Layout (Settings / Nav)
 
 ```xml
 <Grid ColumnDefinitions="200 *">
@@ -134,12 +129,11 @@ Map intent → token, exactly like shadcn/ui:
 
     <!-- Content -->
     <Grid Grid.Column="1" RowDefinitions="Auto *">
-        <!-- Sticky header -->
-        <Border Grid.Row="0" Height="39" BorderThickness="0 0 0 1" BorderBrush="{MBrush Border}">
+        <Border Grid.Row="0" Height="39" BorderThickness="0 0 0 1"
+                BorderBrush="{MBrush Border}">
             <TextBlock Text="General" FontWeight="SemiBold"
                        Margin="{MThickness S3}" VerticalAlignment="Center" />
         </Border>
-        <!-- Scrollable content -->
         <MScrollViewer Grid.Row="1">
             <MPanel Mode="Vertical" Spacing="16" Margin="{MThickness S4}">
                 <!-- content sections -->
@@ -149,14 +143,13 @@ Map intent → token, exactly like shadcn/ui:
 </Grid>
 ```
 
-### 2. Dashboard / card grid
+### 2. Dashboard / Card Grid
 
 ```xml
 <MScrollViewer>
     <MPanel Mode="Vertical" Spacing="24" Margin="{MThickness S6}">
         <TextBlock Text="Overview" FontSize="24" FontWeight="SemiBold" />
 
-        <!-- Stat cards -->
         <MPanel Mode="Column" ColumnSize="200" Spacing="16">
             <MCard>
                 <MPanel Mode="Vertical" Spacing="6" Margin="{MThickness S4}">
@@ -169,7 +162,6 @@ Map intent → token, exactly like shadcn/ui:
             </MCard>
         </MPanel>
 
-        <!-- Wide content card -->
         <MCard>
             <MPanel Mode="Vertical" Spacing="12" Margin="{MThickness S4}">
                 <TextBlock Text="Recent Orders" FontWeight="SemiBold" />
@@ -181,7 +173,7 @@ Map intent → token, exactly like shadcn/ui:
 </MScrollViewer>
 ```
 
-### 3. Form with labeled fields
+### 3. Form with Labeled Fields
 
 ```xml
 <MPanel Mode="Vertical" Spacing="16" Margin="{MThickness S4}">
@@ -191,7 +183,7 @@ Map intent → token, exactly like shadcn/ui:
         <MTextBox Placeholder="Enter your name..." Text="{Binding Name}" />
     </MPanel>
 
-    <!-- Field with helper -->
+    <!-- Field with helper text -->
     <MPanel Mode="Vertical" Spacing="6">
         <TextBlock Text="API Base URL" />
         <TextBlock Text="Do NOT include /chat/completions in the URL" FontSize="12"
@@ -199,7 +191,7 @@ Map intent → token, exactly like shadcn/ui:
         <MTextBox Placeholder="https://api.openai.com/v1" Text="{Binding ApiUrl}" />
     </MPanel>
 
-    <!-- Inline label + control -->
+    <!-- Inline label + toggle -->
     <Grid ColumnDefinitions="* Auto" VerticalAlignment="Center">
         <MPanel Grid.Column="0" Mode="Vertical" Spacing="2">
             <TextBlock Text="Dark mode" />
@@ -218,9 +210,9 @@ Map intent → token, exactly like shadcn/ui:
 </MPanel>
 ```
 
-### 4. Grouped settings list (shadcn/ui "group" style)
+### 4. Grouped Settings List (shadcn/ui "group" style)
 
-Bordered container with dividers between rows — no individual card per row:
+Bordered container with dividers between rows:
 
 ```xml
 <MPanel Mode="Vertical" Spacing="6">
@@ -256,7 +248,8 @@ Bordered container with dividers between rows — no individual card per row:
 
         <MItem>
             <Grid ColumnDefinitions="* Auto">
-                <TextBlock Grid.Column="0" Text="Compact mode" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="0" Text="Compact mode"
+                           VerticalAlignment="Center" />
                 <MToggleSwitch Grid.Column="1" IsChecked="{Binding CompactMode}"
                                Margin="{MThickness S3, Filter=Left}" />
             </Grid>
@@ -265,7 +258,7 @@ Bordered container with dividers between rows — no individual card per row:
 </MPanel>
 ```
 
-### 5. Empty state
+### 5. Empty State
 
 ```xml
 <MPanel Mode="Vertical" Spacing="12" HorizontalAlignment="Center"
@@ -287,8 +280,7 @@ Bordered container with dividers between rows — no individual card per row:
 
 ## Icon Patterns
 
-`MIcon` inside compact buttons requires a negative vertical margin so the icon
-aligns to the button's text baseline:
+`MIcon` inside compact buttons requires a negative vertical margin to align with text baseline:
 
 ```xml
 <!-- Icon-only button (compact) -->
@@ -312,25 +304,34 @@ aligns to the button's text baseline:
        IconSource="{x:Static Icons.Star}" />
 ```
 
-The `Margin="0 -10"` is required for 16–18 px icons in normal-height buttons
-to cancel the extra icon container padding and achieve vertical centering.
+The `Margin="0 -10"` is required for 16–18px icons in normal-height buttons to cancel extra
+icon container padding and achieve vertical centering.
 
 ---
 
 ## Design Principles
 
-1. **Semantic tokens only** — never use literal hex values or `StaticResource` for colors. Compose all colors from `{MBrush …}` with `Opacity`/`Type` variants.
+1. **Semantic tokens only** — never use literal hex values or `StaticResource` for colors. Compose
+   all colors from `{MBrush …}` with `Opacity` / `Type` variants.
 
-2. **Spacing rhythm** — use the 4px scale. A page inset is `S4`–`S6`; sections within a page are `S4`–`S6`; related items are `S2`–`S3`; tight pairs are `S1`–`S1_5`.
+2. **Spacing rhythm** — use the 4px scale. Page inset `S4`–`S6`; sections `S4`–`S6`; related
+   items `S2`–`S3`; tight pairs `S1`–`S1_5`.
 
-3. **One accent color** — the `Primary` token is the single action color. Use `Destructive` only for irreversible operations. Avoid coloring decorative elements.
+3. **One accent color** — `Primary` is the single action color. `Destructive` only for
+   irreversible operations. Avoid coloring decorative elements.
 
-4. **Borders over backgrounds** — prefer a `1px Border` divider (`{MThickness Px}`) + `{MBrush Border}` to separate regions rather than different background fills. This stays readable in both light and dark themes.
+4. **Borders over backgrounds** — prefer a 1px `{MThickness Px}` + `{MBrush Border}` divider
+   to separate regions, rather than different background fills. Works in both themes.
 
-5. **Elevation sparingly** — `MCard` already adds `MShadow MD`. Don't stack shadows. Use `MShadow LG` only for overlaid surfaces (drawers, modals).
+5. **Elevation sparingly** — `MCard` already adds `MShadow MD`. Don't stack shadows.
+   `MShadow LG` only for overlaid surfaces (drawers, modals).
 
-6. **Muted for metadata** — secondary text (timestamps, helper descriptions, captions, counts) always uses `{MBrush MutedForeground}` at `FontSize="12"`.
+6. **Muted for metadata** — secondary text (timestamps, helpers, captions, counts) always uses
+   `{MBrush MutedForeground}` at `FontSize="12"`.
 
-7. **Actions right-aligned** — in dialogs and forms, primary + secondary action buttons sit on the right (`HorizontalAlignment="Right"`) with Ghost cancel on the left of Primary confirm.
+7. **Actions right-aligned** — in dialogs and forms, primary + secondary action buttons sit on
+   the right (`HorizontalAlignment="Right"`) with Ghost cancel left of Primary confirm.
 
-8. **Ghost / Outline for secondary** — `MButton Variant="Ghost"` for non-critical icon actions; `Variant="Outline"` for secondary explicit actions; default (Primary) only for the single primary CTA per surface.
+8. **Ghost / Outline for secondary** — `Variant="Ghost"` for non-critical icon actions;
+   `Variant="Outline"` for secondary explicit actions; default (Primary) only for the single
+   primary CTA per surface.

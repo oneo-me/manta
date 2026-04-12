@@ -1,24 +1,15 @@
-# Platform APIs (File/Folder Pickers)
+# Platform APIs
+
+## File / Folder Pickers
 
 Manta wraps Avalonia's `StorageProvider` into extension methods on `ViewModel`, handling thread
 safety and window acquisition automatically.
-
----
-
-## File Picker Extension Methods
-
-All three methods live in `Manta.Reactive.Views` and are called directly on `this` inside any
-`ViewModel` or `WindowModel`:
 
 ```csharp
 using Avalonia.Platform.Storage;
 ```
 
-### `OpenFilePickerAsync`
-
-```csharp
-Task<IReadOnlyList<IStorageFile>> OpenFilePickerAsync(FilePickerOpenOptions options)
-```
+### OpenFilePickerAsync
 
 ```csharp
 var files = await this.OpenFilePickerAsync(new()
@@ -39,11 +30,7 @@ if (files.Count > 0)
 }
 ```
 
-### `OpenFolderPickerAsync`
-
-```csharp
-Task<IReadOnlyList<IStorageFolder>> OpenFolderPickerAsync(FolderPickerOpenOptions options)
-```
+### OpenFolderPickerAsync
 
 ```csharp
 var folders = await this.OpenFolderPickerAsync(new()
@@ -59,11 +46,7 @@ if (folders.Count > 0)
 }
 ```
 
-### `SaveFilePickerAsync`
-
-```csharp
-Task<IStorageFile?> SaveFilePickerAsync(FilePickerSaveOptions options)
-```
+### SaveFilePickerAsync
 
 Returns `null` if the user cancels.
 
@@ -86,9 +69,7 @@ if (file is not null)
 }
 ```
 
----
-
-## Options Summary
+### Options Summary
 
 | Method | Options Type | Key Properties |
 |--------|-------------|----------------|
@@ -96,9 +77,7 @@ if (file is not null)
 | `OpenFolderPickerAsync` | `FolderPickerOpenOptions` | `Title`, `AllowMultiple` |
 | `SaveFilePickerAsync` | `FilePickerSaveOptions` | `Title`, `SuggestedFileName`, `FileTypeChoices` |
 
----
-
-## FilePickerFileType
+### FilePickerFileType
 
 ```csharp
 new("Display Name")
@@ -111,12 +90,6 @@ new("Display Name")
 ---
 
 ## Clipboard
-
-```csharp
-public async Task GetClipboardAsync()
-```
-
-Returns the `IClipboard` for the ViewModel's window. Thread-safe (auto-invokes on UI thread).
 
 ```csharp
 public CommandWarper CopyCommand => GetCommand(async () =>
@@ -133,17 +106,149 @@ public CommandWarper PasteCommand => GetCommand(async () =>
 });
 ```
 
+Thread safety and parent-window resolution are handled automatically.
+
 ---
 
-## ViewModel Usage Pattern
+## CurrentSystem — Platform Detection
 
-```csharp
-public CommandWarper BrowseCommand => GetCommand(async () =>
-{
-    var folders = await this.OpenFolderPickerAsync(new() { Title = "Select Output Folder" });
-    if (folders.Count > 0)
-        OutputPath = folders[0].Path.LocalPath;
-});
+Attached properties for platform-conditional UI in AXAML:
+
+```xml
+<!-- Show only on macOS -->
+<TextBlock Text="macOS only" IsVisible="{Binding (CurrentSystem.IsMacOS)}" />
+
+<!-- Show only on Windows -->
+<Border IsVisible="{Binding (CurrentSystem.IsWindows)}" />
+
+<!-- Show only on Linux -->
+<Border IsVisible="{Binding (CurrentSystem.IsLinux)}" />
 ```
 
-Thread safety and parent-window resolution are handled automatically by Manta — no extra code needed.
+In C#:
+```csharp
+if (OperatingSystem.IsMacOS()) { /* ... */ }
+```
+
+---
+
+## WindowStatus — Observable Window State
+
+Track fullscreen state, button visibility, and platform-specific offsets:
+
+```csharp
+protected override void OnViewActivated(CompositeDisposable disposables)
+{
+    var view = GetView();
+    view.GetWindowStatusObservable()
+        .Subscribe(status =>
+        {
+            // status.IsFullScreen — bool
+            // status.IsShowButtons — bool (title bar buttons visible)
+            // status.Offset — Thickness (macOS: top=38 normal, 0 fullscreen)
+        })
+        .DisposeWith(disposables);
+}
+```
+
+**WindowStatus struct:**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `IsFullScreen` | `bool` | Window is in fullscreen mode |
+| `IsShowButtons` | `bool` | Title bar buttons are visible |
+| `Offset` | `Thickness` | Platform-specific insets (macOS traffic lights) |
+
+---
+
+## VisualExtensions — Window Behavior Helpers
+
+### BindTitleBarEvents
+
+Make any element act as a title bar (drag to move, double-tap to maximize):
+
+```csharp
+// In code-behind or OnViewActivated
+element.BindTitleBarEvents(window, stateControl: true)
+    .DisposeWith(disposables);
+```
+
+- Double-tap toggles maximize/normal
+- Click+drag moves window
+- Platform-aware (macOS fullscreen aware)
+
+### EnsureBackground
+
+Prevents hit-test issues on transparent elements:
+
+```csharp
+element.EnsureBackground();  // adds transparent background if none exists
+```
+
+---
+
+## WindowExtensions
+
+```csharp
+// Activate and bring to front
+window.FocusActivate();
+
+// Center window in owner or screen
+window.Centered();
+
+// Auto-center on programmatic resize
+window.KeepCentered();
+```
+
+---
+
+## ImageLoadService — Async Image Cache
+
+Registered by default in MApp. Supports web, local, and Avalonia resource images with disk caching.
+
+### Setup
+
+```csharp
+// In App.axaml.cs OnInitialize
+var imageService = Service.GetService<ImageLoadService>();
+imageService.CacheDirectory = Path.Combine(cacheFolder, "ImageCache");
+```
+
+### Image Sources
+
+| Source Type | Constructor | Description |
+|-------------|------------|-------------|
+| `WebImageSource` | `new(Uri uri)` | HTTP/HTTPS with disk caching |
+| `LocalImageSource` | `new(string path)` | Local file system |
+| `AvaloniaImageSource` | `new(Uri uri, Uri? baseUri)` | `avares://` protocol |
+| `BitmapImageSource` | `new(Bitmap bitmap)` | In-memory bitmap |
+
+### Usage in Code
+
+```csharp
+var imageService = Service.GetService<ImageLoadService>();
+var bitmap = await imageService.LoadAsync(
+    new WebImageSource(new Uri("https://example.com/photo.jpg")),
+    CancellationToken.None
+);
+```
+
+### Usage in AXAML
+
+`MImage` control auto-resolves string sources:
+
+```xml
+<MImage Source="https://example.com/photo.jpg" Width="200" />
+<MImage Source="avares://MyApp/Assets/logo.png" Width="100" />
+```
+
+String auto-conversion:
+- `https://...` → `WebImageSource`
+- `avares://...` → `AvaloniaImageSource`
+- File path → `LocalImageSource`
+
+### Caching
+
+- Uses XxHash3 of the URL/path as cache filename
+- Thread-safe with `SemaphoreSlim[32]` lock array
+- Falls back to re-download on cache miss/corruption
