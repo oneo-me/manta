@@ -10,7 +10,6 @@
         <File Path="Generators.props" />
         <File Path="global.json" />
         <File Path="NuGet.config" />
-        <File Path="publish-macos.sh" />
         <File Path="README.md" />
         <File Path=".globalconfig" />
         <File Path=".gitattributes" />

@@ -17,7 +17,7 @@ sealed class App : MApp
 
     public App()
     {
-        Name = nameof(Manta);
+        Name = nameof(MantaDemo);
 #if DEBUG
         SupportActivatableLifetime = Debugger.IsAttached is false;
 #else
@@ -34,10 +34,11 @@ sealed class App : MApp
     {
         Lang.Register(LangData.Load());
 
-        var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        var dataFolder = Path.Combine(folderPath, ".oneo", "MantaDemo");
-        var cacheFolder = Path.Combine(dataFolder, "Cache");
+        var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        var dataFolder = Path.Combine(userFolder, ".oneo", Name);
         Directory.CreateDirectory(dataFolder);
+
+        var cacheFolder = Path.Combine(dataFolder, "Cache");
         Directory.CreateDirectory(cacheFolder);
 
         var fileLogger = new FileLogger(Path.Combine(dataFolder, "logs.log"));

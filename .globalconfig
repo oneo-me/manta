@@ -1,8 +1,8 @@
-dotnet_diagnostic.CA1040.severity = none
-dotnet_diagnostic.CA1031.severity = none
-dotnet_diagnostic.CA1707.severity = none
-dotnet_diagnostic.CA1062.severity = none
-dotnet_diagnostic.CA1044.severity = none
-dotnet_diagnostic.CA1812.severity = none
-dotnet_diagnostic.CA5392.severity = none
-dotnet_diagnostic.CA2000.severity = none
+dotnet_diagnostic.CA1040.severity = none # Avoid empty interfaces.
+dotnet_diagnostic.CA1031.severity = none # Do not catch general exception types.
+dotnet_diagnostic.CA1707.severity = none # Identifiers should not contain underscores.
+dotnet_diagnostic.CA1062.severity = none # Validate arguments of public methods.
+dotnet_diagnostic.CA1044.severity = none # Properties should not be write-only.
+dotnet_diagnostic.CA1812.severity = none # Avoid uninstantiated internal classes.
+dotnet_diagnostic.CA5392.severity = none # Use DefaultDllImportSearchPaths for P/Invokes.
+dotnet_diagnostic.CA2000.severity = none # Dispose objects before losing scope.

@@ -6,6 +6,7 @@
         <DevelopmentDependency>true</DevelopmentDependency>
         <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <NoWarn>NU5128</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" PrivateAssets="all" GeneratePathProperty="true" />
