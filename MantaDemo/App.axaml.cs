@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using Avalonia.Markup.Xaml;
 using Manta;
 using Manta.Globalization;
@@ -31,7 +30,6 @@ sealed class App : MApp
         AvaloniaXamlLoader.Load(this);
     }
 
-    [SuppressMessage("Reliability", "CA2000:丢失范围之前释放对象")]
     protected override void OnInitialize(out MAppOptions options)
     {
         Lang.Register(LangData.Load());

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Rendering.SceneGraph;
@@ -10,7 +9,6 @@ namespace Manta.Controls;
 
 public class MBackdropBlur : ContentControl
 {
-    [SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope")]
     public override void Render(DrawingContext context)
     {
         context.Custom(new BlurBehindRenderOperation(new(default, Bounds.Size)));

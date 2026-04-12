@@ -1,9 +1,9 @@
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Extensions;
 using Manta.Reactive.Commands;
-using Manta.Reactive.Extensions;
 
 namespace Manta.Reactive.Views;
 
@@ -59,7 +59,7 @@ public abstract class DialogModel : WindowModel
         if (RegisterTitleBarEvents is false)
             return;
 
-        var view = this.GetView<MView>();
+        var view = this.GetViewCore();
 
         view.BindTitleBarEvents()
             .DisposeWith(disposables);

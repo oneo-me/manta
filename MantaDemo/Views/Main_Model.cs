@@ -1,4 +1,5 @@
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
@@ -7,7 +8,6 @@ using Manta.Controls;
 using Manta.Controls.Icons;
 using Manta.Globalization;
 using Manta.Reactive.Commands;
-using Manta.Reactive.Extensions;
 using Manta.Reactive.Regions;
 using Manta.Reactive.Services;
 using Manta.Reactive.Views;

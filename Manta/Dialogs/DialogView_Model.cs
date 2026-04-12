@@ -1,8 +1,8 @@
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 using Manta.Controls;
 using Manta.Extensions;
 using Manta.Langs;
-using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 
 namespace Manta.Dialogs;
@@ -23,7 +23,7 @@ sealed partial class DialogView_Model : DialogModel
     {
         base.OnViewActivated(disposables);
 
-        var dialogView = this.GetView<DialogView>();
+        var dialogView = GetView();
 
         dialogView.BindTitleBarEvents()
             .DisposeWith(disposables);

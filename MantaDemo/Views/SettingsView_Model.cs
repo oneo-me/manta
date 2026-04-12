@@ -1,9 +1,9 @@
 using System.Reactive.Disposables;
+using System.Reactive.Disposables.Fluent;
 using Avalonia.Controls;
 using Manta.Controls;
 using Manta.Extensions;
 using Manta.Globalization;
-using Manta.Reactive.Extensions;
 using Manta.Reactive.Views;
 using MantaDemo.Langs;
 
@@ -25,7 +25,7 @@ sealed partial class SettingsView_Model : WindowModel
     {
         base.OnViewActivated(disposables);
 
-        var view = this.GetView<SettingsView>();
+        var view = GetView();
 
         // Sidebar and TitleBar events
         view.SidebarBackground

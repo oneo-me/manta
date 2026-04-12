@@ -18,7 +18,7 @@ public static class ViewModelExtensions
         return view;
     }
 
-    static MView GetView(this ViewModel viewModel)
+    public static MView GetViewCore(this ViewModel viewModel)
     {
         if (viewModel.InnerView is null)
             throw new InvalidOperationException($"View not found for {viewModel}");
@@ -26,17 +26,9 @@ public static class ViewModelExtensions
         return viewModel.InnerView;
     }
 
-    public static T GetView<T>(this ViewModel viewModel) where T : MView
-    {
-        if (viewModel.GetView() is T view)
-            return view;
-
-        throw new InvalidOperationException($"View is not of type {typeof(T)}");
-    }
-
     public static async Task<TopLevel> GetTopLevelAsync(this ViewModel viewModel)
     {
-        var view = viewModel.GetView();
+        var view = viewModel.GetViewCore();
 
         TopLevel? topLevel;
 
