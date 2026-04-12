@@ -107,7 +107,8 @@ These files contain detailed documentation. Load them when you need specifics:
   DialogModel / RegionModel), command patterns (CommandWarper, IsExecuting,
   CanExecute), service registration, view lifecycle (OnViewActivated), ViewContext parent-child
   data sharing, ViewManager single-slot navigation, ViewTemplate, RegionManager tab navigation,
-  MAlert / MConfirm quick dialogs, View source generator.
+  `IViewHostTarget<T>` usage with `MViewHost.Data`, MAlert / MConfirm quick dialogs, View source
+  generator.
   **Load when:** implementing ViewModels, commands, services, navigation, or dialogs.
 
 - **[controls.md](references/controls.md)** — AXAML usage examples for all 70+ controls: MPanel,

@@ -428,6 +428,41 @@ AXAML — bind `MViewHost.ViewModel` to `ViewManager.Current`:
 | `ClearView()` | Clear and dispose current view |
 | `Current` | Currently active ViewModel (bindable) |
 
+### MViewHost Data Targeting
+
+Use `MViewHost.ViewModel` when the parent owns which child ViewModel is displayed. If the hosted
+child also needs external input from the parent, bind `MViewHost.Data` and implement
+`IViewHostTarget<T>` on the child ViewModel.
+
+```csharp
+[View<DetailView>]
+public sealed partial class DetailView_Model : ViewModel, IViewHostTarget<string>
+{
+    public string CurrentId
+    {
+        get;
+        set => SetValue(ref field, value);
+    } = string.Empty;
+
+    public void SetData(string data)
+    {
+        CurrentId = data;
+    }
+}
+```
+
+```xml
+<MViewHost Data="{Binding SelectedId}">
+    <MViewHost.ViewModel>
+        <local:DetailView_Model />
+    </MViewHost.ViewModel>
+</MViewHost>
+```
+
+`MViewHost` calls `SetData(...)` whenever `ViewModel` or `Data` changes. Use this when the parent
+controls selection or context and the child should react without owning navigation state. Keep the
+runtime `Data` type aligned with `IViewHostTarget<T>` or `SetData` will throw.
+
 ---
 
 ## ViewTemplate — IDataTemplate for Dynamic Views
