@@ -20,7 +20,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\Manta\Globalization\Core\LangType.cs">
-            <Link>Lang\Globalization\Core\LangType.cs</Link>
+            <Link>Lang\Models\LangType.cs</Link>
         </Compile>
     </ItemGroup>
 </Project>

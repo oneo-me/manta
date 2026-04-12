@@ -1,6 +1,6 @@
 using Manta.Globalization.Core;
 
-namespace Manta.Generators.Lang;
+namespace Manta.Generators.Lang.Models;
 
 sealed class LangConfig
 {

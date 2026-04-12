@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace Manta.Generators.Lang.Globalization.Models;
+namespace Manta.Generators.Lang.Models;
 
 sealed class LangData(AdditionalText file)
 {

@@ -1,7 +1,8 @@
+using Manta.Generators.Lang.Models;
 using Manta.Globalization.Core;
 using YamlDotNet.RepresentationModel;
 
-namespace Manta.Generators.Lang;
+namespace Manta.Generators.Lang.Helpers;
 
 static class LangYamlParser
 {

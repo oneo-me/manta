@@ -1,17 +1,42 @@
 using System.Collections.Immutable;
 using System.Text;
-using Manta.Generators.Lang.Globalization.Models;
+using Manta.Generators.Lang.Helpers;
+using Manta.Generators.Lang.Models;
 using Manta.Globalization.Core;
 using Microsoft.CodeAnalysis;
 
 namespace Manta.Generators.Lang;
 
-sealed class LangGenerator : GeneratorBase
+[Generator]
+public sealed class LangGenerator : IIncrementalGenerator
 {
-    public override string Name => "LangGenerator";
-    public override int Version => 2;
+    const string Name = "LangGenerator";
+    const int Version = 2;
 
-    public override bool MatchFile(AdditionalText file)
+    public void Initialize(IncrementalGeneratorInitializationContext context)
+    {
+        var langFiles = context.AdditionalTextsProvider.Where(MatchFile);
+        var pipeline = context.CompilationProvider.Combine(langFiles.Collect());
+
+        context.RegisterSourceOutput(pipeline, (spc, source) =>
+        {
+            var (compilation, files) = source;
+
+            if (files.Length <= 0)
+                return;
+
+            try
+            {
+                Execute(spc, compilation, files);
+            }
+            catch (Exception e)
+            {
+                ReportDiagnostic(spc, 1, e.ToString(), DiagnosticSeverity.Error);
+            }
+        });
+    }
+
+    static bool MatchFile(AdditionalText file)
     {
         if (file.Path.EndsWith(".yml", StringComparison.OrdinalIgnoreCase) is false)
             return false;
@@ -21,7 +46,7 @@ sealed class LangGenerator : GeneratorBase
         return string.Equals(dirName, "Langs", StringComparison.OrdinalIgnoreCase);
     }
 
-    public override void Execute(SourceProductionContext context, Compilation compilation, ImmutableArray<AdditionalText> files)
+    static void Execute(SourceProductionContext context, Compilation compilation, ImmutableArray<AdditionalText> files)
     {
         var assemblyName = compilation.AssemblyName ?? throw new InvalidOperationException("Unable to retrieve the assembly name of the project");
         var filterFiles = FilterFiles(files);
@@ -82,7 +107,7 @@ sealed class LangGenerator : GeneratorBase
         return new();
     }
 
-    Dictionary<LangType, LangData> ParserFiles(SourceProductionContext context, Dictionary<string, AdditionalText> filterFiles)
+    static Dictionary<LangType, LangData> ParserFiles(SourceProductionContext context, Dictionary<string, AdditionalText> filterFiles)
     {
         var data = new Dictionary<LangType, LangData>();
 
@@ -97,12 +122,12 @@ sealed class LangGenerator : GeneratorBase
         return data;
     }
 
-    void ParserFile(SourceProductionContext context, LangData data)
+    static void ParserFile(SourceProductionContext context, LangData data)
     {
         var yml = data.File.GetText()?.ToString();
         if (yml is null)
         {
-            WriteWarning(context, $"The file '{data.File.Path}' is empty.", data.Location);
+            ReportDiagnostic(context, 2, $"The file '{data.File.Path}' is empty.", DiagnosticSeverity.Warning, data.Location);
             return;
         }
 
@@ -113,27 +138,33 @@ sealed class LangGenerator : GeneratorBase
         }
         catch (Exception ex)
         {
-            WriteError(context, $"Failed to parse '{data.File.Path}': {ex.Message}", data.Location);
+            ReportDiagnostic(context, 1, $"Failed to parse '{data.File.Path}': {ex.Message}", DiagnosticSeverity.Error, data.Location);
         }
     }
 
-    void CheckMissing(SourceProductionContext context, Dictionary<LangType, LangData> data, LangData baseData)
+    static void CheckMissing(SourceProductionContext context, Dictionary<LangType, LangData> data, LangData baseData)
     {
         foreach (var dataValue in data.Values)
         foreach (var baseDataValue in baseData.Values)
             if (dataValue.Values.ContainsKey(baseDataValue.Key) is false)
-                WriteWarning(context, $"Not found [{baseDataValue.Key}] in the language file.", dataValue.Location);
+                ReportDiagnostic(context, 2, $"Not found [{baseDataValue.Key}] in the language file.", DiagnosticSeverity.Warning, dataValue.Location);
     }
 
-    void CheckRedundant(SourceProductionContext context, Dictionary<LangType, LangData> data, LangData baseData)
+    static void CheckRedundant(SourceProductionContext context, Dictionary<LangType, LangData> data, LangData baseData)
     {
         foreach (var dataValue in data.Values)
         foreach (var dataItem in dataValue.Values)
             if (baseData.Values.ContainsKey(dataItem.Key) is false)
-                WriteWarning(context, $"The key [{dataItem.Key}] is redundant in the language file.", dataItem.Value.KeyLocation);
+                ReportDiagnostic(context, 2, $"The key [{dataItem.Key}] is redundant in the language file.", DiagnosticSeverity.Warning, dataItem.Value.KeyLocation);
     }
 
-    void GenerateLangKey(SourceProductionContext context, LangConfig config, string assemblyName, LangData baseData, LangData commentData)
+    static void ReportDiagnostic(SourceProductionContext spc, int id, object message, DiagnosticSeverity severity, Location? location = null)
+    {
+        var diagnostic = Diagnostic.Create(new($"{Name}_{id:D3}", Name, "{0}", Name, severity, true), location ?? Location.None, message);
+        spc.ReportDiagnostic(diagnostic);
+    }
+
+    static void GenerateLangKey(SourceProductionContext context, LangConfig config, string assemblyName, LangData baseData, LangData commentData)
     {
         var sb = new StringBuilder();
         sb.AppendLine("// <auto-generated />");
@@ -171,7 +202,7 @@ sealed class LangGenerator : GeneratorBase
         context.AddSource($"{config.LangKeyClassName}.g.cs", sb.ToString());
     }
 
-    void GenerateLangData(SourceProductionContext context, LangConfig config, string assemblyName, Dictionary<LangType, LangData> data)
+    static void GenerateLangData(SourceProductionContext context, LangConfig config, string assemblyName, Dictionary<LangType, LangData> data)
     {
         var sb = new StringBuilder();
         sb.AppendLine("// <auto-generated />");
