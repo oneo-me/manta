@@ -119,11 +119,6 @@ These files contain detailed documentation. Load them when you need specifics:
   MImage, etc. Avalonia whitelist and forbidden control list. Variant enums.
   **Load when:** composing UIs, choosing controls, or looking up control properties.
 
-- **[theme-colors.md](references/theme-colors.md)** — All MBrushKey tokens, MThickness / MRadius /
-  MShadow / MSize scales with pixel values, SmoothBrushTransition usage, OnTheme conditional
-  values, Filter syntax for selective sides/corners.
-  **Load when:** styling controls, working with the theme system, or choosing spacing/radius.
-
 - **[project-setup.md](references/project-setup.md)** — Complete project skeleton (.csproj,
   App.axaml, App.axaml.cs), MApp full API, MAppOptions, XmlnsDefinition namespace mapping,
   theme switching, Generators.props build integration, ViewGenerator, Logging system (Log /
@@ -144,8 +139,9 @@ These files contain detailed documentation. Load them when you need specifics:
   multi-library registration with namespace isolation.
   **Load when:** adding multilingual support or switching languages at runtime.
 
-- **[ui-design.md](references/ui-design.md)** — UI design guide for modern minimal layouts:
-  typography scale, spacing rhythm (4px base), shadow depth, semantic color usage, icon patterns,
-  button hierarchy, and complete AXAML examples for sidebar navigation, dashboard cards, settings
-  pages, forms with labeled fields, grouped-list rows, and empty states.
-  **Load when:** designing layouts or making interfaces look clean and professional.
+- **[ui-design.md](references/ui-design.md)** — Unified Manta design system guide: token-driven
+  color and surface strategy, all token and primitive scales, typography, spacing/radius/shadow
+  rules, icon and button patterns, responsive behavior, complete AXAML layout examples, and an
+  integrated Apple-inspired showcase recipe grounded in Manta primitives.
+  **Load when:** designing layouts, choosing visual patterns, or translating a premium visual
+  direction into Manta AXAML.
