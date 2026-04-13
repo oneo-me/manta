@@ -9,7 +9,7 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
     public object? LangType { get; set; }
 
     public object LangKey { get; } = langKey;
-    public object? DefValue { get; set; } = langKey;
+    public object? DefValue { get; set; }
     public object? Data1 { get; set; }
     public object? Data2 { get; set; }
     public object? Data3 { get; set; }
@@ -39,8 +39,7 @@ public sealed class LangExtension(object langKey) : LangExtensionBase
         if (values[1] is not string langKey)
             return string.Empty;
 
-        if (values[2] is not string defValue)
-            return string.Empty;
+        var defValue = values[2] as string;
 
         var args = values.Count > 3 ? values.Skip(3).ToArray() : null;
 

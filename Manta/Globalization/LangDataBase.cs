@@ -6,7 +6,7 @@ public abstract class LangDataBase(LangType defCulture)
 {
     protected abstract string? GetOverride(LangType langType, string key);
 
-    public string? Get(LangType langType, string key)
+    public string? Get(LangType langType, string key, bool auto)
     {
         var result = GetOverride(langType, key);
         if (result is not null)
@@ -15,6 +15,9 @@ public abstract class LangDataBase(LangType defCulture)
         if (langType == defCulture)
             return null;
 
-        return GetOverride(defCulture, key);
+        if (auto)
+            return GetOverride(defCulture, key);
+
+        return null;
     }
 }

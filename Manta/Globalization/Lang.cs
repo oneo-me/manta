@@ -32,25 +32,25 @@ public static class Lang
         }
     }
 
-    static string GetString(LangType langType, string key, string def)
+    static string GetString(LangType langType, string key, string? def)
     {
         lock (_items)
         {
             foreach (var item in _items)
             {
-                var result = item.Get(langType, key);
+                var result = item.Get(langType, key, def is null);
                 if (result is not null)
                     return result;
             }
         }
 
-        return def;
+        return def ?? key;
     }
 
     public static string Get(LangGetOptions options)
     {
         var langType = options.LangType ?? Current;
-        var langStr = GetString(langType, options.LangKey, options.DefValue ?? options.LangKey);
+        var langStr = GetString(langType, options.LangKey, options.DefValue);
         var langArgs = options.GetArgs();
         if (langArgs is null)
             return langStr;
@@ -63,7 +63,7 @@ public static class Lang
         var langExtension = new LangExtension(options.LangKey)
         {
             LangType = options.LangType,
-            DefValue = options.DefValue ?? options.LangKey
+            DefValue = options.DefValue
         };
 
         var langArgs = options.GetArgs();
