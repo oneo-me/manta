@@ -180,7 +180,7 @@ Map intent → token, matching shadcn/ui:
     <!-- Field -->
     <MPanel Mode="Vertical" Spacing="6">
         <TextBlock Text="Display name" />
-        <MTextBox Placeholder="Enter your name..." Text="{Binding Name}" />
+        <MTextBox PlaceholderText="Enter your name..." Text="{Binding Name}" />
     </MPanel>
 
     <!-- Field with helper text -->
@@ -188,7 +188,7 @@ Map intent → token, matching shadcn/ui:
         <TextBlock Text="API Base URL" />
         <TextBlock Text="Do NOT include /chat/completions in the URL" FontSize="12"
                    Foreground="{MBrush MutedForeground}" />
-        <MTextBox Placeholder="https://api.openai.com/v1" Text="{Binding ApiUrl}" />
+        <MTextBox PlaceholderText="https://api.openai.com/v1" Text="{Binding ApiUrl}" />
     </MPanel>
 
     <!-- Inline label + toggle -->

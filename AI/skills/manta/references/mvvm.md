@@ -23,7 +23,7 @@ Model (INotifyPropertyChanged)
 public string Title
 {
     get;
-    set => SetValue(ref field, value);
+    set => SetField(ref field, value);
 } = "Default";
 
 // Explicit backing field
@@ -31,9 +31,11 @@ private string _name = string.Empty;
 public string Name
 {
     get => _name;
-    set => SetValue(ref _name, value);
+    set => SetField(ref _name, value);
 }
 ```
+
+`SetField(...)` returns `bool`, so you can gate follow-up work on whether the value actually changed.
 
 ---
 
@@ -79,8 +81,8 @@ public string Filter
     get;
     set
     {
-        SetValue(ref field, value);
-        SearchCommand.OnChanged();   // re-evaluates CanExecute
+        if (SetField(ref field, value))
+            SearchCommand.OnChanged();   // re-evaluates CanExecute
     }
 } = string.Empty;
 
@@ -151,7 +153,7 @@ public sealed partial class MainView_Model : WindowModel
             .DisposeWith(disposables);
     }
 
-    public IconSource ThemeIcon { get; set => SetValue(ref field, value); }
+    public IconSource ThemeIcon { get; set => SetField(ref field, value); }
     public CommandWarper SwitchThemeCommand => GetCommand(() => MApp.SwitchTheme());
 }
 ```
@@ -185,7 +187,7 @@ non-resizable, centered modal.
 [View<ConfirmView>]
 public sealed partial class ConfirmView_Model : DialogModel
 {
-    public string Message { get; set => SetValue(ref field, value); } = string.Empty;
+    public string Message { get; set => SetField(ref field, value); } = string.Empty;
 
     // Optional: prevent closing if input is invalid
     protected override Task<bool> CanContinueAsync()
@@ -392,43 +394,7 @@ the parent `MView` chain.
 
 ---
 
-## ViewManager — Single-Slot View Switcher
-
-Manages **one active ViewModel at a time** — simpler than `RegionManager` for swapping a content
-area without tabs.
-
-```csharp
-public sealed partial class ShellView_Model : WindowModel
-{
-    public ViewManager Content { get; } = new();
-
-    public CommandWarper ShowHomeCommand => GetCommand(() =>
-        Content.OpenView(() => new HomeView_Model())
-    );
-
-    public CommandWarper ShowSettingsCommand => GetCommand(() =>
-        Content.OpenView<SettingsView_Model>()
-    );
-}
-```
-
-AXAML — bind `MViewHost.ViewModel` to `ViewManager.Current`:
-
-```xml
-<MViewHost ViewModel="{Binding Content.Current}" />
-```
-
-**ViewManager API:**
-
-| Method | Description |
-|--------|-------------|
-| `OpenView<T>(Func<T> create)` | Open with factory |
-| `OpenView<T>(Action<T>? configure)` | Open via service locator, optional post-config |
-| `OpenView<T>(Type type, Action<T>? configure)` | Open subclass typed as T |
-| `ClearView()` | Clear and dispose current view |
-| `Current` | Currently active ViewModel (bindable) |
-
-### MViewHost Data Targeting
+## MViewHost Data Targeting
 
 Use `MViewHost.ViewModel` when the parent owns which child ViewModel is displayed. If the hosted
 child also needs external input from the parent, bind `MViewHost.Data` and implement
@@ -441,7 +407,7 @@ public sealed partial class DetailView_Model : ViewModel, IViewHostTarget<string
     public string CurrentId
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = string.Empty;
 
     public void SetData(string data)

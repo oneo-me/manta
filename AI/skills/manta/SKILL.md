@@ -1,13 +1,13 @@
 ---
 name: manta
 description: >
-  Manta UI toolkit for Avalonia 12 (.NET 10): MVVM framework, 70+ controls, theme system, i18n.
+  Manta UI toolkit for Avalonia 12 (.NET 10): MVVM framework, 60+ controls, theme system, i18n.
   Use for any Avalonia desktop project using Manta controls, ViewModels, styling, or navigation.
 ---
 
 # Manta Toolkit — Quick Reference
 
-Manta is an Avalonia 12 UI toolkit (.NET 10) providing 70+ themed controls, a reactive MVVM
+Manta is an Avalonia 12 UI toolkit (.NET 10) providing 60+ themed controls, a reactive MVVM
 framework, and a design system built on the OKLch color space.
 
 ## Technology Stack
@@ -41,7 +41,7 @@ framework, and a design system built on the OKLch color space.
 [View<MyView>]                                       // source generator binds View ↔ ViewModel
 public sealed partial class MyView_Model : ViewModel
 {
-    public string Title { get; set => SetValue(ref field, value); } = "Hello";
+    public string Title { get; set => SetField(ref field, value); } = "Hello";
 
     public CommandWarper SaveCommand => GetCommand(() => { /* sync */ });
     public CommandWarper LoadCommand => GetCommand(async () => await LoadAsync());
@@ -106,12 +106,12 @@ These files contain detailed documentation. Load them when you need specifics:
 - **[mvvm.md](references/mvvm.md)** — Full MVVM class hierarchy (ViewModel / WindowModel /
   DialogModel / RegionModel), command patterns (CommandWarper, IsExecuting,
   CanExecute), service registration, view lifecycle (OnViewActivated), ViewContext parent-child
-  data sharing, ViewManager single-slot navigation, ViewTemplate, RegionManager tab navigation,
-  `IViewHostTarget<T>` usage with `MViewHost.Data`, MAlert / MConfirm quick dialogs, View source
-  generator.
+  data sharing, `MViewHost` data passing with `IViewHostTarget<T>`, ViewTemplate,
+  RegionManager tab navigation, MAlert / MConfirm quick dialogs, View source generator.
   **Load when:** implementing ViewModels, commands, services, navigation, or dialogs.
 
-- **[controls.md](references/controls.md)** — AXAML usage examples for all 70+ controls: MPanel,
+- **[controls.md](references/controls.md)** — AXAML usage examples for the current Manta control
+  set: MPanel,
   MButton, MCard, MExpander, MAccordion, MTextBox, MCheckBox, MRadioButton, MToggleSwitch,
   MListBox, MIcon, MComboBox, MAlert, MBadge, MProgressRing, MProgressBar, MTabStrip,
   MTabControl, MViewHost, MSlider, MAutoCompleteBox, MNumericUpDown, MHyperlinkButton,

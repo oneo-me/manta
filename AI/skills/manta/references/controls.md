@@ -166,13 +166,13 @@ MCard applies `MShadow MD` by default.
 ## MTextBox
 
 ```xml
-<MTextBox Placeholder="Enter text..." Text="{Binding InputText}" />
-<MTextBox Watermark="Search..." />
+<MTextBox PlaceholderText="Enter text..." Text="{Binding InputText}" />
+<MTextBox PlaceholderText="Search..." />
 <MTextBox IsPasswordBox="True" Text="{Binding Password}" />
 <MTextBox IsReadOnly="True" Text="{Binding DisplayText}" />
 
 <!-- With inner content (icons, buttons) -->
-<MTextBox Placeholder="Search..." Padding="0 8">
+<MTextBox PlaceholderText="Search..." Padding="0 8">
     <MTextBox.InnerLeftContent>
         <MIcon IconSize="16" Margin="8 0 0 0" VerticalAlignment="Center"
                IconSource="{x:Static Icons.Search}" />
@@ -191,14 +191,14 @@ MCard applies `MShadow MD` by default.
 ## MCheckBox
 
 ```xml
-<MCheckBox Content="Enable feature" IsChecked="{Binding IsEnabled}" />
+<MCheckBox Header="Enable feature" IsChecked="{Binding IsEnabled}" />
 
 <!-- Variants -->
-<MCheckBox Variant="Default" Content="Default" />
-<MCheckBox Variant="Card" Content="Card style" />
+<MCheckBox Variant="Default" Header="Default" />
+<MCheckBox Variant="Bordered" Header="Bordered style" />
 ```
 
-**MCheckBoxVariant:** `Default` · `Card`
+**MCheckBoxVariant:** `Default` · `Bordered`
 
 ---
 
@@ -310,8 +310,12 @@ MCard applies `MShadow MD` by default.
 ## MAlert (Control)
 
 ```xml
-<MAlert Title="Heads up!" Message="Something important to know." />
-<MAlert Variant="Destructive" Title="Error!" Message="Something went wrong." />
+<MAlert Header="Heads up!">
+    <TextBlock Text="Something important to know." />
+</MAlert>
+<MAlert Variant="Destructive" Header="Error!">
+    <TextBlock Text="Something went wrong." />
+</MAlert>
 ```
 
 **MAlertVariant:** `Default` · `Destructive`
@@ -328,14 +332,6 @@ MCard applies `MShadow MD` by default.
 ```
 
 **MBadgeVariant:** `Default` · `Secondary` · `Destructive` · `Outline`
-
----
-
-## MAvatar
-
-```xml
-<MAvatar Source="{Binding AvatarUrl}" Initials="AB" Size="40" />
-```
 
 ---
 
@@ -782,7 +778,7 @@ public CommandWarper<DragEventArgs> DropCommand => GetCommand<DragEventArgs>(e =
 |---------|------|--------|
 | `MButton` | `MButtonVariant` | Default, Outline, Secondary, Ghost, Destructive, Flat |
 | `MTextBox` | `MTextBoxVariant` | Default, NoStyle |
-| `MCheckBox` | `MCheckBoxVariant` | Default, Card |
+| `MCheckBox` | `MCheckBoxVariant` | Default, Bordered |
 | `MRadioButton` | `MRadioButtonVariant` | Default, Bordered |
 | `MToggleButton` | `MToggleButtonVariant` | Default, Outline |
 | `MListBox` | `MListBoxVariant` | Default, Sidebar, NoStyle |
