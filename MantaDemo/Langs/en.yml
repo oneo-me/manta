@@ -25,6 +25,19 @@ Demo_Reactive_ViewContext: View Context
 Demo_Reactive_Command: Command
 Demo_Reactive_Dialog: Dialog
 Demo_Reactive_Courier: Courier IPC
+Demo_MultiLanguage_Language: Language
+Demo_MultiLanguage_Language_Title: Runtime Language Switching
+Demo_MultiLanguage_Language_Description: "Manta updates every {{Lang}} binding immediately after Lang.Current changes."
+Demo_MultiLanguage_Language_Selector: Choose Language
+Demo_MultiLanguage_Language_Current: Current Language
+Demo_MultiLanguage_Language_ReactiveSample: Reactive Binding
+Demo_MultiLanguage_Language_SnapshotSample: ViewModel Snapshot
+Demo_MultiLanguage_Language_FixedSample: Fixed Language Preview
+Demo_MultiLanguage_Language_UserName: User Name
+Demo_MultiLanguage_Language_Greeting: Hello, {0}!
+Demo_MultiLanguage_Language_Status: "Active culture code: {0}"
+Demo_MultiLanguage_Language_UpdatedAt: "Updated at {0:HH:mm:ss}"
+Demo_MultiLanguage_Language_Cycle: Cycle Language
 
 SubGroup_Advanced: Advanced
 SubGroup_Window: Window

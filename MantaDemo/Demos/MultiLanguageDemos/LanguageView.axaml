@@ -1,0 +1,101 @@
+<MView
+    x:Class="MantaDemo.Demos.MultiLanguageDemos.LanguageView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:Manta.Globalization.Core;assembly=Manta"
+    xmlns:local="clr-namespace:MantaDemo.Demos.MultiLanguageDemos"
+    x:DataType="local:LanguageView_Model"
+    Name="View">
+    <Design.DataContext>
+        <local:LanguageView_Model />
+    </Design.DataContext>
+    <MPanel Mode="Vertical" Spacing="{MSize S3}" Margin="{MThickness S3}" HorizontalAlignment="Left">
+        <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Title}}" FontSize="20" FontWeight="SemiBold" />
+        <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Description}}" Foreground="{MBrush MutedForeground}" TextWrapping="Wrap" MaxWidth="620" />
+        <MPanel Mode="Horizontal" Spacing="{MSize S3}">
+            <MTextBox Width="220"
+                      PlaceholderText="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_UserName}}"
+                      Text="{Binding UserName}" />
+            <MButton Variant="Outline"
+                     Content="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Cycle}}"
+                     Command="{Binding CycleLanguageCommand}" />
+        </MPanel>
+        <Border Background="{MBrush Primary, Opacity=0.1}"
+                BorderBrush="{MBrush Border}"
+                BorderThickness="{MThickness Px}"
+                CornerRadius="{MRadius LG}"
+                Padding="{MThickness S3}">
+            <MPanel Mode="Vertical" Spacing="{MSize S2}">
+                <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Selector}}" FontWeight="SemiBold" />
+                <MItems ItemsSource="{Binding SupportedLanguages}">
+                    <MItems.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <MPanel Mode="Horizontal" Spacing="{MSize S2}" />
+                        </ItemsPanelTemplate>
+                    </MItems.ItemsPanel>
+                    <MItems.ItemTemplate>
+                        <DataTemplate x:DataType="core:LangType">
+                            <MButton Variant="Outline"
+                                     Command="{Binding ElementName=View, Path=DataContext.ChangeLanguageCommand}"
+                                     CommandParameter="{Binding}">
+                                <MPanel Mode="Horizontal" Spacing="6">
+                                    <TextBlock Text="{LangEmoji {Binding}}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{LangName {Binding}}" VerticalAlignment="Center" />
+                                </MPanel>
+                            </MButton>
+                        </DataTemplate>
+                    </MItems.ItemTemplate>
+                </MItems>
+            </MPanel>
+        </Border>
+        <Grid ColumnSpacing="{MSize S3}" ColumnDefinitions="*,*,*">
+            <Border Grid.Column="0"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius LG}"
+                    Padding="{MThickness S3}">
+                <MPanel Mode="Vertical" Spacing="{MSize S2}">
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Current}}" FontWeight="SemiBold" />
+                    <TextBlock Text="{LangName {Binding SelectedLanguage}}" />
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Status}, Data1={Binding CurrentLanguageCode}}" Foreground="{MBrush MutedForeground}" />
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_UpdatedAt}, Data1={Binding UpdatedAt}}" Foreground="{MBrush MutedForeground}" />
+                </MPanel>
+            </Border>
+            <Border Grid.Column="1"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius LG}"
+                    Padding="{MThickness S3}">
+                <MPanel Mode="Vertical" Spacing="{MSize S2}">
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_ReactiveSample}}" FontWeight="SemiBold" />
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Greeting}, Data1={Binding UserName}}" />
+                </MPanel>
+            </Border>
+            <Border Grid.Column="2"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius LG}"
+                    Padding="{MThickness S3}">
+                <MPanel Mode="Vertical" Spacing="{MSize S2}">
+                    <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_SnapshotSample}}" FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SnapshotGreeting}" />
+                </MPanel>
+            </Border>
+        </Grid>
+        <Border Background="{MBrush Muted, Opacity=0.28}"
+                BorderBrush="{MBrush Border}"
+                BorderThickness="{MThickness Px}"
+                CornerRadius="{MRadius LG}"
+                Padding="{MThickness S3}">
+            <MPanel Mode="Vertical" Spacing="{MSize S2}">
+                <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_FixedSample}}" FontWeight="SemiBold" />
+                <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Greeting}, Data1={Binding UserName}, LangType={x:Static core:LangType.en}}" />
+                <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Greeting}, Data1={Binding UserName}, LangType={x:Static core:LangType.zh_Hans}}" />
+                <TextBlock Text="{Lang {x:Static LangKey.Demo_MultiLanguage_Language_Greeting}, Data1={Binding UserName}, LangType={x:Static core:LangType.ja}, DefValue='こんにちは, {0}!'}" />
+            </MPanel>
+        </Border>
+    </MPanel>
+</MView>

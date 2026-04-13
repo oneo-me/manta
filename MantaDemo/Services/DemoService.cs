@@ -1,5 +1,6 @@
 using MantaDemo.Demos.AutoDemos;
 using MantaDemo.Demos.ControlDemos;
+using MantaDemo.Demos.MultiLanguageDemos;
 using MantaDemo.Demos.ReactiveDemos;
 using MantaDemo.Demos.StyleDemos;
 using MantaDemo.Reactive;
@@ -16,6 +17,7 @@ sealed class DemoService
         new ContextView_Model(),
         new DialogView_Model(),
         new ViewTargetView_Model(),
+        new LanguageView_Model(),
 
         new ColorView_Model(),
         new FontView_Model(),

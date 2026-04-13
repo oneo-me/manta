@@ -398,7 +398,7 @@ Async image control with built-in loading from multiple sources:
 ```xml
 <MAutoCompleteBox ItemsSource="{Binding Suggestions}"
                   Text="{Binding SearchText}"
-                  Watermark="Type to search..." />
+                  PlaceholderText="Type to search..." />
 ```
 
 ---
