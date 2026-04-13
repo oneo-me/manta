@@ -16,7 +16,7 @@ sealed partial class CommandView_Model : DemoViewModel
     public int ClickCount
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 
     public bool CanExecuted
@@ -24,7 +24,7 @@ sealed partial class CommandView_Model : DemoViewModel
         get;
         set
         {
-            if (SetValue(ref field, value))
+            if (SetField(ref field, value))
             {
                 ExecuteCommand.OnChanged();
                 ExecuteAsyncCommand.OnChanged();
@@ -46,7 +46,7 @@ sealed partial class CommandView_Model : DemoViewModel
     public string DropFile
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = string.Empty;
 
     public CommandWarper<DragEventArgs> DragDropCommand => GetCommand<DragEventArgs>(e =>
@@ -60,7 +60,7 @@ sealed partial class CommandView_Model : DemoViewModel
     public int DoubleClickCount
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 
     public CommandWarper DoubleTappedCommand => GetCommand(() =>

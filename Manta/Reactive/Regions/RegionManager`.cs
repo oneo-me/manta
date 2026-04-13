@@ -17,7 +17,7 @@ public sealed class RegionManager<T> : Model, IDisposable where T : RegionModel
     public T? SelectedItem
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 
     public RegionManager(params T[] initItems)

@@ -60,7 +60,7 @@ sealed partial class Main_Model : WindowModel
     public IconSource ThemeIcon
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = GetThemeIcon(Application.Current?.RequestedThemeVariant);
 
     public CommandWarper SwitchThemeCommand => GetCommand(() =>

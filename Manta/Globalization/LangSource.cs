@@ -11,7 +11,7 @@ sealed class LangSource : Model
         get;
         set
         {
-            if (SetValue(ref field, value) is false)
+            if (SetField(ref field, value) is false)
                 return;
 
             var cultureInfo = value.ToCultureInfo();

@@ -24,7 +24,7 @@ public class CommandWarper : Model, ICommand
     public bool IsExecuting
     {
         get;
-        private set => SetValue(ref field, value);
+        private set => SetField(ref field, value);
     }
 
     public CommandWarper(Func<object?, Task> execute, Func<object?, bool>? canExecute = null)

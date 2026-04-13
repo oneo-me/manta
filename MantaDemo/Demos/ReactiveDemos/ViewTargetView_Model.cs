@@ -16,6 +16,6 @@ sealed partial class ViewTargetView_Model : DemoViewModel
     public string Current
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = string.Empty;
 }

@@ -29,7 +29,7 @@ sealed partial class DialogView_Model : DemoViewModel
     public bool AllowMultiple
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = true;
 
     public CommandWarper OpenFileAsyncCommand => GetCommand(async () =>

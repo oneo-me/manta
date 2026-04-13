@@ -12,7 +12,7 @@ public abstract class Model : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new(propertyName));
     }
 
-    protected bool SetValue<T>(ref T backingField, T newValue, [CallerMemberName] string? propertyName = null)
+    protected bool SetField<T>(ref T backingField, T newValue, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(backingField, newValue))
             return false;

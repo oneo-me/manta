@@ -29,7 +29,7 @@ sealed class DemoGroupItem(DemoSubGroup subGroup) : Model, IDemoItem
     public int Count
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 }
 
@@ -50,7 +50,7 @@ sealed partial class DemoGroupView_Model : HeaderRegionModel
         get;
         set
         {
-            if (SetValue(ref field, value))
+            if (SetField(ref field, value))
             {
                 if (value is DemoItem demoItem)
                     CurrentViewModel = demoItem.ViewModel;
@@ -63,7 +63,7 @@ sealed partial class DemoGroupView_Model : HeaderRegionModel
     public ViewModel? CurrentViewModel
     {
         get;
-        private set => SetValue(ref field, value);
+        private set => SetField(ref field, value);
     }
 
     public DemoGroupView_Model(DemoGroup group, string header, IconSource iconSource)

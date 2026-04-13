@@ -8,13 +8,13 @@ sealed partial class ViewTargetViewChild_Model : ViewModel, IViewHostTarget<stri
     public string Data
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = string.Empty;
 
     public TimeSpan Time
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     } = TimeSpan.Zero;
 
     public void SetData(string data)

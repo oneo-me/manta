@@ -39,12 +39,12 @@ public sealed class ViewContext<T> : Model, IViewContext
     public T? Value
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 
     public Type? Source
     {
         get;
-        set => SetValue(ref field, value);
+        set => SetField(ref field, value);
     }
 }
