@@ -1,5 +1,9 @@
 # MVVM Framework
 
+This file covers Manta's MVVM structure and view composition rules.
+Reactive lifetimes, `DynamicData` pipelines, `ReactiveValue<T>`, and the detailed `RegionManager<T>`
+collection pattern live in `reactive-dynamicdata.md`.
+
 ## Class Hierarchy
 
 ```
@@ -114,6 +118,10 @@ public sealed partial class MyView_Model : ViewModel
     }
 }
 ```
+
+`OnViewActivated(...)` is the MVVM lifecycle entry for subscriptions and UI event wiring.
+Detailed reactive usage, dispatcher rules, and disposal patterns are documented in
+`reactive-dynamicdata.md`.
 
 ---
 
@@ -392,6 +400,10 @@ public sealed partial class ChildView_Model : ViewModel
 `ViewContext<T>` is a `Model` subclass — resolution happens at view activation time by walking up
 the parent `MView` chain.
 
+Use this section as the API entry point. Shared mutable state with `ReactiveValue<T>`, context
+update patterns, and nested reactive communication rules are documented in
+`reactive-dynamicdata.md`.
+
 ---
 
 ## MViewHost Data Targeting
@@ -478,11 +490,17 @@ public sealed partial class HomeView_Model : HeaderRegionModel
 }
 ```
 
+`RegionModel` defines the ViewModel role. `RegionManager<T>` defines the reactive collection and
+selection pattern. The detailed manager behavior and DynamicData pipeline live in
+`reactive-dynamicdata.md`.
+
 ---
 
 ## RegionManager — Tab Navigation
 
 `RegionManager<T>` manages a list of `RegionModel` instances with observable selection.
+This section focuses on MVVM wiring. The full reactive collection model, deduplication strategy,
+dispatcher pipeline, and recommended usage rules live in `reactive-dynamicdata.md`.
 
 ```csharp
 // Owned by a service
@@ -550,16 +568,15 @@ public sealed partial class MainView_Model : WindowModel
 </Grid>
 ```
 
-**RegionManager API:**
+### Wiring Rules
 
-| Method | Description |
-|--------|-------------|
-| `Open(Func<T> create)` | Open or activate existing region of that type |
-| `Open(Func<T> create, Func<T, bool> isCurrent)` | Open with initial selection predicate |
-| `Open<TContext>(TContext ctx, Func<TContext, T> create)` | Open with context key for dedup |
-| `Close(T region)` | Close and dispose a region |
-| `Items` | Observable collection of regions |
-| `SelectedItem` | Currently selected region (bindable) |
+- Bind tab headers to `RegionManager.Items`
+- Bind the active tab to `RegionManager.SelectedItem`
+- Render the selected region through `MViewHost`
+- Use `RegionModel.Close()` from the region itself
+- Use `RegionManager.Open(...)` from parent navigation commands
+
+For API details and behavior rules, load `reactive-dynamicdata.md`.
 
 ---
 

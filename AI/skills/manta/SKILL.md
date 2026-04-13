@@ -17,6 +17,7 @@ framework, and a design system built on the OKLch color space.
 | .NET | 10.0 |
 | Avalonia | 12.0.0 |
 | DynamicData | 9.4.31 |
+| Reactive Style | System.Reactive + Manta `CommandWarper` / `ViewModel` lifecycle |
 | YamlDotNet | 17.0.1 |
 | C# | latest (nullable, implicit usings, compiled bindings) |
 
@@ -109,6 +110,14 @@ These files contain detailed documentation. Load them when you need specifics:
   data sharing, `MViewHost` data passing with `IViewHostTarget<T>`, ViewTemplate,
   RegionManager tab navigation, MAlert / MConfirm quick dialogs, View source generator.
   **Load when:** implementing ViewModels, commands, services, navigation, or dialogs.
+
+- **[reactive-dynamicdata.md](references/reactive-dynamicdata.md)** — Reactive architecture guide
+  for Manta's actual implementation: `Model` / `SetField`, `CommandWarper`, `CompositeDisposable`
+  lifetimes, `ObserveOnDispatcher()`, `ReactiveValue<T>`, `ViewContext<T>`, `DynamicData`
+  collection pipelines, `ToObservableChangeSet()`, and `RegionManager<T>` as the canonical dynamic
+  tab pattern.
+  **Load when:** building live-updating lists, adding subscriptions, sharing reactive state across
+  nested views, or implementing tab/region workflows.
 
 - **[controls.md](references/controls.md)** — AXAML usage examples for the current Manta control
   set: MPanel,
