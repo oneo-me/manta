@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Manta;
 using Manta.Globalization;
@@ -41,8 +42,13 @@ sealed class App : MApp
         var cacheFolder = Path.Combine(dataFolder, "Cache");
         Directory.CreateDirectory(cacheFolder);
 
-        var fileLogger = new FileLogger(Path.Combine(dataFolder, "logs.log"));
-        Log.AddLogger(fileLogger);
+        FileLogger? fileLogger = null;
+
+        if (Design.IsDesignMode is false)
+        {
+            fileLogger = new(Path.Combine(dataFolder, "logs.log"));
+            Log.AddLogger(fileLogger);
+        }
 
         Log.Information("MantaDemo started.");
 
@@ -65,7 +71,7 @@ sealed class App : MApp
 
                 viewService.Dispose();
                 configService.Dispose();
-                fileLogger.Dispose();
+                fileLogger?.Dispose();
             }
         };
     }
