@@ -9,7 +9,13 @@
     </Design.DataContext>
     <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MCard Width="280">
+            <Border Width="280"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    Padding="{MThickness S3}"
+                    BoxShadow="{MShadow MD}">
                 <MTree>
                     <MTreeItem Header="Documents" IsExpanded="True">
                         <MTreeItem Header="Work">
@@ -27,7 +33,7 @@
                     </MTreeItem>
                     <MTreeItem Header="Desktop" />
                 </MTree>
-            </MCard>
+            </Border>
         </MPanel>
     </Panel>
 </MView>

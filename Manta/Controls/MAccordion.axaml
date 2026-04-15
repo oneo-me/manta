@@ -5,7 +5,13 @@
     <Design.PreviewWith>
         <!-- List -->
         <MPanel Mode="Vertical" Spacing="12" Margin="12" Height="300">
-            <MCard Width="320">
+            <Border Width="320"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    Padding="{MThickness S3}"
+                    BoxShadow="{MShadow MD}">
                 <MAccordion>
                     <MAccordionItem Header="Product Information">
                         <MPanel Mode="Vertical" Spacing="3">
@@ -26,7 +32,7 @@
                         </MPanel>
                     </MAccordionItem>
                 </MAccordion>
-            </MCard>
+            </Border>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MAccordion}" TargetType="MAccordion">

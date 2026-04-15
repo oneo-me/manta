@@ -25,7 +25,7 @@ framework, and a design system built on the OKLch color space.
 
 - All Manta types are in the `https://github.com/avaloniaui` XML namespace — **no extra xmlns
   prefix** needed in AXAML.
-- Control names use the **`M` prefix**: `MButton`, `MCard`, `MPanel`, `MTextBox`, etc.
+- Control names use the **`M` prefix**: `MButton`, `MPanel`, `MTextBox`, `MTree`, etc.
 - **All views are `MView`** — including main windows and dialogs. The framework wraps views in
   native windows automatically. There is no separate Window AXAML class.
 - ViewModel naming: `MyView_Model` paired with view `MyView`.
@@ -121,7 +121,7 @@ These files contain detailed documentation. Load them when you need specifics:
 
 - **[controls.md](references/controls.md)** — AXAML usage examples for the current Manta control
   set: MPanel,
-  MButton, MCard, MExpander, MAccordion, MTextBox, MCheckBox, MRadioButton, MToggleSwitch,
+  MButton, MExpander, MAccordion, MTextBox, MCheckBox, MRadioButton, MToggleSwitch,
   MListBox, MIcon, MComboBox, MAlert, MBadge, MProgressRing, MProgressBar, MTabStrip,
   MTabControl, MViewHost, MSlider, MAutoCompleteBox, MNumericUpDown, MHyperlinkButton,
   MSeparator, MMenu, MContextMenu, MTree, MItems, MCanvasGrid, MDialogTemplate, MBackground,

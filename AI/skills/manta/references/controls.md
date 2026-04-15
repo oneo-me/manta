@@ -115,22 +115,6 @@ The primary layout control. Replaces most uses of `StackPanel` and `WrapPanel`.
 
 ---
 
-## MCard
-
-```xml
-<MCard Width="300">
-    <MPanel Mode="Vertical" Spacing="8" Margin="16">
-        <TextBlock Text="Card Title" FontWeight="SemiBold" FontSize="16" />
-        <TextBlock Text="Card description..." TextWrapping="Wrap" />
-        <MButton Content="Action" />
-    </MPanel>
-</MCard>
-```
-
-MCard applies `MShadow MD` by default.
-
----
-
 ## MExpander
 
 ```xml

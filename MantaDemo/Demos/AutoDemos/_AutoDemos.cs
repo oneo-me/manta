@@ -16,7 +16,6 @@ static class AutoDemos
         yield return new MenuView_Model();
         yield return new ItemsView_Model();
         yield return new RadioButtonView_Model();
-        yield return new CardView_Model();
         yield return new BackgroundView_Model();
         yield return new PathIconView_Model();
         yield return new AutoCompleteBoxView_Model();

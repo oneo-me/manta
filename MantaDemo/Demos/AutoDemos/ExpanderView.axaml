@@ -9,7 +9,13 @@
     </Design.DataContext>
     <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
         <MPanel Mode="Vertical" Spacing="12" Margin="12" Height="300">
-            <MCard Width="320">
+            <Border Width="320"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    Padding="{MThickness S3}"
+                    BoxShadow="{MShadow MD}">
                 <MPanel Mode="Vertical">
                     <MExpander Header="Product Information">
                         <MPanel Mode="Vertical" Spacing="3">
@@ -18,7 +24,7 @@
                         </MPanel>
                     </MExpander>
                 </MPanel>
-            </MCard>
+            </Border>
         </MPanel>
     </Panel>
 </MView>

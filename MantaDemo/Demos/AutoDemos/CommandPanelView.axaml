@@ -9,12 +9,24 @@
     </Design.DataContext>
     <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MCard Width="320" Padding="0" CornerRadius="{MRadius LG}">
+            <Border Width="320"
+                    Padding="0"
+                    CornerRadius="{MRadius LG}"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    BoxShadow="{MShadow MD}">
                 <MCommandPanel Text="Test Search">
                     <MCommandPanelItem Variant="NoResults" Content="No results found." />
                 </MCommandPanel>
-            </MCard>
-            <MCard Width="320" Padding="0" CornerRadius="{MRadius LG}">
+            </Border>
+            <Border Width="320"
+                    Padding="0"
+                    CornerRadius="{MRadius LG}"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    BoxShadow="{MShadow MD}">
                 <MCommandPanel PlaceholderText="Type a command or search...">
                     <MCommandPanelItem Variant="Group" Content="Suggestions" />
                     <MCommandPanelItem>
@@ -65,7 +77,7 @@
                         </Grid>
                     </MCommandPanelItem>
                 </MCommandPanel>
-            </MCard>
+            </Border>
         </MPanel>
     </Panel>
 </MView>

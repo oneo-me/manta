@@ -10,15 +10,30 @@
                     <MCarousel.PageTransition>
                         <PageSlide Duration="0:00:0.3" Orientation="Horizontal" />
                     </MCarousel.PageTransition>
-                    <MCard>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
-                    <MCard>
+                    </Border>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
-                    <MCard>
+                    </Border>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
+                    </Border>
                 </MCarousel>
                 <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
                     <MButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel1, Path=Previous}" />
@@ -31,15 +46,30 @@
                     <MCarousel.PageTransition>
                         <Rotate3DTransition Duration="0:0:0.3" />
                     </MCarousel.PageTransition>
-                    <MCard>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
-                    <MCard>
+                    </Border>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
-                    <MCard>
+                    </Border>
+                    <Border Background="{MBrush Background}"
+                            BorderBrush="{MBrush Border}"
+                            BorderThickness="{MThickness Px}"
+                            CornerRadius="{MRadius XL}"
+                            Padding="{MThickness S3}"
+                            BoxShadow="{MShadow MD}">
                         <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </MCard>
+                    </Border>
                 </MCarousel>
                 <MPanel Mode="Horizontal" Spacing="8" HorizontalAlignment="Right">
                     <MButton Variant="Outline" Content="Previous" Command="{Binding ElementName=Carousel2, Path=Previous}" />

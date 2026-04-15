@@ -5,20 +5,26 @@
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <MPanel Mode="Vertical" Spacing="12" Margin="12">
-            <MPanel.Styles>
-                <Style Selector="MCard">
-                    <Setter Property="MaxWidth" Value="520" />
-                    <Setter Property="Padding" Value="0" />
-                </Style>
-            </MPanel.Styles>
-            <MCard>
+            <Border MaxWidth="520"
+                    Padding="0"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    BoxShadow="{MShadow MD}">
                 <MDialogTemplate Header="Are you absolutely sure?">
                     <SelectableTextBlock Text="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
                                          TextWrapping="Wrap"
                                          Foreground="{MBrush MutedForeground}" />
                 </MDialogTemplate>
-            </MCard>
-            <MCard>
+            </Border>
+            <Border MaxWidth="520"
+                    Padding="0"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    BoxShadow="{MShadow MD}">
                 <MDialogTemplate Header="Are you absolutely sure?">
                     <MDialogTemplate.Footer>
                         <SelectableTextBlock Text="This Footer is custom!"
@@ -28,14 +34,20 @@
                                          TextWrapping="Wrap"
                                          Foreground="{MBrush MutedForeground}" />
                 </MDialogTemplate>
-            </MCard>
-            <MCard>
+            </Border>
+            <Border MaxWidth="520"
+                    Padding="0"
+                    Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    BoxShadow="{MShadow MD}">
                 <MDialogTemplate Header="Are you absolutely sure?" CancelButton="" ContinueButton="Delete Account" ContinueButtonVariant="Destructive">
                     <SelectableTextBlock Text="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
                                          TextWrapping="Wrap"
                                          Foreground="{MBrush MutedForeground}" />
                 </MDialogTemplate>
-            </MCard>
+            </Border>
         </MPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type MDialogTemplate}" TargetType="MDialogTemplate">

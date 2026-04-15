@@ -131,7 +131,7 @@ Radius filter values:
 <Setter Property="BoxShadow" Value="{MShadow MD, BrushKey=Primary, BrushType=Dark3}" />
 ```
 
-`MCard` already applies `MShadow MD`.
+Use `Border` with `BoxShadow="{MShadow MD}"` for elevated surfaces.
 
 ### 2.5 MSize, OnTheme, SmoothBrushTransition
 
@@ -305,7 +305,7 @@ It is useful for landing pages, showcase views, and premium product moments.
 ### Elevation Guidance
 
 - Default app layout: flat or `XS`
-- Cards: let `MCard` own the default elevation
+- Elevated surfaces: use `Border` with `MShadow MD`
 - Menus and popovers: `MD`
 - Dialogs: `LG`
 - Showcase cards: local custom shadow is acceptable if visual fidelity matters
@@ -427,14 +427,19 @@ Compact buttons often need icon baseline compensation.
         <TextBlock Text="Overview" FontSize="24" FontWeight="SemiBold" />
 
         <MPanel Mode="Column" ColumnSize="200" Spacing="16">
-            <MCard>
-                <MPanel Mode="Vertical" Spacing="6" Margin="{MThickness S4}">
+            <Border Background="{MBrush Background}"
+                    BorderBrush="{MBrush Border}"
+                    BorderThickness="{MThickness Px}"
+                    CornerRadius="{MRadius XL}"
+                    Padding="{MThickness S4}"
+                    BoxShadow="{MShadow MD}">
+                <MPanel Mode="Vertical" Spacing="6">
                     <TextBlock Text="Total Users"
                                FontSize="12"
                                Foreground="{MBrush MutedForeground}" />
                     <TextBlock Text="12,430" FontSize="28" FontWeight="SemiBold" />
                 </MPanel>
-            </MCard>
+            </Border>
         </MPanel>
     </MPanel>
 </MScrollViewer>
@@ -586,6 +591,6 @@ Compact buttons often need icon baseline compensation.
 - Product UI:
   `Build a settings screen using Manta semantic tokens, S4 page insets, LG surface radius, MutedForeground helper text, and right-aligned primary actions.`
 - Dashboard:
-  `Build a dashboard with MCard surfaces, SemiBold headings, muted metadata, 16-24px spacing rhythm, and semantic Primary actions.`
+  `Build a dashboard with elevated Border surfaces, SemiBold headings, muted metadata, 16-24px spacing rhythm, and semantic Primary actions.`
 - Apple-inspired:
   `Build a premium product hero with alternating black and light-gray sections, SF Pro-style typography, capsule CTAs, restrained blue action color, and minimal chrome.`
