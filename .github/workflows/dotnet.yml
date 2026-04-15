@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "release/**" ]
+    branches: [ "releases/**" ]
 
 jobs:
   pack:
@@ -18,7 +18,14 @@ jobs:
           lfs: true
 
       - name: Extract version from branch name
-        run: echo "VERSION=${GITHUB_REF_NAME#release/}" >> $GITHUB_ENV
+        run: |
+          BRANCH_NAME="${GITHUB_REF_NAME#releases/}"
+          if [[ "$BRANCH_NAME" =~ ^v([0-9]+)/([0-9]+)/([0-9]+)$ ]]; then
+            echo "VERSION=${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.${BASH_REMATCH[3]}" >> "$GITHUB_ENV"
+          else
+            echo "Unsupported release branch format: $GITHUB_REF_NAME"
+            exit 1
+          fi
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
