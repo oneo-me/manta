@@ -94,7 +94,9 @@ sealed class DemosScanner(Options options)
         if (group is ControlGroup.Base)
             writer.WriteLine("using Avalonia.Controls;");
 
-        writer.WriteLine("using Manta.Controls;");
+        if (group is not ControlGroup.Base)
+            writer.WriteLine("using Manta.Controls;");
+
         writer.WriteLine("using Manta.Reactive.Views;");
         writer.WriteLine("using MantaDemo.Reactive;");
         writer.WriteLine();
