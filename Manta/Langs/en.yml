@@ -4,7 +4,7 @@ Dialog_Continue: Continue
 AppMenu_Hide_App: Hide {0}
 AppMenu_Hide_Others: Hide Others
 AppMenu_Show_All: Show All
-AppMenu_Quit: Quit
+AppMenu_Quit: Quit {0}
 TextBox_ContextMenu_Cut: Cut
 TextBox_ContextMenu_Copy: Copy
 TextBox_ContextMenu_Paste: Paste

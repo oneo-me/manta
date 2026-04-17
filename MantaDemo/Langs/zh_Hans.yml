@@ -1,10 +1,10 @@
 Title: Manta
-Description: 这是一个基于 Avalonia UI 实现的界面开发框架，将在这个项目中演示其所有的功能。
+Description: 这是一个基于 Avalonia UI 的界面开发框架，本项目将展示它的主要功能。
 
 Overview: 概览
 Styles: 样式
 Reactive: 响应式
-MultiLanguage: 多语言
+MultiLanguage: 本地化
 Controls: 控件
 Settings: 设置
 TweakcnTool: Tweakcn 工具
@@ -13,19 +13,19 @@ Export: 导出
 
 Demo_Style_Color: 颜色
 Demo_Style_Font: 字体
-Demo_Style_Font_TestText: 敏捷的棕色狐狸跳过了懒惰的狗
+Demo_Style_Font_TestText: 字体显示示例：你好，世界！1234567890
 Demo_Style_Radius: 圆角
 Demo_Style_Shadow: 阴影
-Demo_Style_Ring: 环绕
+Demo_Style_Ring: 圆环
 Demo_Style_Spacing: 间距
-Demo_Style_Thickness: 边距
+Demo_Style_Thickness: 线宽
 
 Demo_Reactive_Command: 命令
 Demo_Reactive_Dialog: 对话框
-Demo_Reactive_Courier: Courier 管道通信
-Demo_MultiLanguage_Language: 语言切换
+Demo_Reactive_Courier: Courier 进程间通信
+Demo_MultiLanguage_Language: 语言
 Demo_MultiLanguage_Language_Title: 运行时语言切换
-Demo_MultiLanguage_Language_Description: "当 Lang.Current 变化时，所有 {{Lang}} 绑定都会立即刷新。"
+Demo_MultiLanguage_Language_Description: "当 Lang.Current 发生变化时，所有 {{Lang}} 绑定都会立即更新。"
 Demo_MultiLanguage_Language_Selector: 选择语言
 Demo_MultiLanguage_Language_Current: 当前语言
 Demo_MultiLanguage_Language_ReactiveSample: 响应式绑定
@@ -33,9 +33,9 @@ Demo_MultiLanguage_Language_SnapshotSample: ViewModel 快照
 Demo_MultiLanguage_Language_FixedSample: 固定语言预览
 Demo_MultiLanguage_Language_UserName: 用户名
 Demo_MultiLanguage_Language_Greeting: 你好，{0}！
-Demo_MultiLanguage_Language_Status: "当前语言代码：{0}"
+Demo_MultiLanguage_Language_Status: "当前区域性代码：{0}"
 Demo_MultiLanguage_Language_UpdatedAt: "更新时间：{0:HH:mm:ss}"
-Demo_MultiLanguage_Language_Cycle: 循环切换语言
+Demo_MultiLanguage_Language_Cycle: 切换语言
 
 SubGroup_Advanced: 高级
 SubGroup_Window: 窗口

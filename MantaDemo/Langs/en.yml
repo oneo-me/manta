@@ -1,10 +1,10 @@
 Title: Manta
-Description: This is a user interface development framework based on Avalonia UI, which will demonstrate all its features in this project.
+Description: A UI development framework built on Avalonia UI, with this project showcasing its main features.
 
 Overview: Overview
 Styles: Styles
 Reactive: Reactive
-MultiLanguage: Multi-language
+MultiLanguage: Localization
 Controls: Controls
 Settings: Settings
 TweakcnTool: Tweakcn Tool
@@ -13,7 +13,7 @@ Export: Export
 
 Demo_Style_Color: Color
 Demo_Style_Font: Font
-Demo_Style_Font_TestText: The quick brown fox jumps over the lazy dog
+Demo_Style_Font_TestText: The quick brown fox jumps over the lazy dog 1234567890
 Demo_Style_Radius: Radius
 Demo_Style_Shadow: Shadow
 Demo_Style_Ring: Ring
@@ -25,17 +25,17 @@ Demo_Reactive_Dialog: Dialog
 Demo_Reactive_Courier: Courier IPC
 Demo_MultiLanguage_Language: Language
 Demo_MultiLanguage_Language_Title: Runtime Language Switching
-Demo_MultiLanguage_Language_Description: "Manta updates every {{Lang}} binding immediately after Lang.Current changes."
-Demo_MultiLanguage_Language_Selector: Choose Language
+Demo_MultiLanguage_Language_Description: "All {{Lang}} bindings update immediately when Lang.Current changes."
+Demo_MultiLanguage_Language_Selector: Select Language
 Demo_MultiLanguage_Language_Current: Current Language
 Demo_MultiLanguage_Language_ReactiveSample: Reactive Binding
 Demo_MultiLanguage_Language_SnapshotSample: ViewModel Snapshot
 Demo_MultiLanguage_Language_FixedSample: Fixed Language Preview
 Demo_MultiLanguage_Language_UserName: User Name
 Demo_MultiLanguage_Language_Greeting: Hello, {0}!
-Demo_MultiLanguage_Language_Status: "Active culture code: {0}"
-Demo_MultiLanguage_Language_UpdatedAt: "Updated at {0:HH:mm:ss}"
-Demo_MultiLanguage_Language_Cycle: Cycle Language
+Demo_MultiLanguage_Language_Status: "Current culture code: {0}"
+Demo_MultiLanguage_Language_UpdatedAt: "Updated at: {0:HH:mm:ss}"
+Demo_MultiLanguage_Language_Cycle: Switch Language
 
 SubGroup_Advanced: Advanced
 SubGroup_Window: Window
