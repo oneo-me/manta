@@ -3,7 +3,7 @@ using Manta.Controls;
 
 namespace Manta.Reactive.Views;
 
-public abstract partial class ViewModel : CommandModel
+public abstract class ViewModel : CommandModel
 {
     protected internal abstract MView CreateView();
 
@@ -16,7 +16,6 @@ public abstract partial class ViewModel : CommandModel
         if (_isInitialized is false)
         {
             _isInitialized = true;
-            OnLoadViewContexts();
             OnInitialized();
         }
 

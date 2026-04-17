@@ -9,7 +9,7 @@ collection pattern live in `reactive-dynamicdata.md`.
 ```
 Model (INotifyPropertyChanged)
   └── CommandModel (command caching)
-        └── ViewModel (MView lifecycle, ViewContext)
+        └── ViewModel (MView lifecycle, explicit composition)
               ├── RegionModel (tab / region management)
               └── WindowModel (window lifecycle)
                     └── DialogModel (modal dialog with Result + Cancel/Continue)
@@ -362,84 +362,17 @@ public sealed partial class MyView : MView
 }
 ```
 
----
+## MViewHost
 
-## ViewContext — Parent-to-Child Data Sharing
-
-`SetContext` / `GetContext` pass data through the visual tree without manual property threading.
-
-**Parent provides context:**
-
-```csharp
-[View<ParentView>]
-public sealed partial class ParentView_Model : ViewModel
-{
-    public ReactiveValue<bool> TestBool { get; } = new(true);
-    public static string Data1 => "Hello, World!";
-
-    public ParentView_Model()
-    {
-        SetContext(nameof(TestBool), TestBool);
-        SetContext(nameof(Data1), Data1);
-    }
-}
-```
-
-**Child consumes context:**
-
-```csharp
-[View<ChildView>]
-public sealed partial class ChildView_Model : ViewModel
-{
-    ViewContext<string> _dataCtx => GetContext<string>("Data1");
-
-    public string DataValue => _dataCtx.Value ?? string.Empty;
-}
-```
-
-`ViewContext<T>` is a `Model` subclass — resolution happens at view activation time by walking up
-the parent `MView` chain.
-
-Use this section as the API entry point. Shared mutable state with `ReactiveValue<T>`, context
-update patterns, and nested reactive communication rules are documented in
-`reactive-dynamicdata.md`.
-
----
-
-## MViewHost Data Targeting
-
-Use `MViewHost.ViewModel` when the parent owns which child ViewModel is displayed. If the hosted
-child also needs external input from the parent, bind `MViewHost.Data` and implement
-`IViewHostTarget<T>` on the child ViewModel.
-
-```csharp
-[View<DetailView>]
-public sealed partial class DetailView_Model : ViewModel, IViewHostTarget<string>
-{
-    public string CurrentId
-    {
-        get;
-        set => SetField(ref field, value);
-    } = string.Empty;
-
-    public void SetData(string data)
-    {
-        CurrentId = data;
-    }
-}
-```
+Use `MViewHost.ViewModel` when the parent owns which child ViewModel is displayed.
 
 ```xml
-<MViewHost Data="{Binding SelectedId}">
+<MViewHost>
     <MViewHost.ViewModel>
         <local:DetailView_Model />
     </MViewHost.ViewModel>
 </MViewHost>
 ```
-
-`MViewHost` calls `SetData(...)` whenever `ViewModel` or `Data` changes. Use this when the parent
-controls selection or context and the child should react without owning navigation state. Keep the
-runtime `Data` type aligned with `IViewHostTarget<T>` or `SetData` will throw.
 
 ---
 
@@ -494,6 +427,9 @@ public sealed partial class HomeView_Model : HeaderRegionModel
 selection pattern. The detailed manager behavior and DynamicData pipeline live in
 `reactive-dynamicdata.md`.
 
+For tabbed apps, keep `RegionManager` focused on open/close/select behavior. Any tab-specific state
+should live on the tab's own `RegionModel` and be composed explicitly into its child ViewModels.
+
 ---
 
 ## RegionManager — Tab Navigation
@@ -536,7 +472,10 @@ public sealed partial class MainView_Model : WindowModel
 
     // Open with context (deduplicates by type + context)
     public CommandWarper<string> OpenFileCommand => GetCommand<string>(path =>
-        RegionManager.Open(path, p => new FileView_Model(p))
+        RegionManager.Open(path, p => new FileView_Model(new FileTabScope
+        {
+            Path = p
+        }))
     );
 }
 ```

@@ -191,43 +191,6 @@ Regions.Open("README.md", path => new DocumentRegion_Model
 
 Use `RegionManager<T>` whenever the UI needs open/reuse/close semantics.
 
----
-
-## Shared Reactive State with ViewContext
-
-`ViewContext<T>` gives nested `MView` trees a way to share state without wiring constructor
-arguments through every child ViewModel.
-
-### Parent side
-
-```csharp
-public ReactiveValue<bool> IsBusy { get; } = new(false);
-
-public MyParent_Model()
-{
-    SetContext(nameof(IsBusy), IsBusy);
-    SetContext("Title", "Dashboard");
-}
-```
-
-### Child side
-
-```csharp
-public ViewContext<ReactiveValue<bool>> IsBusy => GetContext<ReactiveValue<bool>>("IsBusy");
-public ViewContext<string> Title => GetContext<string>("Title");
-```
-
-### Guidance
-
-- Use `ReactiveValue<T>` for shared mutable scalar state
-- Use plain values for static or snapshot-style context
-- Use `SetContext(...)` in the provider
-- Use `GetContext<T>(...)` in descendants
-
-`GetContextCore(...)` walks parent `MView` nodes until it finds a matching key.
-
----
-
 ## Reactive Utilities in the Framework
 
 ### `ReactiveValue<T>`

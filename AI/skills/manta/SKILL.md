@@ -106,14 +106,13 @@ These files contain detailed documentation. Load them when you need specifics:
 
 - **[mvvm.md](references/mvvm.md)** — Full MVVM class hierarchy (ViewModel / WindowModel /
   DialogModel / RegionModel), command patterns (CommandWarper, IsExecuting,
-  CanExecute), service registration, view lifecycle (OnViewActivated), ViewContext parent-child
-  data sharing, `MViewHost` data passing with `IViewHostTarget<T>`, ViewTemplate,
+  CanExecute), service registration, view lifecycle (OnViewActivated), `MViewHost`, ViewTemplate,
   RegionManager tab navigation, MAlert / MConfirm quick dialogs, View source generator.
   **Load when:** implementing ViewModels, commands, services, navigation, or dialogs.
 
 - **[reactive-dynamicdata.md](references/reactive-dynamicdata.md)** — Reactive architecture guide
   for Manta's actual implementation: `Model` / `SetField`, `CommandWarper`, `CompositeDisposable`
-  lifetimes, `ObserveOnDispatcher()`, `ReactiveValue<T>`, `ViewContext<T>`, `DynamicData`
+  lifetimes, `ObserveOnDispatcher()`, `ReactiveValue<T>`, `DynamicData`
   collection pipelines, `ToObservableChangeSet()`, and `RegionManager<T>` as the canonical dynamic
   tab pattern.
   **Load when:** building live-updating lists, adding subscriptions, sharing reactive state across

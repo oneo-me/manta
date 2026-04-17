@@ -20,8 +20,6 @@ Demo_Style_Ring: 环绕
 Demo_Style_Spacing: 间距
 Demo_Style_Thickness: 边距
 
-Demo_Reactive_ViewTarget: 视图目标
-Demo_Reactive_ViewContext: 视图上下文
 Demo_Reactive_Command: 命令
 Demo_Reactive_Dialog: 对话框
 Demo_Reactive_Courier: Courier 管道通信

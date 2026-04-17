@@ -6,22 +6,13 @@ namespace Manta.Controls;
 
 public class MViewHost : ContentControl
 {
-    public static readonly StyledProperty<ViewModel?> ViewModelProperty = AvaloniaProperty.Register<MViewHost, ViewModel?>(
-        nameof(ViewModel));
+    public static readonly DirectProperty<MViewHost, ViewModel?> ViewModelProperty = AvaloniaProperty.RegisterDirect<MViewHost, ViewModel?>(
+        nameof(ViewModel), o => o.ViewModel, (o, v) => o.ViewModel = v);
 
     public ViewModel? ViewModel
     {
-        get => GetValue(ViewModelProperty);
-        set => SetValue(ViewModelProperty, value);
-    }
-
-    public static readonly StyledProperty<object?> DataProperty = AvaloniaProperty.Register<MViewHost, object?>(
-        nameof(Data));
-
-    public object? Data
-    {
-        get => GetValue(DataProperty);
-        set => SetValue(DataProperty, value);
+        get;
+        set => SetAndRaise(ViewModelProperty, ref field, value);
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -29,21 +20,6 @@ public class MViewHost : ContentControl
         base.OnPropertyChanged(change);
 
         if (change.Property == ViewModelProperty)
-        {
-            var viewModel = change.GetNewValue<ViewModel?>();
-            ResetData(viewModel, Data);
-            Content = viewModel?.BuildView();
-        }
-        else if (change.Property == DataProperty)
-        {
-            var data = change.GetNewValue<object?>();
-            ResetData(ViewModel, data);
-        }
-    }
-
-    static void ResetData(ViewModel? viewModel, object? data)
-    {
-        if (viewModel is IViewHostTarget viewHostTarget)
-            viewHostTarget.SetData(data);
+            Content = change.GetNewValue<ViewModel?>()?.BuildView();
     }
 }

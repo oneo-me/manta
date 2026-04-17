@@ -14,9 +14,7 @@ sealed class DemoService
         new IconView_Model(),
 
         new CommandView_Model(),
-        new ContextView_Model(),
         new DialogView_Model(),
-        new ViewTargetView_Model(),
         new LanguageView_Model(),
 
         new ColorView_Model(),
