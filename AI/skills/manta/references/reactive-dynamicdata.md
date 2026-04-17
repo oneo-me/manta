@@ -91,7 +91,9 @@ source
 
 ## DynamicData Collection Pattern
 
-Manta uses `DynamicData` as the standard way to build mutable live collections for the UI.
+Manta requires `DynamicData` as the standard way to build mutable live collections for the UI.
+Any requirement involving collection filtering, searching, sorting, grouping, projection, or live
+add/remove behavior must be implemented with `DynamicData`.
 
 ### Preferred shape
 
@@ -125,6 +127,8 @@ This is the same pattern used by `RegionManager<T>`.
 - Call `ObserveOnDispatcher()` before `Bind(...)` or before UI-bound mutation
 - Use `Synchronize()` for collection pipelines that may be touched across threads
 - Keep the terminal `Subscribe()` alive for the lifetime of the owner
+- Do not implement UI-facing collection filter/search/sort behavior with ad-hoc LINQ over
+  `ObservableCollection<T>` or manual list rebuilding
 
 ### Filtering an existing observable collection
 
@@ -231,9 +235,13 @@ window.GetObservable(Window.TitleProperty)
   reactive framework.
 - Prefer `CommandWarper` over `ReactiveCommand`.
 - Prefer `OnViewActivated(CompositeDisposable)` for subscriptions and event wiring.
-- Prefer `DynamicData` for any collection that supports add/remove/filter/sort and is shown in UI.
+- Require `DynamicData` for any collection that supports add/remove/filter/search/sort/grouping
+  and is shown in UI.
 - Prefer `ReadOnlyObservableCollection<T>` as the public collection surface.
 - Prefer `ReactiveValue<T>` only when nested ViewModels need to mutate the same scalar object.
+- Require `System.Reactive` for non-collection dynamic observation, including property
+  observation, event streams, lifecycle subscriptions, throttling, combining streams, and other
+  `IObservable<T>` workflows.
 - Prefer `ObserveOnDispatcher()` before binding collection pipelines or touching UI-bound state.
 - Prefer `RegionManager<T>` for tabbed or reusable region content.
 
@@ -241,6 +249,8 @@ window.GetObservable(Window.TitleProperty)
 
 - Long-lived subscriptions created in constructors
 - Mutable `ObservableCollection<T>` exposed as the write surface
+- Manual collection filter/search/sort code where `DynamicData` should own the pipeline
+- Non-collection reactive observation implemented without `System.Reactive`
 - Recreating commands on every property access
 - Updating Avalonia-bound collections from background threads
 

@@ -57,6 +57,12 @@ Avoid these common mistakes:
 - Only use built-in `MBrushKey` color tokens — no custom color resources.
 - Layout primitives (`Grid`, `Border`, `Canvas`, `StackPanel`, `TextBlock`) are always OK;
   for interactive controls always use Manta M\* equivalents.
+- Any requirement involving dynamic collections must use `DynamicData`. Filtering, searching,
+  sorting, projecting, grouping, and live add/remove collection behavior should be implemented
+  with `SourceList<T>` / `SourceCache<T, TKey>` or `ToObservableChangeSet()` pipelines.
+- Any non-collection reactive observation must use `System.Reactive`. Property observation, event
+  streams, lifecycle subscriptions, throttling, combining streams, and UI-bound observable updates
+  should be built with `IObservable<T>`, `Subscribe(...)`, and `ObserveOnDispatcher()`.
 
 ## MVVM Minimal Example
 
