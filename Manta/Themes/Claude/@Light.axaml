@@ -1,0 +1,42 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:values="clr-namespace:Manta.Themes.Values"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    x:ClassModifier="internal">
+    <values:RgbColor x:Key="{MBrushKey Background}" R="245" G="244" B="237" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Foreground}" R="20" G="20" B="19" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Card}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey CardForeground}" R="20" G="20" B="19" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Popover}" R="255" G="255" B="255" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey PopoverForeground}" R="20" G="20" B="19" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Primary}" R="201" G="100" B="66" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey PrimaryForeground}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Secondary}" R="232" G="230" B="220" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SecondaryForeground}" R="77" G="76" B="72" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Muted}" R="240" G="238" B="230" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey MutedForeground}" R="94" G="93" B="89" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Accent}" R="217" G="119" B="87" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey AccentForeground}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Destructive}" R="181" G="51" B="51" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey DestructiveForeground}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Border}" R="209" G="207" B="197" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Input}" R="222" G="220" B="209" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Ring}" R="56" G="152" B="236" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Chart1}" R="201" G="100" B="66" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Chart2}" R="217" G="119" B="87" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Chart3}" R="111" G="128" B="101" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Chart4}" R="94" G="93" B="89" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Chart5}" R="176" G="174" B="165" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarBackground}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarForeground}" R="20" G="20" B="19" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarPrimary}" R="201" G="100" B="66" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarPrimaryForeground}" R="250" G="249" B="245" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarAccent}" R="240" G="238" B="230" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarAccentForeground}" R="61" G="61" B="58" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarBorder}" R="209" G="207" B="197" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey SidebarRing}" R="56" G="152" B="236" Opacity="1" />
+    <values:RgbColor x:Key="{MBrushKey Shadow}" R="20" G="20" B="19" Opacity="1" />
+    <system:Double x:Key="{MSizeKey Radius}">12</system:Double>
+    <system:Double x:Key="{MSizeKey Spacing}">4</system:Double>
+</ResourceDictionary>

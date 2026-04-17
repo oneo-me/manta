@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Class="MantaDemo.App" RequestedThemeVariant="Default">
     <MApp.Styles>
-        <MantaTheme />
+        <MantaBase />
+        <MantaClaudeTheme />
         <StyleInclude Source="Styles/@Styles.axaml" />
     </MApp.Styles>
 </MApp>
