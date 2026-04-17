@@ -2,7 +2,7 @@
 
 This is the primary design reference for Manta UI work.
 It combines the semantic token system, spacing and sizing primitives, layout patterns, and a
-premium Apple-inspired visual recipe in one place.
+soft warm visual recipe in one place.
 
 Use this file first when designing interfaces or generating AXAML.
 
@@ -25,6 +25,18 @@ Manta design starts from primitives, then composes into surfaces and flows.
 Build from Manta tokens first.
 Use literal hex colors only when a page is intentionally targeting a branded marketing look that
 cannot be expressed cleanly through existing semantic tokens.
+
+### Default Visual Personality
+
+Manta now defaults to a soft, warm, calm product feel:
+
+- light backgrounds should feel like parchment or ivory, not cold white
+- dark surfaces should stay warm charcoal, not blue-black
+- primary emphasis should be restrained, earthy, and low-saturation
+- typography should feel quiet and practical by default, with editorial moments used sparingly
+- structure should come from spacing, alignment, and subtle tonal grouping before containers
+- depth should stay minimal: prefer flat surfaces, dividers, and whisper-soft shadows
+- avoid overly modular "card everywhere" layouts unless the information truly benefits from them
 
 ---
 
@@ -120,8 +132,8 @@ Radius filter values:
 | Level | Use |
 |-------|-----|
 | `None` | Flat surface |
-| `XS` | Light card lift |
-| `SM` | Default card |
+| `XS` | Light surface lift |
+| `SM` | Subtle grouped surface |
 | `MD` | Popover, dropdown |
 | `LG` | Dialog, modal |
 | `XL` / `XL2` | Elevated overlays |
@@ -131,7 +143,7 @@ Radius filter values:
 <Setter Property="BoxShadow" Value="{MShadow MD, BrushKey=Primary, BrushType=Dark3}" />
 ```
 
-Use `Border` with `BoxShadow="{MShadow MD}"` for elevated surfaces.
+Use `Border` with `BoxShadow="{MShadow MD}"` only when a surface needs clear separation.
 
 ### 2.5 MSize, OnTheme, SmoothBrushTransition
 
@@ -178,26 +190,35 @@ Compose with `TextBlock` directly and keep the scale intentional.
            Foreground="{MBrush MutedForeground}" />
 ```
 
-### Apple-Inspired Typography Variant
+### Editorial Typography Variant
 
-Use this only for premium marketing or showcase pages.
+Use this for premium marketing, showcase pages, rich empty states, and hero sections.
+Default application screens should stay closer to the product UI scale.
 
 | Role | Size | Weight | Line Height | Letter Spacing |
 |------|------|--------|-------------|----------------|
-| Hero display | 56 | `SemiBold` | 1.07 | -0.28px |
-| Section heading | 40 | `SemiBold` | 1.10 | 0 |
-| Tile heading | 28 | `Regular` | 1.14 | 0.196px |
-| Card title | 21 | `Bold` | 1.19 | 0.231px |
-| Body | 17 | `Regular` | 1.47 | -0.374px |
-| Link / caption | 14 | `Regular` | 1.29-1.43 | -0.224px |
-| Fine print | 12 | `Regular` | 1.33 | -0.12px |
+| Hero display | 56-64 | `Medium` | 1.08-1.12 | 0 |
+| Section heading | 40-52 | `Medium` | 1.12-1.20 | 0 |
+| Tile heading | 28-32 | `Medium` | 1.14-1.22 | 0 |
+| Card title | 20-24 | `Medium` | 1.18-1.24 | 0 |
+| Intro body | 18-20 | `Regular` | 1.55-1.60 | 0 |
+| Body | 16-17 | `Regular` | 1.55-1.60 | 0 |
+| Link / caption | 14 | `Regular` | 1.35-1.45 | 0.1px |
+| Fine print | 12 | `Regular` | 1.33-1.50 | 0.12px |
 
 Font family recommendation:
 
 ```xml
+<Style Selector="Border.EditorialScope TextBlock.h1,
+                 Border.EditorialScope TextBlock.h2,
+                 Border.EditorialScope TextBlock.h3">
+    <Setter Property="FontFamily"
+            Value="Georgia, Cambria, Times New Roman, serif" />
+</Style>
+
 <Style Selector="TextBlock">
     <Setter Property="FontFamily"
-            Value="SF Pro Text, SF Pro Display, Helvetica Neue, Helvetica, Arial, sans-serif" />
+            Value="Segoe UI, Noto Sans, Helvetica Neue, Arial, sans-serif" />
 </Style>
 ```
 
@@ -206,7 +227,9 @@ Font family recommendation:
 - UI screens prefer restraint and consistency over decorative type hierarchy.
 - Body text remains left-aligned in most app surfaces.
 - Metadata and helper text use `MutedForeground` at `FontSize="12"`.
-- Apple-style hero sections can center headlines and supporting copy.
+- Premium editorial sections can center headlines and supporting copy.
+- Prefer serif only for major headings or quote-like passages, not for dense form UI.
+- For everyday desktop views, avoid dramatic display sizing and keep hierarchy compact and readable.
 
 ---
 
@@ -240,44 +263,47 @@ Font family recommendation:
 </Border>
 ```
 
-### Apple-Inspired Surface Recipe
+### Soft Warm Surface Recipe
 
 This recipe sits on top of Manta primitives.
-It is useful for landing pages, showcase views, and premium product moments.
+It is useful for everyday app views, settings screens, workspaces, and polished dashboards that
+should feel calm instead of card-heavy.
 
 | Visual role | Preferred value | Manta mapping |
 |-------------|-----------------|---------------|
-| Hero black section | `#000000` | page-local brush or dark `Background` |
-| Light alternate section | `#f5f5f7` | light `Muted` / `Card` feel |
-| Primary text on light | `#1d1d1f` | `Foreground` |
-| Primary CTA blue | `#0071e3` | `Primary` |
-| Link on light | `#0066cc` | darker `Primary` treatment |
-| Link on dark | `#2997ff` | lighter `Primary` treatment |
-| Dark card surface | `#272729` - `#2a2a2d` | dark `Card` or page-local surface |
+| Page background | `#f5f4ed` | `Background` |
+| Elevated light surface | `#faf9f5` | `Card` / `Popover` |
+| Soft quiet surface | `#f0eee6` | `Muted` |
+| Strong primary action | `#c96442` | `Primary` |
+| Alternate accent | `#d97757` | `Accent` |
+| Primary text on light | `#141413` | `Foreground` |
+| Secondary text on light | `#5e5d59` | `MutedForeground` |
+| Deep dark section | `#141413` | dark `Background` |
+| Dark elevated surface | `#30302e` | dark `Card` / `Popover` |
 
-### Apple-Inspired Rules
+### Soft Warm Rules
 
-- Alternate black and light-gray sections for cinematic rhythm.
-- Spend the accent budget on blue actions only.
-- Let contrast do the structural work before adding borders.
-- Keep borders rare and shadows soft.
+- Keep page backgrounds open and continuous; only introduce containers when grouping materially helps.
+- Spend the accent budget on primary actions and small highlights, not on every section.
+- Keep neutral grays warm; avoid blue-gray drift.
+- Let spacing, typography, and subtle tone shifts do most of the work before adding decoration.
+- Prefer thin dividers, muted section fills, and very soft shadows over obvious cards.
+- When a card is necessary, make it broad and quiet rather than dense and repeated.
 
-### Apple-Inspired Extended Palette
+### Soft Warm Extended Palette
 
 | Role | Value | Usage |
 |------|-------|-------|
-| White | `#ffffff` | text on dark surfaces |
-| Black 80 | `rgba(0, 0, 0, 0.8)` | secondary text on light backgrounds |
-| Black 48 | `rgba(0, 0, 0, 0.48)` | tertiary text and subdued controls |
-| Dark surface 1 | `#272729` | dark card surface |
-| Dark surface 2 | `#262628` | subtle dark variation |
-| Dark surface 3 | `#28282a` | elevated dark card |
-| Dark surface 4 | `#2a2a2d` | emphasized dark card |
-| Dark surface 5 | `#242426` | deep dark surface |
-| Button active | `#ededf2` | pressed light state |
-| Button light | `#fafafc` | filter and search controls |
-| Overlay | `rgba(210, 210, 215, 0.64)` | media control scrim |
-| White 32 | `rgba(255, 255, 255, 0.32)` | hover treatment in dark contexts |
+| Ivory | `#faf9f5` | text and surfaces on dark sections |
+| Warm sand | `#e8e6dc` | button surface, active light state |
+| Border cream | `#f0eee6` | light borders and separators |
+| Warm charcoal | `#4d4c48` | button text on warm light surfaces |
+| Olive gray | `#5e5d59` | secondary text |
+| Stone gray | `#87867f` | tertiary text |
+| Dark warm | `#3d3d3a` | emphasized dark-neutral text |
+| Warm silver | `#b0aea5` | secondary text on dark sections |
+| Muted green | `#6f8065` | restrained secondary accent |
+| Focus blue | `#3898ec` | accessibility-only focus ring |
 
 ---
 
@@ -297,25 +323,25 @@ It is useful for landing pages, showcase views, and premium product moments.
 
 ### Corner Guidance
 
-- Forms and standard cards: `MD` or `LG`
+- Forms and grouped sections: `MD` or `LG`
 - Dialogs and floating panels: `LG` to `XL`
-- Rounded feature surfaces: `XL` or `XL2`
+- Rounded feature surfaces: `LG` or `XL`
 - Pill CTAs and chips: `Full`
 
 ### Elevation Guidance
 
 - Default app layout: flat or `XS`
-- Elevated surfaces: use `Border` with `MShadow MD`
+- Elevated surfaces: use `Border` with `MShadow MD` sparingly
 - Menus and popovers: `MD`
 - Dialogs: `LG`
-- Showcase cards: local custom shadow is acceptable if visual fidelity matters
+- Avoid stacking multiple elevated panels in the same viewport unless hierarchy demands it
 
-### Apple-Inspired Physicality
+### Calm Physicality
 
-- Rectangular surfaces stay around 5px to 12px radius.
-- Pill CTAs use capsule corners.
-- Use a single wide soft shadow like `rgba(0, 0, 0, 0.22) 3px 5px 30px 0px` for hero cards.
-- Large spacing outside, tight spacing inside.
+- Standard surfaces live around `MD` to `LG` radius with occasional `XL` showcase moments.
+- Primary buttons and inputs can use `MD` or `LG`; `Full` should be intentional, not automatic.
+- Use whisper-soft warm shadows instead of dramatic cold drop shadows.
+- Favor larger outer spacing, quieter inner spacing, and stable visual rhythm.
 
 ---
 
@@ -357,31 +383,33 @@ Compact buttons often need icon baseline compensation.
 </MButton>
 ```
 
-### Apple-Inspired CTA Variant
+### Editorial CTA Variant
 
 ```xml
-<MPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center">
-    <MButton Variant="Outline"
-             Content="Learn more"
-             CornerRadius="{MRadius Full}"
-             Padding="18,8" />
-    <MButton Content="Buy"
-             CornerRadius="{MRadius Full}"
-             Padding="18,8" />
+<MPanel Mode="Horizontal" Spacing="12">
+    <MButton Variant="Ghost"
+             Content="Read more"
+             CornerRadius="{MRadius LG}"
+             Padding="16,8"
+             Background="{MBrush Secondary}" />
+    <MButton Content="Start writing"
+             CornerRadius="{MRadius LG}"
+             Padding="16,8" />
 </MPanel>
 ```
 
-### Apple-Inspired Control Variants
+### Editorial Control Variants
 
-- Filter or search buttons use a light surface, subtle dark text, and about 11px corner radius.
-- Media controls use circular 44x44 targets with soft translucent fills.
-- Standard rectangular Apple-style controls stay in the 5px to 12px radius range.
+- Filter or search buttons use warm sand surfaces and warm charcoal text.
+- Embedded media or visual callouts can use `XL` or `XL2` corners.
+- Standard controls stay in the 6px to 12px radius range unless a showcase moment needs softer geometry.
 
 ### Navigation and Structural Chrome
 
 - Standard app navigation uses dividers and semantic surfaces.
 - Showcase navigation can use a translucent dark glass look.
 - Compact nav target height is about 48px.
+- Toolbars and section headers should usually blend into the page with separators instead of cards.
 
 ---
 
@@ -419,7 +447,7 @@ Compact buttons often need icon baseline compensation.
 </Grid>
 ```
 
-### Dashboard / Card Grid
+### Dashboard / Soft Section Grid
 
 ```xml
 <MScrollViewer>
@@ -427,12 +455,11 @@ Compact buttons often need icon baseline compensation.
         <TextBlock Text="Overview" FontSize="24" FontWeight="SemiBold" />
 
         <MPanel Mode="Column" ColumnSize="200" Spacing="16">
-            <Border Background="{MBrush Background}"
-                    BorderBrush="{MBrush Border}"
+            <Border Background="{MBrush Muted, Opacity=0.45}"
+                    BorderBrush="{MBrush Border, Opacity=0.45}"
                     BorderThickness="{MThickness Px}"
-                    CornerRadius="{MRadius XL}"
-                    Padding="{MThickness S4}"
-                    BoxShadow="{MShadow MD}">
+                    CornerRadius="{MRadius LG}"
+                    Padding="{MThickness S4}">
                 <MPanel Mode="Vertical" Spacing="6">
                     <TextBlock Text="Total Users"
                                FontSize="12"
@@ -472,9 +499,10 @@ Compact buttons often need icon baseline compensation.
     <MItems>
         <MItems.Styles>
             <Style Selector="MItems">
-                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderThickness" Value="{MThickness Px}" />
+                <Setter Property="BorderBrush" Value="{MBrush Border, Opacity=0.55}" />
                 <Setter Property="CornerRadius" Value="{MRadius LG}" />
-                <Setter Property="Background" Value="{MBrush Border, Opacity=0.15}" />
+                <Setter Property="Background" Value="{MBrush Muted, Opacity=0.35}" />
             </Style>
             <Style Selector="MItem">
                 <Setter Property="BorderBrush" Value="{MBrush Border}" />
@@ -507,32 +535,29 @@ Compact buttons often need icon baseline compensation.
 </MPanel>
 ```
 
-### Apple-Inspired Product Hero
+### Editorial Product Hero
 
 ```xml
-<Border Background="#000000">
+<Border Classes="EditorialScope" Background="{MBrush Background}">
     <MPanel Mode="Vertical"
             Spacing="20"
             HorizontalAlignment="Center"
             Margin="32,64">
-        <TextBlock Text="MacBook Pro"
-                   Foreground="White"
-                   FontSize="56"
-                   FontWeight="SemiBold"
+        <TextBlock Classes="h1"
+                   Text="Thoughtful tools need thoughtful surfaces"
+                   Foreground="{MBrush Foreground}"
+                   FontSize="60"
+                   FontWeight="Medium"
                    HorizontalAlignment="Center" />
-        <TextBlock Text="Mind-blowing. Head-turning."
-                   Foreground="White"
-                   FontSize="21"
+        <TextBlock Text="Use warm neutrals, open spacing, and gentle grouping to make the interface feel composed instead of generic."
+                   Foreground="{MBrush MutedForeground}"
+                   FontSize="18"
+                   TextAlignment="Center"
+                   MaxWidth="720"
                    HorizontalAlignment="Center" />
-        <MPanel Mode="Horizontal" Spacing="12" HorizontalAlignment="Center">
-            <MButton Variant="Outline"
-                     Content="Learn more"
-                     CornerRadius="{MRadius Full}"
-                     Padding="18,8" />
-            <MButton Content="Buy"
-                     CornerRadius="{MRadius Full}"
-                     Padding="18,8" />
-        </MPanel>
+        <MButton Content="Explore the system"
+                 CornerRadius="{MRadius LG}"
+                 HorizontalAlignment="Center" />
     </MPanel>
 </Border>
 ```
@@ -573,7 +598,8 @@ Compact buttons often need icon baseline compensation.
 5. Keep shadow use sparse and intentional.
 6. Put metadata in `MutedForeground`.
 7. Keep secondary actions visually quieter than the primary path.
-8. Choose a visual mode explicitly: product UI mode or showcase marketing mode.
+8. Avoid repeating small cards when a grouped section or list can communicate the structure more calmly.
+9. Choose a visual mode explicitly: calm product UI mode or warm editorial showcase mode.
 
 ---
 
@@ -584,13 +610,13 @@ Compact buttons often need icon baseline compensation.
 - Building app screens, settings, forms, dashboards, empty states, dialogs
 - Choosing tokens, spacing, corner radius, or shadow levels
 - Translating a premium visual direction into Manta AXAML
-- Designing Apple-like showcase pages while staying grounded in Manta primitives
+- Designing warm editorial showcase pages while staying grounded in Manta primitives
 
 ### Prompt snippets
 
 - Product UI:
-  `Build a settings screen using Manta semantic tokens, S4 page insets, LG surface radius, MutedForeground helper text, and right-aligned primary actions.`
+  `Build a settings screen using Manta semantic tokens, S4 page insets, LG surface radius at most, muted grouped sections, minimal borders, and right-aligned primary actions.`
 - Dashboard:
-  `Build a dashboard with elevated Border surfaces, SemiBold headings, muted metadata, 16-24px spacing rhythm, and semantic Primary actions.`
-- Apple-inspired:
-  `Build a premium product hero with alternating black and light-gray sections, SF Pro-style typography, capsule CTAs, restrained blue action color, and minimal chrome.`
+  `Build a dashboard with soft grouped sections, restrained elevation, muted metadata, 16-24px spacing rhythm, and semantic Primary actions.`
+- Editorial showcase:
+  `Build a premium product hero with parchment and dark chapter sections, serif-led headings, warm neutral surfaces, terracotta CTA buttons, and soft ring-based depth.`

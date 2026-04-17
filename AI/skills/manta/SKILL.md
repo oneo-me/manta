@@ -8,7 +8,30 @@ description: >
 # Manta Toolkit — Quick Reference
 
 Manta is an Avalonia 12 UI toolkit (.NET 10) providing 60+ themed controls, a reactive MVVM
-framework, and a design system built on the OKLch color space.
+framework, and a design system built on theme tokens that now default to a soft warm visual
+language instead of a cold generic SaaS look.
+
+## Design Direction
+
+When you design with Manta, default to this visual personality unless the host app already has its
+own strong brand system:
+
+- Warm parchment-like light surfaces, not blue-white screens
+- Warm charcoal dark surfaces, not pure black
+- Primary accents should stay restrained and earthy, never loud or neon
+- Default to sans-serif, calm product typography; reserve serif for rare showcase moments
+- Prefer broad spacing, gentle grouping, and simple content flow over attention-seeking decoration
+- Reduce visible chrome: fewer cards, fewer boxed regions, fewer hard borders
+- Use subtle tonal separation, dividers, and very soft shadows instead of obvious containers
+- Motion and transitions should feel smooth and quiet, not bouncy or flashy
+
+Avoid these common mistakes:
+
+- Falling back to purple, blue-gray, or futuristic gradients without a product-specific reason
+- Turning every section, form row, and metric into its own card
+- Using decorative color everywhere instead of spending it on primary actions and highlights
+- Mixing many font voices in one screen
+- Overusing thick borders, strong elevation, or dashboard-like chrome on simple app screens
 
 ## Technology Stack
 
@@ -100,6 +123,20 @@ public sealed partial class MyView : MView
 <Setter Property="Opacity" Value="{OnTheme 1.0, Dark=0.85}" />
 ```
 
+## Visual Recipes
+
+- Standard product UI:
+  use `Background`, `Muted`, `Border`, and restrained typography for settings, forms,
+  dashboards, and tool windows. Prefer open layouts and grouped lists before card grids.
+- Editorial premium UI:
+  pair warm surfaces with larger whitespace blocks, restrained earthy CTAs, and occasional serif
+  headlines for landing pages, hero views, and showcase screens.
+- Soft minimal UI:
+  prefer flat backgrounds, thin separators, muted section tinting, LG corners at most, and
+  gentle transitions. Use this as the default for productivity views and everyday desktop screens.
+- Dark mode:
+  keep dark surfaces warm and slightly brown/olive; do not switch to cool neutral grays.
+
 ## Reference Files (load on demand)
 
 These files contain detailed documentation. Load them when you need specifics:
@@ -150,6 +187,6 @@ These files contain detailed documentation. Load them when you need specifics:
 - **[ui-design.md](references/ui-design.md)** — Unified Manta design system guide: token-driven
   color and surface strategy, all token and primitive scales, typography, spacing/radius/shadow
   rules, icon and button patterns, responsive behavior, complete AXAML layout examples, and an
-  integrated Apple-inspired showcase recipe grounded in Manta primitives.
+  integrated warm editorial showcase recipe grounded in Manta primitives.
   **Load when:** designing layouts, choosing visual patterns, or translating a premium visual
   direction into Manta AXAML.
