@@ -16,4 +16,9 @@
     <ItemGroup>
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Update="YamlDotNet" PrivateAssets="all">
+        <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
 </Project>

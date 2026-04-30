@@ -4,7 +4,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" />
-        <PackageReference Include="Tmds.DBus.Protocol" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Native\libMantaNative.dylib"
