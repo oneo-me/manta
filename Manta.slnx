@@ -14,12 +14,7 @@
         <File Path=".globalconfig" />
         <File Path=".gitattributes" />
     </Folder>
-    <Folder Name="/_/Native/">
-        <File Path="Native\MantaNative\Sources\MantaNative\Helper.swift" />
-        <File Path="Native\MantaNative\Sources\MantaNative\MantaWindow.swift" />
-    </Folder>
     <Project Path="Manta.Generators\Manta.Generators.csproj" />
-    <Project Path="Manta.Native/Manta.Native.csproj" />
     <Project Path="MantaDemo\MantaDemo.csproj" />
     <Project Path="MantaPrepare\MantaPrepare.csproj" />
     <Project Path="Manta\Manta.csproj" />

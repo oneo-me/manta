@@ -9,11 +9,6 @@
         <PublishTrimmed>true</PublishTrimmed>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="..\Native\libMantaNative.dylib" Link="libMantaNative.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-    <ItemGroup>
         <ProjectReference Include="..\Manta\Manta.csproj" />
     </ItemGroup>
     <ItemGroup>

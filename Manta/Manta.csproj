@@ -8,7 +8,4 @@
           <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Manta.Native\Manta.Native.csproj" />
-    </ItemGroup>
 </Project>

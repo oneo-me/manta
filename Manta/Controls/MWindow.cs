@@ -6,7 +6,6 @@ using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Manta.Extensions;
-using Manta.Native;
 
 namespace Manta.Controls;
 
@@ -31,12 +30,6 @@ public sealed partial class MWindow : Window
             return;
 
         KeyUp += OnKeyUp;
-    }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        MantaWindow.ConfigureWindow(this);
     }
 
     protected override void OnOpened(EventArgs e)
