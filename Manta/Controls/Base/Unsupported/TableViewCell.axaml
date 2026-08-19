@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <MPanel Mode="Vertical" Spacing="12" Margin="12">
+            <TableViewCell />
+        </MPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TableViewCell}" TargetType="TableViewCell">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <SelectableTextBlock Foreground="{MBrush Destructive}" Text="The control 'TableViewCell' is not supported" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

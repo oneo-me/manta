@@ -79,6 +79,10 @@
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/PipsPager.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/SplitView.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TabbedPage.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Unsupported/TableView.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Unsupported/TableViewCell.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Unsupported/TableViewColumnHeader.axaml" />
+                <MergeResourceInclude Source="../Controls/Base/Unsupported/TableViewRow.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePicker.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/TimePickerPresenter.axaml" />
                 <MergeResourceInclude Source="../Controls/Base/Unsupported/WindowNotificationManager.axaml" />
