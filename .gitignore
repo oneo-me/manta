@@ -6,7 +6,4 @@ obj
 *.user
 /publish
 
-# AI
-.codex
-.agents
 AGENTS.md
