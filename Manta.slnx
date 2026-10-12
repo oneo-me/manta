@@ -1,8 +1,4 @@
 <Solution>
-    <Folder Name="/.github/" />
-    <Folder Name="/.github/workflows/">
-        <File Path=".github\workflows\dotnet.yml" />
-    </Folder>
     <Folder Name="/_/">
         <File Path="Directory.Build.props" />
         <File Path=".gitignore" />
