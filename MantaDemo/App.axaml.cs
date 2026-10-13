@@ -19,6 +19,7 @@ sealed class App : MApp
     public App()
     {
         Name = nameof(MantaDemo);
+        Icon = Assets.GetBitmap("AppIcon.png");
 #if DEBUG
         SupportActivatableLifetime = Debugger.IsAttached is false;
 #else

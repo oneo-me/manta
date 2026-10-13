@@ -1,9 +1,12 @@
+using Avalonia.Media.Imaging;
 using Manta.Controls.Icons;
 
 namespace MantaDemo;
 
 static class Icons
 {
+    public static Bitmap AppIcon { get; } = App.Assets.GetBitmap("AppIcon.png");
+
     public static IconSource Home { get; } = App.Assets.GetIcon("Icons/Home-Smile-Angle--Streamline-Solar-Ar.svg");
     public static IconSource Styles { get; } = App.Assets.GetIcon("Icons/Cat--Streamline-Solar-Ar.svg");
     public static IconSource Reactive { get; } = App.Assets.GetIcon("Icons/Fire--Streamline-Solar-Ar.svg");

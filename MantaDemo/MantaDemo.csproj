@@ -3,6 +3,7 @@
     <PropertyGroup>
         <IsPackable>false</IsPackable>
         <OutputType>WinExe</OutputType>
+        <ApplicationIcon>..\icon.ico</ApplicationIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <PublishAot>true</PublishAot>
@@ -10,6 +11,9 @@
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Manta\Manta.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="..\icon.png" Link="Assets/AppIcon.png" />
     </ItemGroup>
     <ItemGroup>
       <PackageReference Update="YamlDotNet" PrivateAssets="all">

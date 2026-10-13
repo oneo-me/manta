@@ -13,6 +13,7 @@
         </local:OverviewView_Model>
     </Design.DataContext>
     <MPanel Mode="Vertical" Spacing="12" Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image Source="{x:Static Icons.AppIcon}" Width="112" Height="112" HorizontalAlignment="Center" />
         <TextBlock Text="{Lang {x:Static LangKey.Title}}" FontWeight="ExtraLight" FontSize="72" HorizontalAlignment="Center" />
         <TextBlock Text="{Lang {x:Static LangKey.Description}}" />
         <MItems ItemsSource="{Binding Items}">
