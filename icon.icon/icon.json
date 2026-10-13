@@ -1,0 +1,71 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "solid": "display-p3:0.97617,0.98040,0.99051,1.00000"
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "solid": "display-p3:0.03211,0.03919,0.05801,1.00000"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "01-ray-fore",
+      "layers": [
+        {
+          "name": "01-ray-fore",
+          "image-name": "01-ray-fore.png"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.35
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.2
+      }
+    },
+    {
+      "name": "02-ray-aft",
+      "layers": [
+        {
+          "name": "02-ray-aft",
+          "image-name": "02-ray-aft.png"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.4
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.12
+      }
+    },
+    {
+      "name": "03-ray-tail",
+      "layers": [
+        {
+          "name": "03-ray-tail",
+          "image-name": "03-ray-tail.png"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.3
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.15
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  }
+}
