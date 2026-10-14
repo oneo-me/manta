@@ -4,17 +4,19 @@ Manta is a .NET 10 library that layers a themeable control set, an MVVM runtime 
 
 ## Code map
 
+All .NET projects and their build files live under `source/`; the app icon is `source/icon.ico` and `source/icon.png`, while the `icon.icon` design project stays at the root.
+
 | Path | Responsibility |
 | --- | --- |
-| `Manta/Controls` | `M*` controls, `MView`/`MViewHost`, and the base control themes under `Base/`. |
-| `Manta/Themes` | OKLch color values, theme variable markup extensions, and the generated `MantaTheme` dictionary. |
-| `Manta/Reactive` | MVVM runtime: models, commands, service locator and regions. |
-| `Manta/Globalization` | Language lookup, `LangKey`/`LangData` API and `{Lang}` markup extensions. |
-| `Manta/Animation` | `SmoothBrushTransition` for brush interpolation. |
-| `Manta/Logging`, `Manta/Ava`, `Manta/Media`, `Manta/Extensions` | Logging, Avalonia helpers, image sources and utilities. |
-| `Manta.Generators` | Roslyn generators for `[View<T>]` plumbing and language key/data classes. |
-| `MantaPrepare` | Tool that regenerates control theme stubs, `MantaTheme.axaml` and demo screens. |
-| `MantaDemo` | Reference application and control showcase. |
+| `source/Manta/Controls` | `M*` controls, `MView`/`MViewHost`, and the base control themes under `Base/`. |
+| `source/Manta/Themes` | OKLch color values, theme variable markup extensions, and the generated `MantaTheme` dictionary. |
+| `source/Manta/Reactive` | MVVM runtime: models, commands, service locator and regions. |
+| `source/Manta/Globalization` | Language lookup, `LangKey`/`LangData` API and `{Lang}` markup extensions. |
+| `source/Manta/Animation` | `SmoothBrushTransition` for brush interpolation. |
+| `source/Manta/Logging`, `source/Manta/Ava`, `source/Manta/Media`, `source/Manta/Extensions` | Logging, Avalonia helpers, image sources and utilities. |
+| `source/Manta.Generators` | Roslyn generators for `[View<T>]` plumbing and language key/data classes. |
+| `source/MantaPrepare` | Tool that regenerates control theme stubs, `MantaTheme.axaml` and demo screens. |
+| `source/MantaDemo` | Reference application and control showcase. |
 
 ## Boundaries
 

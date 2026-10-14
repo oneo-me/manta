@@ -91,9 +91,10 @@ sealed partial class Main : MView
 
 ## 开发
 
-安装 .NET 10 SDK，然后构建并运行演示程序：
+安装 .NET 10 SDK。.NET 项目位于 `source/` 目录，请在其中的终端运行以下命令：
 
 ```sh
+cd source
 dotnet build Manta.slnx
 dotnet run --project MantaDemo
 ```

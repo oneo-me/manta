@@ -6,10 +6,10 @@ Manta themes controls with dynamic resources rather than per-control literals. C
 
 | File | Contents |
 | --- | --- |
-| `Manta/Themes/@Light.axaml`, `@Dark.axaml` | `OklchColor` values keyed by `MBrushKey`, plus sizes and radii. |
-| `Manta/Themes/@Base.axaml`, `@Shadows.axaml`, `@Rings.axaml` | Shared brushes, shadows and rings. |
-| `Manta/Themes/MantaTheme.axaml` | Generated dictionary that merges everything and maps `Light`, `Dark` and `Default`. |
-| `Manta/Controls/Design/Window.axaml` | Window chrome styles. |
+| `source/Manta/Themes/@Light.axaml`, `@Dark.axaml` | `OklchColor` values keyed by `MBrushKey`, plus sizes and radii. |
+| `source/Manta/Themes/@Base.axaml`, `@Shadows.axaml`, `@Rings.axaml` | Shared brushes, shadows and rings. |
+| `source/Manta/Themes/MantaTheme.axaml` | Generated dictionary that merges everything and maps `Light`, `Dark` and `Default`. |
+| `source/Manta/Controls/Design/Window.axaml` | Window chrome styles. |
 
 Include `<MantaTheme />` in `MApp.Styles`. The theme dictionaries under the `Light` and `Dark` keys let Avalonia swap values when the requested variant changes.
 
@@ -32,16 +32,16 @@ Prefer these over `{DynamicResource}` on raw keys, because they apply the varian
 
 ## Control themes
 
-- Controls under `Manta/Controls` are authored, and each carries a `Design.PreviewWith` block that previews it in the designer.
-- `Manta/Controls/Base` holds theme styles for Avalonia base controls: `Supported` for controls Manta styles, `Unsupported` for placeholders that direct users to the `M` control.
-- `Manta/Controls/Design` holds window-level styles.
+- Controls under `source/Manta/Controls` are authored, and each carries a `Design.PreviewWith` block that previews it in the designer.
+- `source/Manta/Controls/Base` holds theme styles for Avalonia base controls: `Supported` for controls Manta styles, `Unsupported` for placeholders that direct users to the `M` control.
+- `source/Manta/Controls/Design` holds window-level styles.
 
 `MantaPrepare` generates the `Supported` and `Unsupported` trees by reflecting over the Avalonia control assembly and comparing it with the existing `M*` controls. It also regenerates `MantaTheme.axaml` and the demo screens described in [MantaDemo](#mantademo).
 
 ## Regeneration
 
-Run `dotnet run --project MantaPrepare` after adding a control, editing a `Design.PreviewWith` block, or changing theme resources. The tool rewrites `MantaTheme.axaml`, the `Supported` and `Unsupported` control themes, and the demo files. Treat all of those as generated output and never edit them by hand.
+Run `dotnet run --project MantaPrepare` from `source/` after adding a control, editing a `Design.PreviewWith` block, or changing theme resources. The tool rewrites `MantaTheme.axaml`, the `Supported` and `Unsupported` control themes, and the demo files. Treat all of those as generated output and never edit them by hand.
 
 ## MantaDemo
 
-`MantaDemo/Demos/AutoDemos` is generated per control. `DemoService` combines those generated demos with the hand-written demos under `Demos/StyleDemos`, `Demos/ReactiveDemos`, `Demos/MultiLanguageDemos` and `Demos/ControlDemos`, then groups them by `DemoGroup`. Add a showcase by writing its `Design.PreviewWith` block in the control, not by editing the auto-demos.
+`source/MantaDemo/Demos/AutoDemos` is generated per control. `DemoService` combines those generated demos with the hand-written demos under `Demos/StyleDemos`, `Demos/ReactiveDemos`, `Demos/MultiLanguageDemos` and `Demos/ControlDemos`, then groups them by `DemoGroup`. Add a showcase by writing its `Design.PreviewWith` block in the control, not by editing the auto-demos.

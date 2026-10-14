@@ -91,9 +91,10 @@ Read the [architecture overview](ARCHITECTURE.md) before extending the library.
 
 ## Development
 
-Install the .NET 10 SDK, then build and run the demo:
+Install the .NET 10 SDK. The .NET projects live under `source/`; run the commands from there:
 
 ```sh
+cd source
 dotnet build Manta.slnx
 dotnet run --project MantaDemo
 ```

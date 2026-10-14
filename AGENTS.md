@@ -5,8 +5,9 @@ Manta is an Avalonia UI toolkit and MVVM framework. Read [ARCHITECTURE.md](ARCHI
 ## Principles
 
 - Keep the library free of demo concerns; `Manta` never references `MantaDemo`.
-- Never hand-edit generated files: `Manta/Themes/MantaTheme.axaml`, `Manta/Controls/Base/Supported`, `Manta/Controls/Base/Unsupported` and `MantaDemo/Demos/AutoDemos`. Run `dotnet run --project MantaPrepare` instead.
-- New controls use the `M` prefix, live in `Manta/Controls`, and expose a `Design.PreviewWith` block so `MantaPrepare` can generate their demo screen.
+- Keep the .NET projects, their build files and the app icon under `source/`; repository documents and the `icon.icon` design project stay at the root.
+- Never hand-edit generated files: `source/Manta/Themes/MantaTheme.axaml`, `source/Manta/Controls/Base/Supported`, `source/Manta/Controls/Base/Unsupported` and `source/MantaDemo/Demos/AutoDemos`. Run `dotnet run --project MantaPrepare` from `source/` instead.
+- New controls use the `M` prefix, live in `source/Manta/Controls`, and expose a `Design.PreviewWith` block so `MantaPrepare` can generate their demo screen.
 - Keep behavior in C# and styling in XAML. Resolve colors and spacing through theme variables such as `MBrush`; do not hardcode them.
 - Route user-facing text through `LangKey` and the `{Lang}` markup; never hardcode it in views.
 - Treat warnings as errors and keep the public API AOT-compatible, as the build settings already require.
