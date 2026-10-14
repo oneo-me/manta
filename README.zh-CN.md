@@ -105,7 +105,7 @@ dotnet run --project MantaDemo
 dotnet run --project MantaPrepare
 ```
 
-推送 `v<major>.<minor>.<patch>` 标签即可发布：发布流程会将包推送到 NuGet.org 并创建 GitHub release，它使用仓库密钥 `NUGET_API_KEY`。
+推送 `v<major>.<minor>.<patch>` 标签即可发布：发布流程会将包推送到 NuGet.org 并创建 GitHub release。发布会使用 NuGet 可信发布：流程用 GitHub OIDC token 换取短期 API key，因此只需仓库密钥 `NUGET_USER`（你的 nuget.org 用户名），并在 nuget.org 上为 `release.yml` 配置一条可信发布策略。
 
 贡献者规则见 [AGENTS.md](AGENTS.md)。
 
