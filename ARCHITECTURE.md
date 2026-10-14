@@ -17,6 +17,7 @@ All .NET projects and their build files live under `source/`; the app icon is `s
 | `source/Manta.Generators` | Roslyn generators for `[View<T>]` plumbing and language key/data classes. |
 | `source/MantaPrepare` | Tool that regenerates control theme stubs, `MantaTheme.axaml` and demo screens. |
 | `source/MantaDemo` | Reference application and control showcase. |
+| `website` | Marketing site at the repository root, built with React Router and shadcn/ui; deployed to GitHub Pages. |
 
 ## Boundaries
 

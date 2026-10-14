@@ -109,6 +109,18 @@ dotnet run --project MantaPrepare
 
 贡献者规则见 [AGENTS.md](AGENTS.md)。
 
+## 官网
+
+官网位于 [website/](website)，使用 React Router 和 shadcn/ui 构建。[Website workflow](.github/workflows/website.yml) 会将其部署到 GitHub Pages。
+
+```sh
+cd website
+bun install
+bun run dev
+```
+
+构建与部署细节见 [website/README.md](website/README.md)。
+
 ## 许可证
 
 Manta 基于 [MIT 许可证](LICENSE) 发布。

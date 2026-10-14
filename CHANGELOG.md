@@ -9,3 +9,4 @@
 - Store the `MantaDemo` configuration in `~/.manta/config.json`.
 - Move the .NET projects, their build files and the app icon under `source/`.
 - Publish the packages as `ONEO.Manta` and `ONEO.Manta.Generators`.
+- Add the Manta website in `website/`, built with React Router and shadcn/ui, prerendered and deployed to GitHub Pages.

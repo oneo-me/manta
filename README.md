@@ -109,6 +109,18 @@ Release by pushing a `v<major>.<minor>.<patch>` tag. The release workflow publis
 
 Contributor rules live in [AGENTS.md](AGENTS.md).
 
+## Website
+
+The marketing site lives in [website/](website) and is built with React Router and shadcn/ui. The [Website workflow](.github/workflows/website.yml) deploys it to GitHub Pages.
+
+```sh
+cd website
+bun install
+bun run dev
+```
+
+See [website/README.md](website/README.md) for the build and deployment details.
+
 ## License
 
 Manta is released under the [MIT license](LICENSE).
