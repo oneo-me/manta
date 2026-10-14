@@ -16,12 +16,14 @@ Manta 是一个基于 Avalonia 的跨平台桌面应用 UI 工具包和 MVVM 框
 
 ## 安装
 
-Manta 面向 .NET 10 和 Avalonia 12。包发布在 `oneo-me` 组织的 GitHub Packages 上。
+Manta 面向 .NET 10 和 Avalonia 12。包发布在 [NuGet.org](https://www.nuget.org/packages/Manta) 上。
 
 ```sh
-dotnet nuget add source https://nuget.pkg.github.com/oneo-me/index.json --name github --username <user> --password <token>
 dotnet add package Manta
+dotnet add package Manta.Generators
 ```
+
+使用 `[View<T>]` 和语言键生成器时，请添加 `Manta.Generators`。
 
 ## 使用
 
@@ -102,4 +104,10 @@ dotnet run --project MantaDemo
 dotnet run --project MantaPrepare
 ```
 
+推送 `v<major>.<minor>.<patch>` 标签即可发布：发布流程会将包推送到 NuGet.org 并创建 GitHub release，它使用仓库密钥 `NUGET_API_KEY`。
+
 贡献者规则见 [AGENTS.md](AGENTS.md)。
+
+## 许可证
+
+Manta 基于 [MIT 许可证](LICENSE) 发布。

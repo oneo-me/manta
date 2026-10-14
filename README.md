@@ -16,12 +16,14 @@ Manta is a UI toolkit and MVVM framework for building cross-platform desktop app
 
 ## Install
 
-Manta targets .NET 10 and Avalonia 12. Packages are published to GitHub Packages under the `oneo-me` organization.
+Manta targets .NET 10 and Avalonia 12. Packages are published to [NuGet.org](https://www.nuget.org/packages/Manta).
 
 ```sh
-dotnet nuget add source https://nuget.pkg.github.com/oneo-me/index.json --name github --username <user> --password <token>
 dotnet add package Manta
+dotnet add package Manta.Generators
 ```
+
+Add `Manta.Generators` to use the `[View<T>]` and language-key generators.
 
 ## Usage
 
@@ -102,4 +104,10 @@ After editing a control's `Design.PreviewWith` block or theme files, regenerate 
 dotnet run --project MantaPrepare
 ```
 
+Release by pushing a `v<major>.<minor>.<patch>` tag. The release workflow publishes the packages to NuGet.org and creates the GitHub release, using the `NUGET_API_KEY` repository secret.
+
 Contributor rules live in [AGENTS.md](AGENTS.md).
+
+## License
+
+Manta is released under the [MIT license](LICENSE).
