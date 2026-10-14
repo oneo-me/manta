@@ -2,6 +2,7 @@
 .vs
 bin
 obj
+packages.lock.json
 .DS_Store
 *.user
 /publish
