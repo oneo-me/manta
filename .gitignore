@@ -6,3 +6,4 @@ packages.lock.json
 .DS_Store
 *.user
 /publish
+/packages
