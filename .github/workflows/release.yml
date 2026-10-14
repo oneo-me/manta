@@ -54,13 +54,16 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Restore
+        working-directory: source
         run: dotnet restore Manta.slnx
 
       - name: Build
+        working-directory: source
         run: dotnet build Manta.slnx --configuration Release --no-restore -p:Version=${{ steps.version.outputs.version }}
 
       - name: Pack
-        run: dotnet pack Manta.slnx --configuration Release --no-build --output packages -p:Version=${{ steps.version.outputs.version }}
+        working-directory: source
+        run: dotnet pack Manta.slnx --configuration Release --no-build --output ../packages -p:Version=${{ steps.version.outputs.version }}
 
       - name: Push to NuGet.org
         env:

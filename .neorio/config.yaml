@@ -1,4 +1,5 @@
-icon: icon.png
+icon: source/icon.png
 commands:
   - id: run
     command: dotnet run --project MantaDemo
+    directory: source
