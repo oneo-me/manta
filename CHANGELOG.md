@@ -2,11 +2,13 @@
 
 ## [Unreleased]
 
-- Add the Manta control set, MVVM runtime, theming and localization on Avalonia 12 and .NET 10.
-- Generate view creation, language keys and theme files at compile time.
+## [1.2026.1] - 2026-10-14
+
+- Release Manta for .NET 10 and Avalonia 12.
+- Add the `M`-prefixed control set and themed styles for supported Avalonia controls.
+- Add light and dark themes built on the OKLch color space.
+- Add `Model`, `ViewModel`, `WindowModel` and `DialogModel` for the MVVM layer.
+- Add the `[View<T>]` attribute, which generates view creation at compile time.
+- Add region and tab navigation with `RegionManager<T>`, and modal dialogs with `DialogModel`.
+- Add type-safe language keys generated from YAML, with runtime language switching.
 - Ship the `MantaDemo` reference application.
-- Add the `icon.icon` app icon project and use the icon for the `MantaDemo` executable, windows and overview screen.
-- Store the `MantaDemo` configuration in `~/.manta/config.json`.
-- Move the .NET projects, their build files and the app icon under `source/`.
-- Publish the packages as `ONEO.Manta` and `ONEO.Manta.Generators`.
-- Add the Manta website in `website/`, built with React Router and shadcn/ui, prerendered and deployed to GitHub Pages.
