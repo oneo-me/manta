@@ -19,6 +19,7 @@ All .NET projects and their build files live under `source/`; standalone samples
 | `source/MantaDemo` | Reference application and control showcase. |
 | `samples/MantaSample` | Standalone app that installs `ONEO.Manta` from NuGet and shows the main features. |
 | `samples/MantaComponents` | Plain Avalonia app that installs `ONEO.Manta` from NuGet and uses only its theme and controls. |
+| `samples/MantaThemeSample` | Plain Avalonia app that installs `ONEO.Manta` from NuGet and uses only its theme variables. |
 | `samples/AvaloniaI18nSample` | Stock Avalonia app that installs `ONEO.Manta` for the localization feature only. |
 | `website` | Marketing site at the repository root, built with React Router and shadcn/ui; deployed to GitHub Pages. |
 

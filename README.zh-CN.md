@@ -91,12 +91,13 @@ sealed partial class Main : MView
 
 ## 示例
 
-[samples/](samples) 存放直接使用已发布包（而非 `source/` 下的项目）的独立应用。[MantaSample](samples/MantaSample) 演示了启动、MVVM、区域导航、对话框、本地化和常用控件。[MantaComponents](samples/MantaComponents) 是一个纯 Avalonia 应用，只引入 Manta 主题和控件，不使用 Manta 的 MVVM 运行时。[AvaloniaI18nSample](samples/AvaloniaI18nSample) 则为标准 Avalonia 应用加上 Manta 多语言功能。
+[samples/](samples) 存放直接使用已发布包（而非 `source/` 下的项目）的独立应用。[MantaSample](samples/MantaSample) 演示了启动、MVVM、区域导航、对话框、本地化和常用控件。[MantaComponents](samples/MantaComponents) 是一个纯 Avalonia 应用，只引入 Manta 主题和控件，不使用 Manta 的 MVVM 运行时。[MantaThemeSample](samples/MantaThemeSample) 只使用 Manta 主题变量，不引入任何 Manta 控件或运行时。[AvaloniaI18nSample](samples/AvaloniaI18nSample) 则为标准 Avalonia 应用加上 Manta 多语言功能。
 
 ```sh
 cd samples
 dotnet run --project MantaSample
 dotnet run --project MantaComponents
+dotnet run --project MantaThemeSample
 dotnet run --project AvaloniaI18nSample
 ```
 

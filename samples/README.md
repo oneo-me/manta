@@ -7,6 +7,7 @@ Build and run any sample from this folder:
 ```sh
 dotnet run --project MantaSample
 dotnet run --project MantaComponents
+dotnet run --project MantaThemeSample
 dotnet run --project AvaloniaI18nSample
 ```
 
@@ -31,6 +32,25 @@ A plain Avalonia application that adopts Manta without its framework. It keeps t
 - Manta theme variables in its own styles, such as `{MBrush Card}` and `{MRadius LG}`.
 
 View models are a hand-written `ObservableObject` and `RelayCommand`; the sample never uses `MApp`, `MView`, `Model`/`ViewModel`, regions, dialogs or the language generator. This is the path to pick when Manta should be a component library inside an existing Avalonia application rather than its application framework.
+
+## MantaThemeSample
+
+A plain Avalonia application that adopts only the Manta theme, with no `M*` control and no Manta runtime. It keeps the stock `Application` and `Window` and adds the theme with a single line:
+
+```xml
+<Application.Styles>
+    <themes:MantaTheme />
+</Application.Styles>
+```
+
+Every visual is an Avalonia primitive, so the sample exercises the theme variable API directly:
+
+- `{MBrush}` across the full `MBrushKey` palette, including the `Type` lightness shift and `Opacity`.
+- `{MSize}`, `{MRadius}`, `{MRing}`, `{MShadow}` and `{MThickness}` for spacing, shape, elevation and borders.
+- `{OnTheme}` and `ThemeVariantScope` for values that resolve per light or dark variant.
+- A live light/dark switch through `Application.RequestedThemeVariant`, with the whole palette re-resolving in place.
+
+Manta replaces the base Avalonia controls with placeholders that point at their `M` equivalent, so a theme-only application builds its UI from primitives such as `Border`, `TextBlock` and `Panel`. This is the path to pick when you want Manta's design tokens on your own visual tree.
 
 ## AvaloniaI18nSample
 
