@@ -1,10 +1,13 @@
 icon: source/icon.png
-commands:
-  - id: run
-    command: dotnet run --project MantaDemo
-    directory: source
-menu:
-  - id: website
-    name: Website
-    command: bun install && bun run dev
-    directory: website
+tasks:
+  - label: Run
+    group: run
+    command: dotnet
+    args: [run, --project, MantaDemo]
+    options:
+      cwd: source
+  - label: Website
+    type: shell
+    command: "bun install && bun run dev"
+    options:
+      cwd: website
