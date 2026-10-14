@@ -155,7 +155,7 @@ export const content: Record<Locale, LandingContent> = {
         "Manta is a UI toolkit and MVVM framework for Avalonia. Themeable controls, an explicit MVVM runtime and compile-time code generation — without the ceremony.",
       primary: "Get started",
       secondary: "View on GitHub",
-      hint: "dotnet add package Manta",
+      hint: "dotnet add package ONEO.Manta",
     },
     features: {
       title: "Everything you need, nothing you don't",
@@ -235,10 +235,10 @@ export const content: Record<Locale, LandingContent> = {
       description:
         "Manta targets .NET 10 and Avalonia 12. Add the packages, then build and run the demo.",
       steps: [
-        { label: "Add the library", code: "dotnet add package Manta" },
+        { label: "Add the library", code: "dotnet add package ONEO.Manta" },
         {
           label: "Add the source generators",
-          code: "dotnet add package Manta.Generators",
+          code: "dotnet add package ONEO.Manta.Generators",
         },
         {
           label: "Explore the reference app",
@@ -350,7 +350,7 @@ export const content: Record<Locale, LandingContent> = {
         "Manta 是构建 Avalonia 应用的 UI 工具包与 MVVM 框架。可主题化的控件、清晰的 MVVM 运行时，以及编译期代码生成——无需繁琐的样板。",
       primary: "开始使用",
       secondary: "在 GitHub 上查看",
-      hint: "dotnet add package Manta",
+      hint: "dotnet add package ONEO.Manta",
     },
     features: {
       title: "该有的都有，多余的都没有",
@@ -423,10 +423,10 @@ export const content: Record<Locale, LandingContent> = {
       description:
         "Manta 面向 .NET 10 与 Avalonia 12。添加包，然后构建并运行示例。",
       steps: [
-        { label: "添加库", code: "dotnet add package Manta" },
+        { label: "添加库", code: "dotnet add package ONEO.Manta" },
         {
           label: "添加源代码生成器",
-          code: "dotnet add package Manta.Generators",
+          code: "dotnet add package ONEO.Manta.Generators",
         },
         {
           label: "运行参考应用",
