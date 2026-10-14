@@ -16,14 +16,14 @@ Manta 是一个基于 Avalonia 的跨平台桌面应用 UI 工具包和 MVVM 框
 
 ## 安装
 
-Manta 面向 .NET 10 和 Avalonia 12。包发布在 [NuGet.org](https://www.nuget.org/packages/Manta) 上。
+Manta 面向 .NET 10 和 Avalonia 12。包发布在 [NuGet.org](https://www.nuget.org/packages/ONEO.Manta) 上。
 
 ```sh
-dotnet add package Manta
-dotnet add package Manta.Generators
+dotnet add package ONEO.Manta
+dotnet add package ONEO.Manta.Generators
 ```
 
-使用 `[View<T>]` 和语言键生成器时，请添加 `Manta.Generators`。
+使用 `[View<T>]` 和语言键生成器时，请添加 `ONEO.Manta.Generators`。
 
 ## 使用
 

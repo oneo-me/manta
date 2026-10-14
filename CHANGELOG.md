@@ -8,3 +8,4 @@
 - Add the `icon.icon` app icon project and use the icon for the `MantaDemo` executable, windows and overview screen.
 - Store the `MantaDemo` configuration in `~/.manta/config.json`.
 - Move the .NET projects, their build files and the app icon under `source/`.
+- Publish the packages as `ONEO.Manta` and `ONEO.Manta.Generators`.

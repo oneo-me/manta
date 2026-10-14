@@ -16,14 +16,14 @@ Manta is a UI toolkit and MVVM framework for building cross-platform desktop app
 
 ## Install
 
-Manta targets .NET 10 and Avalonia 12. Packages are published to [NuGet.org](https://www.nuget.org/packages/Manta).
+Manta targets .NET 10 and Avalonia 12. Packages are published to [NuGet.org](https://www.nuget.org/packages/ONEO.Manta).
 
 ```sh
-dotnet add package Manta
-dotnet add package Manta.Generators
+dotnet add package ONEO.Manta
+dotnet add package ONEO.Manta.Generators
 ```
 
-Add `Manta.Generators` to use the `[View<T>]` and language-key generators.
+Add `ONEO.Manta.Generators` to use the `[View<T>]` and language-key generators.
 
 ## Usage
 

@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\Generators.props" />
     <PropertyGroup>
+        <PackageId>ONEO.Manta</PackageId>
         <Description>Themeable Avalonia controls and an explicit MVVM runtime for cross-platform desktop applications.</Description>
     </PropertyGroup>
     <ItemGroup>

@@ -7,13 +7,14 @@
         <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <NoWarn>NU5128</NoWarn>
+        <PackageId>ONEO.Manta.Generators</PackageId>
         <Description>Roslyn source generators for Manta view models and language keys.</Description>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" PrivateAssets="all" GeneratePathProperty="true" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="build\$(AssemblyName).props" PackagePath="build" Pack="true" />
+        <None Include="build\ONEO.Manta.Generators.props" PackagePath="build" Pack="true" />
         <None Include="$(PkgYamlDotNet)/lib/netstandard2.0/YamlDotNet.dll" PackagePath="analyzers/dotnet/cs/netstandard2.0" Pack="true" />
     </ItemGroup>
     <ItemGroup>
