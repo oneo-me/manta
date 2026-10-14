@@ -1,8 +1,14 @@
+<p align="center">
+  <img src="source/icon.png" width="128" alt="Manta icon" />
+</p>
+
 # Manta
 
 **English** | [简体中文](README.zh-CN.md)
 
 Manta is a UI toolkit and MVVM framework for building cross-platform desktop applications on Avalonia. It provides themeable controls, an explicit MVVM runtime, and compile-time code generation.
+
+![The MantaDemo overview screen](docs/images/overview.jpg)
 
 ## Features
 

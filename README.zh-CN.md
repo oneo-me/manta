@@ -1,8 +1,14 @@
+<p align="center">
+  <img src="source/icon.png" width="128" alt="Manta 图标" />
+</p>
+
 # Manta
 
 [English](README.md) | **简体中文**
 
 Manta 是一个基于 Avalonia 的跨平台桌面应用 UI 工具包和 MVVM 框架，提供可主题化的控件、显式的 MVVM 运行时和编译时代码生成。
+
+![MantaDemo 概览界面](docs/images/overview.jpg)
 
 ## 功能特性
 
