@@ -55,6 +55,7 @@ export function Landing({ locale }: { locale: Locale }) {
       <main className="flex-1">
         <Hero content={c} />
         <FeaturesSection content={c} />
+        <UsageSection content={c} />
         <CodeSection content={c} />
         <ThemingSection content={c} />
         <InstallSection content={c} />
@@ -134,6 +135,45 @@ function FeaturesSection({ content: c }: { content: LandingContent }) {
           </Card>
         ))}
       </div>
+    </section>
+  )
+}
+
+function UsageSection({ content: c }: { content: LandingContent }) {
+  return (
+    <section
+      id="usage"
+      className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24"
+    >
+      <SectionHeading title={c.usage.title} description={c.usage.description} />
+      <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        {c.usage.items.map((item) => (
+          <Card key={item.title} className="h-full">
+            <CardHeader>
+              <span className="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <item.icon className="size-5" aria-hidden />
+              </span>
+              <CardTitle className="mt-2">{item.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-3 text-muted-foreground">
+              <span>{item.description}</span>
+              <code className="block overflow-x-auto rounded-lg border bg-background px-3 py-2 font-mono text-xs whitespace-nowrap">
+                {item.code}
+              </code>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <Button
+        variant="link"
+        className="mt-8 px-0"
+        render={
+          <a href={c.usage.samples.href} target="_blank" rel="noreferrer" />
+        }
+      >
+        {c.usage.samples.label}
+        <ArrowRight data-icon="inline-end" />
+      </Button>
     </section>
   )
 }

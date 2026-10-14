@@ -3,6 +3,7 @@ import {
   Languages,
   Layers,
   MoonStar,
+  Palette,
   PanelsTopLeft,
   WandSparkles,
   type LucideIcon,
@@ -31,6 +32,13 @@ export interface FaqItem {
   answer: string
 }
 
+export interface UsageOption {
+  icon: LucideIcon
+  title: string
+  description: string
+  code: string
+}
+
 export interface FooterGroup {
   title: string
   links: NavItem[]
@@ -50,6 +58,12 @@ export interface LandingContent {
     hint: string
   }
   features: { title: string; description: string; items: Feature[] }
+  usage: {
+    title: string
+    description: string
+    items: UsageOption[]
+    samples: NavItem
+  }
   code: {
     title: string
     description: string
@@ -137,6 +151,7 @@ export const content: Record<Locale, LandingContent> = {
     },
     nav: [
       { label: "Features", href: "#features" },
+      { label: "Usage", href: "#usage" },
       { label: "Code", href: "#code" },
       { label: "Theming", href: "#theming" },
       { label: "Install", href: "#install" },
@@ -199,6 +214,45 @@ export const content: Record<Locale, LandingContent> = {
             "Language keys are generated from YAML files and consumed through the {Lang} markup.",
         },
       ],
+    },
+    usage: {
+      title: "Use only what you need",
+      description:
+        "Manta is not all-or-nothing. Every layer ships independently, so you can adopt localization, theming, MVVM or the control set on its own.",
+      items: [
+        {
+          icon: Languages,
+          title: "Localization only",
+          description:
+            "Reference ONEO.Manta for the {Lang} markup and generated keys, and keep the Fluent theme and the standard Avalonia controls.",
+          code: "Lang.Register(LangData.Load())",
+        },
+        {
+          icon: Palette,
+          title: "Theming only",
+          description:
+            "Add <MantaTheme /> to Application.Styles to restyle Manta and the Avalonia controls. No base classes required.",
+          code: "<MantaTheme />",
+        },
+        {
+          icon: Layers,
+          title: "MVVM only",
+          description:
+            "Take Model, WindowModel, [View<T>] and RegionManager<T> while keeping your own look and theme.",
+          code: "[View<Main>] sealed partial class Main_Model : WindowModel",
+        },
+        {
+          icon: Blocks,
+          title: "Controls only",
+          description:
+            "Drop the M controls and theme variables into an existing app with a hand-written ObservableObject and RelayCommand.",
+          code: "dotnet add package ONEO.Manta",
+        },
+      ],
+      samples: {
+        label: "See the components-only and localization-only samples",
+        href: site.samples,
+      },
     },
     code: {
       title: "Less ceremony, more product",
@@ -332,6 +386,7 @@ export const content: Record<Locale, LandingContent> = {
     },
     nav: [
       { label: "特性", href: "#features" },
+      { label: "按需使用", href: "#usage" },
       { label: "代码", href: "#code" },
       { label: "主题", href: "#theming" },
       { label: "安装", href: "#install" },
@@ -390,6 +445,45 @@ export const content: Record<Locale, LandingContent> = {
           description: "语言键由 YAML 文件生成，并通过 {Lang} 标记使用。",
         },
       ],
+    },
+    usage: {
+      title: "只取所需，按需使用",
+      description:
+        "Manta 并非全有或全无。每一层都独立发布，你可以单独使用本地化、主题、MVVM 或控件集。",
+      items: [
+        {
+          icon: Languages,
+          title: "仅使用本地化",
+          description:
+            "只引用 ONEO.Manta 以获得 {Lang} 标记与生成的键，继续使用 Fluent 主题和标准 Avalonia 控件。",
+          code: "Lang.Register(LangData.Load())",
+        },
+        {
+          icon: Palette,
+          title: "仅使用主题",
+          description:
+            "将 <MantaTheme /> 加入 Application.Styles，即可为 Manta 与 Avalonia 控件换肤，无需任何基类。",
+          code: "<MantaTheme />",
+        },
+        {
+          icon: Layers,
+          title: "仅使用 MVVM",
+          description:
+            "仅取用 Model、WindowModel、[View<T>] 与 RegionManager<T>，保留自己的外观与主题。",
+          code: "[View<Main>] sealed partial class Main_Model : WindowModel",
+        },
+        {
+          icon: Blocks,
+          title: "仅使用控件",
+          description:
+            "在现有应用中直接使用 M 控件与主题变量，搭配手写的 ObservableObject 与 RelayCommand。",
+          code: "dotnet add package ONEO.Manta",
+        },
+      ],
+      samples: {
+        label: "查看仅控件与仅本地化的示例",
+        href: site.samples,
+      },
     },
     code: {
       title: "更少样板，更多产品",

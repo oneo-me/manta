@@ -4,6 +4,7 @@ export const site = {
   issues: "https://github.com/oneo-me/manta/issues",
   nuget: "https://www.nuget.org/packages/ONEO.Manta",
   architecture: "https://github.com/oneo-me/manta/blob/main/ARCHITECTURE.md",
+  samples: "https://github.com/oneo-me/manta/tree/main/samples",
   changelog: "https://github.com/oneo-me/manta/blob/main/CHANGELOG.md",
   license: "https://github.com/oneo-me/manta/blob/main/LICENSE",
 } as const
