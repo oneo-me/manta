@@ -1,0 +1,33 @@
+Title: Manta 示例
+Subtitle: 一个使用 ONEO.Manta NuGet 包构建的极简桌面应用。
+
+Page_Home: 基础
+Page_Localization: 本地化
+
+Theme_Switch: 主题
+Dialog_About: 关于
+Dialog_About_Content: 该对话框由 Manta 提供的 MAlert 显示。
+
+Basics_Intro: 输入名称、执行命令并打开对话框，即可体验 MVVM 运行时的功能。
+Basics_Name: 名称
+Basics_Name_Placeholder: 输入你的名称
+Basics_Greeting: "你好，{0}！"
+Basics_Counter: "命令已执行 {0} 次。"
+Basics_Increment: 增加
+Basics_Reset: 重置
+Basics_Dialogs: 对话框
+Basics_Alert: 显示提示框
+Basics_Alert_Content: 这是一个提示对话框。
+Basics_Confirm: 显示确认框
+Basics_Confirm_Content: 是否要继续？
+Basics_Confirm_Yes: 你选择了确认。
+Basics_Confirm_No: 你取消了操作。
+Basics_Options: 选项
+Basics_Notifications: 启用通知
+Basics_Volume: 音量
+Basics_Favorite: 常用控件
+
+Localization_Title: 运行时切换语言
+Localization_Description: 活动语言变化后，所有本地化绑定都会立即刷新。
+Localization_Select: 选择语言
+Localization_Current: "当前语言："

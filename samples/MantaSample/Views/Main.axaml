@@ -1,0 +1,34 @@
+<MView
+    x:Class="MantaSample.Views.Main"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:langs="clr-namespace:MantaSample.Langs"
+    xmlns:local="clr-namespace:MantaSample.Views"
+    xmlns:reactive="clr-namespace:MantaSample.Reactive"
+    x:DataType="local:Main_Model">
+    <Design.DataContext>
+        <local:Main_Model />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto *">
+        <MTabTitleBar Grid.Row="0"
+                      ItemsSource="{Binding RegionManager.Items}"
+                      SelectedItem="{Binding RegionManager.SelectedItem}">
+            <MTabTitleBar.RightContent>
+                <MPanel Mode="Horizontal" Spacing="4">
+                    <MTitleBarButton Command="{Binding SwitchThemeCommand}"
+                                     Content="{Lang {x:Static langs:LangKey.Theme_Switch}}" />
+                    <MTitleBarButton Command="{Binding ShowAboutCommand}"
+                                     Content="{Lang {x:Static langs:LangKey.Dialog_About}}" />
+                </MPanel>
+            </MTabTitleBar.RightContent>
+            <MTabTitleBar.ItemTemplate>
+                <DataTemplate x:DataType="reactive:PageModel">
+                    <TextBlock Text="{Lang {Binding Header}}" VerticalAlignment="Center" />
+                </DataTemplate>
+            </MTabTitleBar.ItemTemplate>
+        </MTabTitleBar>
+        <MBackground Grid.Row="1">
+            <MViewHost ViewModel="{Binding RegionManager.SelectedItem}" />
+        </MBackground>
+    </Grid>
+</MView>

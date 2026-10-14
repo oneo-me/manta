@@ -1,0 +1,67 @@
+<MView
+    x:Class="MantaSample.Views.HomeView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:langs="clr-namespace:MantaSample.Langs"
+    xmlns:local="clr-namespace:MantaSample.Views"
+    x:DataType="local:HomePage_Model">
+    <Design.DataContext>
+        <local:HomePage_Model />
+    </Design.DataContext>
+    <MScrollViewer>
+        <MPanel Mode="Vertical" Spacing="20" Margin="24" MaxWidth="640" HorizontalAlignment="Left">
+            <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Intro}}"
+                       Foreground="{MBrush MutedForeground}" TextWrapping="Wrap" />
+
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Name}}" FontWeight="SemiBold" />
+                <MTextBox PlaceholderText="{Lang {x:Static langs:LangKey.Basics_Name_Placeholder}}"
+                          Text="{Binding Name}" />
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Greeting}, Data1={Binding Name}}"
+                           FontSize="18" />
+            </MPanel>
+
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Counter}, Data1={Binding Count}}"
+                           Foreground="{MBrush MutedForeground}" />
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MButton Content="{Lang {x:Static langs:LangKey.Basics_Increment}}"
+                             Command="{Binding IncrementCommand}" />
+                    <MButton Variant="Outline"
+                             Content="{Lang {x:Static langs:LangKey.Basics_Reset}}"
+                             Command="{Binding ResetCommand}" />
+                </MPanel>
+            </MPanel>
+
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Dialogs}}" FontWeight="SemiBold" />
+                <MPanel Mode="Horizontal" Spacing="8">
+                    <MButton Variant="Outline"
+                             Content="{Lang {x:Static langs:LangKey.Basics_Alert}}"
+                             Command="{Binding ShowAlertCommand}" />
+                    <MButton Variant="Outline"
+                             Content="{Lang {x:Static langs:LangKey.Basics_Confirm}}"
+                             Command="{Binding ShowConfirmCommand}" />
+                    <TextBlock Text="{Binding ConfirmResult}" VerticalAlignment="Center"
+                               Foreground="{MBrush MutedForeground}" />
+                </MPanel>
+            </MPanel>
+
+            <MPanel Mode="Vertical" Spacing="8">
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Options}}" FontWeight="SemiBold" />
+                <MCheckBox Header="{Lang {x:Static langs:LangKey.Basics_Notifications}}"
+                           IsChecked="{Binding Notifications}" />
+                <MPanel Mode="Horizontal" Spacing="12">
+                    <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Volume}}"
+                               VerticalAlignment="Center" />
+                    <MSlider Minimum="0" Maximum="100" Value="{Binding Volume}" Width="220" />
+                    <MProgressBar Minimum="0" Maximum="100" Value="{Binding Volume}"
+                                  Width="160" VerticalAlignment="Center" />
+                </MPanel>
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Basics_Favorite}}" />
+                <MComboBox ItemsSource="{Binding Controls}" SelectedItem="{Binding SelectedControl}"
+                           Width="220" HorizontalAlignment="Left" />
+            </MPanel>
+        </MPanel>
+    </MScrollViewer>
+</MView>

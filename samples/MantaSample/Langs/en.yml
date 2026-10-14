@@ -1,0 +1,33 @@
+Title: Manta Sample
+Subtitle: A minimal desktop application built with the ONEO.Manta NuGet package.
+
+Page_Home: Basics
+Page_Localization: Localization
+
+Theme_Switch: Theme
+Dialog_About: About
+Dialog_About_Content: This dialog is shown by MAlert, one of the dialogs shipped with Manta.
+
+Basics_Intro: Type a name, run a command and open a dialog to see the MVVM runtime in action.
+Basics_Name: Name
+Basics_Name_Placeholder: Type your name
+Basics_Greeting: "Hello, {0}!"
+Basics_Counter: "The command ran {0} times."
+Basics_Increment: Increment
+Basics_Reset: Reset
+Basics_Dialogs: Dialogs
+Basics_Alert: Show alert
+Basics_Alert_Content: This is an alert dialog.
+Basics_Confirm: Show confirm
+Basics_Confirm_Content: Do you want to continue?
+Basics_Confirm_Yes: You confirmed.
+Basics_Confirm_No: You cancelled.
+Basics_Options: Options
+Basics_Notifications: Enable notifications
+Basics_Volume: Volume
+Basics_Favorite: Favorite control
+
+Localization_Title: Runtime language switching
+Localization_Description: Every localized binding refreshes as soon as the active language changes.
+Localization_Select: Select a language
+Localization_Current: "Current language:"
