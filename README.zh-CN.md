@@ -89,6 +89,15 @@ sealed partial class Main : MView
 
 在扩展库之前，请阅读[架构概览](ARCHITECTURE.md)。
 
+## 示例
+
+[samples/](samples) 存放直接使用已发布包（而非 `source/` 下的项目）的独立应用。[MantaSample](samples/MantaSample) 演示了启动、MVVM、区域导航、对话框、本地化和常用控件。
+
+```sh
+cd samples
+dotnet run --project MantaSample
+```
+
 ## 文档
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) 说明各项目及其边界。
@@ -97,7 +106,7 @@ sealed partial class Main : MView
 
 ## 开发
 
-安装 .NET 10 SDK。.NET 项目位于 `source/` 目录，请在其中的终端运行以下命令：
+安装 .NET 10 SDK。库与演示项目位于 `source/` 目录，请在其中的终端运行以下命令：
 
 ```sh
 cd source

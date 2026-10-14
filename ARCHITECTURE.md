@@ -4,7 +4,7 @@ Manta is a .NET 10 library that layers a themeable control set, an MVVM runtime 
 
 ## Code map
 
-All .NET projects and their build files live under `source/`; the app icon is `source/icon.ico` and `source/icon.png`, while the `icon.icon` design project stays at the root.
+All .NET projects and their build files live under `source/`; standalone samples that consume the published packages live under `samples/`. The app icon is `source/icon.ico` and `source/icon.png`, while the `icon.icon` design project stays at the root.
 
 | Path | Responsibility |
 | --- | --- |
@@ -17,11 +17,13 @@ All .NET projects and their build files live under `source/`; the app icon is `s
 | `source/Manta.Generators` | Roslyn generators for `[View<T>]` plumbing and language key/data classes. |
 | `source/MantaPrepare` | Tool that regenerates control theme stubs, `MantaTheme.axaml` and demo screens. |
 | `source/MantaDemo` | Reference application and control showcase. |
+| `samples/MantaSample` | Standalone app that installs `ONEO.Manta` from NuGet and shows the main features. |
 | `website` | Marketing site at the repository root, built with React Router and shadcn/ui; deployed to GitHub Pages. |
 
 ## Boundaries
 
 - The `Manta` library never references `MantaDemo`; the demo references the library.
+- The samples under `samples/` reference the published packages, never the `source/` projects.
 - `Manta.Generators` targets `netstandard2.0` and is consumed as an analyzer through `Generators.props`.
 - Name controls `M` + the Avalonia control name, and give each control its own style key.
 - Never hand-edit generated files: `MantaTheme.axaml`, `Controls/Base/Supported`, `Controls/Base/Unsupported` and `MantaDemo/Demos/AutoDemos`. Regenerate them with `MantaPrepare`.
@@ -49,7 +51,7 @@ All .NET projects and their build files live under `source/`; the app icon is `s
 
 - There is no test project, so `dotnet test` runs nothing.
 - The language generator emits `LANG001` errors and `LANG002` warnings for parse failures, missing keys and redundant keys.
-- Verify behavior by running `MantaDemo` and exercising the affected demo screen.
+- Verify behavior by running `MantaDemo` or `samples/MantaSample` and exercising the affected screen.
 
 ## Subjects
 

@@ -89,6 +89,15 @@ sealed partial class Main : MView
 
 Read the [architecture overview](ARCHITECTURE.md) before extending the library.
 
+## Samples
+
+[samples/](samples) holds standalone applications that consume the published packages instead of the projects under `source/`. [MantaSample](samples/MantaSample) demonstrates startup, MVVM, region navigation, dialogs, localization and the common controls.
+
+```sh
+cd samples
+dotnet run --project MantaSample
+```
+
 ## Documentation
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) maps the projects and the boundaries between them.
@@ -97,7 +106,7 @@ Read the [architecture overview](ARCHITECTURE.md) before extending the library.
 
 ## Development
 
-Install the .NET 10 SDK. The .NET projects live under `source/`; run the commands from there:
+Install the .NET 10 SDK. The library and demo projects live under `source/`; run the commands from there:
 
 ```sh
 cd source
