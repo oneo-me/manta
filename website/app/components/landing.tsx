@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Package, Play, Terminal } from "lucide-react"
 
+import { AotVisual } from "~/components/aot-visual"
 import { CodeBlock } from "~/components/code-block"
 import { CopyButton } from "~/components/copy-button"
 import { GithubIcon } from "~/components/github-icon"
@@ -45,6 +46,20 @@ function SectionHeading({
   )
 }
 
+/** Wraps the "Native AOT" words in the hero copy with the animated accent. */
+function highlightAot(text: string) {
+  const [before, after] = text.split("Native AOT")
+  if (after === undefined) return text
+
+  return (
+    <>
+      {before}
+      <span className="aot-accent">Native AOT</span>
+      {after}
+    </>
+  )
+}
+
 export function Landing({ locale }: { locale: Locale }) {
   const c = content[locale]
 
@@ -55,6 +70,7 @@ export function Landing({ locale }: { locale: Locale }) {
       <main className="flex-1">
         <Hero content={c} />
         <FeaturesSection content={c} />
+        <AotSection content={c} />
         <UsageSection content={c} />
         <CodeSection content={c} />
         <ThemingSection content={c} />
@@ -81,7 +97,7 @@ function Hero({ content: c }: { content: LandingContent }) {
           {c.hero.title} <span className="text-primary">{c.hero.accent}</span>
         </h1>
         <p className="max-w-2xl text-lg text-pretty text-muted-foreground">
-          {c.hero.description}
+          {highlightAot(c.hero.description)}
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button size="lg" render={<a href="#install" />}>
@@ -134,6 +150,39 @@ function FeaturesSection({ content: c }: { content: LandingContent }) {
             </CardContent>
           </Card>
         ))}
+      </div>
+    </section>
+  )
+}
+
+function AotSection({ content: c }: { content: LandingContent }) {
+  return (
+    <section id="aot" className="border-y border-border/60 bg-muted/20">
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <SectionHeading
+              title={c.aot.title}
+              description={c.aot.description}
+            />
+            <ul className="flex flex-col gap-4">
+              {c.aot.bullets.map((bullet) => (
+                <li key={bullet.title} className="flex flex-col gap-1">
+                  <span className="font-medium">{bullet.title}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {bullet.description}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <CodeBlock
+              code={c.aot.code}
+              copy={c.code.copy}
+              copied={c.code.copied}
+            />
+          </div>
+          <AotVisual />
+        </div>
       </div>
     </section>
   )

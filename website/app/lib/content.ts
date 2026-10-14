@@ -58,6 +58,12 @@ export interface LandingContent {
     hint: string
   }
   features: { title: string; description: string; items: Feature[] }
+  aot: {
+    title: string
+    description: string
+    bullets: { title: string; description: string }[]
+    code: string
+  }
   usage: {
     title: string
     description: string
@@ -151,6 +157,7 @@ export const content: Record<Locale, LandingContent> = {
     },
     nav: [
       { label: "Features", href: "#features" },
+      { label: "Native AOT", href: "#aot" },
       { label: "Usage", href: "#usage" },
       { label: "Code", href: "#code" },
       { label: "Theming", href: "#theming" },
@@ -163,11 +170,11 @@ export const content: Record<Locale, LandingContent> = {
       github: "View on GitHub",
     },
     hero: {
-      badge: "Avalonia 12 · .NET 10",
+      badge: "Avalonia 12 · .NET 10 · Native AOT",
       title: "Build desktop apps that",
       accent: "feel native.",
       description:
-        "Manta is a UI toolkit and MVVM framework for Avalonia. Themeable controls, an explicit MVVM runtime and compile-time code generation — without the ceremony.",
+        "Manta is a UI toolkit and MVVM framework for Avalonia. Themeable controls, an explicit MVVM runtime and compile-time code generation — fully Native AOT compatible, without the ceremony.",
       primary: "Get started",
       secondary: "View on GitHub",
       hint: "dotnet add package ONEO.Manta",
@@ -214,6 +221,32 @@ export const content: Record<Locale, LandingContent> = {
             "Language keys are generated from YAML files and consumed through the {Lang} markup.",
         },
       ],
+    },
+    aot: {
+      title: "Native AOT, first-class",
+      description:
+        "Manta is built for trimming and Native AOT. Publish a self-contained native binary with no JIT and no reflection surprises.",
+      bullets: [
+        {
+          title: "Reflection-free deployment",
+          description:
+            "Source generators wire views and language keys at compile time, so no reflection-based discovery runs at startup.",
+        },
+        {
+          title: "Trim-safe by construction",
+          description:
+            "The library builds with IsAotCompatible, so the trimmer and the AOT analyzer stay clean.",
+        },
+        {
+          title: "Proven by the reference app",
+          description:
+            "MantaDemo publishes with PublishAot, exercising the whole toolkit in a native binary.",
+        },
+      ],
+      code: `<PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>true</PublishTrimmed>
+</PropertyGroup>`,
     },
     usage: {
       title: "Use only what you need",
@@ -299,7 +332,8 @@ export const content: Record<Locale, LandingContent> = {
           code: "cd source && dotnet run --project MantaDemo",
         },
       ],
-      requirements: "Requires the .NET 10 SDK.",
+      requirements:
+        "Requires the .NET 10 SDK. Native AOT publishing is fully supported.",
     },
     faq: {
       title: "Frequently asked questions",
@@ -314,6 +348,11 @@ export const content: Record<Locale, LandingContent> = {
           question: "Which platforms are supported?",
           answer:
             "Anywhere Avalonia 12 runs: Windows, macOS and Linux, targeting .NET 10.",
+        },
+        {
+          question: "Does Manta support Native AOT?",
+          answer:
+            "Yes. Manta and its generators avoid reflection-based discovery, so applications publish with PublishAot as self-contained native binaries.",
         },
         {
           question: "Do I have to use MVVM?",
@@ -386,6 +425,7 @@ export const content: Record<Locale, LandingContent> = {
     },
     nav: [
       { label: "特性", href: "#features" },
+      { label: "Native AOT", href: "#aot" },
       { label: "按需使用", href: "#usage" },
       { label: "代码", href: "#code" },
       { label: "主题", href: "#theming" },
@@ -398,11 +438,11 @@ export const content: Record<Locale, LandingContent> = {
       github: "在 GitHub 上查看",
     },
     hero: {
-      badge: "Avalonia 12 · .NET 10",
+      badge: "Avalonia 12 · .NET 10 · Native AOT",
       title: "打造真正原生的",
       accent: "桌面应用。",
       description:
-        "Manta 是构建 Avalonia 应用的 UI 工具包与 MVVM 框架。可主题化的控件、清晰的 MVVM 运行时，以及编译期代码生成——无需繁琐的样板。",
+        "Manta 是构建 Avalonia 应用的 UI 工具包与 MVVM 框架。可主题化的控件、清晰的 MVVM 运行时，以及编译期代码生成——完全兼容 Native AOT，无需繁琐的样板。",
       primary: "开始使用",
       secondary: "在 GitHub 上查看",
       hint: "dotnet add package ONEO.Manta",
@@ -445,6 +485,32 @@ export const content: Record<Locale, LandingContent> = {
           description: "语言键由 YAML 文件生成，并通过 {Lang} 标记使用。",
         },
       ],
+    },
+    aot: {
+      title: "原生支持 Native AOT",
+      description:
+        "Manta 从一开始就为裁剪与 Native AOT 而设计。发布自包含的原生二进制，无需 JIT，也没有反射带来的意外。",
+      bullets: [
+        {
+          title: "无反射部署",
+          description:
+            "源代码生成器在编译期装配视图与语言键，启动时不会执行任何基于反射的发现。",
+        },
+        {
+          title: "天生裁剪安全",
+          description:
+            "库以 IsAotCompatible 构建，裁剪器与 AOT 分析器保持零告警。",
+        },
+        {
+          title: "示例应用已验证",
+          description:
+            "MantaDemo 使用 PublishAot 发布，用原生二进制跑通整个工具包。",
+        },
+      ],
+      code: `<PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>true</PublishTrimmed>
+</PropertyGroup>`,
     },
     usage: {
       title: "只取所需，按需使用",
@@ -527,7 +593,7 @@ export const content: Record<Locale, LandingContent> = {
           code: "cd source && dotnet run --project MantaDemo",
         },
       ],
-      requirements: "需要 .NET 10 SDK。",
+      requirements: "需要 .NET 10 SDK，并完整支持 Native AOT 发布。",
     },
     faq: {
       title: "常见问题",
@@ -542,6 +608,11 @@ export const content: Record<Locale, LandingContent> = {
           question: "支持哪些平台？",
           answer:
             "凡是 Avalonia 12 能运行的平台都支持：Windows、macOS 与 Linux，面向 .NET 10。",
+        },
+        {
+          question: "Manta 支持 Native AOT 吗？",
+          answer:
+            "支持。Manta 及其生成器不依赖基于反射的发现，应用可直接用 PublishAot 发布为自包含的原生二进制。",
         },
         {
           question: "必须使用 MVVM 吗？",

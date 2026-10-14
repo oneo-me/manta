@@ -133,3 +133,120 @@
     @apply bg-primary/20;
     }
 }
+
+/* Native AOT section */
+@keyframes aot-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aot-scan {
+    0% {
+        top: -20%;
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.75;
+    }
+    85% {
+        opacity: 0.75;
+    }
+    100% {
+        top: 120%;
+        opacity: 0;
+    }
+}
+
+@keyframes aot-glow {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.96);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.04);
+    }
+}
+
+@keyframes aot-load {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(400%);
+    }
+}
+
+.aot-scan {
+    animation: aot-scan 3.6s ease-in-out infinite;
+}
+
+.aot-glow {
+    animation: aot-glow 4.5s ease-in-out infinite;
+}
+
+.aot-load {
+    animation: aot-load 1.6s ease-in-out infinite;
+}
+
+.aot-active .aot-step {
+    animation: aot-reveal 0.5s ease-out both;
+}
+
+/* Animated highlight for the "Native AOT" words in the hero copy. */
+.aot-accent {
+    background-image: linear-gradient(
+        115deg,
+        var(--primary) 0%,
+        color-mix(in oklab, var(--primary) 75%, white) 50%,
+        var(--primary) 100%
+    );
+    background-size: 220% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    animation:
+        aot-accent-shimmer 4s ease-in-out infinite,
+        aot-accent-glow 3s ease-in-out infinite;
+}
+
+@keyframes aot-accent-shimmer {
+    0% {
+        background-position: 130% 0;
+    }
+    100% {
+        background-position: -130% 0;
+    }
+}
+
+@keyframes aot-accent-glow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    50% {
+        filter: drop-shadow(
+            0 0 0.65rem color-mix(in oklab, var(--primary) 55%, transparent)
+        );
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aot-scan,
+    .aot-glow,
+    .aot-load,
+    .aot-accent {
+        animation: none;
+    }
+    .aot-active .aot-step {
+        animation: none;
+    }
+}
