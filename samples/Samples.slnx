@@ -2,4 +2,5 @@
     <Project Path="AvaloniaI18nSample\AvaloniaI18nSample.csproj" />
     <Project Path="MantaSample\MantaSample.csproj" />
     <Project Path="MantaComponents\MantaComponents.csproj" />
+    <Project Path="MantaThemeSample\MantaThemeSample.csproj" />
 </Solution>

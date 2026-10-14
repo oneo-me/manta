@@ -1,0 +1,520 @@
+<Window
+    x:Class="MantaThemeSample.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Manta theme system"
+    Width="1400"
+    Height="980"
+    MinWidth="900"
+    MinHeight="640"
+    TextElement.Foreground="{MBrush Foreground}">
+    <!--
+        A theme-only sample: a plain Avalonia Application and a plain Window, plus the Manta theme.
+        There is no MApp, no MVVM runtime, no language generator and no M* control. Every visual is
+        an Avalonia primitive whose brushes, radii, spacing and elevation come from Manta variables.
+    -->
+    <Window.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="TextBlock.h2">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="TextBlock.body">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style Selector="TextBlock.label">
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+        </Style>
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="{MBrush Card}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius LG}" />
+            <Setter Property="Padding" Value="{MThickness S5}" />
+            <Setter Property="BoxShadow" Value="{MShadow SM}" />
+        </Style>
+        <Style Selector="Border.swatch">
+            <Setter Property="Height" Value="34" />
+            <Setter Property="CornerRadius" Value="{MRadius SM}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        </Style>
+        <Style Selector="Border.tile">
+            <Setter Property="Width" Value="44" />
+            <Setter Property="Height" Value="44" />
+            <Setter Property="Background" Value="{MBrush Muted}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+        </Style>
+        <Style Selector="Border.pill">
+            <Setter Property="Background" Value="{MBrush Secondary}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius Full}" />
+            <Setter Property="Padding" Value="14,7" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+        <Style Selector="Border.pill:pointerover">
+            <Setter Property="Background" Value="{MBrush Accent}" />
+        </Style>
+    </Window.Styles>
+
+    <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
+        <Grid Width="1400" RowDefinitions="Auto,Auto,Auto,Auto" TextElement.Foreground="{MBrush Foreground}">
+
+            <!-- Header -->
+            <Border
+                Grid.Row="0"
+                Background="{MBrush Background}"
+                Padding="28,22">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel Spacing="4">
+                        <TextBlock Classes="h1" Text="Manta theme system" />
+                        <TextBlock
+                            Classes="body"
+                            Foreground="{MBrush MutedForeground}"
+                            Text="One MantaTheme, no controls and no framework. Colors, spacing, radii, rings and shadows all resolve through Manta variables." />
+                    </StackPanel>
+                    <Border
+                        Grid.Column="1"
+                        Classes="pill"
+                        Tapped="OnToggleTheme"
+                        VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Border
+                                Width="10"
+                                Height="10"
+                                Background="{MBrush Primary}"
+                                CornerRadius="{MRadius Full}"
+                                VerticalAlignment="Center" />
+                            <TextBlock Classes="body" Text="{OnTheme System, Light=Light, Dark=Dark}" />
+                            <TextBlock Classes="label" Text="click to switch" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Palette -->
+            <Border Grid.Row="1" Classes="card" Margin="28,24,28,0">
+                <StackPanel Spacing="14">
+                    <StackPanel Spacing="2">
+                        <TextBlock Classes="h2" Text="Palette" />
+                        <TextBlock
+                            Classes="label"
+                            Text="Every MBrushKey, resolved per variant: {MBrush Key}" />
+                    </StackPanel>
+                    <WrapPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Background}" />
+                            <TextBlock Classes="label" Text="Background" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Foreground}" />
+                            <TextBlock Classes="label" Text="Foreground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Card}" />
+                            <TextBlock Classes="label" Text="Card" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush CardForeground}" />
+                            <TextBlock Classes="label" Text="CardForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Popover}" />
+                            <TextBlock Classes="label" Text="Popover" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush PopoverForeground}" />
+                            <TextBlock Classes="label" Text="PopoverForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Primary}" />
+                            <TextBlock Classes="label" Text="Primary" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush PrimaryForeground}" />
+                            <TextBlock Classes="label" Text="PrimaryForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Secondary}" />
+                            <TextBlock Classes="label" Text="Secondary" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SecondaryForeground}" />
+                            <TextBlock Classes="label" Text="SecondaryForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Muted}" />
+                            <TextBlock Classes="label" Text="Muted" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush MutedForeground}" />
+                            <TextBlock Classes="label" Text="MutedForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Accent}" />
+                            <TextBlock Classes="label" Text="Accent" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush AccentForeground}" />
+                            <TextBlock Classes="label" Text="AccentForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Destructive}" />
+                            <TextBlock Classes="label" Text="Destructive" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush DestructiveForeground}" />
+                            <TextBlock Classes="label" Text="DestructiveForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Border}" />
+                            <TextBlock Classes="label" Text="Border" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Input}" />
+                            <TextBlock Classes="label" Text="Input" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Ring}" />
+                            <TextBlock Classes="label" Text="Ring" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Shadow}" />
+                            <TextBlock Classes="label" Text="Shadow" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Chart1}" />
+                            <TextBlock Classes="label" Text="Chart1" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Chart2}" />
+                            <TextBlock Classes="label" Text="Chart2" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Chart3}" />
+                            <TextBlock Classes="label" Text="Chart3" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Chart4}" />
+                            <TextBlock Classes="label" Text="Chart4" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush Chart5}" />
+                            <TextBlock Classes="label" Text="Chart5" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarBackground}" />
+                            <TextBlock Classes="label" Text="SidebarBackground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarForeground}" />
+                            <TextBlock Classes="label" Text="SidebarForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarPrimary}" />
+                            <TextBlock Classes="label" Text="SidebarPrimary" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarPrimaryForeground}" />
+                            <TextBlock Classes="label" Text="SidebarPrimaryForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarAccent}" />
+                            <TextBlock Classes="label" Text="SidebarAccent" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarAccentForeground}" />
+                            <TextBlock Classes="label" Text="SidebarAccentForeground" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarBorder}" />
+                            <TextBlock Classes="label" Text="SidebarBorder" />
+                        </StackPanel>
+                        <StackPanel Width="128" Margin="0,0,8,12">
+                            <Border Classes="swatch" Background="{MBrush SidebarRing}" />
+                            <TextBlock Classes="label" Text="SidebarRing" />
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Tokens: spacing, radii, shadows, rings -->
+            <Grid Grid.Row="2" Margin="28,20,28,0" ColumnDefinitions="*,*,*,*">
+                <Border Grid.Column="0" Classes="card" Margin="0,0,16,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Classes="h2" Text="Spacing" />
+                        <TextBlock Classes="label" Text="MSize · a 4px base unit" />
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S1" />
+                            <Border Width="{MSize S1}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S2" />
+                            <Border Width="{MSize S2}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S3" />
+                            <Border Width="{MSize S3}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S4" />
+                            <Border Width="{MSize S4}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S6" />
+                            <Border Width="{MSize S6}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S8" />
+                            <Border Width="{MSize S8}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock Classes="label" Width="34" Text="S12" />
+                            <Border Width="{MSize S12}" Height="12" Background="{MBrush Primary}" CornerRadius="{MRadius Full}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Classes="card" Margin="0,0,16,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Classes="h2" Text="Radii" />
+                        <TextBlock Classes="label" Text="MRadius · a 12px base radius" />
+                        <WrapPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius None}" />
+                                <TextBlock Classes="label" Text="None" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius XS}" />
+                                <TextBlock Classes="label" Text="XS" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius SM}" />
+                                <TextBlock Classes="label" Text="SM" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="MD" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius LG}" />
+                                <TextBlock Classes="label" Text="LG" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius XL}" />
+                                <TextBlock Classes="label" Text="XL" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius XL2}" />
+                                <TextBlock Classes="label" Text="XL2" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius XL3}" />
+                                <TextBlock Classes="label" Text="XL3" />
+                            </StackPanel>
+                            <StackPanel Margin="0,0,8,10" Spacing="4">
+                                <Border Classes="tile" CornerRadius="{MRadius Full}" />
+                                <TextBlock Classes="label" Text="Full" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="2" Classes="card" Margin="0,0,16,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Classes="h2" Text="Shadows" />
+                        <TextBlock Classes="label" Text="MShadow · elevation tinted by MBrushKey" />
+                        <WrapPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow XS}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XS" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow SM}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="SM" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow MD}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="MD" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow LG}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="LG" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow XL}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XL" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" Background="{MBrush Card}" BoxShadow="{MShadow XL2}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XL2" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="3" Classes="card">
+                    <StackPanel Spacing="12">
+                        <TextBlock Classes="h2" Text="Rings" />
+                        <TextBlock Classes="label" Text="MRing · focus outlines" />
+                        <WrapPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing XS}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XS" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing SM}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="SM" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing MD}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="MD" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing LG}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="LG" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing XL}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XL" />
+                            </StackPanel>
+                            <StackPanel Margin="4,4,10,12" Spacing="4">
+                                <Border Classes="tile" BorderBrush="{MBrush Background, Opacity=0}" BoxShadow="{MRing XL2}" CornerRadius="{MRadius MD}" />
+                                <TextBlock Classes="label" Text="XL2" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Brush adjustments and composition -->
+            <Grid Grid.Row="3" Margin="28,20,28,28" ColumnDefinitions="*,1.4*">
+                <Border Grid.Column="0" Classes="card" Margin="0,0,16,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Classes="h2" Text="Brush type and opacity" />
+                        <TextBlock
+                            Classes="label"
+                            Text="Type shifts lightness; Opacity fades the brush" />
+                        <WrapPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary}" />
+                                <TextBlock Classes="label" Text="Default" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Light1}" />
+                                <TextBlock Classes="label" Text="Light1" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Light2}" />
+                                <TextBlock Classes="label" Text="Light2" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Light3}" />
+                                <TextBlock Classes="label" Text="Light3" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Dark1}" />
+                                <TextBlock Classes="label" Text="Dark1" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Dark2}" />
+                                <TextBlock Classes="label" Text="Dark2" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Primary, Type=Dark3}" />
+                                <TextBlock Classes="label" Text="Dark3" />
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Destructive, Opacity=1}" />
+                                <TextBlock Classes="label" Text="1.0" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Destructive, Opacity=0.75}" />
+                                <TextBlock Classes="label" Text="0.75" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Destructive, Opacity=0.5}" />
+                                <TextBlock Classes="label" Text="0.5" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Destructive, Opacity=0.25}" />
+                                <TextBlock Classes="label" Text="0.25" />
+                            </StackPanel>
+                            <StackPanel Width="96" Margin="0,0,8,10">
+                                <Border Classes="swatch" Background="{MBrush Destructive, Opacity=0.1}" />
+                                <TextBlock Classes="label" Text="0.1" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Classes="card">
+                    <StackPanel Spacing="14">
+                        <StackPanel Spacing="2">
+                            <TextBlock Classes="h2" Text="Composed from variables" />
+                            <TextBlock
+                                Classes="label"
+                                Text="OnTheme and ThemeVariantScope resolve the variant per element" />
+                        </StackPanel>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Spacing="10" VerticalAlignment="Center">
+                                <TextBlock
+                                    Classes="body"
+                                    Foreground="{MBrush MutedForeground}"
+                                    Text="{OnTheme Default variant, Light=Light variant, Dark=Dark variant}" />
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Border Background="{MBrush Primary}" CornerRadius="{MRadius MD}" Padding="16,9">
+                                        <TextBlock Foreground="{MBrush PrimaryForeground}" FontWeight="SemiBold" Text="Primary" />
+                                    </Border>
+                                    <Border
+                                        Background="{MBrush Background}"
+                                        BorderBrush="{MBrush Border}"
+                                        BorderThickness="{MThickness Px}"
+                                        CornerRadius="{MRadius MD}"
+                                        Padding="16,9">
+                                        <TextBlock Text="Outline" />
+                                    </Border>
+                                    <Border Background="{MBrush Destructive}" CornerRadius="{MRadius Full}" Padding="12,7">
+                                        <TextBlock Foreground="{MBrush DestructiveForeground}" Text="Destructive" />
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                            <ThemeVariantScope
+                                Grid.Column="1"
+                                RequestedThemeVariant="Light"
+                                Margin="24,0,0,0"
+                                VerticalAlignment="Center">
+                                <Border
+                                    Width="230"
+                                    Background="{MBrush Card}"
+                                    BorderBrush="{MBrush Border}"
+                                    BorderThickness="{MThickness Px}"
+                                    BoxShadow="{MShadow MD}"
+                                    CornerRadius="{MRadius LG}"
+                                    Padding="16">
+                                    <StackPanel Spacing="6">
+                                        <TextBlock Classes="label" Text="ThemeVariantScope · Light" />
+                                        <TextBlock FontWeight="SemiBold" Text="Always light island" />
+                                        <TextBlock
+                                            Classes="body"
+                                            Foreground="{MBrush MutedForeground}"
+                                            Text="The same variables resolve against the light dictionary." />
+                                    </StackPanel>
+                                </Border>
+                            </ThemeVariantScope>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>

@@ -1,0 +1,11 @@
+<Application
+    x:Class="MantaThemeSample.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:themes="clr-namespace:Manta.Themes;assembly=Manta"
+    RequestedThemeVariant="Light">
+    <!-- The whole sample is an ordinary Avalonia Application that only adds the Manta theme. -->
+    <Application.Styles>
+        <themes:MantaTheme />
+    </Application.Styles>
+</Application>
