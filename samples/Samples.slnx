@@ -1,4 +1,5 @@
 <Solution>
+    <Project Path="AvaloniaI18nSample\AvaloniaI18nSample.csproj" />
     <Project Path="MantaSample\MantaSample.csproj" />
     <Project Path="MantaComponents\MantaComponents.csproj" />
 </Solution>

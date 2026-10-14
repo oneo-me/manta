@@ -1,0 +1,9 @@
+Title: Avalonia 多语言示例
+Heading: 在纯 Avalonia 应用中使用多语言
+Intro: 本项目从标准的 Avalonia 应用模板开始，仅引用 Manta 的多语言功能，因此没有 MApp、没有 M 前缀控件集、没有 MVVM 运行时，也没有 Manta 主题。
+Language: 语言
+Name: 你的名字
+NamePlaceholder: 输入你的名字
+Greeting: "你好，{0}！"
+CurrentLanguage: "当前语言：{0}"
+Note: 语言键由 Langs/*.yml 生成，语言切换后所有绑定都会立即刷新。

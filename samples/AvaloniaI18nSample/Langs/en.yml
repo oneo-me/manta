@@ -1,0 +1,9 @@
+Title: Avalonia i18n Sample
+Heading: Localization in a plain Avalonia application
+Intro: This project starts from the standard Avalonia application template. Manta is referenced only for localization, so there is no MApp, no M-prefixed control set, no MVVM runtime and no Manta theme.
+Language: Language
+Name: Your name
+NamePlaceholder: Type your name
+Greeting: "Hello, {0}!"
+CurrentLanguage: "Current language: {0}"
+Note: The language keys are generated from Langs/*.yml, and every binding refreshes as soon as the language changes.

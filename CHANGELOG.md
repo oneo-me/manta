@@ -5,6 +5,7 @@
 - Take the GitHub release notes from the matching `CHANGELOG.md` section instead of the generated commit list.
 - Add `samples/MantaSample`, a standalone application that installs the published `ONEO.Manta` packages and shows the main features.
 - Add `samples/MantaComponents`, a plain Avalonia application that uses only the `ONEO.Manta` theme and controls.
+- Add `samples/AvaloniaI18nSample`, a stock Avalonia application that uses only the `ONEO.Manta` localization feature, and rename the samples solution to `Samples.slnx`.
 
 ## [1.2026.1] - 2026-10-14
 

@@ -2,6 +2,16 @@
 
 Standalone applications that consume the published [ONEO.Manta](https://www.nuget.org/packages/ONEO.Manta) packages. They live outside `source/` and never reference the library projects, so they build the same way a real consumer would.
 
+Build and run any sample from this folder:
+
+```sh
+dotnet run --project MantaSample
+dotnet run --project MantaComponents
+dotnet run --project AvaloniaI18nSample
+```
+
+The samples pin the released package version in their `.csproj` files; bump it when a newer release is published. In `MantaSample` and `AvaloniaI18nSample` the `ONEO.Manta.Generators` reference is build-time only (`PrivateAssets="all"`), so the generator never reaches the published app.
+
 ## MantaSample
 
 A small desktop application that shows the most common Manta features:
@@ -22,11 +32,11 @@ A plain Avalonia application that adopts Manta without its framework. It keeps t
 
 View models are a hand-written `ObservableObject` and `RelayCommand`; the sample never uses `MApp`, `MView`, `Model`/`ViewModel`, regions, dialogs or the language generator. This is the path to pick when Manta should be a component library inside an existing Avalonia application rather than its application framework.
 
-Build and run either sample from this folder:
+## AvaloniaI18nSample
 
-```sh
-dotnet run --project MantaSample
-dotnet run --project MantaComponents
-```
+A stock Avalonia desktop application that takes Manta one feature at a time: it references `ONEO.Manta` only for localization and keeps the framework, the control set and the theme out of the project.
 
-The samples pin the released package version in their `.csproj` files; bump it when a newer release is published. In `MantaSample` the `ONEO.Manta.Generators` reference is build-time only (`PrivateAssets="all"`), so the generator never reaches the published app.
+- A plain `Application` with the Fluent theme instead of `MApp` and `<MantaTheme />`.
+- Standard Avalonia controls and code-behind instead of the `M` controls and the MVVM runtime.
+- `Lang.Register(LangData.Load())` during startup, then translations through the `{Lang}`, `{LangName}` and `{LangEmoji}` markup extensions.
+- Type-safe keys from `Langs/*.yml`, message formatting with arguments, and a runtime language switch through `Lang.Current`.

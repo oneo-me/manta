@@ -28,7 +28,7 @@ The generator reports `LANG001` on parse failures and `LANG002` when a translate
 
 ## Runtime lookup
 
-Register the generated data during startup with `Lang.Register(LangData.Load())`. `Lang.Current` selects the active `LangType`; the default comes from the system culture.
+Register the generated data during startup with `Lang.Register(LangData.Load())`. `Lang.Current` selects the active `LangType`; the default comes from the system culture. The call works in any Avalonia `Application`; `MApp` is not required.
 
 Resolution walks registered `LangDataBase` instances in registration order, then falls back to the base culture, then to the key itself. `Lang.Get` formats arguments against the current culture.
 

@@ -1,0 +1,70 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:Manta.Globalization.Core;assembly=Manta"
+    xmlns:langs="clr-namespace:AvaloniaI18nSample.Langs"
+    x:Class="AvaloniaI18nSample.MainWindow"
+    Title="{Lang {x:Static langs:LangKey.Title}}"
+    Width="720"
+    Height="480"
+    MinWidth="480"
+    MinHeight="360"
+    WindowStartupLocation="CenterScreen">
+    <ScrollViewer>
+        <StackPanel
+            Margin="32"
+            MaxWidth="640"
+            HorizontalAlignment="Left"
+            Spacing="18">
+            <TextBlock
+                FontSize="24"
+                FontWeight="SemiBold"
+                Text="{Lang {x:Static langs:LangKey.Heading}}" />
+            <TextBlock
+                Opacity="0.7"
+                Text="{Lang {x:Static langs:LangKey.Intro}}"
+                TextWrapping="Wrap" />
+
+            <StackPanel
+                Orientation="Horizontal"
+                Spacing="12">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Text="{Lang {x:Static langs:LangKey.Language}}" />
+                <ComboBox
+                    x:Name="LanguageSelector"
+                    MinWidth="220"
+                    SelectionChanged="OnLanguageSelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="core:LangType">
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <TextBlock Text="{LangEmoji {Binding}}" />
+                                <TextBlock Text="{LangName {Binding}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+                <TextBlock Text="{Lang {x:Static langs:LangKey.Name}}" />
+                <TextBox
+                    x:Name="NameInput"
+                    PlaceholderText="{Lang {x:Static langs:LangKey.NamePlaceholder}}" />
+                <TextBlock
+                    FontSize="16"
+                    Text="{Lang {x:Static langs:LangKey.Greeting}, Data1={Binding #NameInput.Text}}" />
+            </StackPanel>
+
+            <TextBlock
+                Opacity="0.7"
+                Text="{Lang {x:Static langs:LangKey.CurrentLanguage}, Data1={LangName {Binding #LanguageSelector.SelectedItem}}}" />
+            <TextBlock
+                Opacity="0.7"
+                Text="{Lang {x:Static langs:LangKey.Note}}"
+                TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</Window>
