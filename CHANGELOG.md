@@ -6,3 +6,4 @@
 - Generate view creation, language keys and theme files at compile time.
 - Ship the `MantaDemo` reference application.
 - Add the `icon.icon` app icon project and use the icon for the `MantaDemo` executable, windows and overview screen.
+- Store the `MantaDemo` configuration in `~/.manta/config.json`.

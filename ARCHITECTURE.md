@@ -39,7 +39,7 @@ Manta is a .NET 10 library that layers a themeable control set, an MVVM runtime 
 ## Data and state
 
 - Manta keeps no database and no runtime state on disk; themes and translations are compiled into the assembly.
-- `MantaDemo` writes `config.json` and `logs.log` under `~/.oneo/MantaDemo`.
+- `MantaDemo` writes `config.json` under `~/.manta` and `logs.log` under `~/.oneo/MantaDemo`.
 - `Service` is a process-wide static registry with no scopes or disposal; register services during `OnInitialize`.
 
 ## Verification

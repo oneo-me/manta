@@ -40,6 +40,9 @@ sealed class App : MApp
         var dataFolder = Path.Combine(userFolder, ".oneo", Name);
         Directory.CreateDirectory(dataFolder);
 
+        var configFolder = Path.Combine(userFolder, ".manta");
+        Directory.CreateDirectory(configFolder);
+
         var cacheFolder = Path.Combine(dataFolder, "Cache");
         Directory.CreateDirectory(cacheFolder);
 
@@ -56,7 +59,7 @@ sealed class App : MApp
         var imageLoadService = Service.GetService<ImageLoadService>();
         imageLoadService.CacheDirectory = cacheFolder;
 
-        var configService = Service.Register(new ConfigService(Path.Combine(dataFolder, "config.json")));
+        var configService = Service.Register(new ConfigService(Path.Combine(configFolder, "config.json")));
         Service.Register(new DemoService());
 
         var viewService = Service.Register(new ViewService(configService));
