@@ -3,3 +3,8 @@ commands:
   - id: run
     command: dotnet run --project MantaDemo
     directory: source
+menu:
+  - id: website
+    name: Website
+    command: bun install && bun run dev
+    directory: website
