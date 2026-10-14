@@ -38,7 +38,7 @@ export function AotVisual() {
   }, [])
 
   return (
-    <div ref={ref} className={`relative ${active ? "aot-active" : ""}`}>
+    <div ref={ref} className={`relative min-w-0 ${active ? "aot-active" : ""}`}>
       <div
         aria-hidden
         className="aot-glow pointer-events-none absolute -inset-8 rounded-[2.5rem] bg-primary/25 blur-3xl"

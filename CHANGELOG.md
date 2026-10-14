@@ -9,6 +9,7 @@
 - Add `samples/AvaloniaI18nSample`, a stock Avalonia application that uses only the `ONEO.Manta` localization feature, and rename the samples solution to `Samples.slnx`.
 - Add a "Use only what you need" section to the website that shows how to adopt localization, theming, MVVM or the controls on their own.
 - Highlight Native AOT compatibility on the website and in the documentation.
+- Stop the website from overflowing horizontally and jittering on small screens when a code sample, tab or link is wider than the viewport.
 
 ## [1.2026.1] - 2026-10-14
 

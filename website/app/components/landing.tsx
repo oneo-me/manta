@@ -67,7 +67,7 @@ export function Landing({ locale }: { locale: Locale }) {
     <div className="flex min-h-svh flex-col">
       <SiteHeader locale={locale} content={c} />
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-clip">
         <Hero content={c} />
         <FeaturesSection content={c} />
         <AotSection content={c} />
@@ -160,7 +160,7 @@ function AotSection({ content: c }: { content: LandingContent }) {
     <section id="aot" className="border-y border-border/60 bg-muted/20">
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
+          <div className="flex min-w-0 flex-col gap-6">
             <SectionHeading
               title={c.aot.title}
               description={c.aot.description}
@@ -215,7 +215,7 @@ function UsageSection({ content: c }: { content: LandingContent }) {
       </div>
       <Button
         variant="link"
-        className="mt-8 px-0"
+        className="mt-8 h-auto min-h-8 px-0 py-1 text-left whitespace-normal"
         render={
           <a href={c.usage.samples.href} target="_blank" rel="noreferrer" />
         }
@@ -233,7 +233,7 @@ function CodeSection({ content: c }: { content: LandingContent }) {
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <SectionHeading title={c.code.title} description={c.code.description} />
         <Tabs defaultValue={c.code.samples[0].name} className="mt-10 gap-4">
-          <TabsList>
+          <TabsList className="max-w-full overflow-x-auto">
             {c.code.samples.map((sample) => (
               <TabsTrigger key={sample.name} value={sample.name}>
                 {sample.name}
