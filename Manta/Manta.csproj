@@ -1,5 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <Import Project="..\Generators.props" />
+    <PropertyGroup>
+        <Description>Themeable Avalonia controls and an explicit MVVM runtime for cross-platform desktop applications.</Description>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" />
         <PackageReference Include="DynamicData" />

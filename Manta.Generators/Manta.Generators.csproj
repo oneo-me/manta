@@ -7,6 +7,7 @@
         <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <NoWarn>NU5128</NoWarn>
+        <Description>Roslyn source generators for Manta view models and language keys.</Description>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="YamlDotNet" PrivateAssets="all" GeneratePathProperty="true" />
