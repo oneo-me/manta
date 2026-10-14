@@ -1,0 +1,4 @@
+icon: icon.png
+commands:
+  - id: run
+    command: dotnet run --project MantaDemo
