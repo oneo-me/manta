@@ -9,7 +9,7 @@ import {
 } from "react-router"
 
 import type { Route } from "./+types/root"
-import { faviconHref } from "~/lib/favicon"
+import iconUrl from "~/assets/icon.png"
 import { localeFromPathname, site } from "~/lib/site"
 import { themeInitScript } from "~/lib/theme"
 import "./app.css"
@@ -24,7 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
-        <link rel="icon" href={faviconHref} />
+        <link rel="icon" type="image/png" href={iconUrl} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <Meta />
         <Links />

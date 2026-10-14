@@ -61,6 +61,10 @@ uploaded to Pages.
 | `app/lib/content.ts` | English and Simplified Chinese copy and code samples. |
 | `app/lib/site.ts` | Shared links and the locale helper. |
 | `app/components/ui` | shadcn/ui components. |
+| `app/assets/icon.png` | The app icon, used as the header/footer logo and favicon. |
+
+`app/assets/icon.png` is downscaled from `source/icon.png`. Regenerate it rather
+than editing it by hand.
 
 Add or update shadcn/ui components with the project's Bun runner:
 

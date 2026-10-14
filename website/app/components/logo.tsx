@@ -1,16 +1,18 @@
+import iconUrl from "~/assets/icon.png"
 import { cn } from "~/lib/utils"
 
-/** The Manta monogram used in the header and footer. */
+/**
+ * The Manta app icon, used as the brand mark in the header and footer. It is
+ * decorative: the adjacent site name already labels the link.
+ */
 export function Logo({ className }: { className?: string }) {
   return (
-    <span
+    <img
+      src={iconUrl}
+      alt=""
       aria-hidden
-      className={cn(
-        "flex size-7 items-center justify-center rounded-lg bg-primary font-heading text-sm leading-none font-bold text-primary-foreground",
-        className
-      )}
-    >
-      M
-    </span>
+      draggable={false}
+      className={cn("size-8 shrink-0 select-none", className)}
+    />
   )
 }
