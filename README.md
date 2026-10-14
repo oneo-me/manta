@@ -16,6 +16,7 @@ Manta is a UI toolkit and MVVM framework for building cross-platform desktop app
 - Light and dark themes built on the OKLch color space.
 - `Model`, `ViewModel`, `WindowModel` and `DialogModel` base classes for the MVVM layer.
 - Attribute-based view registration that generates view creation at compile time.
+- Native AOT and trimming compatibility, with reflection-free view and language generation.
 - Region and tab navigation with `RegionManager<T>`.
 - Modal dialogs with `DialogModel`.
 - Type-safe language keys generated from YAML files.
@@ -30,6 +31,17 @@ dotnet add package ONEO.Manta.Generators
 ```
 
 Add `ONEO.Manta.Generators` to use the `[View<T>]` and language-key generators.
+
+## Native AOT
+
+Manta is Native AOT and trimming compatible. The library builds with `IsAotCompatible`, and its generators wire views and language keys without reflection-based discovery. `MantaDemo` publishes with `PublishAot` in Release.
+
+```xml
+<PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>true</PublishTrimmed>
+</PropertyGroup>
+```
 
 ## Usage
 

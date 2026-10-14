@@ -33,7 +33,7 @@ All .NET projects and their build files live under `source/`; standalone samples
 - Express colors and spacing through theme variables (`MBrush`, `MSize`, and similar). Do not hardcode visual values in controls.
 - Keep view models free of control references. They expose bindings and commands; views own layout.
 - Route every user-facing string through `LangKey` and the `{Lang}` markup instead of a literal.
-- Build with `TreatWarningsAsErrors` and keep the public API AOT-compatible.
+- Build with `TreatWarningsAsErrors`. Keep the public API Native AOT and trimming compatible; `Directory.Build.props` sets `IsAotCompatible`, and `MantaDemo` publishes with `PublishAot` in Release.
 
 ## Core flows
 
@@ -53,6 +53,7 @@ All .NET projects and their build files live under `source/`; standalone samples
 ## Verification
 
 - There is no test project, so `dotnet test` runs nothing.
+- `MantaDemo` enables `PublishAot` and `PublishTrimmed` in Release, so the reference app is the Native AOT smoke test.
 - The language generator emits `LANG001` errors and `LANG002` warnings for parse failures, missing keys and redundant keys.
 - Verify behavior by running `MantaDemo` or the applications under `samples/` and exercising the affected screen. `samples/MantaComponents` covers the controls-and-theme path without the MVVM runtime.
 

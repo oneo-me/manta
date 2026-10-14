@@ -16,6 +16,7 @@ Manta 是一个基于 Avalonia 的跨平台桌面应用 UI 工具包和 MVVM 框
 - 基于 OKLch 色彩空间的亮色与暗色主题。
 - MVVM 层的 `Model`、`ViewModel`、`WindowModel` 和 `DialogModel` 基类。
 - 基于特性的视图注册，在编译时生成视图创建代码。
+- 完整支持 Native AOT 与裁剪，视图和语言生成均不依赖反射。
 - 通过 `RegionManager<T>` 实现区域与标签页导航。
 - 通过 `DialogModel` 实现模态对话框。
 - 由 YAML 文件生成的类型安全语言键。
@@ -30,6 +31,17 @@ dotnet add package ONEO.Manta.Generators
 ```
 
 使用 `[View<T>]` 和语言键生成器时，请添加 `ONEO.Manta.Generators`。
+
+## Native AOT
+
+Manta 兼容 Native AOT 与裁剪。库以 `IsAotCompatible` 构建，其生成器装配视图与语言键时不依赖基于反射的发现。`MantaDemo` 在 Release 下使用 `PublishAot` 发布。
+
+```xml
+<PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>true</PublishTrimmed>
+</PropertyGroup>
+```
 
 ## 使用
 
