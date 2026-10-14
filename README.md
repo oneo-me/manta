@@ -111,7 +111,7 @@ After editing a control's `Design.PreviewWith` block or theme files, regenerate 
 dotnet run --project MantaPrepare
 ```
 
-Release by pushing a `v<major>.<minor>.<patch>` tag. The release workflow publishes the packages to NuGet.org and creates the GitHub release. Publishing uses NuGet trusted publishing: the workflow exchanges its GitHub OIDC token for a short-lived API key, so only the `NUGET_USER` repository secret (your nuget.org username) is required, and a trusted publishing policy for `release.yml` must exist on nuget.org.
+Release by pushing a `v<major>.<minor>.<patch>` tag. The release workflow publishes the packages to NuGet.org and creates the GitHub release, taking its body from the matching [CHANGELOG.md](CHANGELOG.md) section. Publishing uses NuGet trusted publishing: the workflow exchanges its GitHub OIDC token for a short-lived API key, so only the `NUGET_USER` repository secret (your nuget.org username) is required, and a trusted publishing policy for `release.yml` must exist on nuget.org.
 
 Contributor rules live in [AGENTS.md](AGENTS.md).
 

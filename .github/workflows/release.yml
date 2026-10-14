@@ -48,6 +48,33 @@ jobs:
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
+      # The release notes are the matching CHANGELOG.md section. The extraction runs
+      # before anything is published so a missing section is reported early, but it
+      # only warns: a tag-triggered run cannot pick up a changelog fix from main.
+      - name: Collect the release notes
+        id: notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${{ steps.version.outputs.version }}"
+          awk -v heading="## [$version]" '
+            index($0, heading) == 1 { inside = 1; next }
+            inside && /^## / { exit }
+            inside { lines[++count] = $0 }
+            END {
+              while (first <= count && lines[first] ~ /^[[:space:]]*$/) first++
+              while (count >= first && lines[count] ~ /^[[:space:]]*$/) count--
+              for (i = first; i <= count; i++) print lines[i]
+            }
+          ' CHANGELOG.md > release-notes.md
+          if [[ -s release-notes.md ]]; then
+            echo "path=release-notes.md" >> "$GITHUB_OUTPUT"
+          else
+            rm release-notes.md
+            echo "::warning::CHANGELOG.md has no section for $version. Falling back to generated notes."
+            echo "path=" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -80,10 +107,16 @@ jobs:
       - name: Publish the GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTES_FILE: ${{ steps.notes.outputs.path }}
         run: |
           tag="v${{ steps.version.outputs.version }}"
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release upload "$tag" packages/*.nupkg --clobber
+            if [[ -n "$NOTES_FILE" ]]; then
+              gh release edit "$tag" --notes-file "$NOTES_FILE"
+            fi
+          elif [[ -n "$NOTES_FILE" ]]; then
+            gh release create "$tag" --title "$tag" --notes-file "$NOTES_FILE" packages/*.nupkg
           else
             gh release create "$tag" --title "$tag" --generate-notes packages/*.nupkg
           fi

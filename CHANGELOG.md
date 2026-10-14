@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Take the GitHub release notes from the matching `CHANGELOG.md` section instead of the generated commit list.
+
 ## [1.2026.1] - 2026-10-14
 
 - Release Manta for .NET 10 and Avalonia 12.
