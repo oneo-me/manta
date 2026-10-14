@@ -1,3 +1,4 @@
 <Solution>
     <Project Path="MantaSample\MantaSample.csproj" />
+    <Project Path="MantaComponents\MantaComponents.csproj" />
 </Solution>

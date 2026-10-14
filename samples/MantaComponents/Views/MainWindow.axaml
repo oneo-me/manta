@@ -1,0 +1,202 @@
+<Window
+    x:Class="MantaComponents.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:MantaComponents.ViewModels"
+    x:DataType="vm:MainWindowViewModel"
+    Title="Manta components on Avalonia"
+    Width="940"
+    Height="700"
+    MinWidth="680"
+    MinHeight="520">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Window.Styles>
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="{MBrush Card}" />
+            <Setter Property="BorderBrush" Value="{MBrush Border}" />
+            <Setter Property="BorderThickness" Value="{MThickness Px}" />
+            <Setter Property="CornerRadius" Value="{MRadius LG}" />
+            <Setter Property="Padding" Value="{MThickness S5}" />
+        </Style>
+        <Style Selector="TextBlock.section">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="TextBlock.muted">
+            <Setter Property="Foreground" Value="{MBrush MutedForeground}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </Window.Styles>
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header: plain Avalonia layout, Manta brushes and controls. -->
+        <Border
+            Grid.Row="0"
+            Background="{MBrush Card}"
+            BorderBrush="{MBrush Border}"
+            BorderThickness="{MThickness Px, Filter=Bottom}"
+            Padding="24,16">
+            <Grid ColumnDefinitions="*,Auto">
+                <MPanel Mode="Vertical" Spacing="4">
+                    <TextBlock FontSize="20" FontWeight="SemiBold" Text="Manta components" />
+                    <TextBlock
+                        Classes="muted"
+                        Text="A plain Avalonia application that only adds the Manta theme and controls." />
+                </MPanel>
+                <MPanel
+                    Grid.Column="1"
+                    Mode="Horizontal"
+                    Spacing="8"
+                    VerticalAlignment="Center">
+                    <MBadge Content="{Binding Theme}" />
+                    <MButton
+                        Command="{Binding ToggleThemeCommand}"
+                        Content="Switch theme"
+                        Variant="Outline" />
+                </MPanel>
+            </Grid>
+        </Border>
+
+        <MScrollViewer Grid.Row="1">
+            <MPanel
+                Margin="24"
+                HorizontalAlignment="Center"
+                MaxWidth="760"
+                Mode="Vertical"
+                Spacing="20">
+
+                <!-- Buttons -->
+                <Border Classes="card">
+                    <MPanel Mode="Vertical" Spacing="12">
+                        <TextBlock Classes="section" Text="Buttons" />
+                        <MPanel Mode="Wrap" Spacing="8">
+                            <MButton Command="{Binding IncrementCommand}" Content="Default" />
+                            <MButton Content="Secondary" Variant="Secondary" />
+                            <MButton Content="Outline" Variant="Outline" />
+                            <MButton Content="Ghost" Variant="Ghost" />
+                            <MButton Content="Destructive" Variant="Destructive" />
+                            <MButton Content="Flat" Variant="Flat" />
+                            <MButton Content="Disabled" IsEnabled="False" />
+                        </MPanel>
+                        <TextBlock Classes="muted" Text="{Binding CounterText}" />
+                    </MPanel>
+                </Border>
+
+                <!-- Text and choices -->
+                <Border Classes="card">
+                    <MPanel Mode="Vertical" Spacing="12">
+                        <TextBlock Classes="section" Text="Text and choices" />
+                        <MTextBox PlaceholderText="Your name" Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Greeting}" />
+                        <MPanel Mode="Wrap" Spacing="12">
+                            <MComboBox
+                                Width="200"
+                                ItemsSource="{Binding Frameworks}"
+                                SelectedItem="{Binding Framework}" />
+                            <MNumericUpDown
+                                Width="200"
+                                Minimum="0"
+                                Maximum="100"
+                                Value="{Binding Quantity}" />
+                        </MPanel>
+                        <MCheckBox Header="Enable notifications" IsChecked="{Binding Notifications}" />
+                        <MToggleSwitch
+                            Content="Compact layout"
+                            IsChecked="{Binding Compact}"
+                            OffContent="Disabled"
+                            OnContent="Enabled" />
+                    </MPanel>
+                </Border>
+
+                <!-- Values -->
+                <Border Classes="card">
+                    <MPanel Mode="Vertical" Spacing="12">
+                        <TextBlock Classes="section" Text="Values" />
+                        <MPanel Mode="Horizontal" Spacing="12">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Width="72"
+                                Text="Volume" />
+                            <MSlider
+                                Width="280"
+                                Maximum="100"
+                                Minimum="0"
+                                Value="{Binding Volume}" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="{Binding Volume, StringFormat={}{0:0}}" />
+                        </MPanel>
+                        <MProgressBar
+                            Maximum="100"
+                            Minimum="0"
+                            Value="{Binding Volume}" />
+                        <MPanel Mode="Horizontal" Spacing="16">
+                            <MProgressRing Maximum="100" Minimum="0" Value="{Binding Volume}" />
+                            <TextBlock
+                                Classes="muted"
+                                VerticalAlignment="Center"
+                                Text="MProgressRing follows the same value." />
+                        </MPanel>
+                    </MPanel>
+                </Border>
+
+                <!-- Lists -->
+                <Border Classes="card">
+                    <MPanel Mode="Vertical" Spacing="12">
+                        <TextBlock Classes="section" Text="Lists" />
+                        <MListBox
+                            MaxHeight="220"
+                            ItemsSource="{Binding Items}"
+                            SelectedItem="{Binding SelectedItem}">
+                            <MListBox.ItemTemplate>
+                                <DataTemplate x:DataType="vm:DemoItem">
+                                    <MPanel Mode="Vertical" Spacing="2">
+                                        <TextBlock Text="{Binding Name}" />
+                                        <TextBlock
+                                            Classes="muted"
+                                            FontSize="12"
+                                            Text="{Binding Description}" />
+                                    </MPanel>
+                                </DataTemplate>
+                            </MListBox.ItemTemplate>
+                        </MListBox>
+                        <MPanel Mode="Horizontal" Spacing="8">
+                            <MButton
+                                Command="{Binding AddItemCommand}"
+                                Content="Add item"
+                                Variant="Outline" />
+                            <MButton
+                                Command="{Binding RemoveItemCommand}"
+                                Content="Remove selected"
+                                Variant="Outline" />
+                            <MButton
+                                Command="{Binding ResetCommand}"
+                                Content="Reset"
+                                Variant="Ghost" />
+                        </MPanel>
+                    </MPanel>
+                </Border>
+
+                <!-- Expander and badges -->
+                <Border Classes="card">
+                    <MPanel Mode="Vertical" Spacing="12">
+                        <TextBlock Classes="section" Text="More Manta controls" />
+                        <MPanel Mode="Wrap" Spacing="8">
+                            <MBadge Content="Default" />
+                            <MBadge Content="Secondary" Variant="Secondary" />
+                            <MBadge Content="Outline" Variant="Outline" />
+                            <MBadge Content="Alert" Variant="Destructive" />
+                        </MPanel>
+                        <MSeparator />
+                        <MExpander Header="About this sample">
+                            <TextBlock
+                                Classes="muted"
+                                Text="Manta is consumed as a NuGet package. The application, its view models and its bindings are stock Avalonia; Manta contributes the theme, the control styles and the M* controls." />
+                        </MExpander>
+                    </MPanel>
+                </Border>
+            </MPanel>
+        </MScrollViewer>
+    </Grid>
+</Window>

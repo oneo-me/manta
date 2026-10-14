@@ -91,11 +91,12 @@ Read the [architecture overview](ARCHITECTURE.md) before extending the library.
 
 ## Samples
 
-[samples/](samples) holds standalone applications that consume the published packages instead of the projects under `source/`. [MantaSample](samples/MantaSample) demonstrates startup, MVVM, region navigation, dialogs, localization and the common controls.
+[samples/](samples) holds standalone applications that consume the published packages instead of the projects under `source/`. [MantaSample](samples/MantaSample) demonstrates startup, MVVM, region navigation, dialogs, localization and the common controls. [MantaComponents](samples/MantaComponents) is a plain Avalonia application that only adds the Manta theme and controls, without the Manta MVVM runtime.
 
 ```sh
 cd samples
 dotnet run --project MantaSample
+dotnet run --project MantaComponents
 ```
 
 ## Documentation

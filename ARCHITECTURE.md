@@ -18,6 +18,7 @@ All .NET projects and their build files live under `source/`; standalone samples
 | `source/MantaPrepare` | Tool that regenerates control theme stubs, `MantaTheme.axaml` and demo screens. |
 | `source/MantaDemo` | Reference application and control showcase. |
 | `samples/MantaSample` | Standalone app that installs `ONEO.Manta` from NuGet and shows the main features. |
+| `samples/MantaComponents` | Plain Avalonia app that installs `ONEO.Manta` from NuGet and uses only its theme and controls. |
 | `website` | Marketing site at the repository root, built with React Router and shadcn/ui; deployed to GitHub Pages. |
 
 ## Boundaries
@@ -51,7 +52,7 @@ All .NET projects and their build files live under `source/`; standalone samples
 
 - There is no test project, so `dotnet test` runs nothing.
 - The language generator emits `LANG001` errors and `LANG002` warnings for parse failures, missing keys and redundant keys.
-- Verify behavior by running `MantaDemo` or `samples/MantaSample` and exercising the affected screen.
+- Verify behavior by running `MantaDemo` or `samples/MantaSample` and exercising the affected screen. `samples/MantaComponents` covers the controls-and-theme path without the MVVM runtime.
 
 ## Subjects
 
